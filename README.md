@@ -1,6 +1,6 @@
 # Wharfkit Website
 
-An opinionated template to spin up a new SvelteKit website for Greymass.
+The website for WharfKit
 
 ## Contributing
 
