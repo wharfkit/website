@@ -9,18 +9,18 @@
 
 /* ====
   Scale
-  @link https://utopia.fyi/type/calculator?c=320,16,1.2,1200,24,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l
+ @link https://utopia.fyi/type/calculator?c=320,16,1.2,1140,24,1.25,4,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l 
 ======= */
 
 :root {
-  --step--2: clamp(0.69rem, calc(0.64rem + 0.27vw), 0.84rem);
-  --step--1: clamp(0.83rem, calc(0.73rem + 0.53vw), 1.13rem);
-  --step-0: clamp(1rem, calc(0.82rem + 0.91vw), 1.5rem);
-  --step-1: clamp(1.2rem, calc(0.91rem + 1.45vw), 2rem);
-  --step-2: clamp(1.44rem, calc(0.99rem + 2.23vw), 2.67rem);
-  --step-3: clamp(1.73rem, calc(1.06rem + 3.32vw), 3.55rem);
-  --step-4: clamp(2.07rem, calc(1.11rem + 4.84vw), 4.74rem);
-  --step-5: clamp(2.49rem, calc(1.1rem + 6.95vw), 6.31rem);
+  --fs-200: clamp(0.58rem, calc(0.5rem + 0.37vw), 0.77rem);
+  --fs-300: clamp(0.69rem, calc(0.59rem + 0.52vw), 0.96rem);
+  --fs-400: clamp(0.83rem, calc(0.69rem + 0.72vw), 1.2rem);
+  --fs-500: clamp(1rem, calc(0.8rem + 0.98vw), 1.5rem);
+  --fs-600: clamp(1.2rem, calc(0.94rem + 1.32vw), 1.88rem);
+  --fs-700: clamp(1.44rem, calc(1.09rem + 1.76vw), 2.34rem);
+  --fs-800: clamp(1.73rem, calc(1.26rem + 2.35vw), 2.93rem);
+  --fs-900: clamp(2.07rem, calc(1.45rem + 3.1vw), 3.66rem);
 }
 
 html {
