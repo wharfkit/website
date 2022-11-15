@@ -12,14 +12,10 @@
   </div>
 
   <ul class="center stack">
-    {#each posts as post}
+    {#each posts as { text, date, ...rest }}
       <li>
-        <Article
-          title={post.meta.title}
-          date={new Date(post.meta.date)}
-          postPath={post.path}
-          transcriptLink={post.transcriptLink}>
-          {@html post.text}
+        <Article date={new Date(date)} {...rest}>
+          {@html text}
         </Article>
       </li>
       <hr />
@@ -37,7 +33,9 @@
     padding-block: var(--s4);
     font-weight: 600;
     gap: var(--s-1);
-    background: linear-gradient(to left, var(--reef-turquoise), var(--swell-mist));
+    background: url("/images/header-lines.svg"), url("/images/header-background.svg"),
+      linear-gradient(to left, var(--reef-turquoise), var(--swell-mist));
+    background-repeat: no-repeat;
     text-align: center;
   }
 
@@ -51,6 +49,7 @@
 
   ul {
     list-style: none;
+    gap: var(--s3);
   }
 
   li {

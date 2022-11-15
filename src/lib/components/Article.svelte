@@ -3,14 +3,14 @@
 
   export let title = ""
   export let date: Date
-  export let videoLink = ""
-  export let transcriptLink = ""
-  export let postPath = ""
+  export let videolink = ""
+  export let transcriptlink = ""
+  export let path = ""
 </script>
 
 <article class="stack">
   <header>
-    <a href={postPath}>
+    <a href={path}>
       <h2>{title}</h2>
     </a>
     <p>{date.toLocaleDateString()}</p>
@@ -19,12 +19,13 @@
   <div class="media | stack">
     <div class="frame">
       <iframe
+        class="youtube"
         src="https://www.youtube-nocookie.com/embed/FpO9abGHx5k"
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen />
-      <!-- <a class="play | imposter box" href={videoLink}>
+      <!-- <a class="play | imposter box" href={videolink}>
         <svg width="34" height="34">
           <path
             fill-rule="evenodd"
@@ -34,7 +35,7 @@
         </svg>
       </a> -->
     </div>
-    <Button link={transcriptLink}>Read transcript (Google docs)</Button>
+    <Button link={transcriptlink}>Read transcript (Google docs)</Button>
   </div>
 
   <slot />
@@ -54,18 +55,21 @@
     color: var(--color-primary-600);
   }
 
+  .media {
+    --gap: var(--s1);
+  }
+
   .frame {
     background-color: var(--wharf-blue);
     border-radius: var(--s0);
-    position: relative;
+    isolation: isolate;
   }
 
-  .frame iframe {
+  .youtube {
+    aspect-ratio: 16 / 9;
     border-radius: var(--s0);
-  }
-
-  .media {
-    --gap: var(--s1);
+    width: 100%;
+    position: absolute;
   }
 
   .play {
@@ -75,6 +79,7 @@
     aspect-ratio: 1;
     display: grid;
     place-content: center;
+    z-index: 0;
   }
 
   .play svg {
