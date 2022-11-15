@@ -69,7 +69,6 @@
     aspect-ratio: 16 / 9;
     border-radius: var(--s0);
     width: 100%;
-    position: absolute;
   }
 
   .play {
