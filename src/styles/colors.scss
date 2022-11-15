@@ -1,0 +1,59 @@
+:root {
+  /* Primary */
+  // --color-primary-50:  ;
+  --color-primary-100: #f4faf4;
+  --color-primary-200: #b2f2e1;
+  // --color-primary-300: ;
+  --color-primary-400: #7be7ce;
+  // --color-primary-500: ;
+  --color-primary-600: #629b98;
+  // --color-primary-700: ;
+  // --color-primary-800: ;
+  // --color-primary-900: ;
+
+  /* Secondary */
+  // --color-secondary-50:  ;
+  // --color-secondary-100: ;
+  // --color-secondary-200: ;
+  // --color-secondary-300: ;
+  // --color-secondary-400: ;
+  // --color-secondary-500: ;
+  // --color-secondary-600: ;
+  // --color-secondary-700: ;
+  // --color-secondary-800: ;
+  // --color-secondary-900: ;
+
+  /* Accent */
+  // --color-accent-50:  ;
+  // --color-accent-100: ;
+  // --color-accent-200: ;
+  // --color-accent-300: ;
+  // --color-accent-400: ;
+  // --color-accent-500: ;
+  // --color-accent-600: ;
+  // --color-accent-700: ;
+  // --color-accent-800: ;
+  // --color-accent-900: ;
+
+  /* Neutrals */
+  // --color-neutral-100: ;
+  // --color-neutral-200: ;
+  // --color-neutral-300: ;
+  --color-neutral-400: #494e62;
+  // --color-neutral-500: #373B4A;
+  // --color-neutral-600: #252731;
+  // --color-neutral-700: #121419;
+  // --color-neutral-800: #121419;
+  --color-neutral-900: #000000;
+
+  /* Brand Colors */
+  --wharf-blue: #494e62;
+  --reef-turquoise: #7be7ce;
+  --seafoam-mint: #b2f2e1;
+  --swell-mist: #f4faf4;
+  --black: #000000;
+  --white: #ffffff;
+
+  // Text
+  --color-text: var(--wharf-blue);
+}

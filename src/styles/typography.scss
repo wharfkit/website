@@ -1,0 +1,35 @@
+/* ====
+  Fonts
+======= */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+/* ====
+  Scale
+  @link https://utopia.fyi/type/calculator?c=320,16,1.2,1200,24,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l
+======= */
+
+:root {
+  --step--2: clamp(0.69rem, calc(0.64rem + 0.27vw), 0.84rem);
+  --step--1: clamp(0.83rem, calc(0.73rem + 0.53vw), 1.13rem);
+  --step-0: clamp(1rem, calc(0.82rem + 0.91vw), 1.5rem);
+  --step-1: clamp(1.2rem, calc(0.91rem + 1.45vw), 2rem);
+  --step-2: clamp(1.44rem, calc(0.99rem + 2.23vw), 2.67rem);
+  --step-3: clamp(1.73rem, calc(1.06rem + 3.32vw), 3.55rem);
+  --step-4: clamp(2.07rem, calc(1.11rem + 4.84vw), 4.74rem);
+  --step-5: clamp(2.49rem, calc(1.1rem + 6.95vw), 6.31rem);
+}
+
+html {
+  color: var(--color-text);
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+a {
+  color: var(--color-primary-600);
+  font-weight: 600;
+}

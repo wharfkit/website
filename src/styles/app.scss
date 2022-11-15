@@ -1,0 +1,29 @@
+/* Variables and mixins from the src/variables.scss file are available here without importing. Reset is here otherwise using lang='scss' in a local <style> tag will reset global styles in that component. */
+@forward "reset";
+
+/* Horizontal constraints for readability, using an exception-based approach */
+* {
+  max-inline-size: var(--measure);
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+  max-inline-size: none;
+}
+
+/* Global styles */
+
+h1,
+h2 {
+  color: var(--brand-primary);
+  font-weight: bolder;
+}
+
+hr {
+  border: var(--brand-secondary) 1px solid;
+}
