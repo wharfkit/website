@@ -1,14 +1,12 @@
 # Wharfkit Website
 
-The website for WharfKit
+The website for https://wharfkit.com/
 
 ## Developing
 
 Clone this repo `git clone https://github.com/wharfkit/website`
 
-Install dependencies with `pnpm install`.
-
-Run `pnpm dev`
+Run `make dev`
 
 ## Influence and Approach
 
