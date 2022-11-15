@@ -17,7 +17,7 @@
   header {
     --justify-content: space-between;
     --align-items: center;
-    padding-block: var(--s1);
+    padding-block: var(--s2);
   }
 
   nav a {
@@ -26,6 +26,7 @@
     padding-inline: 1em;
     padding-block: 0.5em;
     border-radius: var(--s-1);
+    font-size: var(--fs-400);
   }
 
   nav a:hover {

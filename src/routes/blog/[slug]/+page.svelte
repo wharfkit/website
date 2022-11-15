@@ -1,12 +1,14 @@
 <script>
+  import Article from "$lib/components/Article.svelte"
   /** @type {import('./$types').PageData} */
   export let data
 </script>
 
-<article class="center stack">
-  <h1>{data.meta.title}</h1>
-  {@html data.PostContent}
-</article>
+<div class="center stack">
+  <Article date={new Date(data.meta.date)} title={data.meta.title}>
+    {@html data.PostContent}
+  </Article>
+</div>
 
 <style>
 </style>
