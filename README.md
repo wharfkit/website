@@ -2,7 +2,7 @@
 
 The website for WharfKit
 
-## Contributing
+## Developing
 
 Clone this repo `git clone https://github.com/wharfkit/website`
 
