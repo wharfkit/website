@@ -9,8 +9,8 @@
   <div class="hero | box stack">
     <h1>Shipping great code starts with a solid platform.</h1>
     <p>
-      Web Client SDK being developed by <a href="https://greymass.com">Greymass</a> and funded by
-      the coalition of blockchains within the <a href="https://antelope.io">Antelope Coalition</a>.
+      A Web Client SDK being developed by <a href="https://greymass.com">Greymass</a> and funded by
+      blockchains within the <a href="https://antelope.io">Antelope Coalition</a>.
     </p>
   </div>
 
