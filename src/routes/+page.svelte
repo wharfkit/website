@@ -7,8 +7,11 @@
 
 <div class="page | stack">
   <div class="hero | box stack">
-    <h1 class="">Shipping great code starts with a solid platform.</h1>
-    <p class="">Wallet SDK Progress by Greymass</p>
+    <h1>Shipping great code starts with a solid platform.</h1>
+    <p>
+      Web Client SDK being developed by <a href="https://greymass.com">Greymass</a> and funded by
+      the coalition of blockchains within the <a href="https://antelope.io">Antelope Coalition</a>.
+    </p>
   </div>
 
   <ul class="center stack">
@@ -31,7 +34,7 @@
   .hero {
     --border-radius: var(--s0);
     padding-block: var(--s4);
-    padding-inline: var(--s0);
+    padding-inline: var(--s2);
     font-weight: 600;
     gap: var(--s-1);
     background: url("/images/header-lines.svg"), url("/images/header-background.svg"),
@@ -49,7 +52,14 @@
   }
 
   .hero p {
-    font-size: var(--fs-500);
+    font-size: var(--fs-400);
+    font-weight: 500;
+    max-width: 50ch;
+  }
+
+  .hero a {
+    color: var(--wharf-blue);
+    font-weight: 700;
   }
 
   ul {

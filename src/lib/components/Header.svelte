@@ -2,14 +2,14 @@
   // your script goes here
 </script>
 
-<header class="">
+<header class="center">
   <a class="logo" href="/">
     <img src="/images/wharf-logo.svg" alt="wharf logo" />
     <img src="/images/wharf-wordmark.svg" alt="wharf wordmark" />
   </a>
   <nav class="cluster">
-    <a href="/progress">Progress</a>
-    <a href="/about">Our process</a>
+    <!-- <a href="/progress">Progress</a>
+    <a href="/about">Our process</a> -->
   </nav>
 </header>
 
