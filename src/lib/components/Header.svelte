@@ -8,8 +8,8 @@
     <img src="/images/wharf-wordmark.svg" alt="wharf wordmark" />
   </a>
   <nav class="cluster">
-    <a href="/progress">Progress</a>
-    <a href="/about">Our process</a>
+    <!-- <a href="/progress">Progress</a>
+    <a href="/about">Our process</a> -->
   </nav>
 </header>
 
