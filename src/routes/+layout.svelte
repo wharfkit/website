@@ -4,6 +4,10 @@
   import Footer from "../lib/components/Footer.svelte"
 </script>
 
+<svelte:head>
+  <title>Wharf Kit</title>
+</svelte:head>
+
 <div class="wrapper | center stack">
   <Header />
   <main>

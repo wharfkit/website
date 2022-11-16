@@ -5,10 +5,6 @@
   let { posts } = data
 </script>
 
-<!-- <svelte:head>
-  <title>Blog Posts</title>
-</svelte:head> -->
-
 <div class="stack">
   <h1>Video Updates</h1>
   <ul class="stack">
