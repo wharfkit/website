@@ -7,8 +7,8 @@
 
 <div class="page | stack">
   <div class="hero | box stack">
-    <h1 class="center">Shipping great code starts with a solid platform.</h1>
-    <p class="center">Wallet SDK Progress by Greymass</p>
+    <h1 class="">Shipping great code starts with a solid platform.</h1>
+    <p class="">Wallet SDK Progress by Greymass</p>
   </div>
 
   <ul class="center stack">
@@ -31,6 +31,7 @@
   .hero {
     --border-radius: var(--s0);
     padding-block: var(--s4);
+    padding-inline: var(--s0);
     font-weight: 600;
     gap: var(--s-1);
     background: url("/images/header-lines.svg"), url("/images/header-background.svg"),
@@ -39,20 +40,25 @@
     text-align: center;
   }
 
+  .hero > * {
+    margin-inline: auto;
+  }
+
   .hero h1 {
-    font-size: var(--fs-500);
+    font-size: var(--fs-600);
   }
 
   .hero p {
-    font-size: var(--fs-400);
+    font-size: var(--fs-500);
   }
 
   ul {
     list-style: none;
     gap: var(--s3);
+    padding-inline: unset;
   }
 
-  li {
+  /* li {
     font-size: var(--fs-300);
-  }
+  } */
 </style>

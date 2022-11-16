@@ -29,6 +29,10 @@ html {
   font-weight: 400;
 }
 
+body {
+  font-size: var(--fs-400);
+}
+
 a {
   color: var(--color-primary-600);
   font-weight: 600;

@@ -39,7 +39,7 @@
     padding: 1em;
     color: var(--white);
     text-decoration: none;
-    font-size: var(--fs-300);
+    font-size: var(--fs-400);
     display: inline-flex;
     justify-content: center;
     align-items: center;

@@ -2,12 +2,12 @@
   // your script goes here
 </script>
 
-<header class="cluster">
-  <a class="logo | cluster" href="/">
+<header class="">
+  <a class="logo" href="/">
     <img src="/images/wharf-logo.svg" alt="wharf logo" />
     <img src="/images/wharf-wordmark.svg" alt="wharf wordmark" />
   </a>
-  <nav class="">
+  <nav class="cluster">
     <a href="/progress">Progress</a>
     <a href="/about">Our process</a>
   </nav>
@@ -15,17 +15,22 @@
 
 <style>
   header {
-    --justify-content: space-between;
-    --align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-block: var(--s2);
   }
 
   .logo {
-    --justify-content: flex-start;
+    display: inline-flex;
+    gap: var(--s-1);
+    justify-content: flex-start;
+    align-items: center;
   }
 
   nav {
-    --justify-content: flex-start;
+    justify-content: flex-end;
+    align-items: center;
     /* --gap: rem; */
   }
 

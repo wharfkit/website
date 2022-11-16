@@ -38,7 +38,9 @@
     <Button link={transcriptlink}>Read transcript (Google docs)</Button>
   </div>
 
-  <slot />
+  <div class="text">
+    <slot />
+  </div>
 </article>
 
 <style>
@@ -48,10 +50,11 @@
 
   header {
     font-weight: 600;
-    font-size: var(--fs-400);
+    font-size: var(--fs-500);
   }
 
-  h2 {
+  a {
+    text-decoration: none;
     color: var(--color-primary-600);
   }
 
@@ -84,5 +87,9 @@
   .play svg {
     /* Offset for icon centering */
     margin-inline-start: 4px;
+  }
+
+  .text {
+    font-size: var(--fs-400);
   }
 </style>

@@ -9,7 +9,7 @@
   <title>Blog Posts</title>
 </svelte:head> -->
 
-<div class="center stack">
+<div class="stack">
   <h1>Video Updates</h1>
   <ul class="stack">
     {#each posts as post}

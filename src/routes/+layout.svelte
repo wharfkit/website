@@ -1,6 +1,7 @@
 <script lang="ts">
   import "../styles/app.scss"
   import Header from "$lib/components/Header.svelte"
+  import Footer from "../lib/components/Footer.svelte"
 </script>
 
 <div class="wrapper | center stack">
@@ -8,6 +9,7 @@
   <main>
     <slot />
   </main>
+  <Footer />
 </div>
 
 <style>
