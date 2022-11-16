@@ -2,7 +2,7 @@
   // your script goes here
 </script>
 
-<header class="">
+<header class="center">
   <a class="logo" href="/">
     <img src="/images/wharf-logo.svg" alt="wharf logo" />
     <img src="/images/wharf-wordmark.svg" alt="wharf wordmark" />
