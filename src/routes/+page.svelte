@@ -15,9 +15,9 @@
   </div>
 
   <ul class="center stack">
-    {#each posts as { text, date, ...rest }}
+    {#each posts as { text, ...props }}
       <li>
-        <Article date={new Date(date)} {...rest}>
+        <Article {...props}>
           {@html text}
         </Article>
       </li>

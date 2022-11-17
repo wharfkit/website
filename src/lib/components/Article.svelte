@@ -1,11 +1,11 @@
 <script lang="ts">
   import Button from "$lib/components/Button.svelte"
 
-  export let title = ""
-  export let date: Date
-  export let videolink = ""
-  export let transcriptlink = ""
-  export let path = ""
+  export let title: string = ""
+  export let date: string
+  export let videolink: string = ""
+  export let transcriptlink: string = ""
+  export let path: string = ""
 </script>
 
 <article class="stack">
@@ -13,7 +13,7 @@
     <a href={path}>
       <h2>{title}</h2>
     </a>
-    <p>{date.toLocaleDateString()}</p>
+    <p>{date}</p>
   </header>
 
   <div class="media | stack">
