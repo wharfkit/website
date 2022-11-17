@@ -18,7 +18,7 @@ export async function fetchMarkdownPosts() {
   )
   
   // Reverse Chronological Sort Order
-  allPosts.sort((a,b) => b.date - a.date)
+  allPosts.sort((a,b) => new Date(b.date) - new Date(a.date))
   
   return allPosts
 }
