@@ -4,8 +4,8 @@
 
 <header class="center">
   <a class="logo" href="/">
-    <img src="/images/wharf-logo.svg" alt="wharf logo" />
-    <img src="/images/wharf-wordmark.svg" alt="wharf wordmark" />
+    <img src="/images/wharf-logo.svg" alt="wharf logo" width="56" height="50" />
+    <img src="/images/wharf-wordmark.svg" alt="wharf wordmark" width="129" height="21" />
   </a>
   <nav class="cluster">
     <!-- <a href="/progress">Progress</a>

@@ -7,6 +7,10 @@
 <svelte:head>
   <title>Wharf Kit</title>
 
+  <meta
+    name="description"
+    content="Wharf provides intuitive and reliable developer tools that make it easy to build Antelope-based web apps." />
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@wharfkit" />
   <meta name="twitter:title" content="Wharf Kit" />
