@@ -5,7 +5,11 @@ export const load = async ({ params }) => {
     const post = await import(`../${params.slug}.md`)
     return {
       PostContent: post.default.render().html,
-      meta: { ...post.metadata, slug: params.slug },
+      meta: {
+        ...post.metadata,
+        date: new Date(post.metadata.date).toLocaleDateString("en-US", { timeZone: "UTC" }),
+        slug: params.slug,
+      },
     }
   } catch (err) {
     throw error(404, err)
