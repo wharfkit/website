@@ -20,8 +20,8 @@
         <Article {...props}>
           {@html text}
         </Article>
+        <hr />
       </li>
-      <hr />
     {/each}
   </ul>
 </div>
@@ -68,7 +68,7 @@
     padding-inline: unset;
   }
 
-  /* li {
-    font-size: var(--fs-300);
-  } */
+  hr {
+    margin-block-start: var(--s3);
+  }
 </style>

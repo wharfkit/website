@@ -26,6 +26,7 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen />
       <a class="play | imposter box" href={videolink}>
+        <span class="visually-hidden">Watch on YouTube</span>
         <svg width="34" height="34">
           <path
             fill-rule="evenodd"
