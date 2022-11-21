@@ -12,16 +12,14 @@
   <meta name="twitter:title" content="Wharf Kit" />
   <meta
     name="twitter:description"
-    content="A Web Client SDK being developed by Greymass and funded by
-  blockchains within the Antelope Coalition." />
+    content="Wharf provides intuitive and reliable developer tools that make it easy to build Antelope-based web apps." />
   <meta name="twitter:image" content="https://wharfkit.com/images/wharf-logo.svg" />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Wharf Kit" />
   <meta
     property="og:description"
-    content="A Web Client SDK being developed by Greymass and funded by
-  blockchains within the Antelope Coalition." />
+    content="Wharf provides intuitive and reliable developer tools that make it easy to build Antelope-based web apps." />
   <meta property="og:url" content="https://wharfkit.com/" />
   <meta property="og:image" content="https://wharfkit.com/images/wharf-logo.svg" />
 </svelte:head>
