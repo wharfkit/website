@@ -34,7 +34,7 @@
     /* --gap: rem; */
   }
 
-  nav a {
+  /* nav a {
     color: var(--wharf-blue);
     text-decoration: none;
     padding-inline: 1em;
@@ -45,5 +45,5 @@
 
   nav a:hover {
     background-color: var(--swell-mist);
-  }
+  } */
 </style>
