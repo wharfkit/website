@@ -8,9 +8,10 @@
   $: pageUrl = String($page.url)
   $: pageTitle = $page.data.meta?.title
   $: pageDescription = $page.data.meta?.description
+  $: seoImage = $page.data.meta?.seoImage
 </script>
 
-<Seo {pageUrl} {pageTitle} {pageDescription} />
+<Seo {pageUrl} {pageTitle} {pageDescription} {seoImage} />
 
 <div class="wrapper | center stack">
   <Header />
