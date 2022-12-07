@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+  src: local("Montserrat"), url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+  font-display: swap;
 }
 
 /* ====

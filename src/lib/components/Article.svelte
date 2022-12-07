@@ -38,7 +38,6 @@
     </div>
     <Button link={transcriptlink}>Read transcript (Google docs)</Button>
   </div>
-
   <div class="text">
     <slot />
   </div>
