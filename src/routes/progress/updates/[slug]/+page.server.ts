@@ -1,6 +1,5 @@
 import { error } from "@sveltejs/kit"
 
-
 let getThumbnail = (url: string) => {
   let videoID = /^.*\/(.*)$/m.exec(url)[1]
   return `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
