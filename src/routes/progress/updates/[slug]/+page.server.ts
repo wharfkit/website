@@ -5,8 +5,7 @@ let getThumbnail = (url: string) => {
   return `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
 }
 
-let stripTags = (text: string) => /^<.*>(.*)<\/.*>$/gm.exec(text)
-
+let stripTags = (text: string) => /^<.*>(.*)<\/.*>$/gm.exec(text)[1]
 
 export const load = async ({ params }) => {
   try {
@@ -22,7 +21,7 @@ export const load = async ({ params }) => {
       meta: {
         title: markdown.metadata.title,
         description: stripTags(content),
-        seoImage: getThumbnail(markdown.metadata.videolink)
+        seoImage: getThumbnail(markdown.metadata.videolink),
       },
     }
   } catch (err) {
