@@ -4,7 +4,7 @@
   export let pageDescription =
     "Wharf provides intuitive and reliable developer tools that make it easy to build Antelope-based web apps."
   export let pageTitle = ""
-  let baseTitle = "Wharf Kit"
+  let baseTitle = "WharfKit"
   $: fullTitle = pageTitle ? baseTitle.concat(" | ", pageTitle) : baseTitle
 </script>
 
