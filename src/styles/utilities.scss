@@ -15,3 +15,8 @@
   width: 1px;
   white-space: nowrap;
 }
+
+.flow {
+  display: flex;
+  flex-direction: column;
+}

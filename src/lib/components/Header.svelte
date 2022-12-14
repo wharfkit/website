@@ -1,15 +1,16 @@
 <script>
-  // your script goes here
+  import logo from "$lib/assets/logos/Wharf-logo-horizontal.svg"
 </script>
 
-<header class="center">
-  <a class="logo" href="/">
-    <img src="/images/wharf-logo.svg" alt="wharf logo" width="56" height="50" />
-    <img src="/images/wharf-wordmark.svg" alt="wharf wordmark" width="129" height="21" />
-  </a>
+<header class="switcher">
+  <div class="logo">
+    <a href="/">
+      <img src={logo} alt="wharf logo" width="203" />
+    </a>
+  </div>
   <nav class="cluster">
-    <!-- <a href="/progress">Progress</a>
-    <a href="/about">Our process</a> -->
+    <a href="/brand">Brandkit</a>
+    <a href="/">Progress</a>
   </nav>
 </header>
 
@@ -21,29 +22,25 @@
     padding-block: var(--s2);
   }
 
-  .logo {
-    display: inline-flex;
-    gap: var(--s-1);
-    justify-content: flex-start;
-    align-items: center;
-  }
-
   nav {
     justify-content: flex-end;
     align-items: center;
-    /* --gap: rem; */
   }
 
-  /* nav a {
+  nav a {
+    font-family: var(--ff-heading);
     color: var(--wharf-blue);
     text-decoration: none;
     padding-inline: 1em;
     padding-block: 0.5em;
     border-radius: var(--s-1);
-    font-size: var(--fs-400);
+    font-size: var(--fs-0);
+    background-color: none;
+    transition: var(--background-transition);
   }
 
-  nav a:hover {
+  nav a:is(:hover, :focus-visible) {
     background-color: var(--swell-mist);
-  } */
+    /* outline: none; */
+  }
 </style>

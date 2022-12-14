@@ -16,12 +16,72 @@ footer {
   max-inline-size: none;
 }
 
-/* Global styles */
+/* Default global styles */
 
-hr {
-  border: var(--swell-mist) 1px solid;
+body {
+  color: var(--text-color);
+  font-family: "Inter", var(--system-ui);
+  font-weight: 400;
+  font-size: var(--fs-0);
+}
+
+a {
+  color: var(--color-secondary-600);
+  font-weight: 600;
+  // text-underline-position: under;
+  text-decoration-thickness: 2px;
+}
+
+:is(button, a):focus-visible {
+  outline: 2px solid var(--color-primary-200);
 }
 
 ul {
   padding-inline-start: 1em;
+}
+
+p {
+  line-height: 2em;
+  letter-spacing: -0.18px;
+}
+
+/* Elements */
+
+button {
+  border: none;
+  background-color: none;
+}
+
+.button {
+  --button-background: var(--color-secondary-500);
+  --button-background-hover: var(--color-secondary-600);
+  --button-text: white;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border-radius: var(--s0);
+  padding: 1em;
+  text-decoration: none;
+  font-size: var(--fs-0);
+  font-family: var(--ff-heading);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  transition: var(--background-transition);
+}
+
+.button[data-type="secondary"] {
+  --button-background: var(--color-secondary-100);
+  --button-background-hover: var(--color-secondary-200);
+  --button-text: var(--color-secondary-900);
+}
+
+.button:is(:hover, :focus-visible) {
+  background-color: var(--button-background-hover);
+}
+
+hr {
+  border: var(--border-style);
 }

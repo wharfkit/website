@@ -14,7 +14,7 @@
     </p>
   </div>
 
-  <ul class="center stack">
+  <ul class="posts | center stack">
     {#each posts as { text, ...props }}
       <li>
         <Article {...props}>
@@ -48,21 +48,22 @@
   }
 
   .hero h1 {
-    font-size: var(--fs-600);
+    font-size: var(--fs-2);
+    font-family: var(--ff-heading);
   }
 
   .hero p {
-    font-size: var(--fs-400);
+    font-size: var(--fs-0);
+    font-family: var(--ff-heading);
     font-weight: 500;
     max-width: 50ch;
   }
 
   .hero a {
     color: var(--wharf-blue);
-    font-weight: 700;
   }
 
-  ul {
+  .posts {
     list-style: none;
     gap: var(--s3);
     padding-inline: unset;
