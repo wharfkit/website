@@ -29,10 +29,13 @@
         images and information.
       </p>
       <div class="buttons | cluster">
-        <a class="button" href="/downloads/Wharf - Brand assets.zip" download
+        <a class="button" href="/downloads/wharf-brand_assets.zip" download
           >Download brand assets (ZIP)</a>
-        <a class="button" data-type="secondary" href="/downloads/Brand_guidelines.pdf" download
-          >Download brand guidelines (PDF)</a>
+        <a
+          class="button"
+          data-type="secondary"
+          href="/downloads/wharf-brand_guidelines.pdf"
+          download>Download brand guidelines (PDF)</a>
       </div>
     </section>
     <section id="logo">
@@ -45,7 +48,7 @@
           <a
             class="button"
             data-type="secondary"
-            href="/downloads/Wharf - Brand assets/Logo/Svg/Wharf_logo_bright_vector_no_bg.svg"
+            href="/downloads/wharf-brand_assets/logo/svg/Wharf_logo_bright_vector_no_bg.svg"
             download>Download logo (SVG)</a>
         </div>
 
@@ -56,7 +59,7 @@
           <a
             class="button"
             data-type="secondary"
-            href="/downloads/Wharf - Brand assets/Logo/Svg/Wharf_logo_bright_horizontal_vector_no_bg.svg"
+            href="/downloads/wharf-brand_assets/logo/svg/Wharf_logo_bright_horizontal_vector_no_bg.svg"
             download>Download logo (SVG)</a>
         </div>
       </div>
@@ -188,9 +191,12 @@
       <h2>Background images</h2>
       <img src="/images/background-image-example.png" alt="" />
       <div class="buttons | cluster">
-        <a class="button" data-type="secondary" href="#backgrounds">Download full image (PNG)</a>
-        <a class="button" data-type="secondary" href="#backgrounds"
-          >Download background only (PNG)</a>
+        <a class="button" data-type="secondary" href="/downloads/wharf-brand_image.zip" download>
+          Download full image (ZIP)
+        </a>
+        <a class="button" data-type="secondary" href="/downloads/wharf-brand_image_bg.zip" download>
+          Download background only (ZIP)
+        </a>
       </div>
     </section>
   </div>
