@@ -135,7 +135,7 @@
           </table>
         </div>
         <div class="palette">
-          <ColorPalette variant="tertiary" />
+          <ColorPalette variant="secondary" />
         </div>
       </div>
       <div>
