@@ -15,9 +15,9 @@
 
 <div class="wrapper | center stack">
   <Header />
-  <main>
+  <div>
     <slot />
-  </main>
+  </div>
   <Footer />
 </div>
 
@@ -26,7 +26,7 @@
     max-inline-size: 1000px;
     gap: var(--s2);
   }
-  main {
+  div {
     flex: 1;
   }
 </style>

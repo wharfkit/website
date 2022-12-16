@@ -10,6 +10,7 @@
   </div>
   <nav class="cluster">
     <a href="/brand">Brandkit</a>
+    <a href="/docs">Docs</a>
     <a href="/">Progress</a>
   </nav>
 </header>
