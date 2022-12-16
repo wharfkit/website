@@ -9,7 +9,7 @@
     </a>
   </div>
   <nav class="cluster">
-    <a href="/brand">Brandkit</a>
+    <a href="/brand">Brand</a>
     <a href="/">Progress</a>
   </nav>
 </header>
