@@ -29,12 +29,12 @@
         images and information.
       </p>
       <div class="buttons | cluster">
-        <a class="button" href="/downloads/wharf-brand_assets.zip" download
+        <a class="button" href="https://assets.wharfkit.com/wharf-brand-assets.zip" download
           >Download brand assets (ZIP)</a>
         <a
           class="button"
           data-type="secondary"
-          href="/downloads/wharf-brand_guidelines.pdf"
+          href="https://assets.wharfkit.com/wharf-brand-guidelines.pdf"
           download>Download brand guidelines (PDF)</a>
       </div>
     </section>
@@ -48,7 +48,7 @@
           <a
             class="button"
             data-type="secondary"
-            href="/downloads/wharf-brand_assets/logo/svg/Wharf_logo_bright_vector_no_bg.svg"
+            href="https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-vector-no-bg.svg"
             download>Download logo (SVG)</a>
         </div>
 
@@ -59,7 +59,7 @@
           <a
             class="button"
             data-type="secondary"
-            href="/downloads/wharf-brand_assets/logo/svg/Wharf_logo_bright_horizontal_vector_no_bg.svg"
+            href="https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-horizontal-vector-no-bg.svg"
             download>Download logo (SVG)</a>
         </div>
       </div>
@@ -135,7 +135,7 @@
           </table>
         </div>
         <div class="palette">
-          <ColorPalette variant="secondary" />
+          <ColorPalette variant="secondary" highlight="200" />
         </div>
       </div>
       <div>
@@ -191,10 +191,18 @@
       <h2>Background images</h2>
       <img src="/images/background-image-example.png" alt="" />
       <div class="buttons | cluster">
-        <a class="button" data-type="secondary" href="/downloads/wharf-brand_image.zip" download>
+        <a
+          class="button"
+          data-type="secondary"
+          href="https://assets.wharfkit.com/wharf-brand-image.zip"
+          download>
           Download full image (ZIP)
         </a>
-        <a class="button" data-type="secondary" href="/downloads/wharf-brand_image_bg.zip" download>
+        <a
+          class="button"
+          data-type="secondary"
+          href="https://assets.wharfkit.com/wharf-brand-image-bg.zip"
+          download>
           Download background only (ZIP)
         </a>
       </div>
