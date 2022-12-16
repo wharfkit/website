@@ -9,13 +9,13 @@ Follow the instructions below to install WharfKit in your app. Or check out our 
 
 Install the WharfKit library:
 
-bash`npm install @WharfKit/WharfKit`
+```bash
+npm install @WharfKit/WharfKit
+```
 
 or
 
-bash```
+```bash
 yarn add @WharfKit/WharfKit
-
-```
 
 ```

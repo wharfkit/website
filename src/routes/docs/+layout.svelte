@@ -6,13 +6,29 @@
 
 <div class="wrapper | with-sidebar">
   <aside>
-    <ul class="sections">
+    <ul class="sections | flow">
       {#each Object.entries(data.sections) as [title, articles]}
         <li>
           {title}
           <ul class="articles">
             {#each articles as article}
-              <li><a href={article.path}>{article.title}</a></li>
+              <li>
+                <a href={article.path}>
+                  {article.title}
+                  {#if article.mdsvex}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  {/if}
+                </a>
+              </li>
             {/each}
           </ul>
         </li>
@@ -25,10 +41,9 @@
   </main>
 </div>
 
-<pre>
+<!-- <pre>
   {JSON.stringify(data, null, 2)}
-</pre>
-
+</pre> -->
 <style>
   main :global(h1) {
     font-size: var(--fs-3);
@@ -38,12 +53,22 @@
     /* margin-block-start: var(--s2); */
     margin-block-end: var(--s2);
   }
+
   main :global(h2) {
     font-size: var(--fs-2);
     font-family: var(--ff-heading);
     font-weight: 600;
     /* line-height: 1.5em; */
     margin-block-start: var(--s2);
+    margin-block-end: var(--s0);
+  }
+
+  main :global(h3) {
+    font-size: var(--fs-1);
+    font-family: var(--ff-heading);
+    font-weight: 600;
+    /* line-height: 1.5em; */
+    margin-block-start: var(--s1);
     margin-block-end: var(--s0);
   }
 
@@ -79,10 +104,7 @@
     font-size: var(--fs-1);
     font-weight: 600;
     font-family: var(--ff-heading);
-  }
-
-  .sections > * + * {
-    margin-block-start: var(--s1);
+    gap: var(--s1);
   }
 
   .articles a {
@@ -90,5 +112,7 @@
     font-family: var(--ff-body);
     font-weight: 400;
     line-height: 1.5em;
+    display: inline-flex;
+    gap: 1rem;
   }
 </style>

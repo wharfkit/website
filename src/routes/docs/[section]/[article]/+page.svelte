@@ -8,6 +8,6 @@
 
 {@html data.PostContent}
 
-<pre>
+<!-- <pre>
   {JSON.stringify(data, null, 2)}
-</pre>
+</pre> -->
