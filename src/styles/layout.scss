@@ -1,279 +1,279 @@
 // Stack
 
 .stack {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: var(--gap, var(--s1));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap, var(--s1));
 }
 
 .stack:only-child {
-  height: 100%;
+    height: 100%;
 }
 
 // Box
 
 .box {
-  /* ↓ Padding set to the first point on the modular scale */
-  padding: var(--padding, var(--s1));
-  /* ↓ Assumes you have a --border-thin var */
-  border: var(--border-thin) solid;
-  /* ↓ Always apply the transparent outline, for high contrast mode */
-  outline: var(--border-thin) transparent;
-  outline-offset: calc(var(--border-thin) * -1);
-  border-radius: var(--border-radius);
+    /* ↓ Padding set to the first point on the modular scale */
+    padding: var(--padding, var(--s1));
+    /* ↓ Assumes you have a --border-thin var */
+    border: var(--border-thin) solid;
+    /* ↓ Always apply the transparent outline, for high contrast mode */
+    outline: var(--border-thin) transparent;
+    outline-offset: calc(var(--border-thin) * -1);
+    border-radius: var(--border-radius);
 }
 
 // Center
 
 .center {
-  /* ↓ Remove padding from the width calculation */
-  box-sizing: content-box;
-  /* ↓ The maximum width is the maximum measure */
-  max-inline-size: var(--measure);
-  /* ↓ Only affect horizontal margins */
-  margin-inline: auto;
-  /* ↓ Apply the minimum horizontal space */
-  padding-inline-start: var(--s1);
-  padding-inline-end: var(--s1);
+    /* ↓ Remove padding from the width calculation */
+    box-sizing: content-box;
+    /* ↓ The maximum width is the maximum measure */
+    max-inline-size: var(--measure);
+    /* ↓ Only affect horizontal margins */
+    margin-inline: auto;
+    /* ↓ Apply the minimum horizontal space */
+    padding-inline-start: var(--s1);
+    padding-inline-end: var(--s1);
 }
 
 // Cluster
 
 .cluster {
-  /* ↓ Set the Flexbox context */
-  display: flex;
-  /* ↓ Enable wrapping */
-  flex-wrap: wrap;
-  /* ↓ Set the space/gap */
-  gap: var(--gap, 1rem);
-  /* ↓ Choose your justification (flex-start is default) */
-  justify-content: var(--justify-content, flex-start);
-  /* ↓ Choose your alignment (flex-start is default) */
-  align-items: var(--align-items, flex-start);
+    /* ↓ Set the Flexbox context */
+    display: flex;
+    /* ↓ Enable wrapping */
+    flex-wrap: wrap;
+    /* ↓ Set the space/gap */
+    gap: var(--gap, 1rem);
+    /* ↓ Choose your justification (flex-start is default) */
+    justify-content: var(--justify-content, flex-start);
+    /* ↓ Choose your alignment (flex-start is default) */
+    align-items: var(--align-items, flex-start);
 }
 
 // Sidebar
 
 .with-sidebar {
-  display: flex;
-  flex-wrap: wrap;
-  /* ↓ The default value is the first point on the modular scale */
-  gap: var(--gutter, var(--s1));
+    display: flex;
+    flex-wrap: wrap;
+    /* ↓ The default value is the first point on the modular scale */
+    gap: var(--gutter, var(--s1));
 }
 .with-sidebar > :first-child {
-  /* ↓ The width when the sidebar _is_ a sidebar */
-  flex-basis: 18rem;
-  flex-grow: 1;
+    /* ↓ The width when the sidebar _is_ a sidebar */
+    flex-basis: 18rem;
+    flex-grow: 1;
 }
 .with-sidebar > :last-child {
-  /* ↓ Grow from nothing */
-  flex-basis: 0;
-  flex-grow: 999;
-  /* ↓ Wrap when the elements are of equal width */
-  min-inline-size: 50%;
+    /* ↓ Grow from nothing */
+    flex-basis: 0;
+    flex-grow: 999;
+    /* ↓ Wrap when the elements are of equal width */
+    min-inline-size: 50%;
 }
 
 // Switcher
 
 .switcher {
-  display: flex;
-  flex-wrap: wrap;
-  /* ↓ The default value is the first point on the modular scale */
-  gap: var(--gutter, var(--s1));
-  /* ↓ The width at which the layout “breaks” */
-  --threshold: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* ↓ The default value is the first point on the modular scale */
+    gap: var(--gutter, var(--s1));
+    /* ↓ The width at which the layout “breaks” */
+    --threshold: 30rem;
 }
 .switcher > * {
-  /* ↓ Allow children to grow */
-  flex-grow: 1;
-  /* ↓ Switch the layout at the --threshold */
-  flex-basis: calc((var(--threshold) - 100%) * 999);
+    /* ↓ Allow children to grow */
+    flex-grow: 1;
+    /* ↓ Switch the layout at the --threshold */
+    flex-basis: calc((var(--threshold) - 100%) * 999);
 }
 .switcher > :nth-last-child(n + 5),
 .switcher > :nth-last-child(n + 5) ~ * {
-  /* ↓ Switch to a vertical configuration if
+    /* ↓ Switch to a vertical configuration if
   there are more than 4 child elements */
-  flex-basis: 100%;
+    flex-basis: 100%;
 }
 
 // Cover
 
 .cover {
-  --space: var(--s1);
-  /* ↓ Establish a columnal flex context */
-  display: flex;
-  flex-direction: column;
-  /* ↓ Set a minimum height to match the viewport height
+    --space: var(--s1);
+    /* ↓ Establish a columnal flex context */
+    display: flex;
+    flex-direction: column;
+    /* ↓ Set a minimum height to match the viewport height
   (any minimum would be fine) */
-  min-block-size: 100vh;
-  /* Set a padding value */
-  padding: var(--space);
+    min-block-size: 100vh;
+    /* Set a padding value */
+    padding: var(--space);
 }
 .cover > * {
-  /* ↓ Give each child a top and bottom margin */
-  margin-block: var(--s1);
+    /* ↓ Give each child a top and bottom margin */
+    margin-block: var(--s1);
 }
 .cover > :first-child:not(h1) {
-  /* ↓ Remove the top margin from the first-child
+    /* ↓ Remove the top margin from the first-child
   if it _doesn't_ match the centered element */
-  margin-block-start: 0;
+    margin-block-start: 0;
 }
 .cover > :last-child:not(h1) {
-  /* ↓ Remove the bottom margin from the last-child
+    /* ↓ Remove the bottom margin from the last-child
   if it _doesn't_ match the centered element */
-  margin-block-end: 0;
+    margin-block-end: 0;
 }
 .cover > h1 {
-  /* ↓ Center the centered element (h1 here)
+    /* ↓ Center the centered element (h1 here)
   in the available vertical space */
-  margin-block: auto;
+    margin-block: auto;
 }
 
 // Grid
 
 .grid {
-  /* ↓ Establish a grid context */
-  display: grid;
-  /* ↓ Set a gap between grid items */
-  grid-gap: 1rem;
-  /* ↓ Set the minimum column width */
-  --minimum: 20ch;
+    /* ↓ Establish a grid context */
+    display: grid;
+    /* ↓ Set a gap between grid items */
+    grid-gap: 1rem;
+    /* ↓ Set the minimum column width */
+    --minimum: 20ch;
 }
 @supports (width: min(var(--minimum), 100%)) {
-  .grid {
-    /* ↓ Enhance with the min() function
+    .grid {
+        /* ↓ Enhance with the min() function
   into multiple columns */
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--minimum), 100%), 1fr));
-  }
+        grid-template-columns: repeat(auto-fit, minmax(min(var(--minimum), 100%), 1fr));
+    }
 }
 
 // Frame
 
 .frame {
-  --n: 16; /* numerator */
-  --d: 9; /* denominator */
-  aspect-ratio: var(--n) / var(--d);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    --n: 16; /* numerator */
+    --d: 9; /* denominator */
+    aspect-ratio: var(--n) / var(--d);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .frame > img,
 .frame > video {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
 }
 
 // Reel
 
 .reel {
-  /* ↓ Custom properties for ease of adjustment */
-  --space: 1rem;
-  --color-light: #fff;
-  --color-dark: #000;
-  --reel-height: auto;
-  --item-width: 25ch;
-  display: flex;
-  block-size: var(--reel-height);
-  /* ↓ Overflow */
-  overflow-x: auto;
-  overflow-y: hidden;
-  /* ↓ For Firefox */
-  scrollbar-color: var(--color-light) var(--color-dark);
+    /* ↓ Custom properties for ease of adjustment */
+    --space: 1rem;
+    --color-light: #fff;
+    --color-dark: #000;
+    --reel-height: auto;
+    --item-width: 25ch;
+    display: flex;
+    block-size: var(--reel-height);
+    /* ↓ Overflow */
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* ↓ For Firefox */
+    scrollbar-color: var(--color-light) var(--color-dark);
 }
 reel-l::-webkit-scrollbar {
-  /*
+    /*
   ↓ Instead, you could make the scrollbar height
   a variable too. This is left as an exercise
   (be mindful of the linear-gradient!)
   */
-  block-size: 1rem;
+    block-size: 1rem;
 }
 reel-l::-webkit-scrollbar-track {
-  background-color: var(--color-dark);
+    background-color: var(--color-dark);
 }
 reel-l::-webkit-scrollbar-thumb {
-  background-color: var(--color-dark);
-  /* ↓ Linear gradient ‘insets’ the white thumb within the black bar */
-  background-image: linear-gradient(
-    var(--color-dark) 0,
-    var(--color-dark) 0.25rem,
-    var(--color-light) 0.25rem,
-    var(--color-light) 0.75rem,
-    var(--color- dark) 0.75rem
-  );
+    background-color: var(--color-dark);
+    /* ↓ Linear gradient ‘insets’ the white thumb within the black bar */
+    background-image: linear-gradient(
+        var(--color-dark) 0,
+        var(--color-dark) 0.25rem,
+        var(--color-light) 0.25rem,
+        var(--color-light) 0.75rem,
+        var(--color- dark) 0.75rem
+    );
 }
 .reel > * {
-  /*
+    /*
   ↓ Just a `width` wouldn’t work because
   `flex-shrink: 1` (default) still applies
   */
-  flex: 0 0 var(--item-width);
+    flex: 0 0 var(--item-width);
 }
 reel-l > img {
-  /* ↓ Reset for images */
-  block-size: 100%;
-  flex-basis: auto;
-  width: auto;
+    /* ↓ Reset for images */
+    block-size: 100%;
+    flex-basis: auto;
+    width: auto;
 }
 .reel > * + * {
-  margin-inline-start: var(--space);
+    margin-inline-start: var(--space);
 }
 .reel.overflowing:not(.no-bar) {
-  /* ↓ Only apply if there is a scrollbar (see the JavaScript) */
-  padding-block-end: var(--space);
+    /* ↓ Only apply if there is a scrollbar (see the JavaScript) */
+    padding-block-end: var(--space);
 }
 /* ↓ Hide scrollbar with `no-bar` class */
 .reel.no-bar {
-  scrollbar-width: none;
+    scrollbar-width: none;
 }
 .reel.no-bar::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 // Imposter
 
 .imposter {
-  /* ↓ Choose the positioning element */
-  position: var(--positioning, absolute);
-  /* ↓ Position the top left corner in the center */
-  inset-block-start: 50%;
-  inset-inline-start: 50%;
-  /* ↓ Reposition so the center of the element
+    /* ↓ Choose the positioning element */
+    position: var(--positioning, absolute);
+    /* ↓ Position the top left corner in the center */
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    /* ↓ Reposition so the center of the element
   is the center of the container */
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 .imposter.contain {
-  /* ↓ Include a unit, or the calc function will be invalid */
-  --margin: 0px;
-  /* ↓ Provide scrollbars so content is not obscured */
-  overflow: auto;
-  /* ↓ Restrict the height and width, including optional
+    /* ↓ Include a unit, or the calc function will be invalid */
+    --margin: 0px;
+    /* ↓ Provide scrollbars so content is not obscured */
+    overflow: auto;
+    /* ↓ Restrict the height and width, including optional
   spacing/margin between the element and positioning container */
-  max-inline-size: calc(100% - (var(--margin) * 2));
-  max-block-size: calc(100% - (var(--margin) * 2));
+    max-inline-size: calc(100% - (var(--margin) * 2));
+    max-block-size: calc(100% - (var(--margin) * 2));
 }
 
 // Icon
 
 .icon {
-  height: 0.75em;
-  /* ↓ Override the em value with `1cap`
+    height: 0.75em;
+    /* ↓ Override the em value with `1cap`
   where `cap` is supported */
-  height: 1cap;
-  width: 0.75em;
-  width: 1cap;
+    height: 1cap;
+    width: 0.75em;
+    width: 1cap;
 }
 .with-icon {
-  /* ↓ Set the `inline-flex` context,
+    /* ↓ Set the `inline-flex` context,
   which eliminates the word space */
-  display: inline-flex;
-  align-items: baseline;
+    display: inline-flex;
+    align-items: baseline;
 }
 .with-icon .icon {
-  /* ↓ Use the logical margin property
+    /* ↓ Use the logical margin property
   and a --space variable with a fallback */
-  margin-inline-end: var(--space, 0.5em);
+    margin-inline-end: var(--space, 0.5em);
 }

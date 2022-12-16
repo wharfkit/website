@@ -3,18 +3,18 @@
 ======= */
 
 @font-face {
-  font-family: "Montserrat";
-  src: local("Montserrat"),
-    url("/fonts/Montserrat/Montserrat-VariableFont_wght.woff2") format("woff2"),
-    url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
-  font-display: swap;
+    font-family: 'Montserrat';
+    src: local('Montserrat'),
+        url('/fonts/Montserrat/Montserrat-VariableFont_wght.woff2') format('woff2'),
+        url('/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Inter";
-  src: local("Inter"), url("/fonts/Inter/Inter-VariableFont_slnt,wght.woff2") format("woff2"),
-    url("/fonts/Inter/Inter-VariableFont_slnt,wght.ttf");
-  font-display: swap;
+    font-family: 'Inter';
+    src: local('Inter'), url('/fonts/Inter/Inter-VariableFont_slnt,wght.woff2') format('woff2'),
+        url('/fonts/Inter/Inter-VariableFont_slnt,wght.ttf');
+    font-display: swap;
 }
 
 /* ====
@@ -25,18 +25,18 @@
 /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,18,1.25,7,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
-  --fs-0: clamp(1rem, calc(0.96rem + 0.18vw), 1.13rem);
-  --fs-1: clamp(1.2rem, calc(1.14rem + 0.29vw), 1.41rem);
-  --fs-2: clamp(1.44rem, calc(1.35rem + 0.45vw), 1.76rem);
-  --fs-3: clamp(1.73rem, calc(1.59rem + 0.67vw), 2.2rem);
-  --fs-4: clamp(2.07rem, calc(1.88rem + 0.96vw), 2.75rem);
-  --fs-5: clamp(2.49rem, calc(2.22rem + 1.35vw), 3.43rem);
-  --fs-6: clamp(2.99rem, calc(2.61rem + 1.86vw), 4.29rem);
-  --fs-7: clamp(3.58rem, calc(3.07rem + 2.54vw), 5.36rem);
+    --fs-0: clamp(1rem, calc(0.96rem + 0.18vw), 1.13rem);
+    --fs-1: clamp(1.2rem, calc(1.14rem + 0.29vw), 1.41rem);
+    --fs-2: clamp(1.44rem, calc(1.35rem + 0.45vw), 1.76rem);
+    --fs-3: clamp(1.73rem, calc(1.59rem + 0.67vw), 2.2rem);
+    --fs-4: clamp(2.07rem, calc(1.88rem + 0.96vw), 2.75rem);
+    --fs-5: clamp(2.49rem, calc(2.22rem + 1.35vw), 3.43rem);
+    --fs-6: clamp(2.99rem, calc(2.61rem + 1.86vw), 4.29rem);
+    --fs-7: clamp(3.58rem, calc(3.07rem + 2.54vw), 5.36rem);
 
-  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+    --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol';
 
-  --ff-heading: "Montserrat", var(--system-ui);
-  --ff-body: "Inter", var(--system-ui);
+    --ff-heading: 'Montserrat', var(--system-ui);
+    --ff-body: 'Inter', var(--system-ui);
 }

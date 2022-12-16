@@ -1,10 +1,10 @@
-import { fetchMarkdownPosts } from "$lib/utils"
-import { json } from "@sveltejs/kit"
+import {fetchMarkdownPosts} from '$lib/utils'
+import {json} from '@sveltejs/kit'
 
 export const GET = async () => {
-  const allPosts = await fetchMarkdownPosts()
+    const allPosts = await fetchMarkdownPosts()
 
-  // TODO: sort posts
+    // TODO: sort posts
 
-  return json(allPosts)
+    return json(allPosts)
 }

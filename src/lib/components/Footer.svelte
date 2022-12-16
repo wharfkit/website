@@ -1,5 +1,5 @@
 <script>
-  // your script goes here
+    // your script goes here
 </script>
 
 <footer class="box" />
