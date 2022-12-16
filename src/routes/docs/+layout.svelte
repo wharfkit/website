@@ -52,6 +52,7 @@
     /* line-height: 1.5em; */
     /* margin-block-start: var(--s2); */
     margin-block-end: var(--s2);
+    position: relative;
   }
 
   main :global(h2) {
@@ -61,6 +62,7 @@
     /* line-height: 1.5em; */
     margin-block-start: var(--s2);
     margin-block-end: var(--s0);
+    position: relative;
   }
 
   main :global(h3) {
@@ -70,6 +72,7 @@
     /* line-height: 1.5em; */
     margin-block-start: var(--s1);
     margin-block-end: var(--s0);
+    position: relative;
   }
 
   main :global(p) {
@@ -93,6 +96,10 @@
     padding-block: var(--s-2);
     padding-inline: 1em;
     border-radius: var(--s0);
+  }
+
+  :global(.icon-link) {
+    content: url("$lib/assets/icons/hash.svg");
   }
 
   ul {

@@ -12,7 +12,8 @@ _Italic_
 
 [Links](/docs/nodes)
 
-![Images](/logo.svg)
+Images
+![Images](/images/content/depgraph.png)
 
 Lists
 
@@ -24,6 +25,6 @@ Lists
 
 `Inline code`
 
-```
+```bash
 Code fences
 ```
