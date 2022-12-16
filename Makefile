@@ -24,7 +24,7 @@ check: node_modules
 
 .PHONY: format
 format: node_modules
-	@${BIN}/prettier -w src
+	@${BIN}/prettier -w .
 
 .PHONY: test
 test: node_modules
