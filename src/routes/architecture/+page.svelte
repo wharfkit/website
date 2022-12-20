@@ -8,9 +8,9 @@
 
 <style>
   div > :global(h2) {
-    font-size: var(--fs-600);
+    font-size: var(--fs-2);
   }
   div > :global(p) {
-    font-size: var(--fs-400);
+    font-size: var(--fs-0);
   }
 </style>

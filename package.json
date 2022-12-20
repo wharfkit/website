@@ -1,5 +1,5 @@
 {
-  "name": "wharf-website",
+  "name": "@wharfkit/website",
   "homepage": "https://wharfkit.com/",
   "version": "0.0.1",
   "private": true,

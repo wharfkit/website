@@ -18,7 +18,7 @@
 
 <style>
   h1 {
-    font-size: var(--fs-500);
+    font-size: var(--fs-1);
     font-weight: 600;
   }
 
