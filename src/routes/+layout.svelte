@@ -1,5 +1,6 @@
 <script lang="ts">
   import "../styles/app.scss"
+  import "../styles/prism-lucario.css"
   import { page } from "$app/stores"
   import Header from "$lib/components/Header.svelte"
   import Footer from "../lib/components/Footer.svelte"

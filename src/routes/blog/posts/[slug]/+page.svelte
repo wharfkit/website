@@ -75,14 +75,14 @@
     border-radius: var(--s0);
   }
 
-  article :global(code) {
+  /* article :global(code) {
     font-size: var(--fs-0);
     font-family: monospace;
     background-color: var(--color-neutral-100);
     padding-block: 0.25em;
     padding-inline: 0.5em;
     border-radius: 0.25em;
-  }
+  } */
 
   article :global(.toc-item) {
     margin-block: 0.75em;
