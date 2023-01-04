@@ -57,12 +57,14 @@
     font-family: var(--ff-heading);
     font-size: var(--fs-2);
     font-weight: 600;
+    margin-block-start: var(--s1);
   }
 
   article :global(h3) {
     font-family: var(--ff-heading);
     font-size: var(--fs-1);
     font-weight: 600;
+    margin-block-start: var(--s0);
   }
 
   article :global(blockquote) {
@@ -74,5 +76,10 @@
 
   article :global(li) {
     line-height: var(--line-height);
+  }
+
+  article :global(li:not(:first-child)) {
+    /* background-color: red; */
+    margin-block-start: var(--s-1);
   }
 </style>
