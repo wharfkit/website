@@ -66,33 +66,13 @@
   }
 
   article :global(blockquote) {
-    font-size: var(--fs-0);
     background-color: var(--color-secondary-50);
     border-inline-start: 0.25em solid var(--color-secondary-200);
-    border: 0.125em solid var(--color-secondary-100);
-    padding-block: var(--s1);
+    padding-block: var(--s0);
     padding-inline: var(--s1);
-    border-radius: var(--s0);
   }
 
-  /* article :global(code) {
-    font-size: var(--fs-0);
-    font-family: monospace;
-    background-color: var(--color-neutral-100);
-    padding-block: 0.25em;
-    padding-inline: 0.5em;
-    border-radius: 0.25em;
-  } */
-
-  article :global(.toc-item) {
-    margin-block: 0.75em;
-    font-weight: 600;
-  }
-  article :global(.toc-link) {
-    text-decoration: none;
-  }
-
-  article :global(.toc-link:hover) {
-    text-decoration: underline;
+  article :global(li) {
+    line-height: var(--line-height);
   }
 </style>

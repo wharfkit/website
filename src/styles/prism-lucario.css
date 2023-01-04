@@ -5,8 +5,8 @@
  * Ported for PrismJS by Christopher Kapic [@christopher-kapic]
  */
 
-code[class*="language-"],
 code,
+code[class*="language-"],
 pre[class*="language-"] {
   color: #f8f8f2;
   background: none;
@@ -25,6 +25,7 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  letter-spacing: normal;
 }
 
 /* Code blocks */
@@ -35,16 +36,20 @@ pre[class*="language-"] {
   border-radius: 0.3em;
 }
 
-:not(pre) > code[class*="language-"],
-:not(pre) > code,
 pre[class*="language-"] {
   background: #263e52;
+  /* background: var(--wharf-blue); */
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"],
 :not(pre) > code {
-  padding: 0.1em;
+  background: #263e52;
+  background: var(--color-primary-100);
+  color: var(--text-color);
+  text-shadow: none;
+  padding-block: 0.125em;
+  padding-inline: 0.3em;
   border-radius: 0.3em;
   white-space: normal;
 }

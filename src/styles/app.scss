@@ -38,11 +38,8 @@ a {
   outline: 2px solid var(--color-primary-200);
 }
 
-ul {
-  padding-inline-start: 1em;
-}
-
-p {
+p,
+li {
   line-height: var(--line-height);
   letter-spacing: -0.18px;
 }

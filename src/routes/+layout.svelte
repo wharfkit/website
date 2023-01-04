@@ -26,6 +26,8 @@
   .wrapper {
     max-inline-size: 1200px;
     gap: var(--s2);
+    padding-inline: var(--s1);
+    height: 100%;
   }
   main {
     flex: 1;
