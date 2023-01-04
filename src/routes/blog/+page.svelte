@@ -1,22 +1,52 @@
-<script>
+<script lang="ts">
   import PostPreview from "$lib/components/PostPreview.svelte"
 
   /** @type {import('./$types').PageData */
   export let data
 
-  let { posts } = data
+  let filter: string | null = null
+
+  $: posts = filter ? data.posts.filter((post) => post.tags.includes(filter)) : data.posts
 </script>
 
 <div class="with-sidebar">
   <aside class="sidebar">
     <ul>
-      <li><button>All posts</button></li>
-      <li><button>Status updates</button></li>
-      <li><button>Guides</button></li>
+      <li>
+        <input
+          type="radio"
+          bind:group={filter}
+          class="visually-hidden"
+          name="filter"
+          id="all"
+          value={null}
+          checked />
+        <label for="all">All posts</label>
+      </li>
+      <li>
+        <input
+          type="radio"
+          bind:group={filter}
+          class="visually-hidden"
+          name="filter"
+          id="update"
+          value="update" />
+        <label for="update">Status updates</label>
+      </li>
+      <li>
+        <input
+          type="radio"
+          bind:group={filter}
+          class="visually-hidden"
+          name="filter"
+          id="guide"
+          value="guide" />
+        <label for="guide">Guides</label>
+      </li>
     </ul>
   </aside>
 
-  <!-- <h1>Updates</h1> -->
+  <h1 class="visually-hidden">Blog posts</h1>
   <ul class="posts | stack">
     {#each posts as { preview, ...props }}
       <li>
@@ -30,22 +60,17 @@
 </div>
 
 <style>
-  h1 {
-    font-size: var(--fs-1);
-    font-weight: 600;
-  }
-
   .sidebar {
     flex-grow: 0;
   }
 
-  .sidebar button {
+  .sidebar label {
     font-weight: 600;
     text-align: left;
     cursor: pointer;
   }
 
-  .sidebar button:hover {
+  .sidebar label:hover {
     text-decoration: underline;
   }
 

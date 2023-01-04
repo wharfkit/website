@@ -1,6 +1,7 @@
 ---
 title: "Wharf: An Introduction to Sessions"
 date: 2023-01-03
+tags: ["guide"]
 ---
 
 > Please note that this article contains a "Technical Preview" using an early release of Wharf's [Session Kit](https://github.com/wharfkit/session). This article was written in early 2023 using `@wharfkit/session` version 0.1.1. Everything within this article is subject to change as the code matures. Please refer to the official documentation (when available) on [WharfKit.com](https://wharfkit.com) for up-to-date usage instructions and information.
@@ -39,7 +40,7 @@ Additional types of plugins may be added in the future as additional needs are i
 
 ## Technical Preview
 
-In an effort to highlight how these components work in these early versions, the rest of this article will show how they can be used as of version 0.1.1. Development of this early release has primarily focused on the `Session` instances and the various uses of the `Plugin` architecture.
+In an effort to highlight how these components work in these early versions, the rest of this article will show how they can be used as of version 0.1.1. Development of this early release has primarily focused on the `Session` instances and the various uses of the `TransactPlugin` architecture.
 
 This article will also focus on manually creating a `Session` rather than using the `SessionKit` factory methods to create one. As of this writing, no external `WalletPlugin` packages have been released and no user interfaces have been made available within the `SessionKit` for user facing applications.
 
@@ -49,8 +50,8 @@ These usage examples showcase methods developers would typically see included in
 
 In order for an application to interact with the blockchain, it will first need to create a `Session`. To do so, the developer would first need the information to set it up, including:
 
-- **The Blockchain**: Which blockchain this session is configured to interact with. This includes the `Chain ID` and an `API endpoint`.
-- **The Account**: Which account on the configured blockchain this session is using. This includes both the `actor` and `permission`.
+- **The Blockchain**: Which blockchain this session is configured to interact with. This includes the Chain ID and an API endpoint.
+- **The Account**: Which account on the configured blockchain this session is using. This includes both the actor and permission.
 - **The Wallet**: A `WalletPlugin` for this session that is capable of returning a signature for any interaction.
 
 As of version 0.1.1 of the `@wharfkit/session` library, in practice this would look like:
