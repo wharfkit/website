@@ -189,7 +189,14 @@
     </section>
     <section id="backgrounds">
       <h2>Background images</h2>
-      <img src="/images/background-image-example.png" alt="" />
+      <picture>
+        <source srcset="/images/brand/background-image-example.avif" type="image/avif" />
+        <source srcset="/images/brand/background-image-example.webp" type="image/webp" />
+        <img
+          src="/images/brand/background-image-example.png"
+          srcset="/images/brand/background-image-example-2x.png 2x"
+          alt="wharfkit background" />
+      </picture>
       <div class="buttons | cluster">
         <a
           class="button"
