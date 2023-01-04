@@ -43,7 +43,7 @@ ul {
 }
 
 p {
-  line-height: 2em;
+  line-height: var(--line-height);
   letter-spacing: -0.18px;
 }
 
