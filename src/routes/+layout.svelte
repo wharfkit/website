@@ -23,7 +23,7 @@
 
 <style>
   .wrapper {
-    max-inline-size: 1000px;
+    max-inline-size: 1200px;
     gap: var(--s2);
   }
   main {

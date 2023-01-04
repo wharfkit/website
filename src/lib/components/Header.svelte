@@ -9,8 +9,8 @@
     </a>
   </div>
   <nav class="cluster">
+    <a href="/blog">Blog</a>
     <a href="/brand">Brand</a>
-    <a href="/">Progress</a>
   </nav>
 </header>
 

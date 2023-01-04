@@ -10,7 +10,7 @@
 
 <div class="with-sidebar">
   <aside class="sidebar">
-    <ul class="flow">
+    <ul>
       <li><a href="#guidelines">Guidelines</a></li>
       <li><a href="#logo">Logo</a></li>
       <li><a href="#colors">Colors</a></li>
@@ -23,7 +23,7 @@
       <h2>Brand guidelines</h2>
       <p>
         Thank you for your interest in the WharfKit brand! We would like to make it as easy as
-        possible for you to reference WharfKit in your project, so we’ve prepared all the essentials
+        possible for you to reference WharfKit in your project, so we've prepared all the essentials
         for you here: the logo, colors, font, and background images. If you would like to go further
         in your usage of the WharfKit brand, please download the Brand Guidelines PDF for additional
         images and information.
@@ -211,26 +211,11 @@
 </div>
 
 <style>
-  aside ul {
-    position: sticky;
-    top: var(--s3);
-    list-style: none;
-    margin-block-end: var(--s3);
-  }
-
-  aside li {
-    display: flex;
-  }
-
-  aside a {
-    flex: 1;
-    block-size: 100%;
+  .sidebar a {
     text-decoration: none;
-    color: var(--color-secondary-500);
-    padding-block: var(--s-1);
   }
 
-  aside a:hover {
+  .sidebar a:hover {
     text-decoration: underline;
   }
 
@@ -251,7 +236,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--s2);
-    max-inline-size: none;
   }
 
   section :is(h1, h2) {
@@ -311,6 +295,7 @@
     text-decoration: none;
     color: inherit;
     font-weight: inherit;
+    display: flex;
   }
 
   .fonts .box:is(:hover, :focus-visible) {
