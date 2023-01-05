@@ -30,10 +30,13 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre[class*="language-"] {
+  position: relative;
   padding: 1em;
+  padding: var(--s1);
   margin: 0.5em 0;
   overflow: auto;
   border-radius: 0.3em;
+  border-radius: var(--s0);
 }
 
 pre[class*="language-"] {

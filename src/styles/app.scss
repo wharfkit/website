@@ -110,3 +110,29 @@ hr {
   background-color: var(--seafoam-mint);
   color: var(--color-primary-900);
 }
+
+.copy-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  cursor: pointer;
+  margin: var(--s0);
+  padding: var(--s-1);
+  border: var(--border-style);
+  border-radius: var(--s-1);
+  opacity: 0%;
+  transition: opacity 100ms ease-out;
+}
+
+pre:hover > .copy-button {
+  opacity: 30%;
+}
+
+pre:hover > .copy-button:hover {
+  opacity: 80%;
+}
+
+.copy-button:active {
+  scale: 90%;
+}

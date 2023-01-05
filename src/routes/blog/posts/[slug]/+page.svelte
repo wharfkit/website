@@ -1,11 +1,18 @@
 <script>
   import Video from "$lib/components/Video.svelte"
+  import addCopyButton from "$lib/addCopyButton"
+  import { onMount } from "svelte"
   /** @type {import('./$types').PageData} */
   export let data
+
   let title = data.post.title
   let date = data.post.date
   let videolink = data.post.videolink
   let transcriptlink = data.post.transcriptlink
+
+  onMount(() => {
+    addCopyButton()
+  })
 </script>
 
 <article class="center stack">
