@@ -6,6 +6,10 @@
   export let videolink: string = ""
   export let transcriptlink: string = ""
   export let path: string = ""
+  export let text: string = ""
+  export let preview: string = ""
+
+  // const doc = new DOMParser().parseFromString(text, "text/html")
 </script>
 
 <article class="stack">
@@ -21,7 +25,8 @@
   {/if}
 
   <div class="text">
-    <slot />
+    {preview}
+    <!-- {@html text} -->
   </div>
 </article>
 

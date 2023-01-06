@@ -48,11 +48,9 @@
 
   <h1 class="visually-hidden">Blog posts</h1>
   <ul class="posts | stack">
-    {#each posts as { preview, ...props }}
+    {#each posts as post}
       <li>
-        <PostPreview {...props}>
-          {preview}
-        </PostPreview>
+        <PostPreview {...post} />
         <hr />
       </li>
     {/each}
@@ -78,5 +76,8 @@
     list-style: none;
     gap: var(--s3);
     padding-inline: unset;
+  }
+  hr {
+    margin-block-start: var(--s3);
   }
 </style>

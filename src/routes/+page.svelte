@@ -15,11 +15,9 @@
   </div>
 
   <ul class="posts | center stack">
-    {#each posts as { preview, ...props }}
+    {#each posts as post}
       <li>
-        <PostPreview {...props}>
-          {preview}
-        </PostPreview>
+        <PostPreview {...post} />
         <hr />
       </li>
     {/each}

@@ -10,12 +10,10 @@ export async function fetchMarkdownPosts() {
       const { metadata } = resolved
       const postPath = path.slice(11, -3)
       const text = resolved.default.render().html
-      const preview = text.slice(0, 140)
 
       return {
         ...metadata,
         text,
-        preview,
         path: postPath,
         date: new Date(metadata.date).toLocaleDateString("en-US", { timeZone: "UTC" }),
       }

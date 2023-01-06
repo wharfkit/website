@@ -66,100 +66,102 @@
     </section>
     <section id="colors">
       <h2>Brand colors</h2>
-      <div>
-        <div class="label">
-          <h3>Wharf Blue</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td> Hex: </td>
-                <td class="underline" on:click={copyText} on:keydown={copyText}>#494E62</td>
-              </tr>
-              <tr>
-                <td> RGB: </td>
-                <td>73-78-98</td>
-              </tr>
-              <tr>
-                <td> CMYK: </td>
-                <td>26-20-0-62</td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="brand-colors">
+        <div class="brand-color">
+          <div class="label">
+            <h3>Wharf Blue</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td> Hex: </td>
+                  <td class="underline" on:click={copyText} on:keydown={copyText}>#494E62</td>
+                </tr>
+                <tr>
+                  <td> RGB: </td>
+                  <td>73-78-98</td>
+                </tr>
+                <tr>
+                  <td> CMYK: </td>
+                  <td>26-20-0-62</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="palette">
+            <ColorPalette variant="primary" />
+          </div>
         </div>
-        <div class="palette">
-          <ColorPalette variant="primary" />
+        <div class="brand-color">
+          <div class="label">
+            <h3>Reef Turquoise</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td> Hex: </td>
+                  <td class="underline" on:click={copyText} on:keydown={copyText}>#7BE7CE</td>
+                </tr>
+                <tr>
+                  <td> RGB: </td>
+                  <td>123-231-206</td>
+                </tr>
+                <tr>
+                  <td> CMYK: </td>
+                  <td>47-0-11-9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="palette">
+            <ColorPalette variant="secondary" />
+          </div>
         </div>
-      </div>
-      <div>
-        <div class="label">
-          <h3>Reef Turquoise</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td> Hex: </td>
-                <td class="underline" on:click={copyText} on:keydown={copyText}>#7BE7CE</td>
-              </tr>
-              <tr>
-                <td> RGB: </td>
-                <td>123-231-206</td>
-              </tr>
-              <tr>
-                <td> CMYK: </td>
-                <td>47-0-11-9</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="brand-color">
+          <div class="label">
+            <h3>Seafoam Mint</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td> Hex: </td>
+                  <td class="underline" on:click={copyText} on:keydown={copyText}>#B2F2E1</td>
+                </tr>
+                <tr>
+                  <td> RGB: </td>
+                  <td>178-242-225</td>
+                </tr>
+                <tr>
+                  <td> CMYK: </td>
+                  <td>26-0-7-5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="palette">
+            <ColorPalette variant="secondary" highlight="200" />
+          </div>
         </div>
-        <div class="palette">
-          <ColorPalette variant="secondary" />
-        </div>
-      </div>
-      <div>
-        <div class="label">
-          <h3>Seafoam Mint</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td> Hex: </td>
-                <td class="underline" on:click={copyText} on:keydown={copyText}>#B2F2E1</td>
-              </tr>
-              <tr>
-                <td> RGB: </td>
-                <td>178-242-225</td>
-              </tr>
-              <tr>
-                <td> CMYK: </td>
-                <td>26-0-7-5</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="palette">
-          <ColorPalette variant="secondary" highlight="200" />
-        </div>
-      </div>
-      <div>
-        <div class="label">
-          <h3>Swell Mist</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td> Hex: </td>
-                <td class="underline" on:click={copyText} on:keydown={copyText}>#F4FAF4</td>
-              </tr>
-              <tr>
-                <td> RGB: </td>
-                <td>244-250-244</td>
-              </tr>
-              <tr>
-                <td> CMYK: </td>
-                <td>2-0-2-2</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="palette">
-          <ColorPalette variant="accent" />
+        <div class="brand-color">
+          <div class="label">
+            <h3>Swell Mist</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td> Hex: </td>
+                  <td class="underline" on:click={copyText} on:keydown={copyText}>#F4FAF4</td>
+                </tr>
+                <tr>
+                  <td> RGB: </td>
+                  <td>244-250-244</td>
+                </tr>
+                <tr>
+                  <td> CMYK: </td>
+                  <td>2-0-2-2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="palette">
+            <ColorPalette variant="accent" />
+          </div>
         </div>
       </div>
     </section>
@@ -309,7 +311,13 @@
     background-color: var(--color-secondary-200);
   }
 
-  #colors > div {
+  .brand-colors {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3);
+  }
+
+  .brand-color {
     display: flex;
     flex-wrap: wrap;
   }

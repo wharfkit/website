@@ -14,7 +14,6 @@
   <div class="logo">
     <a href="/">
       <img src={logo} alt="wharf logo" width="203" />
-      <!-- {console.log($page)} -->
     </a>
   </div>
   <nav>
@@ -43,7 +42,6 @@
     font-family: var(--ff-heading);
     color: var(--wharf-blue);
     text-decoration: none;
-    /* margin-inline: 1em; */
     padding-block: var(--s-2);
     border-radius: var(--s-1);
     font-size: var(--fs-0);
@@ -62,7 +60,10 @@
     transition: opacity 200ms ease-out;
   }
 
-  nav a:is(:hover, :focus-visible, .active)::after {
+  nav a:is(:hover, :focus-visible)::after {
+    opacity: 50%;
+  }
+  nav a:is(.active)::after {
     opacity: 70%;
   }
 
