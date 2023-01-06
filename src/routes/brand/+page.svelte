@@ -169,7 +169,7 @@
       <h2>Brand font</h2>
       <div>
         <p class="montserrat">Wharf headlines are set in Montserrat.</p>
-        <p>Typeset all body text in Inter.</p>
+        <p>All body text is typeset in Inter.</p>
       </div>
 
       <div class="fonts | switcher">
