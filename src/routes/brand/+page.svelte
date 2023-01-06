@@ -2,9 +2,13 @@
   import logoHorizontal from "$lib/assets/logos/Wharf-logo-horizontal.svg"
   import logoVertical from "$lib/assets/logos/Wharf-logo-vertical.svg"
   import ColorPalette from "./ColorPalette.svelte"
+  import Toast from "$lib/components/Toast.svelte"
 
+  let toast = ""
   let copyText = async ({ target }) => {
     navigator.clipboard.writeText(target.innerText)
+    toast = target.innerText
+    setTimeout(() => (toast = ""), 1500)
   }
 </script>
 
@@ -218,6 +222,10 @@
     </section>
   </div>
 </div>
+
+{#if toast}
+  <Toast text={`Copied ${toast}`} />
+{/if}
 
 <style>
   .sidebar a {
