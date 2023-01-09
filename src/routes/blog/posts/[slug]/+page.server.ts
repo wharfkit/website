@@ -18,27 +18,21 @@ const getImage = (metadata) => {
   }
 }
 
-const stripTags = (text: string) => /^<.*>(.*)<\/.*>$/gm.exec(text)[1]
-
-const truncate = (text: string) => text.slice(0, 140)
-
 export const load = async ({ params }) => {
   try {
     const markdown = await import(`../${params.slug}.md`)
-    const content = markdown.default.render().html
-    const seoImage = getImage(markdown.metadata)
 
     return {
       post: {
         ...markdown.metadata,
-        content,
+        content: markdown.default.render().html,
         date: new Date(markdown.metadata.date).toLocaleDateString("en-US", { timeZone: "UTC" }),
         slug: params.slug,
       },
       meta: {
         title: markdown.metadata.title,
-        description: truncate(stripTags(content)),
-        seoImage,
+        description: markdown.metadata.description,
+        seoImage: getImage(markdown.metadata),
       },
     }
   } catch (err) {

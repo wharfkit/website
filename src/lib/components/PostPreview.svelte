@@ -6,7 +6,7 @@
   export let videolink: string = ""
   export let transcriptlink: string = ""
   export let path: string = ""
-  export let preview: string = ""
+  export let description: string = ""
   export let image: string = ""
 </script>
 
@@ -29,7 +29,7 @@
   {/if}
 
   <div class="text">
-    {preview}
+    {description}
     <a href={path}>Read More</a>
   </div>
 </article>

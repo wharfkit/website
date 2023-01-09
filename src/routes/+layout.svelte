@@ -1,18 +1,12 @@
 <script lang="ts">
   import "../styles/app.scss"
   import "../styles/prism-lucario.css"
-  import { page } from "$app/stores"
   import Header from "$lib/components/Header.svelte"
   import Footer from "../lib/components/Footer.svelte"
   import Seo from "../lib/components/Seo.svelte"
-
-  $: pageUrl = String($page.url)
-  $: pageTitle = $page.data.meta?.title
-  $: pageDescription = $page.data.meta?.description
-  $: seoImage = $page.data.meta?.seoImage
 </script>
 
-<Seo {pageUrl} {pageTitle} {pageDescription} {seoImage} />
+<Seo />
 
 <div class="wrapper | center stack">
   <Header />

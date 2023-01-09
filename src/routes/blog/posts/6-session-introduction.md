@@ -1,9 +1,9 @@
 ---
-title: "Wharf: An Introduction to Sessions"
-date: 2023-01-03
+title: "An Introduction to Sessions in Wharf"
+date: 2023-01-09
 tags: ["article"]
 image: "/images/content/session/image.png"
-preview: This article gives a preview of the upcoming release of the Session Kit, one of the major components in the Wharf product collection. This kit aims to provide the tools required for developers to interact with an Antelope-based blockchain.
+description: This article gives a preview of the upcoming release of the Session Kit, one of the major components in the Wharf product collection. This kit aims to provide the tools required for developers to interact with an Antelope-based blockchain.
 ---
 
 [Wharf](https://wharfkit.com) is a collection of Software Development Kits (SDKs) for developers working on [Antelope](https://antelope.io) applications using JavaScript. This article gives a preview of the upcoming release of the [Session Kit](https://github.com/wharfkit/session), one of the major components in the Wharf product collection. This kit aims to provide the tools required for developers to interact with an Antelope-based blockchain.
