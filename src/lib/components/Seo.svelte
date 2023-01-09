@@ -5,7 +5,7 @@
     "Wharf provides intuitive and reliable developer tools that make it easy to build Antelope-based web apps."
   export let pageTitle = ""
   let baseTitle = "WharfKit"
-  $: fullTitle = pageTitle ? baseTitle.concat(" | ", pageTitle) : baseTitle
+  $: fullTitle = pageTitle ? pageTitle.concat(" | ", baseTitle) : baseTitle
 </script>
 
 <svelte:head>
