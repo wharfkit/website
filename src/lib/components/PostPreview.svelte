@@ -19,7 +19,9 @@
   </header>
 
   {#if image}
-    <img src={image} alt="blog post header" />
+    <a href={path}>
+      <img src={image} alt="blog post header" />
+    </a>
   {/if}
 
   {#if videolink && transcriptlink}
@@ -28,6 +30,7 @@
 
   <div class="text">
     {preview}
+    <a href={path}>Read More</a>
   </div>
 </article>
 
@@ -42,7 +45,7 @@
     font-family: var(--ff-heading);
   }
 
-  a {
+  header a {
     text-decoration: none;
   }
 

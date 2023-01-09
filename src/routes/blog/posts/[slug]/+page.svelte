@@ -9,6 +9,7 @@
   let date = data.post.date
   let videolink = data.post.videolink
   let transcriptlink = data.post.transcriptlink
+  let image = data.post.image
 
   onMount(() => {
     addCopyButton()
@@ -31,6 +32,10 @@
     <h1>{title}</h1>
     <p>{date}</p>
   </header>
+
+  {#if image}
+    <img src={image} alt="blog post header" />
+  {/if}
 
   {#if videolink}
     <Video {videolink} {transcriptlink} />
@@ -88,5 +93,10 @@
   article :global(li:not(:first-child)) {
     /* background-color: red; */
     margin-block-start: var(--s-1);
+  }
+
+  img {
+    border-radius: var(--s0);
+    margin-block: var(--s1);
   }
 </style>
