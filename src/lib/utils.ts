@@ -2,8 +2,6 @@ export async function fetchMarkdownPosts() {
   const allPostFiles = import.meta.glob("/src/routes/blog/**/*.md")
   const iterablePosts = Object.entries(allPostFiles)
 
-  const stripTags = (text: string) => /^<.*>(.*)<\/.*>$/gm.exec(text)[1]
-
   const allPosts = await Promise.all(
     iterablePosts.map(async ([path, resolver]) => {
       const resolved = await resolver()

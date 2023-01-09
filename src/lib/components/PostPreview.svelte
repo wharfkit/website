@@ -6,10 +6,8 @@
   export let videolink: string = ""
   export let transcriptlink: string = ""
   export let path: string = ""
-  export let text: string = ""
   export let preview: string = ""
-
-  // const doc = new DOMParser().parseFromString(text, "text/html")
+  export let image: string = ""
 </script>
 
 <article class="stack">
@@ -20,13 +18,16 @@
     <p>{date}</p>
   </header>
 
-  {#if videolink}
+  {#if image}
+    <img src={image} alt="blog post header" />
+  {/if}
+
+  {#if videolink && transcriptlink}
     <Video {videolink} {transcriptlink} />
   {/if}
 
   <div class="text">
     {preview}
-    <!-- {@html text} -->
   </div>
 </article>
 
@@ -47,5 +48,9 @@
 
   .text {
     font-size: var(--fs-0);
+  }
+
+  img {
+    border-radius: var(--s0);
   }
 </style>

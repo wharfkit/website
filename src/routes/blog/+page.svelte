@@ -29,9 +29,9 @@
           bind:group={filter}
           class="visually-hidden"
           name="filter"
-          id="update"
-          value="update" />
-        <label for="update">Status updates</label>
+          id="video"
+          value="video" />
+        <label for="video">Videos</label>
       </li>
       <li>
         <input
@@ -39,9 +39,9 @@
           bind:group={filter}
           class="visually-hidden"
           name="filter"
-          id="guide"
-          value="guide" />
-        <label for="guide">Guides</label>
+          id="article"
+          value="article" />
+        <label for="article">Articles</label>
       </li>
     </ul>
   </aside>
