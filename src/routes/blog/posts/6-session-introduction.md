@@ -178,10 +178,10 @@ Its capabilities at the time of this writing are very limited and subject to rad
 
 Over the coming months, the Session Kit will continue to evolve based on our current plans and feedback collected from the developer community. It is anticipated that the following features will be added next:
 
-Addition of a User Interface on top of the `SessionKit` which allows web applications to prompt for the information required to create `Session` objects.
-The creation of multiple `WalletPlugin` packages to allow interactions with the most widely used wallets in the Antelope ecosystem.
-A number of additional `LoginPlugin` and `TransactPlugin` will be created and released to test the capabilities of the plugin architecture.
-Optimizations to the core capabilities of the `Session` to allow caching and better API call patterns.
+- Addition of a User Interface on top of the `SessionKit` which allows web applications to prompt for the information required to create `Session` objects.
+- The creation of multiple `WalletPlugin` packages to allow interactions with the most widely used wallets in the Antelope ecosystem.
+- A number of additional `LoginPlugin` and `TransactPlugin` will be created and released to test the capabilities of the plugin architecture.
+- Optimizations to the core capabilities of the `Session` to allow caching and better API call patterns.
 
 While the Session Kit is still not ready for production applications, hopefully this article has outlined the benefits that it already provides. As development work continues, it will provide even greater benefits to developers building on Antelope-based blockchains.
 
