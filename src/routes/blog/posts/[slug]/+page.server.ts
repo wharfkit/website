@@ -25,9 +25,7 @@ export const load = async ({ params, fetch }) => {
     const [post] = await response.json()
 
     return {
-      post: {
-        ...post,
-      },
+      post,
       meta: {
         title: post.title,
         description: post.description,
