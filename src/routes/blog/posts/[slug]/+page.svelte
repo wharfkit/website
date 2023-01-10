@@ -80,10 +80,6 @@
   }
 
   article :global(blockquote) {
-    background-color: var(--color-secondary-50);
-    border-inline-start: 0.25em solid var(--color-secondary-200);
-    padding-block: var(--s0);
-    padding-inline: var(--s1);
   }
 
   article :global(li) {

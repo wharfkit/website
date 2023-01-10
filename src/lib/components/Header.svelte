@@ -8,6 +8,7 @@
   let navItems = [
     { name: "Blog", href: "/blog" },
     { name: "Brand", href: "/brand" },
+    { name: "Theme", href: "/theme" },
   ]
 </script>
 
@@ -43,6 +44,7 @@
   nav a {
     font-family: var(--ff-heading);
     color: var(--wharf-blue);
+    color: var(--text1);
     text-decoration: none;
     padding-block: var(--s-2);
     border-radius: var(--s-1);
@@ -53,6 +55,7 @@
   nav a::after {
     content: "";
     background-color: var(--color-secondary-700);
+    background-color: var(--surface5);
     opacity: 0;
     position: absolute;
     height: 4px;

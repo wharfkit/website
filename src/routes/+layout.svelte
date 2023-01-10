@@ -1,7 +1,6 @@
 <script lang="ts">
   import "../styles/app.scss"
   import "../styles/prism-lucario.css"
-  import "../styles/dark.scss"
   import Header from "$lib/components/Header.svelte"
   import Footer from "../lib/components/Footer.svelte"
   import Seo from "../lib/components/Seo.svelte"

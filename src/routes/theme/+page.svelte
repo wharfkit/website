@@ -18,6 +18,7 @@
       <div class="surface2 rad-shadow">2</div>
       <div class="surface3 rad-shadow">3</div>
       <div class="surface4 rad-shadow">4</div>
+      <div class="surface5 rad-shadow">5</div>
     </div>
   </section>
 
@@ -34,6 +35,10 @@
       <h1 class="text2">
         <span class="swatch text2 rad-shadow" />
         Text Color 2
+      </h1>
+      <h1 class="text3">
+        <span class="swatch text3 rad-shadow" />
+        Text Color 3
       </h1>
       <br />
       <p class="text1">
@@ -130,12 +135,12 @@
 
   .surface1 {
     background-color: var(--surface1);
-    color: var(--text2);
+    color: var(--text1);
   }
 
   .surface2 {
     background-color: var(--surface2);
-    color: var(--text2);
+    color: var(--text1);
   }
 
   .surface3 {
@@ -145,7 +150,12 @@
 
   .surface4 {
     background-color: var(--surface4);
-    color: var(--text1);
+    color: var(--text3);
+  }
+
+  .surface5 {
+    background-color: var(--surface5);
+    color: var(--text3);
   }
 
   .text1 {
@@ -157,6 +167,10 @@
 
   .text2 {
     color: var(--text2);
+  }
+
+  .text3 {
+    color: var(--text3);
   }
 
   .swatch {
@@ -171,6 +185,9 @@
     }
     &.text2 {
       background-color: var(--text2);
+    }
+    &.text3 {
+      background-color: var(--text3);
     }
   }
 

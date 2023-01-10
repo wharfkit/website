@@ -4,6 +4,7 @@
 @forward "typography";
 @forward "utilities";
 @forward "layout";
+@forward "theme";
 
 :root {
   /* Spacing */
@@ -23,6 +24,7 @@
 
   /* Styles */
   --border-style: var(--swell-mist) 2px solid;
+  --border-style: var(--border1) 2px solid;
 
   --background-transition: background-color 200ms ease-out;
 
