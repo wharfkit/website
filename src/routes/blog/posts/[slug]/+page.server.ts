@@ -18,21 +18,20 @@ const getImage = (metadata) => {
   }
 }
 
-export const load = async ({ params }) => {
+export const load = async ({ params, fetch }) => {
   try {
-    const markdown = await import(`../${params.slug}.md`)
+    const { slug } = params
+    const response = await fetch(`/api/posts/${slug}`)
+    const [post] = await response.json()
 
     return {
       post: {
-        ...markdown.metadata,
-        content: markdown.default.render().html,
-        date: new Date(markdown.metadata.date).toLocaleDateString("en-US", { timeZone: "UTC" }),
-        slug: params.slug,
+        ...post,
       },
       meta: {
-        title: markdown.metadata.title,
-        description: markdown.metadata.description,
-        seoImage: getImage(markdown.metadata),
+        title: post.title,
+        description: post.description,
+        seoImage: getImage(post),
       },
     }
   } catch (err) {
