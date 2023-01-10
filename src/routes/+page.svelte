@@ -1,5 +1,5 @@
 <script>
-  import Article from "$lib/components/Article.svelte"
+  import PostPreview from "$lib/components/PostPreview.svelte"
 
   export let data
   let { posts } = data
@@ -15,11 +15,9 @@
   </div>
 
   <ul class="posts | center stack">
-    {#each posts as { text, ...props }}
+    {#each posts as post}
       <li>
-        <Article {...props}>
-          {@html text}
-        </Article>
+        <PostPreview {...post} />
         <hr />
       </li>
     {/each}

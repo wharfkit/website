@@ -1,17 +1,12 @@
 <script lang="ts">
   import "../styles/app.scss"
-  import { page } from "$app/stores"
+  import "../styles/prism-lucario.css"
   import Header from "$lib/components/Header.svelte"
   import Footer from "../lib/components/Footer.svelte"
   import Seo from "../lib/components/Seo.svelte"
-
-  $: pageUrl = String($page.url)
-  $: pageTitle = $page.data.meta?.title
-  $: pageDescription = $page.data.meta?.description
-  $: seoImage = $page.data.meta?.seoImage
 </script>
 
-<Seo {pageUrl} {pageTitle} {pageDescription} {seoImage} />
+<Seo />
 
 <div class="wrapper | center stack">
   <Header />
@@ -23,8 +18,10 @@
 
 <style>
   .wrapper {
-    max-inline-size: 1000px;
+    max-inline-size: 1200px;
     gap: var(--s2);
+    padding-inline: var(--s1);
+    height: 100%;
   }
   main {
     flex: 1;

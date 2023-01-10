@@ -2,15 +2,19 @@
   import logoHorizontal from "$lib/assets/logos/Wharf-logo-horizontal.svg"
   import logoVertical from "$lib/assets/logos/Wharf-logo-vertical.svg"
   import ColorPalette from "./ColorPalette.svelte"
+  import Toast from "$lib/components/Toast.svelte"
 
+  let toast = ""
   let copyText = async ({ target }) => {
     navigator.clipboard.writeText(target.innerText)
+    toast = target.innerText
+    setTimeout(() => (toast = ""), 1500)
   }
 </script>
 
 <div class="with-sidebar">
   <aside class="sidebar">
-    <ul class="flow">
+    <ul>
       <li><a href="#guidelines">Guidelines</a></li>
       <li><a href="#logo">Logo</a></li>
       <li><a href="#colors">Colors</a></li>
@@ -23,7 +27,7 @@
       <h2>Brand guidelines</h2>
       <p>
         Thank you for your interest in the WharfKit brand! We would like to make it as easy as
-        possible for you to reference WharfKit in your project, so we’ve prepared all the essentials
+        possible for you to reference WharfKit in your project, so we've prepared all the essentials
         for you here: the logo, colors, font, and background images. If you would like to go further
         in your usage of the WharfKit brand, please download the Brand Guidelines PDF for additional
         images and information.
@@ -66,100 +70,102 @@
     </section>
     <section id="colors">
       <h2>Brand colors</h2>
-      <div>
-        <div class="label">
-          <h3>Wharf Blue</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td> Hex: </td>
-                <td class="underline" on:click={copyText} on:keydown={copyText}>#494E62</td>
-              </tr>
-              <tr>
-                <td> RGB: </td>
-                <td>73-78-98</td>
-              </tr>
-              <tr>
-                <td> CMYK: </td>
-                <td>26-20-0-62</td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="brand-colors">
+        <div class="brand-color">
+          <div class="label">
+            <h3>Wharf Blue</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td> Hex: </td>
+                  <td class="underline" on:click={copyText} on:keydown={copyText}>#494E62</td>
+                </tr>
+                <tr>
+                  <td> RGB: </td>
+                  <td>73-78-98</td>
+                </tr>
+                <tr>
+                  <td> CMYK: </td>
+                  <td>26-20-0-62</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="palette">
+            <ColorPalette variant="primary" />
+          </div>
         </div>
-        <div class="palette">
-          <ColorPalette variant="primary" />
+        <div class="brand-color">
+          <div class="label">
+            <h3>Reef Turquoise</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td> Hex: </td>
+                  <td class="underline" on:click={copyText} on:keydown={copyText}>#7BE7CE</td>
+                </tr>
+                <tr>
+                  <td> RGB: </td>
+                  <td>123-231-206</td>
+                </tr>
+                <tr>
+                  <td> CMYK: </td>
+                  <td>47-0-11-9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="palette">
+            <ColorPalette variant="secondary" />
+          </div>
         </div>
-      </div>
-      <div>
-        <div class="label">
-          <h3>Reef Turquoise</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td> Hex: </td>
-                <td class="underline" on:click={copyText} on:keydown={copyText}>#7BE7CE</td>
-              </tr>
-              <tr>
-                <td> RGB: </td>
-                <td>123-231-206</td>
-              </tr>
-              <tr>
-                <td> CMYK: </td>
-                <td>47-0-11-9</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="brand-color">
+          <div class="label">
+            <h3>Seafoam Mint</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td> Hex: </td>
+                  <td class="underline" on:click={copyText} on:keydown={copyText}>#B2F2E1</td>
+                </tr>
+                <tr>
+                  <td> RGB: </td>
+                  <td>178-242-225</td>
+                </tr>
+                <tr>
+                  <td> CMYK: </td>
+                  <td>26-0-7-5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="palette">
+            <ColorPalette variant="secondary" highlight="200" />
+          </div>
         </div>
-        <div class="palette">
-          <ColorPalette variant="secondary" />
-        </div>
-      </div>
-      <div>
-        <div class="label">
-          <h3>Seafoam Mint</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td> Hex: </td>
-                <td class="underline" on:click={copyText} on:keydown={copyText}>#B2F2E1</td>
-              </tr>
-              <tr>
-                <td> RGB: </td>
-                <td>178-242-225</td>
-              </tr>
-              <tr>
-                <td> CMYK: </td>
-                <td>26-0-7-5</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="palette">
-          <ColorPalette variant="secondary" highlight="200" />
-        </div>
-      </div>
-      <div>
-        <div class="label">
-          <h3>Swell Mist</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td> Hex: </td>
-                <td class="underline" on:click={copyText} on:keydown={copyText}>#F4FAF4</td>
-              </tr>
-              <tr>
-                <td> RGB: </td>
-                <td>244-250-244</td>
-              </tr>
-              <tr>
-                <td> CMYK: </td>
-                <td>2-0-2-2</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="palette">
-          <ColorPalette variant="accent" />
+        <div class="brand-color">
+          <div class="label">
+            <h3>Swell Mist</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td> Hex: </td>
+                  <td class="underline" on:click={copyText} on:keydown={copyText}>#F4FAF4</td>
+                </tr>
+                <tr>
+                  <td> RGB: </td>
+                  <td>244-250-244</td>
+                </tr>
+                <tr>
+                  <td> CMYK: </td>
+                  <td>2-0-2-2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="palette">
+            <ColorPalette variant="accent" />
+          </div>
         </div>
       </div>
     </section>
@@ -167,7 +173,7 @@
       <h2>Brand font</h2>
       <div>
         <p class="montserrat">Wharf headlines are set in Montserrat.</p>
-        <p>Typeset all body text in Inter.</p>
+        <p>All body text is typeset in Inter.</p>
       </div>
 
       <div class="fonts | switcher">
@@ -189,7 +195,14 @@
     </section>
     <section id="backgrounds">
       <h2>Background images</h2>
-      <img src="/images/background-image-example.png" alt="" />
+      <picture>
+        <source srcset="/images/brand/background-image-example.avif" type="image/avif" />
+        <source srcset="/images/brand/background-image-example.webp" type="image/webp" />
+        <img
+          src="/images/brand/background-image-example.png"
+          srcset="/images/brand/background-image-example-2x.png 2x"
+          alt="wharfkit background" />
+      </picture>
       <div class="buttons | cluster">
         <a
           class="button"
@@ -210,27 +223,16 @@
   </div>
 </div>
 
+{#if toast}
+  <Toast text={`Copied ${toast}`} />
+{/if}
+
 <style>
-  aside ul {
-    position: sticky;
-    top: var(--s3);
-    list-style: none;
-    margin-block-end: var(--s3);
-  }
-
-  aside li {
-    display: flex;
-  }
-
-  aside a {
-    flex: 1;
-    block-size: 100%;
+  .sidebar a {
     text-decoration: none;
-    color: var(--color-secondary-500);
-    padding-block: var(--s-1);
   }
 
-  aside a:hover {
+  .sidebar a:hover {
     text-decoration: underline;
   }
 
@@ -251,7 +253,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--s2);
-    max-inline-size: none;
   }
 
   section :is(h1, h2) {
@@ -311,13 +312,20 @@
     text-decoration: none;
     color: inherit;
     font-weight: inherit;
+    display: flex;
   }
 
   .fonts .box:is(:hover, :focus-visible) {
     background-color: var(--color-secondary-200);
   }
 
-  #colors > div {
+  .brand-colors {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3);
+  }
+
+  .brand-color {
     display: flex;
     flex-wrap: wrap;
   }
