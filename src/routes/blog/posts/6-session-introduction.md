@@ -1,5 +1,5 @@
 ---
-title: "An Introduction to Sessions in Wharf"
+title: "A technical preview of the Session Kit in Wharf"
 date: 2023-01-09
 tags: ["article"]
 image: "/images/content/session/image.png"
