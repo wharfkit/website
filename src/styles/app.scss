@@ -21,7 +21,9 @@ footer {
 /* Default global styles */
 
 body {
+  background-color: var(--surface1);
   color: var(--text-color);
+  color: var(--text1);
   font-family: "Inter", var(--system-ui);
   font-weight: 400;
   font-size: var(--fs-0);

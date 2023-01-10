@@ -1,5 +1,6 @@
 <script>
   import logo from "$lib/assets/logos/Wharf-logo-horizontal.svg"
+  import ThemeToggle from "./ThemeToggle.svelte"
   import { page } from "$app/stores"
 
   $: section = $page.url.pathname
@@ -20,6 +21,7 @@
     {#each navItems as { name, href }}
       <a {href} class:active={new RegExp(href).test(section)}>{name}</a>
     {/each}
+    <ThemeToggle />
   </nav>
 </header>
 
