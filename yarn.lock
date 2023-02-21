@@ -240,10 +240,10 @@
   dependencies:
     import-meta-resolve "^2.1.0"
 
-"@sveltejs/adapter-cloudflare@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-cloudflare/-/adapter-cloudflare-2.0.0.tgz#d30eac4955df68d9addb3ea82db337d1fed421dc"
-  integrity sha512-2sJ2bp6WsE3bLTHaWSh2YVK9qWVZ9NlW/UksP8kLpGzre9nns10dzkbVrGpCaaTDqBFa5/g4e4Jyo5L67Honjg==
+"@sveltejs/adapter-cloudflare@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-cloudflare/-/adapter-cloudflare-2.0.1.tgz#db4284b266a330a630d86a040a3a22accab6cbf4"
+  integrity sha512-MLV/iJrBrs3YeDf+MEUcdRg5ZFt0sYEnhufI+9eTid+hldtKIDjcpTM3wzUDBAl3d523z9sDG2g3eN+xwPER/w==
   dependencies:
     "@cloudflare/workers-types" "^4.20221111.1"
     esbuild "^0.16.3"
