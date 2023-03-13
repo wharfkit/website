@@ -83,7 +83,7 @@ With the base dependencies installed, now is time to find a place in the applica
 
 For the purposes of this simple technical preview, all of the code is included in a [single component to help illustrate how they connect](https://github.com/wharfkit/example-vite-svelte-ts/blob/3fb8c99eb19030698929edc855f651331ac94f04/src/lib/Login.svelte). When developing more complex applications, this Session Kit instance will need to be set up somewhere in the application where all components related to session management will have access to it.
 
-#### The Web UI Renderer
+### The Web UI Renderer
 
 When using the Session Kit to create sessions, the first thing that needs to be set up is a `UserInterface` instance that can be passed in to the Session Kit constructor. The [Web UI Renderer](https://github.com/wharfkit/web-ui-renderer) is an out of the box solution with a (soon to be) Wharf themed interface that provides all the base functionality required.
 
@@ -99,7 +99,7 @@ This class will automatically inject a [Shadow DOM](https://developer.mozilla.or
 
 > **Note**: If you are establishing the Session Kit and Web UI Renderer after the DOMContentLoaded event has already fired, you may need to manually call `ui.appendDialogElement()` during the "on mount" event in the framework you are using.
 
-#### The Wallet Plugin(s)
+### The Wallet Plugin(s)
 
 The next piece of the puzzle required is at least one wallet plugin to provide to the Session Kit so it knows how to authenticate users when they attempt to log in to the application. For [this example we are using the Anchor Wallet Plugin](https://github.com/wharfkit/example-vite-svelte-ts/blob/3fb8c99eb19030698929edc855f651331ac94f04/src/lib/Login.svelte#L49-L52) and it can be setup using the following code:
 
@@ -111,7 +111,7 @@ const anchor = new WalletPluginAnchor()
 
 Multiple different wallet plugins can be set up in similar ways, each optionally providing parameters in their constructors to allow for customization.
 
-#### Setting up the SessionKit instance
+### Setting up the SessionKit instance
 
 Now with a [UserInterface](https://wharfkit.github.io/session/interfaces/UserInterface.html) and one [WalletPlugin](https://wharfkit.github.io/session/interfaces/WalletPlugin.html), the instance of the [SessionKit](https://wharfkit.github.io/session/classes/SessionKit.html) itself can be [constructed with those components](https://github.com/wharfkit/example-vite-svelte-ts/blob/3fb8c99eb19030698929edc855f651331ac94f04/src/lib/Login.svelte#L12-L53) being passed in as constructor arguments.
 
