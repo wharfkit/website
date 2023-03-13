@@ -3,37 +3,39 @@ title: "A technical preview of the Session Kit user interface"
 date: 2023-03-13
 tags: ["article"]
 image: "/images/content/session/image.png"
-description: This article gives a preview of the user interface made available through Session Kit, one of the major components in the Wharf product collection.
+description: Integrating Antelope web applications with the Session Kit will help bring a better end user experience while easing the burden on application developers. Check out our 2nd technical preview where this time we show how an application can integrate logins using the end users wallets.
 ---
 
-[Wharf](https://wharfkit.com) is a collection of Software Development Kits (SDKs) for developers working on [Antelope](https://antelope.io) applications using JavaScript. This article provides a technical preview of the user interface and its integration while using the [Session Kit](https://github.com/wharfkit/session).
+Integrating [Antelope](https://antelope.io) web applications with [Wharf](https://wharfkit.com) through the [Session Kit](https://github.com/wharfkit/session) will help bring a better end user experience while easing the burden on application developers. This is the second technical preview in a series targeted towards developers who want to become early adopters of this new development kit.
 
-> Please note that this article is a "Technical Preview" using an early release of Wharf's [Session Kit](https://github.com/wharfkit/session). This article was written in March of 2023 using the `@wharfkit/session` package at version 0.3.x. Everything within this article is subject to change as the code matures. Please refer to the official documentation (when available later in 2023) on [WharfKit.com](https://wharfkit.com) for up-to-date usage instructions and information.
+> Please note this article is a "Technical Preview" using an early release of Wharf's [Session Kit](https://github.com/wharfkit/session). This article was written in March of 2023 using the `@wharfkit/session` package at version 0.3.x. Everything within this article is subject to change as the code matures. Please refer to the official documentation (when available later in 2023) on [WharfKit.com](https://wharfkit.com) for up-to-date usage instructions and information.
 
-This article will cover a small portion of what's now available to try out today. It will focus on how the Session Kit will allow users to authenticate against a web application using their wallet and perform a transaction.
+In this article we will provide a brief status update on the early development of the [Session Kit](https://github.com/wharfkit/session), followed by the technical preview of how to integrate the user interface into a web application. This will cover a small portion of what's now available to try out today. The focus will be the basics, starting with how the Session Kit allows users to authenticate against a web application with their wallet and perform a transaction.
 
-## Session Kit: Status Update
+## Status Update: Session Kit
 
 The Session Kit itself has come a long way since [the first technical preview](https://wharfkit.com/blog/posts/a-technical-preview-of-the-session-kit-in-wharf) back in January. That preview covered how to perform transactions in any Javascript application and utilize plugins to create flexible solutions to common problems.
 
 Since then, a significant [number of advancements](https://github.com/wharfkit/session/commits/dev) have been made, with a few high level items being:
 
-- A placeholder graphical user interface providing a customizable prompt system which plugins can leverage to interact with the user.
-- Implementing functions for `login`, `logout`, `restore`, and a number of other session management helpers.
-- The addition of a localization engine to support multiple languages, API call pattern optimizations, and a complete rework of the logic made available to plugins.
-- The release of [7 plugins](https://github.com/orgs/wharfkit/repositories?q=plugin&type=all&language=&sort=) for developers to leverage while building their applications and templates to help developers create their own.
+- A placeholder graphical user interface providing the required interactive components to manage a session, and a customizable prompt system which plugins can leverage to interact with the user.
+- Implementing functionality around `login`, `logout`, `restore` logic, as well as a number of other session management helpers.
+- A localization engine to support multiple languages, changes to API access patterns, and a complete rework of the logic made available to plugins.
+- The release of [7 plugins](https://github.com/orgs/wharfkit/repositories?q=plugin&type=all&language=&sort=) for developers to leverage while building their applications and templates to help them create their own.
 
 This work and more is all now available in the [0.3.x release](https://www.npmjs.com/package/@wharfkit/session?activeTab=versions) across the entirety of the Session Kit, which now makes up 18 of the [20 Github repositories](https://github.com/orgs/wharfkit/repositories?q=&type=public&language=&sort=) under the Wharf project umbrella.
 
 Work continues towards a version 0.4.x which will include a graphical overhaul, the addition of the missing `LoginPlugin`, and the incorporation of feedback from developers based on their experiences integrating it into apps.
 
-## An example app using Svelte
+## Preview: Integrating the Session Kit
 
-This example will walk through the integration of Wharf's Session Kit in a brand new app using a template.
+This example will walk through the integration of Wharf's Session Kit in a brand new web application. These examples will reference one specific implementation performed while using Svelte, Vite, and Typescript - but feel free to try this with your own application or in any web framework you may be familiar with.
 
-A completed version of this example can be found below and the links throughout this post will reference specific lines of code from it.
+A completed version of the example in Svelte can be found at the repository below.
 
 https://github.com/wharfkit/example-vite-svelte-ts
+
+Many links throughout this post will reference specific lines of code from it. This example is also functional, so to see it in action just clone down the project and run `yarn` and `yarn dev` to start it up.
 
 ### Creating the base web app
 
@@ -43,7 +45,7 @@ This repository was created using:
 yarn create vite example-wharf-app --template svelte-ts
 ```
 
-This creates a new boilerplate application using Vite, Svelte, and Typescript. Alternatively, If you'd like to try following along using one of the [many other frameworks suported](https://vitejs.dev/guide/#scaffolding-your-first-vite-project), you can use the interactive interface to select a supported one:
+This creates a new boilerplate application using Vite, Svelte, and Typescript. Alternatively, If you'd like to try following along using one of the [many other frameworks suported](https://vitejs.dev/guide/#scaffolding-your-first-vite-project), you can use the interactive interface to select a supported template:
 
 ```bash
 yarn create vite
@@ -59,7 +61,7 @@ yarn dev
 
 You are also free to use any other bundler or boilerplate of your choice. While we have not tested them all, the entirety of Wharf is designed to be framework agnostic and they should all work. If it does not, [please file a bug report](https://github.com/wharfkit/session/issues)!
 
-If you follow along and try this with your favorite app stack, we'd be interested to know your experiences and feedback. Please join us on the new Github discussion board hosted under the Wharf organization:
+If you follow along this article and try this with your favorite app stack, we'd be interested to know your experiences and feedback. Please join us on the new Github discussion board hosted under the Wharf organization and feel free to share your open source code:
 
 https://github.com/orgs/wharfkit/discussions
 
@@ -69,8 +71,8 @@ With a sample application in place, next up we need to add a few Wharf component
 
 ```bash
 yarn add @wharfkit/session \
-        @wharfkit/web-ui-renderer \
-        @wharfkit/wallet-plugin-anchor
+       @wharfkit/web-ui-renderer \
+       @wharfkit/wallet-plugin-anchor
 ```
 
 Additional plugins for wallets, transactions, and login can be added by installing and including additional packages in the project.
@@ -138,7 +140,7 @@ This results in a variable called `sessionKit` that can now be used to create, r
 
 ### Creating a Session using the `login` method of the Session Kit
 
-With an instance of the Session Kit now available in the app, it can now provide session management functionality through the default user interface provided by the Web UI Renderer. In order to initiate a user log in, the `.login()` method of the `sessionKit` needs to be called.
+With an instance of the Session Kit now available in the app, it can now provide session management functionality through the default user interface provided by the Web UI Renderer. In order to initiate the user login process, the `.login()` method of the `sessionKit` needs to be called.
 
 ```ts
 const loginResult = await sessionKit.login()
