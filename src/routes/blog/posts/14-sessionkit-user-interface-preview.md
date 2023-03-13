@@ -1,5 +1,5 @@
 ---
-title: "A technical preview of the Session Kit user interface"
+title: "An early look integrating the Session Kit with a web app"
 date: 2023-03-13
 tags: ["article"]
 image: "/images/content/session/image.png"
