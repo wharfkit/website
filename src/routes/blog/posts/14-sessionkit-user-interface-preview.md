@@ -3,10 +3,10 @@ title: "An early look integrating the Session Kit with a web app"
 date: 2023-03-13
 tags: ["article"]
 image: "/images/content/session/image.png"
-description: Integrating Antelope web applications with the Session Kit will help bring a better end user experience while easing the burden on application developers. Check out our 2nd technical preview where this time we show how an application can integrate logins using the end users wallets.
+description: Integrating Antelope web applications with the Session Kit will help bring a better end user experience while also easing the burden on the application developer. Check out our 2nd technical preview where we show how a web application can integrate sessions to log in and interact with user accounts.
 ---
 
-Integrating [Antelope](https://antelope.io) web applications with [Wharf](https://wharfkit.com) through the [Session Kit](https://github.com/wharfkit/session) will help bring a better end user experience while easing the burden on application developers. This is the second technical preview in a series targeted towards developers who want to become early adopters of this new development kit.
+Integrating [Antelope](https://antelope.io) web applications with [Wharf](https://wharfkit.com) through the [Session Kit](https://github.com/wharfkit/session) will help bring a better end user experience while easing the burden on application developers. This is the second technical preview in a series targeted towards developers who want to become early adopters of this new development kit, provide feedback, and/or help shape the future path of the project.
 
 > Please note this article is a "Technical Preview" using an early release of Wharf's [Session Kit](https://github.com/wharfkit/session). This article was written in March of 2023 using the `@wharfkit/session` package at version 0.3.x. Everything within this article is subject to change as the code matures. Please refer to the official documentation (when available later in 2023) on [WharfKit.com](https://wharfkit.com) for up-to-date usage instructions and information.
 
