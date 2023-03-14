@@ -70,9 +70,7 @@ https://github.com/orgs/wharfkit/discussions
 With a sample application in place, next up we need to add a few Wharf components, namely the [Session Kit](https://github.com/wharfkit/session), the [Web UI Renderer](https://github.com/wharfkit/web-ui-renderer), and at least one [wallet plugin](https://github.com/orgs/wharfkit/repositories?q=wallet-plugin&type=all&language=&sort=) for users to authenticate with. The following command will do so utilizing the [Anchor Wallet Plugin](https://github.com/wharfkit/wallet-plugin-anchor) for authentication.
 
 ```bash
-yarn add @wharfkit/session \
-       @wharfkit/web-ui-renderer \
-       @wharfkit/wallet-plugin-anchor
+yarn add @wharfkit/session @wharfkit/web-ui-renderer @wharfkit/wallet-plugin-anchor
 ```
 
 Additional plugins for wallets, transactions, and login can be added by installing and including additional packages in the project.
@@ -81,7 +79,7 @@ Additional plugins for wallets, transactions, and login can be added by installi
 
 With the base dependencies installed, now is time to find a place in the application where it can initialize an instance of the [Session Kit](https://github.com/wharfkit/session). The Session Kit itself should only need to be set up once and then can create/access any number of individual Sessions for multiple blockchains and/or accounts.
 
-For the purposes of this simple technical preview, all of the code is included in a [single component to help illustrate how they connect](https://github.com/wharfkit/example-vite-svelte-ts/blob/3fb8c99eb19030698929edc855f651331ac94f04/src/lib/Login.svelte). When developing more complex applications, this Session Kit instance will need to be set up somewhere in the application where all components related to session management will have access to it.
+For the purposes of this simple technical preview, all of the code is included in a [single component to help illustrate how it all connects](https://github.com/wharfkit/example-vite-svelte-ts/blob/3fb8c99eb19030698929edc855f651331ac94f04/src/lib/Login.svelte). When developing more complex applications, this Session Kit instance will need to be set up somewhere in the application where all components related to session management will have access to it.
 
 ### The Web UI Renderer
 
@@ -187,7 +185,7 @@ const action = {
 
 For the `authorization` of the action we can pass in the `session.permissionLevel`, which will automatically provide the information of the user which is currently logged in. The same goes for the `data.from` field which utilizes the `session.actor` to pass in the account name of the user.
 
-> **Note:** In future versions of Wharf, the creation of actions like this will be much more simple when using the upcoming Contract and Account Kits. These actions will be
+> **Note:** In future versions of Wharf, the creation of actions like this will be much more simple when using the upcoming Contract and Account Kits.
 
 Now with the desired action defined, that action can be passed into the `transact` method of the Session.
 
