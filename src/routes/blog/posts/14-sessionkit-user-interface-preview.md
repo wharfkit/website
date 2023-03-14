@@ -70,9 +70,7 @@ https://github.com/orgs/wharfkit/discussions
 With a sample application in place, next up we need to add a few Wharf components, namely the [Session Kit](https://github.com/wharfkit/session), the [Web UI Renderer](https://github.com/wharfkit/web-ui-renderer), and at least one [wallet plugin](https://github.com/orgs/wharfkit/repositories?q=wallet-plugin&type=all&language=&sort=) for users to authenticate with. The following command will do so utilizing the [Anchor Wallet Plugin](https://github.com/wharfkit/wallet-plugin-anchor) for authentication.
 
 ```bash
-yarn add @wharfkit/session \
-       @wharfkit/web-ui-renderer \
-       @wharfkit/wallet-plugin-anchor
+yarn add @wharfkit/session @wharfkit/web-ui-renderer @wharfkit/wallet-plugin-anchor
 ```
 
 Additional plugins for wallets, transactions, and login can be added by installing and including additional packages in the project.
