@@ -1,23 +1,4 @@
 /* ====
-  Fonts
-======= */
-
-@font-face {
-    font-family: 'Montserrat';
-    src: local('Montserrat'),
-        url('/fonts/Montserrat/Montserrat-VariableFont_wght.woff2') format('woff2'),
-        url('/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Inter';
-    src: local('Inter'), url('/fonts/Inter/Inter-VariableFont_slnt,wght.woff2') format('woff2'),
-        url('/fonts/Inter/Inter-VariableFont_slnt,wght.ttf');
-    font-display: swap;
-}
-
-/* ====
   Scale
  @link https://utopia.fyi/type/calculator/?c=320,16,1.2,1200,18,1.25,7,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 ======= */

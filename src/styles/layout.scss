@@ -34,8 +34,7 @@
     /* ↓ Only affect horizontal margins */
     margin-inline: auto;
     /* ↓ Apply the minimum horizontal space */
-    padding-inline-start: var(--s1);
-    padding-inline-end: var(--s1);
+    // padding-inline: var(--s1);
 }
 
 // Cluster

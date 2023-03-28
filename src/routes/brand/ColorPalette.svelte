@@ -8,10 +8,14 @@
         tertiary: 200,
         accent: 50,
     }
+    export let highlight = ''
 </script>
 
 <div class="palette {variant}">
-    <div class="highlight" style="background-color: var(--color-{variant}-{brand[variant]});" />
+    <div
+        class="highlight"
+        style="background-color: var(--color-{variant}-{highlight || brand[variant]});"
+    />
     <div class="colors">
         {#each weights as weight}
             <div style="background-color: var(--color-{variant}-{weight});" />

@@ -12,6 +12,8 @@ div,
 header,
 nav,
 main,
+// article,
+pre,
 footer {
     max-inline-size: none;
 }
@@ -36,20 +38,17 @@ a {
     outline: 2px solid var(--color-primary-200);
 }
 
-ul {
-    padding-inline-start: 1em;
-}
-
-p {
-    line-height: 2em;
-    letter-spacing: -0.18px;
+p,
+li {
+  line-height: var(--line-height);
+  letter-spacing: -0.18px;
 }
 
 /* Elements */
 
 button {
-    border: none;
-    background-color: none;
+  border: none;
+  background: none;
 }
 
 .button {
@@ -84,4 +83,57 @@ button {
 
 hr {
     border: var(--border-style);
+}
+
+.sidebar {
+  & ul {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: var(--s3);
+    list-style: none;
+    margin-block-end: var(--s3);
+    padding-inline-start: var(--s0);
+  }
+
+  & li {
+    display: flex;
+  }
+
+  & li > * {
+    flex: 1;
+    padding-block: var(--s-1);
+    color: var(--color-secondary-500);
+  }
+}
+
+::selection {
+  background-color: var(--seafoam-mint);
+  color: var(--color-primary-900);
+}
+
+.copy-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  cursor: pointer;
+  margin: var(--s0);
+  padding: var(--s-1);
+  border: var(--border-style);
+  border-radius: var(--s-1);
+  opacity: 0%;
+  transition: opacity 100ms ease-out;
+}
+
+pre:hover > .copy-button {
+  opacity: 30%;
+}
+
+pre:hover > .copy-button:hover {
+  opacity: 80%;
+}
+
+.copy-button:active {
+  scale: 90%;
 }
