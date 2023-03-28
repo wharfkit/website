@@ -1,19 +1,15 @@
 import type {PageServerLoad} from './$types'
 import {error} from '@sveltejs/kit'
-// import test from "src/lib/docs/get-started/installation.md"
 
-let test = 'hello'
-
-export const load: PageServerLoad = async ({params}) => {
+export const load = (async ({params}) => {
     try {
-        console.log(params)
-        const post = await import(`../../../../lib/docs/${params.section}/${params.article}.md`)
+        const {article, section} = params
+        const post = await import(`../../../../lib/docs/${section}/${article}.md`)
         return {
-            test,
             PostContent: post.default.render().html,
-            meta: {...post.metadata, slug: params.article},
+            meta: {...post.metadata, slug: article},
         }
     } catch (err) {
-        throw error(404, err)
+        throw error(404, 'Error ' + JSON.stringify(err, null, 2))
     }
-}
+}) satisfies PageServerLoad

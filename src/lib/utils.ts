@@ -1,7 +1,18 @@
 import slugify from '@sindresorhus/slugify'
 
-export const groupBy = (arr, key) =>
-    arr.reduce((acc, item) => ((acc[item[key]] = [...(acc[item[key]] || []), item]), acc), {})
+type Grouped<T> = {
+    [key: string]: T[]
+}
+
+// Groups an array of objects by a key
+
+export function groupBy<T extends Record<string, any>>(arr: T[], key: keyof T): Grouped<T> {
+    return arr.reduce((acc: Grouped<T>, item: T) => {
+        const groupKey = String(item[key])
+        acc[groupKey] = [...(acc[groupKey] || []), item]
+        return acc
+    }, {})
+}
 
 export async function fetchMarkdownPosts() {
     const allPostFiles = import.meta.glob('/src/routes/blog/**/*.md')
@@ -50,10 +61,22 @@ export async function fetchDocs() {
         iterablePosts.map(async ([path, resolver]) => {
             const {metadata} = await resolver()
             const postPath = path.slice(8, -3)
+            const pathArray = postPath.split('/')
+            const section = pathArray[2]
+
+            // remove dashes from section
+            const sectionName = section.replace(/-/g, ' ')
+            console.log(postPath, sectionName)
+
+            // capitalize first letter of each word in sectionName
+            const sectionTitle = sectionName.replace(/\w\S*/g, (w) =>
+                w.replace(/^\w/, (c) => c.toUpperCase())
+            )
 
             return {
                 ...metadata,
                 path: postPath,
+                section: sectionTitle,
             }
         })
     )

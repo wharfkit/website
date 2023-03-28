@@ -1,6 +1,5 @@
 ---
 title: Config Options
-section: Core Concepts
 ---
 
 > When you customize Markdoc, you must pass your customization into the rendering pipeline. The most common way to do this is to provide a config object to the transform phase of rendering.

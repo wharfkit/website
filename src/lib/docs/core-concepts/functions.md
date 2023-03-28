@@ -1,7 +1,5 @@
 ---
 title: Functions
-section: Core Concepts
-mdsvex: true
 ---
 
 > Functions enable you extend Markdoc with custom utilities, which let you transform your content and variables at runtime.

@@ -1,7 +1,5 @@
 ---
 title: Attributes
-section: Core Concepts
-mdsvex: true
 ---
 
 > Attributes let you pass data to Markdoc tags, similar to HTML attributes or React props.

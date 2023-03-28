@@ -1,5 +1,4 @@
 ---
-section: Get Started
 title: Installation
 ---
 

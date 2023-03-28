@@ -1,7 +1,5 @@
 ---
-section: Core Concepts
 title: Variables
-mdsvex: true
 ---
 
 <script>

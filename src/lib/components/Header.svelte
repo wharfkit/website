@@ -7,7 +7,7 @@
     let navItems = [
         {name: 'Blog', href: '/blog'},
         {name: 'Brand', href: '/brand'},
-        {name: 'Docs', href: '/docs'},
+        {name: 'Documentation', href: '/docs'},
     ]
 </script>
 

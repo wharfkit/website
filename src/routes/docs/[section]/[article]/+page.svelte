@@ -7,7 +7,3 @@
 <h1>{data.meta.title}</h1>
 
 {@html data.PostContent}
-
-<!-- <pre>
-  {JSON.stringify(data, null, 2)}
-</pre> -->

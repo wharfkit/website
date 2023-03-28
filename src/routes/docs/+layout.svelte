@@ -1,13 +1,13 @@
 <script lang="ts">
     import type {LayoutData} from './$types'
-
     export let data: LayoutData
+    const {sections} = data
 </script>
 
 <div class="wrapper | with-sidebar">
     <aside>
         <ul class="sections | flow">
-            {#each Object.entries(data.sections) as [title, articles]}
+            {#each Object.entries(sections) as [title, articles]}
                 <li>
                     {title}
                     <ul class="articles">
@@ -15,20 +15,6 @@
                             <li>
                                 <a href={article.path}>
                                     {article.title}
-                                    {#if article.mdsvex}
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24"
-                                            height="24"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            ><polyline points="20 6 9 17 4 12" /></svg
-                                        >
-                                    {/if}
                                 </a>
                             </li>
                         {/each}
@@ -43,9 +29,6 @@
     </main>
 </div>
 
-<!-- <pre>
-  {JSON.stringify(data, null, 2)}
-</pre> -->
 <style>
     main :global(h1) {
         font-size: var(--fs-3);

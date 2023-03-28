@@ -1,14 +1,15 @@
-import type {PageLoad} from './$types'
+import type {LayoutLoad} from './$types'
 import {groupBy} from '$lib/utils'
+import type { DocumentationArticle, DocumentationSections } from '../../lib/types'
 
-export const load: PageLoad = async ({fetch}) => {
+export const load = (async ({fetch}) => {
     const response = await fetch('/api/docs')
-    const docs = await response.json()
+    const docs: DocumentationArticle[] = await response.json()
 
-    const sections = groupBy(docs, 'section')
+    const sections: DocumentationSections = groupBy(docs, 'section')
 
     return {
         docs,
         sections,
     }
-}
+}) satisfies LayoutLoad

@@ -1,7 +1,5 @@
 ---
 title: Tags
-section: Core Concepts
-mdsvex: true
 ---
 
 > Tags are a syntactic extension of standard Markdown. You can use native Markdoc tags, like tables, conditionals, and partials, or create custom React components.

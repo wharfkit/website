@@ -1,7 +1,5 @@
 ---
 title: Syntax and Schema
-section: Core Concepts
-mdsvex: true
 ---
 
 ## Headers
