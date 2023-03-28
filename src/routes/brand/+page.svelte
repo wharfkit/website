@@ -243,7 +243,7 @@
 {/if}
 
 <style>
-    <<<<<<< HEAD aside ul {
+    aside ul {
         position: sticky;
         top: var(--s3);
         list-style: none;
@@ -265,14 +265,7 @@
     aside a:hover {
         text-decoration: underline;
     }
-    ======= .sidebar a {
-        text-decoration: none;
-    }
-
-    .sidebar a:hover {
-        text-decoration: underline;
-    }
-    >>>>>>>dev .content {
+    .content {
         gap: var(--s3);
     }
 
@@ -285,18 +278,13 @@
         scroll-margin-block-start: var(--s3);
     }
 
-    <<<<<<< HEAD section {
+    section {
         display: flex;
         flex-direction: column;
         gap: var(--s2);
         max-inline-size: none;
     }
-    ======= section {
-        display: flex;
-        flex-direction: column;
-        gap: var(--s2);
-    }
-    >>>>>>>dev section :is(h1, h2) {
+    section :is(h1, h2) {
         font-family: var(--ff-heading);
         font-size: var(--fs-3);
         font-weight: 600;
@@ -348,28 +336,18 @@
         font-family: var(--ff-heading);
     }
 
-    <<<<<<< HEAD .fonts a {
-        font-size: var(--fs-0);
-        text-decoration: none;
-        color: inherit;
-        font-weight: inherit;
-    }
-    ======= .fonts a {
+    .fonts a {
         font-size: var(--fs-0);
         text-decoration: none;
         color: inherit;
         font-weight: inherit;
         display: flex;
     }
-    >>>>>>>dev .fonts .box:is(:hover, :focus-visible) {
+    .fonts .box:is(:hover, :focus-visible) {
         background-color: var(--color-secondary-200);
     }
 
-    <<<<<<< HEAD #colors > div {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    ======= .brand-colors {
+    .brand-colors {
         display: flex;
         flex-direction: column;
         gap: var(--s3);
@@ -379,7 +357,7 @@
         display: flex;
         flex-wrap: wrap;
     }
-    >>>>>>>dev #colors .label {
+    #colors .label {
         flex-basis: 14rem;
         margin-inline-end: var(--s3);
     }
