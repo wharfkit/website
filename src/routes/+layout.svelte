@@ -20,7 +20,7 @@
     .wrapper {
         max-inline-size: 1440px;
         gap: var(--space-l);
-        padding-inline: var(--space-m);
+        padding-inline: var(--space-s);
         height: 100%;
     }
     main {

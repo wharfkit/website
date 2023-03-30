@@ -48,14 +48,12 @@
                 stroke-linejoin="round"
             >
                 {#if isNavOpen}
-                    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
                 {:else}
-                    <line x1="4" y1="12" x2="20" y2="12" /><line
-                        x1="4"
-                        y1="6"
-                        x2="20"
-                        y2="6"
-                    /><line x1="4" y1="18" x2="20" y2="18" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="4" y1="18" x2="20" y2="18" />
                 {/if}
             </svg>
         </button>
@@ -76,42 +74,6 @@
     <a class="button" href="https://github.com/wharfkit">Github</a>
 </header>
 
-<!-- filters -->
-
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-    <defs>
-        <filter id="shadowed-goo">
-            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
-            <feColorMatrix
-                in="blur"
-                mode="matrix"
-                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-                result="goo"
-            />
-            <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
-            <feColorMatrix
-                in="shadow"
-                mode="matrix"
-                values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2"
-                result="shadow"
-            />
-            <feOffset in="shadow" dx="1" dy="1" result="shadow" />
-            <feComposite in2="shadow" in="goo" result="goo" />
-            <feComposite in2="goo" in="SourceGraphic" result="mix" />
-        </filter>
-        <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="5" />
-            <feColorMatrix
-                in="blur"
-                mode="matrix"
-                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-                result="goo"
-            />
-            <feComposite in2="goo" in="SourceGraphic" result="mix" />
-        </filter>
-    </defs>
-</svg>
-
 <style>
     header {
         --header-background-color: var(--wharf-blue);
@@ -121,7 +83,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
         gap: var(--space-l);
-        margin-block: var(--space-l);
+        margin-block: var(--space-m);
         border-radius: var(--space-m);
     }
 
@@ -187,7 +149,6 @@
             align-items: center;
             justify-content: space-between;
             gap: var(--space-l);
-            z-index: 3;
         }
 
         .navToggle {
@@ -204,12 +165,12 @@
             filter: url('#goo');
         }
 
-        .navToggle::after {
+        /* .navToggle::after {
             content: '';
             position: absolute;
             inset: 0;
             background-color: inherit;
-            /* border-radius: 50%; */
+            border-radius: 50%;
             border-radius: var(--border-radius, var(--space-s));
             transform: translateY(calc(100% + var(--space-xs) * 2)) scale(1);
             transition: transform 500ms ease;
@@ -228,19 +189,19 @@
             transition: transform 500ms ease;
             transform-origin: top;
             z-index: -1;
-        }
+        } */
 
-        .navHidden .navToggle::after {
+        /* .navHidden .navToggle::after {
             transform: translateY(0) scale(0);
         }
         .navHidden .navToggle::before {
             transform: scaleY(0);
-        }
+        } */
 
         nav {
             /* display: none; */
             position: absolute;
-            top: calc(100% + var(--space-xs));
+            top: calc(100% + var(--space-2xs));
             flex-direction: column;
             justify-content: flex-start;
             gap: var(--space-m);
@@ -248,14 +209,12 @@
             padding: var(--space-l);
             border-radius: var(--border-radius, var(--space-s));
             width: 100%;
-            /* transform: translateY(0); */
-            transform: scale(1) translateY(0);
-            transform-origin: 95% -10%;
-            /* transform-origin: top right; */
-            transition: transform 500ms;
+            z-index: 999;
+            transform: scaleY(1) translateY(0);
+            transform-origin: top right;
+
+            transition: transform 200ms;
             transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-            /* transition-delay: 100ms; */
-            z-index: 1;
         }
 
         nav ul {
@@ -266,7 +225,7 @@
 
         .navHidden nav {
             /* transform: translateY(-200%); */
-            transform: scale(0) translateY(30%);
+            transform: scaleY(0) translateY(0);
             /* transition-delay: 100ms; */
         }
         .navHidden nav a {
