@@ -164,41 +164,7 @@
       filter: url("#goo");
     }
 
-    /* .navToggle::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-color: inherit;
-            border-radius: 50%;
-            border-radius: var(--border-radius, var(--space-s));
-            transform: translateY(calc(100% + var(--space-xs) * 2)) scale(1);
-            transition: transform 500ms ease;
-            z-index: -1;
-        }
-        .navToggle::before {
-            content: '';
-            position: absolute;
-            background-color: inherit;
-            transform: scaleY(1);
-            top: 50%;
-            width: 10px;
-            height: 100px;
-            left: auto;
-            right: auto;
-            transition: transform 500ms ease;
-            transform-origin: top;
-            z-index: -1;
-        } */
-
-    /* .navHidden .navToggle::after {
-            transform: translateY(0) scale(0);
-        }
-        .navHidden .navToggle::before {
-            transform: scaleY(0);
-        } */
-
     nav {
-      /* display: none; */
       position: absolute;
       top: calc(100% + var(--space-2xs));
       flex-direction: column;
@@ -223,9 +189,7 @@
     }
 
     .navHidden nav {
-      /* transform: translateY(-200%); */
       transform: scaleY(0) translateY(0);
-      /* transition-delay: 100ms; */
     }
     .navHidden nav a {
       color: var(--header-background-color, var(--swell-mist));
