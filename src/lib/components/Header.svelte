@@ -9,7 +9,6 @@
     let navItems = [
         {name: 'Blog', href: '/blog'},
         {name: 'Brand', href: '/brand'},
-        {name: 'Theme', href: '/theme'},
     ]
 </script>
 
@@ -23,8 +22,8 @@
         {#each navItems as { name, href }}
             <a {href} class:active={new RegExp(href).test(section)}>{name}</a>
         {/each}
-        <ThemeToggle />
     </nav>
+    <ThemeToggle />
 </header>
 
 <style>

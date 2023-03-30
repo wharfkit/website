@@ -2,15 +2,24 @@
     import {onMount} from 'svelte'
 
     onMount(() => {
-        const themeToggle = document.querySelector('.theme-toggle')
+        // on mount, check localstorage for theme preference. if it exists, set the checkbox to checked if it's light
+        const theme = localStorage.getItem('theme')
         const themeToggleInput = document.querySelector('.theme-toggle input[type="checkbox"]')
 
+        if (theme) {
+            if (theme === 'light') {
+                themeToggleInput?.setAttribute('checked', '')
+            }
+            document.firstElementChild?.setAttribute('color-scheme', theme)
+        }
+
+        const themeToggle = document.querySelector('.theme-toggle')
+
         themeToggleInput?.addEventListener('change', () => {
+            const value = themeToggleInput.checked ? 'light' : 'dark'
             themeToggle?.classList.toggle('theme-toggle--toggled')
-            document.firstElementChild?.setAttribute(
-                'color-scheme',
-                themeToggleInput.checked ? 'light' : 'dark'
-            )
+            document.firstElementChild?.setAttribute('color-scheme', value)
+            localStorage.setItem('theme', value)
         })
     })
 </script>
