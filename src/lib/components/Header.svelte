@@ -1,24 +1,20 @@
 <script lang="ts">
   import logo from "$lib/assets/logos/Wharf-logo-horizontal.svg"
+  import darkLogo from "$lib/assets/logos/Wharf-logo-horizontal-dark.svg"
   import { page } from "$app/stores"
-  import { fly } from "svelte/transition"
 
   $: section = $page.url.pathname
 
   let navItems = [
-    { name: "Wharf", href: "#" },
-    { name: "Kits", href: "#" },
-    { name: "Learn", href: "#" },
-    { name: "Documentation", href: "#" },
+    // { name: "Wharf", href: "#" },
+    // { name: "Kits", href: "#" },
+    // { name: "Learn", href: "#" },
+    // { name: "Documentation", href: "#" },
     { name: "Blog", href: "/blog" },
     { name: "Brand", href: "/brand" },
   ]
 
   let isNavOpen = false
-
-  function openNav() {
-    isNavOpen = true
-  }
 
   function closeNav() {
     isNavOpen = false
@@ -32,7 +28,10 @@
 <header class:navHidden={!isNavOpen}>
   <div class="left">
     <a href="/">
-      <img src={logo} alt="wharf logo" width="203" />
+      <picture>
+        <!-- <source srcset={darkLogo} type="image/svg+xml" media="(prefers-color-scheme: dark)" /> -->
+        <img src={logo} alt="wharf logo" width="203" />
+      </picture>
     </a>
     <button class="navToggle close" on:click={toggleNav}>
       <span class="visually-hidden">{isNavOpen ? "Close" : "Open"}</span>
@@ -75,8 +74,8 @@
 
 <style>
   header {
-    --header-background-color: var(--wharf-blue);
-    --header-text-color: white;
+    /* --header-background-color: var(--wharf-blue); */
+    /* --header-text-color: white; */
     background: var(--header-background-color, transparent);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -92,6 +91,7 @@
 
   nav ul {
     display: flex;
+    justify-content: center;
     gap: var(--space-l);
     list-style: none;
     padding-inline: 0;
