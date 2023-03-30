@@ -6,10 +6,10 @@
   $: section = $page.url.pathname
 
   let navItems = [
-    { name: "Wharf", href: "#" },
-    { name: "Kits", href: "#" },
-    { name: "Learn", href: "#" },
-    { name: "Documentation", href: "#" },
+    // { name: "Wharf", href: "#" },
+    // { name: "Kits", href: "#" },
+    // { name: "Learn", href: "#" },
+    // { name: "Documentation", href: "#" },
     { name: "Blog", href: "/blog" },
     { name: "Brand", href: "/brand" },
   ]
@@ -29,6 +29,7 @@
   <div class="left">
     <a href="/">
       <picture>
+        <!-- TODO: fix shrinking svg before mobile breakpoints -->
         <!-- <source srcset={darkLogo} type="image/svg+xml" media="(prefers-color-scheme: dark)" /> -->
         <img src={logo} alt="wharf logo" width="203" />
       </picture>
@@ -92,7 +93,6 @@
   nav ul {
     display: flex;
     justify-content: center;
-    /* gap: var(--space-xs); */
     list-style: none;
     padding-inline: 0;
   }
@@ -105,7 +105,6 @@
     padding-inline: var(--space-xs);
     border-radius: var(--space-xs);
     font-size: var(--fs-0);
-    /* position: absolute; */
   }
 
   nav a:is(:hover, :focus) {
