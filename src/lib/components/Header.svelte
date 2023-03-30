@@ -6,10 +6,10 @@
   $: section = $page.url.pathname
 
   let navItems = [
-    // { name: "Wharf", href: "#" },
-    // { name: "Kits", href: "#" },
-    // { name: "Learn", href: "#" },
-    // { name: "Documentation", href: "#" },
+    { name: "Wharf", href: "#" },
+    { name: "Kits", href: "#" },
+    { name: "Learn", href: "#" },
+    { name: "Documentation", href: "#" },
     { name: "Blog", href: "/blog" },
     { name: "Brand", href: "/brand" },
   ]
@@ -92,7 +92,7 @@
   nav ul {
     display: flex;
     justify-content: center;
-    gap: var(--space-l);
+    /* gap: var(--space-xs); */
     list-style: none;
     padding-inline: 0;
   }
@@ -101,33 +101,19 @@
     font-family: var(--ff-heading);
     color: var(--header-text-color, var(--wharf-blue));
     text-decoration: none;
-    padding-block: var(--space-3xs);
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-xs);
     border-radius: var(--space-xs);
     font-size: var(--fs-0);
-    position: relative;
+    /* position: absolute; */
   }
 
-  nav a::after {
-    content: "";
-    background-color: var(--color-secondary-700);
-    opacity: 0;
-    position: absolute;
-    height: 4px;
-    inset: 0;
-    top: auto;
-    border-radius: inherit;
-    transition: opacity 200ms ease-out;
+  nav a:is(:hover, :focus) {
+    background: var(--nav-background-color, var(--swell-mist));
   }
 
-  nav a:is(:hover, :focus-visible)::after {
-    opacity: 50%;
-  }
-  nav a:is(.active)::after {
-    opacity: 70%;
-  }
-
-  nav a:is(:active)::after {
-    opacity: 100%;
+  nav a:is(:active) {
+    font-weight: 800;
   }
 
   a.button {
@@ -138,7 +124,7 @@
 
   @media (max-width: 768px) {
     header {
-      --nav-background-color: var(--color-primary-900);
+      /* --nav-background-color: var(--color-primary-900); */
       position: relative;
       grid-template-columns: 1fr;
     }
@@ -171,7 +157,7 @@
       justify-content: flex-start;
       gap: var(--space-m);
       background: var(--nav-background-color, var(--swell-mist));
-      padding: var(--space-l);
+      padding: var(--space-s);
       border-radius: var(--border-radius, var(--space-s));
       width: 100%;
       z-index: 999;
@@ -185,7 +171,22 @@
     nav ul {
       display: flex;
       flex-direction: column;
-      gap: var(--space-m);
+      gap: var(--space-s);
+    }
+
+    nav li {
+      /* border: 2px solid var(--nav-border-color, var(--color-accent-100)); */
+      border-radius: var(--border-radius, var(--space-2xs));
+    }
+
+    nav a {
+      display: block;
+      padding-block: var(--space-2xs);
+    }
+
+    nav a:is(:active) {
+      font-weight: 600;
+      background: var(--header-background-color, white);
     }
 
     .navHidden nav {
