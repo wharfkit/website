@@ -86,8 +86,9 @@
     padding-inline: var(--space-m);
   }
 
-  article :global(li) {
-    line-height: var(--line-height);
+  article :global(li),
+  article :global(p) {
+    line-height: var(--space-l);
   }
 
   article :global(li:not(:first-child)) {

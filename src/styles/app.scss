@@ -40,8 +40,14 @@ a {
 
 p,
 li {
-  line-height: var(--line-height);
-  letter-spacing: -0.18px;
+  // letter-spacing: -0.18px;
+  line-height: 1.5;
+}
+
+h2,
+h3 {
+  line-height: 1.2;
+  letter-spacing: -0.79px;
 }
 
 /* Elements */
@@ -52,10 +58,10 @@ button {
 }
 
 .button {
-  background-color: var(--button-background, var(--color-secondary-500));
-  color: var(--button-text, white);
+  background-color: var(--button-background, var(--reef-turquoise));
+  color: var(--button-text, var(--wharf-blue));
   border-radius: var(--space-s);
-  // padding: 1em;
+  padding: var(--space-xs) var(--space-m);
   min-height: 53px;
   text-decoration: none;
   font-size: var(--fs-0);
@@ -76,7 +82,7 @@ button {
 }
 
 .button:is(:hover, :focus-visible) {
-  background-color: var(--button-background-hover, var(--color-secondary-600));
+  background-color: var(--button-background-hover, var(--color-secondary-400));
 }
 
 hr {

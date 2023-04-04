@@ -153,8 +153,7 @@
     font-weight: 600;
     color: var(--wharf-blue); /* fallback */
     color: rgb(var(--card-content-color));
-    max-width: 8ch;
-    line-height: 1.2em;
+    max-width: 7ch;
   }
 
   ul {
@@ -170,7 +169,6 @@
     font-weight: 500;
     color: var(--color-neutral-700); /* fallback */
     color: rgb(var(--card-content-color));
-    line-height: 1.5;
     position: relative;
   }
 
@@ -198,7 +196,7 @@
     font-size: var(--fs-0);
     font-weight: 700;
     text-decoration: none;
-    margin-block-start: var(--space-l);
+    margin-block-start: var(--space-s);
     padding: var(--space-xs) var(--space-m);
     border-radius: var(--space-xs);
     color: var(--wharf-blue); /* fallback */

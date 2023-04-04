@@ -7,7 +7,7 @@
 
   let navItems = [
     // { name: "Wharf", href: "#" },
-    // { name: "Kits", href: "#" },
+    { name: "Kits", href: "/kits" },
     // { name: "Learn", href: "#" },
     // { name: "Documentation", href: "#" },
     { name: "Blog", href: "/blog" },
@@ -86,6 +86,10 @@
     border-radius: var(--space-m);
   }
 
+  .left {
+    padding-inline-start: var(--space-2xs);
+  }
+
   .navToggle {
     display: none;
   }
@@ -118,7 +122,8 @@
   a.button {
     justify-self: end;
     padding-inline: var(--space-xl);
-    margin: var(--space-s);
+    /* margin: var(--space-s); */
+    margin-inline: var(--space-s);
     font-family: var(--ff-body);
   }
 

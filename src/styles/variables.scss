@@ -4,7 +4,7 @@
 @forward "typography";
 @forward "utilities";
 @forward "layout";
-/* @link https://utopia.fyi/space/calculator?c=320,16,1.2,2880,18,1.25,9,3,&s=0.75|0.5|0.25,1.5|2|3|4|5|6|8|10|12|14,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/space/calculator?c=320,16,1.2,2880,18,1.25,9,3,&s=0.75|0.5|0.25,1.5|2|3|4|5|6|8|10|12|14,s-l|m-4xl&g=s,l,xl,12 */
 
 :root {
   /* Space 3xs: 4px → 5px */
@@ -92,6 +92,9 @@
   /* Custom pairs */
   /* Space s-l: 16px → 36px */
   --space-s-l: clamp(1rem, calc(0.84rem + 0.78vw), 2.25rem);
+
+  /* Space m-4xl: 24px → 108px */
+  --space-m-4xl: clamp(1.5rem, calc(0.84rem + 3.28vw), 6.75rem);
 
   /* Styles */
   --measure: 75ch;
