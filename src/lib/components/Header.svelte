@@ -119,6 +119,7 @@
     justify-self: end;
     padding-inline: var(--space-xl);
     margin: var(--space-s);
+    font-family: var(--ff-body);
   }
 
   @media (max-width: 768px) {
