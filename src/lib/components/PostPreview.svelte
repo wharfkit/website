@@ -36,7 +36,7 @@
 
 <style>
   article {
-    --gap: var(--s2);
+    --gap: var(--space-l);
   }
 
   header {
@@ -54,6 +54,6 @@
   }
 
   img {
-    border-radius: var(--s0);
+    border-radius: var(--space-s);
   }
 </style>

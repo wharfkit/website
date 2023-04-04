@@ -18,9 +18,9 @@
 
 <style>
   .wrapper {
-    max-inline-size: 1200px;
-    gap: var(--s2);
-    padding-inline: var(--s1);
+    max-inline-size: 1440px;
+    gap: var(--space-l);
+    padding-inline: var(--space-s);
     height: 100%;
   }
   main {

@@ -1,19 +1,48 @@
 /* ====
   Scale
- @link https://utopia.fyi/type/calculator/?c=320,16,1.2,1200,18,1.25,7,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 ======= */
 
-/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,18,1.25,7,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,2880,18,1.25,9,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
-  --fs-0: clamp(1rem, calc(0.96rem + 0.18vw), 1.13rem);
-  --fs-1: clamp(1.2rem, calc(1.14rem + 0.29vw), 1.41rem);
-  --fs-2: clamp(1.44rem, calc(1.35rem + 0.45vw), 1.76rem);
-  --fs-3: clamp(1.73rem, calc(1.59rem + 0.67vw), 2.2rem);
-  --fs-4: clamp(2.07rem, calc(1.88rem + 0.96vw), 2.75rem);
-  --fs-5: clamp(2.49rem, calc(2.22rem + 1.35vw), 3.43rem);
-  --fs-6: clamp(2.99rem, calc(2.61rem + 1.86vw), 4.29rem);
-  --fs-7: clamp(3.58rem, calc(3.07rem + 2.54vw), 5.36rem);
+  /* Step -3: 9.26px → 9.22px */
+  --fs--3: clamp(0.58rem, calc(0.58rem + 0vw), 0.58rem);
+
+  /* Step -2: 11.11px → 11.52px */
+  --fs--2: clamp(0.69rem, calc(0.69rem + 0.02vw), 0.72rem);
+
+  /* Step -1: 13.33px → 14.40px */
+  --fs--1: clamp(0.83rem, calc(0.82rem + 0.04vw), 0.9rem);
+
+  /* Step 0: 16.00px → 18.00px */
+  --fs-0: clamp(1rem, calc(0.98rem + 0.08vw), 1.13rem);
+
+  /* Step 1: 19.20px → 22.50px */
+  --fs-1: clamp(1.2rem, calc(1.17rem + 0.13vw), 1.41rem);
+
+  /* Step 2: 23.04px → 28.13px */
+  --fs-2: clamp(1.44rem, calc(1.4rem + 0.2vw), 1.76rem);
+
+  /* Step 3: 27.65px → 35.16px */
+  --fs-3: clamp(1.73rem, calc(1.67rem + 0.29vw), 2.2rem);
+
+  /* Step 4: 33.18px → 43.95px */
+  --fs-4: clamp(2.07rem, calc(1.99rem + 0.42vw), 2.75rem);
+
+  /* Step 5: 39.81px → 54.93px */
+  --fs-5: clamp(2.49rem, calc(2.37rem + 0.59vw), 3.43rem);
+
+  /* Step 6: 47.78px → 68.66px */
+  --fs-6: clamp(2.99rem, calc(2.82rem + 0.82vw), 4.29rem);
+
+  /* Step 7: 57.33px → 85.83px */
+  --fs-7: clamp(3.58rem, calc(3.36rem + 1.11vw), 5.36rem);
+
+  /* Step 8: 68.80px → 107.29px */
+  --fs-8: clamp(4.3rem, calc(4rem + 1.5vw), 6.71rem);
+
+  /* Step 9: 82.56px → 134.11px */
+  --fs-9: clamp(5.16rem, calc(4.76rem + 2.01vw), 8.38rem);
 
   --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";

@@ -237,22 +237,22 @@
   }
 
   .content {
-    gap: var(--s3);
+    gap: var(--space-xl);
   }
 
   .content > :not(:last-child) {
-    padding-block-end: var(--s3);
+    padding-block-end: var(--space-xl);
     border-block-end: var(--border-style);
   }
 
   :target {
-    scroll-margin-block-start: var(--s3);
+    scroll-margin-block-start: var(--space-xl);
   }
 
   section {
     display: flex;
     flex-direction: column;
-    gap: var(--s2);
+    gap: var(--space-l);
   }
 
   section :is(h1, h2) {
@@ -263,7 +263,7 @@
 
   .buttons {
     display: flex;
-    gap: var(--s0);
+    gap: var(--space-s);
   }
 
   .buttons > * {
@@ -272,7 +272,7 @@
 
   .logos .frame {
     aspect-ratio: 1;
-    padding: var(--s2);
+    padding: var(--space-l);
   }
 
   .logos .frame img {
@@ -281,21 +281,21 @@
 
   .logos .frame {
     border: var(--border-style);
-    border-radius: var(--s0);
+    border-radius: var(--space-s);
   }
 
   .fonts .box {
     background-color: var(--color-secondary-100);
-    border-radius: var(--s0);
-    padding: var(--s2);
-    gap: var(--s-5);
+    border-radius: var(--space-s);
+    padding: var(--space-l);
+    gap: var(--space-3xs);
     transition: var(--background-transition);
   }
 
   p.montserrat {
     font-size: var(--fs-1);
     line-height: 1.5em;
-    margin-block-end: var(--s-1);
+    margin-block-end: var(--space-xs);
   }
 
   .fonts h3 {
@@ -322,7 +322,7 @@
   .brand-colors {
     display: flex;
     flex-direction: column;
-    gap: var(--s3);
+    gap: var(--space-xl);
   }
 
   .brand-color {
@@ -332,14 +332,14 @@
 
   #colors .label {
     flex-basis: 14rem;
-    margin-inline-end: var(--s3);
+    margin-inline-end: var(--space-xl);
   }
 
   #colors h3 {
     font-family: var(--ff-heading);
     font-size: var(--fs-1);
     font-weight: 600;
-    margin-block-end: var(--s-4);
+    margin-block-end: var(--space-3xs);
   }
 
   #colors table {
@@ -354,7 +354,7 @@
   #colors .palette {
     flex-grow: 1;
     flex-basis: 14rem;
-    margin-block-start: var(--s-1);
+    margin-block-start: var(--space-xs);
   }
 
   .underline {
