@@ -53,6 +53,10 @@
     padding: 0;
   }
 
+  li {
+    line-height: 2em;
+  }
+
   h3 {
     font-family: var(--ff-heading);
     font-weight: 600;
