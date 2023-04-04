@@ -25,22 +25,22 @@
 
 <style>
   footer {
-    background: white;
-    max-inline-size: var(--max-inline-size);
-    margin-inline: auto;
+    background: var(--footer-background, white);
   }
 
+  nav {
+    max-inline-size: var(--max-inline-size);
+    margin-inline: auto;
+    min-inline-size: 85%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    justify-content: stretch;
+  }
   img {
     max-width: 60px;
     flex-basis: 5rem;
     grid-row: 1 / 3;
     margin: var(--space-s);
-  }
-  nav {
-    min-inline-size: 85%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-    justify-content: stretch;
   }
 
   div.box {
