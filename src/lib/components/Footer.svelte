@@ -25,6 +25,9 @@
 
 <style>
   footer {
+    background: white;
+    max-inline-size: var(--max-inline-size);
+    margin-inline: auto;
   }
 
   img {
