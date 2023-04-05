@@ -12,12 +12,128 @@ div,
 header,
 nav,
 main,
+// article,
+pre,
 footer {
   max-inline-size: none;
 }
 
-/* Global styles */
+/* Default global styles */
+
+body {
+  color: var(--text-color);
+  font-family: "Inter", var(--system-ui);
+  font-weight: 400;
+  font-size: var(--fs-0);
+}
+
+a {
+  color: var(--color-secondary-600);
+  font-weight: 600;
+  // text-underline-position: under;
+  text-decoration-thickness: 2px;
+}
+
+:is(button, a):focus-visible {
+  outline: 2px solid var(--color-primary-200);
+}
+
+p,
+li {
+  line-height: var(--line-height);
+  letter-spacing: -0.18px;
+}
+
+/* Elements */
+
+button {
+  border: none;
+  background: none;
+}
+
+.button {
+  --button-background: var(--color-secondary-500);
+  --button-background-hover: var(--color-secondary-600);
+  --button-text: white;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border-radius: var(--s0);
+  padding: 1em;
+  text-decoration: none;
+  font-size: var(--fs-0);
+  font-family: var(--ff-heading);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  transition: var(--background-transition);
+}
+
+.button[data-type="secondary"] {
+  --button-background: var(--color-secondary-100);
+  --button-background-hover: var(--color-secondary-200);
+  --button-text: var(--color-secondary-900);
+}
+
+.button:is(:hover, :focus-visible) {
+  background-color: var(--button-background-hover);
+}
 
 hr {
-  border: var(--swell-mist) 1px solid;
+  border: var(--border-style);
+}
+
+.sidebar {
+  & ul {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: var(--s3);
+    list-style: none;
+    margin-block-end: var(--s3);
+    padding-inline-start: var(--s0);
+  }
+
+  & li {
+    display: flex;
+  }
+
+  & li > * {
+    flex: 1;
+    padding-block: var(--s-1);
+    color: var(--color-secondary-500);
+  }
+}
+
+::selection {
+  background-color: var(--seafoam-mint);
+  color: var(--color-primary-900);
+}
+
+.copy-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  cursor: pointer;
+  margin: var(--s0);
+  padding: var(--s-1);
+  border: var(--border-style);
+  border-radius: var(--s-1);
+  opacity: 0%;
+  transition: opacity 100ms ease-out;
+}
+
+pre:hover > .copy-button {
+  opacity: 30%;
+}
+
+pre:hover > .copy-button:hover {
+  opacity: 80%;
+}
+
+.copy-button:active {
+  scale: 90%;
 }

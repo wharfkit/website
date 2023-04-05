@@ -1,44 +1,73 @@
 <script>
-  // your script goes here
+  import logo from "$lib/assets/logos/Wharf-logo-horizontal.svg"
+  import { page } from "$app/stores"
+
+  $: section = $page.url.pathname
+
+  let navItems = [
+    { name: "Blog", href: "/blog" },
+    { name: "Brand", href: "/brand" },
+  ]
 </script>
 
-<header class="cluster">
-  <a class="logo | cluster" href="/">
-    <img src="/images/wharf-logo.svg" alt="wharf logo" />
-    <img src="/images/wharf-wordmark.svg" alt="wharf wordmark" />
-  </a>
-  <nav class="">
-    <a href="/progress">Progress</a>
-    <a href="/about">Our process</a>
+<header class="">
+  <div class="logo">
+    <a href="/">
+      <img src={logo} alt="wharf logo" width="203" />
+    </a>
+  </div>
+  <nav>
+    {#each navItems as { name, href }}
+      <a {href} class:active={new RegExp(href).test(section)}>{name}</a>
+    {/each}
   </nav>
 </header>
 
 <style>
   header {
-    --justify-content: space-between;
-    --align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     padding-block: var(--s2);
   }
 
-  .logo {
-    --justify-content: flex-start;
-  }
-
   nav {
-    --justify-content: flex-start;
-    /* --gap: rem; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s2);
   }
 
   nav a {
+    font-family: var(--ff-heading);
     color: var(--wharf-blue);
     text-decoration: none;
-    padding-inline: 1em;
-    padding-block: 0.5em;
+    padding-block: var(--s-2);
     border-radius: var(--s-1);
-    font-size: var(--fs-400);
+    font-size: var(--fs-0);
+    position: relative;
   }
 
-  nav a:hover {
-    background-color: var(--swell-mist);
+  nav a::after {
+    content: "";
+    background-color: var(--color-secondary-700);
+    opacity: 0;
+    position: absolute;
+    height: 4px;
+    inset: 0;
+    top: auto;
+    border-radius: inherit;
+    transition: opacity 200ms ease-out;
+  }
+
+  nav a:is(:hover, :focus-visible)::after {
+    opacity: 50%;
+  }
+  nav a:is(.active)::after {
+    opacity: 70%;
+  }
+
+  nav a:is(:active)::after {
+    opacity: 100%;
   }
 </style>

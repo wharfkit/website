@@ -2,7 +2,7 @@
   export let link = ""
 </script>
 
-<a href={link}>
+<a href={link} class="button">
   <slot />
   <svg width="24" height="24" fill="none">
     <path
@@ -32,21 +32,4 @@
   </svg></a>
 
 <style>
-  a {
-    background-color: var(--color-primary-600);
-    border-radius: var(--s-1);
-    text-align: center;
-    padding: 1em;
-    color: var(--white);
-    text-decoration: none;
-    font-size: var(--fs-300);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5em;
-  }
-
-  svg {
-    /* height: 0.75em; */
-  }
 </style>

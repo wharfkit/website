@@ -8,7 +8,7 @@
 :root {
   /* Spacing */
   --ratio: 1.5;
-  --measure: 60ch;
+  --measure: 75ch;
   --s-5: calc(var(--s-4) / var(--ratio));
   --s-4: calc(var(--s-3) / var(--ratio));
   --s-3: calc(var(--s-2) / var(--ratio));
@@ -20,4 +20,11 @@
   --s3: calc(var(--s2) * var(--ratio));
   --s4: calc(var(--s3) * var(--ratio));
   --s5: calc(var(--s4) * var(--ratio));
+
+  /* Styles */
+  --border-style: var(--swell-mist) 2px solid;
+
+  --background-transition: background-color 200ms ease-out;
+
+  --line-height: var(--s2);
 }
