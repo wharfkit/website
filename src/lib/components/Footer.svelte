@@ -33,7 +33,7 @@
     margin-inline: auto;
     min-inline-size: 85%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
     justify-content: stretch;
   }
   img {
@@ -45,7 +45,7 @@
 
   div.box {
     padding: var(--space-s);
-    /* inline-size: min-content; */
+    inline-size: max-content;
     display: flex;
     flex-direction: column;
     gap: var(--space-2xs);
@@ -63,24 +63,25 @@
   h3 {
     font-family: var(--ff-heading);
     font-weight: 600;
-    font-size: var(--fs--1);
+    font-size: var(--fs-0);
     color: var(--color-neutral-500);
+    white-space: nowrap;
   }
 
   a {
     display: block;
     height: 100%;
-    color: var(--color-neutral-900);
+    color: #000;
     text-decoration: none;
     font-weight: 400;
     font-size: var(--fs--1);
   }
 
   a:hover {
-    color: var(--color-primary-500);
+    color: var(--color-neutral-500);
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 39rem) {
     img {
       /* grid-row: 1 / 2; */
       grid-column: 1 / 3;

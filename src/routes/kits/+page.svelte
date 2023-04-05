@@ -1,13 +1,11 @@
 <script>
-  // your script goes here
-
   import Card from "$lib/components/Card.svelte"
   import CardContainer from "$lib/components/CardContainer.svelte"
   import SessionKitIcon from "$lib/assets/icons/session-kit.svg"
   import ContractKitIcon from "$lib/assets/icons/contract-kit.svg"
   import AccountKitIcon from "$lib/assets/icons/account-kit.svg"
   import frame2518 from "$lib/assets/images/frame-2518.webp"
-  import lines from "$lib/assets/images/2412.webp"
+  import lines from "$lib/assets/patterns/2412.svg"
 
   const cardData = [
     {
@@ -50,37 +48,17 @@
 <svelte:head>
   <style>
     #root {
-      /* background: url("/src/lib/assets/patterns/2412.svg"),
-        linear-gradient(
-          180deg,
-          hsl(228deg 15% 34%) 0%,
-          hsl(184deg 20% 42%) 7%,
-          hsl(173deg 24% 50%) 13%,
-          hsl(169deg 36% 57%) 20%,
-          hsl(167deg 51% 64%) 27%,
-          hsl(166deg 69% 69%) 33%,
-          hsl(166deg 69% 72%) 40%,
-          hsl(165deg 69% 75%) 47%,
-          hsl(165deg 70% 78%) 53%,
-          hsl(164deg 70% 80%) 60%,
-          hsl(164deg 71% 82%) 67%,
-          hsl(163deg 69% 86%) 73%,
-          hsl(160deg 66% 89%) 80%,
-          hsl(157deg 62% 92%) 87%,
-          hsl(150deg 55% 94%) 93%,
-          hsl(120deg 37% 97%) 100%
-        ),
-        var(--swell-mist); */
-      background: url("/src/lib/assets/patterns/2412.svg"),
-        linear-gradient(180deg, #494e62 0%, #7be7ce 66.15%, #b2f2e1 84.37%, #f4faf4 100%),
-        var(--swell-mist);
-      background-size: 100%, 100% calc(var(--space-8xl) * 5), 100%;
-      background-position: 0 3rem, 0 0, 0 0;
-      background-repeat: no-repeat;
+      background: var(--page-background-gradient);
+      background-size: var(--page-background-size);
+      background-position: var(--page-background-position);
+      background-repeat: var(--page-background-repeat);
       --header-background-color: white;
     }
   </style>
 </svelte:head>
+
+<img src={lines} alt="" class="lines one" />
+<img src={lines} alt="" class="lines two" />
 
 <div class="page | stack">
   <div class="hero | center stack">
@@ -147,8 +125,25 @@
 </div>
 
 <style lang="scss">
+  .lines {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    // height: 100%;
+    // z-index: -1;
+
+    &.one {
+    }
+
+    &.two {
+      transform: translateY(8%);
+    }
+  }
+
   .page {
     gap: var(--space-4xl);
+    margin-bottom: var(--space-6xl);
   }
 
   .center {
@@ -162,13 +157,14 @@
     padding-top: var(--space-xl);
     padding-bottom: var(--space-3xl);
     font-family: var(--ff-heading);
-    gap: var(--space-2xs);
+    gap: var(--space-xs);
   }
 
   .hero h1 {
     font-size: var(--fs-7);
     font-weight: 600;
     color: white;
+    line-height: 1.2;
   }
 
   .hero p {
@@ -220,6 +216,7 @@
       color: black;
       font-family: var(--ff-heading);
       font-weight: 600;
+      line-height: 1.2;
     }
 
     &.switcher {
@@ -239,7 +236,7 @@
 
       & .card {
         padding-block: var(--space-xl);
-        padding-inline: var(--space-3xl);
+        padding-inline: var(--space-2xl-3xl);
         border-radius: var(--space-l);
         display: flex;
         flex-direction: column;
