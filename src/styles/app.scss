@@ -55,13 +55,11 @@ button {
 }
 
 .button {
-  --button-background: var(--color-secondary-500);
-  --button-background-hover: var(--color-secondary-600);
-  --button-text: white;
-  background-color: var(--button-background);
-  color: var(--button-text);
-  border-radius: var(--s0);
-  padding: 1em;
+  background-color: var(--button-background, var(--color-secondary-500));
+  color: var(--button-text, white);
+  border-radius: var(--space-s);
+  // padding: 1em;
+  min-height: 53px;
   text-decoration: none;
   font-size: var(--fs-0);
   font-family: var(--ff-heading);
@@ -81,7 +79,7 @@ button {
 }
 
 .button:is(:hover, :focus-visible) {
-  background-color: var(--button-background-hover);
+  background-color: var(--button-background-hover, var(--color-secondary-600));
 }
 
 hr {
@@ -93,10 +91,10 @@ hr {
     display: flex;
     flex-direction: column;
     position: sticky;
-    top: var(--s3);
+    top: var(--space-xl);
     list-style: none;
-    margin-block-end: var(--s3);
-    padding-inline-start: var(--s0);
+    margin-block-end: var(--space-xl);
+    padding-inline-start: var(--space-s);
   }
 
   & li {
@@ -105,7 +103,7 @@ hr {
 
   & li > * {
     flex: 1;
-    padding-block: var(--s-1);
+    padding-block: var(--space-xs);
     color: var(--color-secondary-500);
   }
 }
@@ -121,10 +119,10 @@ hr {
   right: 0;
   color: white;
   cursor: pointer;
-  margin: var(--s0);
-  padding: var(--s-1);
+  margin: var(--space-s);
+  padding: var(--space-xs);
   border: var(--border-style);
-  border-radius: var(--s-1);
+  border-radius: var(--space-xs);
   opacity: 0%;
   transition: opacity 100ms ease-out;
 }

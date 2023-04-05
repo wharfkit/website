@@ -26,15 +26,15 @@
 
 <style>
   .page {
-    gap: var(--s4);
+    gap: var(--space-3xl);
   }
 
   .hero {
-    --border-radius: var(--s0);
-    padding-block: var(--s4);
-    padding-inline: var(--s2);
+    --border-radius: var(--space-s);
+    padding-block: var(--space-3xl);
+    padding-inline: var(--space-l);
     font-weight: 600;
-    gap: var(--s-1);
+    gap: var(--space-xs);
     background: url("/images/header-lines.svg"), url("/images/header-background.svg"),
       linear-gradient(to left, var(--reef-turquoise), var(--swell-mist));
     background-repeat: no-repeat;
@@ -63,11 +63,11 @@
 
   .posts {
     list-style: none;
-    gap: var(--s3);
+    gap: var(--space-xl);
     padding-inline: unset;
   }
 
   hr {
-    margin-block-start: var(--s3);
+    margin-block-start: var(--space-xl);
   }
 </style>

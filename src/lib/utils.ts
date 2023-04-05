@@ -1,5 +1,9 @@
 import slugify from "@sindresorhus/slugify"
 
+export function capitalize(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 export async function fetchMarkdownPosts() {
   const allPostFiles = import.meta.glob("/src/routes/blog/**/*.md")
   const iterablePosts = Object.entries(allPostFiles)

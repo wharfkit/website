@@ -34,25 +34,25 @@
 
 <style>
   .media {
-    --gap: var(--s1);
+    --gap: var(--space-m);
   }
 
   .frame {
     background-color: var(--wharf-blue);
-    border-radius: var(--s0);
+    border-radius: var(--space-s);
     isolation: isolate;
     position: relative;
   }
 
   .youtube {
     aspect-ratio: 16 / 9;
-    border-radius: var(--s0);
+    border-radius: var(--space-s);
     width: 100%;
     z-index: 1;
   }
 
   .play {
-    --padding: var(--s1);
+    --padding: var(--space-m);
     background-color: var(--wharf-blue);
     border-radius: 50%;
     aspect-ratio: 1;
