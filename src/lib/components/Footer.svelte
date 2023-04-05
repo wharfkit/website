@@ -39,7 +39,7 @@
 
   div.box {
     padding: var(--space-s);
-    /* inline-size: min-content; */
+    inline-size: max-content;
     display: flex;
     flex-direction: column;
     gap: var(--space-2xs);
@@ -57,21 +57,22 @@
   h3 {
     font-family: var(--ff-heading);
     font-weight: 600;
-    font-size: var(--fs--1);
+    font-size: var(--fs-0);
     color: var(--color-neutral-500);
+    white-space: nowrap;
   }
 
   a {
     display: block;
     height: 100%;
-    color: var(--color-neutral-900);
+    color: #000;
     text-decoration: none;
     font-weight: 400;
     font-size: var(--fs--1);
   }
 
   a:hover {
-    color: var(--color-primary-500);
+    color: var(--color-neutral-500);
   }
 
   @media (min-width: 600px) {
