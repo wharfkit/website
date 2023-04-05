@@ -81,6 +81,8 @@
   header {
     /* --header-background-color: var(--wharf-blue); */
     /* --header-text-color: white; */
+    flex: 1;
+    max-inline-size: var(--max-inline-size);
     background: var(--header-background-color, transparent);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

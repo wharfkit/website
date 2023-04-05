@@ -8,22 +8,37 @@
 
 <Seo />
 
-<div class="wrapper | center stack">
-  <Header />
+<div class="wrapper">
+  <header>
+    <Header />
+  </header>
   <main>
     <slot />
   </main>
+  <footer>
+    <Footer />
+  </footer>
 </div>
-<Footer />
 
 <style>
   .wrapper {
-    max-inline-size: var(--max-inline-size);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
     gap: var(--space-l);
-    padding-inline: var(--space-s);
-    height: 100%;
+  }
+  header {
+    display: flex;
+    justify-content: center;
   }
   main {
-    flex: 1;
+    box-sizing: content-box;
+    max-inline-size: var(--max-inline-size);
+    padding-inline: var(--space-s);
+    margin-inline: auto;
+  }
+  footer {
+    --footer-background: var(--surface1);
+    background: var(--footer-background, white);
   }
 </style>
