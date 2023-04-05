@@ -69,21 +69,21 @@
     font-family: var(--ff-heading);
     font-size: var(--fs-2);
     font-weight: 600;
-    margin-block-start: var(--s1);
+    margin-block-start: var(--space-m);
   }
 
   article :global(h3) {
     font-family: var(--ff-heading);
     font-size: var(--fs-1);
     font-weight: 600;
-    margin-block-start: var(--s0);
+    margin-block-start: var(--space-s);
   }
 
   article :global(blockquote) {
     background-color: var(--color-secondary-50);
     border-inline-start: 0.25em solid var(--color-secondary-200);
-    padding-block: var(--s0);
-    padding-inline: var(--s1);
+    padding-block: var(--space-s);
+    padding-inline: var(--space-m);
   }
 
   article :global(li) {
@@ -92,11 +92,11 @@
 
   article :global(li:not(:first-child)) {
     /* background-color: red; */
-    margin-block-start: var(--s-1);
+    margin-block-start: var(--space-xs);
   }
 
   img {
-    border-radius: var(--s0);
-    margin-block: var(--s1);
+    border-radius: var(--space-s);
+    margin-block: var(--space-m);
   }
 </style>

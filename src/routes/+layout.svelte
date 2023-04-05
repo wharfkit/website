@@ -13,14 +13,14 @@
   <main>
     <slot />
   </main>
-  <Footer />
 </div>
+<Footer />
 
 <style>
   .wrapper {
-    max-inline-size: 1200px;
-    gap: var(--s2);
-    padding-inline: var(--s1);
+    max-inline-size: var(--max-inline-size);
+    gap: var(--space-l);
+    padding-inline: var(--space-s);
     height: 100%;
   }
   main {

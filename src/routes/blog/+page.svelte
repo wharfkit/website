@@ -74,10 +74,10 @@
 
   .posts {
     list-style: none;
-    gap: var(--s3);
+    gap: var(--space-xl);
     padding-inline: unset;
   }
   hr {
-    margin-block-start: var(--s3);
+    margin-block-start: var(--space-xl);
   }
 </style>
