@@ -67,10 +67,10 @@ https://github.com/orgs/wharfkit/discussions
 
 ### Adding Wharf
 
-With a sample application in place, next up we need to add a few Wharf components, namely the [Session Kit](https://github.com/wharfkit/session), the [Web UI Renderer](https://github.com/wharfkit/web-ui-renderer), and at least one [wallet plugin](https://github.com/orgs/wharfkit/repositories?q=wallet-plugin&type=all&language=&sort=) for users to authenticate with. The following command will do so utilizing the [Anchor Wallet Plugin](https://github.com/wharfkit/wallet-plugin-anchor) for authentication.
+With a sample application in place, next up we need to add a few Wharf components, namely the [Session Kit](https://github.com/wharfkit/session), the [Web Renderer](https://github.com/wharfkit/web-renderer), and at least one [wallet plugin](https://github.com/orgs/wharfkit/repositories?q=wallet-plugin&type=all&language=&sort=) for users to authenticate with. The following command will do so utilizing the [Anchor Wallet Plugin](https://github.com/wharfkit/wallet-plugin-anchor) for authentication.
 
 ```bash
-yarn add @wharfkit/session @wharfkit/web-ui-renderer @wharfkit/wallet-plugin-anchor
+yarn add @wharfkit/session @wharfkit/web-renderer @wharfkit/wallet-plugin-anchor
 ```
 
 Additional plugins for wallets, transactions, and login can be added by installing and including additional packages in the project.
@@ -81,21 +81,21 @@ With the base dependencies installed, now is time to find a place in the applica
 
 For the purposes of this simple technical preview, all of the code is included in a [single component to help illustrate how it all connects](https://github.com/wharfkit/example-vite-svelte-ts/blob/3fb8c99eb19030698929edc855f651331ac94f04/src/lib/Login.svelte). When developing more complex applications, this Session Kit instance will need to be set up somewhere in the application where all components related to session management will have access to it.
 
-### The Web UI Renderer
+### The Web Renderer
 
-When using the Session Kit to create sessions, the first thing that needs to be set up is a `UserInterface` instance that can be passed in to the Session Kit constructor. The [Web UI Renderer](https://github.com/wharfkit/web-ui-renderer) is an out of the box solution with a (soon to be) Wharf themed interface that provides all the base functionality required.
+When using the Session Kit to create sessions, the first thing that needs to be set up is a `UserInterface` instance that can be passed in to the Session Kit constructor. The [Web Renderer](https://github.com/wharfkit/web-renderer) is an out of the box solution with a (soon to be) Wharf themed interface that provides all the base functionality required.
 
 To set it up, simply include the dependency and [create an instance of it](https://github.com/wharfkit/example-vite-svelte-ts/blob/3fb8c99eb19030698929edc855f651331ac94f04/src/lib/Login.svelte#L9).
 
 ```ts
-import { WebUIRenderer } from "@wharfkit/web-ui-renderer"
+import { WebUIRenderer } from "@wharfkit/web-renderer"
 
 const ui = new WebUIRenderer()
 ```
 
 This class will automatically inject a [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) element into the page and provide controls for the Session Kit to utilize it.
 
-> **Note**: If you are establishing the Session Kit and Web UI Renderer after the DOMContentLoaded event has already fired, you may need to manually call `ui.appendDialogElement()` during the "on mount" event in the framework you are using.
+> **Note**: If you are establishing the Session Kit and Web Renderer after the DOMContentLoaded event has already fired, you may need to manually call `ui.appendDialogElement()` during the "on mount" event in the framework you are using.
 
 ### The Wallet Plugin(s)
 
@@ -138,13 +138,13 @@ This results in a variable called `sessionKit` that can now be used to create, r
 
 ### Creating a Session using the `login` method of the Session Kit
 
-With an instance of the Session Kit now available in the app, it can now provide session management functionality through the default user interface provided by the Web UI Renderer. In order to initiate the user login process, the `.login()` method of the `sessionKit` needs to be called.
+With an instance of the Session Kit now available in the app, it can now provide session management functionality through the default user interface provided by the Web Renderer. In order to initiate the user login process, the `.login()` method of the `sessionKit` needs to be called.
 
 ```ts
 const loginResult = await sessionKit.login()
 ```
 
-Once called, the Web UI Renderer will walk the user through selecting the decisions required to connect with the application. When complete this will return a [LoginResult](https://wharfkit.github.io/session/interfaces/LoginResult.html) that contains the resulting Session.
+Once called, the Web Renderer will walk the user through selecting the decisions required to connect with the application. When complete this will return a [LoginResult](https://wharfkit.github.io/session/interfaces/LoginResult.html) that contains the resulting Session.
 
 The `loginResult` will contain the [context](https://wharfkit.github.io/session/classes/LoginContext.html) that was used during the login, the [response](https://wharfkit.github.io/session/interfaces/WalletPluginLoginResponse.html) from the Wallet Plugin, and most importantly a [Session](https://wharfkit.github.io/session/classes/Session.html) that can be used to communicate with that user and their preferred wallet.
 

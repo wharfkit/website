@@ -24,7 +24,7 @@
     </a>
   {/if}
 
-  {#if videolink && transcriptlink}
+  {#if videolink}
     <Video {videolink} {transcriptlink} />
   {/if}
 
