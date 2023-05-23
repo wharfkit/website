@@ -8,7 +8,7 @@
   --brand-light: var(--color-secondary-300);
   --text1-light: black;
   --text2-light: var(--color-secondary-600);
-  --text3-light: var(--color-primary-900);
+  --text3-light: var(--color-neutral-500);
   --surface1-light: white;
   --surface2-light: white;
   --surface3-light: var(--color-secondary-300);
@@ -73,7 +73,7 @@
   }
 }
 
-[color-scheme="light"] {
+[data-theme="light"] {
   color-scheme: light;
 
   --theme-brand: var(--brand-light);
@@ -91,7 +91,7 @@
   --shadow-strength: var(--shadow-strength-light);
 }
 
-[color-scheme="dark"] {
+[data-theme="dark"] {
   color-scheme: dark;
 
   --theme-brand: var(--brand-dark);

@@ -1,8 +1,8 @@
 <script lang="ts">
-  // your script goes here
   import data from "$lib/footerData"
   import { capitalize } from "../utils"
   import logo from "$lib/assets/logos/Wharf-logo-vertical.svg"
+  import ThemeToggle from "./ThemeToggle/index.svelte"
 </script>
 
 <nav class="">
@@ -17,6 +17,10 @@
       </ul>
     </div>
   {/each}
+  <div class="box">
+    <h3>Theme</h3>
+    <ThemeToggle />
+  </div>
 </nav>
 
 <style>
@@ -59,6 +63,7 @@
     font-weight: 600;
     font-size: var(--fs-0);
     color: var(--color-neutral-500);
+    color: var(--theme-text3);
     white-space: nowrap;
   }
 
@@ -66,6 +71,7 @@
     display: block;
     height: 100%;
     color: #000;
+    color: var(--theme-text1);
     text-decoration: none;
     font-weight: 400;
     font-size: var(--fs--1);
@@ -73,6 +79,7 @@
 
   a:hover {
     color: var(--color-neutral-500);
+    color: var(--theme-text3);
   }
 
   @media (min-width: 600px) {

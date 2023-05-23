@@ -26,7 +26,7 @@
   }
 </script>
 
-<header class:navHidden={!isNavOpen}>
+<div class="wrapper" class:navHidden={!isNavOpen}>
   <div class="left">
     <a href="/">
       <picture>
@@ -72,13 +72,12 @@
   </nav>
 
   <div class="right">
-    <ThemeToggle />
     <a class="button" href="https://github.com/wharfkit">Github</a>
   </div>
-</header>
+</div>
 
 <style>
-  header {
+  .wrapper {
     /* --header-background-color: var(--wharf-blue); */
     /* --header-text-color: white; */
     flex: 1;
@@ -90,6 +89,7 @@
     gap: var(--space-l);
     margin-block: var(--space-m);
     border-radius: var(--space-m);
+    /* margin-inline: auto; */
   }
 
   .left {

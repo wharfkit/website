@@ -38,7 +38,7 @@
     margin-inline: auto;
   }
   footer {
-    --footer-background: var(--surface1);
+    --footer-background: var(--theme-surface1);
     background: var(--footer-background, white);
   }
 </style>
