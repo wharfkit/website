@@ -1,8 +1,13 @@
-arrowParens: 'always'
-bracketSpacing: false
-endOfLine: 'lf'
-printWidth: 100
-semi: false
-singleQuote: true
-tabWidth: 4
-trailingComma: 'es5'
+{
+  "useTabs": false,
+  "tabWidth": 2,
+  "singleQuote": false,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "semi": false,
+  "bracketSameLine": true,
+  "plugins": ["prettier-plugin-svelte"],
+  "pluginSearchDirs": ["."],
+  "overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }],
+  "svelteSortOrder": "options-scripts-markup-styles"
+}

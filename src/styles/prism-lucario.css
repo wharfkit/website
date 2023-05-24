@@ -32,11 +32,11 @@ pre[class*="language-"] {
 pre[class*="language-"] {
   position: relative;
   padding: 1em;
-  padding: var(--s1);
+  padding: var(--space-m);
   margin: 0.5em 0;
   overflow: auto;
   border-radius: 0.3em;
-  border-radius: var(--s0);
+  border-radius: var(--space-s);
 }
 
 pre[class*="language-"] {

@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="canonical" href="https://wharfkit.com/" />
-        <link rel="icon" href="%sveltekit.assets%/favicon.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@400;600&display=swap"
-            rel="stylesheet"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        %sveltekit.head%
-    </head>
-    <body>
-        <div id="root">%sveltekit.body%</div>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="https://wharfkit.com/" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;600;800&display=swap"
+      rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    %sveltekit.head%
+  </head>
+  <body>
+    <script>
+      const theme = JSON.parse(localStorage.getItem("theme"))
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"
+
+      document.body.removeAttribute("data-theme")
+      document.body.setAttribute("data-theme", theme || systemTheme)
+    </script>
+    <div id="root">%sveltekit.body%</div>
+  </body>
 </html>

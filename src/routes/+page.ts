@@ -1,8 +1,10 @@
-export const load = async ({fetch}) => {
-    const response = await fetch('api/posts')
-    const posts = await response.json()
+import type { PageLoad } from './$types'
 
-    return {
-        posts,
-    }
-}
+export const load = (async ({ fetch }) => {
+  const response = await fetch("api/posts")
+  const posts = await response.json()
+
+  return {
+    posts,
+  }
+}) satisfies PageLoad

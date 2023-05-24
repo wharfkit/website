@@ -10,6 +10,6 @@ Run `make dev`
 
 ## Influence and Approach
 
--   https://cube.fyi/
--   https://every-layout.dev/
--   https://utopia.fyi/
+- https://cube.fyi/
+- https://every-layout.dev/
+- https://utopia.fyi/

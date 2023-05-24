@@ -20,16 +20,16 @@ Wharf aims to simplify the developer experience on Antelope chains by providing 
 
 ## Who the brand speaks to
 
--   Web developers who are new to the Antelope ecosystem
--   Web developers who are new to blockchain altogether
--   Experienced Antelope developers
+- Web developers who are new to the Antelope ecosystem
+- Web developers who are new to blockchain altogether
+- Experienced Antelope developers
 
 ## Key messages
 
--   Simple & intuitive: Wharf takes care of the complexities of building on Antelope for you
--   User-first design: Build an app your users will love, with pre-built UX flows
--   Flexible & modular: Pick and choose the code packages that suit your project
--   Built by experienced developers: Benefit from the expertise of expert Antelope engineers
+- Simple & intuitive: Wharf takes care of the complexities of building on Antelope for you
+- User-first design: Build an app your users will love, with pre-built UX flows
+- Flexible & modular: Pick and choose the code packages that suit your project
+- Built by experienced developers: Benefit from the expertise of expert Antelope engineers
 
 ## Key differentiator
 

@@ -1,23 +1,48 @@
-/* ====
-  Scale
- @link https://utopia.fyi/type/calculator/?c=320,16,1.2,1200,18,1.25,7,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
-======= */
-
-/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,18,1.25,7,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=320,14,1.2,2880,16,1.25,9,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
-    --fs-0: clamp(1rem, calc(0.96rem + 0.18vw), 1.13rem);
-    --fs-1: clamp(1.2rem, calc(1.14rem + 0.29vw), 1.41rem);
-    --fs-2: clamp(1.44rem, calc(1.35rem + 0.45vw), 1.76rem);
-    --fs-3: clamp(1.73rem, calc(1.59rem + 0.67vw), 2.2rem);
-    --fs-4: clamp(2.07rem, calc(1.88rem + 0.96vw), 2.75rem);
-    --fs-5: clamp(2.49rem, calc(2.22rem + 1.35vw), 3.43rem);
-    --fs-6: clamp(2.99rem, calc(2.61rem + 1.86vw), 4.29rem);
-    --fs-7: clamp(3.58rem, calc(3.07rem + 2.54vw), 5.36rem);
+  /* Step -3: 8.10px → 8.19px */
+  --fs--3: clamp(0.51rem, calc(0.51rem + 0vw), 0.51rem);
 
-    --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-        'Segoe UI Emoji', 'Segoe UI Symbol';
+  /* Step -2: 9.72px → 10.24px */
+  --fs--2: clamp(0.61rem, calc(0.6rem + 0.02vw), 0.64rem);
 
-    --ff-heading: 'Montserrat', var(--system-ui);
-    --ff-body: 'Inter', var(--system-ui);
+  /* Step -1: 11.67px → 12.80px */
+  --fs--1: clamp(0.73rem, calc(0.72rem + 0.04vw), 0.8rem);
+
+  /* Step 0: 14.00px → 16.00px */
+  --fs-0: clamp(0.88rem, calc(0.86rem + 0.08vw), 1rem);
+
+  /* Step 1: 16.80px → 20.00px */
+  --fs-1: clamp(1.05rem, calc(1.03rem + 0.13vw), 1.25rem);
+
+  /* Step 2: 20.16px → 25.00px */
+  --fs-2: clamp(1.26rem, calc(1.22rem + 0.19vw), 1.56rem);
+
+  /* Step 3: 24.19px → 31.25px */
+  --fs-3: clamp(1.51rem, calc(1.46rem + 0.28vw), 1.95rem);
+
+  /* Step 4: 29.03px → 39.06px */
+  --fs-4: clamp(1.81rem, calc(1.74rem + 0.39vw), 2.44rem);
+
+  /* Step 5: 34.84px → 48.83px */
+  --fs-5: clamp(2.18rem, calc(2.07rem + 0.55vw), 3.05rem);
+
+  /* Step 6: 41.80px → 61.04px */
+  --fs-6: clamp(2.61rem, calc(2.46rem + 0.75vw), 3.82rem);
+
+  /* Step 7: 50.16px → 76.29px */
+  --fs-7: clamp(3.14rem, calc(2.93rem + 1.02vw), 4.77rem);
+
+  /* Step 8: 60.20px → 95.37px */
+  --fs-8: clamp(3.76rem, calc(3.49rem + 1.37vw), 5.96rem);
+
+  /* Step 9: 72.24px → 119.21px */
+  --fs-9: clamp(4.51rem, calc(4.15rem + 1.83vw), 7.45rem);
+
+  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+
+  --ff-heading: "Montserrat", var(--system-ui);
+  --ff-body: "Inter", var(--system-ui);
 }

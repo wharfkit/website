@@ -1,74 +1,222 @@
-<script>
-    import logo from '$lib/assets/logos/Wharf-logo-horizontal.svg'
-    import {page} from '$app/stores'
+<script lang="ts">
+  import logo from "$lib/assets/logos/Wharf-logo-horizontal.svg"
+  import darkLogo from "$lib/assets/logos/Wharf-logo-horizontal-dark.svg"
+  import ThemeToggle from "./ThemeToggle/index.svelte"
+  import { page } from "$app/stores"
 
-    $: section = $page.url.pathname
+  $: section = $page.url.pathname
 
-    let navItems = [
-        {name: 'Blog', href: '/blog'},
-        {name: 'Brand', href: '/brand'},
-        {name: 'Documentation', href: '/docs'},
-    ]
+  let navItems = [
+    // { name: "Wharf", href: "#" },
+    { name: "Kits", href: "/kits" },
+    // { name: "Learn", href: "#" },
+    // { name: "Documentation", href: "#" },
+    { name: "Blog", href: "/blog" },
+    { name: "Brand", href: "/brand" },
+  ]
+
+  let isNavOpen = false
+
+  function closeNav() {
+    isNavOpen = false
+  }
+
+  function toggleNav() {
+    isNavOpen = !isNavOpen
+  }
 </script>
 
-<header class="">
-    <div class="logo">
-        <a href="/">
-            <img src={logo} alt="wharf logo" width="203" />
-        </a>
-    </div>
-    <nav>
-        {#each navItems as { name, href }}
-            <a {href} class:active={new RegExp(href).test(section)}>{name}</a>
-        {/each}
-    </nav>
-</header>
+<div class="wrapper" class:navHidden={!isNavOpen}>
+  <div class="left">
+    <a href="/">
+      <picture>
+        <!-- TODO: fix shrinking svg before mobile breakpoints -->
+        <!-- <source srcset={darkLogo} type="image/svg+xml" media="(prefers-color-scheme: dark)" /> -->
+        <img src={logo} alt="wharf logo" width="203" />
+      </picture>
+    </a>
+    <button class="navToggle close" on:click={toggleNav}>
+      <span class="visually-hidden">{isNavOpen ? "Close" : "Open"}</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+        {#if isNavOpen}
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        {:else}
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="18" x2="20" y2="18" />
+        {/if}
+      </svg>
+    </button>
+  </div>
+
+  <nav>
+    <ul>
+      {#each navItems as { name, href }}
+        <li>
+          <a {href} class:active={new RegExp(href).test(section)} on:click={closeNav}>
+            {name}
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </nav>
+
+  <div class="right">
+    <a class="button" href="https://github.com/wharfkit">Github</a>
+  </div>
+</div>
 
 <style>
+  .wrapper {
+    /* --header-background-color: var(--wharf-blue); */
+    /* --header-text-color: white; */
+    flex: 1;
+    max-inline-size: min(var(--max-inline-size), 100% - var(--space-m));
+    background: var(--header-background-color, transparent);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: var(--space-l);
+    margin-block: var(--space-m);
+    border-radius: var(--space-m);
+    /* margin-inline: auto; */
+  }
+
+  .left {
+    padding-inline-start: var(--space-2xs);
+  }
+
+  .navToggle {
+    display: none;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding-inline: 0;
+  }
+
+  nav a {
+    font-family: var(--ff-heading);
+    color: var(--header-text-color, var(--wharf-blue));
+    text-decoration: none;
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-xs);
+    border-radius: var(--space-xs);
+    font-size: var(--fs-0);
+  }
+
+  nav a:is(:hover, :focus) {
+    background: var(--nav-background-color, var(--swell-mist));
+  }
+
+  nav a:is(:active) {
+    font-weight: 800;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-s);
+  }
+
+  a.button {
+    /* display: block; */
+    justify-self: end;
+    padding-inline: var(--space-xl);
+    /* margin: var(--space-s); */
+    margin-inline: var(--space-s);
+    font-family: var(--ff-body);
+  }
+
+  @media (max-width: 768px) {
     header {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        padding-block: var(--s2);
+      /* --nav-background-color: var(--color-primary-900); */
+      position: relative;
+      grid-template-columns: 1fr;
+    }
+
+    header .left {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-l);
+    }
+
+    .navToggle {
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      background: var(--nav-background-color, var(--swell-mist));
+      padding: var(--space-s);
+      margin: var(--space-xs);
+      border-radius: 50%;
+      aspect-ratio: 1;
+      position: relative;
+      color: var(--header-text-color, var(--wharf-blue));
+      filter: url("#goo");
     }
 
     nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--s2);
+      position: absolute;
+      top: calc(100% + var(--space-2xs));
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: var(--space-m);
+      background: var(--nav-background-color, var(--swell-mist));
+      padding: var(--space-s);
+      border-radius: var(--border-radius, var(--space-s));
+      width: 100%;
+      z-index: 999;
+      transform: scaleY(1) translateY(0);
+      transform-origin: top right;
+
+      transition: transform 200ms;
+      transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-s);
+    }
+
+    nav li {
+      /* border: 2px solid var(--nav-border-color, var(--color-accent-100)); */
+      border-radius: var(--border-radius, var(--space-2xs));
     }
 
     nav a {
-        font-family: var(--ff-heading);
-        color: var(--wharf-blue);
-        text-decoration: none;
-        padding-block: var(--s-2);
-        border-radius: var(--s-1);
-        font-size: var(--fs-0);
-        position: relative;
+      display: block;
+      padding-block: var(--space-2xs);
     }
 
-    nav a::after {
-        content: '';
-        background-color: var(--color-secondary-700);
-        opacity: 0;
-        position: absolute;
-        height: 4px;
-        inset: 0;
-        top: auto;
-        border-radius: inherit;
-        transition: opacity 200ms ease-out;
+    nav a:is(:active) {
+      font-weight: 600;
+      background: var(--header-background-color, white);
     }
 
-    nav a:is(:hover, :focus-visible)::after {
-        opacity: 50%;
+    .navHidden nav {
+      transform: scaleY(0) translateY(0);
     }
-    nav a:is(.active)::after {
-        opacity: 70%;
+    .navHidden nav a {
+      color: var(--header-background-color, var(--swell-mist));
     }
 
-    nav a:is(:active)::after {
-        opacity: 100%;
+    a.button {
+      display: none;
     }
+  }
 </style>

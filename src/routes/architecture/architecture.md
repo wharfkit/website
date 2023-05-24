@@ -16,15 +16,15 @@ Changes to the architecture should be proposed by developers through pull reques
 
 From the perspective of a new developer using the Web Client SDK, this will be a single npm package that contains many tools suited for their specific use case. From an architectural perspective and that of more advanced developers, the Web Client SDKs will be a collection of many packages from which they can pick and choose. This gives new developers an easy onboarding experience, while offering advanced developers the flexibility they need for more complex software development.
 
-![Package Overview](images/pkgoverview.png 'Package Overview')
+![Package Overview](images/pkgoverview.png "Package Overview")
 
 The above diagram outlines the individual packages that make up the Web Client SDK. Each color box represents a different type of package within the collection. A legend describing the diagram:
 
--   The **dark green** box represents the core of the collection of packages and the brand itself.
--   The **blue** **boxes** represent a specific example of a Starter Kit. These are pre-packaged collections of recommended packages for a specific environment to get developers started quickly.
--   The **light green boxes** represent major standalone packages within the product collection that offer application developers access to core Antelope functionality.
--   The **orange boxes** represent one or more modular plugins included to add or customize functionality of a specific package.
--   The **yellow** **boxes** represent shared libraries that are utilized internally and exposed to the developer for usage in their applications.
+- The **dark green** box represents the core of the collection of packages and the brand itself.
+- The **blue** **boxes** represent a specific example of a Starter Kit. These are pre-packaged collections of recommended packages for a specific environment to get developers started quickly.
+- The **light green boxes** represent major standalone packages within the product collection that offer application developers access to core Antelope functionality.
+- The **orange boxes** represent one or more modular plugins included to add or customize functionality of a specific package.
+- The **yellow** **boxes** represent shared libraries that are utilized internally and exposed to the developer for usage in their applications.
 
 Additional starter kits and packages can be added to this architecture as the Antelope ecosystem evolves and new needs arise. In the future, this architecture can also be replicated for use in other programming languages aside from Javascript. Descriptions for each of the packages are described below.
 
@@ -40,14 +40,14 @@ A handful of default Starter Kits will be created for the most common environmen
 
 ##### Default Starter Kits
 
--   _Web_: A collection of packages designed to generically work with all HTML DOM environments.
--   _Server_: A collection of packages for use within server-based Node.js applications and services.
+- _Web_: A collection of packages designed to generically work with all HTML DOM environments.
+- _Server_: A collection of packages for use within server-based Node.js applications and services.
 
 ##### Ideas for Further Development
 
--   _Console_: A collection of packages to create interactive command line applications.
--   _React_: A web-based collection of packages specifically designed for React.
--   _Vue_: A web-based collection of packages specifically designed for Vue.js.
+- _Console_: A collection of packages to create interactive command line applications.
+- _React_: A web-based collection of packages specifically designed for React.
+- _Vue_: A web-based collection of packages specifically designed for Vue.js.
 
 #### **Account Kit**
 
@@ -55,9 +55,9 @@ The Account Kit is a standalone package which provides a standardized representa
 
 ##### Responsibilities
 
--   Maintaining current account state, such as system token, network resources, and permissions.
--   Easy access to account management actions, such as permission and resource management.
--   Accessing native APIs related to accounts for easy data retrieval.
+- Maintaining current account state, such as system token, network resources, and permissions.
+- Easy access to account management actions, such as permission and resource management.
+- Accessing native APIs related to accounts for easy data retrieval.
 
 #### **Session Kit**
 
@@ -65,13 +65,13 @@ The Session Kit allows developers to set up reusable account sessions where they
 
 ##### Responsibilities
 
--   Communication with Wallet Plugins to facilitate transaction signing.
--   Optional usage of a Push Plugin to ensure signed transactions made it on-chain.
--   Organizing various Hook Plugins to control the flow of a transaction.
+- Communication with Wallet Plugins to facilitate transaction signing.
+- Optional usage of a Push Plugin to ensure signed transactions made it on-chain.
+- Organizing various Hook Plugins to control the flow of a transaction.
 
 The process by which the Session Kit facilitates transactions is also customizable through the use of hooks, which can be included globally in the Session Kit or specifically enabled for certain transactions. To illustrate these plugins and how they interact with the Session Kit, an example transaction flow is included:
 
-![Transaction Flow](/images/content/trxflow.png 'Transaction Flow')
+![Transaction Flow](/images/content/trxflow.png "Transaction Flow")
 
 The Starter Kit packages will include default hooks that improve the user experience while allowing advanced developers the opportunity to customize how the SDKs function.
 
@@ -81,9 +81,9 @@ The Contract Kit is the easiest way to interact with smart contracts from an Ant
 
 ##### Responsibilities
 
--   Facilitate creation of actions and transactions to interact with smart contracts.
--   Provide query access to the contracts tables and return strongly typed data.
--   Allow for dynamic interactions with contracts without needing to generate contract-specific code.
+- Facilitate creation of actions and transactions to interact with smart contracts.
+- Provide query access to the contracts tables and return strongly typed data.
+- Allow for dynamic interactions with contracts without needing to generate contract-specific code.
 
 ### **Plugins**
 
@@ -95,9 +95,9 @@ Individual packages capable of modifying the flow of transactions through the Se
 
 Some examples of the types of hooks currently anticipated include:
 
--   A pre-sign hook for cosigning a transaction before it’s passed to the Wallet Plugin.
--   A post-sign hook to relay the signature of a specific transaction to an off-chain endpoint.
--   A post-broadcast hook to perform IBC proofs of a transaction on another compatible blockchain.
+- A pre-sign hook for cosigning a transaction before it’s passed to the Wallet Plugin.
+- A post-sign hook to relay the signature of a specific transaction to an off-chain endpoint.
+- A post-broadcast hook to perform IBC proofs of a transaction on another compatible blockchain.
 
 #### **Push Plugins (Session Kit)**
 
@@ -143,4 +143,4 @@ The dependencies of the library will be kept to a minimum while meeting the requ
 
 To illustrate the core dependencies of a basic Starter Kit, outlined below is an example of what is expected for the default Web Kit Starter Kit from the perspective of an Application.
 
-![Dependency Graph](/images/content/depgraph.png 'Dependency Graph')
+![Dependency Graph](/images/content/depgraph.png "Dependency Graph")
