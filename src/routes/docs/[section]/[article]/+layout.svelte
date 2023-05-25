@@ -1,8 +1,37 @@
 <script lang="ts">
   import type { LayoutData } from "./$types"
-  import TOC from "./TOC.svelte"
+  import type { HeadingNode } from "$lib/types"
+  import { onMount, afterUpdate } from "svelte"
+  import TOC from "../../TOC.svelte"
 
   export let data: LayoutData
+
+  let headings: HeadingNode[] = []
+
+  function parseHeadings() {
+    if (!data.PostContent) return []
+    const parser = new DOMParser()
+    const doc = parser.parseFromString(data.PostContent, "text/html")
+    const headingNodes = doc.querySelectorAll("h2")
+
+    return Array.from(headingNodes).map((node: HTMLElement) => ({
+      tagName: node.tagName.toLowerCase(),
+      text: node.textContent || "",
+      id: node.id || null,
+    }))
+  }
+
+  function updateHeadings() {
+    headings = parseHeadings()
+  }
+
+  onMount(() => {
+    updateHeadings()
+  })
+
+  afterUpdate(() => {
+    updateHeadings()
+  })
 </script>
 
 <div class="grid">
@@ -10,7 +39,10 @@
     <slot />
   </article>
 
-  <TOC html={data.PostContent} />
+  <!-- Only render the TOC if there are more than 2 headings -->
+  {#if headings.length > 2}
+    <TOC {headings} />
+  {/if}
 </div>
 
 <style>

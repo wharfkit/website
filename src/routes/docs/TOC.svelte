@@ -1,39 +1,7 @@
 <script lang="ts">
   import type { HeadingNode } from "$lib/types"
-  import { onMount, afterUpdate, onDestroy } from "svelte"
 
-  export let html: string
-
-  let headings: HeadingNode[] = []
-
-  function parseHeadings() {
-    if (!html) return []
-    const parser = new DOMParser()
-    const doc = parser.parseFromString(html, "text/html")
-    const headingNodes = doc.querySelectorAll("h2")
-
-    return Array.from(headingNodes).map((node: HTMLElement) => ({
-      tagName: node.tagName.toLowerCase(),
-      text: node.textContent || "",
-      id: node.id || null,
-    }))
-  }
-
-  function updateHeadings() {
-    headings = parseHeadings()
-  }
-
-  onMount(() => {
-    updateHeadings()
-  })
-
-  afterUpdate(() => {
-    updateHeadings()
-  })
-
-  onDestroy(() => {
-    // Clean up any resources if necessary
-  })
+  export let headings: HeadingNode[] = []
 </script>
 
 <nav class="toc">
@@ -69,7 +37,7 @@
     font-family: var(--ff-heading);
   }
   nav > div {
-    background-color: var(--swell-mist);
+    background-color: var(--theme-surface2);
     border-radius: var(--border-radius);
     padding-block: var(--space-s);
     padding-inline: var(--space-l);
@@ -101,7 +69,8 @@
     text-decoration: none;
     color: var(--theme-text1);
     font-weight: 400;
-    line-height: 2.5em;
+    line-height: 1.5em;
+    padding-block: var(--space-2xs);
   }
 
   a:hover {

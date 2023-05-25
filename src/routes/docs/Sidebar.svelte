@@ -1,15 +1,25 @@
 <script lang="ts">
-  import Searchbar from "./Searchbar.svelte"
-  export let sections: Record<string, any>
+  import type { DocumentationSections } from "$lib/types"
+  import { filterDocumentationArticles } from "$lib/utils"
+  import Filter from "./Filter.svelte"
+
+  export let sections: DocumentationSections
+
+  let filteredSections = sections
+
+  function handleQueryChange(event: CustomEvent<string>) {
+    const { detail: query } = event
+    filteredSections = filterDocumentationArticles(sections, query)
+  }
 </script>
 
 <aside>
   <h2>Documentation</h2>
-  <Searchbar />
+  <Filter on:queryChange={handleQueryChange} />
   <ul class="sections | flow">
-    {#each Object.entries(sections) as [title, articles]}
+    {#each Object.entries(filteredSections) as [title, articles]}
       <li class="section">
-        <details>
+        <details open>
           <summary>
             <h3>{title}</h3>
             <svg
@@ -104,7 +114,8 @@
     font-family: var(--ff-heading);
     color: var(--theme-text1);
     font-weight: 400;
-    line-height: 2em;
+    line-height: 1.5em;
+    padding-block: var(--space-2xs);
     text-decoration: none;
     display: block;
   }

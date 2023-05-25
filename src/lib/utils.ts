@@ -1,4 +1,5 @@
 import slugify from "@sindresorhus/slugify"
+import type { DocumentationSections } from "./types"
 
 type Grouped<T> = {
   [key: string]: T[]
@@ -85,4 +86,35 @@ export async function fetchDocs() {
   )
 
   return allDocs
+}
+
+export function filterDocumentationArticles(
+  sections: DocumentationSections,
+  query: string
+): DocumentationSections {
+  if (query === "") {
+    return sections
+  }
+
+  if (Object.keys(sections).length === 0) {
+    return {}
+  }
+
+  // Consider adding fuse.js for fuzzy search down the line
+
+  const filteredSections: DocumentationSections = {}
+
+  Object.entries(sections).forEach(([section, articles]) => {
+    const filteredArticles = articles.filter((article) =>
+      article.title.toLowerCase().includes(query.toLowerCase())
+    )
+
+    if (filteredArticles.length > 0) {
+      filteredSections[section] = filteredArticles
+    }
+  })
+
+  console.log(filteredSections)
+
+  return filteredSections
 }
