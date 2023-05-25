@@ -1,7 +1,6 @@
 <script lang="ts">
   import logo from "$lib/assets/logos/Wharf-logo-horizontal.svg"
   import darkLogo from "$lib/assets/logos/Wharf-logo-horizontal-dark.svg"
-  import ThemeToggle from "./ThemeToggle/index.svelte"
   import { page } from "$app/stores"
 
   $: section = $page.url.pathname
@@ -10,9 +9,10 @@
     // { name: "Wharf", href: "#" },
     { name: "Kits", href: "/kits" },
     // { name: "Learn", href: "#" },
-    // { name: "Documentation", href: "#" },
+    { name: "Documentation", href: "/docs" },
     { name: "Blog", href: "/blog" },
     { name: "Brand", href: "/brand" },
+    // { name: "theme", href: "/theme" },
   ]
 
   let isNavOpen = false

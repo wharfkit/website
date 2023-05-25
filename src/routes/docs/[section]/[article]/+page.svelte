@@ -4,6 +4,4 @@
   export let data: PageData
 </script>
 
-<h1>{data.meta.title}</h1>
-
 {@html data.PostContent}

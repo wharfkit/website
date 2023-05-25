@@ -1,4 +1,4 @@
-import type {PageServerLoad} from './$types'
+import type { LayoutServerLoad } from './$types';
 import {error} from '@sveltejs/kit'
 
 export const load = (async ({params}) => {
@@ -12,4 +12,4 @@ export const load = (async ({params}) => {
     } catch (err) {
         throw error(404, 'Error ' + JSON.stringify(err, null, 2))
     }
-}) satisfies PageServerLoad
+}) satisfies LayoutServerLoad;

@@ -230,9 +230,9 @@
 <style>
   aside ul {
     position: sticky;
-    top: var(--s3);
+    top: var(--space-m);
     list-style: none;
-    margin-block-end: var(--s3);
+    margin-block-end: var(--space-m);
   }
 
   aside li {
@@ -261,7 +261,7 @@
   section {
     display: flex;
     flex-direction: column;
-    gap: var(--s2);
+    gap: var(--space-m);
     max-inline-size: none;
   }
   section :is(h1, h2) {
@@ -330,7 +330,7 @@
   .brand-colors {
     display: flex;
     flex-direction: column;
-    gap: var(--s3);
+    gap: var(--space-m);
   }
 
   .brand-colors {
@@ -343,7 +343,7 @@
     font-family: var(--ff-heading);
     font-size: var(--fs-1);
     font-weight: 600;
-    margin-block-end: var(--s-4);
+    margin-block-end: 1rem;
   }
 
   #colors .label {
@@ -361,7 +361,7 @@
   #colors .palette {
     flex-grow: 1;
     flex-basis: 14rem;
-    margin-block-start: var(--s-1);
+    margin-block-start: var(--space-xs);
   }
 
   #colors table td:first-of-type {

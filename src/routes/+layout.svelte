@@ -8,20 +8,22 @@
 
 <Seo />
 
-<div class="wrapper">
+<div class="page">
   <header>
     <Header />
   </header>
-  <main>
-    <slot />
-  </main>
+  <div class="content">
+    <div class="wrapper">
+      <slot />
+    </div>
+  </div>
   <footer>
     <Footer />
   </footer>
 </div>
 
 <style>
-  .wrapper {
+  .page {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
@@ -31,8 +33,11 @@
     display: flex;
     justify-content: center;
   }
-  main {
+  .content {
     box-sizing: content-box;
+  }
+
+  .wrapper {
     max-inline-size: var(--max-inline-size);
     padding-inline: var(--space-s);
     margin-inline: auto;

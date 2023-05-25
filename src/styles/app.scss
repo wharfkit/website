@@ -2,9 +2,9 @@
 @forward "reset";
 
 /* Horizontal constraints for readability, using an exception-based approach */
-* {
-  // max-inline-size: var(--measure);
-}
+// * {
+// max-inline-size: var(--measure);
+// }
 
 html,
 body,
@@ -21,9 +21,8 @@ footer {
 /* Default global styles */
 
 body {
-  background-color: var(--surface1);
-  color: var(--text-color);
-  color: var(--text1);
+  background-color: var(--theme-surface1);
+  color: var(--theme-text1);
   font-family: "Inter", var(--system-ui);
   font-weight: 400;
   font-size: var(--fs-0);
@@ -31,7 +30,7 @@ body {
 
 a {
   color: var(--color-secondary-600);
-  color: var(--text2);
+  color: var(--theme-text2);
   font-weight: 600;
   // text-underline-position: under;
   text-decoration-thickness: 2px;
@@ -147,7 +146,25 @@ pre:hover > .copy-button:hover {
 
 blockquote {
   background-color: var(--color-secondary-50);
-  border-inline-start: 0.25em solid var(--color-secondary-200);
-  padding-block: var(--s0);
-  padding-inline: var(--s1);
+  padding-block: var(--space-m);
+  padding-inline: var(--space-m);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  text-align: left;
+}
+
+td,
+th {
+  padding-block: var(--space-xs);
+  padding-inline-start: var(--space-s);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--color-secondary-50);
+  border-radius: var(--border-radius);
 }

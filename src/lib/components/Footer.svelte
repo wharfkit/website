@@ -2,7 +2,7 @@
   import data from "$lib/footerData"
   import { capitalize } from "../utils"
   import logo from "$lib/assets/logos/Wharf-logo-vertical.svg"
-  import ThemeToggle from "./ThemeToggle/index.svelte"
+  import ThemeToggle from "./ThemeToggle.svelte"
 </script>
 
 <nav class="">

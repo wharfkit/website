@@ -70,7 +70,6 @@ export async function fetchDocs() {
 
       // remove dashes from section
       const sectionName = section.replace(/-/g, " ")
-      console.log(postPath, sectionName)
 
       // capitalize first letter of each word in sectionName
       const sectionTitle = sectionName.replace(/\w\S*/g, (w) =>

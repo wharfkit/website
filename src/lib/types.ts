@@ -7,3 +7,9 @@ export interface DocumentationArticle {
 export interface DocumentationSections {
   [key: string]: DocumentationArticle[]
 }
+
+export interface HeadingNode {
+  tagName: string
+  text: string
+  id: string | null
+}
