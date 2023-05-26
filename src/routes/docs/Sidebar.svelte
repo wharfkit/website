@@ -124,7 +124,7 @@
     transition: transform 80ms ease-out;
   }
 
-  details[open] svg {
+  details[open] > summary > svg {
     transform: rotate(90deg);
   }
 
