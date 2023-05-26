@@ -50,7 +50,7 @@
 <style>
   .grid {
     display: grid;
-    grid-template-columns: 8fr 2fr;
+    grid-template-columns: 1fr auto;
     gap: var(--space-xl);
   }
 
