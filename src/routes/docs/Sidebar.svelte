@@ -6,47 +6,73 @@
   export let sections: DocumentationSections
 
   let filteredSections = sections
+  let innerWidth: number
+  $: isMobile = innerWidth <= 768
 
   function handleQueryChange(event: CustomEvent<string>) {
     const { detail: query } = event
     filteredSections = filterDocumentationArticles(sections, query)
   }
+
+  let sideNav: HTMLDetailsElement
+
+  function collapseNav() {
+    if (isMobile) {
+      sideNav?.removeAttribute("open")
+    }
+  }
 </script>
 
-<aside>
-  <h2>Documentation</h2>
-  <Filter on:queryChange={handleQueryChange} />
-  <ul class="sections | flow">
-    {#each Object.entries(filteredSections) as [title, articles]}
-      <li class="section">
-        <details open>
-          <summary>
-            <h3>{title}</h3>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
-          </summary>
+<svelte:window bind:innerWidth />
 
-          <ul class="articles">
-            {#each articles as article}
-              <li>
-                <a href={article.path}>
-                  {article.title}
-                </a>
-              </li>
-            {/each}
-          </ul>
-        </details>
-      </li>
-    {/each}
-  </ul>
+<aside>
+  <details open={!isMobile} bind:this={sideNav}>
+    <summary class="header">
+      <h2>Documentation</h2>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
+    </summary>
+    <Filter on:queryChange={handleQueryChange} />
+    <ul class="sections | flow">
+      {#each Object.entries(filteredSections) as [title, articles]}
+        <li class="section">
+          <details open={!isMobile}>
+            <summary>
+              <h3>{title}</h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
+            </summary>
+
+            <ul class="articles">
+              {#each articles as article}
+                <li>
+                  <a href={article.path} on:click={collapseNav}>
+                    {article.title}
+                  </a>
+                </li>
+              {/each}
+            </ul>
+          </details>
+        </li>
+      {/each}
+    </ul>
+  </details>
 </aside>
 
 <style>
@@ -60,8 +86,6 @@
     font-family: var(--ff-heading);
     font-size: var(--fs-0);
     font-weight: 600;
-    padding-block: var(--space-s);
-    padding-inline: var(--space-m);
   }
 
   ul {
@@ -85,9 +109,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: var(--space-s);
     padding-inline: var(--space-m);
     cursor: pointer;
+    user-select: none;
+    height: var(--space-xl);
+  }
+
+  summary.header {
+    background-color: var(--reef-turquoise);
+    border-radius: var(--border-radius);
   }
 
   summary svg {
@@ -122,5 +152,17 @@
 
   .articles a:hover {
     text-decoration: underline;
+  }
+
+  @media (min-width: 769px) {
+    summary.header {
+      background-color: transparent;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    summary.header svg {
+      display: none;
+    }
   }
 </style>

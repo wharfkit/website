@@ -41,15 +41,27 @@
 
   <!-- Only render the TOC if there are more than 2 headings -->
   {#if headings.length > 2}
-    <TOC {headings} />
+    <aside>
+      <TOC {headings} />
+    </aside>
   {/if}
 </div>
 
 <style>
   .grid {
     display: grid;
-    grid-template-columns: 8fr 3fr;
+    grid-template-columns: 8fr 2fr;
     gap: var(--space-xl);
+  }
+
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    aside {
+      display: none;
+    }
   }
 
   article :global(h1) {
@@ -89,6 +101,10 @@
   article :global(blockquote) {
     font-size: var(--fs-0);
     margin-block: var(--space-m);
+    border-radius: var(--border-radius);
+  }
+
+  article :global(img) {
     border-radius: var(--border-radius);
   }
 </style>

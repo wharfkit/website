@@ -15,33 +15,42 @@
   }
 </script>
 
-<input type="text" bind:value={query} placeholder="Filter..." on:input={handleInput} />
-{#if query}
-  <button type="button" on:click={handleClear}>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="lucide lucide-x">
-      <path d="M18 6L6 18M6 6l12 12" />
-    </svg>
-  </button>
-{/if}
+<div>
+  <input type="text" bind:value={query} placeholder="Filter..." on:input={handleInput} />
+  {#if query}
+    <button type="button" on:click={handleClear}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-x">
+        <path d="M18 6L6 18M6 6l12 12" />
+      </svg>
+    </button>
+  {/if}
+</div>
 
 <style>
+  div {
+    position: relative;
+    margin-block: var(--space-s);
+  }
+
   input {
-    padding-inline: 1.5rem;
-    padding-block: 0.75rem;
+    width: 100%;
+    padding-inline: var(--space-m);
+    height: var(--space-xl);
     border: none;
-    border-radius: 26px;
+    border-radius: var(--border-radius);
     font-size: var(--fs-0);
     font-family: var(--ff-body);
     background-color: var(--theme-surface2);
+    color: var(--theme-text1);
     outline: none;
   }
 
@@ -51,6 +60,19 @@
 
   input::placeholder {
     font-style: italic;
-    color: var(--theme-text3);
+    opacity: 0.75;
+  }
+
+  button {
+    position: absolute;
+    padding: 0;
+    padding-inline: var(--space-m);
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
   }
 </style>

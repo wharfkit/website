@@ -14,7 +14,13 @@
 <style>
   main {
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: auto 1fr;
     gap: var(--space-xl);
+  }
+
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
