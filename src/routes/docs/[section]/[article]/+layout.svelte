@@ -106,5 +106,7 @@
 
   article :global(img) {
     border-radius: var(--border-radius);
+    max-width: 100%;
+    margin-inline: auto;
   }
 </style>
