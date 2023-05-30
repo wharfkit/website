@@ -2,6 +2,7 @@
   import { createEventDispatcher } from "svelte"
 
   const dispatch = createEventDispatcher()
+  let input: HTMLInputElement
   let query = ""
 
   function handleInput(event: Event) {
@@ -13,10 +14,35 @@
     query = ""
     dispatch("queryChange", query)
   }
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "/") {
+      event.preventDefault()
+      input?.focus()
+    }
+
+    if (event.key === "Escape") {
+      if (query) {
+        event.preventDefault()
+        handleClear()
+        return
+      }
+
+      event.preventDefault()
+      input?.blur()
+    }
+  }
 </script>
 
+<svelte:window on:keydown={handleKeyDown} />
+
 <div>
-  <input type="text" bind:value={query} placeholder="Filter..." on:input={handleInput} />
+  <input
+    type="text"
+    bind:this={input}
+    bind:value={query}
+    placeholder="Filter..."
+    on:input={handleInput} />
   {#if query}
     <button type="button" on:click={handleClear}>
       <svg
@@ -38,7 +64,8 @@
 <style>
   div {
     position: relative;
-    margin-block: var(--space-s);
+    margin-block-start: var(--space-s);
+    margin-block-end: var(--space-m);
   }
 
   input {
@@ -74,5 +101,9 @@
     border: none;
     outline: none;
     cursor: pointer;
+  }
+
+  button:focus-visible svg {
+    box-shadow: 0 0 0 2px var(--theme-text3);
   }
 </style>
