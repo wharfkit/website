@@ -60,7 +60,7 @@
       </button>
     </div>
 
-    <ul>
+    <menu>
       {#each navItems as { name, href }}
         <li>
           <a {href} class:active={new RegExp(href).test(section)} on:click={closeNav}>
@@ -68,7 +68,7 @@
           </a>
         </li>
       {/each}
-    </ul>
+    </menu>
 
     <div class="right">
       <a class="button" href="https://github.com/wharfkit">Github</a>
@@ -98,11 +98,12 @@
   header {
     display: flex;
     justify-content: center;
+    padding-inline: var(--page-padding-inline);
   }
 
   nav {
     flex: 1;
-    max-inline-size: min(var(--max-inline-size), 100% - var(--space-m));
+    max-inline-size: var(--max-inline-size);
     background: var(--header-background, var(--theme-header-background));
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -121,14 +122,14 @@
     display: none;
   }
 
-  nav ul {
+  nav menu {
     display: flex;
     justify-content: center;
     list-style: none;
     padding-inline: 0;
   }
 
-  ul a {
+  menu a {
     font-family: var(--ff-heading);
     color: var(--header-text-color, var(--theme-header-text));
     text-decoration: none;
@@ -138,7 +139,7 @@
     font-size: var(--fs-0);
   }
 
-  ul a:is(:hover, :focus) {
+  menu a:is(:hover, :focus) {
     background: var(--nav-background-color, var(--theme-nav-background));
   }
 
@@ -164,7 +165,7 @@
       gap: 0;
     }
 
-    .wrapper .left {
+    nav .left {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -184,7 +185,7 @@
       position: relative;
     }
 
-    nav ul {
+    nav menu {
       position: absolute;
       top: calc(100% + var(--space-2xs));
       flex-direction: column;
@@ -223,7 +224,7 @@
       background: var(--header-background, white);
     }
 
-    .navHidden ul {
+    .navHidden menu {
       transform: scaleY(0) translateY(0);
     }
     .navHidden nav a {

@@ -12,7 +12,7 @@
   }
 </script>
 
-<div class="with-sidebar">
+<main class="with-sidebar">
   <aside class="sidebar">
     <ul>
       <li><a href="#guidelines">Guidelines</a></li>
@@ -221,13 +221,16 @@
       </div>
     </section>
   </div>
-</div>
+</main>
 
 {#if toast}
   <Toast text={`Copied ${toast}`} />
 {/if}
 
 <style>
+  main {
+  }
+
   aside ul {
     position: sticky;
     top: var(--space-m);
@@ -255,12 +258,6 @@
   section {
     display: flex;
     flex-direction: column;
-    gap: var(--space-l);
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
     gap: var(--space-m);
     max-inline-size: none;
   }
@@ -282,15 +279,12 @@
   .logos .frame {
     aspect-ratio: 1;
     padding: var(--space-l);
+    border: var(--border-style);
+    border-radius: var(--space-s);
   }
 
   .logos .frame img {
     object-fit: contain;
-  }
-
-  .logos .frame {
-    border: var(--border-style);
-    border-radius: var(--space-s);
   }
 
   .fonts .box {
@@ -330,20 +324,7 @@
   .brand-colors {
     display: flex;
     flex-direction: column;
-    gap: var(--space-m);
-  }
-
-  .brand-colors {
-    display: flex;
-    flex-direction: column;
     gap: var(--space-xl);
-  }
-
-  #colors h3 {
-    font-family: var(--ff-heading);
-    font-size: var(--fs-1);
-    font-weight: 600;
-    margin-block-end: 1rem;
   }
 
   #colors .label {
@@ -356,12 +337,6 @@
     font-size: var(--fs-1);
     font-weight: 600;
     margin-block-end: var(--space-3xs);
-  }
-
-  #colors .palette {
-    flex-grow: 1;
-    flex-basis: 14rem;
-    margin-block-start: var(--space-xs);
   }
 
   #colors table td:first-of-type {

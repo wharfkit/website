@@ -7,30 +7,21 @@
 </script>
 
 <Seo />
-
-<div class="wrapper">
-  <Header />
-  <main>
-    <slot />
-  </main>
-  <Footer />
+<Header />
+<div>
+  <slot />
 </div>
+<Footer />
 
 <style>
-  .page {
+  :global(#root) {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-    gap: var(--space-l);
+    gap: var(--space-2xl);
   }
 
-  main {
-    box-sizing: content-box;
-  }
-
-  .wrapper {
-    max-inline-size: var(--max-inline-size);
-    padding-inline: var(--space-s);
-    margin-inline: auto;
+  div {
+    padding-inline: var(--page-padding-inline);
   }
 </style>

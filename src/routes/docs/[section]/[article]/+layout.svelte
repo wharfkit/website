@@ -34,7 +34,7 @@
   })
 </script>
 
-<div class="grid">
+<main>
   <article>
     <slot />
   </article>
@@ -45,17 +45,17 @@
       <TOC {headings} />
     </aside>
   {/if}
-</div>
+</main>
 
 <style>
-  .grid {
+  main {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: var(--space-xl);
   }
 
   @media (max-width: 1024px) {
-    .grid {
+    main {
       grid-template-columns: 1fr;
     }
 

@@ -9,7 +9,7 @@
   $: posts = filter ? data.posts.filter((post) => post.tags.includes(filter)) : data.posts
 </script>
 
-<div class="with-sidebar">
+<main class="with-sidebar">
   <aside class="sidebar">
     <ul>
       <li>
@@ -55,7 +55,7 @@
       </li>
     {/each}
   </ul>
-</div>
+</main>
 
 <style>
   .sidebar {

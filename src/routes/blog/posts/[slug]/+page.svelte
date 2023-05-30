@@ -28,10 +28,10 @@
       stroke-linecap="round"
       stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg>
     <span>Back to blog</span></a>
-  <header>
+  <hgroup>
     <h1>{title}</h1>
     <p>{date}</p>
-  </header>
+  </hgroup>
 
   {#if image}
     <img src={image} alt="blog post header" />
@@ -45,7 +45,7 @@
 </article>
 
 <style>
-  header {
+  hgroup {
     font-family: var(--ff-heading);
     font-weight: 600;
   }
@@ -55,7 +55,7 @@
     color: var(--theme-text-body);
   }
 
-  header p {
+  hgroup p {
     font-size: var(--fs-0);
     color: var(--theme-text-heading);
   }

@@ -5,21 +5,23 @@
   const { sections } = data
 </script>
 
-<main>
+<div>
   <Sidebar {sections} />
 
   <slot />
-</main>
+</div>
 
 <style>
-  main {
+  div {
+    inline-size: min(100%, var(--max-inline-size));
+    margin-inline: auto;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--space-xl);
   }
 
   @media (max-width: 768px) {
-    main {
+    div {
       grid-template-columns: 1fr;
     }
   }

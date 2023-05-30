@@ -41,7 +41,7 @@
         class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
     </summary>
     <Filter on:queryChange={handleQueryChange} />
-    <ul class="sections | flow">
+    <menu class="sections | flow">
       {#each Object.entries(filteredSections) as [title, articles]}
         <li class="section">
           <details open={!isMobile}>
@@ -59,7 +59,7 @@
                 class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
             </summary>
 
-            <ul class="articles">
+            <menu class="articles">
               {#each articles as article}
                 <li>
                   <a href={article.path} on:click={collapseNav}>
@@ -67,11 +67,11 @@
                   </a>
                 </li>
               {/each}
-            </ul>
+            </menu>
           </details>
         </li>
       {/each}
-    </ul>
+    </menu>
   </details>
 </aside>
 
@@ -88,7 +88,7 @@
     font-weight: 600;
   }
 
-  ul {
+  menu {
     list-style: none;
     padding: 0;
   }
@@ -157,7 +157,7 @@
   @media (min-width: 769px) {
     summary.header {
       background-color: transparent;
-      cursor: default;
+      cursor: defamenut;
       pointer-events: none;
     }
 

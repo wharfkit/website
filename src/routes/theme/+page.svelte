@@ -20,7 +20,7 @@
   </style>
 </svelte:head>
 
-<article>
+<main>
   <section>
     <div class="surface-samples">
       <div class="surface1 rad-shadow">1</div>
@@ -60,10 +60,10 @@
       </p>
     </div>
   </section>
-</article>
+</main>
 
 <style lang="scss">
-  article {
+  main {
     display: flex;
     flex-flow: row wrap;
     align-items: center;

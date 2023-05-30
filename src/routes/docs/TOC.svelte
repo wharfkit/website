@@ -20,13 +20,13 @@
       ><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" /></svg>
     <p>Table of Contents</p>
   </header>
-  <ul>
+  <menu>
     {#each headings as heading}
       <li>
         <a href={`#${heading.id}`}>{heading.text}</a>
       </li>
     {/each}
-  </ul>
+  </menu>
 </nav>
 
 <style>
@@ -54,7 +54,7 @@
     font-weight: 600;
   }
 
-  ul {
+  menu {
     list-style: none;
     padding-inline-start: 0;
   }

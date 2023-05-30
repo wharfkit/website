@@ -1,23 +1,6 @@
 /* Variables and mixins from the src/variables.scss file are available here without importing. Reset is here otherwise using lang='scss' in a local <style> tag will reset global styles in that component. */
 @forward "reset";
 
-/* Horizontal constraints for readability, using an exception-based approach */
-// * {
-// max-inline-size: var(--measure);
-// }
-
-html,
-body,
-div,
-header,
-nav,
-main,
-// article,
-// pre,
-footer {
-  max-inline-size: none;
-}
-
 /* Default global styles */
 
 body {
@@ -26,6 +9,12 @@ body {
   font-family: "Inter", var(--system-ui);
   font-weight: 400;
   font-size: var(--fs-0);
+  // padding-inline: var(--space-s);
+}
+
+main {
+  max-inline-size: var(--max-inline-size);
+  margin-inline: auto;
 }
 
 a {
