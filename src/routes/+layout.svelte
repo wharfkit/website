@@ -8,18 +8,12 @@
 
 <Seo />
 
-<div class="page">
-  <header>
-    <Header />
-  </header>
-  <div class="content">
-    <div class="wrapper">
-      <slot />
-    </div>
-  </div>
-  <footer>
-    <Footer />
-  </footer>
+<div class="wrapper">
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
 </div>
 
 <style>
@@ -29,11 +23,8 @@
     min-height: 100vh;
     gap: var(--space-l);
   }
-  header {
-    display: flex;
-    justify-content: center;
-  }
-  .content {
+
+  main {
     box-sizing: content-box;
   }
 
@@ -41,9 +32,5 @@
     max-inline-size: var(--max-inline-size);
     padding-inline: var(--space-s);
     margin-inline: auto;
-  }
-  footer {
-    --footer-background: var(--theme-surface1);
-    background: var(--footer-background, white);
   }
 </style>

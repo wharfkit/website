@@ -29,7 +29,7 @@
   {/if}
 
   <div class="text">
-    {description}
+    <p>{description}</p>
     <a href={path}>Read More</a>
   </div>
 </article>
@@ -49,7 +49,12 @@
     text-decoration: none;
   }
 
-  .text {
+  h2 {
+    color: var(--theme-text-link);
+  }
+
+  p {
+    color: var(--theme-text-heading);
     font-size: var(--fs-0);
   }
 

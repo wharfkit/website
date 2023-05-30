@@ -52,7 +52,7 @@
       background-size: var(--page-background-size);
       background-position: var(--page-background-position);
       background-repeat: var(--page-background-repeat);
-      --header-background-color: white;
+      --header-background: white;
     }
   </style>
 </svelte:head>
