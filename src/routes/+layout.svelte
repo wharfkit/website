@@ -9,15 +9,11 @@
 <Seo />
 
 <div class="wrapper">
-  <header>
-    <Header />
-  </header>
+  <Header />
   <main>
     <slot />
   </main>
-  <footer>
-    <Footer />
-  </footer>
+  <Footer />
 </div>
 
 <style>
@@ -27,18 +23,11 @@
     min-height: 100vh;
     gap: var(--space-l);
   }
-  header {
-    display: flex;
-    justify-content: center;
-  }
+
   main {
     box-sizing: content-box;
     max-inline-size: var(--max-inline-size);
     padding-inline: var(--space-s);
     margin-inline: auto;
-  }
-  footer {
-    --footer-background: var(--theme-surface1);
-    background: var(--footer-background, white);
   }
 </style>

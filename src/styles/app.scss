@@ -21,9 +21,8 @@ footer {
 /* Default global styles */
 
 body {
-  background-color: var(--surface1);
-  color: var(--text-color);
-  color: var(--text1);
+  background-color: var(--theme-surface1);
+  color: var(--theme-text-body);
   font-family: "Inter", var(--system-ui);
   font-weight: 400;
   font-size: var(--fs-0);
@@ -31,9 +30,8 @@ body {
 
 a {
   color: var(--color-secondary-600);
-  color: var(--text2);
+  color: var(--theme-text2);
   font-weight: 600;
-  // text-underline-position: under;
   text-decoration-thickness: 2px;
 }
 
@@ -43,14 +41,16 @@ a {
 
 p,
 li {
-  // letter-spacing: -0.18px;
   line-height: 1.5;
 }
 
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
+  color: var(--theme-text-heading);
   line-height: 1.2;
-  letter-spacing: -0.79px;
 }
 
 /* Elements */
@@ -65,7 +65,7 @@ button {
   color: var(--button-text, var(--wharf-blue));
   border-radius: var(--space-s);
   padding: var(--space-xs) var(--space-m);
-  min-height: 53px;
+  min-height: var(--space-xl);
   text-decoration: none;
   font-size: var(--fs-0);
   font-family: var(--ff-heading);

@@ -1,7 +1,26 @@
 <script lang="ts">
 </script>
 
-<main>
+<svelte:head>
+  <style>
+    :root {
+      /* --header-background: white; */
+      /* --footer-background: var(--wharf-blue); */
+    }
+    body {
+      background: linear-gradient(
+        180deg,
+        #494e62 0%,
+        #7be7ce 63.52px,
+        #b2f2e1 84.44px,
+        #f4faf4 112.36px,
+        #ffffff 140px
+      );
+    }
+  </style>
+</svelte:head>
+
+<article>
   <section>
     <div class="surface-samples">
       <div class="surface1 rad-shadow">1</div>
@@ -41,10 +60,10 @@
       </p>
     </div>
   </section>
-</main>
+</article>
 
 <style lang="scss">
-  main {
+  article {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -60,6 +79,7 @@
 
   h1 {
     font-weight: 100;
+    opacity: 0.95;
   }
 
   p {

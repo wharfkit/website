@@ -52,6 +52,12 @@
 
   h1 {
     font-size: var(--fs-3);
+    color: var(--theme-text-body);
+  }
+
+  header p {
+    font-size: var(--fs-0);
+    color: var(--theme-text-heading);
   }
 
   .back {
@@ -80,10 +86,11 @@
   }
 
   article :global(blockquote) {
-    background-color: var(--color-secondary-50);
-    border-inline-start: 0.25em solid var(--color-secondary-200);
+    background-color: var(--theme-surface2);
+    border: 1px solid var(--color-secondary-200);
     padding-block: var(--space-s);
     padding-inline: var(--space-m);
+    border-radius: var(--border-radius, 12px);
   }
 
   article :global(li),

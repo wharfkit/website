@@ -55,7 +55,7 @@ export default [
     ],
   },
   {
-    title: "documentation",
+    title: "docs",
     items: [
       {
         name: "contract",

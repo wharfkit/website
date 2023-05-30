@@ -2,41 +2,59 @@
   import data from "$lib/footerData"
   import { capitalize } from "../utils"
   import logo from "$lib/assets/logos/Wharf-logo-vertical.svg"
-  import ThemeToggle from "./ThemeToggle/index.svelte"
+  import ThemeToggle from "./ThemeToggle.svelte"
 </script>
 
-<nav class="">
-  <img src={logo} alt="Wharf logo" width="100%" height="auto" />
-  {#each data as section}
+<footer>
+  <nav class="">
+    <img src={logo} alt="Wharf logo" width="100%" height="auto" />
+    {#each data as section}
+      <div class="box">
+        <h3>{capitalize(section.title)}</h3>
+        <ul>
+          {#each section.items as { name, href }}
+            <li><a {href}>{capitalize(name)}</a></li>
+          {/each}
+        </ul>
+      </div>
+    {/each}
     <div class="box">
-      <h3>{capitalize(section.title)}</h3>
-      <ul>
-        {#each section.items as { name, href }}
-          <li><a {href}>{capitalize(name)}</a></li>
-        {/each}
-      </ul>
+      <h3>Theme</h3>
+      <ThemeToggle />
     </div>
-  {/each}
-  <div class="box">
-    <h3>Theme</h3>
-    <ThemeToggle />
-  </div>
-</nav>
+  </nav>
+</footer>
 
 <style>
+  :global([data-theme="light"]) {
+    --theme-footer-background: white;
+    --theme-footer-text: black;
+  }
+
+  :global([data-theme="dark"]) {
+    --theme-footer-background: hsl(var(--hue-wharf) 21% 10%);
+    --theme-footer-text: white;
+  }
+
+  footer {
+    background: var(--footer-background, var(--theme-footer-background));
+    margin-block-start: var(--space-xl);
+  }
+
   nav {
     max-inline-size: var(--max-inline-size);
     margin-inline: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: stretch;
-    padding: var(--space-s);
+    padding-inline: var(--space-s);
+    padding-block: var(--space-xl);
   }
 
   img {
     max-width: 60px;
     flex-basis: 5rem;
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
     grid-column: 1 / 3;
     margin: var(--space-s);
   }
@@ -61,25 +79,23 @@
   h3 {
     font-family: var(--ff-heading);
     font-weight: 600;
-    font-size: var(--fs-0);
-    color: var(--color-neutral-500);
-    color: var(--theme-text3);
+    font-size: var(--fs-1);
+    color: var(--footer-text-color, var(--theme-footer-text));
+    opacity: 0.5;
     white-space: nowrap;
   }
 
   a {
     display: block;
     height: 100%;
-    color: #000;
-    color: var(--theme-text1);
+    color: var(--footer-text-color, var(--theme-footer-text));
     text-decoration: none;
     font-weight: 400;
     font-size: var(--fs--1);
   }
 
   a:hover {
-    color: var(--color-neutral-500);
-    color: var(--theme-text3);
+    text-decoration: underline;
   }
 
   @media (min-width: 600px) {
@@ -96,7 +112,7 @@
       grid-column: 1 / 2;
     }
     nav {
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(8, 1fr);
     }
   }
 </style>
