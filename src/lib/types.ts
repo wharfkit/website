@@ -13,3 +13,8 @@ export interface HeadingNode {
   text: string
   id: string | null
 }
+
+export interface BreadCrumb {
+  title: string
+  path: string
+}

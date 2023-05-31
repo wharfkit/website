@@ -7,7 +7,7 @@ export const load = (async ({params}) => {
         const post = await import(`../../../../lib/docs/${section}/${article}.md`)
         return {
             PostContent: post.default.render().html,
-            meta: {...post.metadata, slug: article},
+            meta: {...post.metadata, slug: article, section},
         }
     } catch (err) {
         throw error(404, 'Error ' + JSON.stringify(err, null, 2))

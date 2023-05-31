@@ -3,10 +3,18 @@
   import type { HeadingNode } from "$lib/types"
   import { onMount, afterUpdate } from "svelte"
   import TOC from "../../TOC.svelte"
+  import type { BreadCrumb } from "$lib/types"
+  import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
 
   export let data: LayoutData
 
   let headings: HeadingNode[] = []
+
+  const breadcrumbs: BreadCrumb[] = [
+    { title: "Documentation", path: "/docs" },
+    { title: data.meta.section, path: `/docs/${data.meta.section}` },
+    { title: data.meta.title, path: `/docs/${data.meta.section}/${data.meta.title}` },
+  ]
 
   function parseHeadings() {
     if (!data.PostContent) return []
@@ -34,8 +42,37 @@
   })
 </script>
 
+<svelte:head>
+  <style>
+    body[data-theme="light"] {
+      background: linear-gradient(
+        180deg,
+        #494e62 0%,
+        #7be7ce 4rem,
+        #b2f2e1 5.25rem,
+        #f4faf4 7rem,
+        #ffffff 8.75rem
+      );
+    }
+
+    /* prettier-ignore */
+    body[data-theme="dark"] {
+      background-image: linear-gradient(
+        180deg,
+        #7BE7CE 0%,
+        #494E62 4rem,
+        #1D1F2F 5.25rem,
+        #0D0E17 7rem,
+        #000000 8.75rem
+        
+      );
+    }
+  </style>
+</svelte:head>
+
 <main>
   <article>
+    <!-- <Breadcrumbs {breadcrumbs} /> -->
     <slot />
   </article>
 
@@ -49,9 +86,15 @@
 
 <style>
   main {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    margin-inline: revert;
+    /* display: grid; */
+    /* grid-template-columns: 1fr auto; */
+    display: flex;
     gap: var(--space-xl);
+  }
+
+  aside {
+    flex: 1 0 25ch;
   }
 
   @media (max-width: 1024px) {
