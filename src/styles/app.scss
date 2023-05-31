@@ -153,8 +153,3 @@ th {
   padding-block: var(--space-xs);
   padding-inline-start: var(--space-s);
 }
-
-tbody tr:nth-child(odd) {
-  background-color: var(--color-secondary-50);
-  border-radius: var(--border-radius);
-}

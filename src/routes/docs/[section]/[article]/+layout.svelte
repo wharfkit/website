@@ -151,4 +151,15 @@
     max-width: 100%;
     margin-inline: auto;
   }
+
+  article :global(tbody tr:nth-child(odd)) {
+    background-color: var(--color-secondary-50);
+    border-radius: var(--border-radius);
+  }
+
+  article :global(table) {
+    width: 100%;
+    margin-block: var(--space-m);
+    table-layout: fixed;
+  }
 </style>
