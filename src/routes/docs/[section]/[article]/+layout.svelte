@@ -42,33 +42,6 @@
   })
 </script>
 
-<svelte:head>
-  <style>
-    body[data-theme="light"] {
-      background: linear-gradient(
-        180deg,
-        #494e62 0%,
-        #7be7ce 4rem,
-        #b2f2e1 5.25rem,
-        #f4faf4 7rem,
-        #ffffff 8.75rem
-      );
-    }
-
-    /* prettier-ignore */
-    body[data-theme="dark"] {
-      background-image: linear-gradient(
-        180deg,
-        #7BE7CE 0%,
-        #494E62 5.25rem,
-        #262936 7rem,
-        #151720 8.75rem
-
-      );
-    }
-  </style>
-</svelte:head>
-
 <main>
   <article>
     <!-- <Breadcrumbs {breadcrumbs} /> -->
