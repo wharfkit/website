@@ -25,7 +25,7 @@
 
 <svelte:window bind:innerWidth />
 
-<aside>
+<nav aria-label="Documentation Sections">
   <details open={!isMobile} bind:this={sideNav}>
     <summary class="header">
       <h2>Documentation</h2>
@@ -73,10 +73,10 @@
       {/each}
     </menu>
   </details>
-</aside>
+</nav>
 
 <style>
-  aside {
+  nav {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
@@ -86,6 +86,7 @@
     font-family: var(--ff-heading);
     font-size: var(--fs-0);
     font-weight: 600;
+    color: inherit;
   }
 
   menu {
@@ -101,7 +102,7 @@
   }
 
   .sections > li {
-    border: 1px solid var(--seafoam-mint);
+    /* border: 1px solid var(--seafoam-mint); */
     border-radius: var(--border-radius);
   }
 
@@ -115,9 +116,10 @@
     height: var(--space-xl);
   }
 
-  summary.header {
+  summary:where(.header) {
     background-color: var(--reef-turquoise);
     border-radius: var(--border-radius);
+    color: var(--wharf-blue);
   }
 
   summary svg {
@@ -135,6 +137,7 @@
   }
 
   .articles {
+    padding-block-start: var(--space-2xs);
     padding-block-end: var(--space-s);
     padding-inline: var(--space-l);
   }
@@ -144,7 +147,7 @@
     font-family: var(--ff-heading);
     color: var(--theme-text1);
     font-weight: 400;
-    line-height: 1.5em;
+    line-height: 2em;
     padding-block: var(--space-2xs);
     text-decoration: none;
     display: block;
@@ -155,14 +158,26 @@
   }
 
   @media (min-width: 769px) {
-    summary.header {
+    h2 {
+      color: var(--theme-text-heading);
+    }
+
+    summary {
       background-color: transparent;
-      cursor: defamenut;
+      cursor: default;
       pointer-events: none;
     }
 
-    summary.header svg {
+    summary svg {
       display: none;
+    }
+
+    .articles {
+      padding-block-start: 0;
+    }
+
+    .articles a {
+      line-height: 1.5em;
     }
   }
 </style>

@@ -111,7 +111,6 @@
     gap: var(--space-l);
     margin-block: var(--space-s);
     border-radius: var(--space-m);
-    /* height: var(--header-height, var(--space-2xl)); */
   }
 
   .left {
@@ -140,7 +139,7 @@
   }
 
   menu a:is(:hover, :focus) {
-    background: var(--nav-background-color, var(--theme-nav-background));
+    background: var(--nav-background-color, var(--theme-nav-item-hover));
   }
 
   .right {

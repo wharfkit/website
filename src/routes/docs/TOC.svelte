@@ -4,9 +4,9 @@
   export let headings: HeadingNode[] = []
 </script>
 
-<nav class="toc">
+<nav aria-label="Table of Contents" class="toc">
   <header>
-    <svg
+    <!-- <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -17,7 +17,7 @@
       stroke-linecap="round"
       stroke-linejoin="round"
       class="lucide lucide-bookmark"
-      ><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" /></svg>
+      ><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" /></svg> -->
     <p>Table of Contents</p>
   </header>
   <menu>
@@ -34,8 +34,9 @@
     font-family: var(--ff-heading);
     background-color: var(--theme-surface2);
     border-radius: var(--border-radius);
-    padding-block: var(--space-s);
-    padding-inline: var(--space-l);
+    padding-block: var(--space-m);
+    padding-inline: var(--space-m);
+    margin-block-start: calc(var(--space-xl) + var(--space-m));
   }
 
   nav header {
@@ -44,10 +45,10 @@
     margin-block-end: var(--space-m);
   }
 
-  nav header svg {
+  /* nav header svg {
     margin-inline-end: var(--space-xs);
     width: 16px;
-  }
+  } */
 
   nav header p {
     font-size: var(--fs-0);
