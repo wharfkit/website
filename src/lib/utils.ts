@@ -19,7 +19,7 @@ export function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-export async function fetchMarkdownPosts() {
+export async function fetchBlogPosts() {
   const allPostFiles = import.meta.glob("/src/routes/blog/**/*.md")
   const iterablePosts = Object.entries(allPostFiles)
 
@@ -58,8 +58,19 @@ export async function fetchMarkdownPosts() {
   return allPosts
 }
 
+function formatSectionTitle(section: string) {
+  // remove any dashes from section
+  const sectionName = section.replace(/-/g, " ")
+  // capitalize first letter of each word
+  const sectionTitle = sectionName.replace(/\w\S*/g, (w) =>
+    w.replace(/^\w/, (c) => c.toUpperCase())
+  )
+  return sectionTitle
+}
+
 export async function fetchDocs() {
-  const allDocFiles = import.meta.glob("/src/lib/docs/**/*.md")
+  // import md files not in the root /docs folder
+  const allDocFiles = import.meta.glob("/src/lib/docs/**/!(/docs)/*.md")
   const iterablePosts = Object.entries(allDocFiles)
 
   const allDocs = await Promise.all(
@@ -69,18 +80,12 @@ export async function fetchDocs() {
       const pathArray = postPath.split("/")
       const section = pathArray[2]
 
-      // remove dashes from section
-      const sectionName = section.replace(/-/g, " ")
-
-      // capitalize first letter of each word in sectionName
-      const sectionTitle = sectionName.replace(/\w\S*/g, (w) =>
-        w.replace(/^\w/, (c) => c.toUpperCase())
-      )
-
       return {
         ...metadata,
         path: postPath,
-        section: sectionTitle,
+        section: formatSectionTitle(section),
+        title: pathArray[3],
+        slug: slugify(pathArray[3]),
       }
     })
   )

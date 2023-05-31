@@ -60,11 +60,10 @@
       background-image: linear-gradient(
         180deg,
         #7BE7CE 0%,
-        #494E62 4rem,
-        #1D1F2F 5.25rem,
-        #0D0E17 7rem,
-        #000000 8.75rem
-        
+        #494E62 5.25rem,
+        #262936 7rem,
+        #151720 8.75rem
+
       );
     }
   </style>
