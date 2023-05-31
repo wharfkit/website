@@ -1,8 +1,8 @@
-import { fetchDocs } from "$lib/utils"
+import { getDocs } from "$lib/utils"
 import { json } from "@sveltejs/kit"
 
 export const GET = async () => {
-  const allDocs = await fetchDocs()
+  const allDocs = await getDocs()
 
   // TODO: sort docs
 

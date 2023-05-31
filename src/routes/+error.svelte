@@ -9,12 +9,18 @@
   <p>
     {$page.error?.message}
   </p>
-  <pre>
+
+  {#if data}
+    <pre>
         {JSON.stringify(data, null, 2)}
     </pre>
-  <pre>
+  {/if}
+
+  {#if form}
+    <pre>
         {JSON.stringify(form, null, 2)}
     </pre>
+  {/if}
 </div>
 
 <style>

@@ -2,6 +2,8 @@ export interface DocumentationArticle {
   title: string
   path: string
   section: string
+  content: string
+  slug: string
 }
 
 export interface DocumentationSections {

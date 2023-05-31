@@ -19,7 +19,7 @@ export function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-export async function fetchBlogPosts() {
+export async function getBlogPosts() {
   const allPostFiles = import.meta.glob("/src/routes/blog/**/*.md")
   const iterablePosts = Object.entries(allPostFiles)
 
@@ -68,31 +68,6 @@ function formatSectionTitle(section: string) {
   return sectionTitle
 }
 
-export async function fetchDocs() {
-  // import md files not in the root /docs folder
-  const allDocFiles = import.meta.glob("/src/lib/docs/**/!(/docs)/*.md")
-  const iterablePosts = Object.entries(allDocFiles)
-
-  const allDocs = await Promise.all(
-    iterablePosts.map(async ([path, resolver]) => {
-      const { metadata } = await resolver()
-      const postPath = path.slice(8, -3)
-      const pathArray = postPath.split("/")
-      const section = pathArray[2]
-
-      return {
-        ...metadata,
-        path: postPath,
-        section: formatSectionTitle(section),
-        title: pathArray[3],
-        slug: slugify(pathArray[3]),
-      }
-    })
-  )
-
-  return allDocs
-}
-
 export function filterDocumentationArticles(
   sections: DocumentationSections,
   query: string
@@ -122,4 +97,40 @@ export function filterDocumentationArticles(
   console.log(filteredSections)
 
   return filteredSections
+}
+
+export async function getDocs() {
+  // import md files not in the root /docs folder
+  const allDocFiles = import.meta.glob("/src/lib/docs/**/!(/docs)/*.md")
+  const iterablePosts = Object.entries(allDocFiles)
+
+  const allDocs = await Promise.all(
+    iterablePosts.map(async ([path, resolver]) => {
+      const res = await resolver()
+      const { metadata } = res
+      const postPath = path.slice(8, -3)
+      const pathArray = postPath.split("/")
+      const [_, root, section, title] = pathArray
+      return {
+        ...metadata,
+        path: postPath.toLowerCase(),
+        section: formatSectionTitle(section),
+        title,
+        slug: slugify(title),
+        content: res.default.render().html,
+      }
+    })
+  )
+
+  return allDocs
+}
+
+export async function getDoc(path: string) {
+  const allDocs = await getDocs()
+
+  const doc = allDocs.find((doc) => doc.path.includes(path))
+
+  return {
+    ...doc,
+  }
 }

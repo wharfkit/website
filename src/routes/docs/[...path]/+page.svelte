@@ -4,4 +4,4 @@
   export let data: PageData
 </script>
 
-{@html data.PostContent}
+{@html data.doc.content}

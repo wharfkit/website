@@ -47,7 +47,7 @@
 
 <svelte:head>
   <style>
-    #root {
+    body {
       background: var(--page-background-gradient);
       background-size: var(--page-background-size);
       background-position: var(--page-background-position);

@@ -2,44 +2,46 @@
   import type { LayoutData } from "./$types"
   import type { HeadingNode } from "$lib/types"
   import { onMount, afterUpdate } from "svelte"
-  import TOC from "../../TOC.svelte"
+  import TOC from "../TOC.svelte"
   import type { BreadCrumb } from "$lib/types"
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
 
   export let data: LayoutData
 
+  const { doc } = data
+
   let headings: HeadingNode[] = []
 
   const breadcrumbs: BreadCrumb[] = [
     { title: "Documentation", path: "/docs" },
-    { title: data.meta.section, path: `/docs/${data.meta.section}` },
-    { title: data.meta.title, path: `/docs/${data.meta.section}/${data.meta.title}` },
+    { title: doc.section, path: `/docs/${doc.section}` },
+    { title: doc.title, path: `/docs/${doc.section}/${doc.title}` },
   ]
 
-  function parseHeadings() {
-    if (!data.PostContent) return []
-    const parser = new DOMParser()
-    const doc = parser.parseFromString(data.PostContent, "text/html")
-    const headingNodes = doc.querySelectorAll("h2")
+  // function parseHeadings() {
+  //   if (!doc.content) return []
+  //   const parser = new DOMParser()
+  //   const doc = parser.parseFromString(doc.content, "text/html")
+  //   const headingNodes = doc.querySelectorAll("h2")
 
-    return Array.from(headingNodes).map((node: HTMLElement) => ({
-      tagName: node.tagName.toLowerCase(),
-      text: node.textContent || "",
-      id: node.id || null,
-    }))
-  }
+  //   return Array.from(headingNodes).map((node: HTMLElement) => ({
+  //     tagName: node.tagName.toLowerCase(),
+  //     text: node.textContent || "",
+  //     id: node.id || null,
+  //   }))
+  // }
 
-  function updateHeadings() {
-    headings = parseHeadings()
-  }
+  // function updateHeadings() {
+  //   headings = parseHeadings()
+  // }
 
-  onMount(() => {
-    updateHeadings()
-  })
+  // onMount(() => {
+  //   updateHeadings()
+  // })
 
-  afterUpdate(() => {
-    updateHeadings()
-  })
+  // afterUpdate(() => {
+  //   updateHeadings()
+  // })
 </script>
 
 <main>

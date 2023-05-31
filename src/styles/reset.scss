@@ -22,11 +22,10 @@
 }
 
 /* Set core root defaults */
-html,
-body,
-#root {
-  // height: 100%;
-}
+// html,
+// body {
+// height: 100%;
+// }
 
 html:focus-within {
   scroll-behavior: smooth;
