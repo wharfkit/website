@@ -3,26 +3,18 @@
   export let breadcrumbs: BreadCrumb[]
 </script>
 
-<nav aria-label="Breadcrumb">
-  <ul>
-    {#each breadcrumbs as { title, path }}
-      <li>
-        <a href={path}>{title}</a>
-      </li>
-    {/each}
-  </ul>
-</nav>
+<ul>
+  {#each breadcrumbs as { title, path }}
+    <li>
+      <a href={path}>{title}</a>
+    </li>
+  {/each}
+</ul>
 
 <style>
-  nav {
+  ul {
     --spacing: 4px;
     --color: var(--theme-text-heading);
-    display: flex;
-    align-items: center;
-    height: var(--space-xl);
-    margin-bottom: var(--space-s);
-  }
-  ul {
     list-style: none;
     padding-inline-start: 0;
   }

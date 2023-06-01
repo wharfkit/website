@@ -21,8 +21,11 @@
 </script>
 
 <main>
-  <article>
+  <nav aria-label="Breadcrumbs">
     <Breadcrumbs {breadcrumbs} />
+  </nav>
+
+  <article>
     {@html data.doc.content}
   </article>
 
@@ -37,8 +40,16 @@
 <style>
   main {
     margin-inline: revert;
+    display: grid;
+    grid-template-columns: 1fr 25ch;
+    column-gap: var(--space-xl);
+  }
+
+  nav {
+    grid-column: 1 / 3;
     display: flex;
-    gap: var(--space-xl);
+    align-items: center;
+    height: var(--space-xl);
   }
 
   aside {
@@ -51,39 +62,50 @@
     }
   }
 
+  article :global(*) {
+    margin: revert;
+  }
+
   article :global(h1) {
     font-size: var(--fs-3);
     font-family: var(--ff-heading);
     font-weight: 600;
-    margin-block-end: var(--space-m);
+    margin-block-start: var(--space-s);
   }
 
   article :global(h2) {
     font-size: var(--fs-2);
     font-family: var(--ff-heading);
     font-weight: 600;
-    margin-block-start: var(--space-m);
-    margin-block-end: var(--space-xs);
   }
 
   article :global(h3) {
     font-size: var(--fs-1);
     font-family: var(--ff-heading);
     font-weight: 600;
-    margin-block-start: var(--space-m);
-    margin-block-end: var(--space-s);
+  }
+
+  article :global(h4) {
+    font-size: var(--fs-1);
+    font-family: var(--ff-heading);
+    font-weight: 600;
+  }
+
+  article :global(h5) {
+    font-size: var(--fs-1);
+    font-family: var(--ff-heading);
+    font-weight: 600;
   }
 
   article :global(p) {
     font-size: var(--fs-0);
     font-family: var(--ff-body);
     font-weight: 400;
-    margin-block: var(--space-xs);
+    color: var(--theme-text-body);
   }
 
   article :global(blockquote) {
     font-size: var(--fs-0);
-    margin-block: var(--space-m);
     border-radius: var(--border-radius);
   }
 
@@ -100,7 +122,6 @@
 
   article :global(table) {
     width: 100%;
-    margin-block: var(--space-m);
     table-layout: fixed;
   }
 </style>
