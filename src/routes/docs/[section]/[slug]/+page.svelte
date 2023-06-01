@@ -1,17 +1,12 @@
 <script lang="ts">
   import type { PageData } from "./$types"
   import TOC from "./TOC.svelte"
-  import type { BreadCrumb } from "$lib/types"
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
   import { capitalize } from "$lib/utils"
 
   export let data: PageData
 
-  $: doc = data.doc
-  $: section = doc.section
-  $: title = doc.title
-  $: headings = doc.headings
-  $: slug = doc.slug
+  $: ({ section, title, headings, slug } = data.doc)
 
   $: breadcrumbs = [
     { title: "Documentation", path: "/docs" },
@@ -57,6 +52,11 @@
   }
 
   @media (max-width: 1024px) {
+    main {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
     aside {
       display: none;
     }
