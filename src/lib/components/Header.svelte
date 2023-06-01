@@ -109,7 +109,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     gap: var(--space-l);
-    margin-block: var(--space-s);
+    /* margin-block: var(--space-s); */
     border-radius: var(--space-m);
   }
 

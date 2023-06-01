@@ -36,7 +36,8 @@
     border-radius: var(--border-radius);
     padding-block: var(--space-m);
     padding-inline: var(--space-m);
-    margin-block-start: calc(var(--space-xl) + var(--space-m));
+    /* margin-block-start: calc(var(--space-xl) + var(--space-m)); */
+    margin-block-start: var(--space-s);
     position: sticky;
     top: var(--space-l);
   }

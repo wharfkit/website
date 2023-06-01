@@ -18,7 +18,8 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-    gap: var(--space-2xl);
+    gap: var(--space-xl-2xl);
+    padding-block-start: var(--space-s);
   }
 
   div {
