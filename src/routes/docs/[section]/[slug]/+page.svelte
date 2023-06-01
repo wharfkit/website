@@ -11,11 +11,12 @@
   $: section = doc.section
   $: title = doc.title
   $: headings = doc.headings
+  $: slug = doc.slug
 
   $: breadcrumbs = [
     { title: "Documentation", path: "/docs" },
     { title: capitalize(section), path: `/docs/${section}` },
-    { title: title, path: `/docs/${section}/${title}` },
+    { title: title, path: `/docs/${section}/${slug}` },
   ]
 </script>
 
