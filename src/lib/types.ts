@@ -4,6 +4,7 @@ export interface DocumentationArticle {
   section: string
   content: string
   slug: string
+  headings: HeadingNode[]
 }
 
 export interface DocumentationSections {
@@ -11,9 +12,8 @@ export interface DocumentationSections {
 }
 
 export interface HeadingNode {
-  tagName: string
   text: string
-  id: string | null
+  id?: string
 }
 
 export interface BreadCrumb {

@@ -1,6 +1,7 @@
-import type { DocumentationArticle } from '$lib/types';
-import type { LayoutLoad } from './$types';
+import type { DocumentationArticle, HeadingNode } from '$lib/types';
+import type { PageLoad } from './$types';
 import {error} from '@sveltejs/kit'
+
 
 
 export const load = (async ({params, fetch}) => {
@@ -12,6 +13,9 @@ export const load = (async ({params, fetch}) => {
 
         const doc = allDocs.find((doc) => doc.section === section && doc.slug === slug)
 
+        if (!doc) {
+            throw error(404, 'Doc not found')
+        }
 
         return {
             doc
@@ -19,4 +23,5 @@ export const load = (async ({params, fetch}) => {
     } catch (err) {
         throw error(404, 'Error fetching doc')
     }
-}) satisfies LayoutLoad;
+}) satisfies PageLoad;
+

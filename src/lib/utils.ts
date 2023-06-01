@@ -1,5 +1,7 @@
 import slugify from "@sindresorhus/slugify"
 import type { DocumentationSections } from "./types"
+import type { HeadingNode } from "./types"
+import * as cheerio from "cheerio"
 
 type Grouped<T> = {
   [key: string]: T[]
@@ -99,6 +101,18 @@ export function filterDocumentationArticles(
   return filteredSections
 }
 
+function parseHeadings(html: string): HeadingNode[] {
+  const $ = cheerio.load(html)
+  const headings = $("h2")
+    .toArray()
+    .map((el) => {
+      const id = $(el).attr("id")
+      const text = $(el).text()
+      return { id, text }
+    })
+  return headings
+}
+
 export async function getDocs() {
   // import md files not in the root /docs folder
   const allDocFiles = import.meta.glob("/src/lib/docs/**/!(/docs)/*.md")
@@ -109,11 +123,12 @@ export async function getDocs() {
       const res = await resolver()
       const { metadata } = res
       const postPath = sourcePath.slice(8, -3)
-      const path = postPath.toLowerCase()
       const pathArray = postPath.split("/")
       const [_, root, section, title] = pathArray
       const slug = slugify(title)
       const content = res.default.render().html
+      const path = `/${root}/${section}/${slug}`
+      const headings = parseHeadings(content)
 
       return {
         ...metadata,
@@ -122,6 +137,7 @@ export async function getDocs() {
         title,
         slug,
         content,
+        headings,
       }
     })
   )
