@@ -37,6 +37,8 @@
     padding-block: var(--space-m);
     padding-inline: var(--space-m);
     margin-block-start: calc(var(--space-xl) + var(--space-m));
+    position: sticky;
+    top: var(--space-l);
   }
 
   nav header {
