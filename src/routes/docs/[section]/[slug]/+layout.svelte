@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { LayoutData } from "./$types"
+  import type { LayoutData } from "../$types"
   import type { HeadingNode } from "$lib/types"
   import { onMount, afterUpdate } from "svelte"
-  import TOC from "../TOC.svelte"
+  import TOC from "../../TOC.svelte"
   import type { BreadCrumb } from "$lib/types"
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
 

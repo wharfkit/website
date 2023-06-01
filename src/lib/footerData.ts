@@ -4,11 +4,11 @@ export default [
     items: [
       {
         name: "start",
-        href: "/start",
+        href: "#",
       },
       {
         name: "details",
-        href: "/details",
+        href: "#",
       },
       {
         name: "blog",
@@ -16,7 +16,7 @@ export default [
       },
       {
         name: "about",
-        href: "/about",
+        href: "#",
       },
     ],
   },
@@ -25,15 +25,15 @@ export default [
     items: [
       {
         name: "contract",
-        href: "/contract",
+        href: "#",
       },
       {
         name: "account",
-        href: "/account",
+        href: "#",
       },
       {
         name: "Session Plugin",
-        href: "/session-plugin",
+        href: "#",
       },
     ],
   },
@@ -42,15 +42,15 @@ export default [
     items: [
       {
         name: "contract",
-        href: "/contract",
+        href: "#",
       },
       {
         name: "account",
-        href: "/account",
+        href: "#",
       },
       {
         name: "Session Plugin",
-        href: "/session-plugin",
+        href: "#",
       },
     ],
   },
@@ -59,15 +59,15 @@ export default [
     items: [
       {
         name: "contract",
-        href: "/contract",
+        href: "#",
       },
       {
         name: "account",
-        href: "/account",
+        href: "#",
       },
       {
         name: "Session Plugin",
-        href: "/session-plugin",
+        href: "#",
       },
     ],
   },
@@ -76,15 +76,15 @@ export default [
     items: [
       {
         name: "contract",
-        href: "/contract",
+        href: "#",
       },
       {
         name: "account",
-        href: "/account",
+        href: "#",
       },
       {
         name: "Session Plugin",
-        href: "/session-plugin",
+        href: "#",
       },
     ],
   },
@@ -93,11 +93,11 @@ export default [
     items: [
       {
         name: "twitter",
-        href: "/twitter",
+        href: "#",
       },
       {
         name: "youtube",
-        href: "/youtube",
+        href: "#",
       },
       {
         name: "brand",

@@ -58,7 +58,7 @@ export async function getBlogPosts() {
   return allPosts
 }
 
-function formatSectionTitle(section: string) {
+export function formatSectionTitle(section: string) {
   // remove any dashes from section
   const sectionName = section.replace(/-/g, " ")
   // capitalize first letter of each word
@@ -105,32 +105,26 @@ export async function getDocs() {
   const iterablePosts = Object.entries(allDocFiles)
 
   const allDocs = await Promise.all(
-    iterablePosts.map(async ([path, resolver]) => {
+    iterablePosts.map(async ([sourcePath, resolver]) => {
       const res = await resolver()
       const { metadata } = res
-      const postPath = path.slice(8, -3)
+      const postPath = sourcePath.slice(8, -3)
+      const path = postPath.toLowerCase()
       const pathArray = postPath.split("/")
       const [_, root, section, title] = pathArray
+      const slug = slugify(title)
+      const content = res.default.render().html
+
       return {
         ...metadata,
-        path: postPath.toLowerCase(),
-        section: formatSectionTitle(section),
+        path,
+        section,
         title,
-        slug: slugify(title),
-        content: res.default.render().html,
+        slug,
+        content,
       }
     })
   )
 
   return allDocs
-}
-
-export async function getDoc(path: string) {
-  const allDocs = await getDocs()
-
-  const doc = allDocs.find((doc) => doc.path.includes(path))
-
-  return {
-    ...doc,
-  }
 }

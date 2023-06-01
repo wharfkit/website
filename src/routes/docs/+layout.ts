@@ -1,5 +1,5 @@
 import type {LayoutLoad} from './$types'
-import {groupBy} from '$lib/utils'
+import {groupBy, formatSectionTitle} from '$lib/utils'
 import type { DocumentationArticle, DocumentationSections } from '../../lib/types'
 
 export const prerender = true
@@ -20,7 +20,7 @@ export const load = (async ({fetch}) => {
     const sortedSections = Object.keys(sections)
         .sort((a, b) => sectionOrder.indexOf(a) - sectionOrder.indexOf(b))
         .reduce((acc, key) => {
-            acc[key] = sections[key]
+            acc[formatSectionTitle(key)] = sections[key]
             return acc
         }, {} as DocumentationSections)
 
