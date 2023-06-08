@@ -2,6 +2,7 @@
   import type { HeadingNode } from "$lib/types"
 
   export let headings: HeadingNode[] = []
+  export let title: string
 </script>
 
 <nav aria-label="Table of Contents" class="toc">
@@ -18,7 +19,7 @@
       stroke-linejoin="round"
       class="lucide lucide-bookmark"
       ><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" /></svg> -->
-    <p>Table of Contents</p>
+    <p>{title}</p>
   </header>
   <menu>
     {#each headings as heading}

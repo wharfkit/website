@@ -27,7 +27,7 @@
   <!-- Only render the TOC if there are more than 2 headings -->
   {#if headings.length}
     <aside>
-      <TOC {headings} />
+      <TOC {headings} {title} />
     </aside>
   {/if}
 </main>
