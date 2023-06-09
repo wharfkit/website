@@ -1,24 +1,28 @@
-import type { DocumentationArticle, HeadingNode } from '$lib/types';
+import type { DocumentationArticle } from '$lib/types';
 import type { PageLoad } from './$types';
 import {error} from '@sveltejs/kit'
+import {capitalize} from '$lib/utils'
 
-
-
-export const load = (async ({params, fetch}) => {
+export const load = (async ({params, fetch, parent}) => {
     try {
         const {section, slug} = params
 
-        const response = await fetch(`/api/docs`)
-        const allDocs: DocumentationArticle[] = await response.json()
+        const {sections} = await parent()
 
-        const doc = allDocs.find((doc) => doc.section === section && doc.slug === slug)
+        const doc = sections[section].find((doc) => doc.slug === slug)
 
         if (!doc) {
             throw error(404, 'Doc not found')
         }
 
+        const meta = {
+            title: doc.title.concat(" - ", capitalize(doc.section)),
+            description: doc.description,
+        }
+
         return {
-            doc
+            doc,
+            meta,
         }
     } catch (err) {
         throw error(404, 'Error fetching doc')

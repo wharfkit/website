@@ -5,9 +5,8 @@ import type { DocumentationArticle, DocumentationSections } from '../../lib/type
 export const prerender = true
 
 const sectionOrder = [
-  'Get Started', 
-  'Core Concepts', 
-  'Advanced'
+    'antelope', 
+    'wharf', 
 ]
 
 export const load = (async ({fetch}) => {
@@ -20,13 +19,12 @@ export const load = (async ({fetch}) => {
     const sortedSections = Object.keys(sections)
         .sort((a, b) => sectionOrder.indexOf(a) - sectionOrder.indexOf(b))
         .reduce((acc, key) => {
-            acc[formatSectionTitle(key)] = sections[key]
+            acc[key] = sections[key]
             return acc
         }, {} as DocumentationSections)
 
 
     return {
-        docs,
         sections: sortedSections,
     }
 }) satisfies LayoutLoad

@@ -5,6 +5,8 @@ export interface DocumentationArticle {
   content: string
   slug: string
   headings: HeadingNode[]
+  description: string
+  pathArray: string[]
 }
 
 export interface DocumentationSections {

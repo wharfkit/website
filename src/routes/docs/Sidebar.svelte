@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { DocumentationSections } from "$lib/types"
-  import { filterDocumentationArticles } from "$lib/utils"
+  import { filterDocumentationArticles, formatSectionTitle } from "$lib/utils"
   import Filter from "./Filter.svelte"
 
   export let sections: DocumentationSections
@@ -46,7 +46,7 @@
         <li class="section">
           <details open={!isMobile}>
             <summary>
-              <h3>{title}</h3>
+              <h3>{formatSectionTitle(title)}</h3>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

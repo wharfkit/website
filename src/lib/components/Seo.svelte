@@ -12,7 +12,7 @@
     "Wharf provides intuitive and reliable developer tools that make it easy to build Antelope-based web apps."
 
   $: pageTitle = $page.data.meta?.title
-    ? $page.data.meta?.title.concat(" | ", baseTitle)
+    ? $page.data.meta?.title.concat(" - ", baseTitle)
     : baseTitle
 </script>
 
