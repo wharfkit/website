@@ -1,25 +1,25 @@
 <script lang="ts">
+  import { capitalize } from "../../../lib/utils"
   import type { PageData } from "./$types"
 
-  // export let data: PageData
+  export let data: PageData
 </script>
 
 <main>
-  <h1>Documentation</h1>
+  <h1>
+    {capitalize(data.section)}
+  </h1>
 
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem numquam deserunt laborum
-    quod, laudantium fuga iusto vitae pariatur at distinctio accusamus error magni corrupti ipsa
-    provident eaque itaque. Aperiam?
-  </p>
-
-  <h2>Section</h2>
-
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolores, ab ratione, quam
-    nostrum possimus vel distinctio accusantium aspernatur animi nesciunt maiores, suscipit rerum
-    alias non labore sapiente id deleniti?
-  </p>
+  <h2>Articles</h2>
+  <ul>
+    {#each data.docs as doc}
+      <li>
+        <a href={`/docs/${data.section}/${doc.slug}`}>
+          {doc.title}
+        </a>
+      </li>
+    {/each}
+  </ul>
 
   <hr />
 

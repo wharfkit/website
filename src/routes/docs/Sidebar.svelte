@@ -46,7 +46,11 @@
         <li class="section">
           <details open={!isMobile}>
             <summary>
-              <h3>{formatSectionTitle(title)}</h3>
+              <h3>
+                <a href="/docs/{title}">
+                  {formatSectionTitle(title)}
+                </a>
+              </h3>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -134,6 +138,12 @@
     font-family: var(--ff-heading);
     font-size: var(--fs-0);
     font-weight: 600;
+    pointer-events: none;
+  }
+
+  summary h3 a {
+    color: inherit;
+    text-decoration: none;
   }
 
   .articles {
@@ -164,8 +174,16 @@
 
     summary {
       background-color: transparent;
-      cursor: default;
+      /* cursor: default; */
       pointer-events: none;
+    }
+
+    summary h3 {
+      pointer-events: auto;
+    }
+
+    summary h3 a:hover {
+      text-decoration: underline;
     }
 
     summary svg {

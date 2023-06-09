@@ -34,14 +34,14 @@
   </style>
 </svelte:head>
 
-<div>
+<div class="page">
   <Sidebar {sections} />
 
   <slot />
 </div>
 
 <style>
-  div {
+  .page {
     inline-size: min(100%, var(--max-inline-size));
     margin-inline: auto;
     display: grid;
@@ -50,7 +50,7 @@
   }
 
   @media (max-width: 768px) {
-    div {
+    .page {
       grid-template-columns: 1fr;
     }
   }

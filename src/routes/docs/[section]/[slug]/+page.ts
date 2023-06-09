@@ -1,4 +1,3 @@
-import type { DocumentationArticle } from '$lib/types';
 import type { PageLoad } from './$types';
 import {error} from '@sveltejs/kit'
 import {capitalize} from '$lib/utils'

@@ -1,25 +1,13 @@
 <script lang="ts">
   import type { PageData } from "./$types"
   import TOC from "./TOC.svelte"
-  import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
-  import { capitalize } from "$lib/utils"
 
   export let data: PageData
 
-  $: ({ section, title, headings, slug } = data.doc)
-
-  $: breadcrumbs = [
-    { title: "Documentation", path: "/docs" },
-    { title: capitalize(section), path: `/docs/${section}` },
-    { title: title, path: `/docs/${section}/${slug}` },
-  ]
+  $: ({ title, headings } = data.doc)
 </script>
 
 <main>
-  <nav aria-label="Breadcrumbs">
-    <Breadcrumbs {breadcrumbs} />
-  </nav>
-
   <article>
     {@html data.doc.content}
   </article>
@@ -38,17 +26,6 @@
     display: grid;
     grid-template-columns: 1fr 25ch;
     column-gap: var(--space-xl);
-  }
-
-  nav {
-    grid-column: 1 / 3;
-    display: flex;
-    align-items: center;
-    height: var(--space-xl);
-  }
-
-  aside {
-    flex: 1 0 25ch;
   }
 
   @media (max-width: 1024px) {
