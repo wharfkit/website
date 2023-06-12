@@ -178,7 +178,7 @@
       pointer-events: none;
     }
 
-    summary h3 {
+    summary h3 a {
       pointer-events: auto;
     }
 
