@@ -23,8 +23,7 @@
     font-family: var(--ff-heading);
     background-color: var(--theme-surface2);
     border-radius: var(--border-radius);
-    padding-block: var(--space-m);
-    padding-inline: var(--space-m);
+    padding-block: var(--space-s);
     margin-block-start: var(--space-s);
     position: sticky;
     top: var(--space-l);
@@ -33,17 +32,19 @@
   nav header {
     display: flex;
     align-items: center;
-    margin-block-end: var(--space-m);
+    height: var(--space-xl);
+    padding-inline: var(--space-m);
   }
 
   nav header p {
-    font-size: var(--fs-0);
+    font-size: var(--fs--1);
     font-weight: 600;
+    color: var(--theme-text-heading);
   }
 
   menu {
     list-style: none;
-    padding-inline-start: 0;
+    padding-inline: var(--space-l);
   }
 
   a {
@@ -51,6 +52,7 @@
     text-decoration: none;
     color: var(--theme-text1);
     font-weight: 400;
+    font-size: var(--fs--1);
     line-height: 1.5em;
     padding-block: var(--space-2xs);
   }

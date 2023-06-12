@@ -14,7 +14,7 @@
 <style>
   ul {
     --spacing: 4px;
-    --color: var(--theme-text-heading);
+    --color: var(--theme-text-body);
     list-style: none;
     padding-inline-start: 0;
   }

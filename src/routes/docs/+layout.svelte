@@ -22,14 +22,33 @@
     /* prettier-ignore */
     body[data-theme="dark"] {
       --footer-background: #262936;
-      background-image: linear-gradient(
+      background: linear-gradient(
         180deg,
-        #7BE7CE 0%,
-        #494E62 5.25rem,
-        #262936 7rem,
-        #151720 8.75rem
+        hsl(166deg 69% 69%) 0%,
+        hsl(176deg 50% 64%) 14%,
+        hsl(186deg 36% 59%) 20%,
+        hsl(195deg 26% 54%) 25%,
+        hsl(205deg 20% 48%) 30%,
+        hsl(215deg 18% 42%) 34%,
+        hsl(225deg 15% 36%) 37%,
+        hsl(228deg 15% 32%) 41%,
+        hsl(228deg 15% 29%) 45%,
+        hsl(228deg 16% 27%) 48%,
+        hsl(228deg 16% 24%) 52%,
+        hsl(229deg 17% 22%) 55%,
+        hsl(229deg 17% 20%) 59%,
+        hsl(229deg 18% 18%) 63%,
+        hsl(229deg 18% 16%) 66%,
+        hsl(229deg 19% 15%) 70%,
+        hsl(229deg 19% 14%) 75%,
+        hsl(229deg 20% 13%) 80%,
+        hsl(229deg 20% 12%) 86%,
+        hsl(229deg 21% 10%) 100%
+      ),hsl(229deg 21% 10%);
+      background-repeat: no-repeat;
+      background-size: 100% 20rem, 100% 100%;
 
-      );
+
     }
   </style>
 </svelte:head>

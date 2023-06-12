@@ -39,46 +39,70 @@
     }
   }
 
-  article :global(*) {
-    margin: revert;
+  article {
+    /* background: linear-gradient(#faa 1px, transparent 1px); */
+    background-size: 100% var(--space-l);
+    margin-block-end: var(--space-4xl);
+  }
+
+  article :global(> *) {
+    margin-block-start: var(--space-l);
+    line-height: var(--space-l);
   }
 
   article :global(h1) {
-    font-size: var(--fs-3);
-    font-family: var(--ff-heading);
-    font-weight: 600;
+    font-size: var(--fs-4);
+    line-height: var(--space-xl);
     margin-block-start: var(--space-s);
   }
 
   article :global(h2) {
-    font-size: var(--fs-2);
-    font-family: var(--ff-heading);
-    font-weight: 600;
+    font-size: var(--fs-3);
+    margin-block-start: var(--space-4xl);
   }
 
   article :global(h3) {
-    font-size: var(--fs-1);
-    font-family: var(--ff-heading);
-    font-weight: 600;
+    font-size: var(--fs-2);
+    margin-block-start: var(--space-3xl);
   }
 
   article :global(h4) {
     font-size: var(--fs-1);
-    font-family: var(--ff-heading);
-    font-weight: 600;
+    margin-block-start: var(--space-2xl);
   }
 
   article :global(h5) {
-    font-size: var(--fs-1);
-    font-family: var(--ff-heading);
-    font-weight: 600;
+    font-size: var(--fs-0);
+    margin-block-start: var(--space-xl);
+  }
+
+  article :global(h6) {
+    font-size: var(--fs--1);
+    margin-block-start: var(--space-xl);
+  }
+
+  article :global(h3 + *) {
+    margin-block-start: var(--space-m);
+  }
+
+  article :global(h4 + *) {
+    margin-block-start: var(--space-s);
+  }
+
+  article :global(:is(h5, h6) + *) {
+    margin-block-start: var(--space-xs);
   }
 
   article :global(p) {
     font-size: var(--fs-0);
-    font-family: var(--ff-body);
-    font-weight: 400;
-    color: var(--theme-text-body);
+  }
+
+  article :global(li:not(:first-child)) {
+    margin-block-start: var(--space-3xs);
+  }
+
+  article :global(:is(ul, ol)) {
+    margin-block-start: var(--space-m);
   }
 
   article :global(blockquote) {

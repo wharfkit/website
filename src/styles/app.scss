@@ -9,7 +9,6 @@ body {
   font-family: "Inter", var(--system-ui);
   font-weight: 400;
   font-size: var(--fs-0);
-  // padding-inline: var(--space-s);
 }
 
 main {
@@ -28,13 +27,10 @@ a {
   outline: 2px solid var(--color-primary-200);
 }
 
-p,
-li {
-  line-height: 1.5;
-}
-
 :is(h1, h2, h3, h4, h5, h6) {
   color: var(--theme-text-heading);
+  font-family: var(--ff-heading);
+  font-weight: 600;
 }
 
 /* Elements */

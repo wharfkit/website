@@ -136,7 +136,7 @@
 
   summary h3 {
     font-family: var(--ff-heading);
-    font-size: var(--fs-0);
+    font-size: var(--fs--1);
     font-weight: 600;
     pointer-events: none;
   }
@@ -153,7 +153,7 @@
   }
 
   .articles a {
-    font-size: var(--fs-0);
+    font-size: var(--fs--1);
     font-family: var(--ff-heading);
     color: var(--theme-text1);
     font-weight: 400;
