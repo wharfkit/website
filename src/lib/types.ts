@@ -22,3 +22,14 @@ export interface BreadCrumb {
   title: string
   path: string
 }
+
+export interface DocumentationCommit {
+  author: string
+  date: string
+  message: string
+}
+
+export interface DocUpdate {
+  date: string
+  commits: DocumentationCommit[]
+}

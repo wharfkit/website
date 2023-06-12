@@ -81,6 +81,14 @@
     margin-block-start: var(--space-xl);
   }
 
+  /* Tighten headers directly following h2 */
+
+  article :global(h2 + :is(h3, h4, h5, h6)) {
+    margin-block-start: var(--space-l);
+  }
+
+  /* Tighten content following a subheader */
+
   article :global(h3 + *) {
     margin-block-start: var(--space-m);
   }

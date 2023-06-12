@@ -69,7 +69,9 @@ button {
 }
 
 hr {
-  border: var(--border-style);
+  border: var(--theme-text-heading) 1px solid;
+  margin-block: var(--space-xl);
+  opacity: 0.2;
 }
 
 .sidebar {
