@@ -1,6 +1,6 @@
 <script lang="ts">
-  import logo from "$lib/assets/logos/Wharf-logo-horizontal.svg"
-  import darkLogo from "$lib/assets/logos/Wharf-logo-horizontal-dark.svg"
+  import logo from "$lib/assets/logos/Wharf_logo_bright_horizontal_svgfix.svg"
+  import darkLogo from "$lib/assets/logos/Wharf_logo_dark_horizontal_svgfix.svg"
   import { page } from "$app/stores"
 
   $: section = $page.url.pathname
@@ -29,11 +29,8 @@
   <nav class:navHidden={!isNavOpen}>
     <div class="left">
       <a href="/">
-        <picture>
-          <!-- TODO: fix shrinking svg before mobile breakpoints -->
-          <!-- <source srcset={darkLogo} type="image/svg+xml" media="(prefers-color-scheme: dark)" /> -->
-          <img src={logo} alt="wharf logo" width="146" />
-        </picture>
+        <img class="logo dark" src={darkLogo} alt="wharf logo" width="146" height="41" />
+        <img class="logo light" src={logo} alt="wharf logo" width="146" height="41" />
       </a>
       <button class="navToggle close" on:click={toggleNav}>
         <span class="visually-hidden">{isNavOpen ? "Close" : "Open"}</span>
@@ -94,6 +91,14 @@
     --theme-nav-item-hover: var(--color-primary-800);
   }
 
+  :global([data-theme="dark"]) .logo.light {
+    display: none;
+  }
+
+  :global([data-theme="light"]) .logo.dark {
+    display: none;
+  }
+
   header {
     display: flex;
     justify-content: center;
@@ -113,7 +118,7 @@
   }
 
   .left {
-    padding-inline-start: var(--space-2xs);
+    padding-inline-start: var(--space-s);
   }
 
   .navToggle {
@@ -152,6 +157,7 @@
     justify-self: end;
     padding-inline: var(--space-xl);
     margin-inline: var(--space-2xs);
+    margin-block: var(--space-2xs);
     font-family: var(--ff-body);
   }
 
@@ -176,9 +182,9 @@
       cursor: pointer;
       background: var(--nav-toggle-color, var(--theme-nav-toggle-background));
       color: var(--header-text-color, var(--theme-nav-toggle-foreground));
-      padding: var(--space-s);
-      margin: var(--space-xs);
-      border-radius: var(--border-radius, 12px);
+      padding: var(--space-xs);
+      margin: var(--space-2xs);
+      border-radius: var(--border-radius, 16px);
       aspect-ratio: 1;
       position: relative;
     }
