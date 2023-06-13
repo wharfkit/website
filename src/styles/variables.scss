@@ -10,8 +10,8 @@
 :root {
   /* Styles */
   --measure: 75ch;
-  --border-style: var(--swell-mist) 2px solid;
-  --border-style: var(--border1) 2px solid;
+  --border-style: var(--theme-text-heading) 1px solid;
+  --border-radius: 12px;
 
   --background-transition: background-color 200ms ease-out;
   --line-height: var(--space-l);

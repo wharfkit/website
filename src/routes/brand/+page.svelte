@@ -42,6 +42,7 @@
           download>Download brand guidelines (PDF)</a>
       </div>
     </section>
+    <hr />
     <section id="logo">
       <h2>Wharf logo</h2>
       <div class="logos | switcher">
@@ -68,6 +69,7 @@
         </div>
       </div>
     </section>
+    <hr />
     <section id="colors">
       <h2>Brand colors</h2>
       <div class="brand-colors">
@@ -169,6 +171,7 @@
         </div>
       </div>
     </section>
+    <hr />
     <section id="font">
       <h2>Brand font</h2>
       <div>
@@ -193,6 +196,7 @@
         </a>
       </div>
     </section>
+    <hr />
     <section id="backgrounds">
       <h2>Background images</h2>
       <picture>
@@ -237,12 +241,7 @@
   }
 
   .content {
-    gap: var(--space-xl);
-  }
-
-  .content > :not(:last-child) {
-    padding-block-end: var(--space-xl);
-    border-block-end: var(--border-style);
+    gap: var(--space-l);
   }
 
   :target {
@@ -257,7 +256,7 @@
 
   section :is(h1, h2) {
     font-family: var(--ff-heading);
-    font-size: var(--fs-3);
+    font-size: var(--fs-4);
     font-weight: 600;
   }
 
@@ -293,6 +292,7 @@
     padding: var(--space-l);
     gap: var(--space-3xs);
     transition: var(--background-transition);
+    flex: 1;
   }
 
   p.montserrat {
