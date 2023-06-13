@@ -4,11 +4,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>WharfKit</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;600;800&display=swap"
-      rel="stylesheet" />
+
+    <style media="screen, print">
+      @font-face {
+        font-family: "Inter";
+        src: local("Inter"),
+          url("%sveltekit.assets%/fonts/Inter/Inter-VariableFont_slnt,wght-subset.woff2")
+            format("woff2") tech("variations"),
+          url("%sveltekit.assets%/fonts/Inter/Inter-VariableFont_slnt,wght-subset.woff2")
+            format("woff2-variations");
+        font-weight: 100 1000;
+        font-stretch: 25% 151%;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        src: local("Montserrat"),
+          url("%sveltekit.assets%/fonts/Montserrat/Montserrat-VariableFont_wght-subset.woff2")
+            format("woff2") tech("variations"),
+          url("%sveltekit.assets%/fonts/Montserrat/Montserrat-VariableFont_wght-subset.woff2")
+            format("woff2-variations");
+        font-weight: 100 1000;
+        font-stretch: 25% 151%;
+        font-display: swap;
+      }
+    </style>
     <script defer data-domain="wharfkit.com" src="https://stats.greymass.com/js/script.js"></script>
     <link rel="canonical" href="https://wharfkit.com/" />
     <link rel="icon" href="%sveltekit.assets%/favicon.png" />
