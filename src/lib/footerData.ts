@@ -12,7 +12,7 @@ export default [
       },
       {
         name: "blog",
-        href: "/blog",
+        href: "#",
       },
       {
         name: "about",
@@ -101,7 +101,7 @@ export default [
       },
       {
         name: "brand",
-        href: "/brand",
+        href: "#",
       },
     ],
   },

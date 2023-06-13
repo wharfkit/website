@@ -82,7 +82,7 @@
   <div class="documentation | center stack">
     <h2>Not sure which kit(s) you need?</h2>
     <p>Check out our documentation for more in-depth information on each kit.</p>
-    <a class="button" href="/docs">Go To Documentation</a>
+    <a class="button" href="#">Go To Documentation</a>
   </div>
 
   <div class="tutorial | switcher">

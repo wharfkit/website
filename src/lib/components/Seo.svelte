@@ -1,5 +1,6 @@
 <script>
   import { page } from "$app/stores"
+  import { browser } from "$app/environment"
 
   const baseTitle = "WharfKit"
 
@@ -11,13 +12,13 @@
     $page.data.meta?.description ||
     "Wharf provides intuitive and reliable developer tools that make it easy to build Antelope-based web apps."
 
-  $: pageTitle = $page.data.meta?.title
-    ? $page.data.meta?.title.concat(" - ", baseTitle)
-    : baseTitle
+  $: pageTitle = $page.data.meta?.title.concat(" - ", baseTitle) || baseTitle
+
+  $: browser && (document.title = pageTitle)
 </script>
 
 <svelte:head>
-  <title>{pageTitle}</title>
+  <!-- <title>{pageTitle}</title> -->
   <meta name="description" content={pageDescription} />
 
   <meta name="twitter:card" content="summary_large_image" />
