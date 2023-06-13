@@ -1,6 +1,6 @@
 <script lang="ts">
-  import logoHorizontal from "$lib/assets/logos/Wharf-logo-horizontal.svg"
-  import logoVertical from "$lib/assets/logos/Wharf-logo-vertical.svg"
+  import logoHorizontal from "$lib/assets/logos/Wharf_logo_bright_horizontal_svgfix.svg"
+  import logoVertical from "$lib/assets/logos/Wharf_logo_bright_vector_no_bg_svgfix.svg"
   import ColorPalette from "./ColorPalette.svelte"
   import Toast from "$lib/components/Toast.svelte"
 
@@ -47,7 +47,7 @@
       <div class="logos | switcher">
         <div class="vertical | stack">
           <div class="frame">
-            <img src={logoVertical} alt="wharf logo vertical" />
+            <img src={logoVertical} alt="wharf logo vertical" width="215" height="215" />
           </div>
           <a
             class="button"
@@ -58,7 +58,7 @@
 
         <div class="horizontal | stack">
           <div class="frame">
-            <img src={logoHorizontal} alt="wharf logo horizontal" />
+            <img src={logoHorizontal} alt="wharf logo horizontal" width="215" height="215" />
           </div>
           <a
             class="button"
@@ -285,6 +285,14 @@
 
   .logos .frame img {
     object-fit: contain;
+    inline-size: 80%;
+    block-size: 80%;
+  }
+
+  .logos .frame {
+    border: var(--border-style);
+    border-radius: var(--space-s);
+    background: white;
   }
 
   .fonts .box {
@@ -304,6 +312,7 @@
   .fonts h3 {
     font-size: var(--fs-2);
     font-weight: 600;
+    color: var(--wharf-blue);
   }
 
   .montserrat {
@@ -313,7 +322,7 @@
   .fonts a {
     font-size: var(--fs-0);
     text-decoration: none;
-    color: inherit;
+    color: black;
     font-weight: inherit;
     display: flex;
   }

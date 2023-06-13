@@ -29,8 +29,11 @@
   --theme-text1: black;
   --theme-text2: var(--color-secondary-600);
   --theme-text3: var(--color-neutral-500);
+
   --theme-text-heading: var(--wharf-blue);
+  --theme-text-heading-inverse: white;
   --theme-text-body: var(--color-neutral-900);
+  --theme-text-body-inverse: var(--color-neutral-300);
   --theme-text-link: var(--color-secondary-600);
 
   --theme-surface1: white;
@@ -52,8 +55,11 @@
   --theme-text1: white;
   --theme-text2: var(--color-secondary-400);
   --theme-text3: var(--color-primary-900);
+
   --theme-text-heading: white;
+  --theme-text-heading-inverse: var(--wharf-blue);
   --theme-text-body: var(--color-neutral-300);
+  --theme-text-body-inverse: var(--color-neutral-900);
   --theme-text-link: var(--reef-turquoise);
 
   --theme-surface1: hsl(228, 15%, 18%);

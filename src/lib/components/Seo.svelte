@@ -18,7 +18,6 @@
 </script>
 
 <svelte:head>
-  <!-- <title>{pageTitle}</title> -->
   <meta name="description" content={pageDescription} />
 
   <meta name="twitter:card" content="summary_large_image" />
