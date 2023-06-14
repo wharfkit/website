@@ -11,12 +11,12 @@
 </script>
 
 <article class="stack">
-  <header>
+  <hgroup>
     <a href={path}>
       <h2>{title}</h2>
     </a>
     <p>{date}</p>
-  </header>
+  </hgroup>
 
   {#if image}
     <a href={path}>
@@ -39,13 +39,13 @@
     --gap: var(--space-l);
   }
 
-  header {
+  hgroup {
     font-weight: 600;
     font-size: var(--fs-1);
     font-family: var(--ff-heading);
   }
 
-  header a {
+  hgroup a {
     text-decoration: none;
   }
 

@@ -5,7 +5,7 @@
   let { posts } = data
 </script>
 
-<div class="page | stack">
+<main class="stack">
   <div class="hero | box stack">
     <h1>Shipping great code starts with a solid platform.</h1>
     <p>
@@ -22,10 +22,10 @@
       </li>
     {/each}
   </ul>
-</div>
+</main>
 
 <style>
-  .page {
+  main {
     gap: var(--space-3xl);
   }
 

@@ -1,26 +1,7 @@
 <script lang="ts">
 </script>
 
-<svelte:head>
-  <style>
-    :root {
-      /* --header-background: white; */
-      /* --footer-background: var(--wharf-blue); */
-    }
-    body {
-      background: linear-gradient(
-        180deg,
-        #494e62 0%,
-        #7be7ce 63.52px,
-        #b2f2e1 84.44px,
-        #f4faf4 112.36px,
-        #ffffff 140px
-      );
-    }
-  </style>
-</svelte:head>
-
-<article>
+<main>
   <section>
     <div class="surface-samples">
       <div class="surface1 rad-shadow">1</div>
@@ -60,10 +41,10 @@
       </p>
     </div>
   </section>
-</article>
+</main>
 
-<style lang="scss">
-  article {
+<style>
+  main {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -88,54 +69,38 @@
     line-height: 1.5;
   }
 
-  header {
-    display: inline-grid;
-    gap: 1ch;
-  }
-
-  form {
-    display: flex;
-    gap: 2ch;
-
-    & > div {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75ch;
-    }
-  }
-
   .surface-samples {
     display: grid;
     --size: 20ch;
     grid-template-columns: var(--size) var(--size);
     grid-auto-rows: var(--size);
     gap: 2ch;
+  }
 
-    @media (max-width: 480px) {
-      & {
-        --size: 40vw;
-      }
-    }
+  .surface-samples > * {
+    border-radius: 1rem;
+    display: grid;
+    place-content: center;
+    font-size: 3rem;
+    font-weight: 200;
+  }
 
-    & > * {
-      border-radius: 1rem;
-      display: grid;
-      place-content: center;
-      font-size: 3rem;
-      font-weight: 200;
+  @media (max-width: 480px) {
+    .surface-samples {
+      --size: 40vw;
     }
   }
 
   .text-samples {
     display: grid;
     gap: 1.5ch;
+  }
 
-    & > h1 {
-      font-size: 2.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 1ch;
-    }
+  .text-samples > h1 {
+    font-size: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1ch;
   }
 
   .brand {
@@ -170,9 +135,10 @@
 
   .text1 {
     color: var(--theme-text1);
-    & p {
-      font-weight: 200;
-    }
+  }
+
+  p.text1 {
+    font-weight: 200;
   }
 
   .text2 {
@@ -189,16 +155,15 @@
     inline-size: 1.5ch;
     block-size: 1.5ch;
     border-radius: 50%;
-
-    &.text1 {
-      background-color: var(--theme-text1);
-    }
-    &.text2 {
-      background-color: var(--theme-text2);
-    }
-    &.text3 {
-      background-color: var(--theme-text3);
-    }
+  }
+  .swatch.text1 {
+    background-color: var(--theme-text1);
+  }
+  .swatch.text2 {
+    background-color: var(--theme-text2);
+  }
+  .swatch.text3 {
+    background-color: var(--theme-text3);
   }
 
   .rad-shadow {

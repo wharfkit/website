@@ -4,6 +4,20 @@
   --brand-saturation: 69%;
   --brand-lightness: 69%;
 
+  /* light */
+  --brand-light: var(--color-secondary-300);
+  --text1-light: black;
+  --text2-light: var(--color-secondary-600);
+  --text3-light: var(--color-neutral-500);
+  --surface1-light: white;
+  --surface2-light: var(--color-accent-50);
+  --surface3-light: var(--color-secondary-300);
+  --surface4-light: var(--color-secondary-500);
+  --surface5-light: var(--color-secondary-700);
+  --border1-light: var(--color-accent-50);
+  --surface-shadow-light: var(--brand-hue) 10% 20%;
+  --surface-shadow-light: var(--brand-hue) 10% 20%;
+  --shadow-strength-light: 0.02;
   --hue-wharf: 228;
   --hue-reef: 166;
   --hue-mist: 120;
@@ -18,7 +32,7 @@
 
   --theme-text-heading: var(--wharf-blue);
   --theme-text-heading-inverse: white;
-  --theme-text-body: black;
+  --theme-text-body: var(--color-neutral-900);
   --theme-text-body-inverse: var(--color-neutral-300);
   --theme-text-link: var(--color-secondary-600);
 
@@ -27,6 +41,7 @@
   --theme-surface3: var(--color-secondary-300);
   --theme-surface4: var(--color-secondary-500);
   --theme-surface5: var(--color-secondary-700);
+  --theme-surface6: #ededf1;
   --theme-border1: var(--color-accent-50);
   --surface-shadow: var(--brand-hue) 10% 20%;
   --shadow-strength: 0.02;
@@ -44,14 +59,15 @@
   --theme-text-heading: white;
   --theme-text-heading-inverse: var(--wharf-blue);
   --theme-text-body: var(--color-neutral-300);
-  --theme-text-body-inverse: black;
+  --theme-text-body-inverse: var(--color-neutral-900);
   --theme-text-link: var(--reef-turquoise);
 
   --theme-surface1: hsl(228, 15%, 18%);
-  --theme-surface2: #494e62;
+  --theme-surface2: #262936;
   --theme-surface3: var(--color-primary-500);
   --theme-surface4: var(--color-primary-400);
   --theme-surface5: var(--color-secondary-200);
+  --theme-surface6: #383838;
   --theme-border1: var(--color-primary-900);
   --surface-shadow: 227 10% 16%;
   --shadow-strength: 0.8;

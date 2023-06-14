@@ -47,12 +47,12 @@
 
 <svelte:head>
   <style>
-    #root {
+    body {
       background: var(--page-background-gradient);
       background-size: var(--page-background-size);
       background-position: var(--page-background-position);
       background-repeat: var(--page-background-repeat);
-      --header-background: white;
+      /* --header-background: white; */
     }
   </style>
 </svelte:head>
@@ -60,7 +60,7 @@
 <img src={lines} alt="" class="lines one" />
 <img src={lines} alt="" class="lines two" />
 
-<div class="page | stack">
+<main class="stack">
   <div class="hero | center stack">
     <h1>3 Kits - A world of options</h1>
     <p>Everything you need for web3 app development.</p>
@@ -122,7 +122,7 @@
       </div>
     </div>
   </div>
-</div>
+</main>
 
 <style lang="scss">
   .lines {
@@ -130,8 +130,6 @@
     top: 5rem;
     left: 0;
     width: 100%;
-    // height: 100%;
-    // z-index: -1;
 
     &.one {
     }
@@ -141,8 +139,8 @@
     }
   }
 
-  .page {
-    gap: var(--space-4xl);
+  main {
+    --gap: var(--space-4xl);
     margin-bottom: var(--space-6xl);
   }
 
@@ -207,6 +205,8 @@
   }
 
   .overview {
+    --gap: var(--space-m);
+
     & h2 {
       font-size: var(--fs-1);
       color: var(--wharf-blue);

@@ -10,7 +10,9 @@
 :root {
   /* Styles */
   --measure: 75ch;
+
   --border-style: var(--theme-text-heading) 1px solid;
+
   --border-radius: 12px;
 
   --background-transition: background-color 200ms ease-out;
@@ -28,4 +30,6 @@
   --page-background-size: 100% calc(var(--space-8xl) * 5), 100%;
   --page-background-position: 0 0, 0 0;
   --page-background-repeat: no-repeat;
+
+  --page-padding-inline: var(--space-s);
 }

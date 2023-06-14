@@ -48,7 +48,7 @@
 
   footer {
     background: var(--footer-background, var(--theme-footer-background));
-    margin-block-start: var(--space-xl);
+    padding-inline: var(--page-padding-inline);
   }
 
   nav {
@@ -57,7 +57,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: stretch;
-    padding-inline: var(--space-s);
     padding-block: var(--space-xl);
   }
 

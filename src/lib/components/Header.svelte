@@ -9,9 +9,10 @@
     // { name: "Wharf", href: "#" },
     { name: "Kits", href: "/kits" },
     // { name: "Learn", href: "#" },
-    // { name: "Documentation", href: "#" },
+    { name: "Documentation", href: "/docs" },
     { name: "Blog", href: "/blog" },
     { name: "Brand", href: "/brand" },
+    // { name: "theme", href: "/theme" },
   ]
 
   let isNavOpen = false
@@ -56,7 +57,7 @@
       </button>
     </div>
 
-    <ul>
+    <menu>
       {#each navItems as { name, href }}
         <li>
           <a {href} class:active={new RegExp(href).test(section)} on:click={closeNav}>
@@ -64,7 +65,7 @@
           </a>
         </li>
       {/each}
-    </ul>
+    </menu>
 
     <div class="right">
       <a class="button" href="https://github.com/wharfkit">Github</a>
@@ -102,19 +103,19 @@
   header {
     display: flex;
     justify-content: center;
+    padding-inline: var(--page-padding-inline);
   }
 
   nav {
     flex: 1;
-    max-inline-size: min(var(--max-inline-size), 100% - var(--space-m));
+    max-inline-size: var(--max-inline-size);
     background: var(--header-background, var(--theme-header-background));
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     gap: var(--space-l);
-    margin-block: var(--space-s);
+    /* margin-block: var(--space-s); */
     border-radius: var(--space-m);
-    /* height: var(--header-height, var(--space-2xl)); */
   }
 
   .left {
@@ -125,14 +126,14 @@
     display: none;
   }
 
-  nav ul {
+  nav menu {
     display: flex;
     justify-content: center;
     list-style: none;
     padding-inline: 0;
   }
 
-  ul a {
+  menu a {
     font-family: var(--ff-heading);
     color: var(--header-text-color, var(--theme-header-text));
     text-decoration: none;
@@ -142,8 +143,8 @@
     font-size: var(--fs-0);
   }
 
-  ul a:is(:hover, :focus) {
-    background: var(--nav-background-color, var(--theme-nav-background));
+  menu a:is(:hover, :focus) {
+    background: var(--nav-background-color, var(--theme-nav-item-hover));
   }
 
   .right {
@@ -169,7 +170,7 @@
       gap: 0;
     }
 
-    header .left {
+    nav .left {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -190,7 +191,7 @@
       position: relative;
     }
 
-    nav ul {
+    nav menu {
       position: absolute;
       top: calc(100% + var(--space-2xs));
       flex-direction: column;
@@ -229,7 +230,7 @@
       background: var(--header-background, white);
     }
 
-    .navHidden ul {
+    .navHidden menu {
       transform: scaleY(0) translateY(0);
     }
     .navHidden nav a {

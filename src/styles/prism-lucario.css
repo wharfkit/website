@@ -13,10 +13,9 @@ pre[class*="language-"] {
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   font-family: Monaco, Consolas, "Andale Mono", "Ubuntu Mono", monospace;
   text-align: left;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
+  word-wrap: break-word;
   line-height: 1.5;
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -31,25 +30,21 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
   position: relative;
-  padding: 1em;
   padding: var(--space-m);
-  margin: 0.5em 0;
+  word-break: break-all;
+  /* margin: 0.5em 0; */
   overflow: auto;
-  border-radius: 0.3em;
   border-radius: var(--space-s);
-}
-
-pre[class*="language-"] {
   background: #263e52;
-  /* background: var(--wharf-blue); */
+  /* max-width: 100%; */
+  /* margin-block: var(--space-m); */
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"],
 :not(pre) > code {
-  background: #263e52;
-  background: var(--color-primary-100);
-  color: var(--text-color);
+  background: var(--theme-surface6);
+  color: var(--theme-text-body);
   text-shadow: none;
   padding-block: 0.125em;
   padding-inline: 0.3em;

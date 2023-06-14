@@ -1,5 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores"
+  export let data
+  export let form
 </script>
 
 <div class="">
@@ -7,6 +9,18 @@
   <p>
     {$page.error?.message}
   </p>
+
+  {#if data}
+    <pre>
+        {JSON.stringify(data, null, 2)}
+    </pre>
+  {/if}
+
+  {#if form}
+    <pre>
+        {JSON.stringify(form, null, 2)}
+    </pre>
+  {/if}
 </div>
 
 <style>
