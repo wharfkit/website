@@ -119,7 +119,7 @@
   }
 
   .left {
-    padding-inline-start: var(--space-s);
+    padding-inline-start: var(--space-m);
   }
 
   .navToggle {
@@ -175,6 +175,7 @@
       align-items: center;
       justify-content: space-between;
       gap: var(--space-l);
+      padding-inline-start: var(--space-s);
     }
 
     .navToggle {
