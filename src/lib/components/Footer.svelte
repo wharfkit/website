@@ -4,12 +4,17 @@
   import logo from "$lib/assets/logos/Wharf_logo_bright_vector_no_bg_svgfix.svg"
   import darkLogo from "$lib/assets/logos/Wharf_logo_dark_vector_no_bg_svgfix.svg"
   import ThemeToggle from "./ThemeToggle.svelte"
+  import { theme } from "./ThemeToggle.svelte"
 </script>
 
 <footer>
   <nav class="">
-    <img class="logo light" src={logo} alt="Wharf logo" width="100%" height="auto" />
-    <img class="logo dark" src={darkLogo} alt="Wharf logo" width="100%" height="auto" />
+    <img
+      class="logo"
+      src={$theme === "dark" ? darkLogo : logo}
+      alt="Wharf logo"
+      width="361"
+      height="404" />
     {#each data as section}
       <div class="box">
         <h3>{capitalize(section.title)}</h3>
@@ -62,7 +67,9 @@
 
   img {
     max-width: 60px;
-    flex-basis: 5rem;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    justify-self: start;
     grid-row: 1 / 4;
     grid-column: 1 / 3;
     margin: var(--space-s);

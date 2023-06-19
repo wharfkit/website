@@ -2,8 +2,13 @@
   import sessionKit from "$lib/assets/images/session-kit.svg"
   import contractKit from "$lib/assets/images/contract-kit.svg"
   import accountKit from "$lib/assets/images/account-kit.svg"
-  import KitSwitcher from "../lib/components/KitSwitcher.svelte"
-  import VisionBoard from "../lib/components/VisionBoard.svelte"
+  import KitSwitcher from "$lib/components/KitSwitcher.svelte"
+  import VisionBoard from "$lib/components/VisionBoard.svelte"
+
+  import reactIcon from "$lib/assets/icons/react.svg"
+  import javascriptIcon from "$lib/assets/icons/javascript.svg"
+  import vueIcon from "$lib/assets/icons/vue.svg"
+  import nodeIcon from "$lib/assets/icons/node.svg"
 </script>
 
 <svelte:head>
@@ -86,10 +91,10 @@
     <div class="frameworks card | box">
       <p class="visually-hidden">Supported Frameworks</p>
       <div class="cluster">
-        <img src="/src/lib/assets/icons/react.svg" alt="React" />
-        <img src="/src/lib/assets/icons/javascript.svg" alt="Javascript" />
-        <img src="/src/lib/assets/icons/vue.svg" alt="Vue" />
-        <img src="/src/lib/assets/icons/node.svg" alt="NodeJS" />
+        <img src={reactIcon} alt="React" />
+        <img src={javascriptIcon} alt="Javascript" />
+        <img src={vueIcon} alt="Vue" />
+        <img src={nodeIcon} alt="NodeJS" />
       </div>
     </div>
     <div class="box stack left">
@@ -149,10 +154,14 @@
   main {
     /* Re-insert default gap via padding */
     padding-block-start: var(--space-xl-2xl);
-    padding-block-end: var(--space-3xl-4xl);
     max-inline-size: revert;
     overflow: hidden;
-    gap: var(--space-3xl-4xl);
+    gap: var(--space-5xl-6xl);
+  }
+
+  :where(h1, h2, h3, p) {
+    /* Nicer wrapping in Chrome */
+    text-wrap: balance;
   }
 
   main > * {
@@ -164,7 +173,7 @@
 
   .hero {
     padding-block-start: var(--space-6xl);
-    padding-block-end: var(--space-5xl-6xl);
+    padding-block-end: var(--space-4xl-5xl);
     display: grid;
     place-items: center;
     position: relative;
@@ -190,7 +199,6 @@
   .hero h1 {
     font-size: var(--fs-6);
     line-height: 1.1;
-    text-wrap: balance;
     color: white;
     max-width: 20ch;
   }
@@ -198,7 +206,6 @@
   .hero p {
     font-size: var(--fs-1);
     font-weight: 500;
-    text-wrap: balance;
     color: white;
     max-width: 35ch;
   }
@@ -268,7 +275,6 @@
   div.launch {
     background: linear-gradient(180deg, transparent 0, var(--theme-surface7) 15rem);
     width: 100%;
-    padding-block-start: var(--space-2xl-3xl);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -278,13 +284,12 @@
   div.launch p {
     margin-block-start: var(--space-m);
     margin-block-end: var(--space-xl);
+    margin-inline: var(--space-s);
     max-width: 65ch;
-    margin-inline: auto;
-    text-wrap: balance;
   }
 
   section.tools {
-    --padding: var(--space-xl-2xl);
+    --padding: var(--space-l);
     gap: var(--space-l);
     width: calc(100% - var(--space-s) * 2);
     margin-inline: auto;
@@ -341,6 +346,10 @@
   }
 
   @media (min-width: 768px) {
+    main {
+      padding-block-end: var(--space-3xl-4xl);
+    }
+
     .images::before,
     .images::after {
       --kit-bg-source: url("/src/lib/assets/images/Frame-2591.webp");
@@ -379,11 +388,16 @@
 
     div.launch {
       border-radius: 0 0 var(--space-l) var(--space-l);
+      padding-block-start: var(--space-2xl-3xl);
     }
 
     .full-bleed {
       border-radius: var(--space-l);
       width: calc(100% - var(--space-s) * 2);
+    }
+
+    section.tools {
+      --padding: var(--space-xl-2xl);
     }
   }
 </style>
