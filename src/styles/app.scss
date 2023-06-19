@@ -1,7 +1,7 @@
 /* Variables and mixins from the src/variables.scss file are available here without importing. Reset is here otherwise using lang='scss' in a local <style> tag will reset global styles in that component. */
 @forward "reset";
 
-/* Default global styles */
+/* Default global styles - Can be overridden by pages if needed*/
 
 body {
   background-color: var(--theme-surface1);
@@ -9,6 +9,12 @@ body {
   font-family: "Inter", var(--system-ui);
   font-weight: 400;
   font-size: var(--fs-0);
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  gap: var(--body-gap, var(--space-xl-2xl));
+  padding-block-start: var(--space-s);
 }
 
 main {
@@ -33,6 +39,30 @@ a {
   font-weight: 600;
 }
 
+h1 {
+  font-size: var(--fs-4);
+}
+
+h2 {
+  font-size: var(--fs-3);
+}
+
+h3 {
+  font-size: var(--fs-2);
+}
+
+h4 {
+  font-size: var(--fs-1);
+}
+
+h5 {
+  font-size: var(--fs-0);
+}
+
+h6 {
+  font-size: var(--fs--1);
+}
+
 /* Elements */
 
 button {
@@ -44,7 +74,8 @@ button {
   background-color: var(--button-background, var(--reef-turquoise));
   color: var(--button-text, var(--wharf-blue));
   border-radius: var(--space-s);
-  padding: var(--space-xs) var(--space-m);
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-l);
   min-height: var(--space-xl);
   text-decoration: none;
   font-size: var(--fs-0);
@@ -131,6 +162,8 @@ blockquote {
   background-color: var(--color-secondary-50);
   padding-block: var(--space-m);
   padding-inline: var(--space-m);
+  font-size: var(--fs-0);
+  border-radius: var(--border-radius);
 }
 
 table {
@@ -145,4 +178,9 @@ td,
 th {
   padding-block: var(--space-xs);
   padding-inline-start: var(--space-s);
+}
+
+.overflow-hidden {
+  overflow-x: hidden;
+  overflow-y: visible;
 }

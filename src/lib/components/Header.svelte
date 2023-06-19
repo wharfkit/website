@@ -2,6 +2,7 @@
   import logo from "$lib/assets/logos/Wharf_logo_bright_horizontal_svgfix.svg"
   import darkLogo from "$lib/assets/logos/Wharf_logo_dark_horizontal_svgfix.svg"
   import { page } from "$app/stores"
+  import { theme } from "./ThemeToggle.svelte"
 
   $: section = $page.url.pathname
 
@@ -30,8 +31,12 @@
   <nav class:navHidden={!isNavOpen}>
     <div class="left">
       <a href="/">
-        <img class="logo dark" src={darkLogo} alt="wharf logo" width="146" height="41" />
-        <img class="logo light" src={logo} alt="wharf logo" width="146" height="41" />
+        <img
+          class="logo"
+          src={$theme === "dark" ? darkLogo : logo}
+          alt="wharf logo"
+          width="146"
+          height="41" />
       </a>
       <button class="navToggle close" on:click={toggleNav}>
         <span class="visually-hidden">{isNavOpen ? "Close" : "Open"}</span>
@@ -90,14 +95,6 @@
     --theme-nav-toggle-foreground: var(--wharf-blue);
     --theme-nav-background: var(--wharf-blue);
     --theme-nav-item-hover: var(--color-primary-800);
-  }
-
-  :global([data-theme="dark"]) .logo.light {
-    display: none;
-  }
-
-  :global([data-theme="light"]) .logo.dark {
-    display: none;
   }
 
   header {

@@ -40,8 +40,6 @@
   }
 
   article {
-    /* background: linear-gradient(#faa 1px, transparent 1px); */
-    background-size: 100% var(--space-l);
     margin-block-end: var(--space-4xl);
   }
 
@@ -51,33 +49,27 @@
   }
 
   article :global(h1) {
-    font-size: var(--fs-4);
     line-height: var(--space-xl);
     margin-block-start: var(--space-s);
   }
 
   article :global(h2) {
-    font-size: var(--fs-3);
     margin-block-start: var(--space-4xl);
   }
 
   article :global(h3) {
-    font-size: var(--fs-2);
     margin-block-start: var(--space-3xl);
   }
 
   article :global(h4) {
-    font-size: var(--fs-1);
     margin-block-start: var(--space-2xl);
   }
 
   article :global(h5) {
-    font-size: var(--fs-0);
     margin-block-start: var(--space-xl);
   }
 
   article :global(h6) {
-    font-size: var(--fs--1);
     margin-block-start: var(--space-xl);
   }
 
@@ -101,21 +93,12 @@
     margin-block-start: var(--space-xs);
   }
 
-  article :global(p) {
-    font-size: var(--fs-0);
-  }
-
   article :global(li:not(:first-child)) {
     margin-block-start: var(--space-3xs);
   }
 
   article :global(:is(ul, ol)) {
     margin-block-start: var(--space-m);
-  }
-
-  article :global(blockquote) {
-    font-size: var(--fs-0);
-    border-radius: var(--border-radius);
   }
 
   article :global(img) {

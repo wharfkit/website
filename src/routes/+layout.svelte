@@ -8,21 +8,13 @@
 
 <Seo />
 <Header />
-<div>
+<div class="page">
   <slot />
 </div>
 <Footer />
 
 <style>
-  :global(body) {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-    gap: var(--space-xl-2xl);
-    padding-block-start: var(--space-s);
-  }
-
-  div {
+  .page {
     padding-inline: var(--page-padding-inline);
   }
 </style>

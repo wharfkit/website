@@ -15,9 +15,6 @@
   --surface4-light: var(--color-secondary-500);
   --surface5-light: var(--color-secondary-700);
   --border1-light: var(--color-accent-50);
-  --surface-shadow-light: var(--brand-hue) 10% 20%;
-  --surface-shadow-light: var(--brand-hue) 10% 20%;
-  --shadow-strength-light: 0.02;
   --hue-wharf: 228;
   --hue-reef: 166;
   --hue-mist: 120;
@@ -42,9 +39,9 @@
   --theme-surface4: var(--color-secondary-500);
   --theme-surface5: var(--color-secondary-700);
   --theme-surface6: #ededf1;
-  --theme-border1: var(--color-accent-50);
-  --surface-shadow: var(--brand-hue) 10% 20%;
-  --shadow-strength: 0.02;
+  --theme-surface7: white;
+
+  --theme-border1: hsla(0 0% 0% / 0.2);
 }
 
 @mixin theme-dark {
@@ -68,9 +65,9 @@
   --theme-surface4: var(--color-primary-400);
   --theme-surface5: var(--color-secondary-200);
   --theme-surface6: #383838;
-  --theme-border1: var(--color-primary-900);
-  --surface-shadow: 227 10% 16%;
-  --shadow-strength: 0.8;
+  --theme-surface7: hsl(228, 21%, 10%);
+
+  --theme-border1: hsla(0 0% 100% / 0.2);
 }
 
 :root {
