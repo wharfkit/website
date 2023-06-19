@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { capitalize } from "../../../lib/utils"
+  import { capitalize } from "$lib/utils/general"
   import type { PageData } from "./$types"
 
   export let data: PageData

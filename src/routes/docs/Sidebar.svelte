@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { DocumentationSections } from "$lib/types"
-  import { filterDocumentationArticles, formatSectionTitle } from "$lib/utils"
+  import { filterDocumentationArticles, formatSectionTitle } from "$lib/utils/docs"
   import Filter from "./Filter.svelte"
 
   export let sections: DocumentationSections

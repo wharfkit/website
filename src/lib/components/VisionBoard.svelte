@@ -10,7 +10,9 @@
       <div class="card">
         <div class="bio">
           <!-- TODO: placeholder image -->
-          <div class="picture"><img src="http://placekitten.com/60/60" alt="" /></div>
+          <div class="picture">
+            <img src="http://placekitten.com/60/60" alt="profile picture of aaron" loading="lazy" />
+          </div>
           <h3>Aaron Cox of Greymass</h3>
         </div>
         <div class="testimonial">
@@ -28,7 +30,9 @@
     <div class="column two">
       <div class="card">
         <div class="bio">
-          <div class="picture"><img src="http://placekitten.com/60/60" alt="" /></div>
+          <div class="picture">
+            <img src="http://placekitten.com/60/60" alt="profile picture of yves" loading="lazy" />
+          </div>
           <h3>Yves La Rose of the ENF</h3>
         </div>
         <div class="testimonial">

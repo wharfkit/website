@@ -65,13 +65,13 @@
   <section class="kits | full-bleed">
     <div class="images">
       <div class="account kit">
-        <img src={accountKit} alt="" />
+        <img src={accountKit} alt="account kit icon" />
       </div>
       <div class="contract kit">
-        <img src={contractKit} alt="" />
+        <img src={contractKit} alt="contract kit icon" />
       </div>
       <div class="session kit">
-        <img src={sessionKit} alt="" />
+        <img src={sessionKit} alt="session kit icon" />
       </div>
     </div>
 
@@ -91,10 +91,10 @@
     <div class="frameworks card | box">
       <p class="visually-hidden">Supported Frameworks</p>
       <div class="cluster">
-        <img src={reactIcon} alt="React" />
-        <img src={javascriptIcon} alt="Javascript" />
-        <img src={vueIcon} alt="Vue" />
-        <img src={nodeIcon} alt="NodeJS" />
+        <img src={reactIcon} alt="React" loading="lazy" />
+        <img src={javascriptIcon} alt="Javascript" loading="lazy" />
+        <img src={vueIcon} alt="Vue" loading="lazy" />
+        <img src={nodeIcon} alt="NodeJS" loading="lazy" />
       </div>
     </div>
     <div class="box stack left">
@@ -173,7 +173,9 @@
 
   .hero {
     padding-block-start: var(--space-6xl);
+    padding-block-start: 15vh;
     padding-block-end: var(--space-4xl-5xl);
+    padding-block-end: 15vh;
     display: grid;
     place-items: center;
     position: relative;
@@ -184,7 +186,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -55%);
+    transform: translate(-50%, -50%);
     z-index: -1;
   }
 
@@ -347,7 +349,14 @@
 
   @media (min-width: 768px) {
     main {
-      padding-block-end: var(--space-3xl-4xl);
+      padding-block-end: var(--space-6xl);
+    }
+
+    .hero h1 {
+      font-size: var(--fs-8);
+    }
+    .hero p {
+      font-size: var(--fs-2);
     }
 
     .images::before,

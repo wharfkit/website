@@ -1,6 +1,6 @@
 <script lang="ts">
   import data from "$lib/footerData"
-  import { capitalize } from "../utils"
+  import { capitalize } from "$lib/utils/general"
   import logo from "$lib/assets/logos/Wharf_logo_bright_vector_no_bg_svgfix.svg"
   import darkLogo from "$lib/assets/logos/Wharf_logo_dark_vector_no_bg_svgfix.svg"
   import ThemeToggle from "./ThemeToggle.svelte"
@@ -14,7 +14,8 @@
       src={$theme === "dark" ? darkLogo : logo}
       alt="Wharf logo"
       width="361"
-      height="404" />
+      height="404"
+      loading="lazy" />
     {#each data as section}
       <div class="box">
         <h3>{capitalize(section.title)}</h3>

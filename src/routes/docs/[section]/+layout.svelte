@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { LayoutData } from "./$types"
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
-  import { capitalize } from "$lib/utils"
+  import { capitalize } from "$lib/utils/general"
   import { page } from "$app/stores"
   import type { BreadCrumb, DocumentationArticle } from "$lib/types"
 
