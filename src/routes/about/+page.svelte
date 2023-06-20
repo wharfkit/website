@@ -34,7 +34,7 @@
           90deg, 
           #7BE7CE80, 
           transparent 1px, 
-          transparent 40px
+          transparent 41px
           ),
           linear-gradient(
             180deg,
@@ -70,7 +70,7 @@
           90deg, 
           #7BE7CE80, 
           transparent 1px, 
-          transparent 40px
+          transparent 41px
           ),
       linear-gradient(180deg, 
       hsl(166deg 69% 69%) 0%,
@@ -211,6 +211,25 @@
 
   section.know {
     gap: var(--space-l-xl);
+  }
+
+  section.know::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transform: translate(0, -30%) scaleX(-1);
+    background-image: url("/src/lib/assets/images/squiggle-1.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    z-index: -1;
+    opacity: 0.1;
+  }
+
+  :global([data-theme="dark"]) section.know::before {
+    opacity: 0.4;
   }
 
   .card {
