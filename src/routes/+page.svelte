@@ -2,6 +2,7 @@
   import sessionKit from "$lib/assets/images/session-kit.svg"
   import contractKit from "$lib/assets/images/contract-kit.svg"
   import accountKit from "$lib/assets/images/account-kit.svg"
+
   import KitSwitcher from "$lib/components/KitSwitcher.svelte"
   import VisionBoard from "$lib/components/VisionBoard.svelte"
 
@@ -23,14 +24,14 @@
         #7be7ce 50rem,
         #b2f2e1 60rem,
         #f4faf4 70rem
-      );
-      background-repeat: no-repeat;
+      ) no-repeat;
     }
 
     /* prettier-ignore */
     body[data-theme="dark"] {
       --footer-background: hsl(228, 21%, 10%);
-      background: linear-gradient(180deg, 
+      background: 
+      linear-gradient(180deg, 
       hsl(166deg 69% 69%) 0%,
       hsl(172deg 31% 56%) 10rem,
       hsl(189deg 18% 44%) 20rem,
@@ -38,8 +39,7 @@
       hsl(228deg 15% 28%) 40rem,
       hsl(228deg 16% 23%) 50rem,
       hsl(229deg 17% 18%) 60rem
-      );
-      background-repeat: no-repeat;
+      ) no-repeat;
     }
 
     body {
@@ -396,7 +396,7 @@
 
     div.launch {
       border-radius: 0 0 var(--space-l) var(--space-l);
-      padding-block-start: var(--space-2xl-3xl);
+      padding-block: var(--space-2xl-3xl);
     }
 
     .full-bleed {

@@ -103,7 +103,7 @@
       </button>
     </li>
   </menu>
-  <div class="kits | box">
+  <div class="kits">
     <div class="session kit | stack" class:active={active === "session"}>
       <h3>Session Kit</h3>
       <p>The Session Kit is designed to make signing transactions easy.</p>
@@ -164,9 +164,9 @@
   }
 
   .kits {
-    --padding: var(--space-l);
     display: grid;
     grid-template-areas: "stack";
+    padding: var(--space-s);
   }
 
   menu {
@@ -252,13 +252,12 @@
     .kitswitcher {
       --padding: var(--space-l);
       flex-direction: row;
-      gap: var(--space-xl);
+      gap: var(--space-2xl);
       width: 100%;
       width: fit-content;
     }
 
     .kits {
-      --padding: var(--space-l);
       flex: 1;
     }
 
@@ -267,7 +266,6 @@
       flex-direction: column;
       justify-content: flex-start;
       gap: var(--space-l);
-      margin-block-start: var(--space-m);
     }
 
     menu > li {

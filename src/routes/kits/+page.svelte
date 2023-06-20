@@ -1,92 +1,101 @@
 <script>
-  import Card from "$lib/components/Card.svelte"
-  import CardContainer from "$lib/components/CardContainer.svelte"
-  import SessionKitIcon from "$lib/assets/icons/session-kit.svg"
-  import ContractKitIcon from "$lib/assets/icons/contract-kit.svg"
-  import AccountKitIcon from "$lib/assets/icons/account-kit.svg"
   import frame2518 from "$lib/assets/images/frame-2518.webp"
-  import lines from "$lib/assets/patterns/2412.svg"
-
-  const cardData = [
-    {
-      number: 1,
-      title: "Session kit",
-      icon: SessionKitIcon,
-      background: "var(--reef-turquoise)",
-      list: [
-        "For managing user sessions",
-        "Give your users the opportunity to interact with the blockchain",
-        "Use cases: sending tokens, sending NFTs, voting for producers, etc.",
-        "Out-of-the-box UI and localization",
-      ],
-    },
-    {
-      number: 2,
-      title: "Account kit",
-      icon: AccountKitIcon,
-      background: "var(--wharf-blue)",
-      list: [
-        "For interacting with Antelope accounts (you may know these as “addresses” on other chains)",
-        "Use cases: seeing balances, managing resources, staking tokens, changing keys, etc.",
-        "Great for wallets and block explorers",
-      ],
-    },
-    {
-      number: 3,
-      title: "Contract kit",
-      icon: ContractKitIcon,
-      background: "var(--seafoam-mint)",
-      list: [
-        "For in-app actions and accessing data from smart contracts",
-        "Use cases: creating or transferring an NFT, game interactions, actions that don't need to be recorded on-chain, etc.",
-        "Great for games",
-      ],
-    },
-  ]
+  import KitSwitcher from "../../lib/components/KitSwitcher.svelte"
+  import sessionKit from "$lib/assets/images/session-kit.svg"
+  import contractKit from "$lib/assets/images/contract-kit.svg"
+  import accountKit from "$lib/assets/images/account-kit.svg"
+  import threeKits from "$lib/assets/images/three-kits.svg"
 </script>
 
 <svelte:head>
   <style>
     body {
-      background: var(--page-background-gradient);
-      background-size: var(--page-background-size);
-      background-position: var(--page-background-position);
-      background-repeat: var(--page-background-repeat);
-      /* --header-background: white; */
+      --pyramid-height: 26rem;
+      --pyramid-width: calc(var(--max-inline-size) / 2);
+      --pyramid-top: 30rem;
+      --pyramid-base: calc(var(--pyramid-top) + var(--pyramid-height));
+
+      /* prettier-ignore */
+      background:
+      linear-gradient(
+        to top left,
+        var(--page-background) 50%,
+        transparent 50%
+      ),
+      linear-gradient(
+        to top right,
+        var(--page-background) 50%,
+        transparent 50%
+      ),
+      linear-gradient(
+        180deg,
+        transparent var(--pyramid-base),
+        var(--page-background) var(--pyramid-base)
+      ),
+      radial-gradient(
+        100% 40rem at 50% calc(var(--pyramid-base) - var(--pyramid-height) + 8rem),
+        var(--radial-0) 0%,
+        var(--radial-1) 20%,
+        var(--radial-2) 40%,
+        var(--radial-3) 100%
+      );
+      background-size: var(--pyramid-width) var(--pyramid-height),
+        var(--pyramid-width) var(--pyramid-height), cover, cover;
+      background-repeat: no-repeat;
+      background-position: right 50vw top var(--pyramid-top), left 50vw top var(--pyramid-top), 0 0,
+        0 0;
+    }
+
+    body[data-theme="light"] {
+      --footer-background: white;
+      --page-background: var(--swell-mist);
+      --radial-0: var(--swell-mist);
+      --radial-1: var(--seafoam-mint);
+      --radial-2: var(--reef-turquoise);
+      --radial-3: var(--wharf-blue);
+
+      --card-2-background: white;
+      --card-3-background: white;
+    }
+
+    body[data-theme="dark"] {
+      --footer-background: hsl(228, 21%, 10%);
+      --page-background: #262936;
+      --radial-0: hsl(166, 60%, 50%);
+      --radial-1: hsl(197, 20%, 40%);
+      --radial-2: hsl(228, 15%, 34%);
+      --radial-3: hsl(228, 21%, 10%);
+
+      --card-2-background: #494e62;
+      --card-3-background: #363944;
     }
   </style>
 </svelte:head>
 
-<img src={lines} alt="" class="lines one" />
-<img src={lines} alt="" class="lines two" />
-
-<main class="stack">
-  <div class="hero | center stack">
+<main class="flow">
+  <div class="hero">
     <h1>3 Kits - A world of options</h1>
     <p>Everything you need for web3 app development.</p>
   </div>
 
-  <div class="cards">
-    <CardContainer>
-      {#each cardData as card}
-        <Card
-          title={card.title}
-          number={card.number}
-          list={card.list}
-          icon={card.icon}
-          background={card.background} />
-      {/each}
-    </CardContainer>
+  <div class="images">
+    <div class="account kit">
+      <img src={accountKit} alt="account kit icon" height="144" width="144" />
+    </div>
+    <div class="contract kit">
+      <img src={contractKit} alt="contract kit icon" height="144" width="144" />
+    </div>
+    <div class="session kit">
+      <img src={sessionKit} alt="session kit icon" height="144" width="144" />
+    </div>
   </div>
 
-  <div class="documentation | center stack">
-    <h2>Not sure which kit(s) you need?</h2>
-    <p>Check out our documentation for more in-depth information on each kit.</p>
-    <a class="button" href="#">Go To Documentation</a>
+  <div class="kitswitcher">
+    <KitSwitcher />
   </div>
 
   <div class="tutorial | switcher">
-    <div class="tutorial | stack">
+    <div class="box stack">
       <h2>See how all the kits fit together.</h2>
       <p>
         In our tutorial, you’ll get to use the Session, Account, and Contract kits to create a
@@ -95,20 +104,27 @@
       </p>
       <a href="#" class="button">Start Tutorial</a>
     </div>
-    <img src={frame2518} alt="" />
+    <div class="image | box place-center">
+      <img src={frame2518} alt="wharf logo stylized" loading="lazy" />
+    </div>
   </div>
 
-  <div class="overview | center stack">
-    <h2>Overview</h2>
-    <p>3 kits - Working in web3 harmony</p>
+  <div class="documentation | center stack">
+    <h2>Not sure which kit(s) you need?</h2>
+    <p>Check out our documentation for more in-depth information on each kit.</p>
+    <a class="button" href="#">Go To Documentation</a>
   </div>
 
   <div class="overview | switcher">
-    <div class="card one">
+    <div class="card one | place-center align-center">
       <h3>Modular SDKs for the future.</h3>
+      <picture>
+        <img src={contractKit} alt="contract kit logo" loading="lazy" width="256" height="256" />
+      </picture>
     </div>
     <div class="stack">
       <div class="card two">
+        <img src={threeKits} alt="three kit icons" loading="lazy" width="113" height="97" />
         <h3>Combine the kits in any way you can imagine.</h3>
       </div>
       <div class="card three">
@@ -124,24 +140,10 @@
   </div>
 </main>
 
-<style lang="scss">
-  .lines {
-    position: absolute;
-    top: 5rem;
-    left: 0;
-    width: 100%;
-
-    &.one {
-    }
-
-    &.two {
-      transform: translateY(8%);
-    }
-  }
-
+<style>
   main {
-    --gap: var(--space-4xl);
-    margin-bottom: var(--space-6xl);
+    gap: var(--space-6xl);
+    margin-bottom: var(--space-4xl);
   }
 
   .center {
@@ -152,17 +154,21 @@
   }
 
   .hero {
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-3xl);
+    position: absolute;
+    inset-inline: 0;
+    top: var(--space-7xl);
+    padding-inline: var(--space-s);
     font-family: var(--ff-heading);
     gap: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
   .hero h1 {
-    font-size: var(--fs-7);
-    font-weight: 600;
+    font-size: var(--fs-6);
+    font-weight: 700;
     color: white;
-    line-height: 1.2;
   }
 
   .hero p {
@@ -171,90 +177,115 @@
     color: white;
   }
 
-  p {
-    font-size: var(--fs-0);
-    color: var(--color-neutral-700);
+  .images {
+    position: absolute;
+    top: calc(var(--pyramid-top) - 144px / 4);
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns:
+      1fr
+      calc(144px / 2)
+      calc(144px / 2)
+      var(--space-m)
+      calc(144px / 2)
+      calc(144px / 2)
+      1fr;
+    grid-template-rows:
+      calc(144px - var(--space-m))
+      var(--space-m)
+      calc(144px - var(--space-m));
   }
 
-  h2 {
-    color: black;
-    font-size: var(--fs-4);
-    font-weight: 600;
-    font-family: var(--ff-heading);
+  .account.kit {
+    grid-column: 3 / 6;
+    grid-row: 1 / 3;
+    justify-self: center;
   }
 
-  .documentation {
-    gap: var(--space-s);
+  .contract.kit {
+    grid-column: 5 / 7;
+    grid-row: 2 / 4;
+    justify-self: center;
+  }
+
+  .session.kit {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+  }
+
+  .kitswitcher {
+    margin-top: 42rem;
+    display: grid;
+    place-content: center;
   }
 
   .tutorial.switcher {
+    --threshold: 960px;
     flex-wrap: wrap-reverse;
-    gap: var(--space-2xl);
     align-items: center;
-
-    & img {
-      border-radius: var(--space-l);
-      object-fit: cover;
-    }
+  }
+  .tutorial.switcher img {
+    border-radius: var(--space-l);
+    object-fit: cover;
   }
 
-  .tutorial.stack {
-    gap: var(--space-l);
+  .tutorial .stack {
     align-items: flex-start;
-    padding-inline: var(--space-m-4xl);
   }
 
   .overview {
     --gap: var(--space-m);
+  }
+  .overview.switcher {
+    gap: var(--space-m);
+    --threshold: 960px;
+  }
 
-    & h2 {
-      font-size: var(--fs-1);
-      color: var(--wharf-blue);
-    }
-    & p {
-      font-size: var(--fs-5);
-      color: black;
-      font-family: var(--ff-heading);
-      font-weight: 600;
-      line-height: 1.2;
-    }
+  .overview h3 {
+    font-size: var(--fs-3);
+  }
 
-    &.switcher {
-      gap: var(--space-m);
-      --threshold: 960px;
+  .card {
+    padding-block: var(--space-xl);
+    padding-inline: var(--space-2xl-3xl);
+    border-radius: var(--space-l);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+  }
 
-      h3 {
-        font-size: var(--fs-3);
-        font-weight: 600;
-        color: white;
-      }
+  .card.one {
+    text-align: center;
+    background: linear-gradient(
+        180deg,
+        hsl(228, 20%, 20%) 0%,
+        hsl(228, 15%, 34%) 30%,
+        hsl(197, 20%, 40%) 60%,
+        hsl(180, 17%, 50%) 80%,
+        hsl(166, 69%, 69%) 100%
+      )
+      no-repeat;
+    gap: var(--space-l);
+  }
 
-      p {
-        font-size: var(--fs-0);
-        color: var(--color-neutral-300);
-      }
+  .card.one img {
+    object-fit: contain;
+  }
 
-      & .card {
-        padding-block: var(--space-xl);
-        padding-inline: var(--space-2xl-3xl);
-        border-radius: var(--space-l);
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-m);
-      }
+  .card.one h3 {
+    color: white;
+  }
 
-      & .one {
-        text-align: center;
-        background-color: var(--wharf-blue);
-      }
+  .card.two {
+    background-color: var(--card-2-background);
+    color: var(--theme-text-heading);
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-l);
+  }
 
-      & .two {
-        background-color: var(--color-primary-800);
-      }
-
-      & .three {
-        background-color: var(--color-primary-900);
-      }
-    }
+  .card.three {
+    background-color: var(--card-3-background);
   }
 </style>

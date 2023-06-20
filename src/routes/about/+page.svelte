@@ -1,16 +1,15 @@
 <script lang="ts">
   import wharfLogo from "$lib/assets/logos/Wharf_logo_dark_vector_no_bg_svgfix.svg"
   import antelopeLogo from "$lib/assets/logos/antelope.svg"
-  import wharfBg from "$lib/assets/images/9adffb9d8509834788bd5a77f798bc5b.webp"
 </script>
+
+<!-- Isometric Grid Background -->
 
 <svelte:head>
   <style>
     /* prettier-ignore */
     body[data-theme="light"] {
       --footer-background: white;
-
-      /* background-color: #f00; */
       background: 
       linear-gradient(
             180deg,

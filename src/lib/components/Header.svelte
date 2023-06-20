@@ -95,6 +95,7 @@
     display: flex;
     justify-content: center;
     padding-inline: var(--page-padding-inline);
+    width: 100%;
   }
 
   nav {
