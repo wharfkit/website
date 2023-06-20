@@ -95,6 +95,9 @@
   there are more than 4 child elements */
   flex-basis: 100%;
 }
+.switcher.reverse {
+  flex-wrap: wrap-reverse;
+}
 
 // Cover
 

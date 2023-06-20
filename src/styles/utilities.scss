@@ -20,3 +20,16 @@
   display: flex;
   flex-direction: column;
 }
+
+.place-center {
+  display: grid;
+  place-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.align-center {
+  align-items: center;
+}

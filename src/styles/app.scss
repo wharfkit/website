@@ -9,7 +9,6 @@ body {
   font-family: "Inter", var(--system-ui);
   font-weight: 400;
   font-size: var(--fs-0);
-
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
@@ -41,18 +40,22 @@ a {
 
 h1 {
   font-size: var(--fs-4);
+  line-height: 1.2;
 }
 
 h2 {
   font-size: var(--fs-3);
+  line-height: 1.4;
 }
 
 h3 {
   font-size: var(--fs-2);
+  line-height: 1.4;
 }
 
 h4 {
   font-size: var(--fs-1);
+  line-height: 1.4;
 }
 
 h5 {
@@ -61,6 +64,10 @@ h5 {
 
 h6 {
   font-size: var(--fs--1);
+}
+
+:is(p, li) {
+  line-height: 1.7;
 }
 
 /* Elements */

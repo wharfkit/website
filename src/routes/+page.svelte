@@ -200,7 +200,6 @@
 
   .hero h1 {
     font-size: var(--fs-6);
-    line-height: 1.1;
     color: white;
     max-width: 20ch;
   }

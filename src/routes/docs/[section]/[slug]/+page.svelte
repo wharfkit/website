@@ -45,7 +45,6 @@
 
   article :global(> *) {
     margin-block-start: var(--space-l);
-    line-height: var(--space-l);
   }
 
   article :global(h1) {
@@ -54,15 +53,15 @@
   }
 
   article :global(h2) {
-    margin-block-start: var(--space-4xl);
-  }
-
-  article :global(h3) {
     margin-block-start: var(--space-3xl);
   }
 
-  article :global(h4) {
+  article :global(h3) {
     margin-block-start: var(--space-2xl);
+  }
+
+  article :global(h4) {
+    margin-block-start: var(--space-xl);
   }
 
   article :global(h5) {

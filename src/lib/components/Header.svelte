@@ -12,6 +12,7 @@
     { name: "Blog", href: "/blog" },
     { name: "Brand", href: "/brand" },
     // { name: "theme", href: "/theme" },
+    { name: "About", href: "/about" },
   ]
 
   let isNavOpen = false
@@ -104,8 +105,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     gap: var(--space-l);
-    /* margin-block: var(--space-s); */
-    border-radius: var(--space-m);
+    border-radius: 24px;
   }
 
   .left {
@@ -119,8 +119,10 @@
   nav menu {
     display: flex;
     justify-content: center;
+    justify-content: space-between;
     list-style: none;
     padding-inline: 0;
+    /* gap: var(--space-s); */
   }
 
   menu a {
@@ -130,6 +132,7 @@
     padding-block: var(--space-xs);
     padding-inline: var(--space-xs);
     border-radius: var(--space-xs);
+    border-radius: 12px;
     font-size: var(--fs-0);
   }
 
@@ -176,7 +179,7 @@
       color: var(--header-text-color, var(--theme-nav-toggle-foreground));
       padding: var(--space-xs);
       margin: var(--space-2xs);
-      border-radius: var(--border-radius, 16px);
+      border-radius: 16px;
       aspect-ratio: 1;
       position: relative;
     }
@@ -189,7 +192,7 @@
       gap: var(--space-m);
       background: var(--nav-background-color, var(--theme-nav-background));
       padding: var(--space-s);
-      border-radius: var(--border-radius, var(--space-s));
+      border-radius: 24px;
       width: 100%;
       z-index: 999;
       transform: scaleY(1) translateY(0);
@@ -205,6 +208,7 @@
     li {
       /* border: 2px solid var(--nav-border-color, var(--color-accent-100)); */
       border-radius: var(--border-radius, var(--space-2xs));
+      border-radius: 16px;
     }
 
     li a {
