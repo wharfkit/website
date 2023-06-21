@@ -10,27 +10,23 @@
 <svelte:head>
   <style>
     body {
-      --pyramid-height: 26rem;
-      --pyramid-width: calc(var(--max-inline-size) / 2);
+      --pyramid-height: 30rem;
+      /* --pyramid-width: var(--max-inline-size); */
+      /* --pyramid-width: 100vw; */
       --pyramid-top: 30rem;
       --pyramid-base: calc(var(--pyramid-top) + var(--pyramid-height));
 
       /* prettier-ignore */
       background:
-      linear-gradient(
-        to top left,
-        var(--page-background) 50%,
-        transparent 50%
-      ),
-      linear-gradient(
-        to top right,
-        var(--page-background) 50%,
-        transparent 50%
+      conic-gradient(
+        from 120deg,
+        var(--page-background) 33.333%,
+        transparent 33.333%
       ),
       linear-gradient(
         180deg,
-        transparent var(--pyramid-base),
-        var(--page-background) var(--pyramid-base)
+        var(--page-background),
+        var(--page-background)
       ),
       radial-gradient(
         100% 40rem at 50% calc(var(--pyramid-base) - var(--pyramid-height) + 8rem),
@@ -39,11 +35,9 @@
         var(--radial-2) 40%,
         var(--radial-3) 100%
       );
-      background-size: var(--pyramid-width) var(--pyramid-height),
-        var(--pyramid-width) var(--pyramid-height), cover, cover;
+      background-size: 100% var(--pyramid-base), cover, cover;
       background-repeat: no-repeat;
-      background-position: right 50vw top var(--pyramid-top), left 50vw top var(--pyramid-top), 0 0,
-        0 0;
+      background-position: center top, 0 var(--pyramid-base), 0 0;
     }
 
     body[data-theme="light"] {
@@ -142,7 +136,7 @@
 
 <style>
   main {
-    gap: var(--space-6xl);
+    gap: var(--space-4xl);
     margin-bottom: var(--space-4xl);
   }
 
