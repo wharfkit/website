@@ -1,4 +1,5 @@
 import slugify from "@sindresorhus/slugify"
+import type { BlogPost } from "$lib/types"
 
 export async function getBlogPosts() {
   const allPostFiles = import.meta.glob("/src/routes/blog/**/*.md")
@@ -29,7 +30,7 @@ export async function getBlogPosts() {
         path,
         slug,
         date,
-      }
+      } as BlogPost
     })
   )
 

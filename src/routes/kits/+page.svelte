@@ -11,8 +11,6 @@
   <style>
     body {
       --pyramid-height: 30rem;
-      /* --pyramid-width: var(--max-inline-size); */
-      /* --pyramid-width: 100vw; */
       --pyramid-top: 30rem;
       --pyramid-base: calc(var(--pyramid-top) + var(--pyramid-height));
 

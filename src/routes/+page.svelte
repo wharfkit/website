@@ -17,20 +17,22 @@
     /* prettier-ignore */
     body[data-theme="light"] {
       --footer-background: white;
-      background: 
-        linear-gradient(
-        180deg,
-        #494e62 0%,
-        #7be7ce 50rem,
-        #b2f2e1 60rem,
-        #f4faf4 70rem
-      ) no-repeat;
+      --page-background: 
+      linear-gradient(
+            180deg,
+            #494e62 0%,
+            #7be7ce 50rem,
+            #b2f2e1 60rem,
+            #f4faf4 70rem,
+            #f4faf4 90%,
+            hsl(120, 37%, 99%) 100%
+          ) no-repeat;
     }
 
     /* prettier-ignore */
     body[data-theme="dark"] {
       --footer-background: hsl(228, 21%, 10%);
-      background: 
+      --page-background: 
       linear-gradient(180deg, 
       hsl(166deg 69% 69%) 0%,
       hsl(172deg 31% 56%) 10rem,
@@ -38,7 +40,9 @@
       hsl(228deg 15% 34%) 30rem,
       hsl(228deg 15% 28%) 40rem,
       hsl(228deg 16% 23%) 50rem,
-      hsl(229deg 17% 18%) 60rem
+      hsl(229deg 17% 18%) 60rem,
+      hsl(229deg 17% 18%) 90%,
+      hsl(229deg 17% 10%) 100%
       ) no-repeat;
     }
 
@@ -188,6 +192,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
+    opacity: 0.6;
   }
 
   :global([data-theme="dark"]) .hero::before {

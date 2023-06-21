@@ -129,10 +129,6 @@
     transform: translateY(calc(100% + var(--space-m)));
   }
 
-  .two .card::after {
-    display: block;
-  }
-
   .bio {
     display: flex;
     flex-wrap: wrap;

@@ -7,9 +7,10 @@
 
 <svelte:head>
   <style>
+    /* prettier-ignore */
     body[data-theme="light"] {
       --footer-background: var(--swell-mist);
-      background: linear-gradient(
+      --page-background: linear-gradient(
         180deg,
         #494e62 0%,
         #7be7ce 4rem,
@@ -17,21 +18,29 @@
         #f4faf4 7rem,
         #ffffff 8.75rem
       );
+      --page-background: linear-gradient(
+        180deg,
+        /* #494e62 0rem, */ 
+        #7be7ce 0rem,
+        #b2f2e1 2rem,
+        #f4faf4 8rem,
+        #ffffff 12rem
+      );
     }
 
     /* prettier-ignore */
-    body[data-theme="dark"] {
+    /* body[data-theme="dark"] {
       --footer-background: #262936;
       background: linear-gradient(
         180deg,
-        hsl(166deg 69% 69%) 0%,
-        hsl(176deg 50% 64%) 14%,
-        hsl(186deg 36% 59%) 20%,
-        hsl(195deg 26% 54%) 25%,
-        hsl(205deg 20% 48%) 30%,
-        hsl(215deg 18% 42%) 34%,
-        hsl(225deg 15% 36%) 37%,
-        hsl(228deg 15% 32%) 41%,
+        hsl(166deg 59% 49%) 0%,
+        hsl(176deg 30% 44%) 14%,
+        hsl(186deg 26% 49%) 20%,
+        hsl(195deg 16% 44%) 25%,
+        hsl(205deg 10% 38%) 30%,
+        hsl(215deg 18% 32%) 34%,
+        hsl(225deg 15% 26%) 37%,
+        hsl(228deg 15% 22%) 41%,
         hsl(228deg 15% 29%) 45%,
         hsl(228deg 16% 27%) 48%,
         hsl(228deg 16% 24%) 52%,
@@ -47,8 +56,19 @@
       ),hsl(229deg 21% 10%);
       background-repeat: no-repeat;
       background-size: 100% 20rem, 100% 100%;
+    } */
 
-
+    /* prettier-ignore */
+    body[data-theme="dark"] {
+      --footer-background: #262936;
+      --header-background: #262936;
+      --page-background: 
+        linear-gradient(180deg, 
+          hsl(228deg 15% 34%) 0rem,
+          hsl(228deg 15% 28%) 2rem,
+          hsl(228deg 16% 17%) 7rem,
+          hsl(229deg 21% 10%) 11rem
+        ) no-repeat;
     }
   </style>
 </svelte:head>

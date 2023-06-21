@@ -20,7 +20,7 @@
 
   {#if image}
     <a href={path}>
-      <img src={image} alt="blog post header" />
+      <img src={image} alt="blog post header" loading="lazy" />
     </a>
   {/if}
 

@@ -222,13 +222,13 @@
     background-image: url("/src/lib/assets/images/squiggle-1.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100% 100%;
+    background-size: contain;
     z-index: -1;
-    opacity: 0.1;
+    opacity: 0.05;
   }
 
   :global([data-theme="dark"]) section.know::before {
-    opacity: 0.4;
+    opacity: 0.2;
   }
 
   .card {

@@ -31,7 +31,8 @@
 </script>
 
 <div class="media | stack">
-  <div class="frame" style="background-image: url({thumbnail}); background-size: cover;">
+  <div class="frame">
+    <img src={thumbnail} alt="" loading="lazy" />
     {#if play}
       <iframe
         class="youtube"
@@ -90,6 +91,7 @@
 
   .play:hover {
     opacity: 100%;
+    cursor: pointer;
   }
 
   .play svg {
