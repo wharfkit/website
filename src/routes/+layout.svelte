@@ -22,8 +22,9 @@
             #7be7ce 15rem,
             #b2f2e1 20rem,
             #f4faf4 30rem,
-            #f4faf4 90%,
-            hsl(120, 37%, 99%) 100%
+            #f4faf4 94%,
+            white 100%
+            /* hsl(120, 37%, 99%) 100% */
           ) no-repeat;
     }
 
@@ -39,7 +40,7 @@
       hsl(228deg 15% 28%) 20rem,
       hsl(228deg 16% 23%) 25rem,
       hsl(229deg 17% 18%) 35rem,
-      hsl(229deg 17% 18%) 90%,
+      hsl(229deg 17% 18%) 96%,
       hsl(229deg 17% 10%) 100%
       ) no-repeat;
     }

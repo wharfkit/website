@@ -1,6 +1,8 @@
 import type { DocumentationCommit, DocUpdate } from '../../lib/types';
 import type { PageServerLoad } from './$types';
 
+export const prerender = true;
+
 const GITHUB_URL = "https://api.github.com/repos/wharfkit/docs/commits"
 
 export const load = (async () => {

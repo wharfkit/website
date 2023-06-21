@@ -35,12 +35,12 @@
       --page-background: 
       linear-gradient(180deg, 
       hsl(166deg 69% 69%) 0%,
-      hsl(172deg 31% 56%) 10rem,
+      hsl(172deg 31% 56%) 8rem,
       hsl(189deg 18% 44%) 20rem,
       hsl(228deg 15% 34%) 30rem,
       hsl(228deg 15% 28%) 40rem,
-      hsl(228deg 16% 23%) 50rem,
-      hsl(229deg 17% 18%) 60rem,
+      hsl(228deg 16% 23%) 60rem,
+      hsl(229deg 17% 18%) 80rem,
       hsl(229deg 17% 18%) 90%,
       hsl(229deg 17% 10%) 100%
       ) no-repeat;

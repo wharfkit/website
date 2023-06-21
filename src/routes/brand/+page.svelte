@@ -13,9 +13,9 @@
 </script>
 
 <main>
-  <section class="hero">
-    <p class="title">Shipping great code starts<br /> with a solid platform</p>
-    <h1 class="subtitle">Brand guidelines and assets for Wharf</h1>
+  <section class="default hero">
+    <p class="title">Shipping great code starts with a solid platform</p>
+    <p class="subtitle">Brand guidelines and assets for Wharf</p>
   </section>
 
   <div class="with-sidebar">
@@ -30,7 +30,7 @@
     </aside>
     <div class="content | flow">
       <section id="guidelines">
-        <h2>Brand guidelines</h2>
+        <h1>Brand guidelines</h1>
         <p>
           Thank you for your interest in the WharfKit brand! We would like to make it as easy as
           possible for you to reference WharfKit in your project, so we've prepared all the
@@ -239,26 +239,6 @@
 {/if}
 
 <style>
-  main {
-  }
-
-  .hero {
-    display: grid;
-    place-items: center;
-    text-align: center;
-    gap: var(--space-m);
-    padding-block-start: var(--space-4xl);
-    padding-block-end: var(--space-5xl);
-    margin-block-end: var(--space-3xl);
-    background: green;
-    border-radius: var(--space-l);
-    background: url("src/lib/assets/images/Frame-2421.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var(--color-primary-900);
-  }
-
   aside ul {
     position: sticky;
     top: var(--space-m);
@@ -268,6 +248,13 @@
 
   aside li {
     display: flex;
+  }
+
+  aside a {
+    text-decoration: none;
+  }
+  aside li:hover a {
+    text-decoration: underline;
   }
 
   .content {
@@ -285,10 +272,8 @@
     max-inline-size: none;
   }
 
-  section h2 {
-    font-family: var(--ff-heading);
+  section :is(h1, h2) {
     font-size: var(--fs-4);
-    font-weight: 600;
   }
 
   .buttons {

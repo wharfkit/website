@@ -135,7 +135,6 @@
 <style>
   main {
     gap: var(--space-4xl);
-    margin-bottom: var(--space-4xl);
   }
 
   .center {

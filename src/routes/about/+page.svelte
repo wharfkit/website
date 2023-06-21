@@ -169,7 +169,6 @@
 <style>
   main {
     gap: var(--space-5xl-6xl);
-    margin-bottom: var(--space-4xl);
   }
 
   .hero {

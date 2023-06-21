@@ -10,8 +10,8 @@
 </script>
 
 <main>
-  <section class="hero">
-    <p class="title">Shipping great code starts<br /> with a solid platform</p>
+  <section class="default hero">
+    <p class="title">Shipping great code starts with a solid platform</p>
     <h1 class="subtitle">Wharf progress updates from Greymass</h1>
   </section>
 
@@ -64,23 +64,6 @@
 </main>
 
 <style>
-  .hero {
-    display: grid;
-    place-items: center;
-    text-align: center;
-    gap: var(--space-m);
-    padding-block-start: var(--space-4xl);
-    padding-block-end: var(--space-5xl);
-    margin-block-end: var(--space-3xl);
-    background: green;
-    border-radius: var(--space-l);
-    background: url("src/lib/assets/images/Frame-2421.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var(--color-primary-900);
-  }
-
   .sidebar {
     flex-grow: 0;
   }

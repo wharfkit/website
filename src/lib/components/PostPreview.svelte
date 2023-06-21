@@ -49,6 +49,10 @@
     text-decoration: none;
   }
 
+  hgroup a:hover {
+    text-decoration: underline;
+  }
+
   h2 {
     color: var(--theme-text-link);
   }

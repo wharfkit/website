@@ -39,10 +39,6 @@
     }
   }
 
-  article {
-    margin-block-end: var(--space-4xl);
-  }
-
   article :global(> *) {
     margin-block-start: var(--space-l);
   }

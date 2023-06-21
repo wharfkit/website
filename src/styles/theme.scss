@@ -15,6 +15,7 @@
   --surface4-light: var(--color-secondary-500);
   --surface5-light: var(--color-secondary-700);
   --border1-light: var(--color-accent-50);
+
   --hue-wharf: 228;
   --hue-reef: 166;
   --hue-mist: 120;
@@ -41,6 +42,8 @@
   --theme-surface6: #ededf1;
   --theme-surface7: white;
 
+  --sidebar-item-color: var(--color-secondary-600);
+
   --theme-border1: hsla(0 0% 0% / 0.2);
 }
 
@@ -65,7 +68,9 @@
   --theme-surface4: var(--color-primary-400);
   --theme-surface5: var(--color-secondary-200);
   --theme-surface6: #383838;
-  --theme-surface7: hsl(228, 21%, 10%);
+  --theme-surface7: #14161f;
+
+  --sidebar-item-color: var(--color-primary-100);
 
   --theme-border1: hsla(0 0% 100% / 0.2);
 }

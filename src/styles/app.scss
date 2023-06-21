@@ -19,6 +19,7 @@ body {
 main {
   max-inline-size: var(--max-inline-size);
   margin-inline: auto;
+  margin-bottom: var(--space-4xl);
 }
 
 a {
@@ -130,7 +131,7 @@ hr {
   & li > * {
     flex: 1;
     padding-block: var(--space-xs);
-    color: var(--color-secondary-500);
+    color: var(--sidebar-item-color);
   }
 }
 
@@ -192,12 +193,33 @@ th {
   overflow-y: visible;
 }
 
+.default.hero {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: var(--space-m);
+  padding-block-start: var(--space-4xl);
+  padding-block-end: var(--space-5xl);
+  margin-block-end: var(--space-6xl);
+  margin-block-start: var(--space-l);
+  background: green;
+  border-radius: var(--space-l);
+  background: url("src/lib/assets/images/Frame-2421.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-primary-900);
+  padding: var(--space-2xl-3xl);
+}
+
 .hero .title {
-  font-size: var(--fs-6);
+  font-size: var(--fs-4);
   color: inherit;
   line-height: 1.2;
   font-family: var(--ff-heading);
   font-weight: 600;
+  text-wrap: balance;
+  max-width: 22ch;
 }
 
 .hero .subtitle {
@@ -206,4 +228,12 @@ th {
   color: inherit;
   max-width: 35ch;
   font-family: var(--ff-body);
+  text-wrap: balance;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .hero .title {
+    font-size: var(--fs-5);
+  }
 }
