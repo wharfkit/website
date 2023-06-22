@@ -138,7 +138,7 @@
   /* ↓ Establish a grid context */
   display: grid;
   /* ↓ Set a gap between grid items */
-  grid-gap: 1rem;
+  grid-gap: var(--space-m);
   /* ↓ Set the minimum column width */
   --minimum: 20ch;
 }

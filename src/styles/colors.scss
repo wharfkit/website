@@ -1,10 +1,10 @@
 :root {
   /* Brand Colors */
   --wharf-blue-rgb: 73, 78, 98;
-  --wharf-blue: hsl(228, 15%, 34%);
-  --reef-turquoise: hsl(166, 69%, 69%);
-  --seafoam-mint: #b2f2e1;
-  --swell-mist: hsl(120, 37%, 97%);
+  --wharf-blue: hsl(228, 15%, 34%); // #494E62
+  --reef-turquoise: hsl(166, 69%, 69%); // #7BE7CE
+  --seafoam-mint: hsl(164, 71%, 82%); // #B2F2E1
+  --swell-mist: hsl(120, 37%, 97%); // #F4FAF4
 
   --hue-wharf: 228;
   --hue-reef: 166;
@@ -18,7 +18,7 @@
   --color-primary-400: hsl(224, 15%, 60%);
   --color-primary-500: hsl(225, 13%, 48%);
   --color-primary-600: hsl(229, 14%, 39%);
-  --color-primary-700: hsl(228, 15%, 34%); // Wharf Blue
+  --color-primary-700: hsl(228, 15%, 34%); // Wharf Blue #494E62
   --color-primary-800: hsl(227, 14%, 27%);
   --color-primary-900: hsl(227, 11%, 24%);
   --color-primary-999: hsl(227, 11%, 12%);

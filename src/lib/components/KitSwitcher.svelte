@@ -116,7 +116,7 @@
           Manually establish a Session in your application code to sign transactions directly.
         </li>
       </ul>
-      <a href="#" class="button">Learn More</a>
+      <a href="/kits/session" class="button">Learn More</a>
     </div>
     <div class="account kit | stack" class:active={active === "account"}>
       <h3>Account Kit</h3>
@@ -133,7 +133,7 @@
           token balances.
         </li>
       </ul>
-      <a href="#" class="button">Learn More</a>
+      <a href="/kits/account" class="button">Learn More</a>
     </div>
     <div class="contract kit | stack" class:active={active === "contract"}>
       <h3>Contract Kit</h3>
@@ -149,7 +149,7 @@
           mistakes.
         </li>
       </ul>
-      <a href="#" class="button">Learn More</a>
+      <a href="/kits/contract" class="button">Learn More</a>
     </div>
   </div>
 </div>

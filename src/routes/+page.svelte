@@ -1,7 +1,7 @@
 <script>
-  import sessionKit from "$lib/assets/images/session-kit.svg"
-  import contractKit from "$lib/assets/images/contract-kit.svg"
-  import accountKit from "$lib/assets/images/account-kit.svg"
+  import sessionKit from "$lib/assets/images/kits/session-kit.svg"
+  import contractKit from "$lib/assets/images/kits/contract-kit.svg"
+  import accountKit from "$lib/assets/images/kits/account-kit.svg"
 
   import KitSwitcher from "$lib/components/KitSwitcher.svelte"
   import VisionBoard from "$lib/components/VisionBoard.svelte"

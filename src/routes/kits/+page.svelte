@@ -1,10 +1,11 @@
 <script>
   import frame2518 from "$lib/assets/images/frame-2518.webp"
   import KitSwitcher from "../../lib/components/KitSwitcher.svelte"
-  import sessionKit from "$lib/assets/images/session-kit.svg"
-  import contractKit from "$lib/assets/images/contract-kit.svg"
-  import accountKit from "$lib/assets/images/account-kit.svg"
-  import threeKits from "$lib/assets/images/three-kits.svg"
+
+  import sessionKit from "$lib/assets/images/kits/session-kit.svg"
+  import contractKit from "$lib/assets/images/kits/contract-kit.svg"
+  import accountKit from "$lib/assets/images/kits/account-kit.svg"
+  import threeKits from "$lib/assets/images/kits/three-kits.svg"
 </script>
 
 <svelte:head>

@@ -47,3 +47,26 @@ export interface BlogPost {
   transcriptlink: string
   tags: string[]
 }
+
+
+export interface KitLink {
+  href: string;
+  text: string;
+  icon?: string;
+}
+
+export interface KitFeature {
+  title: string;
+  description: string;
+  link?: KitLink;
+}
+
+export interface KitPage {
+  title: string;
+  subtitle: string;
+  logo: string;
+  logoTransparent: string;
+  features: KitFeature[];
+  examples: KitFeature[];
+  cta: KitFeature;
+}

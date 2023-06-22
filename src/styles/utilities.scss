@@ -21,6 +21,10 @@
   flex-direction: column;
 }
 
+.flex {
+  display: flex;
+}
+
 .place-center {
   display: grid;
   place-content: center;
@@ -32,4 +36,20 @@
 
 .align-center {
   align-items: center;
+}
+
+.align-left {
+  align-items: start;
+}
+
+.align-right {
+  align-items: end;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.justify-end {
+  justify-content: end;
 }
