@@ -59,6 +59,7 @@ export interface KitFeature {
   title: string;
   description: string;
   link?: KitLink;
+  list?: string[];
 }
 
 export interface KitPage {
