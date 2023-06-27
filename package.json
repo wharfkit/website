@@ -43,5 +43,8 @@
   "resolutions": {
     "@sveltejs/adapter-cloudflare": "2.0.1"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "sveltekit-i18n": "^2.2.2"
+  }
 }

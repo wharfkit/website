@@ -1,4 +1,5 @@
 <script>
+  import { t } from "$lib/translations"
   import sessionKit from "$lib/assets/images/kits/session-kit.svg"
   import contractKit from "$lib/assets/images/kits/contract-kit.svg"
   import accountKit from "$lib/assets/images/kits/account-kit.svg"
@@ -10,6 +11,8 @@
   import javascriptIcon from "$lib/assets/icons/javascript.svg"
   import vueIcon from "$lib/assets/icons/vue.svg"
   import nodeIcon from "$lib/assets/icons/node.svg"
+
+  export let data
 </script>
 
 <svelte:head>
@@ -60,8 +63,9 @@
 <main class="stack">
   <section class="hero">
     <div class="box stack center">
-      <h1>A modular SDK with endless possibilities</h1>
-      <p>Wharf provides a fast and flexible way to build web3 projects on Antelope blockchains.</p>
+      <h1>{$t("home.headline")}</h1>
+      <h1>{data.initLocale}</h1>
+      <p>{$t("home.tagline")}</p>
       <a href="#" class="button">Get Started</a>
     </div>
   </section>
