@@ -46,12 +46,13 @@ export function filterDocumentationArticles(
 
 function parseHeadings(html: string): HeadingNode[] {
   const $ = cheerio.load(html)
-  const headings = $("h2")
+  const headings = $("h2, h3")
     .toArray()
     .map((el) => {
+      const elName = $(el).prop("tagName") // h2 or h3
       const id = $(el).attr("id")
       const text = $(el).text()
-      return { id, text }
+      return { id, text, elName }
     })
   return headings
 }

@@ -7,12 +7,19 @@
 
 <nav aria-label="Table of Contents" class="toc">
   <header>
-    <p>{title}</p>
+    <p>
+      <a href="#article">{title}</a>
+    </p>
   </header>
   <menu>
     {#each headings as heading}
       <li>
-        <a href={`#${heading.id}`}>{heading.text}</a>
+        <a
+          href={`#${heading.id}`}
+          style={heading.elName === "H3" ? "padding-inline-start: var(--space-xs);" : ""}>
+          <!-- {heading.elName} -->
+          {heading.text}
+        </a>
       </li>
     {/each}
   </menu>
@@ -36,18 +43,19 @@
     padding-inline: var(--space-m);
   }
 
-  nav header p {
+  nav header a {
     font-size: var(--fs--1);
     font-weight: 600;
     color: var(--theme-text-heading);
+    text-decoration: none;
   }
 
   menu {
     list-style: none;
-    padding-inline: var(--space-l);
+    padding-inline: var(--space-m);
   }
 
-  a {
+  li > a {
     display: block;
     text-decoration: none;
     color: var(--theme-text1);

@@ -8,11 +8,10 @@
 </script>
 
 <main>
-  <article>
+  <article id="article">
     {@html data.doc.content}
   </article>
 
-  <!-- Only render the TOC if there are more than 2 headings -->
   {#if headings.length}
     <aside>
       <TOC {headings} {title} />
@@ -40,7 +39,7 @@
   }
 
   article :global(> *) {
-    margin-block-start: var(--space-l);
+    margin-block-start: var(--space-m);
   }
 
   article :global(h1) {
@@ -51,6 +50,14 @@
   article :global(:is(h2, h3)) {
     margin-block-start: var(--space-xl);
     scroll-margin-top: var(--space-l);
+  }
+
+  article :global(h3) {
+    scroll-margin-top: var(--space-m);
+  }
+
+  article :global(:is(h4, h5, h6)) {
+    margin-block-start: var(--space-l);
   }
 
   /* Tighten headers directly following h2 */

@@ -16,6 +16,7 @@ export interface DocumentationSections {
 export interface HeadingNode {
   text: string
   id?: string
+  elName: string
 }
 
 export interface BreadCrumb {
