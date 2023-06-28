@@ -48,30 +48,15 @@
     margin-block-start: var(--space-s);
   }
 
-  article :global(h2) {
-    margin-block-start: var(--space-2xl);
-  }
-
-  article :global(h3) {
+  article :global(:is(h2, h3)) {
     margin-block-start: var(--space-xl);
-  }
-
-  article :global(h4) {
-    margin-block-start: var(--space-l);
-  }
-
-  article :global(h5) {
-    margin-block-start: var(--space-l);
-  }
-
-  article :global(h6) {
-    margin-block-start: var(--space-l);
+    scroll-margin-top: var(--space-l);
   }
 
   /* Tighten headers directly following h2 */
 
   article :global(h2 + :is(h3, h4, h5, h6)) {
-    margin-block-start: var(--space-l);
+    margin-block-start: var(--space-m);
   }
 
   /* Tighten content following a subheader */
@@ -110,5 +95,9 @@
   article :global(table) {
     width: 100%;
     table-layout: fixed;
+  }
+
+  article :global(::target > h2) {
+    margin-block-start: var(--space-2xl);
   }
 </style>
