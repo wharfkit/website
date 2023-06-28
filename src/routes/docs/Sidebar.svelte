@@ -28,7 +28,9 @@
 <nav aria-label="Documentation Sections">
   <details open={!isMobile} bind:this={sideNav}>
     <summary class="header">
-      <h2>Documentation</h2>
+      <h2>
+        <a href="/docs">Documentation</a>
+      </h2>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -91,6 +93,7 @@
     font-size: var(--fs-0);
     font-weight: 600;
     color: inherit;
+    pointer-events: none;
   }
 
   menu {
@@ -141,7 +144,8 @@
     pointer-events: none;
   }
 
-  summary h3 a {
+  summary h3 a,
+  h2 a {
     color: inherit;
     text-decoration: none;
   }
@@ -178,11 +182,13 @@
       pointer-events: none;
     }
 
-    summary h3 a {
+    summary h3 a,
+    h2 a {
       pointer-events: auto;
     }
 
-    summary h3 a:hover {
+    summary h3 a:hover,
+    h2 a:hover {
       text-decoration: underline;
     }
 
