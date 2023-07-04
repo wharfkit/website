@@ -11,10 +11,16 @@
 <svelte:head>
   <style>
     body {
-      --pyramid-height: 30rem;
       --pyramid-top: 30rem;
-      --pyramid-base: calc(var(--pyramid-top) + var(--pyramid-height));
       --cube-size: 180px;
+      --flare-offset: 150px;
+      --background-size: 3840px;
+      --background-offset: -1450px;
+    }
+
+    body[data-theme="light"] {
+      --footer-background: white;
+      --page-background: var(--swell-mist);
 
       /* prettier-ignore */
       background:
@@ -25,28 +31,16 @@
       ),
       linear-gradient(
         180deg,
-        var(--page-background),
+        var(--wharf-blue) 0%,
+        var(--reef-turquoise) 40rem,
+        var(--seafoam-mint) 60rem,
+        var(--swell-mist) 2390px,
         var(--page-background)
-      ),
-      radial-gradient(
-        100% 40rem at 50% calc(var(--pyramid-base) - var(--pyramid-height) + 8rem),
-        var(--radial-0) 0%,
-        var(--radial-1) 20%,
-        var(--radial-2) 40%,
-        var(--radial-3) 100%
       );
-      background-size: 100% var(--pyramid-base), cover, cover;
-      background-repeat: no-repeat;
-      background-position: center top, 0 var(--pyramid-base), 0 0;
-    }
 
-    body[data-theme="light"] {
-      --footer-background: white;
-      --page-background: var(--swell-mist);
-      --radial-0: var(--swell-mist);
-      --radial-1: var(--seafoam-mint);
-      --radial-2: var(--reef-turquoise);
-      --radial-3: var(--wharf-blue);
+      background-repeat: no-repeat;
+      background-size: auto 3840px, cover;
+      background-position: center top -1450px, bottom;
 
       --card-2-background: white;
       --card-3-background: white;
@@ -55,10 +49,36 @@
     body[data-theme="dark"] {
       --footer-background: hsl(228, 21%, 10%);
       --page-background: #262936;
-      --radial-0: hsl(166, 60%, 50%);
-      --radial-1: hsl(197, 20%, 40%);
-      --radial-2: hsl(228, 15%, 34%);
-      --radial-3: hsl(228, 21%, 10%);
+      --radial-0: hsl(166, 60%, 50%) 0%;
+      --radial-1: hsl(197, 20%, 40%) 20%;
+      --radial-2: hsl(228, 15%, 34%) 40%;
+      --radial-3: hsl(228, 21%, 10%) 100%;
+
+      /* prettier-ignore */
+      background:
+      conic-gradient(
+        from 120deg,
+        var(--page-background) 33.333%,
+        transparent 33.333% 
+      ),
+      radial-gradient(
+        100% 40rem at center,
+        var(--radial-0),
+        var(--radial-1),
+        var(--radial-2),
+        var(--radial-3) 
+      ),
+      linear-gradient(
+        0deg,
+        var(--page-background), 
+        var(--page-background)         
+      );
+
+      background-repeat: no-repeat;
+      background-size: auto var(--background-size),
+        auto calc(var(--background-size) - var(--flare-offset)), cover;
+      background-position: center top var(--background-offset),
+        center top calc(var(--background-offset) - var(--flare-offset) * -1), bottom;
 
       --card-2-background: #494e62;
       --card-3-background: #363944;
