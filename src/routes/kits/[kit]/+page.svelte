@@ -36,29 +36,31 @@
       </div>
     </section>
 
-    <section class="feature two | box center stack | text-center text-balance">
-      <h2>{kit.features[1].title}</h2>
-      <p>{kit.features[1].description}</p>
-    </section>
-  {/if}
-
-  {#if kit.examples}
-    <section class="examples">
-      <div class="grid">
-        {#each kit.examples as example}
-          <div class="card | box stack">
-            <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"
-              ><path
-                d="M44 38a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4h10l4 6h18a4 4 0 0 1 4 4v22Z"
-                stroke="#7BE7CE"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round" /></svg>
-            <h3>{example.title}</h3>
-            <p>{example.description}</p>
-          </div>
-        {/each}
+    <section class="feature two">
+      <div class="box center stack | text-center text-balance">
+        <h2>{kit.features[1].title}</h2>
+        <p>{kit.features[1].description}</p>
       </div>
+
+      {#if kit.examples}
+        <div class="examples">
+          <div class="grid">
+            {#each kit.examples as example}
+              <div class="card | box stack">
+                <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  ><path
+                    d="M44 38a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4h10l4 6h18a4 4 0 0 1 4 4v22Z"
+                    stroke="#7BE7CE"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg>
+                <h3>{example.title}</h3>
+                <p>{example.description}</p>
+              </div>
+            {/each}
+          </div>
+        </div>
+      {/if}
     </section>
   {/if}
 
@@ -125,6 +127,7 @@
 
   .examples .grid {
     --minimum: 40ch;
+    margin-top: var(--space-xl);
   }
 
   .box {

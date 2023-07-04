@@ -15,7 +15,7 @@ const kit: KitPage = {
         "Automatically persisting a session between log-ins and log-outs, to maintain continuity"
       ],
       link: {
-        href: 'https://github.com/wharfkit',
+        href: 'https://github.com/wharfkit/session',
         text: 'Go to Wharf Github',
       }
     },
@@ -29,8 +29,8 @@ const kit: KitPage = {
         "UX can make or break an app. That's why the Session Kit provides a Wharf-themed UI Renderer that was created by a professional UX designer, with the primary goal of creating a pleasant and intuitive experience for your users. \n\nThe UI Renderer comes with out-of-the-box functionality that covers a range of common user scenarios, and can be paired with the Session Kit's Localization Engine to support multiple languages."
       ,
       link: {
-        href: 'https://github.com/wharfkit',
-        text: 'Go to Wharf Github',
+        href: '#',
+        text: 'See it in action',
       }
     },
   ],

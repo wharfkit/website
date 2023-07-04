@@ -58,7 +58,7 @@ export interface KitLink {
 
 export interface KitFeature {
   title: string;
-  description: string;
+  description?: string;
   link?: KitLink;
   list?: string[];
 }
@@ -67,7 +67,6 @@ export interface KitPage {
   title: string;
   subtitle: string;
   logo: string;
-  logoTransparent: string;
   features: KitFeature[];
   examples: KitFeature[];
   cta: KitFeature;
