@@ -61,20 +61,28 @@
 <style>
   .media {
     --gap: var(--space-m);
+    border-radius: var(--space-s);
   }
 
   .frame {
     background-color: var(--wharf-blue);
-    border-radius: var(--space-s);
+    border-radius: inherit;
     isolation: isolate;
     position: relative;
+    display: grid;
+    grid-template-areas: "stack";
+  }
+
+  .frame > * {
+    grid-area: stack;
   }
 
   .youtube {
     aspect-ratio: 16 / 9;
-    border-radius: var(--space-s);
+    border-radius: inherit;
     width: 100%;
     z-index: 1;
+    background-color: var(--wharf-blue);
   }
 
   .play {
