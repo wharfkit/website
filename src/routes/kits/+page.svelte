@@ -14,6 +14,7 @@
       --pyramid-height: 30rem;
       --pyramid-top: 30rem;
       --pyramid-base: calc(var(--pyramid-top) + var(--pyramid-height));
+      --cube-size: 180px;
 
       /* prettier-ignore */
       background:
@@ -73,13 +74,13 @@
 
   <div class="images">
     <div class="account kit">
-      <img src={accountKit} alt="account kit icon" height="144" width="144" />
+      <img src={accountKit} alt="account kit icon" height="180" width="180" />
     </div>
     <div class="contract kit">
-      <img src={contractKit} alt="contract kit icon" height="144" width="144" />
+      <img src={contractKit} alt="contract kit icon" height="180" width="180" />
     </div>
     <div class="session kit">
-      <img src={sessionKit} alt="session kit icon" height="144" width="144" />
+      <img src={sessionKit} alt="session kit icon" height="180" width="180" />
     </div>
   </div>
 
@@ -171,22 +172,22 @@
 
   .images {
     position: absolute;
-    top: calc(var(--pyramid-top) - 144px / 4);
+    top: calc(var(--pyramid-top) - var(--cube-size) / 4);
     left: 0;
     right: 0;
     display: grid;
     grid-template-columns:
       1fr
-      calc(144px / 2)
-      calc(144px / 2)
+      calc(var(--cube-size) / 2)
+      calc(var(--cube-size) / 2)
       var(--space-m)
-      calc(144px / 2)
-      calc(144px / 2)
+      calc(var(--cube-size) / 2)
+      calc(var(--cube-size) / 2)
       1fr;
     grid-template-rows:
-      calc(144px - var(--space-m))
+      calc(var(--cube-size) - var(--space-m))
       var(--space-m)
-      calc(144px - var(--space-m));
+      calc(var(--cube-size) - var(--space-m));
   }
 
   .account.kit {
