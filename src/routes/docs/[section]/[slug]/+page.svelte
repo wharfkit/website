@@ -60,9 +60,9 @@
     margin-block-start: var(--space-l);
   }
 
-  /* Tighten headers directly following h2 */
+  /* Tighten headers directly following h1, h2 */
 
-  article :global(h2 + :is(h3, h4, h5, h6)) {
+  article :global(:is(h1, h2) + :is(h2, h3, h4, h5, h6)) {
     margin-block-start: var(--space-m);
   }
 

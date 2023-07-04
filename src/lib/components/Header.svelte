@@ -181,7 +181,6 @@
       padding: var(--space-xs);
       margin: var(--space-2xs);
       border-radius: 16px;
-      aspect-ratio: 1;
       position: relative;
     }
 

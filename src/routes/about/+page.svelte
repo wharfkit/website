@@ -20,18 +20,21 @@
         repeating-linear-gradient(
           150deg,
           #7BE7CE80,
+          #7BE7CE80 1px, 
           transparent 1px,
           transparent 40px
         ),
         repeating-linear-gradient(
           30deg, 
           #7BE7CE80, 
+          #7BE7CE80 1px, 
           transparent 1px, 
           transparent 40px
           ),
-        repeating-linear-gradient(
-          90deg, 
-          #7BE7CE80, 
+          repeating-linear-gradient(
+            90deg, 
+            #7BE7CE80, 
+            #7BE7CE80 1px, 
           transparent 1px, 
           transparent 41px
           ),
@@ -43,7 +46,6 @@
             #f4faf4 70rem
           ) no-repeat;
       background-size:cover, 81px 46px, 81px 46px, 81px 46px, cover;
-
     }
 
     /* prettier-ignore */
@@ -56,18 +58,21 @@
       repeating-linear-gradient(
           150deg,
           #7BE7CE80,
+          #7BE7CE80 1px,
           transparent 1px,
           transparent 40px
-        ),
-        repeating-linear-gradient(
-          30deg, 
-          #7BE7CE80, 
-          transparent 1px, 
-          transparent 40px
           ),
-        repeating-linear-gradient(
-          90deg, 
+          repeating-linear-gradient(
+            30deg, 
           #7BE7CE80, 
+            #7BE7CE80 1px,
+            transparent 1px, 
+            transparent 40px
+            ),
+            repeating-linear-gradient(
+              90deg, 
+              #7BE7CE80, 
+              #7BE7CE80 1px,
           transparent 1px, 
           transparent 41px
           ),
@@ -157,7 +162,7 @@
     </div>
   </section>
 
-  <section class="share place-center">
+  <section class="share">
     <div class="box stack align-center text-center">
       <h2>Share Wharf with the world</h2>
       <p>Check out our brand guidelines for logos and other resources.</p>
@@ -215,7 +220,7 @@
     content: "";
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100rem;
     left: 0;
     transform: translate(0, -30%) scaleX(-1);
     background-image: url("/src/lib/assets/images/squiggle-1.svg");
