@@ -6,14 +6,19 @@
 
 <main>
   <div class="hero default">
-    <h1>Lost in the Digital Swell: <br /> The Ballad of the {$page.status}</h1>
+    {#if $page.status === 404}
+      <h1>Lost in the Digital Swell: <br /> The Ballad of the 404</h1>
+    {:else}
+      <h1>Error {$page.status}</h1>
+    {/if}
     <p>
       {$page.status} - {$page.error?.message}
     </p>
   </div>
 
-  <div class="lyrics">
-    <pre>
+  {#if $page.status === 404}
+    <div class="lyrics">
+      <pre>
 (Verse 1) 
 Oh, gather 'round me hearties, and listen to my tale, 'Bout a brave sailor's journey, through the web's vast email. He set his course upon the waves, a-clickin' with delight, But little did he know, he'd face a fearsome digital fight.
 
@@ -41,7 +46,8 @@ But lo, a glimmer of hope appeared on the horizon, A webmaster's hand reached ou
 (Outro) 
 So let this shanty be a warning, to sailors near and far, Beware the treacherous 404, the web's wicked scar. But fear not, brave adventurers, for with resilience we shall sail, Navigating through the unknown, with our spirits fierce and hale!
     </pre>
-  </div>
+    </div>
+  {/if}
 </main>
 
 <style>

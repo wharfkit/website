@@ -1,6 +1,7 @@
-import type { DocumentationSections, HeadingNode } from "../types"
+import type { DocumentationSections, HeadingNode, DocumentationArticle, BreadCrumb } from "../types"
 import * as cheerio from "cheerio"
 import slugify from "@sindresorhus/slugify"
+import { capitalize } from "./general"
 
 
 export function formatSectionTitle(section: string) {
@@ -42,6 +43,22 @@ export function filterDocumentationArticles(
   console.log(filteredSections)
 
   return filteredSections
+}
+
+export function createBreadcrumbs(section: string, doc?: DocumentationArticle): BreadCrumb[] {
+  const breadcrumbs: BreadCrumb[] = [
+    { title: "Documentation", path: "/docs" },
+    { title: capitalize(section), path: `/docs/${section}` },
+  ]
+
+  if (doc) {
+    breadcrumbs.push({
+      title: doc.title,
+      path: `/docs/${section}/${doc.slug}`,
+    })
+  }
+
+  return breadcrumbs
 }
 
 function parseHeadings(html: string): HeadingNode[] {

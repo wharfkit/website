@@ -1,8 +1,13 @@
 <script lang="ts">
   import type { LayoutData } from "./$types"
   import Sidebar from "./Sidebar.svelte"
+  import Breadcrumbs from "../../lib/components/Breadcrumbs.svelte"
+  import TOC from "$lib/components/TOC.svelte"
+  import { page } from "$app/stores"
   export let data: LayoutData
   const { sections } = data
+  $: currentDoc = $page.data.doc
+  $: breadcrumbs = $page.data.breadcrumbs
 </script>
 
 <svelte:head>
@@ -29,36 +34,6 @@
     }
 
     /* prettier-ignore */
-    /* body[data-theme="dark"] {
-      --footer-background: #262936;
-      background: linear-gradient(
-        180deg,
-        hsl(166deg 59% 49%) 0%,
-        hsl(176deg 30% 44%) 14%,
-        hsl(186deg 26% 49%) 20%,
-        hsl(195deg 16% 44%) 25%,
-        hsl(205deg 10% 38%) 30%,
-        hsl(215deg 18% 32%) 34%,
-        hsl(225deg 15% 26%) 37%,
-        hsl(228deg 15% 22%) 41%,
-        hsl(228deg 15% 29%) 45%,
-        hsl(228deg 16% 27%) 48%,
-        hsl(228deg 16% 24%) 52%,
-        hsl(229deg 17% 22%) 55%,
-        hsl(229deg 17% 20%) 59%,
-        hsl(229deg 18% 18%) 63%,
-        hsl(229deg 18% 16%) 66%,
-        hsl(229deg 19% 15%) 70%,
-        hsl(229deg 19% 14%) 75%,
-        hsl(229deg 20% 13%) 80%,
-        hsl(229deg 20% 12%) 86%,
-        hsl(229deg 21% 10%) 100%
-      ),hsl(229deg 21% 10%);
-      background-repeat: no-repeat;
-      background-size: 100% 20rem, 100% 100%;
-    } */
-
-    /* prettier-ignore */
     body[data-theme="dark"] {
       --footer-background: #262936;
       --header-background: #262936;
@@ -73,24 +48,54 @@
   </style>
 </svelte:head>
 
-<div class="page">
+<main>
   <Sidebar {sections} />
 
-  <slot />
-</div>
+  <div class="content">
+    {#if breadcrumbs}
+      <nav aria-label="Breadcrumbs">
+        <Breadcrumbs {breadcrumbs} />
+      </nav>
+    {/if}
+    <slot />
+  </div>
+  {#if currentDoc}
+    <aside>
+      <TOC doc={currentDoc} />
+    </aside>
+  {/if}
+</main>
 
 <style>
-  .page {
-    inline-size: min(100%, var(--max-inline-size));
-    margin-inline: auto;
+  main {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-xl);
   }
 
-  @media (max-width: 768px) {
-    .page {
-      grid-template-columns: 1fr;
+  nav {
+    display: flex;
+    align-items: center;
+    height: var(--space-xl);
+  }
+
+  aside {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    main {
+      grid-template-columns: 16rem minmax(0, 1fr);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    main {
+      grid-template-columns: 16rem minmax(0, 1fr) 16rem;
+    }
+
+    aside {
+      display: block;
     }
   }
 </style>

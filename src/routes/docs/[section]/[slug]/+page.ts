@@ -1,12 +1,13 @@
 import type { PageLoad } from './$types';
-import {error} from '@sveltejs/kit'
-import {capitalize} from '$lib/utils'
+import { error } from '@sveltejs/kit'
+import { capitalize } from '$lib/utils'
+import { createBreadcrumbs } from '$lib/utils/docs'
 
-export const load = (async ({params, fetch, parent}) => {
+export const load = (async ({ params, fetch, parent }) => {
     try {
-        const {section, slug} = params
+        const { section, slug } = params
 
-        const {sections} = await parent()
+        const { sections } = await parent()
 
         const doc = sections[section].find((doc) => doc.slug === slug)
 
@@ -20,8 +21,10 @@ export const load = (async ({params, fetch, parent}) => {
         }
 
         return {
+            section,
             doc,
             meta,
+            breadcrumbs: createBreadcrumbs(section, doc),
         }
     } catch (err) {
         throw error(404, 'Error fetching doc')

@@ -1,15 +1,15 @@
-import type {LayoutLoad} from './$types'
-import {groupBy, formatSectionTitle} from '$lib/utils'
+import type { LayoutLoad } from './$types'
+import { groupBy } from '$lib/utils'
 import type { DocumentationArticle, DocumentationSections } from '../../lib/types'
 
 export const prerender = true
 
 const sectionOrder = [
-    'antelope', 
-    'wharf', 
+    'antelope',
+    'wharf',
 ]
 
-export const load = (async ({fetch}) => {
+export const load = (async ({ fetch }) => {
     const response = await fetch('/api/docs')
     const docs: DocumentationArticle[] = await response.json()
 
@@ -22,7 +22,6 @@ export const load = (async ({fetch}) => {
             acc[key] = sections[key]
             return acc
         }, {} as DocumentationSections)
-
 
     return {
         sections: sortedSections,

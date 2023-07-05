@@ -1,8 +1,9 @@
 <script lang="ts">
-  import type { HeadingNode } from "$lib/types"
+  import type { DocumentationArticle, HeadingNode } from "$lib/types"
 
-  export let headings: HeadingNode[] = []
-  export let title: string
+  export let doc: DocumentationArticle
+
+  const { title, headings } = doc
 </script>
 
 <nav aria-label="Table of Contents" class="toc">

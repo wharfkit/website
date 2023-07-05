@@ -1,43 +1,13 @@
 <script lang="ts">
   import type { PageData } from "./$types"
-  import TOC from "./TOC.svelte"
-
   export let data: PageData
-
-  $: ({ title, headings } = data.doc)
 </script>
 
-<main>
-  <article id="article">
-    {@html data.doc.content}
-  </article>
-
-  {#if headings.length}
-    <aside>
-      <TOC {headings} {title} />
-    </aside>
-  {/if}
-</main>
+<article id="article">
+  {@html data.doc.content}
+</article>
 
 <style>
-  main {
-    margin-inline: revert;
-    display: grid;
-    grid-template-columns: 1fr 25ch;
-    column-gap: var(--space-xl);
-  }
-
-  @media (max-width: 1024px) {
-    main {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
-    aside {
-      display: none;
-    }
-  }
-
   article :global(> *) {
     margin-block-start: var(--space-m);
   }
