@@ -210,6 +210,16 @@
       calc(var(--cube-size) - var(--space-m));
   }
 
+  @media (max-width: 768px) {
+    .images {
+      --cube-size: 144px;
+    }
+    .kit img {
+      width: var(--cube-size);
+      height: var(--cube-size);
+    }
+  }
+
   .account.kit {
     grid-column: 3 / 6;
     grid-row: 1 / 3;
