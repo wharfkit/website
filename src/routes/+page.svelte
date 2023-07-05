@@ -177,9 +177,9 @@
 
   .hero {
     padding-block-start: var(--space-6xl);
-    padding-block-start: 15vh;
+    /* padding-block-start: 15vh; */
     padding-block-end: var(--space-4xl-5xl);
-    padding-block-end: 15vh;
+    /* padding-block-end: 15vh; */
     display: grid;
     place-items: center;
     position: relative;
