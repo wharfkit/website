@@ -19,12 +19,11 @@
       linear-gradient(
             180deg,
             #494e62 0%,
-            #7be7ce 15rem,
-            #b2f2e1 20rem,
-            #f4faf4 30rem,
+            #7be7ce 40rem,
+            #b2f2e1 50rem,
+            #f4faf4 60rem,
             #f4faf4 94%,
             white 100%
-            /* hsl(120, 37%, 99%) 100% */
           ) no-repeat;
     }
 

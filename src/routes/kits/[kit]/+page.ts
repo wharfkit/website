@@ -2,6 +2,7 @@ import type { PageLoad } from './$types';
 import sessionKit from './sessionKit';
 import accountKit from './accountKit';
 import contractKit from './contractKit';
+import { error } from '@sveltejs/kit';
 
 export const load = (async ({ params }) => {
     const { kit } = params;
@@ -14,7 +15,7 @@ export const load = (async ({ params }) => {
     } else if (kit === 'contract') {
         kitPage = contractKit
     } else {
-        kitPage = sessionKit
+        throw error(404, 'Kit not found')
     }
 
 
