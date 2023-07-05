@@ -239,6 +239,11 @@
 {/if}
 
 <style>
+  .hero {
+    background: none;
+    color: var(--theme-text-heading);
+  }
+
   aside ul {
     position: sticky;
     top: var(--space-m);

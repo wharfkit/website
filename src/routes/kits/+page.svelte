@@ -1,6 +1,6 @@
 <script>
   import frame2518 from "$lib/assets/images/frame-2518.webp"
-  import KitSwitcher from "../../lib/components/KitSwitcher.svelte"
+  import KitSwitcher from "$lib/components/KitSwitcher.svelte"
 
   import sessionKit from "$lib/assets/images/kits/session-kit.svg"
   import contractKit from "$lib/assets/images/kits/contract-kit.svg"
