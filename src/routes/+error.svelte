@@ -7,11 +7,11 @@
 <main>
   <div class="hero default">
     {#if $page.status === 404}
-      <h1>Lost in the Digital Swell: <br /> The Ballad of the 404</h1>
+      <h1 class="title">Lost in the Digital Swell: <br /> The Ballad of the 404</h1>
     {:else}
-      <h1>Error {$page.status}</h1>
+      <h1 class="title">Error {$page.status}</h1>
     {/if}
-    <p>
+    <p class="subtitle">
       {$page.status} - {$page.error?.message}
     </p>
   </div>

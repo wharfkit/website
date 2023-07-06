@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    <div class="launch">
+    <div class="launch | stack">
       <h2>Use Wharf to launch your next web3 project</h2>
       <p>
         Wharf’s modular and user-focused approach saves development time and effort, helping to turn
@@ -87,7 +87,7 @@
         protocol, or build something entirely new: the days of clunky, limited blockchain SDKs are
         over!
       </p>
-      <KitSwitcher />
+      <a href="/kits" class="button">Get Started</a>
     </div>
   </section>
 
@@ -109,7 +109,7 @@
         the ground running. (If your preferred language is ABC, then you’re in luck! That’s what
         we’re building in, so you can access Wharf today.)
       </p>
-      <a href="#" class="button">Coming Soon</a>
+      <a href="#" class="button disabled">Coming Soon!</a>
     </div>
   </section>
 
@@ -126,7 +126,7 @@
         Wharf is a modular SDK that makes it easy to build web3 projects on Antelope blockchains.
         Wharf is designed to be flexible, so you can use it to build anything you can imagine.
       </p>
-      <a href="#" class="button">Learn More About the Session Kit</a>
+      <a href="/kits/session" class="button">See the Session Kit</a>
     </div>
     <div class="card | box stack left ">
       <h3>Build on the most responsive blockchains.</h3>
@@ -282,14 +282,10 @@
     background: linear-gradient(180deg, transparent 0, var(--theme-surface7) 15rem);
     width: 100%;
     text-align: center;
-    display: flex;
-    flex-direction: column;
     align-items: center;
   }
 
   div.launch p {
-    margin-block-start: var(--space-m);
-    margin-block-end: var(--space-xl);
     margin-inline: var(--space-s);
     max-width: 65ch;
   }

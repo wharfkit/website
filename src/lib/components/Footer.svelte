@@ -5,30 +5,38 @@
   import darkLogo from "$lib/assets/logos/Wharf_logo_dark_vector_no_bg_svgfix.svg"
   import ThemeToggle from "./ThemeToggle.svelte"
   import { theme } from "./ThemeToggle.svelte"
+  import HeaderLogo from "./HeaderLogo.svelte"
 </script>
 
 <footer>
-  <nav class="">
-    <img
-      class="logo"
-      src={$theme === "dark" ? darkLogo : logo}
-      alt="Wharf logo"
-      width="361"
-      height="404"
-      loading="lazy" />
-    {#each data as section}
-      <div class="box">
-        <h3>{capitalize(section.title)}</h3>
-        <ul>
-          {#each section.items as { name, href }}
-            <li><a {href}>{capitalize(name)}</a></li>
-          {/each}
-        </ul>
-      </div>
-    {/each}
-    <div class="box">
-      <h3>Theme</h3>
-      <ThemeToggle />
+  <nav>
+    <menu>
+      {#each data as section}
+        <li class="box">
+          <h3>
+            {#if section.href}
+              <a href={section.href}>{capitalize(section.title)}</a>
+            {:else}
+              {capitalize(section.title)}
+            {/if}
+          </h3>
+          <ul>
+            {#each section.items as { name, href }}
+              <li class="item"><a {href}>{capitalize(name)}</a></li>
+            {/each}
+          </ul>
+        </li>
+      {/each}
+      <li class="box">
+        <h3>Theme</h3>
+        <ThemeToggle />
+      </li>
+    </menu>
+    <div class="bottom">
+      <a href="/">
+        <HeaderLogo />
+      </a>
+      <p>Wharf is open source and maintained by the ENF</p>
     </div>
   </nav>
 </footer>
@@ -44,49 +52,55 @@
     --theme-footer-text: white;
   }
 
-  :global([data-theme="dark"]) .logo.light {
-    display: none;
-  }
-
-  :global([data-theme="light"]) .logo.dark {
-    display: none;
-  }
-
   footer {
     background: var(--footer-background, var(--theme-footer-background));
     padding-inline: var(--page-padding-inline);
+    padding-block: var(--space-m);
   }
 
   nav {
     max-inline-size: var(--max-inline-size);
     margin-inline: auto;
+  }
+
+  menu {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: stretch;
-    padding-block: var(--space-xl);
+    row-gap: var(--space-m);
   }
 
-  img {
-    max-width: 60px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    justify-self: start;
-    grid-row: 1 / 4;
-    grid-column: 1 / 3;
-    margin: var(--space-s);
-  }
-
-  div.box {
-    padding: var(--space-s);
+  li.box {
+    padding: 0;
     inline-size: max-content;
     display: flex;
     flex-direction: column;
     gap: var(--space-2xs);
   }
 
-  ul {
+  ul,
+  menu {
     list-style: none;
     padding: 0;
+  }
+
+  menu,
+  .bottom {
+    padding: var(--space-m);
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+  }
+
+  .bottom p {
+    color: var(--footer-text-color, var(--theme-footer-text));
+    opacity: 0.5;
+    font-size: var(--fs--1);
   }
 
   li {
@@ -103,33 +117,30 @@
   }
 
   a {
+    text-decoration: none;
+    color: var(--footer-text-color, var(--theme-footer-text));
+  }
+
+  .item a {
     display: block;
     height: 100%;
-    color: var(--footer-text-color, var(--theme-footer-text));
-    text-decoration: none;
     font-weight: 400;
     font-size: var(--fs--1);
   }
 
-  a:hover {
+  li a:hover {
     text-decoration: underline;
   }
 
   @media (min-width: 600px) {
-    img {
-      grid-column: 1 / 2;
-    }
-    nav {
+    menu {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 
   @media (min-width: 1060px) {
-    img {
-      grid-column: 1 / 2;
-    }
-    nav {
-      grid-template-columns: repeat(8, 1fr);
+    menu {
+      grid-template-columns: repeat(7, 1fr);
     }
   }
 </style>

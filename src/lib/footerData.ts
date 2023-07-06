@@ -1,6 +1,7 @@
 export default [
   {
     title: "wharf",
+    href: "/",
     items: [
       {
         name: "start",
@@ -12,33 +13,35 @@ export default [
       },
       {
         name: "blog",
-        href: "#",
+        href: "/blog",
       },
       {
         name: "about",
-        href: "#",
+        href: "/about",
       },
     ],
   },
   {
     title: "kits",
+    href: "/kits",
     items: [
       {
         name: "contract",
-        href: "#",
+        href: "/kits/contract",
       },
       {
         name: "account",
-        href: "#",
+        href: "/kits/account",
       },
       {
-        name: "Session Plugin",
-        href: "#",
+        name: "session",
+        href: "/kits/session",
       },
     ],
   },
   {
     title: "learn",
+    href: "/learn",
     items: [
       {
         name: "contract",
@@ -49,42 +52,30 @@ export default [
         href: "#",
       },
       {
-        name: "Session Plugin",
+        name: "session",
         href: "#",
       },
     ],
   },
   {
     title: "docs",
+    href: "/docs",
     items: [
       {
-        name: "contract",
-        href: "#",
+        name: "contractkit",
+        href: "/docs/contractkit",
       },
       {
-        name: "account",
-        href: "#",
+        name: "accountkit",
+        href: "/docs/accountkit",
       },
       {
-        name: "Session Plugin",
-        href: "#",
-      },
-    ],
-  },
-  {
-    title: "support",
-    items: [
-      {
-        name: "contract",
-        href: "#",
+        name: "Sessionkit",
+        href: "/docs/sessionkit",
       },
       {
-        name: "account",
-        href: "#",
-      },
-      {
-        name: "Session Plugin",
-        href: "#",
+        name: "Antelope",
+        href: "/docs/antelope",
       },
     ],
   },
@@ -93,15 +84,32 @@ export default [
     items: [
       {
         name: "twitter",
-        href: "#",
+        href: "https://twitter.com/wharfkit",
       },
       {
         name: "youtube",
-        href: "#",
+        href: "https://www.youtube.com/@greymass-inc/videos",
       },
       {
         name: "brand",
-        href: "#",
+        href: "/brand",
+      },
+    ],
+  },
+  {
+    title: "language",
+    items: [
+      {
+        name: "english",
+        href: "/en",
+      },
+      {
+        name: "korean",
+        href: "/ko",
+      },
+      {
+        name: "chinese",
+        href: "/ch",
       },
     ],
   },

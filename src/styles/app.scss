@@ -121,6 +121,10 @@ button {
   opacity: 1;
 }
 
+.button.disabled {
+  pointer-events: none;
+}
+
 hr {
   border: var(--theme-text-heading) 1px solid;
   margin-block: var(--space-xl);
