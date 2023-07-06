@@ -6,8 +6,14 @@
   import { page } from "$app/stores"
   export let data: LayoutData
   const { sections } = data
-  $: currentDoc = $page.data.doc
+
   $: breadcrumbs = $page.data.breadcrumbs
+  $: currentDoc = $page.data.doc
+  $: headings = $page.data.headings
+  $: title = $page.data.title
+  $: section = $page.data.section
+
+  $: GITHUB_EDIT_URL = `https://github.com/wharfkit/docs/edit/master/${section}/${title}.md`
 </script>
 
 <svelte:head>
@@ -61,7 +67,8 @@
   </div>
   {#if currentDoc}
     <aside>
-      <TOC doc={currentDoc} />
+      <a href={GITHUB_EDIT_URL} class="edit button" data-type="secondary">Edit this page</a>
+      <TOC {headings} {title} />
     </aside>
   {/if}
 </main>
@@ -83,6 +90,15 @@
     display: none;
   }
 
+  .edit.button {
+    margin-top: var(--space-s);
+    position: sticky;
+    top: var(--space-xl);
+    font-size: var(--fs--1);
+    /* font-weight: 500; */
+    --button-text: var(--theme-text-heading);
+  }
+
   @media (min-width: 768px) {
     main {
       grid-template-columns: 16rem minmax(0, 1fr);
@@ -95,7 +111,9 @@
     }
 
     aside {
-      display: block;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-end;
     }
   }
 </style>

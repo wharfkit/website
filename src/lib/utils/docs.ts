@@ -91,7 +91,8 @@ export async function getDocs() {
       const { metadata } = res
       const postPath = sourcePath.slice(9, -3)
       const pathArray = postPath.split("/")
-      const [root, section, title] = pathArray
+      const [root, rawsection, title] = pathArray
+      const section = rawsection.toLowerCase()
       const slug = slugify(title)
       const path = `/${root}/${section}/${slug}`
 

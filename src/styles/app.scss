@@ -79,8 +79,10 @@ button {
 }
 
 .button {
-  background-color: var(--button-background, var(--reef-turquoise));
+  --_bg-color: var(--button-background, var(--reef-turquoise));
+  background-color: var(--_bg-color);
   color: var(--button-text, var(--wharf-blue));
+  color: var(--button-text, var(--color-primary-900));
   border-radius: var(--space-s);
   padding-block: var(--space-xs);
   padding-inline: var(--space-l);
@@ -94,17 +96,29 @@ button {
   align-items: center;
   gap: 0.5em;
   cursor: pointer;
-  transition: var(--background-transition);
+  position: relative;
+  isolation: isolate;
+}
+
+.button::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+  border-radius: inherit;
+  background-color: var(--button-background-hover, color-mix(in hsl, black 10%, var(--_bg-color)));
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  z-index: -1;
 }
 
 .button[data-type="secondary"] {
-  --button-background: var(--color-secondary-100);
-  --button-background-hover: var(--color-secondary-200);
-  --button-text: var(--color-secondary-900);
+  --button-background: var(--theme-surface2);
+  // --button-background-hover: var(--color-secondary-200);
+  --button-text: var(--theme-text-body);
 }
 
-.button:is(:hover, :focus-visible) {
-  background-color: var(--button-background-hover, var(--color-secondary-400));
+.button:is(:hover, :focus-visible)::after {
+  opacity: 1;
 }
 
 hr {

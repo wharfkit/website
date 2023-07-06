@@ -1,7 +1,6 @@
 import type { LayoutLoad } from './$types'
 import { groupBy } from '$lib/utils'
 import type { DocumentationArticle, DocumentationSections } from '../../lib/types'
-
 export const prerender = true
 
 const sectionOrder = [

@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit'
 import { capitalize } from '$lib/utils'
 import { createBreadcrumbs } from '$lib/utils/docs'
 
-export const load = (async ({ params, fetch, parent }) => {
+export const load = (async ({ params, parent }) => {
     try {
         const { section, slug } = params
 
@@ -24,6 +24,8 @@ export const load = (async ({ params, fetch, parent }) => {
             section,
             doc,
             meta,
+            headings: doc.headings,
+            title: doc.title,
             breadcrumbs: createBreadcrumbs(section, doc),
         }
     } catch (err) {

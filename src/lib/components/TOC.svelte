@@ -1,9 +1,8 @@
 <script lang="ts">
-  import type { DocumentationArticle, HeadingNode } from "$lib/types"
+  import type { HeadingNode } from "$lib/types"
 
-  export let doc: DocumentationArticle
-
-  const { title, headings } = doc
+  export let title: string
+  export let headings: HeadingNode[]
 </script>
 
 <nav aria-label="Table of Contents" class="toc">
@@ -18,7 +17,6 @@
         <a
           href={`#${heading.id}`}
           style={heading.elName === "H3" ? "padding-inline-start: var(--space-xs);" : ""}>
-          <!-- {heading.elName} -->
           {heading.text}
         </a>
       </li>

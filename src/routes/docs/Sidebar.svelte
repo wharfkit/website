@@ -44,13 +44,13 @@
     </summary>
     <Filter on:queryChange={handleQueryChange} />
     <menu class="sections | flow">
-      {#each Object.entries(filteredSections) as [title, articles]}
+      {#each Object.entries(filteredSections) as [section, articles]}
         <li class="section">
           <details open={!isMobile}>
             <summary>
               <h3>
-                <a href="/docs/{title}">
-                  {formatSectionTitle(title)}
+                <a href="/docs/{section}">
+                  {formatSectionTitle(section)}
                 </a>
               </h3>
               <svg
