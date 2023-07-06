@@ -10,11 +10,6 @@
 </script>
 
 <main>
-  <section class="default hero">
-    <p class="title">Shipping great code starts with a solid platform</p>
-    <h1 class="subtitle">Wharf progress updates from Greymass</h1>
-  </section>
-
   <section class="with-sidebar">
     <aside class="sidebar">
       <ul>
@@ -64,6 +59,16 @@
 </main>
 
 <style>
+  aside {
+    display: none;
+  }
+
+  @media screen and (min-width: 900px) {
+    aside {
+      display: block;
+    }
+  }
+
   .sidebar {
     flex-grow: 0;
   }

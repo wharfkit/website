@@ -13,10 +13,10 @@
 </script>
 
 <main>
-  <section class="default hero">
+  <!-- <section class="default hero">
     <p class="title">Shipping great code starts with a solid platform</p>
     <p class="subtitle">Brand guidelines and assets for Wharf</p>
-  </section>
+  </section> -->
 
   <div class="with-sidebar">
     <aside class="sidebar">
@@ -239,9 +239,14 @@
 {/if}
 
 <style>
-  .hero {
-    background: none;
-    color: var(--theme-text-heading);
+  aside {
+    display: none;
+  }
+
+  @media screen and (min-width: 900px) {
+    aside {
+      display: block;
+    }
   }
 
   aside ul {
