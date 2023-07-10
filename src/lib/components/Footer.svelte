@@ -5,7 +5,7 @@
   import darkLogo from "$lib/assets/logos/Wharf_logo_dark_vector_no_bg_svgfix.svg"
   import ThemeToggle from "./ThemeToggle.svelte"
   import { theme } from "./ThemeToggle.svelte"
-  import HeaderLogo from "./HeaderLogo.svelte"
+  import HeaderLogo from "./Header/HeaderLogo.svelte"
 </script>
 
 <footer>

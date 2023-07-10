@@ -123,10 +123,6 @@
     height: var(--space-xl);
   }
 
-  summary::-webkit-details-marker {
-    display: none;
-  }
-
   summary:where(.header) {
     background-color: var(--reef-turquoise);
     border-radius: var(--border-radius);

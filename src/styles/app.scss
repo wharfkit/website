@@ -255,3 +255,11 @@ th {
     font-size: var(--fs-5);
   }
 }
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary {
+  list-style: none;
+}
