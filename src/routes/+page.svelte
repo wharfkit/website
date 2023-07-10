@@ -160,7 +160,7 @@
     padding-block-start: var(--space-xl-2xl);
     max-inline-size: revert;
     overflow: hidden;
-    gap: var(--space-5xl-6xl);
+    gap: var(--space-3xl-4xl);
   }
 
   :where(h1, h2, h3, p) {
@@ -348,17 +348,6 @@
   }
 
   @media (min-width: 768px) {
-    main {
-      padding-block-end: var(--space-6xl);
-    }
-
-    .hero h1 {
-      font-size: var(--fs-8);
-    }
-    .hero p {
-      font-size: var(--fs-2);
-    }
-
     .images::before,
     .images::after {
       --kit-bg-source: url("/src/lib/assets/images/Frame-2591.webp");
