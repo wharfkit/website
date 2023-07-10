@@ -41,7 +41,7 @@ export default [
   },
   {
     title: "learn",
-    href: "/learn",
+    href: "#",
     items: [
       {
         name: "contract",
@@ -67,7 +67,7 @@ export default [
       },
       {
         name: "accountkit",
-        href: "/docs/accountkit",
+        href: "#",
       },
       {
         name: "Sessionkit",
@@ -101,15 +101,15 @@ export default [
     items: [
       {
         name: "english",
-        href: "/en",
+        href: "#",
       },
       {
         name: "korean",
-        href: "/ko",
+        href: "#",
       },
       {
         name: "chinese",
-        href: "/ch",
+        href: "#",
       },
     ],
   },
