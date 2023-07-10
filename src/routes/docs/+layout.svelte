@@ -67,8 +67,8 @@
   </div>
   {#if currentDoc}
     <aside>
-      <a href={GITHUB_EDIT_URL} class="edit button" data-type="secondary">Edit this page</a>
       <TOC {headings} {title} />
+      <a href={GITHUB_EDIT_URL} class="edit button" data-type="secondary">Edit this page</a>
     </aside>
   {/if}
 </main>
@@ -93,10 +93,11 @@
   .edit.button {
     margin-top: var(--space-s);
     position: sticky;
-    top: var(--space-xl);
+    top: var(--space-6xl);
     font-size: var(--fs--1);
     /* font-weight: 500; */
     --button-text: var(--theme-text-heading);
+    z-index: -1;
   }
 
   @media (min-width: 768px) {
@@ -112,8 +113,7 @@
 
     aside {
       display: flex;
-      flex-direction: column-reverse;
-      justify-content: flex-end;
+      flex-direction: column;
     }
   }
 </style>

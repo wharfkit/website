@@ -27,7 +27,7 @@
 
 <nav aria-label="Documentation Sections">
   <details open={!isMobile} bind:this={sideNav}>
-    <summary class="header">
+    <summary class="header" tabindex={!isMobile ? -1 : 0}>
       <h2>
         <a href="/docs">Documentation</a>
       </h2>
@@ -47,7 +47,7 @@
       {#each Object.entries(filteredSections) as [section, articles]}
         <li class="section">
           <details open={!isMobile}>
-            <summary>
+            <summary tabindex={!isMobile ? -1 : 0}>
               <h3>
                 <a href="/docs/{section}">
                   {formatSectionTitle(section)}
@@ -202,10 +202,12 @@
 
     .articles {
       padding-block-start: 0;
+      padding-inline: var(--space-m);
     }
 
     .articles a {
       line-height: 1.5em;
+      padding-inline: var(--space-xs);
     }
   }
 </style>

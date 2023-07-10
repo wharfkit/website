@@ -36,13 +36,16 @@
 
 <svelte:window on:keydown={handleKeyDown} />
 
-<div>
+<div class="wrapper">
   <input
     type="text"
     bind:this={input}
     bind:value={query}
-    placeholder="Filter..."
+    placeholder="Filter articles by title"
     on:input={handleInput} />
+  {#if !query}
+    <div class="icon">/</div>
+  {/if}
   {#if query}
     <button type="button" on:click={handleClear}>
       <svg
@@ -62,7 +65,7 @@
 </div>
 
 <style>
-  div {
+  .wrapper {
     position: relative;
     margin-block-start: var(--space-s);
     margin-block-end: var(--space-m);
@@ -79,6 +82,7 @@
     background-color: var(--theme-surface2);
     color: var(--theme-text1);
     outline: none;
+    position: relative;
   }
 
   input:focus {
@@ -87,7 +91,25 @@
 
   input::placeholder {
     font-style: italic;
-    opacity: 0.75;
+    opacity: 0.5;
+  }
+
+  .icon {
+    --_icon-color: var(--theme-text1);
+    font-size: var(--fs--1);
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 2em;
+    height: 2em;
+    right: var(--space-2xs);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--_icon-color);
+    pointer-events: none;
+    border: 1px solid var(--_icon-color);
+    border-radius: 6px;
+    opacity: 0.2;
   }
 
   button {
@@ -101,6 +123,10 @@
     border: none;
     outline: none;
     cursor: pointer;
+  }
+
+  button svg {
+    opacity: 0.5;
   }
 
   button:focus-visible svg {
