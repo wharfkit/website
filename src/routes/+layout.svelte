@@ -1,9 +1,9 @@
 <script lang="ts">
   import "../styles/app.scss"
   import "../styles/prism-lucario.css"
-  import Header from "$lib/components/Header/index.svelte"
-  import Footer from "../lib/components/Footer.svelte"
-  import Seo from "../lib/components/Seo.svelte"
+  import Header from "$lib/components/Header/Header.svelte"
+  import Footer from "$lib/components/Footer.svelte"
+  import Seo from "$lib/components/Seo.svelte"
 </script>
 
 <svelte:head>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import HeaderLogo from "./HeaderLogo.svelte"
+  import HeaderLogo from "./Logo.svelte"
   import MenuToggle from "./MenuToggle.svelte"
   import { page } from "$app/stores"
   import MegaMenuItem from "./MegaMenuItem.svelte"
@@ -51,7 +51,17 @@
       <menu>
         <li>
           <details class="kits-menu" bind:this={kitsMenu}>
-            <summary><span class="nav-item">Kits</span></summary>
+            <summary><span class="nav-item">Kits<svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg></span></summary>
             <ul>
               <MegaMenuItem {section} title="Starter kit" href="/kits" onClick={closeDetails} />
               <MegaMenuItem
@@ -180,6 +190,7 @@
     /* padding-inline: var(--space-xs); */
     font-family: var(--ff-heading);
     color: var(--header-text-color, var(--theme-header-text));
+    min-width: fit-content;
   }
 
   menu li a {
@@ -192,8 +203,29 @@
 
   menu li span {
     display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3xs);
     padding-inline: var(--space-xs);
     padding-block: var(--space-2xs);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  .kits-menu span {
+    padding-inline-end: var(--space-2xs);
+  }
+
+  .kits-menu svg {
+    transform: rotate(0deg);
+    width: 1em;
+    height: 1em;
+  }
+  .kits-menu[open] svg {
+    transform: rotate(90deg);
   }
 
   menu li:is(:hover, :focus) .nav-item,
@@ -214,9 +246,8 @@
     user-select: none;
   }
 
-  details ul {
+  .kits-menu ul {
     position: absolute;
-    display: flex;
     top: 100%;
     margin-top: var(--space-2xs);
     left: 0;
@@ -229,8 +260,10 @@
     justify-content: space-between;
     align-items: center;
     background: var(--nav-background-color, var(--theme-nav-item-hover));
-    gap: var(--space-s);
     z-index: 999;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: var(--space-s);
   }
 
   a.button {
@@ -305,8 +338,7 @@
 
     .kits-menu ul {
       position: relative;
-      flex-direction: row;
-      flex-wrap: wrap;
+      grid-template-columns: 1fr 1fr;
     }
 
     .navHidden nav a {

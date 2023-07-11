@@ -49,25 +49,24 @@ export interface BlogPost {
   tags: string[]
 }
 
-
 export interface KitLink {
-  href: string;
-  text: string;
-  icon?: string;
+  href: string
+  text: string
+  icon?: string
 }
 
 export interface KitFeature {
-  title: string;
-  description?: string;
-  link?: KitLink;
-  list?: string[];
+  title: string
+  description?: string
+  link?: KitLink
+  list?: string[]
 }
 
 export interface KitPage {
-  title: string;
-  subtitle: string;
-  logo: string;
-  features: KitFeature[];
-  examples: KitFeature[];
-  cta: KitFeature;
+  title: string
+  subtitle: string
+  logo: string
+  features: KitFeature[]
+  examples: KitFeature[]
+  cta: KitFeature
 }

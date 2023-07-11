@@ -3,7 +3,6 @@ import * as cheerio from "cheerio"
 import slugify from "@sindresorhus/slugify"
 import { capitalize } from "./general"
 
-
 export function formatSectionTitle(section: string) {
   // remove any dashes from section
   const sectionName = section.replace(/-/g, " ")

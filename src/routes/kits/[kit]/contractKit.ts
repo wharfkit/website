@@ -1,9 +1,9 @@
-import type { KitPage } from '$lib/types';
+import type { KitPage } from "$lib/types"
 import contractKit from "$lib/assets/images/kits/contract-kit.svg"
 
 const kit: KitPage = {
-  title: 'Contract Kit',
-  subtitle: 'Coming soon',
+  title: "Contract Kit",
+  subtitle: "Coming soon",
   logo: contractKit,
   // features: [
   //   {
@@ -68,6 +68,6 @@ const kit: KitPage = {
   //     text: 'Go to Technical Previews',
   //   }
   // }
-};
+}
 
-export default kit;
+export default kit

@@ -1,8 +1,11 @@
 <script lang="ts">
   import type { HeadingNode } from "$lib/types"
 
+  export let section: string
   export let title: string
   export let headings: HeadingNode[]
+
+  const GITHUB_EDIT_URL = `https://github.com/wharfkit/docs/edit/master/${section}/${title}.md`
 </script>
 
 <nav aria-label="Table of Contents" class="toc">
@@ -16,21 +19,20 @@
       <li>
         <a
           href={`#${heading.id}`}
-          style={heading.elName === "H3" ? "padding-inline-start: var(--space-xs);" : ""}>
+          style={heading.elName === "H3" ? "padding-inline-start: var(--space-2xs);" : ""}>
           {heading.text}
         </a>
       </li>
     {/each}
   </menu>
+  <a href={GITHUB_EDIT_URL} class="edit button" data-type="secondary">Edit this page</a>
 </nav>
 
 <style>
   nav {
     font-family: var(--ff-heading);
-    background-color: var(--theme-surface2);
+    margin-block-start: var(--space-l);
     border-radius: var(--border-radius);
-    padding-block: var(--space-s);
-    margin-block-start: var(--space-s);
     position: sticky;
     top: var(--space-l);
   }
@@ -40,6 +42,8 @@
     align-items: center;
     height: var(--space-xl);
     padding-inline: var(--space-m);
+    background-color: var(--theme-surface2);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
   }
 
   nav header a {
@@ -52,6 +56,9 @@
   menu {
     list-style: none;
     padding-inline: var(--space-m);
+    padding-block-end: var(--space-s);
+    background-color: var(--theme-surface2);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
   }
 
   li > a {
@@ -66,5 +73,16 @@
 
   a:hover {
     text-decoration: underline;
+  }
+
+  .edit.button {
+    margin-top: var(--space-s);
+    position: sticky;
+    top: var(--space-l);
+    font-size: var(--fs--1);
+    text-decoration: none;
+    /* font-weight: 500; */
+    --button-text: var(--theme-text-heading);
+    /* z-index: -1; */
   }
 </style>

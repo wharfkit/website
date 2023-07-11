@@ -112,6 +112,12 @@
     opacity: 0.2;
   }
 
+  @media (max-width: 768px) {
+    .icon {
+      display: none;
+    }
+  }
+
   button {
     position: absolute;
     padding: 0;

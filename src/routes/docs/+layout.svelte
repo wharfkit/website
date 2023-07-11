@@ -12,8 +12,6 @@
   $: headings = $page.data.headings
   $: title = $page.data.title
   $: section = $page.data.section
-
-  $: GITHUB_EDIT_URL = `https://github.com/wharfkit/docs/edit/master/${section}/${title}.md`
 </script>
 
 <svelte:head>
@@ -65,10 +63,10 @@
     {/if}
     <slot />
   </div>
+
   {#if currentDoc}
     <aside>
-      <TOC {headings} {title} />
-      <a href={GITHUB_EDIT_URL} class="edit button" data-type="secondary">Edit this page</a>
+      <TOC {headings} {title} {section} />
     </aside>
   {/if}
 </main>
@@ -88,16 +86,6 @@
 
   aside {
     display: none;
-  }
-
-  .edit.button {
-    margin-top: var(--space-s);
-    position: sticky;
-    top: var(--space-6xl);
-    font-size: var(--fs--1);
-    /* font-weight: 500; */
-    --button-text: var(--theme-text-heading);
-    z-index: -1;
   }
 
   @media (min-width: 768px) {

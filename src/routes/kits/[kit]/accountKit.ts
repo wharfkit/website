@@ -1,9 +1,9 @@
-import type { KitPage } from '$lib/types';
+import type { KitPage } from "$lib/types"
 import accountKit from "$lib/assets/images/kits/account-kit.svg"
 
 const kit: KitPage = {
-  title: 'Account Kit',
-  subtitle: 'Coming soon',
+  title: "Account Kit",
+  subtitle: "Coming soon",
   logo: accountKit,
   // features: [
   //   {
@@ -68,6 +68,6 @@ const kit: KitPage = {
   //     text: 'Go to Technical Previews',
   //   }
   // }
-};
+}
 
-export default kit;
+export default kit

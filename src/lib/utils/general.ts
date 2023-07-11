@@ -17,4 +17,3 @@ export function groupBy<T extends Record<string, any>>(arr: T[], key: keyof T): 
 export function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
-
