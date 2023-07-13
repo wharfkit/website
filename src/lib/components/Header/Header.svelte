@@ -223,6 +223,7 @@
     transform: rotate(0deg);
     width: 1em;
     height: 1em;
+    transition: transform 80ms ease;
   }
   .kits-menu[open] svg {
     transform: rotate(90deg);
