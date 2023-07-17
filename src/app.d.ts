@@ -8,10 +8,7 @@ declare namespace App {
   // interface Platform {}
 }
 
-declare module "*.md" {
-  const markdownFile: MarkdownFile;
-  export default markdownFile;
-}
+declare module "*.md"
 
 interface MarkdownFile {
   metadata?: {

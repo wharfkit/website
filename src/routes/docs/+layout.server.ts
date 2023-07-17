@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from './$types'
-import docs from './docs'
+import docs from './importDocs'
 
 export const prerender = true
 

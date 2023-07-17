@@ -32,7 +32,7 @@
     {/each}
   </ul>
 
-  <hr />
+  <!-- <hr />
 
   <h2>Latest Updates</h2>
 
@@ -76,7 +76,7 @@
         </li>
       </ul>
     </li>
-  </ol>
+  </ol> -->
 </main>
 
 <style>

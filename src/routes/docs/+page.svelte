@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { capitalize } from "$lib/utils/general"
   import type { PageData } from "./$types"
+  import Updates from "./updates.md"
 
   export let data: PageData
 </script>
@@ -13,26 +13,9 @@
     quod, laudantium fuga iusto vitae pariatur at distinctio accusamus error magni corrupti ipsa
     provident eaque itaque. Aperiam?
   </p>
+  <hr />
 
-  {#if data.updates}
-    <hr />
-
-    <h2>Latest Updates</h2>
-    <ol>
-      {#each data.updates as update}
-        <li>
-          <time>{update.date}</time>
-          <ul>
-            {#each update.commits as commit}
-              <li>
-                <p>{capitalize(commit.message)}</p>
-              </li>
-            {/each}
-          </ul>
-        </li>
-      {/each}
-    </ol>
-  {/if}
+  <Updates />
 </main>
 
 <style>
@@ -41,34 +24,33 @@
     line-height: var(--space-xl);
     margin-block-end: var(--space-s);
   }
+  p {
+    line-height: var(--space-l);
+  }
 
-  h2 {
+  main :global(h2) {
     font-size: var(--fs-3);
     line-height: var(--space-xl);
     margin-block-start: var(--space-l);
     margin-block-end: var(--space-m);
   }
 
-  p {
-    line-height: var(--space-l);
-  }
-
-  ol {
-    list-style: none;
-    padding-inline-start: 0;
-  }
-
-  time {
+  main :global(h3) {
     font-size: var(--fs-1);
     color: var(--theme-text-heading);
     font-weight: 500;
+
+    margin-block-start: var(--space-m);
+    margin-block-end: var(--space-2xs);
   }
 
-  ol > li {
-    margin-block-end: var(--space-l);
+  main :global(ul) {
+    list-style-position: inside;
+    padding-inline-start: 0;
   }
 
-  ol ul {
-    list-style: disc;
+  main :global(ul > li) {
+    line-height: var(--space-l);
+    /* margin-block-end: var(--space-l); */
   }
 </style>
