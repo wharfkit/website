@@ -1,8 +1,5 @@
 <script lang="ts">
-  import type { PageData } from "./$types"
   import Updates from "./updates.md"
-
-  export let data: PageData
 </script>
 
 <main>
@@ -51,6 +48,5 @@
 
   main :global(ul > li) {
     line-height: var(--space-l);
-    /* margin-block-end: var(--space-l); */
   }
 </style>
