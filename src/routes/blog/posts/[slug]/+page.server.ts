@@ -29,7 +29,7 @@ export const load = async ({ params, fetch }) => {
       meta: {
         title: post.title,
         description: post.description,
-        seoImage: getImage(post),
+        metaImage: getImage(post),
       },
     }
   } catch (err) {

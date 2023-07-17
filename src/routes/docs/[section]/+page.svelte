@@ -7,7 +7,7 @@
 
 <main>
   <h1>
-    {capitalize(data.section)}
+    {capitalize(data.section.title)}
   </h1>
 
   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, quo?</p>
@@ -23,9 +23,9 @@
 
   <h2>Articles</h2>
   <ul>
-    {#each data.docs as doc}
+    {#each data.section.articles as doc}
       <li>
-        <a href={`/docs/${data.section}/${doc.slug}`}>
+        <a href={`/docs/${data.section.title}/${doc.slug}`}>
           {doc.title}
         </a>
       </li>

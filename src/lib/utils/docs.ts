@@ -1,4 +1,4 @@
-import type { DocumentationSections, HeadingNode, DocumentationArticle, BreadCrumb } from "../types"
+import type { DocumentationSection, HeadingNode, DocumentationArticle, BreadCrumb } from "../types"
 import * as cheerio from "cheerio"
 import slugify from "@sindresorhus/slugify"
 import { capitalize } from "./general"
@@ -14,34 +14,26 @@ export function formatSectionTitle(section: string) {
 }
 
 export function filterDocumentationArticles(
-  sections: DocumentationSections,
+  sections: DocumentationSection[],
   query: string
-): DocumentationSections {
+): DocumentationSection[] {
   if (query === "") {
-    return sections
+    return sections;
   }
 
-  if (Object.keys(sections).length === 0) {
-    return {}
-  }
+  const filteredSections: DocumentationSection[] = [];
 
-  // Consider adding fuse.js for fuzzy search down the line
-
-  const filteredSections: DocumentationSections = {}
-
-  Object.entries(sections).forEach(([section, articles]) => {
+  sections.forEach(({ title, articles }) => {
     const filteredArticles = articles.filter((article) =>
       article.title.toLowerCase().includes(query.toLowerCase())
-    )
+    );
 
     if (filteredArticles.length > 0) {
-      filteredSections[section] = filteredArticles
+      filteredSections.push({ title, articles: filteredArticles });
     }
-  })
+  });
 
-  console.log(filteredSections)
-
-  return filteredSections
+  return filteredSections;
 }
 
 export function createBreadcrumbs(section: string, doc?: DocumentationArticle): BreadCrumb[] {
@@ -73,45 +65,42 @@ function parseHeadings(html: string): HeadingNode[] {
   return headings
 }
 
+function getTitle(html: string): string {
+  const $ = cheerio.load(html)
+  const title = $("h1").first().text()
+  return title
+}
+
 function getFirstParagraph(html: string): string {
   const $ = cheerio.load(html)
   const firstParagraph = $("p").first().text()
   return firstParagraph
 }
 
-export async function getDocs() {
-  // import md files not in the root /docs folder
-  const allDocFiles = import.meta.glob("/src/lib/docs/**/!(/docs)/*.md")
-  const iterablePosts = Object.entries(allDocFiles)
+export function makeDoc(rawsection: string, markdown: MarkdownFile): DocumentationArticle {
+  const content = markdown.default.render().html
+  // const { metadata } = markdown
+  const title = getTitle(content)
+  const slug = slugify(title)
+  const section = rawsection.toLowerCase()
+  const path = `/docs/${section}/${slug}`
 
-  const allDocs = await Promise.all(
-    iterablePosts.map(async ([sourcePath, resolver]) => {
-      const res = await resolver()
-      const { metadata } = res
-      const postPath = sourcePath.slice(9, -3)
-      const pathArray = postPath.split("/")
-      const [root, rawsection, title] = pathArray
-      const section = rawsection.toLowerCase()
-      const slug = slugify(title)
-      const path = `/${root}/${section}/${slug}`
+  const doc = {
+    // ...metadata,
+    path,
+    section,
+    title,
+    slug,
+    content,
+    headings: parseHeadings(content),
+    description: getFirstParagraph(content),
+  }
 
-      const content = res.default.render().html
-      const headings = parseHeadings(content)
-      const firstParagraph = getFirstParagraph(content)
+  return doc
+}
 
-      return {
-        ...metadata,
-        pathArray,
-        path,
-        section,
-        title,
-        slug,
-        content,
-        headings,
-        description: firstParagraph,
-      }
-    })
-  )
-
-  return allDocs
+export function makeDocs(section: { [key: string]: MarkdownFile[] }): DocumentationSection {
+  const [sectionTitle, markdowns] = Object.entries(section)[0]
+  const articles = markdowns.map((markdown) => makeDoc(sectionTitle, markdown))
+  return { title: sectionTitle.toLowerCase(), articles }
 }

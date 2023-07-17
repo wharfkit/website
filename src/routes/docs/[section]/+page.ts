@@ -1,14 +1,20 @@
 import type { PageLoad } from './$types';
 import { createBreadcrumbs } from '$lib/utils';
+import { error } from '@sveltejs/kit'
+
 
 export const load = (async ({ parent, params }) => {
-    const { section } = params
-    const { sections } = await parent()
-    const docs = sections[section]
+
+    const { docs } = await parent()
+
+    const section = docs.find((section) => section.title === params.section)
+
+    if (!section) {
+        throw error(404)
+    }
 
     return {
         section,
-        docs,
-        breadcrumbs: createBreadcrumbs(section),
+        breadcrumbs: createBreadcrumbs(section.title),
     };
 }) satisfies PageLoad;

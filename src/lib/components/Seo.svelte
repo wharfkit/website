@@ -6,7 +6,7 @@
 
   $: pageUrl = String($page.url) || "https://wharfkit.com"
 
-  $: seoImage = $page.data.meta?.seoImage || "https://wharfkit.com/images/wharf-logo.svg"
+  $: metaImage = $page.data.meta?.metaImage || "https://wharfkit.com/images/wharf-logo.svg"
 
   $: pageDescription =
     $page.data.meta?.description ||
@@ -24,11 +24,11 @@
   <meta name="twitter:site" content="@wharfkit" />
   <meta name="twitter:title" content={pageTitle} />
   <meta name="twitter:description" content={pageDescription} />
-  <meta name="twitter:image" content={seoImage} />
+  <meta name="twitter:image" content={metaImage} />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={pageDescription} />
   <meta property="og:url" content={pageUrl} />
-  <meta property="og:image" content={seoImage} />
+  <meta property="og:image" content={metaImage} />
 </svelte:head>

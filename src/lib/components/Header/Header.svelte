@@ -26,7 +26,6 @@
 
   function handleDismiss(e) {
     if (!kitsMenu?.contains(e.target)) {
-      console.log(true)
       closeDetails()
     }
   }

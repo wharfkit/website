@@ -5,7 +5,7 @@
   import TOC from "$lib/components/TOC.svelte"
   import { page } from "$app/stores"
   export let data: LayoutData
-  const { sections } = data
+  const { docs } = data
 
   $: breadcrumbs = $page.data.breadcrumbs
   $: currentDoc = $page.data.doc
@@ -53,7 +53,7 @@
 </svelte:head>
 
 <main>
-  <Sidebar {sections} />
+  <Sidebar {docs} />
 
   <div class="content">
     {#if breadcrumbs}

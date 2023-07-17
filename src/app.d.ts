@@ -7,3 +7,23 @@ declare namespace App {
   // interface Error {}
   // interface Platform {}
 }
+
+declare module "*.md" {
+  const markdownFile: MarkdownFile;
+  export default markdownFile;
+}
+
+interface MarkdownFile {
+  metadata?: {
+    [key: string]: any;
+  };
+  default: {
+    render: () => {
+      html: string;
+    };
+  };
+  // This feels like a hack, but it fixes the type error
+  render?: () => {
+    html: string;
+  }
+}

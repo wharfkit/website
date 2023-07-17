@@ -1,20 +1,20 @@
 <script lang="ts">
-  import type { DocumentationSections } from "$lib/types"
+  import type { DocumentationSection } from "$lib/types"
   import { filterDocumentationArticles, formatSectionTitle } from "$lib/utils/docs"
   import Filter from "./Filter.svelte"
 
-  export let sections: DocumentationSections
+  export let docs: DocumentationSection[]
 
-  let filteredSections = sections
+  let filteredSections = docs
   let innerWidth: number
+  let sideNav: HTMLDetailsElement
+
   $: isMobile = innerWidth <= 768
 
   function handleQueryChange(event: CustomEvent<string>) {
     const { detail: query } = event
-    filteredSections = filterDocumentationArticles(sections, query)
+    filteredSections = filterDocumentationArticles(docs, query)
   }
-
-  let sideNav: HTMLDetailsElement
 
   function collapseNav() {
     if (isMobile) {
@@ -44,7 +44,7 @@
     </summary>
     <Filter on:queryChange={handleQueryChange} />
     <menu class="sections | flow">
-      {#each Object.entries(filteredSections) as [section, articles]}
+      {#each filteredSections as { title: section, articles }}
         <li class="section">
           <details open={!isMobile}>
             <summary tabindex={!isMobile ? -1 : 0}>

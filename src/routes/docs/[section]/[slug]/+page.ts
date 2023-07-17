@@ -5,11 +5,17 @@ import { createBreadcrumbs } from '$lib/utils/docs'
 
 export const load = (async ({ params, parent }) => {
     try {
-        const { section, slug } = params
+        const { slug } = params
 
-        const { sections } = await parent()
+        const { docs } = await parent()
 
-        const doc = sections[section].find((doc) => doc.slug === slug)
+        const section = docs.find((section) => section.title === params.section)
+
+        if (!section) {
+            throw error(404, 'Section not found')
+        }
+
+        const doc = section.articles.find((doc) => doc.slug === slug)
 
         if (!doc) {
             throw error(404, 'Doc not found')
@@ -21,12 +27,12 @@ export const load = (async ({ params, parent }) => {
         }
 
         return {
-            section,
+            section: section.title,
             doc,
             meta,
             headings: doc.headings,
             title: doc.title,
-            breadcrumbs: createBreadcrumbs(section, doc),
+            breadcrumbs: createBreadcrumbs(section.title, doc),
         }
     } catch (err) {
         throw error(404, 'Error fetching doc')

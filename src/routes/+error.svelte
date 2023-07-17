@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores"
-  export let data
-  export let form
+  // export let data
+  // export let form
 </script>
 
 <main>

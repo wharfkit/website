@@ -6,11 +6,11 @@ export interface DocumentationArticle {
   slug: string
   headings: HeadingNode[]
   description: string
-  pathArray: string[]
 }
 
-export interface DocumentationSections {
-  [key: string]: DocumentationArticle[]
+export interface DocumentationSection {
+  title: string
+  articles: DocumentationArticle[]
 }
 
 export interface HeadingNode {
