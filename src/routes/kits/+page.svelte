@@ -88,8 +88,8 @@
 
 <main class="flow">
   <div class="hero">
-    <h1>3 Kits - A world of options</h1>
-    <p>Everything you need for web3 app development.</p>
+    <h1>Three Kits, Endless Possibilities</h1>
+    <p>Your building blocks for web3 app development.</p>
   </div>
 
   <div class="images">
@@ -126,7 +126,7 @@
   <div class="documentation | center stack">
     <h2>Not sure which kit(s) you need?</h2>
     <p>Check out our documentation for more in-depth information on each kit.</p>
-    <a class="button" href="#">Go To Documentation</a>
+    <a class="button" href="#">Go to Documentation</a>
   </div>
 
   <div class="overview | switcher">
