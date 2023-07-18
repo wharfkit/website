@@ -80,6 +80,7 @@ button {
 
 .button {
   --_bg-color: var(--button-background, var(--reef-turquoise));
+  --_bg-color-hover: var(--button-background-hover, var(--color-secondary-400));
   background-color: var(--_bg-color);
   color: var(--button-text, var(--wharf-blue));
   color: var(--button-text, var(--color-primary-900));
@@ -105,7 +106,7 @@ button {
   inset: 0;
   position: absolute;
   border-radius: inherit;
-  background-color: var(--button-background-hover, color-mix(in hsl, black 10%, var(--_bg-color)));
+  background-color: var(--_bg-color-hover);
   opacity: 0;
   transition: opacity 200ms ease-in-out;
   z-index: -1;
@@ -113,7 +114,7 @@ button {
 
 .button[data-type="secondary"] {
   --button-background: var(--theme-surface2);
-  // --button-background-hover: var(--color-secondary-200);
+  --button-background-hover: var(--theme-surface2-hover);
   --button-text: var(--theme-text-body);
 }
 
