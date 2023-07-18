@@ -122,9 +122,13 @@
       <div class="box stack">
         <h2>Built on Antelope, the most performant blockchain protocol.</h2>
         <p>
-          Antelope is an open protocol that hosts multiple blockchains, including EOS, Telos, WAX,
-          and the UX Network. It was designed from the ground up to be incredibly fast, with low
-          costs for users and developers, and a low latency of transactions.
+          Antelope is an open protocol that hosts multiple blockchains, including
+          <a href="https://eosnetwork.com/">EOS</a>,
+          <a href="https://www.telos.net/">Telos</a>,
+          <a href="https://www.wax.io/">WAX</a>, and the
+          <a href="https://uxnetwork.io/">UX Network</a>. It was designed from the ground up to be
+          incredibly fast, with low costs for users and developers, and a low latency of
+          transactions.
         </p>
         <p>
           The Antelope ecosystem offers developers a high-quality experience when creating new
@@ -141,7 +145,7 @@
     </div>
 
     <div class="cards | switcher">
-      <div class="card | box stack">
+      <div class="card | box stack align-left">
         <h3>Greymass</h3>
         <p>
           Greymass is an expert team of researchers and developers who passionately believe that the
@@ -149,8 +153,9 @@
           will help us get there. Their goal is to empower users with the tools they need to
           participate in decentralized communities.
         </p>
+        <a href="https://www.greymass.com" class="button">Learn More</a>
       </div>
-      <div class="card | box stack">
+      <div class="card | box stack align-left">
         <h3>The Antelope Coalition</h3>
         <p>
           The Coalition is run by the ENF, and coordinates the efforts of all Antelope-based chains
@@ -158,6 +163,7 @@
           in response to a Request for Proposal from the Coalition that outlined the need for SDKs
           for Antelope developers.
         </p>
+        <a href="https://eosnetwork.com/antelope/" class="button">Learn More</a>
       </div>
     </div>
   </section>

@@ -62,20 +62,20 @@
               stroke-linejoin="round"
               class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg></span></summary>
             <ul>
-              <MegaMenuItem {section} title="Starter kit" href="/kits" onClick={closeDetails} />
+              <MegaMenuItem {section} title="Starter Kit" href="/kits" onClick={closeDetails} />
               <MegaMenuItem
                 {section}
-                title="Session kit"
+                title="Session Kit"
                 href="/kits/session"
                 onClick={closeDetails} />
               <MegaMenuItem
                 {section}
-                title="Contract kit"
+                title="Contract Kit"
                 href="/kits/contract"
                 onClick={closeDetails} />
               <MegaMenuItem
                 {section}
-                title="Account kit"
+                title="Account Kit"
                 href="/kits/account"
                 onClick={closeDetails} />
             </ul>
