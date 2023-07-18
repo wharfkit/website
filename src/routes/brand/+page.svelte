@@ -14,8 +14,8 @@
 
 <main>
   <!-- <section class="default hero">
-    <p class="title">Shipping great code starts with a solid platform</p>
-    <p class="subtitle">Brand guidelines and assets for Wharf</p>
+    <p class="title">Dive Into the Wharf Brand</p>
+    <p class="subtitle">Brand guidelines and assets for Wharf.</p>
   </section> -->
 
   <div class="with-sidebar">
@@ -30,27 +30,27 @@
     </aside>
     <div class="content | flow">
       <section id="guidelines">
-        <h1>Brand guidelines</h1>
+        <h1>Brand Guidelines</h1>
         <p>
-          Thank you for your interest in the WharfKit brand! We would like to make it as easy as
-          possible for you to reference WharfKit in your project, so we've prepared all the
+          Thank you for your interest in the Wharf brand! We would like to make it as easy as
+          possible for you to reference Wharf in your project, so we've prepared all the
           essentials for you here: the logo, colors, font, and background images. If you would like
-          to go further in your usage of the WharfKit brand, please download the Brand Guidelines
+          to go further in your usage of the Wharf brand, please download the Brand Guidelines
           PDF for additional images and information.
         </p>
         <div class="buttons | cluster">
           <a class="button" href="https://assets.wharfkit.com/wharf-brand-assets.zip" download
-            >Download brand assets (ZIP)</a>
+            >Download Brand Assets (ZIP)</a>
           <a
             class="button"
             data-type="secondary"
             href="https://assets.wharfkit.com/wharf-brand-guidelines.pdf"
-            download>Download brand guidelines (PDF)</a>
+            download>Download Brand Buidelines (PDF)</a>
         </div>
       </section>
       <hr />
       <section id="logo">
-        <h2>Wharf logo</h2>
+        <h2>Wharf Logo</h2>
         <div class="logos | switcher">
           <div class="vertical | stack">
             <div class="frame">
@@ -60,7 +60,7 @@
               class="button"
               data-type="secondary"
               href="https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-vector-no-bg.svg"
-              download>Download logo (SVG)</a>
+              download>Download Logo (SVG)</a>
           </div>
 
           <div class="horizontal | stack">
@@ -71,13 +71,13 @@
               class="button"
               data-type="secondary"
               href="https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-horizontal-vector-no-bg.svg"
-              download>Download logo (SVG)</a>
+              download>Download Logo (SVG)</a>
           </div>
         </div>
       </section>
       <hr />
       <section id="colors">
-        <h2>Brand colors</h2>
+        <h2>Brand Colors</h2>
         <div class="brand-colors">
           <div class="brand-color">
             <div class="label">
@@ -179,7 +179,7 @@
       </section>
       <hr />
       <section id="font">
-        <h2>Brand font</h2>
+        <h2>Brand Font</h2>
         <div>
           <p class="montserrat">Wharf headlines are set in Montserrat.</p>
           <p>All body text is typeset in Inter.</p>
@@ -189,14 +189,14 @@
           <a href="https://fonts.google.com/specimen/Montserrat">
             <div class="montserrat | box flow">
               <h3>Montserrat</h3>
-              <p>Headline font</p>
+              <p>Headline font.</p>
               <p class="underline">https://fonts.google.com/specimen/Montserrat</p>
             </div>
           </a>
           <a href="https://fonts.google.com/specimen/Inter">
             <div class="inter | box flow">
               <h3>Inter</h3>
-              <p>Content font</p>
+              <p>Content font.</p>
               <p class="underline">https://fonts.google.com/specimen/Inter</p>
             </div>
           </a>
@@ -204,7 +204,7 @@
       </section>
       <hr />
       <section id="backgrounds">
-        <h2>Background images</h2>
+        <h2>Background Images</h2>
         <picture>
           <source srcset="/images/brand/background-image-example.avif" type="image/avif" />
           <source srcset="/images/brand/background-image-example.webp" type="image/webp" />
@@ -219,14 +219,14 @@
             data-type="secondary"
             href="https://assets.wharfkit.com/wharf-brand-image.zip"
             download>
-            Download full image (ZIP)
+            Download Full Image (ZIP)
           </a>
           <a
             class="button"
             data-type="secondary"
             href="https://assets.wharfkit.com/wharf-brand-image-bg.zip"
             download>
-            Download background only (ZIP)
+            Download Background Only (ZIP)
           </a>
         </div>
       </section>
