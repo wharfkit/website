@@ -10,10 +10,8 @@ export const GET = async ({ url }) => {
     const options: BlogQueryOptions = {
       limit: Number(params.get("limit")) || postsPerPage,
       tag: params.get("tag") as BlogPostTag || undefined,
-      offset: Number(params.get("offset")),
     }
 
-    console.log({ GET: options })
     const allPosts = await getBlogPosts(options)
 
     return json(allPosts)
