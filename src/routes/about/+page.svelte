@@ -93,7 +93,7 @@
 
 <main class="flow">
   <section class="hero place-center">
-    <h1>Learn all about Wharf</h1>
+    <h1>Learn All About Wharf</h1>
   </section>
 
   <section class="wharf">
@@ -102,7 +102,7 @@
         <h2>What is Wharf?</h2>
         <p>
           Wharf is a complete framework of intuitive and reliable developer tools for building
-          web-based apps on Antelope blockchains. Its three modular and user-focused kits (Session,
+          web-based apps on Antelope blockchains. Its three modular kits (Session,
           Account, and Contract) make it easy to turn your idea into reality — whether you want to
           create a wallet, mint NFTs, design a DeFi protocol, or build something entirely new.
         </p>
@@ -136,7 +136,7 @@
 
   <section class="know | flow">
     <div class="box stack align-center text-center">
-      <h2>Get to know the team behind Wharf</h2>
+      <h2>Get to know the team behind Wharf.</h2>
       <p>Wharf was built by Greymass, and funded by the Antelope Coalition.</p>
     </div>
 
@@ -164,7 +164,7 @@
 
   <section class="share">
     <div class="box stack align-center text-center">
-      <h2>Share Wharf with the world</h2>
+      <h2>Share Wharf with the world!</h2>
       <p>Check out our brand guidelines for logos and other resources.</p>
       <a href="/brand" class="button">Go to Brand Guidelines</a>
     </div>

@@ -60,9 +60,9 @@
 <main class="stack">
   <section class="hero">
     <div class="box stack center">
-      <h1>A modular SDK with endless possibilities</h1>
-      <p>Wharf provides a fast and flexible way to build web3 projects on Antelope blockchains.</p>
-      <a href="#" class="button">Get Started</a>
+      <h1>Modular SDK for Antelope Web Apps</h1>
+      <p>Wharf provides a fast and flexible way to build web3 projects on blockchains like EOS, Telos, WAX, and UX.</p>
+      <a href="#" class="button">Start Building Today</a>
     </div>
   </section>
 
@@ -80,14 +80,14 @@
     </div>
 
     <div class="launch | stack">
-      <h2>Use Wharf to launch your next web3 project</h2>
+      <h2>What will you launch with Wharf?</h2>
       <p>
         Wharf’s modular and user-focused approach saves development time and effort, helping to turn
         your ideas into reality. Whether you want to create a wallet, mint NFTs, design a DeFi
         protocol, or build something entirely new: the days of clunky, limited blockchain SDKs are
         over!
       </p>
-      <a href="/kits" class="button">Get Started</a>
+      <a href="/kits" class="button">Learn About the Kits</a>
     </div>
   </section>
 
@@ -102,14 +102,13 @@
       </div>
     </div>
     <div class="box stack left">
-      <h3>Get started with your favorite tools</h3>
+      <h3>Get started with your favorite tools.</h3>
       <p>
-        Whether you prefer to code in X, Y, or Z, Wharf makes it easy to build apps on the
-        blockchain. Starter Kits will soon be available in your favorite language, so you can hit
-        the ground running. (If your preferred language is ABC, then you’re in luck! That’s what
-        we’re building in, so you can access Wharf today.)
+        Wharf is designed to work with all Javascript frameworks. So whether you 
+        prefer to code in Vue, React, Svelte, Typescript, or NodeJS, you can start 
+        building today. (Check back soon for Starter Kits in your favorite framework!)
       </p>
-      <a href="#" class="button disabled">Coming Soon!</a>
+      <a href="#" class="button disabled">Check It Out</a>
     </div>
   </section>
 
@@ -123,17 +122,18 @@
     <div class="card | box stack left ">
       <h3>UX your users will love.</h3>
       <p>
-        Wharf is a modular SDK that makes it easy to build web3 projects on Antelope blockchains.
-        Wharf is designed to be flexible, so you can use it to build anything you can imagine.
+        Want to provide a professional user experience, as fast as possible? Wharf provides an 
+        out-of-the-box UI Renderer that was created　by a professional UX designer and covers 
+        multiple common user scenarios.
       </p>
-      <a href="/kits/session" class="button">See the Session Kit</a>
+      <a href="/kits/session" class="button">Learn More About the Session Kit</a>
     </div>
     <div class="card | box stack left ">
       <h3>Build on the most responsive blockchains.</h3>
       <p>
-        The Antelope chains - including the EOS Network, Telos, WAX and UX Network - are behind some
-        of the fastest, most secure, and user-friendly Web3 products and services, reliably
-        fulfilling millions of daily transactions.
+        The Antelope framework is behind some of the fastest, most secure, and user-friendly 
+        Web3 products and services. Together the EOS, Telos, WAX and UX networks reliably
+        fulfill millions of transactions per day.
       </p>
       <a href="#" class="button">Learn More About Antelope</a>
     </div>
@@ -141,8 +141,8 @@
 
   <section class="box stack center">
     <h2>Want to keep up with the latest Wharf developments?</h2>
-    <p>Check out our blog for regular video updates and Technical Previews.</p>
-    <a href="/blog" class="button">Go to Blog</a>
+    <p>Check out our blog for regular video updates and technical previews.</p>
+    <a href="/blog" class="button">Go to the Blog</a>
   </section>
 
   <section class="vision | full-bleed">

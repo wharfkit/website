@@ -106,11 +106,11 @@
   <div class="kits">
     <div class="session kit | stack" class:active={active === "session"}>
       <h3>Session Kit</h3>
-      <p>The Session Kit is designed to make signing transactions easy.</p>
+      <p>The Session Kit is designed to make signing transactions easy. With this kit, you can:</p>
       <ul>
         <li>
-          Request a user to login to an application using their preferred wallet and establish a
-          Session to use for transaction signing.
+          Request that a user login to an application using their preferred wallet and establish a Session for transaction signing. 
+        An out-of-the-box UI is also provided for this interaction.
         </li>
         <li>
           Manually establish a Session in your application code to sign transactions directly.
@@ -121,7 +121,7 @@
     <div class="account kit | stack" class:active={active === "account"}>
       <h3>Account Kit</h3>
       <p>
-        The Account Kit makes accessing account information and managing account resources easy.
+        The Account Kit makes accessing account information and managing account resources easy. With this kit, you can:
       </p>
       <ul>
         <li>
@@ -137,7 +137,7 @@
     </div>
     <div class="contract kit | stack" class:active={active === "contract"}>
       <h3>Contract Kit</h3>
-      <p>The Contract Kit makes accessing smart contract data and creating transactions easy.</p>
+      <p>The Contract Kit makes accessing smart contract data and creating transactions easy. With this kit, you can:</p>
       <ul>
         <li>
           Interpret smart contract structures, retrieve natively typed data, and craft transactions
@@ -145,8 +145,7 @@
         </li>
         <li>
           Perform code generation for any smart contract to optimize API call patterns and make your
-          developer environment context-aware for autocompletion, type checking, and to reduce
-          mistakes.
+          developer environment context-aware to reduce mistakes through autocompletion and type checking.
         </li>
       </ul>
       <a href="/kits/contract" class="button">Learn More</a>
