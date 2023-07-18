@@ -1,60 +1,48 @@
 <script lang="ts">
   import PostPreview from "$lib/components/PostPreview.svelte"
   import type { PageData } from "./$types"
+  import { page } from "$app/stores"
+  import { goto } from "$app/navigation"
+  import { postsPerPage } from "$lib/config"
+
+  const loadMore = () => {
+    const url = new URL($page.url)
+    const limit = Number(url.searchParams.get("limit")) || postsPerPage
+    url.searchParams.set("limit", String(limit + postsPerPage))
+    goto(url, { noScroll: true })
+  }
 
   export let data: PageData
-
-  let filter: string
-
-  $: posts = filter ? data.posts.filter((post) => post.tags.includes(filter)) : data.posts
 </script>
 
 <main>
-  <section class="with-sidebar">
+  <section>
     <aside class="sidebar">
       <ul>
         <li>
-          <input
-            type="radio"
-            bind:group={filter}
-            class="visually-hidden"
-            name="filter"
-            id="all"
-            value={null}
-            checked />
-          <label for="all">All posts</label>
+          <a href="/blog">All posts ({data.totals.total})</a>
         </li>
         <li>
-          <input
-            type="radio"
-            bind:group={filter}
-            class="visually-hidden"
-            name="filter"
-            id="video"
-            value="video" />
-          <label for="video">Videos</label>
+          <a href="/blog?tag=video">Videos ({data.totals.tags["video"]})</a>
         </li>
         <li>
-          <input
-            type="radio"
-            bind:group={filter}
-            class="visually-hidden"
-            name="filter"
-            id="article"
-            value="article" />
-          <label for="article">Articles</label>
+          <a href="/blog?tag=article">Articles ({data.totals.tags["article"]})</a>
         </li>
       </ul>
     </aside>
 
     <ul class="posts | stack">
-      {#each posts as post}
+      {#each data.posts as post}
         <li>
           <PostPreview {...post} />
           <hr />
         </li>
       {/each}
     </ul>
+
+    {#if data.posts.length < data.totals.total}
+      <button class="button" on:click={() => loadMore()}>Load more</button>
+    {/if}
   </section>
 </main>
 

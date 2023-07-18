@@ -20,7 +20,7 @@ interface MarkdownFile {
     };
   };
   // This feels like a hack, but it fixes the type error
-  render?: () => {
-    html: string;
-  }
+  // render?: () => {
+  //   html: string;
+  // }
 }

@@ -63,11 +63,11 @@ export default [
     items: [
       {
         name: "contractkit",
-        href: "/docs/contractkit",
+        href: "/docs",
       },
       {
         name: "accountkit",
-        href: "#",
+        href: "/docs",
       },
       {
         name: "Sessionkit",

@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
+  import type { PageData } from "../$types.js"
   import Video from "$lib/components/Video.svelte"
   import addCopyButton from "$lib/addCopyButton"
   import { onMount } from "svelte"
-  /** @type {import('./$types').PageData} */
-  export let data
+  export let data: PageData
 
   let title = data.post.title
   let date = data.post.date

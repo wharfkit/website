@@ -35,6 +35,13 @@ export interface DocUpdate {
   commits: DocumentationCommit[]
 }
 
+export interface BlogQueryOptions {
+  limit?: number
+  tag?: BlogPostTag
+}
+
+export type BlogPostTag = "video" | "article"
+
 export interface BlogPost {
   title: string
   path: string
@@ -46,7 +53,7 @@ export interface BlogPost {
   image?: string
   videolink?: string
   transcriptlink: string
-  tags: string[]
+  tags: Array<BlogPostTag>
 }
 
 export interface KitLink {
