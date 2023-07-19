@@ -33,7 +33,10 @@
       <a href="/">
         <Header.Logo />
       </a>
-      <p>Wharf is open source and maintained by the ENF</p>
+      <p>
+        Wharf is an open source project sponsored by the
+        <a href="https://antelope.io/">Antelope Coalition</a>
+      </p>
     </div>
   </nav>
 </footer>
