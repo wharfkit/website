@@ -13,7 +13,10 @@
   $: isMenuOpen = isMobile ? false : true
 
   function closeNav() {
-    isMenuOpen = false
+    if (isMobile) {
+      menu.removeAttribute("open")
+      isMenuOpen = false
+    }
   }
 
   function toggleMenu() {

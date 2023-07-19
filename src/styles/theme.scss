@@ -1,21 +1,5 @@
 :root {
   /* brand foundation */
-  --brand-hue: 166;
-  --brand-saturation: 69%;
-  --brand-lightness: 69%;
-
-  /* light */
-  --brand-light: var(--color-secondary-300);
-  --text1-light: black;
-  --text2-light: var(--color-secondary-600);
-  --text3-light: var(--color-neutral-500);
-  --surface1-light: white;
-  --surface2-light: var(--color-accent-50);
-  --surface3-light: var(--color-secondary-300);
-  --surface4-light: var(--color-secondary-500);
-  --surface5-light: var(--color-secondary-700);
-  --border1-light: var(--color-accent-50);
-
   --hue-wharf: 228;
   --hue-reef: 166;
   --hue-mist: 120;
@@ -23,12 +7,11 @@
 
 @mixin theme-light {
   color-scheme: light;
-  --theme-brand: var(--color-secondary-300);
   --theme-text1: black;
   --theme-text2: var(--color-secondary-600);
   --theme-text3: var(--color-neutral-500);
 
-  --theme-text-heading: var(--wharf-blue);
+  --theme-text-heading: var(--color-primary-800);
   --theme-text-heading-inverse: white;
   --theme-text-body: var(--color-neutral-900);
   --theme-text-body-inverse: var(--color-neutral-300);
@@ -42,6 +25,7 @@
   --theme-surface5: var(--color-secondary-700);
   --theme-surface6: #ededf1;
   --theme-surface7: white;
+  --theme-surface8: var(--swell-mist);
 
   --sidebar-item-color: var(--color-secondary-600);
 
@@ -50,9 +34,7 @@
 
 @mixin theme-dark {
   color-scheme: dark;
-  --theme-brand: hsl(
-    var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) / 1.5)
-  );
+
   --theme-text1: white;
   --theme-text2: var(--color-secondary-400);
   --theme-text3: var(--color-primary-900);
@@ -71,6 +53,7 @@
   --theme-surface5: var(--color-secondary-200);
   --theme-surface6: #383838;
   --theme-surface7: #14161f;
+  --theme-surface8: var(--swell-mist);
 
   --sidebar-item-color: var(--color-primary-100);
 

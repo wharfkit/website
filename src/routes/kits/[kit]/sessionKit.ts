@@ -9,8 +9,7 @@ const kit: KitPage = {
     {
       title: "Manage sessions with ease.",
       description:
-        "Sessions are essential both for applications connecting to the blockchain and for users connecting with applications. 
-          The Session Kit helps you to establish these sessions quickly and reliably by providing resources for:",
+        "Sessions are essential both for applications connecting to the blockchain and for users connecting with applications. The Session Kit helps you to establish these sessions quickly and reliably by providing resources for:",
       list: [
         "Logging in and starting a new session",
         "Logging out and ending a session",
@@ -24,14 +23,12 @@ const kit: KitPage = {
     {
       title: "Give your users the freedom to interact with the blockchain.",
       description:
-        "The Session Kit makes it easy to sign transactions and perform actions on-chain, so that you're never limited in the options 
-          you can provide to your users. Here's a few examples of actions that the Session Kit can orchestrate:",
+        "The Session Kit makes it easy to sign transactions and perform actions on-chain, so that you're never limited in the options you can provide to your users. Here's a few examples of actions that the Session Kit can orchestrate:",
     },
     {
       title: "Provide a smooth user experience.",
       description:
-        "UX can make or break an app. That's why the Session Kit provides a Wharf-themed UI Renderer that was created by a professional 
-          UX designer, making it simple to create a pleasant and intuitive experience for your users. \n\nThe UI Renderer comes with out-of-the-box functionality that covers a range of common user scenarios, and can be paired with the Session Kit's Localization Engine to support multiple languages.",
+        "UX can make or break an app. That's why the Session Kit provides a Wharf-themed UI Renderer that was created by a professional UX designer, making it simple to create a pleasant and intuitive experience for your users.\n\nThe UI Renderer comes with out - of - the - box functionality that covers a range of common user scenarios, and can be paired with the Session Kit's Localization Engine to support multiple languages.",
       link: {
         href: "#",
         text: "See It In Action",

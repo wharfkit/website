@@ -21,19 +21,10 @@
       --footer-background: var(--swell-mist);
       --page-background: linear-gradient(
         180deg,
-        #494e62 0%,
-        #7be7ce 4rem,
-        #b2f2e1 5.25rem,
-        #f4faf4 7rem,
-        #ffffff 8.75rem
-      );
-      --page-background: linear-gradient(
-        180deg,
-        /* #494e62 0rem, */ 
         #7be7ce 0rem,
         #b2f2e1 2rem,
-        #f4faf4 8rem,
-        #ffffff 12rem
+        #f4faf4 7rem,
+        #ffffff 10rem
       );
     }
 
