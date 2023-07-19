@@ -65,7 +65,7 @@
               stroke-linejoin="round"
               class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg></span></summary>
             <ul>
-              <MegaMenuItem {section} title="Starter Kit" href="/kits" onClick={closeDetails} />
+              <MegaMenuItem {section} title="Kits Overview" href="/kits" onClick={closeDetails} />
               <MegaMenuItem
                 {section}
                 title="Session Kit"
