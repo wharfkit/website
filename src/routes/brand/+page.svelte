@@ -41,11 +41,8 @@
         <div class="buttons | cluster">
           <a class="button" href="https://assets.wharfkit.com/wharf-brand-assets.zip" download
             >Download Brand Assets (ZIP)</a>
-          <a
-            class="button"
-            data-type="secondary"
-            href="https://assets.wharfkit.com/wharf-brand-guidelines.pdf"
-            download>Download Brand Guidelines (PDF)</a>
+          <a class="button" href="https://assets.wharfkit.com/wharf-brand-guidelines.pdf" download
+            >Download Brand Guidelines (PDF)</a>
         </div>
       </section>
       <hr />
@@ -58,7 +55,6 @@
             </div>
             <a
               class="button"
-              data-type="secondary"
               href="https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-vector-no-bg.svg"
               download>Download Logo (SVG)</a>
           </div>
@@ -69,7 +65,6 @@
             </div>
             <a
               class="button"
-              data-type="secondary"
               href="https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-horizontal-vector-no-bg.svg"
               download>Download Logo (SVG)</a>
           </div>
@@ -214,18 +209,10 @@
             alt="wharfkit background" />
         </picture>
         <div class="buttons | cluster">
-          <a
-            class="button"
-            data-type="secondary"
-            href="https://assets.wharfkit.com/wharf-brand-image.zip"
-            download>
+          <a class="button" href="https://assets.wharfkit.com/wharf-brand-image.zip" download>
             Download Full Image (ZIP)
           </a>
-          <a
-            class="button"
-            data-type="secondary"
-            href="https://assets.wharfkit.com/wharf-brand-image-bg.zip"
-            download>
+          <a class="button" href="https://assets.wharfkit.com/wharf-brand-image-bg.zip" download>
             Download Background Only (ZIP)
           </a>
         </div>
@@ -309,13 +296,13 @@
   }
 
   .logos .frame {
-    border: var(--border-style);
+    border: 2px solid var(--color-neutral-100);
     border-radius: var(--space-s);
     background: white;
   }
 
   .fonts .box {
-    background-color: var(--color-secondary-100);
+    background-color: var(--theme-surface2);
     border-radius: var(--space-s);
     padding: var(--space-l);
     gap: var(--space-3xs);
@@ -332,7 +319,6 @@
   .fonts h3 {
     font-size: var(--fs-2);
     font-weight: 600;
-    color: var(--wharf-blue);
   }
 
   .montserrat {
@@ -342,18 +328,24 @@
   .fonts a {
     font-size: var(--fs-0);
     text-decoration: none;
-    color: black;
+    color: var(--theme-text-body);
     font-weight: inherit;
     display: flex;
   }
+
   .fonts .box:is(:hover, :focus-visible) {
-    background-color: var(--color-secondary-200);
+    background-color: var(--theme-surface2-hover);
   }
 
   .brand-colors {
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
+  }
+
+  .brand-colors td {
+    padding-inline: 0;
+    padding-block: var(--space-3xs);
   }
 
   #colors .label {
