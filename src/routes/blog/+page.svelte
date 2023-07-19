@@ -16,7 +16,7 @@
 </script>
 
 <main>
-  <section>
+  <section class="with-sidebar">
     <aside class="sidebar">
       <ul>
         <li>
@@ -31,18 +31,19 @@
       </ul>
     </aside>
 
-    <ul class="posts | stack">
-      {#each data.posts as post}
-        <li>
-          <PostPreview {...post} />
-          <hr />
-        </li>
-      {/each}
-    </ul>
+    <div class="list">
+      <ul class="posts | stack">
+        {#each data.posts as post}
+          <li>
+            <PostPreview {...post} />
+          </li>
+        {/each}
+      </ul>
 
-    {#if data.posts.length < data.totals.total}
-      <button class="button" on:click={() => loadMore()}>Load more</button>
-    {/if}
+      {#if data.posts.length < data.totals.total}
+        <button class="button" on:click={() => loadMore()}>Load more</button>
+      {/if}
+    </div>
   </section>
 </main>
 
@@ -61,22 +62,16 @@
     flex-grow: 0;
   }
 
-  .sidebar label {
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .sidebar label:hover {
-    text-decoration: underline;
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+    align-items: center;
   }
 
   .posts {
     list-style: none;
-    gap: var(--space-xl);
+    gap: var(--space-4xl);
     padding-inline: unset;
-  }
-  hr {
-    margin-block-start: var(--space-xl);
   }
 </style>

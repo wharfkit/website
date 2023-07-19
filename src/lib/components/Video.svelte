@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Button from "$lib/components/Button.svelte"
-
   export let videolink: string = ""
   export let transcriptlink: string = ""
   let play = false
@@ -53,9 +51,6 @@
       </svg>
     </button>
   </div>
-  {#if transcriptlink}
-    <Button link={transcriptlink}>Read transcript (Google docs)</Button>
-  {/if}
 </div>
 
 <style>

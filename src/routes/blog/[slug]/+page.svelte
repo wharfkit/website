@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PageData } from "../$types.js"
+  import type { PageData } from "./$types"
   import Video from "$lib/components/Video.svelte"
   import addCopyButton from "$lib/addCopyButton"
   import { onMount } from "svelte"
@@ -17,25 +17,11 @@
 </script>
 
 <main>
-  <aside>
-    <a href="/blog" class="back">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-      <span>Back to blog</span>
-    </a>
-  </aside>
   <article class="stack">
-    <hgroup>
+    <header>
       <h1>{title}</h1>
       <p>{date}</p>
-    </hgroup>
+    </header>
 
     {#if image}
       <img src={image} alt="blog post header" />
@@ -51,53 +37,14 @@
 
 <style>
   main {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    padding-block: var(--space-xl);
-    /* padding-inline: var(--space-xl); */
+    max-inline-size: 80ch;
+    margin-inline: auto;
   }
 
-  @media (min-width: 768px) {
-    main {
-      grid-template-columns: 1fr auto 1fr;
-    }
-
-    article {
-      max-inline-size: 80ch;
-    }
-  }
-
-  hgroup :is(*) {
-    color: var(--hgroup-color);
-  }
-
-  hgroup p {
+  header p {
     font-size: var(--fs-0);
     font-weight: 500;
     margin-block-start: var(--space-xs);
-  }
-
-  .back {
-    display: inline-flex;
-    gap: 0.5em;
-    align-items: center;
-    text-decoration: none;
-    color: var(--back-link-color);
-  }
-
-  :global([data-theme="dark"]) {
-    --back-link-color: var(--color-primary-50);
-    --hgroup-color: var(--color-primary-50);
-  }
-
-  :global([data-theme="light"]) {
-    --back-link-color: var(--color-primary-900);
-    --hgroup-color: var(--color-primary-900);
-  }
-
-  .back:hover {
-    text-decoration: underline;
   }
 
   article :global(h2) {
@@ -114,13 +61,13 @@
     margin-block-start: var(--space-s);
   }
 
-  article :global(blockquote) {
+  /* article :global(blockquote) {
     background-color: var(--theme-surface2);
     border: 1px solid var(--color-secondary-200);
     padding-block: var(--space-s);
     padding-inline: var(--space-m);
     border-radius: var(--border-radius, 12px);
-  }
+  } */
 
   article :global(li),
   article :global(p) {
@@ -128,7 +75,6 @@
   }
 
   article :global(li:not(:first-child)) {
-    /* background-color: red; */
     margin-block-start: var(--space-xs);
   }
 
