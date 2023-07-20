@@ -5,6 +5,8 @@
   import { goto } from "$app/navigation"
   import { postsPerPage } from "$lib/config"
 
+  $: tag = $page.url.searchParams.get("tag")
+
   const loadMore = () => {
     const url = new URL($page.url)
     const limit = Number(url.searchParams.get("limit")) || postsPerPage
@@ -40,8 +42,10 @@
         {/each}
       </ul>
 
-      {#if data.posts.length < data.totals.total}
-        <button class="button" on:click={() => loadMore()}>Load more</button>
+      {#if tag && data.posts.length < data.totals.tags[tag]}
+        <button class="button" on:click={() => loadMore()}>Load more {tag}s</button>
+      {:else if !tag && data.posts.length < data.totals.total}
+        <button class="button" on:click={() => loadMore()}>Load more posts</button>
       {/if}
     </div>
   </section>
