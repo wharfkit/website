@@ -1,4 +1,3 @@
-import type { KitPage } from "$lib/types"
 import sessionKit from "$lib/assets/images/kits/session-kit.svg"
 
 const kit: KitPage = {

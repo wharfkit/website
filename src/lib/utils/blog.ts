@@ -1,6 +1,5 @@
 import slugify from "@sindresorhus/slugify"
 import { postsPerPage } from "../config"
-import type { BlogPost, BlogPostTag, BlogQueryOptions } from "$lib/types"
 
 
 const defaultImage =

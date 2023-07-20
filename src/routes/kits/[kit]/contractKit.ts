@@ -1,4 +1,3 @@
-import type { KitPage } from "$lib/types"
 import contractKit from "$lib/assets/images/kits/contract-kit.svg"
 
 const kit: KitPage = {

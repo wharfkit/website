@@ -1,6 +1,4 @@
 <script lang="ts">
-  import type { HeadingNode } from "$lib/types"
-
   export let section: string
   export let title: string
   export let headings: HeadingNode[]

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { DocumentationSection } from "$lib/types"
   import { filterDocumentationArticles, formatSectionTitle } from "$lib/utils/docs"
   import Filter from "./Filter.svelte"
 

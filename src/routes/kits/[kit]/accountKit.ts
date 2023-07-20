@@ -1,4 +1,3 @@
-import type { KitPage } from "$lib/types"
 import accountKit from "$lib/assets/images/kits/account-kit.svg"
 
 const kit: KitPage = {

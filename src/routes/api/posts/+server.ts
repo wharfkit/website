@@ -1,7 +1,6 @@
 import { getBlogPosts } from "$lib/utils"
 import { json, error } from "@sveltejs/kit"
 import { postsPerPage } from "$lib/config.js"
-import type { BlogPostTag, BlogQueryOptions } from "$lib/types.js"
 
 export const GET = async ({ url }) => {
   try {

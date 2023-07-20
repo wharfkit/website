@@ -1,4 +1,3 @@
-import type { DocumentationSection, HeadingNode, DocumentationArticle, BreadCrumb } from "../types"
 import * as cheerio from "cheerio"
 import slugify from "@sindresorhus/slugify"
 import { capitalize } from "./general"

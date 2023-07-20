@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { BreadCrumb } from "$lib/types"
   export let breadcrumbs: BreadCrumb[]
 </script>
 
