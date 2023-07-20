@@ -61,7 +61,10 @@
   <section class="hero">
     <div class="box stack center">
       <h1>Modular SDK for Antelope Web Apps</h1>
-      <p>Wharf provides a fast and flexible way to build web3 projects on blockchains like EOS, Telos, WAX, and UX.</p>
+      <p>
+        Wharf provides a fast and flexible way to build web3 projects on blockchains like EOS,
+        Telos, WAX, and UX.
+      </p>
       <a href="#" class="button">Start Building Today</a>
     </div>
   </section>
@@ -69,13 +72,19 @@
   <section class="kits | full-bleed">
     <div class="images">
       <div class="account kit">
-        <img src={accountKit} alt="account kit icon" />
+        <a href="/kits/account">
+          <img src={accountKit} alt="account kit icon" />
+        </a>
       </div>
       <div class="contract kit">
-        <img src={contractKit} alt="contract kit icon" />
+        <a href="/kits/contract">
+          <img src={contractKit} alt="contract kit icon" />
+        </a>
       </div>
       <div class="session kit">
-        <img src={sessionKit} alt="session kit icon" />
+        <a href="/kits/session">
+          <img src={sessionKit} alt="session kit icon" />
+        </a>
       </div>
     </div>
 
@@ -104,9 +113,9 @@
     <div class="box stack left">
       <h3>Get started with your favorite tools.</h3>
       <p>
-        Wharf is designed to work with all Javascript frameworks. So whether you 
-        prefer to code in Vue, React, Svelte, Typescript, or NodeJS, you can start 
-        building today. (Check back soon for Starter Kits in your favorite framework!)
+        Wharf is designed to work with all Javascript frameworks. So whether you prefer to code in
+        Vue, React, Svelte, Typescript, or NodeJS, you can start building today. (Check back soon
+        for Starter Kits in your favorite framework!)
       </p>
       <a href="#" class="button disabled">Check It Out</a>
     </div>
@@ -122,8 +131,8 @@
     <div class="card | box stack left ">
       <h3>UX your users will love.</h3>
       <p>
-        Want to provide a professional user experience, as fast as possible? Wharf provides an 
-        out-of-the-box UI Renderer that was created　by a professional UX designer and covers 
+        Want to provide a professional user experience, as fast as possible? Wharf provides an
+        out-of-the-box UI Renderer that was created　by a professional UX designer and covers
         multiple common user scenarios.
       </p>
       <a href="/kits/session" class="button">Learn More About the Session Kit</a>
@@ -131,9 +140,9 @@
     <div class="card | box stack left ">
       <h3>Build on the most responsive blockchains.</h3>
       <p>
-        The Antelope framework is behind some of the fastest, most secure, and user-friendly 
-        Web3 products and services. Together the EOS, Telos, WAX and UX networks reliably
-        fulfill millions of transactions per day.
+        The Antelope framework is behind some of the fastest, most secure, and user-friendly Web3
+        products and services. Together the EOS, Telos, WAX and UX networks reliably fulfill
+        millions of transactions per day.
       </p>
       <a href="#" class="button">Learn More About Antelope</a>
     </div>
@@ -240,6 +249,14 @@
   .kit {
     display: grid;
     position: relative;
+  }
+
+  .kit img {
+    transition: transform 200ms ease;
+  }
+
+  .kit a:hover img {
+    transform: translateY(-0.5rem);
   }
 
   .account.kit {
