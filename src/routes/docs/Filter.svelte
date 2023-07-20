@@ -90,8 +90,9 @@
   }
 
   input::placeholder {
+    color: var(--theme-text1);
     font-style: italic;
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   .icon {
