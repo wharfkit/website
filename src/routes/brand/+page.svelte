@@ -13,11 +13,6 @@
 </script>
 
 <main>
-  <!-- <section class="default hero">
-    <p class="title">Dive Into the Wharf Brand</p>
-    <p class="subtitle">Brand guidelines and assets for Wharf.</p>
-  </section> -->
-
   <div class="with-sidebar">
     <aside class="sidebar">
       <div class="sidebar-header">
@@ -250,11 +245,6 @@
       display: block;
     }
   }
-
-  /* aside ul {
-    position: sticky;
-    top: var(--space-xl);
-  } */
 
   .content {
     gap: var(--space-l);

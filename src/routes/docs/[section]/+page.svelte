@@ -25,7 +25,7 @@
   <ul>
     {#each data.section.articles as doc}
       <li>
-        <a href={`/docs/${data.section.title}/${doc.slug}`}>
+        <a href={`/docs/${doc.section}/${doc.slug}`}>
           {doc.title}
         </a>
       </li>

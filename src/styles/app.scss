@@ -132,28 +132,6 @@ hr {
   opacity: 0.1;
 }
 
-// .sidebar {
-//   & ul {
-//     display: flex;
-//     flex-direction: column;
-//     position: sticky;
-//     top: var(--space-xl);
-//     list-style: none;
-//     margin-block-end: var(--space-xl);
-//     padding-inline-start: var(--space-s);
-//   }
-
-//   & li {
-//     display: flex;
-//   }
-
-//   & li > * {
-//     flex: 1;
-//     padding-block: var(--space-xs);
-//     color: var(--sidebar-item-color);
-//   }
-// }
-
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -189,8 +167,6 @@ hr {
   padding: var(--space-m);
   color: var(--theme-text-heading);
 }
-
-// TODO: finish styling sidebar
 
 .sidebar-list-item {
   display: flex;

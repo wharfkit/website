@@ -5,7 +5,7 @@
 <ul>
   {#each breadcrumbs as { title, path }}
     <li>
-      <a href={path}>{title}</a>
+      <a href={path.toLowerCase()}>{title}</a>
     </li>
   {/each}
 </ul>
