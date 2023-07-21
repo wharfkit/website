@@ -89,10 +89,9 @@
     <div class="launch | stack">
       <h2>What will you launch with Wharf?</h2>
       <p>
-        Wharf’s modular and user-focused approach saves development time and effort, helping to turn
-        your ideas into reality. Whether you want to create a wallet, mint NFTs, design a DeFi
-        protocol, or build something entirely new: the days of clunky, limited blockchain SDKs are
-        over!
+        Whether you want to create a wallet, mint NFTs, design a DeFi protocol, or build something entirely 
+        new: the days of clunky, limited blockchain SDKs are over! Wharf’s modular and user-focused approach 
+        saves development time and effort, helping to turn your ideas into reality.
       </p>
       <a href="/kits" class="button">Learn About the Kits</a>
     </div>
