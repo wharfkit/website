@@ -9,7 +9,7 @@ export const load = (async ({ params, parent }) => {
 
         const { docs } = await parent()
 
-        const section = docs.find((section) => section.title === params.section)
+        const section = docs.find((section) => section.title.toLowerCase() === params.section)
 
         if (!section) {
             throw error(404, 'Section not found')

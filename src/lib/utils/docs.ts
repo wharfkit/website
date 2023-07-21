@@ -76,30 +76,64 @@ function getFirstParagraph(html: string): string {
   return firstParagraph
 }
 
-export function makeDoc(rawsection: string, markdown: MarkdownFile): DocumentationArticle {
+function groupDocsBySection(docs: DocumentationArticle[]): Record<string, DocumentationArticle[]> {
+  const grouped = docs.reduce((acc, doc) => {
+    const { section } = doc
+    if (!acc[section]) {
+      acc[section] = []
+    }
+    acc[section].push(doc)
+    return acc
+  }, {} as Record<string, DocumentationArticle[]>)
+  return grouped
+}
+
+export async function fetchDocs() {
+  const allDocFiles = import.meta.glob("/src/lib/docs/**/*.md")
+  const iterableDocs = Object.entries(allDocFiles)
+  const allDocs = await Promise.all(
+    iterableDocs.map(async ([path, resolver]) => {
+      const resolved = await resolver() as MarkdownFile
+      return resolved
+    }
+    )
+  )
+  const docs = allDocs.map(makeDoc)
+  const groupedDocs = groupDocsBySection(docs)
+  return groupedDocs
+}
+
+export function makeDoc(markdown: MarkdownFile): DocumentationArticle {
+  const metadata: DocumentationMetadata = markdown.metadata || {}
   const content = markdown.default.render().html
-  // const { metadata } = markdown
-  const title = getTitle(content)
-  const slug = slugify(title)
-  const section = rawsection.toLowerCase()
+  const title = metadata?.title || getTitle(content)
+  const slug = metadata?.slug || slugify(title)
+  const description = metadata?.description || getFirstParagraph(content)
+  const section = metadata?.category?.toLowerCase() || ""
   const path = `/docs/${section}/${slug}`
 
   const doc = {
-    // ...metadata,
+    ...metadata,
+    title,
     path,
     section,
-    title,
-    slug,
     content,
+    slug,
+    description,
     headings: parseHeadings(content),
-    description: getFirstParagraph(content),
   }
 
   return doc
 }
 
-export function makeDocs(section: { [key: string]: MarkdownFile[] }): DocumentationSection {
-  const [sectionTitle, markdowns] = Object.entries(section)[0]
-  const articles = markdowns.map((markdown) => makeDoc(sectionTitle, markdown))
-  return { title: sectionTitle.toLowerCase(), articles }
+
+
+export function orderSections(groupedDocs: Record<string, DocumentationArticle[]>, order: string[]): DocumentationSection[] {
+  const sections = order.flatMap((section) => {
+    const articles = groupedDocs[section.toLowerCase()]
+    if (!articles) return []
+    return { title: formatSectionTitle(section), articles }
+  })
+  return sections
 }
+
