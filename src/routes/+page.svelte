@@ -130,7 +130,7 @@
       <h3>UX your users will love.</h3>
       <p>
         Want to provide a professional user experience, as fast as possible? Wharf provides an
-        out-of-the-box UI Renderer that was created　by a professional UX designer and covers
+        out-of-the-box UI Renderer that was created by a professional UX designer and covers
         multiple common user scenarios.
       </p>
       <a href="/kits/session" class="button">Learn More About the Session Kit</a>
