@@ -102,10 +102,9 @@
       <div class="box stack">
         <h2>What is Wharf?</h2>
         <p>
-          Wharf is a complete framework of intuitive and reliable developer tools for building
+          Wharf is a free, open-source framework of intuitive developer tools for building
           web-based apps on Antelope blockchains. Its three modular kits (Session, Account, and
-          Contract) make it easy to turn your idea into reality — whether you want to create a
-          wallet, mint NFTs, design a DeFi protocol, or build something entirely new.
+          Contract) can be used separately or combined to create any number of web3 applications.
         </p>
       </div>
       <div class="logo | box place-center">
