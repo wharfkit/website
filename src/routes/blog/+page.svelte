@@ -19,16 +19,25 @@
 
 <main>
   <section class="with-sidebar">
-    <aside class="sidebar">
-      <ul>
-        <li>
-          <a href="/blog">All posts ({data.totals.total})</a>
+    <aside>
+      <div class="sidebar-header">
+        <h1 class="sidebar-title"><a href="/blog">Blog</a></h1>
+      </div>
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <a href="/blog" class="sidebar-subtitle">
+            All posts ({data.totals.total})
+          </a>
         </li>
-        <li>
-          <a href="/blog?tag=video">Videos ({data.totals.tags["video"]})</a>
+        <li class="sidebar-list-item">
+          <a href="/blog?tag=video" class="sidebar-subtitle">
+            Videos ({data.totals.tags["video"]})
+          </a>
         </li>
-        <li>
-          <a href="/blog?tag=article">Articles ({data.totals.tags["article"]})</a>
+        <li class="sidebar-list-item">
+          <a href="/blog?tag=article" class="sidebar-subtitle">
+            Articles ({data.totals.tags["article"]})
+          </a>
         </li>
       </ul>
     </aside>
@@ -56,14 +65,14 @@
     display: none;
   }
 
+  .sidebar-list {
+    color: var(--theme-text-heading);
+  }
+
   @media screen and (min-width: 900px) {
     aside {
       display: block;
     }
-  }
-
-  .sidebar {
-    flex-grow: 0;
   }
 
   .list {

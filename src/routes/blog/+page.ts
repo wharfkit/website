@@ -1,4 +1,3 @@
-import type { BlogPost } from "../../lib/types"
 import type { PageLoad } from "./$types"
 
 

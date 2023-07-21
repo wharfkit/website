@@ -24,10 +24,10 @@
 
 <svelte:window bind:innerWidth />
 
-<nav aria-label="Documentation Sections">
+<nav class="sidebar" aria-label="Documentation Sections">
   <details open={!isMobile} bind:this={sideNav}>
-    <summary class="header" tabindex={!isMobile ? -1 : 0}>
-      <h2>
+    <summary class="sidebar-header" tabindex={!isMobile ? -1 : 0}>
+      <h2 class="sidebar-title">
         <a href="/docs">Documentation</a>
       </h2>
       <svg
@@ -42,13 +42,13 @@
         class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
     </summary>
     <Filter on:queryChange={handleQueryChange} />
-    <menu class="sections | flow">
+    <menu class="sidebar-list">
       {#each filteredSections as { title: section, articles }}
         <li class="section">
           <details open={!isMobile}>
-            <summary tabindex={!isMobile ? -1 : 0}>
-              <h3>
-                <a href="/docs/{section}">
+            <summary class="sidebar-list-item" tabindex={!isMobile ? -1 : 0}>
+              <h3 class="sidebar-subtitle">
+                <a href="/docs/{section.toLowerCase()}">
                   {formatSectionTitle(section)}
                 </a>
               </h3>
@@ -81,48 +81,30 @@
 </nav>
 
 <style>
-  nav {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  h2 {
-    font-family: var(--ff-heading);
-    font-size: var(--fs-0);
-    font-weight: 600;
+  .sidebar-title {
     color: inherit;
     pointer-events: none;
   }
 
-  menu {
+  .articles {
     list-style: none;
     padding: 0;
   }
 
-  .sections {
-    font-size: var(--fs-1);
-    font-weight: 600;
-    font-family: var(--ff-heading);
-    gap: var(--space-m);
+  .sidebar-list-item {
+    height: var(--space-xl);
   }
 
-  .sections > li {
-    /* border: 1px solid var(--seafoam-mint); */
+  .sidebar-list > li {
     border-radius: var(--border-radius);
   }
 
   summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-inline: var(--space-m);
     cursor: pointer;
     user-select: none;
-    height: var(--space-xl);
   }
 
-  summary:where(.header) {
+  summary:where(.sidebar-header) {
     background-color: var(--reef-turquoise);
     border-radius: var(--border-radius);
     color: var(--wharf-blue);
@@ -130,29 +112,24 @@
 
   summary svg {
     transition: transform 80ms ease-out;
-  }
-
-  details[open] > summary > svg {
     transform: rotate(90deg);
   }
 
-  summary h3 {
-    font-family: var(--ff-heading);
-    font-size: var(--fs--1);
-    font-weight: 600;
-    pointer-events: none;
+  details[open] > summary > svg {
+    transform: rotate(-90deg);
   }
 
-  summary h3 a,
-  h2 a {
+  .sidebar-subtitle a,
+  .sidebar-title a {
     color: inherit;
     text-decoration: none;
+    font-weight: inherit;
   }
 
   .articles {
     padding-block-start: var(--space-2xs);
     padding-block-end: var(--space-s);
-    padding-inline: var(--space-l);
+    padding-inline: var(--space-xs);
   }
 
   .articles a {
@@ -171,7 +148,7 @@
   }
 
   @media (min-width: 769px) {
-    h2 {
+    .sidebar-title {
       color: var(--theme-text-heading);
     }
 
@@ -181,13 +158,13 @@
       pointer-events: none;
     }
 
-    summary h3 a,
-    h2 a {
+    .sidebar-subtitle a,
+    .sidebar-title a {
       pointer-events: auto;
     }
 
-    summary h3 a:hover,
-    h2 a:hover {
+    .sidebar-subtitle a:hover,
+    .sidebar-title a:hover {
       text-decoration: underline;
     }
 
@@ -197,7 +174,7 @@
 
     .articles {
       padding-block-start: 0;
-      padding-inline: var(--space-m);
+      padding-inline: 0;
     }
 
     .articles a {

@@ -20,17 +20,32 @@
 
   <div class="with-sidebar">
     <aside class="sidebar">
-      <ul>
-        <li><a href="#guidelines">Guidelines</a></li>
-        <li><a href="#logo">Logo</a></li>
-        <li><a href="#colors">Colors</a></li>
-        <li><a href="#font">Font</a></li>
-        <li><a href="#backgrounds">Backgrounds</a></li>
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">
+          <a href="/brand"> Brand </a>
+        </h1>
+      </div>
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <a href="#assets" class="sidebar-subtitle"> Assets </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="#logo" class="sidebar-subtitle"> Logo </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="#colors" class="sidebar-subtitle"> Colors </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="#font" class="sidebar-subtitle"> Font </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="#backgrounds" class="sidebar-subtitle"> Backgrounds </a>
+        </li>
       </ul>
     </aside>
     <div class="content | flow">
-      <section id="guidelines">
-        <h1>Brand Guidelines</h1>
+      <section id="assets">
+        <h1>Brand Assets and Guidelines</h1>
         <p>
           Thank you for your interest in the Wharf brand! We would like to make it as easy as
           possible for you to reference Wharf in your project, so we've prepared all the essentials
@@ -236,23 +251,10 @@
     }
   }
 
-  aside ul {
+  /* aside ul {
     position: sticky;
-    top: var(--space-m);
-    list-style: none;
-    margin-block-end: var(--space-m);
-  }
-
-  aside li {
-    display: flex;
-  }
-
-  aside a {
-    text-decoration: none;
-  }
-  aside li:hover a {
-    text-decoration: underline;
-  }
+    top: var(--space-xl);
+  } */
 
   .content {
     gap: var(--space-l);

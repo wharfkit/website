@@ -51,6 +51,7 @@
     /* prettier-ignore */
     body[data-theme="dark"] {
       --footer-background: hsl(228, 21%, 10%);
+      --header-background: var(--wharf-blue);
       background:       linear-gradient(180deg, 
        transparent 10rem,
       hsl(229deg 17% 18%) 60rem
@@ -102,9 +103,9 @@
         <h2>What is Wharf?</h2>
         <p>
           Wharf is a complete framework of intuitive and reliable developer tools for building
-          web-based apps on Antelope blockchains. Its three modular kits (Session,
-          Account, and Contract) make it easy to turn your idea into reality — whether you want to
-          create a wallet, mint NFTs, design a DeFi protocol, or build something entirely new.
+          web-based apps on Antelope blockchains. Its three modular kits (Session, Account, and
+          Contract) make it easy to turn your idea into reality — whether you want to create a
+          wallet, mint NFTs, design a DeFi protocol, or build something entirely new.
         </p>
       </div>
       <div class="logo | box place-center">
