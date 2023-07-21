@@ -107,7 +107,7 @@
 
   .hero {
     color: var(--theme-text-heading);
-    color: white;
+    /* color: white; */
   }
 
   .feature .image {

@@ -16,6 +16,27 @@
   })
 </script>
 
+<svelte:head>
+  <style>
+    /* prettier-ignore */
+    body[data-theme="dark"] {
+      --page-background: url("/src/lib/assets/patterns/2545.svg") no-repeat right top -5rem / contain, 
+        linear-gradient(180deg, 
+        #7BE7CE -8rem, 
+        /* #494E62 10rem,  */
+        color-mix(in srgb, #494E62 100%, #262936) 10rem,
+        color-mix(in srgb, #494E62 60%, #262936) 15rem,
+        color-mix(in srgb, #494E62 40%, #262936) 20rem,
+        color-mix(in srgb, #494E62 20%, #262936) 25rem,
+        color-mix(in srgb, #494E62 10%, #262936) 30rem,
+        #262936 40rem,
+        #262936 calc(100% - 30rem),
+        var(--color-primary-999) 100%
+        ) no-repeat;
+    }
+  </style>
+</svelte:head>
+
 <main>
   <article class="stack">
     <header>

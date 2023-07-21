@@ -48,6 +48,7 @@
 
     body[data-theme="dark"] {
       --footer-background: hsl(228, 21%, 10%);
+      --header-background: var(--wharf-blue);
       --page-background: #262936;
       --radial-0: hsl(166, 60%, 50%) 0%;
       --radial-1: hsl(197, 20%, 40%) 20%;
@@ -172,7 +173,7 @@
     top: var(--space-7xl);
     padding-inline: var(--space-s);
     font-family: var(--ff-heading);
-    gap: var(--space-xs);
+    gap: var(--space-s);
     display: flex;
     flex-direction: column;
     text-align: center;

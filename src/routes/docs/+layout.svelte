@@ -30,7 +30,7 @@
 
     /* prettier-ignore */
     body[data-theme="dark"] {
-      --footer-background: #262936;
+      --footer-background: linear-gradient(180deg, hsl(229deg 21% 10% / 0.3), #262936 5rem), #262936;
       --header-background: #262936;
       --page-background: 
         linear-gradient(180deg, 
