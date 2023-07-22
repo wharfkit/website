@@ -111,13 +111,13 @@
 
   <div class="tutorial | switcher">
     <div class="box stack">
-      <h2>See how all the kits fit together.</h2>
+      <h2>Try out the Session Kit.</h2>
       <p>
-        In our tutorial, you’ll get to use the Session, Account, and Contract kits to create a
-        functioning web app. From there, you can use your knowledge to combine or isolate different
-        elements from each kit to create an app of your own.
+        Learn how to define a Session and perform transactions with our Node.js Tutorial, or discover
+        how to connect wallets to a web application and prompt transactions with our Web App Tutorial.
+        And check back soon for more tutorials on the other kits!
       </p>
-      <a href="#" class="button">Start Tutorial</a>
+      <a href="#" class="button">Node.js Tutorial</a>
     </div>
     <div class="image | box place-center">
       <img src={frame2518} alt="wharf logo stylized" loading="lazy" />
