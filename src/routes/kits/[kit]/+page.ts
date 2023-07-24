@@ -18,9 +18,14 @@ export const load = (async ({ params }) => {
         throw error(404, 'Kit not found')
     }
 
+    const meta = {
+        title: kitPage.title,
+        description: kitPage.subtitle,
+    }
 
     return {
         params,
         kit: kitPage,
+        meta,
     };
 }) satisfies PageLoad;

@@ -8,8 +8,14 @@ export const load = (async ({ fetch, url }) => {
   const totalRes = await fetch(`/api/posts/total`)
   const totals: { total: number, tags: Record<string, number> } = await totalRes.json()
 
+  const meta = {
+    title: "Blog",
+    description: "Want to keep up with the latest Wharf developments? Check out our blog for regular video updates and technical previews.",
+  }
+
   return {
     posts,
-    totals
+    totals,
+    meta,
   }
 }) satisfies PageLoad

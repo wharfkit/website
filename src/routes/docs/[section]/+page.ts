@@ -13,7 +13,13 @@ export const load = (async ({ parent, params }) => {
         throw error(404)
     }
 
+    const meta = {
+        title: section.indexPage.title,
+        description: section.indexPage.description,
+    }
+
     return {
+        meta,
         section,
         breadcrumbs: createBreadcrumbs(section.title),
     };
