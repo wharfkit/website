@@ -68,7 +68,6 @@
   .wrapper {
     position: relative;
     margin-block-start: var(--space-s);
-    margin-block-end: var(--space-m);
   }
 
   input {

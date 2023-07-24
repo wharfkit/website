@@ -37,6 +37,7 @@ interface DocumentationArticle {
 
 interface DocumentationSection {
   title: string
+  indexPage: DocumentationArticle
   articles: DocumentationArticle[]
 }
 

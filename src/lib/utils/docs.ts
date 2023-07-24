@@ -22,13 +22,13 @@ export function filterDocumentationArticles(
 
   const filteredSections: DocumentationSection[] = [];
 
-  sections.forEach(({ title, articles }) => {
+  sections.forEach(({ articles, ...rest }) => {
     const filteredArticles = articles.filter((article) =>
       article.title.toLowerCase().includes(query.toLowerCase())
     );
 
     if (filteredArticles.length > 0) {
-      filteredSections.push({ title, articles: filteredArticles });
+      filteredSections.push({ articles: filteredArticles, ...rest });
     }
   });
 
@@ -126,14 +126,26 @@ export function makeDoc(markdown: MarkdownFile): DocumentationArticle {
   return doc
 }
 
-
-
 export function orderSections(groupedDocs: Record<string, DocumentationArticle[]>, order: string[]): DocumentationSection[] {
   const sections = order.flatMap((section) => {
-    const articles = groupedDocs[section.toLowerCase()]
-    if (!articles) return []
-    return { title: formatSectionTitle(section), articles }
+    const allArticles = groupedDocs[section.toLowerCase()]
+    if (!allArticles) return []
+    const [indexPage, articles] = getSectionIndexPage(allArticles)
+    return { title: formatSectionTitle(section), articles, indexPage }
   })
   return sections
 }
 
+/**
+ * Extracts index page from articles and removes it from the array
+ */
+function getSectionIndexPage(articles: DocumentationArticle[]): [DocumentationArticle, DocumentationArticle[]] {
+  const indexPage = articles.find((article) => article.slug === "index")
+  const filteredArticles = articles.filter((article) => article.slug !== "index")
+
+  if (!indexPage) {
+    throw new Error(`No index page found for section ${articles[0].section}`)
+  }
+
+  return [indexPage, filteredArticles]
+}

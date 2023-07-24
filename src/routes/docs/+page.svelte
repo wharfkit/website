@@ -6,9 +6,13 @@
   <h1>Documentation</h1>
 
   <p>
-    Welcome to Wharf's documentation, where you can find instructions on how to use the Session Kit. 
-    Documentation for all three kits is currently a work in progress, but check back soon for instructions on the Contract and Account Kits. 
-    Please reach out through the <a href="https://t.me/wharfkit">Wharf Telegram channel</a> if you have any specific documentation requests. 
+    Welcome to Wharf's documentation, where you can find instructions on how to use the Session Kit.
+  </p>
+  <p>
+    Documentation for all three kits is currently a work in progress, but check back soon for
+    instructions on the Contract and Account Kits. Please reach out through the <a
+      href="https://t.me/wharfkit">Wharf Telegram channel</a> if you have any specific documentation
+    requests.
   </p>
   <hr />
 
