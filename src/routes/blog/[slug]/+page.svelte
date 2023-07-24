@@ -69,34 +69,11 @@
   }
 
   article :global(h2) {
-    font-family: var(--ff-heading);
-    font-size: var(--fs-2);
-    font-weight: 600;
     margin-block-start: var(--space-m);
   }
 
   article :global(h3) {
-    font-family: var(--ff-heading);
-    font-size: var(--fs-1);
-    font-weight: 600;
     margin-block-start: var(--space-s);
-  }
-
-  /* article :global(blockquote) {
-    background-color: var(--theme-surface2);
-    border: 1px solid var(--color-secondary-200);
-    padding-block: var(--space-s);
-    padding-inline: var(--space-m);
-    border-radius: var(--border-radius, 12px);
-  } */
-
-  article :global(li),
-  article :global(p) {
-    line-height: var(--space-l);
-  }
-
-  article :global(li:not(:first-child)) {
-    margin-block-start: var(--space-xs);
   }
 
   img {

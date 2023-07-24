@@ -15,6 +15,7 @@
 </script>
 
 <svelte:head>
+  <link rel="preload" href="/styles/documentation.css" as="style" />
   <style>
     /* prettier-ignore */
     body[data-theme="light"] {

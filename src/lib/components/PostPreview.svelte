@@ -10,7 +10,7 @@
   export let image: string = ""
 </script>
 
-<article class="stack">
+<article class="preview | stack">
   <header>
     <a href={path}>
       <h2>{title}</h2>
@@ -69,7 +69,7 @@
 </article>
 
 <style>
-  article {
+  .preview {
     gap: var(--space-s);
   }
 
