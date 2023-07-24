@@ -2,6 +2,7 @@
 title: SessionKit
 description: The SessionKit is responsible for creating and managing end user Session instances for web applications through actions such as login and restore.
 category: SessionKit
+published: true
 slug: index
 ---
 

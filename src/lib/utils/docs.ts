@@ -2,6 +2,12 @@ import * as cheerio from "cheerio"
 import slugify from "@sindresorhus/slugify"
 import { capitalize } from "./general"
 
+
+/**
+ * Formats the section title by capitalizing each word and removing dashes
+ * @param section 
+ * @returns 
+ */
 export function formatSectionTitle(section: string) {
   // remove any dashes from section
   const sectionName = section.replace(/-/g, " ")
@@ -12,6 +18,12 @@ export function formatSectionTitle(section: string) {
   return sectionTitle
 }
 
+/**
+ * Filters the documentation articles by title based on the query
+ * @param sections 
+ * @param query 
+ * @returns 
+ */
 export function filterDocumentationArticles(
   sections: DocumentationSection[],
   query: string
@@ -76,7 +88,13 @@ function getFirstParagraph(html: string): string {
   return firstParagraph
 }
 
-function groupDocsBySection(docs: DocumentationArticle[]): Record<string, DocumentationArticle[]> {
+
+/**
+ * Groups the docs by section name
+ * @param docs 
+ * @returns 
+ */
+function groupBySection(docs: DocumentationArticle[]): Record<string, DocumentationArticle[]> {
   const grouped = docs.reduce((acc, doc) => {
     const { section } = doc
     if (!acc[section]) {
@@ -88,21 +106,43 @@ function groupDocsBySection(docs: DocumentationArticle[]): Record<string, Docume
   return grouped
 }
 
+const isDocVisible = (doc: DocumentationArticle): boolean => doc.published === true
+const docSort = (a: DocumentationArticle, b: DocumentationArticle): number => (a.order || 0) - (b.order || 0)
+
+/**
+ * Imports all the docs from the /src/lib/docs folder
+ * @returns 
+ */
 export async function fetchDocs() {
   const allDocFiles = import.meta.glob("/src/lib/docs/**/*.md")
   const iterableDocs = Object.entries(allDocFiles)
   const allDocs = await Promise.all(
-    iterableDocs.map(async ([path, resolver]) => {
-      const resolved = await resolver() as MarkdownFile
-      return resolved
-    }
-    )
+    iterableDocs.map(async ([path, resolver]) => await resolver() as MarkdownFile)
   )
-  const docs = allDocs.map(makeDoc)
-  const groupedDocs = groupDocsBySection(docs)
+  const docs = allDocs
+    .map(makeDoc)
+    .filter(isDocVisible)
+    .sort(docSort)
+
+  return docs
+}
+
+
+/**
+ * Imports all the docs from the /src/lib/docs folder and groups them by section
+ * @returns
+ */
+export async function fetchGroupedDocs() {
+  const docs = await fetchDocs()
+  const groupedDocs = groupBySection(docs)
   return groupedDocs
 }
 
+/**
+ * Creates a DocumentationArticle from a MarkdownFile
+ * @param markdown
+ * @returns
+ */
 export function makeDoc(markdown: MarkdownFile): DocumentationArticle {
   const metadata: DocumentationMetadata = markdown.metadata || {}
   const content = markdown.default.render().html
@@ -126,6 +166,12 @@ export function makeDoc(markdown: MarkdownFile): DocumentationArticle {
   return doc
 }
 
+/**
+ * Orders the sections based on the displayOrder array
+ * @param groupedDocs 
+ * @param order 
+ * @returns 
+ */
 export function orderSections(groupedDocs: Record<string, DocumentationArticle[]>, order: string[]): DocumentationSection[] {
   const sections = order.flatMap((section) => {
     const allArticles = groupedDocs[section.toLowerCase()]

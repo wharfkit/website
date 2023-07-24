@@ -33,6 +33,8 @@ interface DocumentationArticle {
   slug: string
   description: string
   headings: HeadingNode[]
+  published?: boolean
+  order?: number
 }
 
 interface DocumentationSection {
@@ -47,6 +49,7 @@ interface DocumentationMetadata extends MarkdownMetadata {
   category?: string
   order?: number
   slug?: string
+  published?: boolean
 }
 
 interface HeadingNode {
