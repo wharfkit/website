@@ -1,6 +1,9 @@
 <script lang="ts">
   import { filterDocumentationArticles, formatSectionTitle } from "$lib/utils/docs"
   import Filter from "./Filter.svelte"
+  import { page } from "$app/stores"
+
+  console.log($page.url)
 
   export let docs: DocumentationSection[]
 
@@ -67,7 +70,10 @@
             <menu class="articles">
               {#each articles as article}
                 <li>
-                  <a href={article.path} on:click={collapseNav}>
+                  <a
+                    href={article.path}
+                    on:click={collapseNav}
+                    class:active={article.path === $page.url.pathname}>
                     {article.title}
                   </a>
                 </li>
@@ -145,6 +151,11 @@
 
   .articles a:hover {
     text-decoration: underline;
+  }
+
+  .articles a.active {
+    font-weight: 600;
+    color: var(--theme-text-heading);
   }
 
   @media (min-width: 769px) {

@@ -25,17 +25,17 @@
       </div>
       <ul class="sidebar-list">
         <li class="sidebar-list-item">
-          <a href="/blog?tag=all" class="sidebar-subtitle">
+          <a href="/blog?tag=all" class="sidebar-subtitle" class:active={tag === "all"}>
             All posts ({data.totals.total})
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="/blog?tag=video" class="sidebar-subtitle">
+          <a href="/blog?tag=video" class="sidebar-subtitle" class:active={tag === "video"}>
             Videos ({data.totals.tags["video"]})
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="/blog?tag=article" class="sidebar-subtitle">
+          <a href="/blog?tag=article" class="sidebar-subtitle" class:active={tag === "article"}>
             Articles ({data.totals.tags["article"]})
           </a>
         </li>
