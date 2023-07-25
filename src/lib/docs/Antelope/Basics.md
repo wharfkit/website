@@ -5,6 +5,8 @@ category: Antelope
 published: true
 ---
 
+# Basics
+
 ## Installing
 
 This library is distributed through npmjs.org and can be installed as a dependency in your project as follows.
