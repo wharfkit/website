@@ -81,13 +81,11 @@
   }
 
   .play {
-    --padding: var(--space-m);
     background-color: var(--wharf-blue);
+    border-radius: 24px;
     border-radius: 50%;
-    aspect-ratio: 1;
     display: grid;
     place-content: center;
-    z-index: 0;
     opacity: 80%;
     transition: opacity 200ms ease-out;
   }
