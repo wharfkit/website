@@ -1,8 +1,8 @@
 ---
 title: Basics
-description: change_me
+description: Getting started with the wharfkit/antelope library
 category: Antelope
-published: false
+published: true
 ---
 
 ## Installing

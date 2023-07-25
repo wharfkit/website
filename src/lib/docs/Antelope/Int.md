@@ -1,8 +1,8 @@
 ---
 title: Int
-description: change_me
+description: Integer types and mathematical operations that follow the C++11 standard that Antelope blockchains use.
 category: Antelope
-published: false
+published: true
 ---
 
 # Int

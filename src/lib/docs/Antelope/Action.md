@@ -1,27 +1,29 @@
 ---
 title: Action
-description: change_me
+description: A typed representation of a smart contract action and its data.
 category: Antelope
-published: false
+published: true
 ---
 
 # Action
 
-Each Antelope [Transaction](#) contains an array of `Action` objects, with each `Action` being an independent call to a smart contract function. Each `Action` is individually serialized using the `ABI` for the associated smart contract it executes against, at the block height it was submitted.
+An `Action` is a call to execute a function on a [Smart Contract](#). One or more action objects are required for the creation of a [Transaction](#). Each action contains data for a specific call. This data is serialized using the `ABI` from the smart contract associated with the action, at the block height it was submitted.
 
-While both the [SessionKit](#) and [ContractKit](#) abstracts away this complexity, assembling an `Action` manually is something application developers may have to do at times in order to request a signature from their users.
+While both the [SessionKit](#) and [ContractKit](#) abstracts away this complexity, assembling an action manually is often times something applications may need to do in more advanced use cases.
+
+This document will go over what an action is and how to create them.
 
 ## Anatomy of an Action
 
-Every `Action` performed against a smart contract on an Antelope blockchain consists of the information similar to this:
+Every `Action` consists of the following information:
 
 ```ts
 {
-    // The account the contract is associated with on-chain
+    // The name of the account that the contract is deployed to
     account: 'eosio.token',
-    // The name of the method to execute on the contract
+    // The name of the action to execute on the contract
     name: 'transfer',
-    // An array of authorizations used to perform the transaction
+    // An array of accounts and permissions authorizing this action
     authorization: [
         {
             actor: 'foo',
@@ -38,7 +40,11 @@ Every `Action` performed against a smart contract on an Antelope blockchain cons
 }
 ```
 
-This structure includes the `account` the smart contract exists on as well as the `name` of the action to perform. The `authorization` block defines the account that will perform the action against the smart contract. Finally, the `data` object in the action defines the parameters passed to the smart contract call. This `data` field on the action needs to be serialized before its submitted to the blockchain, which is what the `Action` Antelope data type helps achieve. This data type provides the methods needed in order to encode and decode the serialized data, depending on the developers needs.
+This structure includes the `account` the smart contract exists on as well as the `name` of the action to perform.
+
+The `authorization` array defines the account(s) that authorize the performing of the action on the smart contract.
+
+Finally, the `data` object in the action defines the parameters passed to the smart contract call. This field on the action is serialized before its submitted to the blockchain, which is what the `Action` Antelope data type helps achieve. This data type provides the methods needed in order to encode and decode the serialized data, depending on the developers needs.
 
 Once serialized, the actual anatomy of an `Action` at the system level looks more like this:
 
@@ -64,7 +70,7 @@ The serialized data contained within the `data` field is encoded using the [Stru
 
 ## Usage
 
-A new smart contract `Action` can be created in multiple ways, depending on whether the data is already serialized.
+A smart contract `Action` can be created in multiple ways, depending on whether or not the data is serialized.
 
 ```ts
 // Passing in data which contains serialized data (either raw or using a Struct)
@@ -127,7 +133,7 @@ const typedAction = Action.from(untypedAction)
 // {"account":"eosio.token","name":"transfer","authorization":[{"actor":"foo","permission":"active"}],"data":"80b1915e5d268dca00000092019ca65e010000000000000004454f5300000000185468616e6b7320666f7220616c6c20746865206669736821"}
 ```
 
-#### Using unserialized data with a retrieved ABI
+#### Using unserialized data with an ABI
 
 An [ABI](#) can also be passed as a 2nd parameter to the `.from` method to automatically convert unserialized data.
 

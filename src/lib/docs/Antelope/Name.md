@@ -1,8 +1,8 @@
 ---
 title: Name
-description: change_me
+description: Human readable account, permission, table, contract and other types of short strings used in Antelope blockchains.
 category: Antelope
-published: false
+published: true
 ---
 
 # Name

@@ -1,15 +1,13 @@
 ---
 title: Asset
-description: change_me
+description: A typed representation of an Asset consisting of a numerical amount and descriptive symbol (e.g. "1.0000 TOKEN").
 category: Antelope
-published: false
+published: true
 ---
 
 # Asset
 
-The `Asset` type represents a token balance on an Antelope chain and is the combination of two `UInt64` values, one for the token quantity and one for the token `Symbol`.
-
-`10.0000 FOO` is a string representation of an `Asset`, with the first part being the quantity with an exact precision and the other being the token symbol.
+The `Asset` type on Antelope blockchains represents a specific amount of a given token, with an example being `10.0000 FOO`. Internally it is represented by combining two `UInt64` values, one for the numerical quantity and one for the string-based token `Symbol`.
 
 ## Usage
 
@@ -21,7 +19,9 @@ import { Asset } from "@wharfkit/antelope"
 const balance = Asset.from("1.0000 FOO")
 ```
 
-The `Asset` will determine the decimal precision based on the amount of numbers after the decimal. In the above example, the precision is `4`. It will also determine the `Symbol` of the `Asset` based on the string that follows the numeric value. An internal representation of the value is also determined for use in integer-based math and is named `Units`.
+The `Asset` type will automatically determine the decimal precision based on the amount of numbers after the decimal. In the above example, the precision is `4`. It will also determine the `Symbol` of the asset based on the string that follows the numeric value, in this case `FOO`.
+
+An internal representation of the numeric value is also maintained for use in integer-based math and is surfaced on a property named `units`.
 
 An example representation of the above `Asset` in JSON data would be:
 
@@ -80,7 +80,22 @@ const balance = Asset.fromUnits(300, "4,FOO")
 
 With an `Asset` instance established, a number of properties are made readily available for use in applications.
 
+### Units
+
+The units portion of an `Asset` contains a representation of the amount as an `Int64` value. It can be accessed through the `.units` property on the `Asset`.
+
+```ts
+const balance = Asset.from("10.0000 FOO")
+
+console.log(balance.units) // Int64.from(100000)
+console.log(Number(balance.units)) // Number(100000)
+```
+
+With the `units` value of an asset being an `Int64`, it can make use of all the built-in [Int](#) math operations.
+
 ### Value
+
+> **IMPORTANT**: Due to the oddities surrounding floating point math in Javascript, if you plan to perform mathematical operations with an Asset, it is recommended you use the Units value (`.units` property) or internal mathematical operators instead.
 
 Each `Asset` has a `.value` property which can be accessed to utilize the value of the asset as a native javascript `Number`.
 
@@ -93,21 +108,6 @@ const balance = Asset.from("0.0001 FOO")
 
 console.log(balance.value) // Number(0.0001)
 ```
-
-Due to the oddities surrounding floating point math in Javascript, if you need to perform mathematical operations on these values, it is recommended you use the `.units` value instead.
-
-### Units
-
-The units portion of an `Asset` contains the numeric amount of the asset represented as an `Int64` value. It can be accessed through the `.units` property on the `Asset`.
-
-```ts
-const balance = Asset.from("10.0000 FOO")
-
-console.log(balance.units) // Int64.from(100000)
-console.log(Number(balance.units)) // Number(100000)
-```
-
-With the `units` value of an asset being an `Int64`, it can make use of all the built-in [Int](#) math operations.
 
 ### Symbol
 

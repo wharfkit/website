@@ -1,13 +1,13 @@
 ---
 title: APIClient
-description: change_me
+description: Access native Antelope API endpoints to retrieve typed data and submit transactions.
 category: Antelope
-published: false
+published: true
 ---
 
 # APIClient
 
-The `APIClient` provided by the [Antelope](#) library is an abstraction built on top of a [FetchProvider](#) that gives developers access to the native API calls.
+The `APIClient` provided by the [Antelope](#) library is an abstraction built using [Fetch](#) that gives developers and their applications easy access to the native API calls.
 
 ## Usage
 
@@ -16,26 +16,32 @@ The `APIClient` provided by the [Antelope](#) library is an abstraction built on
 In browser-based environments in order to create a working client, the only required parameter is the URL of the API it should use to make requests against. This will also work in a nodejs environment where the version is greater than v18.
 
 ```ts
+import { APIClient } from "@wharfkit/antelope"
+
 const client = new APIClient({
   url: "https://jungle4.greymass.com",
 })
 ```
 
-In a nodejs environment where the version is less than v18 and [fetch](#) isn't a native feature, an instance of a `FetchProvider` must be given so that the `APIClient` knows how to make HTTP requests to the API.
+#### Fetch Compatibility
 
-This example includes [node-fetch](https://www.npmjs.com/package/node-fetch) and passes it to the `FetchProvider` so the `APIClient` can make requests.
+In a nodejs environment where the version is less than v18 and [fetch](#) isn't natively available, an instance of a `FetchProvider` must be created and given to the `APIClient`.
+
+This example uses the [node-fetch](https://www.npmjs.com/package/node-fetch) package.
 
 ```ts
-const fetch = require("node-fetch")
+import { APIClient } from "@wharfkit/antelope"
+import fetch from "node-fetch"
 
 const provider = new FetchProvider("https://jungle4.greymass.com", { fetch })
-
 const client = new APIClient({ provider })
 ```
 
 ### Using an APIClient
 
-Once an `APIClient` is established for a given chain, it will give access to a number of predefined API endpoints as method calls. The list of available methods embedded in the `APIClient` can be found in either the [ChainAPI](https://wharfkit.github.io/antelope/classes/ChainAPI.html) or [HistoryAPI](https://wharfkit.github.io/antelope/classes/HistoryAPI.html) autodocs. The autocompletion helpers in the developers IDE should also prompt with the available options in either `client.v1.chain` or `client.v1.history`.
+Once an `APIClient` is established for a given chain, it will give access to a number of predefined API endpoints as method calls.
+
+The list of available methods embedded in the `APIClient` can be found in either the [ChainAPI](https://wharfkit.github.io/antelope/classes/ChainAPI.html) or [HistoryAPI](https://wharfkit.github.io/antelope/classes/HistoryAPI.html) autodocs. The autocompletion helpers in the developers IDE should also prompt with the available options in either `client.v1.chain` or `client.v1.history`.
 
 Every API call made through the `APIClient` returns a promise that must be handled either through `await` or `.then`. The example below illustrates the two ways you could call the `/v1/chain/get_info` API endpoint and return a response.
 
@@ -51,7 +57,7 @@ client.v1.chain.get_info().then((response) => {
 
 #### Typed Responses
 
-The `response` returned from the `APIClient` instance will be fully typed using Antelope core types. The above call will return an instance of [GetInfoResponse](https://github.com/wharfkit/antelope/blob/070bfb3bfe4b5f50f031dc58eb18090806e06c07/src/api/v1/types.ts#L324-L370), which automatically has all of the values in a typed state.
+The `response` returned from the `APIClient` instance will be fully typed using Antelope core types. The above call will return an instance of [GetInfoResponse](https://github.com/wharfkit/antelope/blob/070bfb3bfe4b5f50f031dc58eb18090806e06c07/src/api/v1/types.ts#L324-L370), which automatically typed all of the values to mirror the blockchain state.
 
 ```ts
 GetInfoResponse {
@@ -149,9 +155,9 @@ The resulting response will then use native JavaScript types, as illustrated bel
 
 ### Unsupported API calls
 
-If an API call isn't supported within the `APIClient`, a pull request can be made to the library implementing the call or the `client.call` method can be used to make a request given a known path and parameters.
+If an API call isn't implemented yet within the `APIClient`, we'd encourage you to contribute to the [Antelope](#) codebase and open a pull request.
 
-#### Contributing code for new API calls
+#### Contributing new API calls
 
 An example commit implementing the `v1/chain/get_accounts_by_authorizers` can be [found here for reference](https://github.com/wharfkit/antelope/pull/59/commits/b85448be3c99fccb45d76d310b698ea6a36ec7eb).
 

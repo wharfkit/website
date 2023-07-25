@@ -1,15 +1,15 @@
 ---
 title: P2PClient
-description: change_me
+description: Access the Antelope P2P network to stream live activity and sync blockchain state.
 category: Antelope
-published: false
+published: true
 ---
 
 # P2PClient
 
 The `P2PClient` provided by the [Antelope](#) library is a client capable of sending and receiving messages on a native Antelope peer-to-peer network.
 
-All documentation surrounding usage of this client will focus on usage within a nodejs context.
+> **NOTE**: This documentation about the usage of the `P2PClient` will focus on usage within a nodejs context. While it may be possible in the browser context, it has not been tested.
 
 ## Usage
 
