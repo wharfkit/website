@@ -3,13 +3,12 @@
   import Filter from "./Filter.svelte"
   import { page } from "$app/stores"
 
-  console.log($page.url)
-
   export let docs: DocumentationSection[]
 
   let filteredSections = docs
   let innerWidth: number
   let sideNav: HTMLDetailsElement
+  let currentPath = $page.url.pathname
 
   $: isMobile = innerWidth <= 768
 
@@ -73,7 +72,7 @@
                   <a
                     href={article.path}
                     on:click={collapseNav}
-                    class:active={article.path === $page.url.pathname}>
+                    class:active={article.path === currentPath}>
                     {article.title}
                   </a>
                 </li>
