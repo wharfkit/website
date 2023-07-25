@@ -10,7 +10,8 @@
         <h1>{kit}</h1>
         <p>We're working on it...</p>
       </hgroup>
-      <a href="https://github.com/wharfkit/" class="button">Check Progress on Github</a>
+      <a href="https://github.com/orgs/wharfkit/projects/1" class="button"
+        >Check Progress on Github</a>
     </div>
     <SessionAnimation {kit} />
   </section>
