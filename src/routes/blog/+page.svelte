@@ -25,7 +25,7 @@
       </div>
       <ul class="sidebar-list">
         <li class="sidebar-list-item">
-          <a href="/blog" class="sidebar-subtitle">
+          <a href="/blog?tag=all" class="sidebar-subtitle">
             All posts ({data.totals.total})
           </a>
         </li>

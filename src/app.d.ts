@@ -79,7 +79,7 @@ interface BlogQueryOptions {
   tag?: BlogPostTag
 }
 
-type BlogPostTag = "video" | "article"
+type BlogPostTag = "video" | "article" | "all"
 
 interface BlogPost {
   title: string

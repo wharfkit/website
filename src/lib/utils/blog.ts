@@ -61,6 +61,7 @@ export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise
 
   // Filter by Tag
   if (tag) {
+    if (tag === "all") return sortedPosts
     sortedPosts = sortedPosts.filter((post) => post.tags.includes(tag))
   }
 
