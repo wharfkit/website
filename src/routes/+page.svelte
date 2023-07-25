@@ -2,7 +2,7 @@
   import sessionKit from "$lib/assets/images/kits/session-kit.svg"
   import contractKit from "$lib/assets/images/kits/contract-kit.svg"
   import accountKit from "$lib/assets/images/kits/account-kit.svg"
-  import VisionBoard from "$lib/components/VisionBoard.svelte"
+  // import VisionBoard from "$lib/components/VisionBoard.svelte"
   import reactIcon from "$lib/assets/icons/react.svg"
   import javascriptIcon from "$lib/assets/icons/javascript.svg"
   import vueIcon from "$lib/assets/icons/vue.svg"
@@ -89,9 +89,10 @@
     <div class="launch | stack">
       <h2>What will you launch with Wharf?</h2>
       <p>
-        Whether you want to create a wallet, mint NFTs, design a DeFi protocol, or build something entirely 
-        new: the days of clunky, limited blockchain SDKs are over! Wharf’s modular and user-focused approach 
-        saves development time and effort, helping to turn your ideas into reality.
+        Whether you want to create a wallet, mint NFTs, design a DeFi protocol, or build something
+        entirely new: the days of clunky, limited blockchain SDKs are over! Wharf’s modular and
+        user-focused approach saves development time and effort, helping to turn your ideas into
+        reality.
       </p>
       <a href="/kits" class="button">Learn About the Kits</a>
     </div>
@@ -114,7 +115,7 @@
         Vue, React, Svelte, Typescript, or NodeJS, you can start building today. (Check back soon
         for Starter Kits in your favorite framework!)
       </p>
-      <a href="#" class="button disabled">Check It Out</a>
+      <a href="#" class="button">Check It Out</a>
     </div>
   </section>
 
@@ -141,7 +142,7 @@
         products and services. Together the EOS, Telos, WAX and UX networks reliably fulfill
         millions of transactions per day.
       </p>
-      <a href="#" class="button">Learn More About Antelope</a>
+      <a href="https://antelope.io/" class="button">Learn More About Antelope</a>
     </div>
   </section>
 
@@ -151,9 +152,9 @@
     <a href="/blog" class="button">Go to the Blog</a>
   </section>
 
-  <section class="vision | full-bleed">
+  <!-- <section class="vision | full-bleed">
     <VisionBoard />
-  </section>
+  </section> -->
 </main>
 
 <style>
