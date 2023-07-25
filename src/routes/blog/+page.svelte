@@ -20,26 +20,28 @@
 <main>
   <section>
     <aside>
-      <div class="sidebar-header">
-        <h1 class="sidebar-title"><a href="/blog">Blog</a></h1>
-      </div>
-      <ul class="sidebar-list">
-        <li class="sidebar-list-item">
-          <a href="/blog?tag=all" class="sidebar-subtitle" class:active={tag === "all"}>
-            All posts ({data.totals.total})
-          </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="/blog?tag=video" class="sidebar-subtitle" class:active={tag === "video"}>
-            Videos ({data.totals.tags["video"]})
-          </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="/blog?tag=article" class="sidebar-subtitle" class:active={tag === "article"}>
-            Articles ({data.totals.tags["article"]})
-          </a>
-        </li>
-      </ul>
+      <nav>
+        <div class="sidebar-header">
+          <h1 class="sidebar-title"><a href="/blog">Blog</a></h1>
+        </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="/blog?tag=all" class="sidebar-subtitle" class:active={tag === "all"}>
+              All posts ({data.totals.total})
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="/blog?tag=video" class="sidebar-subtitle" class:active={tag === "video"}>
+              Videos ({data.totals.tags["video"]})
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="/blog?tag=article" class="sidebar-subtitle" class:active={tag === "article"}>
+              Articles ({data.totals.tags["article"]})
+            </a>
+          </li>
+        </ul>
+      </nav>
     </aside>
 
     <div class="list">
@@ -70,6 +72,11 @@
 
   aside {
     display: none;
+  }
+
+  aside nav {
+    position: sticky;
+    top: var(--space-xl);
   }
 
   .sidebar-list {

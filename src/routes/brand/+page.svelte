@@ -15,28 +15,30 @@
 <main>
   <div class="with-sidebar">
     <aside class="sidebar">
-      <div class="sidebar-header">
-        <h1 class="sidebar-title">
-          <a href="/brand"> Brand </a>
-        </h1>
-      </div>
-      <ul class="sidebar-list">
-        <li class="sidebar-list-item">
-          <a href="#assets" class="sidebar-subtitle"> Assets </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="#logo" class="sidebar-subtitle"> Logo </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="#colors" class="sidebar-subtitle"> Colors </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="#font" class="sidebar-subtitle"> Font </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="#backgrounds" class="sidebar-subtitle"> Backgrounds </a>
-        </li>
-      </ul>
+      <nav>
+        <div class="sidebar-header">
+          <h1 class="sidebar-title">
+            <a href="/brand"> Brand </a>
+          </h1>
+        </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="#assets" class="sidebar-subtitle"> Assets </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#logo" class="sidebar-subtitle"> Logo </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#colors" class="sidebar-subtitle"> Colors </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#font" class="sidebar-subtitle"> Font </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#backgrounds" class="sidebar-subtitle"> Backgrounds </a>
+          </li>
+        </ul>
+      </nav>
     </aside>
     <div class="content | flow">
       <section id="assets">
@@ -238,6 +240,11 @@
 <style>
   aside {
     display: none;
+  }
+
+  aside nav {
+    position: sticky;
+    top: var(--space-xl);
   }
 
   @media screen and (min-width: 900px) {
