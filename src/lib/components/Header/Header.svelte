@@ -5,34 +5,37 @@
   import MegaMenuItem from "./MegaMenuItem.svelte"
 
   let innerWidth: number
-  let menu: HTMLDetailsElement
+  let menuWrapper: HTMLDetailsElement
+  let menu: HTMLMenuElement
   let kitsMenu: HTMLDetailsElement
-  
+
   $: section = $page.url.pathname
   $: isMobile = innerWidth <= 768
-  $: isMenuOpen = isMobile ? false : true
+  $: isMenuOpen = false 
+
+  function toggleMenu() {
+    isMenuOpen = menuWrapper.open 
+    menu.style.display = "flex"
+  } 
 
   function closeNav() {
     if (isMobile) {
-      menu.removeAttribute("open")
-      isMenuOpen = false
+      menuWrapper.removeAttribute("open")
     }
-  }
-
-  function toggleMenu() {
-    isMenuOpen = !isMenuOpen
-  }
-
-  function closeDetails() {
-    kitsMenu?.removeAttribute("open")
+    kitsMenu.removeAttribute("open")
   }
 
   function handleDismiss(e) {
-    if (!kitsMenu?.contains(e.target)) {
-      closeDetails()
+    // closes whole nav on mobile if click is outside of menu
+    if (isMobile && !menuWrapper.contains(e.target)) {
+      closeNav()
+    }
+    
+    // closes kits dropdown on desktop if click is outside of dropdown
+    if (!isMobile && !kitsMenu.contains(e.target)) {
+      closeNav()
     }
   }
-
 </script>
 
 <svelte:window bind:innerWidth />
@@ -46,35 +49,44 @@
       </a>
     </div>
 
-    <!-- TODO: fix flash of open menu on mobile -->
-    <details class="menu" bind:this={menu} open={!isMobile}>
-      <MenuToggle {isMenuOpen} onClick={toggleMenu} />
-
-      <menu>
+    <details class="menu" open={!isMobile} bind:this={menuWrapper} on:toggle={toggleMenu}>
+      <MenuToggle {isMenuOpen} />
+      <menu bind:this={menu}>
         <li>
           <details class="kits-menu" bind:this={kitsMenu}>
             <summary>
-              <span class="nav-item">Kits
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox='0 0 24 24' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
-            </span>
-          </summary>
+              <span class="nav-item"
+                >Kits
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6" /></svg>
+              </span>
+            </summary>
             <ul>
-              <MegaMenuItem {section} title="Kits Overview" href="/kits" onClick={closeDetails} />
+              <MegaMenuItem {section} title="Kits Overview" href="/kits" onClick={closeNav} />
               <MegaMenuItem
                 {section}
                 title="Session Kit"
                 href="/kits/session"
-                onClick={closeDetails} />
+                onClick={closeNav} />
               <MegaMenuItem
                 {section}
                 title="Contract Kit"
                 href="/kits/contract"
-                onClick={closeDetails} />
+                onClick={closeNav} />
               <MegaMenuItem
                 {section}
                 title="Account Kit"
                 href="/kits/account"
-                onClick={closeDetails} />
+                onClick={closeNav} />
             </ul>
           </details>
         </li>
@@ -297,7 +309,7 @@
       right: 0;
       height: auto;
       z-index: 999;
-      display: flex;
+      display: none;
       flex-direction: column;
       gap: var(--space-s);
     }

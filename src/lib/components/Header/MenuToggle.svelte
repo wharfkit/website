@@ -1,9 +1,8 @@
 <script lang="ts">
   export let isMenuOpen: boolean
-  export let onClick: () => void
 </script>
 
-<summary class="menuToggle" on:click={onClick}>
+<summary class="menuToggle">
   <span class="visually-hidden">{isMenuOpen ? "Close" : "Open"}</span>
   <svg
     xmlns="http://www.w3.org/2000/svg"
