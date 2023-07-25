@@ -107,7 +107,7 @@ function groupBySection(docs: DocumentationArticle[]): Record<string, Documentat
 }
 
 const isDocVisible = (doc: DocumentationArticle): boolean => doc.published === true
-const docSort = (a: DocumentationArticle, b: DocumentationArticle): number => (a.order || 0) - (b.order || 0)
+const docSort = (a: DocumentationArticle, b: DocumentationArticle): number => (a.order || 100) - (b.order || 100)
 
 /**
  * Imports all the docs from the /src/lib/docs folder
@@ -176,7 +176,7 @@ export function orderSections(groupedDocs: Record<string, DocumentationArticle[]
   const sections = order.flatMap((section) => {
     const allArticles = groupedDocs[section.toLowerCase()]
     if (!allArticles) return []
-    const [indexPage, articles] = getSectionIndexPage(allArticles)
+    const [indexPage, articles] = extractSectionIndexPage(allArticles)
     return { title: formatSectionTitle(section), articles, indexPage }
   })
   return sections
@@ -185,7 +185,7 @@ export function orderSections(groupedDocs: Record<string, DocumentationArticle[]
 /**
  * Extracts index page from articles and removes it from the array
  */
-function getSectionIndexPage(articles: DocumentationArticle[]): [DocumentationArticle, DocumentationArticle[]] {
+function extractSectionIndexPage(articles: DocumentationArticle[]): [DocumentationArticle, DocumentationArticle[]] {
   const indexPage = articles.find((article) => article.slug === "index")
   const filteredArticles = articles.filter((article) => article.slug !== "index")
 
