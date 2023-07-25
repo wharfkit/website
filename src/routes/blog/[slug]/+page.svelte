@@ -18,6 +18,24 @@
 
 <svelte:head>
   <style>
+    body {
+      --body-gap: var(--space-3xl-4xl);
+    }
+    /* prettier-ignore */
+    body[data-theme="light"] {
+      --footer-background: var(--swell-mist);
+      --footer-background: white;
+      --page-background: url("/src/lib/assets/patterns/2545.svg") no-repeat right top -5rem / contain, 
+      linear-gradient(
+        180deg,
+        #494E62 5rem,
+        #7be7ce 15rem,
+        #b2f2e1 20rem,
+        #f4faf4 30rem
+        /* #ffffff 10rem */
+      );
+    }
+
     /* prettier-ignore */
     body[data-theme="dark"] {
       --page-background: url("/src/lib/assets/patterns/2545.svg") no-repeat right top -5rem / contain, 
@@ -39,11 +57,6 @@
 
 <main>
   <article class="stack">
-    <header>
-      <h1>{title}</h1>
-      <p>{date}</p>
-    </header>
-
     {#if image}
       <img src={image} alt="blog post header" />
     {/if}
@@ -51,6 +64,11 @@
     {#if videolink}
       <Video {videolink} {transcriptlink} />
     {/if}
+
+    <header>
+      <h1>{title}</h1>
+      <p>{date}</p>
+    </header>
 
     {@html data.post.content}
   </article>
@@ -63,8 +81,9 @@
   }
 
   header p {
+    font-family: var(--ff-heading);
     font-size: var(--fs-0);
-    font-weight: 500;
+    font-weight: 600;
     margin-block-start: var(--space-xs);
   }
 

@@ -18,7 +18,7 @@
 </script>
 
 <main>
-  <section class="with-sidebar">
+  <section>
     <aside>
       <div class="sidebar-header">
         <h1 class="sidebar-title"><a href="/blog">Blog</a></h1>
@@ -61,6 +61,13 @@
 </main>
 
 <style>
+  section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: var(--space-xl);
+  }
+
   aside {
     display: none;
   }
@@ -73,6 +80,11 @@
     aside {
       display: block;
     }
+
+    section {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      justify-items: start;
+    }
   }
 
   .list {
@@ -80,6 +92,7 @@
     flex-direction: column;
     gap: var(--space-4xl);
     align-items: center;
+    max-inline-size: 80ch;
   }
 
   .posts {
