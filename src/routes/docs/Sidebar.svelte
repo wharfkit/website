@@ -9,11 +9,13 @@
   let innerWidth: number
   let sideNav: HTMLDetailsElement
   let currentPath = $page.url.pathname
+  let isQuerying = false
 
   $: isMobile = innerWidth <= 768
 
   function handleQueryChange(event: CustomEvent<string>) {
     const { detail: query } = event
+    isQuerying = !!query
     filteredSections = filterDocumentationArticles(docs, query)
   }
 
@@ -47,7 +49,7 @@
     <menu class="sidebar-list">
       {#each filteredSections as { title: section, articles }}
         <li class="section">
-          <details open={!isMobile}>
+          <details open={!isMobile || isQuerying}>
             <summary class="sidebar-list-item" tabindex={!isMobile ? -1 : 0}>
               <h3 class="sidebar-subtitle">
                 <a href="/docs/{section.toLowerCase()}">
