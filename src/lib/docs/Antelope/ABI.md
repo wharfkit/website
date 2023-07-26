@@ -147,7 +147,7 @@ const decoded = action.decodeData(abi)
 An [Action](#) can also be decoded using the [Serializer](#), where you will pass:
 
 - the `abi`
-- the `type` which is the name of the action as defined in the ABI
+- the `type`, which is the name of the action as defined in the ABI
 - the `data` as the raw hex value
 
 ```ts
