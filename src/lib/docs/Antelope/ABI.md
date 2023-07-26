@@ -11,9 +11,9 @@ The `ABI` ([Application Binary Interface](https://en.wikipedia.org/wiki/Applicat
 
 This document will focus on the retrieval and processing of existing ABIs for use in the Javascript context. For more information about ABIs, as well as how to create them while developing a smart contract, please refer to [docs.eosnetwork.com](https://docs.eosnetwork.com/docs/latest/advanced-topics/understanding-ABI-files).
 
-## Retrieving an ABI using an APIClient
+## Retrieving an ABI Using an APIClient
 
-An `ABI` can be loaded from the blockchain using the [APIClient](#). To do this we first need to establish the [APIClient](#) with the appropriate endpoint configured and then call the `get_abi` API endpoint.
+An `ABI` can be loaded from the blockchain using an [APIClient](#). To do this we first need to establish the [APIClient](#) with the appropriate endpoint configured and then call the `get_abi` API endpoint.
 
 ```ts
 // Establish APIClient instance with appropriate endpoint
@@ -31,7 +31,7 @@ if (response.abi) {
 
 The `response` value from the API call will return an `.abi` value typed as an `ABIDef`, if an ABI has been deployed to that account. If no ABI has been defined on that account, it will return empty.
 
-## Manually providing an ABI
+## Manually Providing an ABI
 
 An `ABI` can also be defined manually by providing an `ABIDef`.
 
