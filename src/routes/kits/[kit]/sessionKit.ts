@@ -15,8 +15,8 @@ const kit: KitPage = {
         "Automatically persisting a session between log-ins and log-outs",
       ],
       link: {
-        href: "https://github.com/wharfkit/session",
-        text: "Go to Wharf Github",
+        href: "/docs/sessionkit",
+        text: "Go to Session Kit Docs",
       },
     },
     {
