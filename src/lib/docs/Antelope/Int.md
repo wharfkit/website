@@ -7,7 +7,7 @@ published: true
 
 # Int
 
-The `Int` base type extends into a family of different binary integer types with underlying values represented by a [BN.js](https://github.com/indutny/bn.js) instance. These types by default follows C++11 standard for arithmetic operators and conversions to mirror operations found in Antelope smart contracts.
+The `Int` base type extends into a family of different binary integer types with underlying values represented by a [BN.js](https://github.com/indutny/bn.js) instance. By default, these types follow the C++11 standard for arithmetic operators and conversions to mirror operations found in Antelope smart contracts.
 
 ## Variants
 
@@ -30,7 +30,7 @@ These can all be included in projects for direct use and are returned by a numbe
 
 ## Usage
 
-Any of the above variants of `Int` can be included and used in a project. These examples throughout this document will primarily use the `UInt64` type, but it's important to note that all operations and usage will be similar no matter which of the types are used.
+Any of the above variants of `Int` can be included and used in a project. The examples throughout this document will primarily use the `UInt64` type, but it's important to note that all operations and usage will be similar no matter which of the types are used.
 
 ### Basic Usage
 
@@ -40,7 +40,7 @@ import { UInt64 } from "@wharfkit/antelope"
 const integer = UInt64.from(12345678)
 ```
 
-All `Int` types internally will use instance of BN.js, which which can be accessed as the `.value` property.
+All `Int` types internally will use an instance of BN.js, which can be accessed as the `.value` property.
 
 ```ts
 const integer = UInt64.from(12345678)
@@ -78,7 +78,7 @@ const isEqual = a.equals(c, true) // results in `false`, since a is Int64 and c 
 
 ### Math
 
-A number of mathematical operations has been implemented using bn.js and exposed through helpers on every `Int` type.
+A number of mathematical operations have been implemented using bn.js and exposed through helpers on every `Int` type.
 
 All return values will be typed to match the types of the integers used in the operation.
 
