@@ -4,6 +4,6 @@
   export let data: PageData
 </script>
 
-<article>
+<article id="article">
   {@html data.section.indexPage.content}
 </article>
