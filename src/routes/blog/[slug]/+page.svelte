@@ -48,7 +48,7 @@
         color-mix(in srgb, #494E62 20%, #262936) 25rem,
         color-mix(in srgb, #494E62 10%, #262936) 30rem,
         #262936 40rem,
-        #262936 calc(100% - 30rem),
+        #262936 calc(100% - 10rem),
         var(--color-primary-999) 100%
         ) no-repeat;
     }
