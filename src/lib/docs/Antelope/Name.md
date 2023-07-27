@@ -24,7 +24,11 @@ The regex syntax for these rules is:
 /^[a-z1-5.]{0,13}$/
 ```
 
+All these rules are automatically applied and validated calls using the `Name` type.
+
 ## Usage
+
+Establishing a `Name` in code follows the [basic patterns](#) that all core types use.
 
 ```ts
 import { Name } from "@wharfkit/antelope"
@@ -32,7 +36,7 @@ import { Name } from "@wharfkit/antelope"
 const value = Name.from("teamgreymass")
 ```
 
-By default if you log or access this variable, it'll render out the the `Name` type.
+By default if you render or access this variable, it'll render out the the `Name` type.
 
 ```ts
 const value = Name.from('teamgreymass')
@@ -47,12 +51,13 @@ Name {
 /*
 ```
 
-If you cast it to a `String`, you'll be able to see the human readable value.
+If you cast it to a `String`, you'll be able to see the human readable version.
 
 ```ts
 const value = Name.from("teamgreymass")
 
-console.log(String(value)) // 'teamgreymass'
+console.log(String(value))
+// 'teamgreymass'
 ```
 
 The `UInt64` value of the name itself can be accessed through the `.value` property of the name.
@@ -73,11 +78,11 @@ const stringValue = "teamgreymass"
 const nameValue = Name.from(string)
 
 if (stringValue === nameValue) {
-  // this will not trigger, the values aren't equal
+  // this will work, since a string value is not equal to a `Name` type
 }
 ```
 
-Instead of doing string comparisons in your code, its recommended you use the `equals` operator to check for equality.
+Instead of doing string comparisons like this in your code, its recommended you use the `equals` operator to check for equality.
 
 ```ts
 const stringValue = "teamgreymass"

@@ -2,20 +2,20 @@
 title: Action
 description: A typed representation of a smart contract action and its data.
 category: Antelope
-published: true
+published: false
 ---
 
 # Action
 
-An `Action` is a call to execute a function on a [Smart Contract](#). One or more action objects are required for the creation of a [Transaction](#). Each action contains data for a specific call. This data is serialized using the `ABI` from the smart contract associated with the action, at the block height it was submitted.
+The `Action` type represents a single action to be performed on an Antelope blockchain. An action on the blockchain is a call to execute a function on a [Smart Contract](#). One or more action objects are required for the creation of a [Transaction](#). Each action contains data for an individual call. This data is serialized using the `ABI` from the smart contract associated with the action, at the block height it was submitted.
 
-While both the [SessionKit](#) and [ContractKit](#) abstracts away this complexity, assembling an action manually is often times something applications may need to do in more advanced use cases.
+While both the [SessionKit](#) and [ContractKit](#) simplifies many of these complexities, assembling an action manually is often times something applications may need to do in more advanced use cases.
 
 This document will go over what an action is and how to create them.
 
 ## Anatomy of an Action
 
-Every `Action` consists of the following information:
+Every action on an Antelope blockchain consists of the following information:
 
 ```ts
 {
@@ -40,13 +40,9 @@ Every `Action` consists of the following information:
 }
 ```
 
-This structure includes the `account` the smart contract exists on as well as the `name` of the action to perform.
+The action above is indicating that the `transfer` action should be performed on the `eosio.token` smart contract, authorized by the `foo` account, with data stating that `teamgreymass` will send `funds.gm` tokens amounting to `0.0001 EOS`.
 
-The `authorization` array defines the account(s) that authorize the performing of the action on the smart contract.
-
-Finally, the `data` object in the action defines the parameters passed to the smart contract call. This field on the action is serialized before its submitted to the blockchain, which is what the `Action` Antelope data type helps achieve. This data type provides the methods needed in order to encode and decode the serialized data, depending on the developers needs.
-
-Once serialized, the actual anatomy of an `Action` at the system level looks more like this:
+The `data` object in the action defines the parameters passed to the smart contract call. This data of the action is serialized before its submitted to the blockchain, resulting in a non-human readable variant of an `Action`, like the below example.
 
 ```ts
 {
@@ -66,17 +62,19 @@ Once serialized, the actual anatomy of an `Action` at the system level looks mor
 }
 ```
 
-The serialized data contained within the `data` field is encoded using the [Struct](#) definition originating from the [ABI](#).
+The `Action` type provides the tools needed to both encode and decode this serialized data format.
 
 ## Usage
 
 A smart contract `Action` can be created in multiple ways, depending on whether or not the data is serialized.
 
 ```ts
+import { Action } from "@wharfkit/antelope"
+
 // Passing in data which contains serialized data (either raw or using a Struct)
 const action = Action.from(data)
 
-// Passing in unserialized data alongside an ABI as the 2nd parameter
+// Passing in unserialized data alongside an ABI or Struct as the 2nd parameter
 const action = Action.from(data, abi)
 ```
 

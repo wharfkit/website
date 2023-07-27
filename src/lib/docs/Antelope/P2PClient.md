@@ -13,6 +13,10 @@ The `P2PClient` provided by the [Antelope](#) library is a client capable of sen
 
 ## Usage
 
+```ts
+import { P2PClient } from "@wharfkit/antelope"
+```
+
 The first step in establishing a connection to a P2P network is setting up a [net.Socket](https://nodejs.org/api/net.html#class-netsocket) instance and connecting to a peer on the network.
 
 ```ts
