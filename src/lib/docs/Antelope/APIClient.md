@@ -13,7 +13,7 @@ The `APIClient` provided by the [Antelope](#) library is an abstraction built us
 
 ### Creating an APIClient
 
-In browser-based environments in order to create a working client, the only required parameter is the URL of the API it should use to make requests against. This will also work in a nodejs environment where the version is greater than v18.
+In order to create a working client in browser-based environments, the only required parameter is the URL of the API it should use to make requests against. This will also work in a Node.js environment where the version is greater than v18.
 
 ```ts
 import { APIClient } from "@wharfkit/antelope"
@@ -25,7 +25,7 @@ const client = new APIClient({
 
 #### Fetch Compatibility
 
-In a nodejs environment where the version is less than v18 and [fetch](#) isn't natively available, an instance of a `FetchProvider` must be created and given to the `APIClient`.
+In a Node.js environment where the version is less than v18 and [fetch](#) isn't natively available, an instance of a `FetchProvider` must be created and given to the `APIClient`.
 
 This example uses the [node-fetch](https://www.npmjs.com/package/node-fetch) package.
 
@@ -41,7 +41,7 @@ const client = new APIClient({ provider })
 
 Once an `APIClient` is established for a given chain, it will give access to a number of predefined API endpoints as method calls.
 
-The list of available methods embedded in the `APIClient` can be found in either the [ChainAPI](https://wharfkit.github.io/antelope/classes/ChainAPI.html) or [HistoryAPI](https://wharfkit.github.io/antelope/classes/HistoryAPI.html) autodocs. The autocompletion helpers in the developers IDE should also prompt with the available options in either `client.v1.chain` or `client.v1.history`.
+The list of available methods embedded in the `APIClient` can be found in either the [ChainAPI](https://wharfkit.github.io/antelope/classes/ChainAPI.html) or [HistoryAPI](https://wharfkit.github.io/antelope/classes/HistoryAPI.html) autodocs. The autocompletion helpers in the developer's IDE should also prompt with the available options in either `client.v1.chain` or `client.v1.history`.
 
 Every API call made through the `APIClient` returns a promise that must be handled either through `await` or `.then`. The example below illustrates the two ways you could call the `/v1/chain/get_info` API endpoint and return a response.
 
@@ -153,11 +153,11 @@ The resulting response will then use native JavaScript types, as illustrated bel
 }
 ```
 
-### Unsupported API calls
+### Unsupported API Calls
 
 If an API call isn't implemented yet within the `APIClient`, we'd encourage you to contribute to the [Antelope](#) codebase and open a pull request.
 
-#### Contributing new API calls
+#### Contributing New API Calls
 
 An example commit implementing the `v1/chain/get_accounts_by_authorizers` can be [found here for reference](https://github.com/wharfkit/antelope/pull/59/commits/b85448be3c99fccb45d76d310b698ea6a36ec7eb).
 
@@ -198,9 +198,9 @@ With this code implemented, an `APIClient` instance is able to call:
 const response = await client.v1.chain.get_accounts_by_authorizers(keys)
 ```
 
-The `response` will be fully typed and ready to use in a developers application.
+The `response` will be fully typed and ready to use in a developer's application.
 
-#### Manually calling undefined API endpoints
+#### Manually Calling Undefined API Endpoints
 
 If an endpoint isn't defined and available for immediate use, the above call structure can be used directly against an `APIClient` to make ad-hoc calls.
 

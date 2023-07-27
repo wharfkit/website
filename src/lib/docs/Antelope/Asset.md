@@ -34,7 +34,7 @@ An example representation of the above `Asset` in JSON data would be:
 }
 ```
 
-### From number
+### From Number
 
 An `Asset` can also be created using a combination of numeric and `Symbol` data by passing the numeric value as the first parameter, followed by either a `Symbol` instance or a string representation of a symbol.
 
@@ -58,7 +58,7 @@ const balance = Asset.from(0.05, Asset.Symbol.fromParts("FOO", 4))
 // 0.0500 FOO
 ```
 
-### From units
+### From Units
 
 The `fromUnits` method is also available to build `Asset` instances when performing integer math.
 
@@ -97,7 +97,7 @@ With the `units` value of an asset being an `Int64`, it can make use of all the 
 
 > **IMPORTANT**: Due to the oddities surrounding floating point math in Javascript, if you plan to perform mathematical operations with an Asset, it is recommended you use the Units value (`.units` property) or internal mathematical operators instead.
 
-Each `Asset` has a `.value` property which can be accessed to utilize the value of the asset as a native javascript `Number`.
+Each `Asset` has a `.value` property which can be accessed to utilize the value of the asset as a native Javascript `Number`.
 
 ```ts
 const balance = Asset.from("10.0000 FOO")
