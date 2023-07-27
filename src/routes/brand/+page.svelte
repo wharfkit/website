@@ -4,10 +4,18 @@
   import ColorPalette from "./ColorPalette.svelte"
   import Toast from "$lib/components/Toast.svelte"
 
+  import { verticalSVG, horizontalSVG } from "./logos"
+
   let toast = ""
   let copyText = async ({ target }) => {
     navigator.clipboard.writeText(target.innerText)
     toast = target.innerText
+    setTimeout(() => (toast = ""), 1500)
+  }
+
+  let addToClipboard = (svg: string) => async () => {
+    navigator.clipboard.writeText(svg)
+    toast = "SVG"
     setTimeout(() => (toast = ""), 1500)
   }
 </script>
@@ -65,20 +73,16 @@
             <div class="frame">
               <img src={logoVertical} alt="wharf logo vertical" width="215" height="215" />
             </div>
-            <a
-              class="button"
-              href="https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-vector-no-bg.svg"
-              download>Download Logo (SVG)</a>
+            <button class="button" on:click={addToClipboard(verticalSVG)}
+              >Copy SVG to clipboard</button>
           </div>
 
           <div class="horizontal | stack">
             <div class="frame">
               <img src={logoHorizontal} alt="wharf logo horizontal" width="215" height="215" />
             </div>
-            <a
-              class="button"
-              href="https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-horizontal-vector-no-bg.svg"
-              download>Download Logo (SVG)</a>
+            <button class="button" on:click={addToClipboard(horizontalSVG)}
+              >Copy SVG to clipboard</button>
           </div>
         </div>
       </section>
