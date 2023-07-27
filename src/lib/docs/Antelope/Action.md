@@ -9,7 +9,7 @@ published: true
 
 An `Action` is a call to execute a function on a [Smart Contract](#). One or more action objects are required for the creation of a [Transaction](#). Each action contains data for a specific call. This data is serialized using the `ABI` from the smart contract associated with the action, at the block height it was submitted.
 
-While both the [SessionKit](#) and [ContractKit](#) abstracts away this complexity, assembling an action manually is often times something applications may need to do in more advanced use cases.
+While both the [SessionKit](#) and [ContractKit](#) abstract away this complexity, assembling an action manually is oftentimes something applications may need to do in more advanced use cases.
 
 This document will go over what an action is and how to create them.
 
@@ -40,11 +40,11 @@ Every `Action` consists of the following information:
 }
 ```
 
-This structure includes the `account` the smart contract exists on as well as the `name` of the action to perform.
+This structure includes the `account` the smart contract exists on, as well as the `name` of the action to perform.
 
-The `authorization` array defines the account(s) that authorize the performing of the action on the smart contract.
+The `authorization` array defines the account(s) that authorize the action to be performed on the smart contract.
 
-Finally, the `data` object in the action defines the parameters passed to the smart contract call. This field on the action is serialized before its submitted to the blockchain, which is what the `Action` Antelope data type helps achieve. This data type provides the methods needed in order to encode and decode the serialized data, depending on the developers needs.
+Finally, the `data` object in the action defines the parameters passed to the smart contract call. This field on the action is serialized before it's submitted to the blockchain, which is what the `Action` Antelope data type helps achieve. This data type provides the methods needed in order to encode and decode the serialized data, depending on the developer's needs.
 
 Once serialized, the actual anatomy of an `Action` at the system level looks more like this:
 
@@ -70,7 +70,7 @@ The serialized data contained within the `data` field is encoded using the [Stru
 
 ## Usage
 
-A smart contract `Action` can be created in multiple ways, depending on whether or not the data is serialized.
+A smart contract `Action` can be created in multiple ways, depending on whether the data is serialized or not.
 
 ```ts
 // Passing in data which contains serialized data (either raw or using a Struct)
@@ -84,7 +84,7 @@ The resulting typed `Action` will be represented in the serialized format and be
 
 ### Creating an Action
 
-#### Using serialized data
+#### Using Serialized Data
 
 Passing in raw serialized data does not require an ABI to assemble an `Action`.
 
@@ -101,7 +101,7 @@ const typedAction = Action.from(data)
 // {"account":"eosio.token","name":"transfer","authorization":[{"actor":"foo","permission":"active"}],"data":"80b1915e5d268dca00000092019ca65e010000000000000004454f5300000000185468616e6b7320666f7220616c6c20746865206669736821"}
 ```
 
-#### Using unserialized data with a Struct
+#### Using Unserialized Data With a Struct
 
 A [Struct](#) can be used to wrap unserialized `Action` data for automatic serialization.
 
@@ -133,7 +133,7 @@ const typedAction = Action.from(untypedAction)
 // {"account":"eosio.token","name":"transfer","authorization":[{"actor":"foo","permission":"active"}],"data":"80b1915e5d268dca00000092019ca65e010000000000000004454f5300000000185468616e6b7320666f7220616c6c20746865206669736821"}
 ```
 
-#### Using unserialized data with an ABI
+#### Using Unserialized Data With an ABI
 
 An [ABI](#) can also be passed as a 2nd parameter to the `.from` method to automatically convert unserialized data.
 
@@ -159,7 +159,7 @@ const typedAction = Action.from(untypedAction, abi)
 // {"account":"eosio.token","name":"transfer","authorization":[{"actor":"foo","permission":"active"}],"data":"80b1915e5d268dca00000092019ca65e010000000000000004454f5300000000185468616e6b7320666f7220616c6c20746865206669736821"}
 ```
 
-#### Using unserialized data with a predefined ABI
+#### Using Unserialized Data With a Predefined ABI
 
 The [ABI](#) passed in as a 2nd parameter can also be manually defined or read from a cached version.
 
@@ -218,9 +218,9 @@ const typedAction = Action.from(untypedAction, abi)
 
 ### Decoding Action data
 
-Instances of the `Action` type can also be used to decode the action data and represent it in native Antelope core types. Each `Action` instance has a built in `decodeData` method which utilizes the [Serializer](#) to convert the data.
+Instances of the `Action` type can also be used to decode the action data and represent it in native Antelope core types. Each `Action` instance has a built-in `decodeData` method which utilizes the [Serializer](#) to convert the data.
 
-#### Using decodeAction with a Struct
+#### Using decodeAction With a Struct
 
 Any [Struct](#) types defined in-code can be passed to `decodeData` to decode the serialized data into an object.
 
@@ -255,7 +255,7 @@ const decoded = typedAction.decodeData(Transfer)
 */
 ```
 
-#### Using decodeAction with an ABI
+#### Using decodeAction With an ABI
 
 Any [ABI](#) either manually defined in-code or retrieved from an [APIClient](#) can be passed to `decodeData` to decode the serialized data into an object.
 
@@ -286,7 +286,7 @@ const decoded = typedAction.decodeData(abi)
 */
 ```
 
-#### Making data human-readable
+#### Making Data Human Readable
 
 The `decodeData` function returns all values in Antelope typed formats ([Name](#), [Asset](#), etc) for developers to work with in their applications. In order to display this data in a human readable format, the [Serializer](#) provides a helper function called [objectify](#) which will iterate over a data structure and convert all the Antelope types to human readable values.
 
