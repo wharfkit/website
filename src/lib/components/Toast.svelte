@@ -3,7 +3,7 @@
   export let text: string
 </script>
 
-<div class="toast" transition:fly={{ y: 20 }}>{text}</div>
+<div class="toast" transition:fly|global={{ y: 20 }}>{text}</div>
 
 <style>
   .toast {

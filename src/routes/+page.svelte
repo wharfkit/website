@@ -63,7 +63,7 @@
         Wharf provides a fast and flexible way to build web3 projects on blockchains like EOS,
         Telos, WAX, and UX.
       </p>
-      <a href="#" class="button">Start Building Today</a>
+      <a href="/guides" class="button">Start Building Today</a>
     </div>
   </section>
 
@@ -112,21 +112,23 @@
       <h3>Get started with your favorite tools.</h3>
       <p>
         Wharf is designed to work with all Javascript frameworks. So whether you prefer to code in
-        Vue, React, Svelte, Typescript, or NodeJS, you can start building today. (Check back soon
-        for Starter Kits in your favorite framework!)
+        Vue, React, Svelte, Typescript, or NodeJS, you can start building today.
       </p>
-      <a href="#" class="button">Check It Out</a>
+      <p>Check back soon for Starter Kits in your favorite framework!</p>
+      <!-- <a href="/docs" class="button">Check It Out</a> -->
     </div>
   </section>
 
   <section class="contract | box stack center">
     <h4>Looking to build a smart contract?</h4>
     <p>Wharf can’t help you with that, but we’ve got some friends who can.</p>
-    <a href="#" class="button">Go to the Antelope Developer Portal</a>
+    <a href="https://docs.eosnetwork.com/docs/latest/quick-start/write-a-contract" class="button">
+      Go to the Antelope Developer Portal
+    </a>
   </section>
 
   <section class="cards | switcher">
-    <div class="card | box stack left ">
+    <div class="card | box stack left">
       <h3>UX your users will love.</h3>
       <p>
         Want to provide a professional user experience, as fast as possible? Wharf provides an
@@ -135,7 +137,7 @@
       </p>
       <a href="/kits/session" class="button">Learn More About the Session Kit</a>
     </div>
-    <div class="card | box stack left ">
+    <div class="card | box stack left">
       <h3>Build on the most responsive blockchains.</h3>
       <p>
         The Antelope framework is behind some of the fastest, most secure, and user-friendly Web3

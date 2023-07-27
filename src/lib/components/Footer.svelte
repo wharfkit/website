@@ -1,13 +1,14 @@
 <script lang="ts">
-  import data from "$lib/footerData"
-  import { capitalize } from "$lib/utils/general"
+  // import data from "$lib/footerData"
+  // import { capitalize } from "$lib/utils/general"
   import ThemeToggle from "./ThemeToggle.svelte"
-  import * as Header from "./Header"
+  import { Logo } from "./Header"
 </script>
 
 <footer>
   <nav>
-    <menu>
+    <!-- TODO: Hide menu until site is more complete -->
+    <!-- <menu>
       {#each data as section}
         <li class="box">
           <h3>
@@ -28,15 +29,18 @@
         <h3>Theme</h3>
         <ThemeToggle />
       </li>
-    </menu>
+    </menu> -->
     <div class="bottom">
       <a href="/">
-        <Header.Logo />
+        <Logo />
       </a>
       <p>
         Wharf is an open source project sponsored by the
         <a href="https://antelope.io/">Antelope Coalition</a>
       </p>
+      <div class="">
+        <ThemeToggle />
+      </div>
     </div>
   </nav>
 </footer>
@@ -61,15 +65,17 @@
   nav {
     max-inline-size: var(--max-inline-size);
     margin-inline: auto;
+    padding-inline: var(--space-m);
   }
 
-  menu {
+  /* TODO: Add styles back when menu is finished */
+  /* menu {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: stretch;
     row-gap: var(--space-m);
   }
-
+  
   li.box {
     padding: 0;
     inline-size: max-content;
@@ -77,17 +83,17 @@
     flex-direction: column;
     gap: var(--space-2xs);
   }
-
+  
   ul,
   menu {
     list-style: none;
     padding: 0;
   }
-
+  
   menu,
   .bottom {
     padding: var(--space-m);
-  }
+  } */
 
   .bottom {
     display: flex;
@@ -103,10 +109,11 @@
     font-size: var(--fs--1);
   }
 
-  li {
+  /* TODO: Add styles back when menu is finished */
+  /* li {
     line-height: 2em;
   }
-
+  
   h3 {
     font-family: var(--ff-heading);
     font-weight: 600;
@@ -114,24 +121,25 @@
     color: var(--footer-text-color, var(--theme-footer-text));
     opacity: 0.5;
     white-space: nowrap;
-  }
+  } */
 
   a {
     text-decoration: none;
     color: var(--footer-text-color, var(--theme-footer-text));
   }
 
-  .item a {
+  /* TODO: Add styles back when menu is finished */
+  /* .item a {
     display: block;
     height: 100%;
     font-weight: 400;
     font-size: var(--fs--1);
   }
-
+  
   li a:hover {
     text-decoration: underline;
   }
-
+  
   @media (min-width: 600px) {
     menu {
       grid-template-columns: repeat(4, 1fr);
@@ -142,5 +150,5 @@
     menu {
       grid-template-columns: repeat(7, 1fr);
     }
-  }
+  } */
 </style>

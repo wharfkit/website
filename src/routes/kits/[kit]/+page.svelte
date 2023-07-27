@@ -8,6 +8,45 @@
   $: kit = data.kit
 </script>
 
+<svelte:head>
+  <style>
+    body {
+      --body-gap: var(--space-3xl-4xl);
+    }
+    /* prettier-ignore */
+    body[data-theme="light"] {
+      --footer-background: var(--swell-mist);
+      --footer-background: white;
+      --page-background:
+      linear-gradient(
+        180deg,
+        #494E62 0rem,
+        #7be7ce 40rem,
+        #b2f2e1 50rem,
+        #f4faf4 60rem
+        /* #ffffff 10rem */
+      );
+    }
+
+    /* prettier-ignore */
+    body[data-theme="dark"] {
+      --page-background:
+        linear-gradient(180deg, 
+        #7BE7CE -8rem, 
+        /* #494E62 10rem,  */
+        color-mix(in srgb, #494E62 100%, #262936) 30rem,
+        color-mix(in srgb, #494E62 60%, #262936) 35rem,
+        color-mix(in srgb, #494E62 40%, #262936) 40rem,
+        color-mix(in srgb, #494E62 20%, #262936) 45rem,
+        color-mix(in srgb, #494E62 10%, #262936) 50rem,
+        #262936 60rem,
+        #262936 calc(100% - 10rem),
+        var(--color-primary-999) 100%
+        ) no-repeat;
+    }
+  </style>
+</svelte:head>
+
 {#if kit.title === "Account Kit" || kit.title === "Contract Kit"}
   <ComingSoon kit={kit.title} />
 {:else}
@@ -106,8 +145,15 @@
   }
 
   .hero {
-    color: var(--theme-text-heading);
-    /* color: white; */
+    /* color: var(--theme-text-heading); */
+    color: white;
+  }
+
+  .title {
+    font-size: var(--fs-6);
+  }
+  .subtitle {
+    font-size: var(--fs-2);
   }
 
   .feature .image {

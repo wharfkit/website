@@ -36,6 +36,8 @@ The `response` value from the API call will return an `.abi` value typed as an `
 An `ABI` can also be defined manually by providing an `ABIDef`.
 
 ```ts
+import { ABI } from "@wharfkit/antelope"
+
 // Pass an object representation
 const abi = ABI.from({
   version: "eosio::abi/1.0",
