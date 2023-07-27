@@ -11,12 +11,12 @@
 
   $: section = $page.url.pathname
   $: isMobile = innerWidth <= 768
-  $: isMenuOpen = false 
+  $: isMenuOpen = false
 
   function toggleMenu() {
-    isMenuOpen = menuWrapper.open 
+    isMenuOpen = menuWrapper.open
     menu.style.display = "flex"
-  } 
+  }
 
   function closeNav() {
     if (isMobile) {
@@ -30,7 +30,7 @@
     if (isMobile && !menuWrapper.contains(e.target)) {
       closeNav()
     }
-    
+
     // closes kits dropdown on desktop if click is outside of dropdown
     if (!isMobile && !kitsMenu.contains(e.target)) {
       closeNav()
@@ -72,27 +72,22 @@
             </summary>
             <ul>
               <MegaMenuItem {section} title="Kits Overview" href="/kits" onClick={closeNav} />
-              <MegaMenuItem
-                {section}
-                title="Session Kit"
-                href="/kits/session"
-                onClick={closeNav} />
+              <MegaMenuItem {section} title="Session Kit" href="/kits/session" onClick={closeNav} />
               <MegaMenuItem
                 {section}
                 title="Contract Kit"
                 href="/kits/contract"
                 onClick={closeNav} />
-              <MegaMenuItem
-                {section}
-                title="Account Kit"
-                href="/kits/account"
-                onClick={closeNav} />
+              <MegaMenuItem {section} title="Account Kit" href="/kits/account" onClick={closeNav} />
             </ul>
           </details>
         </li>
 
         <li class:active={new RegExp("/docs").test(section)}>
           <a href="/docs" on:click={closeNav}><span class="nav-item">Documentation</span></a>
+        </li>
+        <li class:active={new RegExp("/guides").test(section)}>
+          <a href="/guides" on:click={closeNav}><span class="nav-item">Guides</span></a>
         </li>
         <li class:active={new RegExp("/blog").test(section)}>
           <a href="/blog" on:click={closeNav}><span class="nav-item">Blog</span></a>

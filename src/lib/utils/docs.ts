@@ -34,29 +34,31 @@ export function filterDocumentationArticles(
 
   const filteredSections: DocumentationSection[] = [];
 
-  sections.forEach(({ articles, ...rest }) => {
+  sections.forEach(({ articles, title, indexPage }) => {
     const filteredArticles = articles.filter((article) =>
       article.title.toLowerCase().includes(query.toLowerCase())
     );
 
-    if (filteredArticles.length > 0) {
-      filteredSections.push({ articles: filteredArticles, ...rest });
+    if (filteredArticles.length > 0 || title.toLowerCase().includes(query.toLowerCase())) {
+      filteredSections.push({ articles: filteredArticles, title, indexPage });
     }
   });
 
   return filteredSections;
 }
 
-export function createBreadcrumbs(section: string, doc?: DocumentationArticle): BreadCrumb[] {
+
+
+export function createBreadcrumbs({ rootPath, rootTitle, section, doc }: { rootPath: string, rootTitle: string, section: string, doc?: DocumentationArticle }): BreadCrumb[] {
   const breadcrumbs: BreadCrumb[] = [
-    { title: "Documentation", path: "/docs" },
-    { title: capitalize(section), path: `/docs/${section}` },
+    { title: rootTitle, path: rootPath },
+    { title: capitalize(section), path: `${rootPath}/${section}` },
   ]
 
   if (doc) {
     breadcrumbs.push({
       title: doc.title,
-      path: `/docs/${section}/${doc.slug}`,
+      path: `${rootPath}/${section}/${doc.slug}`,
     })
   }
 
@@ -109,15 +111,17 @@ function groupBySection(docs: DocumentationArticle[]): Record<string, Documentat
 const isDocVisible = (doc: DocumentationArticle): boolean => doc.published === true
 const docSort = (a: DocumentationArticle, b: DocumentationArticle): number => (a.order || 100) - (b.order || 100)
 
+export const importedGuides = import.meta.glob("/src/lib/guides/**/*.md") as Record<string, () => Promise<MarkdownFile>>
+export const importedDocs = import.meta.glob("/src/lib/docs/**/*.md") as Record<string, () => Promise<MarkdownFile>>
+
 /**
- * Imports all the docs from the /src/lib/docs folder
+ * Makes all the docs from the provided 
  * @returns 
  */
-export async function fetchDocs() {
-  const allDocFiles = import.meta.glob("/src/lib/docs/**/*.md")
-  const iterableDocs = Object.entries(allDocFiles)
+export async function fetchDocs(docFiles: Record<string, () => Promise<MarkdownFile>>) {
+  const iterableDocs = Object.entries(docFiles)
   const allDocs = await Promise.all(
-    iterableDocs.map(async ([path, resolver]) => await resolver() as MarkdownFile)
+    iterableDocs.map(async ([path, resolver]) => ({ source: path, markdown: await resolver() as MarkdownFile }))
   )
   const docs = allDocs
     .map(makeDoc)
@@ -129,11 +133,11 @@ export async function fetchDocs() {
 
 
 /**
- * Imports all the docs from the /src/lib/docs folder and groups them by section
+ * Imports all the docs from the relevant /src/lib/ folder and groups them by section
  * @returns
  */
-export async function fetchGroupedDocs() {
-  const docs = await fetchDocs()
+export async function fetchGroupedDocs(docFiles: Record<string, () => Promise<MarkdownFile>>) {
+  const docs = await fetchDocs(docFiles)
   const groupedDocs = groupBySection(docs)
   return groupedDocs
 }
@@ -143,14 +147,17 @@ export async function fetchGroupedDocs() {
  * @param markdown
  * @returns
  */
-export function makeDoc(markdown: MarkdownFile): DocumentationArticle {
+export function makeDoc({ source, markdown }: { source: string, markdown: MarkdownFile }): DocumentationArticle {
   const metadata: DocumentationMetadata = markdown.metadata || {}
   const content = markdown.default.render().html
   const title = metadata?.title || getTitle(content)
   const slug = metadata?.slug || slugify(title)
   const description = metadata?.description || getFirstParagraph(content)
+  const toc = metadata?.toc ?? true
+  const root = source.split("/")[3]
   const section = metadata?.category?.toLowerCase() || ""
-  const path = `/docs/${section}/${slug}`
+  const path = `/${root}/${section}/${slug}`
+  const headings = parseHeadings(content)
 
   const doc = {
     ...metadata,
@@ -160,7 +167,8 @@ export function makeDoc(markdown: MarkdownFile): DocumentationArticle {
     content,
     slug,
     description,
-    headings: parseHeadings(content),
+    headings,
+    toc,
   }
 
   return doc

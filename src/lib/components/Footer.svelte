@@ -65,6 +65,7 @@
   nav {
     max-inline-size: var(--max-inline-size);
     margin-inline: auto;
+    padding-inline: var(--space-m);
   }
 
   /* TODO: Add styles back when menu is finished */
