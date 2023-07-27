@@ -4,7 +4,8 @@
   import { page } from "$app/stores"
 
   export let docs: DocumentationSection[]
-
+  export let rootPath: string
+  export let title: string
   let filteredSections = docs
   let innerWidth: number
   let sideNav: HTMLDetailsElement
@@ -28,11 +29,11 @@
 
 <svelte:window bind:innerWidth />
 
-<nav class="sidebar" aria-label="Documentation Sections">
+<nav class="sidebar" aria-label="Section List">
   <details open={!isMobile} bind:this={sideNav}>
     <summary class="sidebar-header" tabindex={!isMobile ? -1 : 0}>
       <h2 class="sidebar-title">
-        <a href="/docs">Documentation</a>
+        <a href={rootPath}>{title}</a>
       </h2>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +53,7 @@
           <details open={!isMobile || isQuerying}>
             <summary class="sidebar-list-item" tabindex={!isMobile ? -1 : 0}>
               <h3 class="sidebar-subtitle">
-                <a href="/docs/{section.toLowerCase()}">
+                <a href="{rootPath}/{section.toLowerCase()}">
                   {formatSectionTitle(section)}
                 </a>
               </h3>

@@ -35,6 +35,7 @@ interface DocumentationArticle {
   headings: HeadingNode[]
   published?: boolean
   order?: number
+  toc?: boolean
 }
 
 interface DocumentationSection {
@@ -50,6 +51,7 @@ interface DocumentationMetadata extends MarkdownMetadata {
   order?: number
   slug?: string
   published?: boolean
+  toc?: boolean
 }
 
 interface HeadingNode {
