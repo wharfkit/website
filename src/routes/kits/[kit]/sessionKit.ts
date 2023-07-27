@@ -52,10 +52,10 @@ const kit: KitPage = {
     },
   ],
   cta: {
-    title: "Learn more about the Session Kit with the technical previews.",
+    title: "Learn more about the Session Kit through our guides.",
     link: {
       href: "/guides",
-      text: "Go to Technical Previews",
+      text: "Go to Guides",
     },
   },
 }
