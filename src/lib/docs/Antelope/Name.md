@@ -11,7 +11,7 @@ Throughout the Antelope technology stack, the `Name` core type is used for human
 
 ## Anatomy
 
-Behind the scenes the `Name` type is encoded as an [Int](#) type of `UInt64`. This creates limitations on which characters can be used, which are:
+Behind the scenes, the `Name` type is encoded as an [Int](#) type of `UInt64`. This creates limitations on which characters can be used, which are:
 
 - Limited to 12 characters (13 in rare situations)
 - No special characters or spaces (except the period character in premium names)
@@ -32,7 +32,7 @@ import { Name } from "@wharfkit/antelope"
 const value = Name.from("teamgreymass")
 ```
 
-By default if you log or access this variable, it'll render out the the `Name` type.
+By default if you log or access this variable, it'll render out the `Name` type.
 
 ```ts
 const value = Name.from('teamgreymass')
@@ -77,7 +77,7 @@ if (stringValue === nameValue) {
 }
 ```
 
-Instead of doing string comparisons in your code, its recommended you use the `equals` operator to check for equality.
+Instead of doing string comparisons in your code, it's recommended you use the `equals` operator to check for equality.
 
 ```ts
 const stringValue = "teamgreymass"
