@@ -118,8 +118,8 @@
         App Tutorial. And check back soon for more tutorials on the other kits!
       </p>
       <div class="buttons | cluster">
-        <a href="#" class="button">Node.js Tutorial</a>
-        <a href="#" class="button">Web App Tutorial</a>
+        <a href="/guides/sessionkit/" class="button">Node.js Tutorial</a>
+        <a href="/guides/sessionkit/" class="button">Web App Tutorial</a>
       </div>
     </div>
     <div class="image | box place-center">
@@ -130,7 +130,7 @@
   <div class="documentation | center stack">
     <h2>Not sure which kit(s) you need?</h2>
     <p>Check out our documentation for more in-depth information on each kit.</p>
-    <a class="button" href="#">Go to Documentation</a>
+    <a class="button" href="/docs">Go to Documentation</a>
   </div>
 
   <div class="overview | switcher">

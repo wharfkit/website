@@ -29,7 +29,7 @@ const kit: KitPage = {
       description:
         "UX can make or break an app. That's why the Session Kit provides a Wharf-themed UI Renderer that was created by a professional UX designer, making it simple to create a pleasant and intuitive experience for your users.\n\nThe UI Renderer comes with out-of-the-box functionality that covers a range of common user scenarios, and can be paired with the Session Kit's Localization Engine to support multiple languages.",
       link: {
-        href: "#",
+        href: "https://ui-test.wharfkit.com/",
         text: "See It In Action",
       },
     },
@@ -54,7 +54,7 @@ const kit: KitPage = {
   cta: {
     title: "Learn more about the Session Kit with the technical previews.",
     link: {
-      href: "#",
+      href: "/guides",
       text: "Go to Technical Previews",
     },
   },
