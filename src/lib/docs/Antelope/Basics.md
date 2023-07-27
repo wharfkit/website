@@ -1,6 +1,6 @@
 ---
 title: Basics
-description: Getting started with the wharfkit/antelope library
+description: Getting started with the Wharfkit/Antelope library.
 category: Antelope
 published: true
 ---
@@ -56,7 +56,7 @@ foo("teamgreymass")
 foo(Name.from("teamgreymass"))
 ```
 
-Neither of these will throw errors, and the function will always ensure it's a `Name` type.
+Neither of these will throw errors, and the function will always ensure that it's a `Name` type.
 
 ## Type Groupings
 
@@ -100,7 +100,7 @@ export type BytesType = Bytes | ArrayBufferView | ArrayBuffer | ArrayLike<number
 
 ## Equality
 
-Every Antelope core type has an `.equals()` function to help compare different types of data (strings vs types, etc)
+Every Antelope core type has an `.equals()` function to help compare different types of data (strings vs. types, etc)
 
 ```ts
 const name = Name.from("teamgreymass")
@@ -109,7 +109,7 @@ const equals1 = name === "teamgreymass"
 // equals1 is false, one is Name type and one is string
 
 const equals2 = name.equals("teamgreymass")
-// equals2 is true, the equals function does type conversion for accurate comparision
+// equals2 is true, the equals function does type conversion for accurate comparison
 
 const equals3 = name.equals(Name.from("teamgreymass"))
 // equals3 is true, the equals function accepts any valid type grouping
