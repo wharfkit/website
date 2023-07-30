@@ -10,13 +10,14 @@ const kit: KitPage = {
       description:
         "Sessions are essential both for applications connecting to the blockchain and for users connecting with applications. The Session Kit helps you to establish these sessions quickly and reliably by providing resources for:",
       list: [
-        "Logging in and starting a new session",
-        "Logging out and ending a session",
+        "Creating sessions for use in scripts or bots",
+        "Logging in and starting a new session from web applications",
+        "Logging out and ending sessions",
         "Automatically persisting a session between log-ins and log-outs",
       ],
       link: {
-        href: "/docs/sessionkit",
-        text: "Go to Session Kit Docs",
+        href: "/guides/sessionkit",
+        text: "Go to Session Kit Guides",
       },
     },
     {
@@ -54,7 +55,7 @@ const kit: KitPage = {
   cta: {
     title: "Learn more about the Session Kit through our guides.",
     link: {
-      href: "/guides",
+      href: "/guides/sessionkit",
       text: "Go to Guides",
     },
   },
