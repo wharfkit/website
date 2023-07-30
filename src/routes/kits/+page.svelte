@@ -113,9 +113,9 @@
     <div class="box stack">
       <h2>Try out the Session Kit.</h2>
       <p>
-        Learn how to define a Session and perform transactions with our Node.js Tutorial, or
+        Learn how to define a Session and perform transactions with our Node.js Guide, or
         discover how to connect wallets to a web application and prompt transactions with our Web
-        App Tutorial. And check back soon for more tutorials on the other kits!
+        App Guide. And check back soon for more guides on the other kits!
       </p>
       <div class="buttons | cluster">
         <a href="/guides/sessionkit/" class="button">Node.js Tutorial</a>
