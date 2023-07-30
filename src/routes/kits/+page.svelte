@@ -118,8 +118,8 @@
         App Guide. And check back soon for more guides on the other kits!
       </p>
       <div class="buttons | cluster">
-        <a href="/guides/sessionkit/" class="button">Node.js Tutorial</a>
-        <a href="/guides/sessionkit/" class="button">Web App Tutorial</a>
+        <a href="/guides/sessionkit/getting-started-node-js" class="button">Node.js Tutorial</a>
+        <a href="/guides/sessionkit/getting-started-web-app" class="button">Web App Tutorial</a>
       </div>
     </div>
     <div class="image | box place-center">
