@@ -137,24 +137,25 @@
 
   <div class="overview | switcher">
     <div class="card one | place-center align-center">
-      <h3>Modular SDKs for the future.</h3>
+      <h3>Build projects on a solid foundation.</h3>
       <picture>
-        <img src={contractKit} alt="contract kit logo" loading="lazy" width="256" height="256" />
+        <img src={threeKits} alt="contract kit logo" loading="lazy" width="256" height="256" />
       </picture>
     </div>
     <div class="stack">
-      <div class="card two">
-        <img src={threeKits} alt="three kit icons" loading="lazy" width="113" height="97" />
-        <h3>Combine the kits in any way you can imagine.</h3>
+      <div class="card three">
+        <h3>The Antelope SDK</h3>
+        <p>
+          Every kit in Wharf is built using the Antelope SDK, the core library which provides Javascript native types, client interfaces, and other tools to make it easy to work with any Antelope-based blockchain.
+        </p>
+        <div class="buttons | cluster">
+            <a href="/docs/antelope" class="button">Documentation</a>
+            <a href="https://github.com/wharfkit/antelope" class="button">Github</a>
+        </div>
       </div>
       <div class="card three">
-        <h3>Launch your project from a solid foundation.</h3>
-        <p>
-          Wharf's modular design was created by expert blockchain developers in order to make sure
-          that no one ever has to reinvent the wheel. The Session, Contract, and Account kits can be
-          used separately or in an endless number of combinations, and can also be customized
-          through the use of plugins.
-        </p>
+        <h3>Protocol Standards</h3>
+        <p>Transactions that pass through the Wharf kits are standardized and represented as <a href="https://github.com/greymass/eosio-signing-request/">Signing Requests</a>.</p>
       </div>
     </div>
   </div>
