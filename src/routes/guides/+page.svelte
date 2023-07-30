@@ -4,6 +4,12 @@
 
 <main>
   <h1>Guides</h1>
+  <blockquote>
+    Guides for Wharf is currently a work in progress. Check back regularly as new documentation will be added over time. Please reach out through the <a
+      href="https://t.me/wharfkit">Wharf Telegram channel</a> if you have any specific documentation
+    requests.
+  </blockquote>
+
   <p>Welcome to Wharf's Guides, where you can learn how to use Wharf to interact with Antelope-based blockchains. Use the sidebar on the left to select a category or specific guide and get started!</p>
   <hr />
 
@@ -18,6 +24,9 @@
   }
   p {
     line-height: var(--space-l);
+  }
+  blockquote {
+    margin-bottom: var(--space-l);
   }
 
   main :global(h2) {
