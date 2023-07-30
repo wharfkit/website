@@ -60,19 +60,19 @@
       conic-gradient(
         from 120deg,
         var(--page-background) 33.333%,
-        transparent 33.333% 
+        transparent 33.333%
       ),
       radial-gradient(
         100% 40rem at center,
         var(--radial-0),
         var(--radial-1),
         var(--radial-2),
-        var(--radial-3) 
+        var(--radial-3)
       ),
       linear-gradient(
         0deg,
-        var(--page-background), 
-        var(--page-background)         
+        var(--page-background),
+        var(--page-background)
       );
 
       background-repeat: no-repeat;
