@@ -6,15 +6,17 @@ order: 10
 
 # Getting started: Web App
 
-The Session Kit provided by Wharf is a suite of tools specifically created to help developers build web-based applications that perform transactions on [Antelope-based blockchains](https://antelope.io). It does this through the creation of sessions which are connected to a specific account on the blockchain through a designated wallet plugins.
-
-## Overview
-
 This guide will generically walk through adding the Session Kit to any existing web application. The goal is to allow an end user of the application to authenticate with their own wallet and use it to perform transactions with their account.
 
-The example commands for package management will be using [yarn](https://yarnpkg.com/) but other package managers like [npm](https://npmjs.com/) will work as well. Additional example code using popular web frameworks can also be found [here](https://github.com/wharfkit/?q=example&type=all&language=&sort=) for further hands-on learning.
+Additional example code using popular web frameworks can also be found [here](https://github.com/wharfkit/?q=example&type=all&language=&sort=) for further hands-on learning.
+
+## What is the Session Kit?
+
+The Session Kit provided by Wharf is a suite of tools specifically created to help developers build web-based applications that perform transactions on [Antelope-based blockchains](https://antelope.io). It does this through the creation of sessions which are connected to a specific account on the blockchain through a designated wallet plugins.
 
 ## Dependencies
+
+> The example commands for package management will be using [yarn](https://yarnpkg.com/) but other package managers like [npm](https://npmjs.com/) will work as well.
 
 In order to utilize the Session Kit in a web application, a couple packages will need to be added to the project.
 
