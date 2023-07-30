@@ -133,7 +133,7 @@
           token balances.
         </li>
       </ul>
-      <a href="/kits/account" class="button">Learn More</a>
+      <a href="/kits/account" class="button">Learn more (Coming Soon)</a>
     </div>
     <div class="contract kit | stack" class:active={active === "contract"}>
       <h3>Contract Kit</h3>
@@ -148,7 +148,7 @@
           developer environment context-aware to reduce mistakes through autocompletion and type checking.
         </li>
       </ul>
-      <a href="/kits/contract" class="button">Learn More</a>
+      <a href="/kits/contract" class="button">Learn more (Coming Soon)</a>
     </div>
   </div>
 </div>
