@@ -31,7 +31,7 @@ yarn add @wharfkit/session @wharfkit/web-renderer @wharfkit/wallet-plugin-anchor
 
 ## Design Considerations
 
-With the all the required packages added and before reviewing any code, now is time to consider where in the application a few different components will exist.
+With all the required packages added and before reviewing any code, now is time to consider where in the application a few different components will exist.
 
 1. The `SessionKit` itself will need to be created and accessible from anywhere users need to manage their sessions. The `SessionKit` instance only needs to be instantiated once and then can be used to create/restore any number of individual sessions. A recommended location for this would be on some form of **global property** or in an **exported module** to be included in other files when needed.
 2. Once a `Session` is created through calls to the `SessionKit`, it will need to be made accessible anywhere the user is expected to interact with the blockchain. An individual `Session` is reusable between page loads and in different components, and is persisted in local storage. A good candidate for storing of one or more `Session` instances is in the applications **state** or a **store** of some kind.
