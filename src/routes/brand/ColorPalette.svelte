@@ -24,7 +24,7 @@
 
 <style>
   .palette {
-    --palette-radius: var(--s0);
+    --palette-radius: var(--space-s);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@
 
   .highlight {
     flex-grow: 2;
-    min-block-size: var(--s4);
+    min-block-size: var(--space-3xl);
     border-top-left-radius: var(--palette-radius);
     border-top-right-radius: var(--palette-radius);
   }

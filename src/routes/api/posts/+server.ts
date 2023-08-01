@@ -1,8 +1,21 @@
-import { fetchMarkdownPosts } from "$lib/utils"
-import { json } from "@sveltejs/kit"
+import { getBlogPosts } from "$lib/utils"
+import { json, error } from "@sveltejs/kit"
+import { postsPerPage } from "$lib/config.js"
 
-export const GET = async () => {
-  const allPosts = await fetchMarkdownPosts()
+export const GET = async ({ url }) => {
+  try {
+    const params = url.searchParams
 
-  return json(allPosts)
+    const options: BlogQueryOptions = {
+      limit: Number(params.get("limit")) || postsPerPage,
+      tag: params.get("tag") as BlogPostTag || undefined,
+    }
+
+    const allPosts = await getBlogPosts(options)
+
+    return json(allPosts)
+
+  } catch (e) {
+    throw error(500, "Error getting blog posts." + e)
+  }
 }

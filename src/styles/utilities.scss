@@ -1,22 +1,60 @@
 /* Utilities */
+@layer utilities {
+  .height-100 {
+    height: 100%;
+  }
 
-.height-100 {
-  height: 100%;
-}
+  .visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+  }
 
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: auto;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap;
-}
+  .flow {
+    display: flex;
+    flex-direction: column;
+  }
 
-.flow {
-  display: flex;
-  flex-direction: column;
+  .flex {
+    display: flex;
+  }
+
+  .place-center {
+    display: grid;
+    place-content: center;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .align-center {
+    align-items: center;
+  }
+
+  .align-left {
+    align-items: start;
+  }
+
+  .align-right {
+    align-items: end;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .justify-end {
+    justify-content: end;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
 }

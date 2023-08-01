@@ -22,15 +22,15 @@
 }
 
 /* Set core root defaults */
-html,
-body,
-#root {
-  height: 100%;
-}
+// html,
+// body {
+// height: 100%;
+// }
 
-html:focus-within {
-  scroll-behavior: smooth;
-}
+// Still buggy in SvelteKit
+// html:focus-within {
+//   scroll-behavior: smooth;
+// }
 
 /* Set core body defaults */
 body {

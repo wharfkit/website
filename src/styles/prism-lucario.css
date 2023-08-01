@@ -15,7 +15,6 @@ pre[class*="language-"] {
   text-align: left;
   white-space: pre;
   word-spacing: normal;
-  word-break: normal;
   word-wrap: normal;
   line-height: 1.5;
   -moz-tab-size: 4;
@@ -31,25 +30,18 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
   position: relative;
-  padding: 1em;
-  padding: var(--s1);
-  margin: 0.5em 0;
-  overflow: auto;
-  border-radius: 0.3em;
-  border-radius: var(--s0);
-}
-
-pre[class*="language-"] {
+  padding: var(--space-m);
+  word-break: normal;
+  overflow-x: auto;
+  border-radius: var(--space-s);
   background: #263e52;
-  /* background: var(--wharf-blue); */
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"],
 :not(pre) > code {
-  background: #263e52;
-  background: var(--color-primary-100);
-  color: var(--text-color);
+  background: var(--theme-surface6);
+  color: var(--theme-text-body);
   text-shadow: none;
   padding-block: 0.125em;
   padding-inline: 0.3em;

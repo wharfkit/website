@@ -3,7 +3,7 @@
   export let text: string
 </script>
 
-<div class="toast" transition:fly={{ y: 20 }}>{text}</div>
+<div class="toast" transition:fly|global={{ y: 20 }}>{text}</div>
 
 <style>
   .toast {
@@ -14,8 +14,8 @@
     opacity: 75%;
     color: white;
     background-color: var(--wharf-blue);
-    border-radius: var(--s1);
-    padding-inline: var(--s1);
-    padding-block: var(--s0);
+    border-radius: var(--space-m);
+    padding-inline: var(--space-m);
+    padding-block: var(--space-s);
   }
 </style>
