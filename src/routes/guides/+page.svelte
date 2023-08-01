@@ -4,14 +4,13 @@
 
 <main>
   <h1>Guides</h1>
-
-  <p>Welcome to Wharf's Guides, where you can find examples on how to use the Session Kit.</p>
-  <p>
-    Documentation for all three kits is currently a work in progress, but check back soon for
-    instructions on the Contract and Account Kits. Please reach out through the <a
+  <blockquote>
+    Guides for Wharf is currently a work in progress. Check back regularly as new documentation will be added over time. Please reach out through the <a
       href="https://t.me/wharfkit">Wharf Telegram channel</a> if you have any specific documentation
     requests.
-  </p>
+  </blockquote>
+
+  <p>Welcome to Wharf's Guides, where you can learn how to use Wharf to interact with Antelope-based blockchains. Use the sidebar on the left to select a category or specific guide and get started!</p>
   <hr />
 
   <Updates />
@@ -25,6 +24,9 @@
   }
   p {
     line-height: var(--space-l);
+  }
+  blockquote {
+    margin-bottom: var(--space-l);
   }
 
   main :global(h2) {

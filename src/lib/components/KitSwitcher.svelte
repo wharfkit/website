@@ -38,39 +38,6 @@
         </span>
       </button>
     </li>
-    <li class:active={active === "account"}>
-      <button on:click={() => (active = "account")}>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-users"
-            ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle
-              cx="9"
-              cy="7"
-              r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-        </span>
-        <span>Account Kit</span>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
-        </span>
-      </button>
-    </li>
     <li class:active={active === "contract"}>
       <button on:click={() => (active = "contract")}>
         <span>
@@ -102,6 +69,39 @@
         </span>
       </button>
     </li>
+    <li class:active={active === "account"}>
+        <button on:click={() => (active = "account")}>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-users"
+              ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle
+                cx="9"
+                cy="7"
+                r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+          </span>
+          <span>Account Kit</span>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
+          </span>
+        </button>
+      </li>
   </menu>
   <div class="kits">
     <div class="session kit | stack" class:active={active === "session"}>
@@ -109,7 +109,7 @@
       <p>The Session Kit is designed to make signing transactions easy. With this kit, you can:</p>
       <ul>
         <li>
-          Request that a user login to an application using their preferred wallet and establish a Session for transaction signing. 
+          Request that a user login to an application using their preferred wallet and establish a Session for transaction signing.
         An out-of-the-box UI is also provided for this interaction.
         </li>
         <li>
@@ -133,7 +133,7 @@
           token balances.
         </li>
       </ul>
-      <a href="/kits/account" class="button">Learn More</a>
+      <a href="/kits/account" class="button">Learn more (Coming Soon)</a>
     </div>
     <div class="contract kit | stack" class:active={active === "contract"}>
       <h3>Contract Kit</h3>
@@ -148,7 +148,7 @@
           developer environment context-aware to reduce mistakes through autocompletion and type checking.
         </li>
       </ul>
-      <a href="/kits/contract" class="button">Learn More</a>
+      <a href="/kits/contract" class="button">Learn more (Coming Soon)</a>
     </div>
   </div>
 </div>
