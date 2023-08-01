@@ -4,15 +4,15 @@ published: true
 order: 11
 ---
 
-# Getting started: Node.js
+# Getting Started: Node.js
 
-This guide will cover using the Session Kit to create a simple Node.js script. The goal of the script is to establish a Session with the Jungle 4 testnet and perform a simple token transfer to another account. Mastering these few concepts will open up the possibilities for a script to interact with any smart contract on any Antelope-based blockchain.
+This guide will cover using the Session Kit to create a simple Node.js script. The goal of the script is to establish a Session with the Jungle 4 Testnet and perform a simple token transfer to another account. Mastering these few concepts will open up the possibilities for a script to interact with any smart contract on any Antelope-based blockchain.
 
 A completed version of the script this guide will create can be [found here](https://github.com/wharfkit/example-nodejs).
 
 ## What is the Session Kit?
 
-The Session Kit provided by Wharf is a suite of tools specifically created to help developers build web-based applications that perform transactions on [Antelope-based blockchains](https://antelope.io). It does this through the creation of sessions which are connected to a specific account on the blockchain through a designated wallet plugins.
+The Session Kit provided by Wharf is a suite of tools specifically created to help developers build web-based applications that perform transactions on [Antelope-based blockchains](https://antelope.io). It does this through the creation of Sessions which are connected to a specific account on the blockchain through designated wallet plugins.
 
 ## Project Setup
 
@@ -20,25 +20,25 @@ To follow along with this guide and learn by writing out the code, create a new 
 
 ### Node.js
 
-To run the code from this guide, the system must have [nodejs (v18+)](https://nodejs.org) installed along with `npm`. If running a version of Node.js which is less than version 18, [additional steps](https://github.com/wharfkit/example-nodejs#nodejs-and-fetch) must be taken to ensure `fetch` is available for the Session Kit.
+To run the code from this guide, the system must have [Node.js (v18+)](https://nodejs.org) installed along with `npm`. If running a version of Node.js which is less than version 18, [additional steps](https://github.com/wharfkit/example-nodejs#nodejs-and-fetch) must be taken to ensure `fetch` is available for the Session Kit.
 
 ### Dependencies
 
-> The example commands for package management will be using [yarn](https://yarnpkg.com/) but other package managers like [npm](https://npmjs.com/) will work as well.
+The example commands for package management will be using [yarn](https://yarnpkg.com/), but other package managers like [npm](https://npmjs.com/) will work as well.
 
-In order to utilize the Session Kit in a Node.js, the script will need the [@wharfkit/session](https://github.com/wharfkit/session) library and one [WalletPlugin](https://github.com/orgs/wharfkit/repositories?q=wallet-plugin&type=all&language=&sort=). For the purposes of this guide we will utilize the [@wharfkit/wallet-plugin-privatekey](https://github.com/wharfkit/wallet-plugin-privatekey) plugin which allows the script to load a private key and sign locally.
+In order to utilize the Session Kit in a Node.js, the script will need the [@wharfkit/session](https://github.com/wharfkit/session) library and one [WalletPlugin](https://github.com/orgs/wharfkit/repositories?q=wallet-plugin&type=all&language=&sort=). For the purposes of this guide, we will utilize the [@wharfkit/wallet-plugin-privatekey](https://github.com/wharfkit/wallet-plugin-privatekey) plugin, which allows the script to load a private key and sign locally.
 
 ```bash
 yarn add @wharfkit/session @wharfkit/wallet-plugin-privatekey
 ```
 
-## Creating the script
+## Creating the Script
 
 In the project folder, create a single `index.js` file that will serve as the entry point to the script.
 
-### Include the required classes
+### Include the Required Classes
 
-At the top of this file we need include the two dependencies required to achieve our goal, the `Session` and the `WalletPluginPrivateKey`. The `Session` is a class that lets us instantiate new sessions for specific blockchain accounts and the `WalletPluginPrivateKey` is an in-app wallet that lets the session sign transactions locally using a [PrivateKey](/docs/antelope/private-key).
+At the top of this file we need to include the two dependencies required to achieve our goal, the `Session` and the `WalletPluginPrivateKey`. The `Session` is a class that lets us instantiate new Sessions for specific blockchain accounts and the `WalletPluginPrivateKey` is an in-app wallet that lets the Session sign transactions locally using a [PrivateKey](/docs/antelope/private-key).
 
 You can include these dependencies using the `require` syntax for a non-ESM script:
 
@@ -56,15 +56,15 @@ import { WalletPluginPrivateKey } from "@wharfkit/wallet-plugin-privatekey"
 
 ### Configuration
 
-Next in the script we need to establish some configuration parameters that will be passed to the `Session` during instantiation. The session needs 3 critical pieces of information in order to operate properly:
+Next in the script we need to establish some configuration parameters that will be passed to the `Session` during instantiation. The Session needs 3 critical pieces of information in order to operate properly:
 
 - **Where** to connect and what blockchain to use.
-- **What** account the session will use on that blockchain.
-- **How** the session can authorize transactions for the account.
+- **What** account the Session will use on that blockchain.
+- **How** the Session can authorize transactions for the account.
 
 #### Where: Blockchain
 
-The first up is the `ChainDefinition` interface of the blockchain we intend to connect with. This interface consists of the `id` to identify the blockchain and a `url` of an API endpoint the script can connect with. This part of the config informs the new Session how to connect with the blockchain, which in this example is going to be the **Jungle 4 (Testnet)**.
+First up is the `ChainDefinition` interface of the blockchain we intend to connect with. This interface consists of the `id` to identify the blockchain and a `url` of an API endpoint the script can connect with. This part of the config informs the new Session how to connect with the blockchain, which in this example is going to be the **Jungle 4 (Testnet)**.
 
 ```js
 const chain = {
@@ -88,7 +88,7 @@ For the purpose of this guide we are using the existing [wharfkit1111](https://j
 
 #### How: Wallet Plugin
 
-The final piece of information the `Session` requires is how it will sign transactions, which in this example is with a [PrivateKey](/docs/antelope/private-key) embedded in the script which is loaded into the [WalletPluginPrivateKey](https://github.com/wharfkit/wallet-plugin-privatekey) plugin.
+The final piece of information the `Session` requires is how it will sign transactions, which in this example is with a [PrivateKey](/docs/antelope/private-key) embedded in the script, which is loaded into the [WalletPluginPrivateKey](https://github.com/wharfkit/wallet-plugin-privatekey) plugin.
 
 ```js
 const privateKey = "5Jtoxgny5tT7NiNFp1MLogviuPJ9NniWjnU4wKzaX4t7pL4kJ8s"
@@ -97,7 +97,7 @@ const walletPlugin = new WalletPluginPrivateKey(privateKey)
 
 The plugin will accept either the standard or WIF format private key.
 
-> **IMPORTANT**: Protect your private keys. Embedding private keys like this in scripts creates risk to the account and all its tokens. Never publish source code containing private keys in Github repositories or use this method of signing in applications where users can extract the private key information.
+> **IMPORTANT**: Protect your private keys. Embedding private keys like this in scripts puts the account and all its tokens at risk. Never publish source code containing private keys in Github repositories or use this method of signing in applications where users can extract the private key information.
 
 ### Creating a Session
 
@@ -112,15 +112,15 @@ const session = new Session({
 })
 ```
 
-This session is a reusable instance for the **wharfkit1111** account on the **Jungle 4 (Testnet)** that can now be used throughout the script.
+This Session is a reusable instance for the **wharfkit1111** account on the **Jungle 4 (Testnet)** that can now be used throughout the script.
 
-### Perform the transfer
+### Perform the Transfer
 
 Now with an instance of a `Session` readily available to use, the script is capable of performing transactions. Next the script must define the smart contract action it wishes to perform and then call it.
 
 #### Defining the Action
 
-To perform a basic token transfer on Jungle 4 the script will need to define the action. The script can do this by defining a variable and utilizing the raw action data format.
+To perform a basic token transfer on Jungle 4, the script will need to define the action. The script can do this by defining a variable and utilizing the raw action data format.
 
 ```js
 const transferAction = {
@@ -140,21 +140,21 @@ In this example, the `transferAction` variable is being set to an object that de
 
 - The `account` in which the smart contract is deployed, which is `eosio.token`.
 - The `name` of the action to perform on the contract, being `transfer`.
-- The `authorization` array which defines which accounts permit this action, which we pass in `session.permissionLevel` so it matches the current session.
-- The `data` object which defines the parameters required by the smart contract.
+- The `authorization` array which defines which accounts permit this action, which we pass in `session.permissionLevel`, so it matches the current Session.
+- The `data` object, which defines the parameters required by the smart contract.
 
 For the `eosio.token` contract and its `transfer` action, the required parameters consist of:
 
-- `from`: Which account is sending the tokens, in this case it's the `session.actor`.
+- `from`: Which account is sending the tokens, in this case the `session.actor`.
 - `to`: Which account is receiving the tokens, which we set to `wharfkittest` (another test account).
 - `quantity`: The amount of tokens to send using the [Asset](/docs/antelope/asset) format.
 - `memo`: An optional memo to publicly provide additional information about the transfer.
 
-Every smart contract will utilize different parameters for the `data` field to define the required parameters. Check the smart contracts source code or its ABI to determine what these fields are, or in the near future check out Wharf's Contract Kit for easier methods of generating this field.
+Every smart contract will utilize different parameters for the `data` field to define the required parameters. Check the smart contract's source code or its ABI to determine what these fields are, or check out Wharf's Contract Kit for easier methods of generating this field in the near future.
 
-#### Executing the transaction
+#### Executing the Transaction
 
-With an action defined, the script can now call the `transact()` method on the session instance to automatically perform the transaction. This method is an asynchronous call so for this purposes of this script, we will need to wrap it as an `async` function which can just be named `main()` and called immediately.
+With an action defined, the script can now call the `transact()` method on the Session instance to automatically perform the transaction. This method is an asynchronous call, so for the purposes of this script, we will need to wrap it as an `async` function, which can just be named `main()` and called immediately.
 
 ```js
 async function main() {
@@ -168,11 +168,11 @@ async function main() {
 main()
 ```
 
-The `session.transact()` call will take in the `action` we defined, and using all of the configuration data it has, will assemble it into a full transaction and sign it using the local wallet plugin it has.
+The `session.transact()` call will take in the `action` we defined, and using all of the configuration data it has, will assemble it into a full transaction and sign it using the local wallet plugin.
 
 This example script will then log to the console that the transaction was successful and render out a link to a block explorer to verify the results.
 
-## Run the script
+## Run the Script
 
 With all the code in place, give it a try! Run the following command from your terminal:
 
@@ -180,7 +180,7 @@ With all the code in place, give it a try! Run the following command from your t
 node index.js
 ```
 
-Provided the testing account still has tokens at the time you're reading this guide, the transaction should be successfully executed on the Jungle 4 Testnet, and the link it provides to you will show you the results on the network. The output of the script will look like this:
+Provided the testing account still has tokens at the time you're reading this guide, the transaction should be successfully executed on the Jungle 4 Testnet, and the link it provides  will show you the results on the network. The output of the script will look like this:
 
 ```
 Transaction was successfully broadcast!
@@ -191,6 +191,6 @@ You've just successfully used the Session Kit in a Node.js application to perfor
 
 ## More...
 
-With these concepts you can create a Node.js application that's capable of performing any transaction on any Antelope-based blockchain. This document only scratches the surface of what's possible though since it only covers the Session Kit and doesn't dive deeply into the additional parameters that can be provided to most of these calls.
+With these concepts you can create a Node.js application that's capable of performing any transaction on any Antelope-based blockchain. This document only scratches the surface of what's possible, since it only covers the Session Kit and doesn't dive deeply into the additional parameters that can be provided to most of these calls.
 
-Stay tuned as more [guides](/guides) and [documentation](/docs) are added, more [example codebases](https://github.com/orgs/wharfkit/repositories?q=example&type=all&language=&sort=) are created, or ask questions in the [Github discussion board for WharfKit](https://github.com/orgs/wharfkit/discussions)!
+Stay tuned as more [guides](/guides), [documentation](/docs) and [example codebases](https://github.com/orgs/wharfkit/repositories?q=example&type=all&language=&sort=) are added, or ask questions in the [Github discussion board for WharfKit](https://github.com/orgs/wharfkit/discussions)!
