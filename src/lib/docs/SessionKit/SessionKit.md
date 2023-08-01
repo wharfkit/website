@@ -1,6 +1,6 @@
 ---
 title: SessionKit (Factory)
-description: The SessionKit is responsible for creating and managing end user Session instances for web applications through actions such as login and restore.
+description: The SessionKit is responsible for creating and managing end user Session instances for web applications through methods such as login and restore.
 category: SessionKit
 published: true
 ---
