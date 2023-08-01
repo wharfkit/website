@@ -4,26 +4,26 @@ published: true
 order: 10
 ---
 
-# Getting started: Web App
+# Getting Started: Web App
 
-This guide will generically walk through adding the Session Kit to any existing web application. The goal is to allow an end user of the application to authenticate with their own wallet and use it to perform transactions with their account.
+This guide will generically walk through how to add the Session Kit to any existing web application. The goal is to allow an end user of the application to authenticate with their own wallet and use it to perform transactions with their account.
 
 Additional example code using popular web frameworks can also be found [here](https://github.com/wharfkit/?q=example&type=all&language=&sort=) for further hands-on learning.
 
 ## What is the Session Kit?
 
-The Session Kit provided by Wharf is a suite of tools specifically created to help developers build web-based applications that perform transactions on [Antelope-based blockchains](https://antelope.io). It does this through the creation of sessions which are connected to a specific account on the blockchain through a designated wallet plugins.
+The Session Kit provided by Wharf is a suite of tools specifically created to help developers build web-based applications that perform transactions on [Antelope-based blockchains](https://antelope.io). It does this through the creation of Sessions which are connected to a specific account on the blockchain through designated wallet plugins.
 
 ## Dependencies
 
-> The example commands for package management will be using [yarn](https://yarnpkg.com/) but other package managers like [npm](https://npmjs.com/) will work as well.
+The example commands for package management will be using [yarn](https://yarnpkg.com/), but other package managers like [npm](https://npmjs.com/) will work as well.
 
 In order to utilize the Session Kit in a web application, a couple packages will need to be added to the project.
 
 - [@wharfkit/session](https://github.com/wharfkit/session): The Session Kit library itself.
 - [@wharfkit/web-renderer](https://github.com/wharfkit/web-renderer): The default UI renderer.
 
-The application will also need at least one [WalletPlugin](https://github.com/orgs/wharfkit/repositories?q=wallet-plugin&type=all&language=&sort=) to authenticate users and request transaction signatures. For the purpose of this guide we will utilize [@wharfkit/wallet-plugin-anchor](https://github.com/wharfkit/wallet-plugin-anchor).
+The application will also need at least one [WalletPlugin](https://github.com/orgs/wharfkit/repositories?q=wallet-plugin&type=all&language=&sort=) to authenticate users and request transaction signatures. For the purpose of this guide, we will utilize [@wharfkit/wallet-plugin-anchor](https://github.com/wharfkit/wallet-plugin-anchor).
 
 ```bash
 yarn add @wharfkit/session @wharfkit/web-renderer @wharfkit/wallet-plugin-anchor
@@ -33,10 +33,10 @@ yarn add @wharfkit/session @wharfkit/web-renderer @wharfkit/wallet-plugin-anchor
 
 With all the required packages added and before reviewing any code, now is time to consider where in the application a few different components will exist.
 
-1. The `SessionKit` itself will need to be created and accessible from anywhere users need to manage their sessions. The `SessionKit` instance only needs to be instantiated once and then can be used to create/restore any number of individual sessions. A recommended location for this would be on some form of **global property** or in an **exported module** to be included in other files when needed.
-2. Once a `Session` is created through calls to the `SessionKit`, it will need to be made accessible anywhere the user is expected to interact with the blockchain. An individual `Session` is reusable between page loads and in different components, and is persisted in local storage. A good candidate for storing of one or more `Session` instances is in the applications **state** or a **store** of some kind.
+1. The `SessionKit` itself will need to be created and accessible from anywhere users need to manage their Sessions. The `SessionKit` instance only needs to be instantiated once and then can be used to create/restore any number of individual Sessions. A recommended location for this would be on some form of **global property** or in an **exported module**, to be included in other files when needed.
+2. Once a `Session` is created through calls to the `SessionKit`, it will need to be made accessible anywhere the user is expected to interact with the blockchain. An individual `Session` is reusable between page loads and in different components, and is persisted in local storage. A good candidate for storing of one or more `Session` instances is in the application's **state** or a **store** of some kind.
 
-Pick locations in the project that makes sense for your application and the web framework its built upon.
+Pick locations in the project that makes sense for your application and the web framework it's built upon.
 
 ## Initializing the `SessionKit`
 
@@ -47,7 +47,7 @@ An instance of the `SessionKit` must first be established within the application
 - `ui`: An instance of a `UserInterface` to render information to the user.
 - `walletPlugins`: An array of `WalletPlugin` typed objects, one for each wallet to support.
 
-The code below will instantiate the `SessionKit` for an app called "appname", and it will be configured to use the default renderer to connect with **Jungle 4 (Testnet)** and the **Anchor Wallet**. The [@wharfkit/web-renderer](https://github.com/wharfkit/web-renderer) is an out-of-the-box `UserInterface` which we recommend to get started with.
+The code below will instantiate the `SessionKit` for an app called "appname", and it will be configured to use the default renderer to connect with **Jungle 4 (Testnet)** and the **Anchor Wallet**. The [@wharfkit/web-renderer](https://github.com/wharfkit/web-renderer) is an out-of-the-box `UserInterface`, which we recommend for getting started.
 
 ```ts
 import { SessionKit } from "@wharfkit/session"
@@ -69,27 +69,27 @@ const sessionKit = new SessionKit({
 })
 ```
 
-The `sessionKit` variable is now a ready to use instance of the kit and the user interface has been injected as [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) in the app. From here the `sessionKit` variable should be made available to the rest of the application so that other elements, such as the "login" or "logout" buttons, can trigger methods on it.
+The `sessionKit` variable is now a ready-to-use instance of the kit, and the user interface has been injected as [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) in the app. From here the `sessionKit` variable should be made available to the rest of the application so that other elements, such as the "login" or "logout" buttons, can trigger methods on it.
 
 > **Note**: If you are establishing the Session Kit and Web Renderer after the `DOMContentLoaded` event has already fired, you may need to manually call `webRenderer.appendDialogElement()` during the "on mount" event in the framework you are using.
 
 ## Creating a `Session`
 
-The recommended next step in setting up the application is to add some sort of "login" or "sign-in" element to the application. The `SessionKit` instance created in the previous step provides a `login()` method which can be called to initiate the creation of a new `Session`.
+The recommended next step in setting up the application is to add some sort of "login" or "sign-in" element. The `SessionKit` instance created in the previous step provides a `login()` method which can be called to initiate the creation of a new `Session`.
 
 ```ts
 const { session } = await sessionKit.login()
 ```
 
-This method is an asynchronous call that requests the `UserInterface` to perform the login flow and return a `LoginResult` that contains an instance of a `Session`. The Session Kit itself with the plugins that were included will handle the interaction with the user and collect the information required to establish a session.
+This method is an asynchronous call that requests the `UserInterface` to perform the login flow and return a `LoginResult` that contains an instance of a `Session`. The Session Kit itself with the plugins that were included will handle the interaction with the user and collect the information required to establish a Session.
 
 The most basic example of how the `login()` method can be used consists of 3 concepts:
 
-- Calling and awaiting the `sessionKit.login()` method
-- Getting the `session` from the `LoginResponse`
-- Placing the `session` somewhere in the application state
+- Calling and awaiting the `sessionKit.login()` method.
+- Getting the `Session` from the `LoginResponse`.
+- Placing the `Session` somewhere in the application state.
 
-Then bind this function to the login element in your application. This in a pure HTML context would be:
+Then bind this function to the login element in your application. In a pure HTML context, this would be:
 
 ```html
 <script>
@@ -104,7 +104,7 @@ Then bind this function to the login element in your application. This in a pure
 <button onClick="login">Login</button>
 ```
 
-The application can now recognize a user has logged in by checking the existence of the `session` variable in the application state.
+The application can now recognize that a user has logged in by checking the existence of the `Session` variable in the application state.
 
 ```js
 if (session) {
@@ -116,13 +116,13 @@ if (session) {
 
 ## Performing a Transaction
 
-With the application now having access to an established `Session`, the application can now utilize it in order to request specific transactions from the user. Continuing with the example code above, the `session` instance in the application state provides a `transact()` that can be called to start this process.
+With the application now having access to an established `Session`, the application can now utilize it in order to request specific transactions from the user. Continuing with the example code above, the `Session` instance in the application state provides a `transact()` that can be called to start this process.
 
 ```ts
 const result = await session.transact(data)
 ```
 
-This method similar to `login()` is an asynchronous call that triggers the `UserInterface` to start the flow for a user to sign the transaction. The `data` required for this call must be that of [TransactArgs](https://wharfkit.github.io/session/interfaces/TransactArgs.html). The simplest variant of this data is a single action, which the application can provide similar to the example below.
+This method, similar to `login()`, is an asynchronous call that triggers the `UserInterface` to start the flow for a user to sign the transaction. The `data` required for this call must be that of [TransactArgs](https://wharfkit.github.io/session/interfaces/TransactArgs.html). The simplest variant of this data is a single action, which the application can provide -- similar to the example below.
 
 ```ts
 const data = {
@@ -142,13 +142,13 @@ const result2 = await session.transact({ action: data })
 
 This action is a call to the `transfer` action on the `eosio.token` contract. The `authorization` field is an array which is populated using the `session.permissionLevel` property to automatically template with. The `data` field on the action is the information required by the smart contract action, which is using the `session.actor` to specify the `from` field, and manually defining the rest of the required fields.
 
-This `data` is passed into the `transact()` call as `{ action: data }` to indicate it is a single action being performed for this transaction. If successful, the response from this call is returned as a [TransactResult](https://wharfkit.github.io/session/interfaces/TransactResult.html). If the process fails an `Error` will be thrown.
+This `data` is passed into the `transact()` call as `{ action: data }` to indicate it is a single action being performed for this transaction. If successful, the response from this call is returned as a [TransactResult](https://wharfkit.github.io/session/interfaces/TransactResult.html). If the process fails, an `Error` will be thrown.
 
 ## Persisting a Session
 
-At this point the application allows a user to authenticate with the application and also allows them to perform a transaction on the blockchain. However, there's no persistence of the session when navigating between different pages or upon page refresh.
+At this point the application allows a user to authenticate with the application and also allows them to perform a transaction on the blockchain. However, there's no persistence of the Session when navigating between different pages or upon page refresh.
 
-The `SessionKit` instance offers a method to `restore()` the last used `Session` which can be added to the page load event to solve this problem.
+The `SessionKit` instance offers a method to `restore()` the last used `Session`, which can be added to the page load event to solve this problem.
 
 ```ts
 const session = await sessionKit.restore()
@@ -175,9 +175,9 @@ The call to `restore()` should occur in the pattern best suited for the web fram
 </body>
 ```
 
-The `restore()` method when called will check local storage and restore the most recently used session for that specific user. If no sessions are found, it will return `undefined`.
+The `restore()` method when called will check local storage and restore the most recently used Session for that specific user. If no Sessions are found, it will return `undefined`.
 
-With this code in place users will now remain authenticated with the app between page loads.
+With this code in place, users will now remain authenticated with the app between page loads.
 
 ## Removing a Session
 
@@ -187,7 +187,7 @@ The final thing a user may want to do is delete their `Session` with your app. T
 await sessionKit.logout()
 ```
 
-This call returns no data and without providing any additional parameters, it will remove all sessions the user has created and clear them from local storage. The only remaining piece is for your application to clean up its application state and remove any `Session` instances it may be storing.
+This call returns no data, and without providing any additional parameters, it will remove all Sessions the user has created and clear them from local storage. The only remaining piece is for your application to clean up its application state and remove any `Session` instances it may be storing.
 
 To finish off the pure HTML example used throughout this guide, we just need to add a "logout" function to the script and a button to trigger it.
 
@@ -216,10 +216,10 @@ To finish off the pure HTML example used throughout this guide, we just need to 
 </body>
 ```
 
-This new function will call the `logout()` method against the `sessionKit` instance and then set the `session` instance in the application state to `undefined`.
+This new function will call the `logout()` method against the `sessionKit` instance and then set the `Session` instance in the application state to `undefined`.
 
 ## More...
 
-With these basic concepts, the Session Kit can be integrated into any web application and allow the basic functionality that users would expect. This document only scratches the surface of what's possible though since it only covers the Session Kit and doesn't dive deeply into the additional parameters that can be provided to most of these calls.
+With these basic concepts, the Session Kit can be integrated into any web application and allow the basic functionality that users would expect. This document only scratches the surface of what's possible, since it only covers the Session Kit and doesn't dive deeply into the additional parameters that can be provided to most of these calls.
 
-Stay tuned as more [guides](/guides) and [documentation](/docs) are added, more [example codebases](https://github.com/orgs/wharfkit/repositories?q=example&type=all&language=&sort=) are created, or ask questions in the [Github discussion board for WharfKit](https://github.com/orgs/wharfkit/discussions)!
+Stay tuned as more [guides](/guides), [documentation](/docs) and [example codebases](https://github.com/orgs/wharfkit/repositories?q=example&type=all&language=&sort=) are added, or ask questions in the [Github discussion board for WharfKit](https://github.com/orgs/wharfkit/discussions)!
