@@ -3,7 +3,7 @@ title: "The Ports Are Open: v1.0 Session Kit & New Wharf Website Release"
 date: 2023-08-02
 image: "/images/content/session/wharf-entrance.png"
 tags: ["article"]
-description: "What’s that we spy on the horizon? It’s not land... it’s a production-ready Session Kit and lots of new documentation and resources! This article brings news about the Session Kit v1.0 and an overhaul of the WharfKit.com website."
+description: "What’s that we spy on the horizon? It’s not land... it’s a production-ready Session Kit and lots of new documentation and resources! This article brings news about the release of the Session Kit v1.0 and an overhaul of the WharfKit.com website."
 ---
 
 Today marks an important milestone in Wharf's progress and a step forward for the Antelope ecosystem. Not only are you reading this article on the new version of the WharfKit.com website, but also the Session Kit, one of Wharf's major components, is now production ready!
