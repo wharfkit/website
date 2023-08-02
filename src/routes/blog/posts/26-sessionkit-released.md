@@ -1,6 +1,7 @@
 ---
-title: Session Kit Released
+title: "The Ports Are Open: v1.0 Session Kit & New Wharf Website Release"
 date: 2023-08-02
+image: "/images/content/session/wharf-entrance.png"
 tags: ["article"]
 ---
 
@@ -14,7 +15,7 @@ One of the major components of Wharf, the [Session Kit](/kits/session), is now p
 
 - [The Web Renderer](#), which provides an out-of-the-box user experience.
 - [4 sample projects](#) that illustrate how Wharf integrates into popular web frameworks.
-- [4 wallet plugins](https://github.com/wharfkit/?q=wallet&type=all&language=&sort=), which allow users to accept apps with their preferred wallet.
+- [4 wallet plugins](https://github.com/wharfkit/?q=wallet&type=all&language=&sort=), which allow users to access apps with their preferred wallet.
 - [4 transact plugins](https://github.com/wharfkit/?q=transact&type=all&language=&sort=) that make performing transactions on Antelope blockchains easier.
 - [3 plugin templates](#), which allow developers to extend the Session Kit.
 
