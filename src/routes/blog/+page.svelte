@@ -1,83 +1,110 @@
 <script lang="ts">
   import PostPreview from "$lib/components/PostPreview.svelte"
+  import type { PageData } from "./$types"
+  import { page } from "$app/stores"
+  import { goto } from "$app/navigation"
+  import { postsPerPage } from "$lib/config"
 
-  /** @type {import('./$types').PageData */
-  export let data
+  $: tag = $page.url.searchParams.get("tag")
 
-  let filter: string | null = null
+  const loadMore = () => {
+    const url = new URL($page.url)
+    const limit = Number(url.searchParams.get("limit")) || postsPerPage
+    url.searchParams.set("limit", String(limit + postsPerPage))
+    goto(url, { noScroll: true })
+  }
 
-  $: posts = filter ? data.posts.filter((post) => post.tags.includes(filter)) : data.posts
+  export let data: PageData
 </script>
 
-<div class="with-sidebar">
-  <aside class="sidebar">
-    <ul>
-      <li>
-        <input
-          type="radio"
-          bind:group={filter}
-          class="visually-hidden"
-          name="filter"
-          id="all"
-          value={null}
-          checked />
-        <label for="all">All posts</label>
-      </li>
-      <li>
-        <input
-          type="radio"
-          bind:group={filter}
-          class="visually-hidden"
-          name="filter"
-          id="video"
-          value="video" />
-        <label for="video">Videos</label>
-      </li>
-      <li>
-        <input
-          type="radio"
-          bind:group={filter}
-          class="visually-hidden"
-          name="filter"
-          id="article"
-          value="article" />
-        <label for="article">Articles</label>
-      </li>
-    </ul>
-  </aside>
+<main>
+  <section>
+    <aside>
+      <nav>
+        <div class="sidebar-header">
+          <h1 class="sidebar-title"><a href="/blog">Blog</a></h1>
+        </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="/blog?tag=all" class="sidebar-subtitle" class:active={tag === "all"}>
+              All posts ({data.totals.total})
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="/blog?tag=video" class="sidebar-subtitle" class:active={tag === "video"}>
+              Videos ({data.totals.tags["video"]})
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="/blog?tag=article" class="sidebar-subtitle" class:active={tag === "article"}>
+              Articles ({data.totals.tags["article"]})
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
 
-  <h1 class="visually-hidden">Blog posts</h1>
-  <ul class="posts | stack">
-    {#each posts as post}
-      <li>
-        <PostPreview {...post} />
-        <hr />
-      </li>
-    {/each}
-  </ul>
-</div>
+    <div class="list">
+      <ul class="posts | stack">
+        {#each data.posts as post}
+          <li>
+            <PostPreview {...post} />
+          </li>
+        {/each}
+      </ul>
+
+      {#if tag && data.posts.length < data.totals.tags[tag]}
+        <button class="button" on:click={() => loadMore()}>Load more {tag}s</button>
+      {:else if !tag && data.posts.length < data.totals.total}
+        <button class="button" on:click={() => loadMore()}>Load more posts</button>
+      {/if}
+    </div>
+  </section>
+</main>
 
 <style>
-  .sidebar {
-    flex-grow: 0;
+  section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: var(--space-xl);
   }
 
-  .sidebar label {
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
+  aside {
+    display: none;
   }
 
-  .sidebar label:hover {
-    text-decoration: underline;
+  aside nav {
+    position: sticky;
+    top: var(--space-xl);
+  }
+
+  .sidebar-list {
+    color: var(--theme-text-heading);
+  }
+
+  @media screen and (min-width: 900px) {
+    aside {
+      display: block;
+    }
+
+    section {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      justify-items: start;
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+    align-items: center;
+    max-inline-size: 80ch;
   }
 
   .posts {
     list-style: none;
-    gap: var(--s3);
+    gap: var(--space-4xl);
     padding-inline: unset;
-  }
-  hr {
-    margin-block-start: var(--s3);
   }
 </style>

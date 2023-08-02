@@ -1,0 +1,3 @@
+plugins:
+  cssnano: { preset: "default" }
+  postcss-preset-env: { stage: 3 }

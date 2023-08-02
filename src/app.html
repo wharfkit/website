@@ -2,17 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WharfKit</title>
+    <style media="screen, print">
+      @font-face {
+        font-family: "Inter";
+        src: local("Inter Variable"),
+          url("%sveltekit.assets%/fonts/Inter/Inter-VariableFont_slnt,wght-subset.woff2")
+            format("woff2-variations");
+        font-weight: 100 1000;
+        font-stretch: 25% 151%;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        src: local("Montserrat Variable"),
+          url("%sveltekit.assets%/fonts/Montserrat/Montserrat-VariableFont_wght-subset.woff2")
+            format("woff2-variations");
+        font-weight: 100 1000;
+        font-stretch: 25% 151%;
+        font-display: block;
+      }
+    </style>
+    <script defer data-domain="wharfkit.com" src="https://stats.greymass.com/js/script.js"></script>
     <link rel="canonical" href="https://wharfkit.com/" />
     <link rel="icon" href="%sveltekit.assets%/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@400;600&display=swap"
-      rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
     %sveltekit.head%
   </head>
-  <body>
-    <div id="root">%sveltekit.body%</div>
+  <body data-sveltekit-preload-data="hover">
+    <script>
+      const theme = JSON.parse(localStorage.getItem("theme"))
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"
+
+      document.body.removeAttribute("data-theme")
+      document.body.setAttribute("data-theme", theme || systemTheme)
+    </script>
+    <div id="root" style="display: contents">%sveltekit.body%</div>
   </body>
 </html>

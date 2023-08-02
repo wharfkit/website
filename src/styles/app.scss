@@ -1,36 +1,31 @@
 /* Variables and mixins from the src/variables.scss file are available here without importing. Reset is here otherwise using lang='scss' in a local <style> tag will reset global styles in that component. */
 @forward "reset";
 
-/* Horizontal constraints for readability, using an exception-based approach */
-* {
-  max-inline-size: var(--measure);
-}
-
-html,
-body,
-div,
-header,
-nav,
-main,
-// article,
-pre,
-footer {
-  max-inline-size: none;
-}
-
-/* Default global styles */
+/* Default global styles - Can be overridden by pages if needed*/
 
 body {
-  color: var(--text-color);
+  background-color: var(--theme-surface1);
+  color: var(--theme-text-body);
   font-family: "Inter", var(--system-ui);
   font-weight: 400;
   font-size: var(--fs-0);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  gap: var(--body-gap, var(--space-xl-2xl));
+  padding-block-start: var(--space-s);
+}
+
+main {
+  max-inline-size: var(--max-inline-size);
+  margin-inline: auto;
+  margin-bottom: var(--space-4xl);
 }
 
 a {
   color: var(--color-secondary-600);
+  color: var(--theme-text2);
   font-weight: 600;
-  // text-underline-position: under;
   text-decoration-thickness: 2px;
 }
 
@@ -38,10 +33,42 @@ a {
   outline: 2px solid var(--color-primary-200);
 }
 
-p,
-li {
-  line-height: var(--line-height);
-  letter-spacing: -0.18px;
+:is(h1, h2, h3, h4, h5, h6) {
+  color: var(--theme-text-heading);
+  font-family: var(--ff-heading);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: var(--fs-4);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--fs-3);
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: var(--fs-2);
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: var(--fs-1);
+  line-height: 1.4;
+}
+
+h5 {
+  font-size: var(--fs-0);
+}
+
+h6 {
+  font-size: var(--fs--1);
+}
+
+:is(p, li) {
+  line-height: 1.7;
 }
 
 /* Elements */
@@ -52,13 +79,15 @@ button {
 }
 
 .button {
-  --button-background: var(--color-secondary-500);
-  --button-background-hover: var(--color-secondary-600);
-  --button-text: white;
-  background-color: var(--button-background);
-  color: var(--button-text);
-  border-radius: var(--s0);
-  padding: 1em;
+  --_bg-color: var(--button-background, var(--reef-turquoise));
+  --_bg-color-hover: var(--button-background-hover, var(--color-secondary-400));
+  background-color: var(--_bg-color);
+  color: var(--button-text, var(--wharf-blue));
+  color: var(--button-text, var(--color-primary-900));
+  border-radius: var(--space-s);
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-l);
+  min-height: var(--space-xl);
   text-decoration: none;
   font-size: var(--fs-0);
   font-family: var(--ff-heading);
@@ -68,43 +97,107 @@ button {
   align-items: center;
   gap: 0.5em;
   cursor: pointer;
-  transition: var(--background-transition);
+  position: relative;
+  isolation: isolate;
+}
+
+.button::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+  border-radius: inherit;
+  background-color: var(--_bg-color-hover);
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  z-index: -1;
 }
 
 .button[data-type="secondary"] {
-  --button-background: var(--color-secondary-100);
-  --button-background-hover: var(--color-secondary-200);
-  --button-text: var(--color-secondary-900);
+  --button-background: var(--theme-surface2);
+  --button-background-hover: var(--theme-surface2-hover);
+  --button-text: var(--theme-text-body);
 }
 
-.button:is(:hover, :focus-visible) {
-  background-color: var(--button-background-hover);
+.button:is(:hover, :focus-visible)::after {
+  opacity: 1;
+}
+
+.button.disabled {
+  pointer-events: none;
 }
 
 hr {
-  border: var(--border-style);
+  border: var(--theme-text-heading) 1px solid;
+  margin-block: var(--space-xl);
+  opacity: 0.1;
 }
 
 .sidebar {
-  & ul {
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: var(--s3);
-    list-style: none;
-    margin-block-end: var(--s3);
-    padding-inline-start: var(--s0);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--space-xl);
+  padding-inline: var(--space-m);
+
+  & a {
+    color: inherit;
+    text-decoration: none;
   }
 
-  & li {
-    display: flex;
+  & a:hover {
+    text-decoration: underline;
+  }
+}
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-1);
+  font-weight: 600;
+  font-family: var(--ff-heading);
+  // gap: var(--space-m);
+  gap: var(--space-s);
+  list-style: none;
+  padding: var(--space-m);
+  color: var(--theme-text-heading);
+}
+
+.sidebar-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & a {
+    font-weight: 400;
+    color: inherit;
+    text-decoration: none;
   }
 
-  & li > * {
-    flex: 1;
-    padding-block: var(--s-1);
-    color: var(--color-secondary-500);
+  & a:hover {
+    text-decoration: underline;
   }
+}
+
+.sidebar-title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-0);
+  font-weight: 600;
+}
+
+.sidebar-subtitle {
+  font-family: var(--ff-heading);
+  font-size: var(--fs--1);
+  font-weight: 600;
+}
+
+.sidebar-subtitle.active {
+  font-weight: 600;
 }
 
 ::selection {
@@ -118,10 +211,10 @@ hr {
   right: 0;
   color: white;
   cursor: pointer;
-  margin: var(--s0);
-  padding: var(--s-1);
+  margin: var(--space-s);
+  padding: var(--space-xs);
   border: var(--border-style);
-  border-radius: var(--s-1);
+  border-radius: var(--space-xs);
   opacity: 0%;
   transition: opacity 100ms ease-out;
 }
@@ -136,4 +229,86 @@ pre:hover > .copy-button:hover {
 
 .copy-button:active {
   scale: 90%;
+}
+
+blockquote {
+  background-color: var(--color-secondary-50);
+  background-color: var(--theme-surface1);
+
+  padding-block: var(--space-m);
+  padding-inline: var(--space-m);
+  font-size: var(--fs-0);
+  border-radius: var(--border-radius);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  text-align: left;
+}
+
+td,
+th {
+  padding-block: var(--space-xs);
+  padding-inline-start: var(--space-s);
+}
+
+.overflow-hidden {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.hero.default {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: var(--space-m);
+  padding-block-start: var(--space-4xl);
+  padding-block-end: var(--space-5xl);
+  margin-block-end: var(--space-6xl);
+  margin-block-start: var(--space-l);
+  background: green;
+  border-radius: var(--space-l);
+  background: url("/src/lib/assets/images/Frame-2421.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-primary-900);
+  padding: var(--space-2xl-3xl);
+}
+
+.hero .title {
+  font-size: var(--fs-4);
+  color: inherit;
+  line-height: 1.2;
+  font-family: var(--ff-heading);
+  font-weight: 600;
+  text-wrap: balance;
+  max-width: 22ch;
+}
+
+.hero .subtitle {
+  font-size: var(--fs-1);
+  font-weight: 500;
+  color: inherit;
+  max-width: 35ch;
+  font-family: var(--ff-body);
+  text-wrap: balance;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .hero .title {
+    font-size: var(--fs-5);
+  }
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary {
+  list-style: none;
 }

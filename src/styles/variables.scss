@@ -4,27 +4,32 @@
 @forward "typography";
 @forward "utilities";
 @forward "layout";
+@forward "theme";
+@forward "spacing";
 
 :root {
-  /* Spacing */
-  --ratio: 1.5;
-  --measure: 75ch;
-  --s-5: calc(var(--s-4) / var(--ratio));
-  --s-4: calc(var(--s-3) / var(--ratio));
-  --s-3: calc(var(--s-2) / var(--ratio));
-  --s-2: calc(var(--s-1) / var(--ratio));
-  --s-1: calc(var(--s0) / var(--ratio));
-  --s0: 1rem;
-  --s1: calc(var(--s0) * var(--ratio));
-  --s2: calc(var(--s1) * var(--ratio));
-  --s3: calc(var(--s2) * var(--ratio));
-  --s4: calc(var(--s3) * var(--ratio));
-  --s5: calc(var(--s4) * var(--ratio));
-
   /* Styles */
-  --border-style: var(--swell-mist) 2px solid;
+  --measure: 65ch;
+
+  --border-style: var(--theme-text-heading) 1px solid;
+
+  --border-radius: 12px;
 
   --background-transition: background-color 200ms ease-out;
+  --line-height: var(--space-l);
+  --max-inline-size: 1440px;
 
-  --line-height: var(--s2);
+  --page-background-gradient: linear-gradient(
+      180deg,
+      #494e62 0%,
+      #7be7ce 66.15%,
+      #b2f2e1 84.37%,
+      #f4faf4 100%
+    ),
+    var(--swell-mist);
+  --page-background-size: 100% calc(var(--space-8xl) * 5), 100%;
+  --page-background-position: 0 0, 0 0;
+  --page-background-repeat: no-repeat;
+
+  --page-padding-inline: var(--space-s);
 }

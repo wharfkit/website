@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: var(--gap, var(--s1));
+  gap: var(--gap, var(--space-m));
 }
 
 .stack:only-child {
@@ -15,7 +15,7 @@
 
 .box {
   /* ↓ Padding set to the first point on the modular scale */
-  padding: var(--padding, var(--s1));
+  padding: var(--padding, var(--space-m));
   /* ↓ Assumes you have a --border-thin var */
   border: var(--border-thin) solid;
   /* ↓ Always apply the transparent outline, for high contrast mode */
@@ -34,7 +34,7 @@
   /* ↓ Only affect horizontal margins */
   margin-inline: auto;
   /* ↓ Apply the minimum horizontal space */
-  // padding-inline: var(--s1);
+  // padding-inline: var(--space-m);
 }
 
 // Cluster
@@ -58,7 +58,7 @@
   display: flex;
   flex-wrap: wrap;
   /* ↓ The default value is the first point on the modular scale */
-  gap: var(--gutter, var(--s1));
+  gap: var(--gutter, var(--space-m));
 }
 .with-sidebar > :first-child {
   /* ↓ The width when the sidebar _is_ a sidebar */
@@ -79,7 +79,7 @@
   display: flex;
   flex-wrap: wrap;
   /* ↓ The default value is the first point on the modular scale */
-  gap: var(--gutter, var(--s1));
+  gap: var(--gutter, var(--space-m));
   /* ↓ The width at which the layout “breaks” */
   --threshold: 30rem;
 }
@@ -95,11 +95,14 @@
   there are more than 4 child elements */
   flex-basis: 100%;
 }
+.switcher.reverse {
+  flex-wrap: wrap-reverse;
+}
 
 // Cover
 
 .cover {
-  --space: var(--s1);
+  --space: var(--space-m);
   /* ↓ Establish a columnal flex context */
   display: flex;
   flex-direction: column;
@@ -111,7 +114,7 @@
 }
 .cover > * {
   /* ↓ Give each child a top and bottom margin */
-  margin-block: var(--s1);
+  margin-block: var(--space-m);
 }
 .cover > :first-child:not(h1) {
   /* ↓ Remove the top margin from the first-child
@@ -135,7 +138,7 @@
   /* ↓ Establish a grid context */
   display: grid;
   /* ↓ Set a gap between grid items */
-  grid-gap: 1rem;
+  grid-gap: var(--space-m);
   /* ↓ Set the minimum column width */
   --minimum: 20ch;
 }
@@ -201,7 +204,7 @@ reel-l::-webkit-scrollbar-thumb {
     var(--color-dark) 0.25rem,
     var(--color-light) 0.25rem,
     var(--color-light) 0.75rem,
-    var(--color- dark) 0.75rem
+    var(--color-dark) 0.75rem
   );
 }
 .reel > * {

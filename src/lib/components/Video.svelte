@@ -1,9 +1,7 @@
 <script lang="ts">
-  import Button from "$lib/components/Button.svelte"
-  import IntersectionObserver from "./IntersectionObserver.svelte"
-
   export let videolink: string = ""
   export let transcriptlink: string = ""
+  let play = false
 
   const getVideoID = (videolink: string) => {
     try {
@@ -26,72 +24,75 @@
   }
 
   let videoID = getVideoID(videolink)
-  let videoEmbed = `https://www.youtube-nocookie.com/embed/${videoID}`
+  let videoEmbed = `https://www.youtube-nocookie.com/embed/${videoID}?autoplay=1`
   let thumbnail = `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
 </script>
 
-<IntersectionObserver let:intersecting once top={400}>
-  <div class="media | stack">
-    <div class="frame" style="background-image: url({thumbnail}); background-size: cover;">
-      {#if intersecting}
-        <iframe
-          class="youtube"
-          src={videoEmbed}
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media;"
-          allowfullscreen />
-      {/if}
-      <a class="play | imposter box" href={videolink}>
-        <span class="visually-hidden">Watch on YouTube</span>
-        <svg width="34" height="34">
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M5.92725 3.30884V30.6912L29.1917 17L5.92725 3.30884ZM2.83325 2.76959C2.83325 0.626828 5.18123 -0.701815 7.03745 0.39057L31.2182 14.621C33.0383 15.692 33.0383 18.3079 31.2182 19.379L7.03745 33.6094C5.18123 34.7018 2.83325 33.3732 2.83325 31.2304V2.76959Z"
-            fill="white" />
-        </svg>
-      </a>
-    </div>
-    {#if transcriptlink}
-      <Button link={transcriptlink}>Read transcript (Google docs)</Button>
+<div class="media | stack">
+  <div class="frame">
+    <img src={thumbnail} alt="" loading="lazy" />
+    {#if play}
+      <iframe
+        class="youtube"
+        src={videoEmbed}
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media;"
+        allowfullscreen />
     {/if}
+    <button class="play | imposter box" on:click={() => (play = true)}>
+      <span class="visually-hidden">Watch on YouTube</span>
+      <svg width="34" height="34">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M5.92725 3.30884V30.6912L29.1917 17L5.92725 3.30884ZM2.83325 2.76959C2.83325 0.626828 5.18123 -0.701815 7.03745 0.39057L31.2182 14.621C33.0383 15.692 33.0383 18.3079 31.2182 19.379L7.03745 33.6094C5.18123 34.7018 2.83325 33.3732 2.83325 31.2304V2.76959Z"
+          fill="white" />
+      </svg>
+    </button>
   </div>
-</IntersectionObserver>
+</div>
 
 <style>
   .media {
-    --gap: var(--s1);
+    --gap: var(--space-m);
+    border-radius: var(--space-s);
   }
 
   .frame {
     background-color: var(--wharf-blue);
-    border-radius: var(--s0);
+    border-radius: inherit;
     isolation: isolate;
     position: relative;
+    display: grid;
+    grid-template-areas: "stack";
+  }
+
+  .frame > * {
+    grid-area: stack;
   }
 
   .youtube {
     aspect-ratio: 16 / 9;
-    border-radius: var(--s0);
+    border-radius: inherit;
     width: 100%;
     z-index: 1;
+    background-color: var(--wharf-blue);
   }
 
   .play {
-    --padding: var(--s1);
     background-color: var(--wharf-blue);
+    border-radius: 24px;
     border-radius: 50%;
-    aspect-ratio: 1;
     display: grid;
     place-content: center;
-    z-index: 0;
     opacity: 80%;
     transition: opacity 200ms ease-out;
   }
 
   .play:hover {
     opacity: 100%;
+    cursor: pointer;
   }
 
   .play svg {
