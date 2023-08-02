@@ -4,15 +4,11 @@
 
 <main>
   <h1>Documentation</h1>
-  <blockquote>
-    Documentation for Wharf is currently a work in progress. Check back regularly as new documentation will be added over time. Please reach out through the <a
-      href="https://t.me/wharfkit">Wharf Telegram channel</a> if you have any specific documentation
-    requests.
-  </blockquote>
 
   <p>
-    Welcome to Wharf's documentation, where you can find detailed information on the internals of all Wharf components.
+    Welcome to Wharf's documentation, where you can find reference materials of all Wharf components. Use the sidebar on the left to select a category or specific guide and get started!
   </p>
+
   <hr />
 
   <Updates />
