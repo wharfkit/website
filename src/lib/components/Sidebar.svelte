@@ -9,7 +9,6 @@
   let filteredSections = docs
   let innerWidth: number
   let sideNav: HTMLDetailsElement
-  let currentPath = $page.url.pathname
   let isQuerying = false
 
   $: isMobile = innerWidth <= 768
@@ -75,7 +74,7 @@
                   <a
                     href={article.path}
                     on:click={collapseNav}
-                    class:active={article.path === currentPath}>
+                    class:active={article.path === $page.url.pathname}>
                     {article.title}
                   </a>
                 </li>
