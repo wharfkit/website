@@ -2,7 +2,7 @@
 title: TransactPlugin
 description: change_me
 category: SessionKit
-published: false
+published: true
 ---
 
 # TransactPlugin

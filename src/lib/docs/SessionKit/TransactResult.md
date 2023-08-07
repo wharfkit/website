@@ -36,7 +36,7 @@ A representation of the transaction performed in the [SigningRequest](#) format.
 
 ### resolved
 
-The [ResolvedSigningRequest](#) that was used during the [Transact](#) call which has been resolved to ensure proper tapos values and to template any placeholder values that may have existed in the [SigningRequest](3).
+The [ResolvedSigningRequest](#) that was used during the [Transact](#) call which has been resolved to ensure proper tapos values and to template any placeholder values that may have existed in the [SigningRequest](#).
 
 ### response
 

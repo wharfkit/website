@@ -2,7 +2,7 @@
 title: LoginPlugin
 description: change_me
 category: SessionKit
-published: false
+published: true
 ---
 
 # LoginPlugin
