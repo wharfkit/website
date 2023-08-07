@@ -2,7 +2,8 @@
 title: Plugins
 description: change_me
 category: SessionKit
-order: 1
+published: true
+hidden: true
 ---
 
 # Plugins
@@ -75,7 +76,15 @@ The `PromptElement` array is populated by one or more objects that make up the d
 
 ```ts
 interface PromptElement {
-  type: "accept" | "asset" | "button" | "close" | "countdown" | "link" | "qr" | "textarea"
+  type:
+    | "accept"
+    | "asset"
+    | "button"
+    | "close"
+    | "countdown"
+    | "link"
+    | "qr"
+    | "textarea"
   label?: string
   data?: unknown
 }

@@ -26,7 +26,9 @@ const args = {
   },
   actor: "wharfkit1111",
   permission: "active",
-  walletPlugin: new WalletPluginPrivateKey("5Jtoxgny5tT7NiNFp1MLogviuPJ9NniWjnU4wKzaX4t7pL4kJ8s"),
+  walletPlugin: new WalletPluginPrivateKey(
+    "5Jtoxgny5tT7NiNFp1MLogviuPJ9NniWjnU4wKzaX4t7pL4kJ8s"
+  ),
 }
 
 const options = {

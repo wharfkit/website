@@ -226,7 +226,15 @@ The `elements` array is populated by one or more `PromptElement` objects that ma
 
 ```ts
 interface PromptElement {
-  type: "accept" | "asset" | "button" | "close" | "countdown" | "link" | "qr" | "textarea"
+  type:
+    | "accept"
+    | "asset"
+    | "button"
+    | "close"
+    | "countdown"
+    | "link"
+    | "qr"
+    | "textarea"
   label?: string
   data?: unknown
 }

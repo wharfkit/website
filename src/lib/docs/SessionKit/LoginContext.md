@@ -2,7 +2,8 @@
 title: LoginContext
 description: change_me
 category: SessionKit
-published: false
+published: true
+hidden: true
 ---
 
 # LoginContext

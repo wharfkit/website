@@ -142,7 +142,13 @@ Given the following scenario, where the `SessionKit` is configured to use 5 avai
 const sessionKit = new SessionKit(
   {
     ...args,
-    chains: [Chains.Jungle4, Chains.EOS, Chains.Telos, Chains.UX, Chains.WAX],
+    chains: [
+      Chains.Jungle4,
+      Chains.EOS,
+      Chains.Telos,
+      Chains.UX,
+      Chains.WAX,
+    ],
   },
   options
 )

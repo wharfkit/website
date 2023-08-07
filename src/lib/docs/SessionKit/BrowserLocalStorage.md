@@ -3,6 +3,7 @@ title: BrowserLocalStorage
 description: change_me
 category: SessionKit
 published: true
+hidden: true
 ---
 
 # BrowserLocalStorage

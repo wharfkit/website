@@ -2,7 +2,8 @@
 title: TransactContext
 description: change_me
 category: SessionKit
-published: false
+published: true
+hidden: true
 ---
 
 ```ts
@@ -34,7 +35,9 @@ export class TransactContext {
   readonly appName?: string
   readonly chain: ChainDefinition
   readonly client: APIClient
-  readonly createRequest: (args: TransactArgs) => Promise<SigningRequest>
+  readonly createRequest: (
+    args: TransactArgs
+  ) => Promise<SigningRequest>
   readonly fetch: Fetch
   readonly hooks: TransactHooks = {
     afterBroadcast: [],
@@ -60,9 +63,11 @@ export class TransactContext {
     }
     this.transactPluginsOptions = options.transactPluginsOptions || {}
     this.ui = options.ui
-    options.transactPlugins?.forEach((plugin: AbstractTransactPlugin) => {
-      plugin.register(this)
-    })
+    options.transactPlugins?.forEach(
+      (plugin: AbstractTransactPlugin) => {
+        plugin.register(this)
+      }
+    )
   }
 
   get accountName(): Name {
@@ -80,7 +85,10 @@ export class TransactContext {
     }
   }
 
-  addHook(t: TransactHookTypes, hook: TransactHookMutable | TransactHookImmutable) {
+  addHook(
+    t: TransactHookTypes,
+    hook: TransactHookMutable | TransactHookImmutable
+  ) {
     switch (t) {
       case TransactHookTypes.beforeSign: {
         this.hooks[t].push(hook as TransactHookMutable)
@@ -104,7 +112,10 @@ export class TransactContext {
     return info
   }
 
-  async resolve(request: SigningRequest, expireSeconds = 120): Promise<ResolvedSigningRequest> {
+  async resolve(
+    request: SigningRequest,
+    expireSeconds = 120
+  ): Promise<ResolvedSigningRequest> {
     // Build the transaction header
     let resolveArgs = {
       chainId: this.chain.id,
