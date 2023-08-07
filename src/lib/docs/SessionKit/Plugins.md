@@ -2,7 +2,7 @@
 title: Plugins
 description: change_me
 category: SessionKit
-published: true
+published: false
 hidden: true
 ---
 

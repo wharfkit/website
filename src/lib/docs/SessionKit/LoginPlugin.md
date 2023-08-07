@@ -7,9 +7,7 @@ published: true
 
 # LoginPlugin
 
-The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools for developers to create plugins for the [SessionKit](#). These plugins register custom logic through the use of hooks which are performed at specific points during the [Login](#) call.
-
-The [login-plugin-template](https://github.com/wharfkit/login-plugin-template) is available on Github to help developers get started.
+A `LoginPlugin` is a type of plugin for the [SessionKit](#) that allows custom logic to be performed as an end user is authenticating through the [Login](#) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
 
 ## Usage
 

@@ -1,10 +1,11 @@
 ---
 title: TransactContext
-description: change_me
+description: description
 category: SessionKit
 published: true
-hidden: true
 ---
+
+# TransactContext
 
 ```ts
 /**
