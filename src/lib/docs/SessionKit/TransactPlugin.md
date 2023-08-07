@@ -117,7 +117,7 @@ const result = session.transact(
     // arguments
   },
   {
-    transactPlugins: [examplePlugin],
+    transactPlugins: [new TransactPluginTemplate()],
   }
 )
 ```
@@ -202,7 +202,7 @@ The hook function must either return nothing, or return an object that matches t
 An example of a mutable hook is as follows:
 
 ```ts
-function beforeSignHook(request, context) {
+async function beforeSignHook(request, context) {
   // perform logic
   return {
     request,
@@ -229,7 +229,7 @@ These hooks do not need to return anything, and anything they return will be ign
 An example of an immutable hook is as follows:
 
 ```ts
-function afterSignHook(result, context) {
+async function afterSignHook(result, context) {
   // perform logic
 }
 ```
