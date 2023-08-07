@@ -5,22 +5,32 @@ category: SessionKit
 published: true
 ---
 
-# Context
+# BrowserLocalStorage
 
-A `Context` is a short lived state object that exists for the duration of a [Login](#) or [Transact](#) call.
+The `BrowserLocalStorage` is the default [SessionStorage](#) adapter used by the [SessionKit](#). It is used to persist [Session](#) data in the application and utilizes `localStorage` as the storage medium.
 
 ## Usage
 
-How
+By default no action is needed to use the `BrowserLocalStorage` as it is included as the default `storage` value on the [SessionKit](#).
 
-## Purpose
+## Anatomy
 
-Why
+The entire implementation for this storage adapter is shown below and can be found [here](https://github.com/wharfkit/session/blob/679d30cbd3fa9195673e25dd9c8f6194575ecdb5/src/storage.ts#L16-L30) in the source code.
 
-## Reference
-
-- [LoginContext](#)
-- [TransactContext](#)
-- [LoginPlugin](#)
-- [TransactPlugin](#)
-- [WalletPlugin](#)
+```ts
+export class BrowserLocalStorage implements SessionStorage {
+  constructor(readonly keyPrefix: string = "") {}
+  async write(key: string, data: string): Promise<void> {
+    localStorage.setItem(this.storageKey(key), data)
+  }
+  async read(key: string): Promise<string | null> {
+    return localStorage.getItem(this.storageKey(key))
+  }
+  async remove(key: string): Promise<void> {
+    localStorage.removeItem(this.storageKey(key))
+  }
+  storageKey(key: string) {
+    return `wharf-${this.keyPrefix}-${key}`
+  }
+}
+```

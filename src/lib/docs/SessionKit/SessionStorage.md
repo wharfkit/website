@@ -1,65 +1,42 @@
 ---
 title: SessionStorage
-description: description
-category: sessionkit
+description: A storage adapter interface to persist Sessions within the SessionKit.
+category: SessionKit
 published: true
+hidden: true
 ---
 
 # SessionStorage
 
-Brief description describing what this class represents and its primary purpose.
+The `SessionStorage` interface is a design pattern that outlines how the [SessionKit](#) will utilize storage. Developers may use this interface to define custom storage engines should the [BrowserLocalStorage](#) included by default not meet the applications needs.
 
-## Creation
-
-Short example on how to create a minimal version of this class.
+## Anatomy
 
 ```ts
-import { SessionStorage } from "@wharfkit/session"
+/**
+ * Interface storage adapters should implement.
+ *
+ * Storage adapters are responsible for persisting [[Session]]s and can optionally be
+ * passed to the [[SessionKit]] constructor to auto-persist sessions.
+ */
+export interface SessionStorage {
+  /**
+   * Write string to storage at key.
+   *
+   * Should overwrite existing values without error.
+   */
+  write(key: string, data: string): Promise<void>
 
-const args = {
-  // Required arguments
+  /** Read key from storage.
+   *
+   * Should return `null` if key can not be found.
+   */
+  read(key: string): Promise<string | null>
+
+  /** Delete key from storage.
+   *
+   * Should not error if deleting non-existing key.
+   */
+  remove(key: string): Promise<void>
 }
-
-const options = {
-  // Additional options
-}
-
-const session = new Session(args, options)
 ```
-
-### [Arguments](#)
-
-Description of list of Arguments
-
-- `foo`: bar
-
-### [Options](https://wharfkit.github.io/session/interfaces/SessionOptions.html)
-
-Description of list of Options
-
-- `foo`: bar
-
-## Usage
-
-Brief usage description
-
-### Methods
-
-- `method`: Description
-
-[class definition](https://wharfkit.github.io/session/classes/Session.html#abiCache).
-
-### Properties
-
-- `foo`: bar
-
-## Related Materials
-
-### Guides
-
-- [Getting started: Web Apps](/guides/sessionkit/getting-started-web-app)
-- [Getting started: Node.js](/guides/sessionkit/getting-started-node-js)
-
-### TypeDocs
-
-- [Session Documentation](https://wharfkit.github.io/session/classes/Session.html)
