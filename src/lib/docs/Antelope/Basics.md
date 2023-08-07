@@ -1,11 +1,12 @@
 ---
-title: Basics
+title: Getting Started
 description: Getting started with the Wharfkit/Antelope library.
 category: Antelope
 published: true
+order: 1
 ---
 
-# Basics
+# Getting Started
 
 ## Installing
 

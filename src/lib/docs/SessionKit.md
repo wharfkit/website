@@ -1,4 +1,5 @@
 ---
+title: Session Kit Overview
 description: The Session Kit is a software development kit focused on managing Antelope-based user sessions in web applications.
 category: SessionKit
 order: 1
@@ -6,56 +7,58 @@ published: true
 slug: index
 ---
 
-# Session Kit - Overview
+# Session Kit Overview
 
 One of Wharf's major components in the Session Kit, a SDK focused on managing sessions linked to Antelope-based accounts.
 
-Its major responsibilities are:
+Its primary responsibilities are:
 
 - To facilitate the signing of transactions.
-- To allow users to "sign in" to web applications and prove their identity.
-- To allow users to use their preferred wallets.
+- To allow users to "sign in" to web applications.
+- To integrate with Antelope-based wallets.
+
+This section of the documentation offers a technical overview of all of the components surfaced by the Session Kit. For step by step guides and tutorials, please visit the [Session Kit Guides](/guides/sessionkit)
 
 ## Classes
 
-The Session Kit exports many classes for use in various types of applications.
+The Session Kit exports many classes for use in various types of applications. This page provides a brief overview of the major components each which link to their own individual documentation.
 
 ### [SessionKit](/docs/sessionkit/session-kit-factory)
 
-The core component of Wharf's Session Kit is named after the SDK itself and offers itself as a customizable [factory class](https://refactoring.guru/design-patterns/factory-method). The [SessionKit](#) gives developers methods to generate [Session](#) instances.
+The core component of Wharf's Session Kit is named after the SDK itself and offers itself as a customizable [factory class](https://refactoring.guru/design-patterns/factory-method). The [SessionKit](/docs/sessionkit/session-kit-factory) gives developers methods to generate [Session](/docs/sessionkit/session) instances in **web applications**.
 
-The configuration of each [Session](#) it generates is based on decisions the end user makes from within an [UserInterface](#) (e.g. browser, console). The factory process is initiated when the [login](#) method is called by the user which optionally connects and authenticates against external wallets. The result of this call returns a [Session](#) object that is ready to use within an application to retrieve information about the account and perform transactions.
+The configuration of each [Session](/docs/sessionkit/session) it generates is based on decisions an end user makes from within an [UserInterface](/docs/sessionkit/user-interface) (e.g. web, console). The factory process is initiated when the [login](/docs/sessionkit/login) method is called by the user which optionally connects and authenticates against external wallets. The result of this call returns a [LoginResult](/docs/sessionkit/login-result) containing a [Session](/docs/sessionkit/session) object that is ready to use within an application to retrieve information about the account and perform transactions.
 
-### [Session](#)
+For any web application that allows users to login with their own wallet, this is a good starting point.
 
-Developers working with the Session Kit will primarily be working with individual [Session](#) objects throughout their apps, whether manually defined in an application or created by the [SessionKit](#) factory methods. A [Session](#) represents the connection between the application and account on an Antelope-based blockchain. These objects offer a `transact` method that allows actions to be performed by the account against a given blockchain.
+### [Session](/docs/sessionkit/session)
 
-- Can be serialized for use in SessionKit's restore
-- Can return an APIClient configured for this session
-- Access to all the data needed about this session to the app
+Developers working with the Session Kit will primarily be working with individual [Session](/docs/sessionkit/session) objects throughout their apps, whether manually defined in an application or created by the [SessionKit](/docs/sessionkit/session-kit-factory) factory methods. A [Session](/docs/sessionkit/session) represents the connection between the application and account on an Antelope-based blockchain. Each session offers a [transact](/docs/sessionkit/transact) method that allows actions to be performed by the account against a given blockchain. The result of this call returns a [TransactResult](/docs/sessionkit/transact-result) containing the result from the [APIClient](/docs/antelope/api-client), details of the fully crafted [Transaction](/docs/antelope/name), and any changes [TransactPlugins](/docs/sessionkit/transact-plugin) may have made.
 
-### [WalletPlugin](#)
+For any Node.js application that internally manages account details, this is a good starting point.
 
-Each [Session](#) instance requires one [WalletPlugin](#) to facilitate communication between the user session and user wallet.
+## Interfaces
 
-### [UserInterface](#)
+The Session Kit also exports many interfaces for developers to extend and customize the functionality that the kit has to offer. These interfaces are used throughout the plugin architecture to ensure data standards are followed and to give developers a clear understanding of how various components communicate with one another.
 
-Each [Session](#) may optionally be associated to one [UserInterface](#) to allow interactivity during its processes.
+### [WalletPlugin](/docs/sessionkit/wallet-plugin)
 
-### [ABICache](#)
+Each [WalletPlugin](/docs/sessionkit/wallet-plugin) instance provides the required code to facilitate the [login](/docs/sessionkit/login) method of the [SessionKit](/docs/sessionkit/session-kit-factory) to create a new session, as well as providing the means for a [Session](/docs/sessionkit/session) to perform a transaction using the [transact](/docs/sessionkit/transact) method. Every [Session](/docs/sessionkit/session) instance as well as the [SessionKit](/docs/sessionkit/session-kit-factory) itself requires at least one [WalletPlugin](/docs/sessionkit/wallet-plugin). This interface provides the structure required these methods to operate either locally performing this logic in-app or through direct communication with an external wallet application.
 
-### [TransactPlugin](#)
+### [LoginPlugin](/docs/sessionkit/login-plugin)
 
-### [TransactContext](#)
+One or more [LoginPlugin](/docs/sessionkit/login-plugin) instances can be passed to the [SessionKit](/docs/sessionkit/session-kit-factory) to add new logic during the [login](/docs/sessionkit/login) call. The interface provides the expected structure of a plugin to allow it to register `beforeLogin` and `afterLogin` hooks that allow execution of custom code at specific points of the [login](/docs/sessionkit/login) process. This can be useful if an application requires additional steps to be performed for user verification or to pass results to 3rd party services for authentication.
 
-- Provides all the data and methods required for a plugin.
+### [TransactPlugin](/docs/sessionkit/transact-plugin)
 
-### [TransactHook](#)
+One or more [TransactPlugin](/docs/sessionkit/transact-plugin) instances can be passed to either individual [Session](/docs/sessionkit/session) instances or the [SessionKit](/docs/sessionkit/session-kit-factory) in order to add new logic during the [transact](/docs/sessionkit/transact) call. The interface provides the expected structure of a plugin to allow it to register `beforeSign`, `afterSign`, and `afterBroadcast` hooks that allow execution of custom code at specific points of the [transact](/docs/sessionkit/transact) process. These plugins can be useful to perform custom logic when performing transactions or after they have executed.
 
-### [LoginPlugin](#)
+### [UserInterface](/docs/sessionkit/user-interface)
 
-### [LoginHooks](#)
+During instantiation of the [SessionKit](/docs/sessionkit/session-kit-factory), one [UserInterface](/docs/sessionkit/user-interface) instance is required to provide interactivity to the end user during the [login](/docs/sessionkit/login) process. Optionally the [UserInterface](/docs/sessionkit/user-interface) can also provide interactivity during the [transact](/docs/sessionkit/transact) call, either directly or through the various types of plugins.
 
-### [LoginContext](#)
+## Utilities
 
-### [SessionStorage](#)
+### [SessionStorage](/docs/sessionkit/session-storage)
+
+The [SessionKit](/docs/sessionkit/session-kit-factory) utilizes the [SessionStorage](#) interface in order to persist [Session](/docs/sessionkit/session) instances between page loads. The [SessionKit](/docs/sessionkit/session-kit-factory) does this by default using the [BrowserLocalStorage](/docs/sessionkit/browser-local-storage) implementation of the interface, which can be overridden during the instantiation of the [SessionKit](/docs/sessionkit/session-kit-factory) to provide custom means of storage.
