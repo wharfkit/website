@@ -123,6 +123,8 @@ This is accomplished by specifying a `get id()` method on the class which return
 
 In order for the `WalletPlugin` to authenticate users, it will need to implement the `login` method. This method accepts a [LoginContext](#) as its only parameter, which provides the plugin and wallet with potential information about the request.
 
+**Note**: If during the [Login](#) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](#) instance provided on the [LoginContext](#) can be used to prompt the user.
+
 The `WalletPlugin` will now need to communicate with the external application in order to formulate a response. The goal is for the `login` method to return an object that matches the [WalletPluginLoginResponse](https://wharfkit.github.io/session/interfaces/WalletPluginLoginResponse.html) interface that contains:
 
 - `chain`: A typed [Checksum256](#) indicating the blockchain ID the user is logging in with.
@@ -166,6 +168,8 @@ class WalletPluginExample extends AbstractWalletPlugin {
 ### Method: Sign
 
 One of the primary purposes of a `WalletPlugin` is to facilitate the signing of transactions. To do this it must implement the `sign` method which accepts two parameters, a [ResolvedSigningRequest](#) and a [TransactContext](#).
+
+**Note**: If during the [Transact](#) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](#) instance provided on the [TransactContext](#) can be used to prompt the user.
 
 The `WalletPlugin` will then need to communicate with the external application, relaying the transaction, in order to retrieve a signature. This process should return an object that matches the [WalletPluginSignResponse](https://wharfkit.github.io/session/interfaces/WalletPluginSignResponse.html) interface that contains:
 

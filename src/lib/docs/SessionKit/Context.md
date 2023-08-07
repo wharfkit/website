@@ -2,7 +2,7 @@
 title: Context
 description: change_me
 category: SessionKit
-published: true
+published: false
 ---
 
 # Context
