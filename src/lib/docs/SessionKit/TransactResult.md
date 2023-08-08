@@ -7,7 +7,7 @@ published: true
 
 # TransactResult
 
-Upon a successful call to the [Transact](#) method of a [Session](#), the response returned will be an object that matches the `TransactResult` interface.
+Upon a successful call to the [Transact](#) method of a [Session](/docs/sessionkit/session), the response returned will be an object that matches the `TransactResult` interface.
 
 ## Properties
 
@@ -28,7 +28,7 @@ interface TransactResult {
 
 ### chain
 
-The [ChainDefinition](#) of the blockchain that was used in the [Transact](#) call.
+The [ChainDefinition](/docs/utilities/common-library#chaindefinition) of the blockchain that was used in the [Transact](#) call.
 
 ### request
 

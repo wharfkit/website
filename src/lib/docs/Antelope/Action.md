@@ -9,7 +9,7 @@ published: false
 
 The `Action` type represents a single action to be performed on an Antelope blockchain. An action on the blockchain is a call to execute a function on a [Smart Contract](#). One or more action objects are required for the creation of a [Transaction](#). Each action contains data for an individual call. This data is serialized using the `ABI` from the smart contract associated with the action, at the block height it was submitted.
 
-While both the [SessionKit](#) and [ContractKit](#) abstract away this complexity, assembling an action manually is oftentimes something applications may need to do in more advanced use cases.
+While both the [SessionKit](/docs/sessionkit/session-kit-factory) and [ContractKit](#) abstract away this complexity, assembling an action manually is oftentimes something applications may need to do in more advanced use cases.
 
 This document will go over what an action is and how to create them.
 

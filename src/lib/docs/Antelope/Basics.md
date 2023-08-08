@@ -20,7 +20,7 @@ npm install --save @wharfkit/antelope
 yarn add @wharfkit/antelope
 ```
 
-If you are using the [SessionKit](#) or [ContractKit](#), this package will automatically be included as a dependency in your project and available for use.
+If you are using the [SessionKit](/docs/sessionkit/session-kit-factory) or [ContractKit](#), this package will automatically be included as a dependency in your project and available for use.
 
 ## Imports
 
@@ -90,11 +90,19 @@ export type AuthorityType =
   | {
       threshold: UInt32Type
       keys?: { key: PublicKeyType; weight: UInt16Type }[]
-      accounts?: { permission: PermissionLevelType; weight: UInt16Type }[]
+      accounts?: {
+        permission: PermissionLevelType
+        weight: UInt16Type
+      }[]
       waits?: { wait_sec: UInt32Type; weight: UInt16Type }[]
     }
 
-export type BytesType = Bytes | ArrayBufferView | ArrayBuffer | ArrayLike<number> | string
+export type BytesType =
+  | Bytes
+  | ArrayBufferView
+  | ArrayBuffer
+  | ArrayLike<number>
+  | string
 
 // etc...
 ```

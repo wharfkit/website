@@ -7,11 +7,11 @@ published: true
 
 # Transact
 
-The `transact` method is available on every [Session](#) instance and is used to perform one or more actions against smart contracts. Once completed it will return a [TransactResult](#) object containing the results of the actions performed.
+The `transact` method is available on every [Session](/docs/sessionkit/session) instance and is used to perform one or more actions against smart contracts. Once completed it will return a [TransactResult](#) object containing the results of the actions performed.
 
 ## Usage
 
-With an existing [Session](#) instance, the async method `transact` can be called with the required arguments.
+With an existing [Session](/docs/sessionkit/session) instance, the async method `transact` can be called with the required arguments.
 
 ```ts
 const arguments = {
@@ -128,9 +128,9 @@ Additional parameters may optionally be passed to the `login` method in order to
 Commonly used parameters that can be passed this way include:
 
 - `chain`: The blockchain ID to login against, preventing any user chain selection.
-- `chains`: An array blockchain IDs to allow logging in against, overriding the defaults from the [SessionKit](#)
+- `chains`: An array blockchain IDs to allow logging in against, overriding the defaults from the [SessionKit](/docs/sessionkit/session-kit-factory)
 - `permissionLevel`: A specific [PermissionLevel](#) to login with, preventing any user account selection.
-- `walletPlugin`: A specific [WalletPlugin](#) to authenticate with, preventing any user wallet selection.
+- `walletPlugin`: A specific [WalletPlugin](/docs/sessionkit/wallet-plugin) to authenticate with, preventing any user wallet selection.
 
 A complete list of all parameters can be found in the [LoginOptions](https://wharfkit.github.io/session/interfaces/LoginOptions.html) documentation.
 

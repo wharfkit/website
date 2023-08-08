@@ -7,7 +7,7 @@ published: true
 
 # Restore
 
-The `restore` method is made available on the [SessionKit](/docs/sessionkit/session-kit-factory) instance. When called, the `SessionKit` instance will access its own [SessionStorage](#) in an attempt to return a valid [Session](#) for the application to use. This method is intended to be used on page load to restore any previous user sessions automatically, as well as in the use of any form of account switcher that allows the end user to switch between accounts in a multi-account environment.
+The `restore` method is made available on the [SessionKit](/docs/sessionkit/session-kit-factory) instance. When called, the `SessionKit` instance will access its own [SessionStorage](/docs/sessionkit/session-storage) in an attempt to return a valid [Session](/docs/sessionkit/session) for the application to use. This method is intended to be used on page load to restore any previous user sessions automatically, as well as in the use of any form of account switcher that allows the end user to switch between accounts in a multi-account environment.
 
 ## Usage
 
@@ -17,17 +17,17 @@ Given an existing instance of the [SessionKit](/docs/sessionkit/session-kit-fact
 const session = await sessionKit.restore()
 ```
 
-The value returned from the `restore` method will be an instance of the [Session](#) ready to use. This usage of the restore method is commonly used on page load to automatically populate the previously active session.
+The value returned from the `restore` method will be an instance of the [Session](/docs/sessionkit/session) ready to use. This usage of the restore method is commonly used on page load to automatically populate the previously active session.
 
 If no session was found, a value of `undefined` will be returned.
 
 ## Options
 
-The `restore` method can also optionally accept an object to specify which [Session](#) should be restored.
+The `restore` method can also optionally accept an object to specify which [Session](/docs/sessionkit/session) should be restored.
 
 ### Example: Switch Accounts
 
-The `restore` method can also be used in conjunction with the [GetSessions](#) method provided by the [SessionKit](#) to restore a specific [Session](#). This is a recommended approach in multi-account environments where the application allows the user to actively switch between accounts.
+The `restore` method can also be used in conjunction with the [GetSessions](#) method provided by the [SessionKit](/docs/sessionkit/session-kit-factory) to restore a specific [Session](/docs/sessionkit/session). This is a recommended approach in multi-account environments where the application allows the user to actively switch between accounts.
 
 ```ts
 // Retrieve a list of all sessions that exist
@@ -51,4 +51,4 @@ const session = await sessionKit.restore({
 })
 ```
 
-The result of this call will be the most recently used [Session](#) for the Jungle 4 blockchain.
+The result of this call will be the most recently used [Session](/docs/sessionkit/session) for the Jungle 4 blockchain.

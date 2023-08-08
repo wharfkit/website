@@ -24,4 +24,4 @@ Why
 - [TransactContext](#)
 - [LoginPlugin](#)
 - [TransactPlugin](#)
-- [WalletPlugin](#)
+- [WalletPlugin](/docs/sessionkit/wallet-plugin)

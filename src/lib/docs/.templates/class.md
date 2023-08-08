@@ -9,7 +9,7 @@ published: false
 
 Brief description describing what this class represents and its primary purpose.
 
-## [Creation](#)
+## Creation
 
 Short example on how to create a minimal version of this class.
 
@@ -27,7 +27,7 @@ const options = {
 const session = new Session(args, options)
 ```
 
-### [Arguments](#)
+### Arguments
 
 Description of list of Arguments
 

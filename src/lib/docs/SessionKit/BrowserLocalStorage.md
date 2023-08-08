@@ -8,11 +8,11 @@ hidden: true
 
 # BrowserLocalStorage
 
-The `BrowserLocalStorage` is the default [SessionStorage](#) adapter used by the [SessionKit](#). It is used to persist [Session](#) data in the application and utilizes `localStorage` as the storage medium.
+The `BrowserLocalStorage` is the default [SessionStorage](/docs/sessionkit/session-storage) adapter used by the [SessionKit](/docs/sessionkit/session-kit-factory). It is used to persist [Session](/docs/sessionkit/session) data in the application and utilizes `localStorage` as the storage medium.
 
 ## Usage
 
-By default no action is needed to use the `BrowserLocalStorage` as it is included as the default `storage` value on the [SessionKit](#).
+By default no action is needed to use the `BrowserLocalStorage` as it is included as the default `storage` value on the [SessionKit](/docs/sessionkit/session-kit-factory).
 
 ## Anatomy
 

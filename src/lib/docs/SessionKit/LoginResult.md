@@ -7,7 +7,7 @@ published: true
 
 # LoginResult
 
-Upon a successful call to the [Login](#) method of the [SessionKit](#), the response returned will be an object that matches the `LoginResult` interface.
+Upon a successful call to the [Login](#) method of the [SessionKit](/docs/sessionkit/session-kit-factory), the response returned will be an object that matches the `LoginResult` interface.
 
 ## Properties
 
@@ -23,12 +23,12 @@ interface LoginResult {
 
 ### context
 
-The [LoginContext](#) instance that was used by both the [SessionKit](#) and [LoginPlugins](#) during the [Login](#) process.
+The [LoginContext](#) instance that was used by both the [SessionKit](/docs/sessionkit/session-kit-factory) and [LoginPlugins](#) during the [Login](#) process.
 
 ### response
 
-The response data from the [WalletPlugin](#) used during the [Login](#) process.
+The response data from the [WalletPlugin](/docs/sessionkit/wallet-plugin) used during the [Login](#) process.
 
 ### session
 
-The [Session](#) created by the [SessionKit](#) based on the end user choices during the [Login](#) process.
+The [Session](/docs/sessionkit/session) created by the [SessionKit](/docs/sessionkit/session-kit-factory) based on the end user choices during the [Login](#) process.

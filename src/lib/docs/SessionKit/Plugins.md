@@ -30,7 +30,7 @@ Based on the type of development being done, the following subsections may be mo
 
 ### Plugin Development
 
-A developer who is creating a [LoginPlugin](#), [TransactPlugin](#), or [WalletPlugin](#) will want to familiarize themselves with:
+A developer who is creating a [LoginPlugin](#), [TransactPlugin](#), or [WalletPlugin](/docs/sessionkit/wallet-plugin) will want to familiarize themselves with:
 
 - The [prompt](#) method to interact with the user.
 - The [status](#) method to provide logging and status updates.
@@ -52,7 +52,7 @@ An example of how a `UserInterface` can be implemented can be found in the [WebR
 
 Outside of the event-driven life cycle methods above, one of the most important abilities a `UserInterface` provides is for [Plugins](#) to interact with users. This is done using the `prompt` call made available through the [context](#) given to every [plugin](#) to either display information or await some form of user interaction. Examples of instances where `prompt` may be called are:
 
-- A [WalletPlugin](#) during the [login](#) and [transact](#) calls.
+- A [WalletPlugin](/docs/sessionkit/wallet-plugin) during the [login](#) and [transact](#) calls.
 - A [LoginPlugin](#) during the [login](#) call.
 - A [TransactPlugin](#) during the [transact](#) call.
 
