@@ -7,7 +7,7 @@ published: true
 
 # WalletPlugin
 
-The `WalletPlugin` is a type of plugin for the [SessionKit](/docs/sessionkit/session-kit-factory) that enables the use of external authenticators and wallets for both authentication and transaction signing purposes.
+The `WalletPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that enables the use of external authenticators and wallets for both authentication and transaction signing purposes.
 
 ## Usage
 

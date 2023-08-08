@@ -7,7 +7,7 @@ published: true
 
 # LoginPlugin
 
-A `LoginPlugin` is a type of plugin for the [SessionKit](/docs/sessionkit/session-kit-factory) that allows custom logic to be performed as an end user is authenticating through the [Login](/docs/sessionkit/login) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
+A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed as an end user is authenticating through the [Login](/docs/sessionkit/login) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
 
 ## Usage
 
