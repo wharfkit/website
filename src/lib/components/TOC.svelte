@@ -3,7 +3,7 @@
   export let title: string
   export let headings: HeadingNode[]
 
-  const GITHUB_EDIT_URL = `https://github.com/wharfkit/docs/edit/master/${section}/${title}.md`
+  const GITHUB_EDIT_URL = `https://github.com/wharfkit/website/edit/master/src/lib/docs/${section}/${title}.md`
 </script>
 
 <nav aria-label="Table of Contents" class="toc">
