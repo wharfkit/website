@@ -7,15 +7,15 @@ published: true
 
 # TransactPlugin
 
-The `TransactPlugin` is a type of plugin for the [SessionKit](/docs/sessionkit/session-kit-factory) that allows custom logic to be performed while a transaction is being processed in a [Transact](#) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
+The `TransactPlugin` is a type of plugin for the [SessionKit](/docs/sessionkit/session-kit-factory) that allows custom logic to be performed while a transaction is being processed in a [Transact](/docs/sessionkit/transact) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
 
 ## Usage
 
-For application developers that wish to use a `TransactPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/sessionkit/session-kit-factory) factory, directly to an individual [Session](/docs/sessionkit/session), or included as part of a [Transact](#) call.
+For application developers that wish to use a `TransactPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/sessionkit/session-kit-factory) factory, directly to an individual [Session](/docs/sessionkit/session), or included as part of a [Transact](/docs/sessionkit/transact) call.
 
 ### SessionKit
 
-Passing a `TransactPlugin` to the options parameter of the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation causes every [Session](/docs/sessionkit/session) it creates to automatically use the specified plugin. In the example below, each session that is the result of the [Login](#) call will automatically inherit and use the specified plugin.
+Passing a `TransactPlugin` to the options parameter of the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation causes every [Session](/docs/sessionkit/session) it creates to automatically use the specified plugin. In the example below, each session that is the result of the [Login](/docs/sessionkit/login) call will automatically inherit and use the specified plugin.
 
 ```ts
 import { TransactPluginResourceProvider } from "@wharfkit/transact-plugin-resource-provider"
@@ -52,7 +52,7 @@ const session = new Session(
 
 ### Transact
 
-During an individual [Transact](#) call, a `TransactPlugin` can also be passed to only execute during that call.
+During an individual [Transact](/docs/sessionkit/transact) call, a `TransactPlugin` can also be passed to only execute during that call.
 
 ```ts
 import { TransactPluginResourceProvider } from "@wharfkit/transact-plugin-resource-provider"
@@ -69,7 +69,7 @@ const result = await session.transact(
 
 ## Development
 
-The `TransactPlugin` interface and `AbstractTransactPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks which are performed at specific points during the [Transact](#) call.
+The `TransactPlugin` interface and `AbstractTransactPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks which are performed at specific points during the [Transact](/docs/sessionkit/transact) call.
 
 The [transact-plugin-template](https://github.com/wharfkit/transact-plugin-template) is available as a template on Github to help developers get started.
 
@@ -158,7 +158,7 @@ const result = session.transact(
 
 ### Register
 
-At the core of a `TransactPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [TransactContext](#) provided as `context`.
+At the core of a `TransactPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [TransactContext](/docs/sessionkit/transact-context) provided as `context`.
 
 ```ts
 register(context) {
@@ -195,7 +195,7 @@ type TransactHookMutable = (
 ) => Promise<TransactHookResponse | void>
 ```
 
-The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](#) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context` which is the [TransactContext](#) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
+The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](#) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context` which is the [TransactContext](/docs/sessionkit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
 
 The hook function must either return nothing, or return an object that matches the [TransactHookResponse](https://wharfkit.github.io/session/interfaces/TransactHookResponse.html) interface. This requires that it pass back a `request` value, which can either be modified or simply pass back the `request` value it received. This response may also optionally pass back an array of signatures, if the plugin itself was responsible for appending signatures to this upcoming transaction.
 
@@ -222,7 +222,7 @@ type TransactHookImmutable = (
 ) => Promise<void>
 ```
 
-The first parameter of a `TransactHookImmutable` is the `result` value and is an instance of [TransactResult](#) that contains information about the results of a transaction up until that point in time. The second is the `context` which is the [TransactContext](#) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
+The first parameter of a `TransactHookImmutable` is the `result` value and is an instance of [TransactResult](/docs/sessionkit/transact-result) that contains information about the results of a transaction up until that point in time. The second is the `context` which is the [TransactContext](/docs/sessionkit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
 
 These hooks do not need to return anything, and anything they return will be ignored.
 

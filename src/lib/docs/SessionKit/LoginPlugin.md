@@ -7,15 +7,15 @@ published: true
 
 # LoginPlugin
 
-A `LoginPlugin` is a type of plugin for the [SessionKit](/docs/sessionkit/session-kit-factory) that allows custom logic to be performed as an end user is authenticating through the [Login](#) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
+A `LoginPlugin` is a type of plugin for the [SessionKit](/docs/sessionkit/session-kit-factory) that allows custom logic to be performed as an end user is authenticating through the [Login](/docs/sessionkit/login) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
 
 ## Usage
 
-For application developers that wish to use a `LoginPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/sessionkit/session-kit-factory) factory or included as part of a [Login](#) call.
+For application developers that wish to use a `LoginPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/sessionkit/session-kit-factory) factory or included as part of a [Login](/docs/sessionkit/login) call.
 
 ### SessionKit
 
-Passing a `LoginPlugin` to the options parameter of the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation causes every call to the [Login](#) method to trigger its custom logic.
+Passing a `LoginPlugin` to the options parameter of the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation causes every call to the [Login](/docs/sessionkit/login) method to trigger its custom logic.
 
 ```ts
 const sessionKit = new SessionKit(
@@ -30,7 +30,7 @@ const sessionKit = new SessionKit(
 
 ### Login
 
-During an individual [Login](#) call, a `LoginPlugin` can also be passed to only execute during that call.
+During an individual [Login](/docs/sessionkit/login) call, a `LoginPlugin` can also be passed to only execute during that call.
 
 ```ts
 const result = await sessionKit.login({
@@ -40,7 +40,7 @@ const result = await sessionKit.login({
 
 ## Development
 
-The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks which are performed at specific points during the [Login](#) call.
+The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks which are performed at specific points during the [Login](/docs/sessionkit/login) call.
 
 The [login-plugin-template](https://github.com/wharfkit/login-plugin-template) is available as a template on Github to help developers get started.
 
@@ -113,7 +113,7 @@ const result = sessionKit.login({
 
 ### Register
 
-At the core of a `LoginPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [LoginContext](#) provided as `context`.
+At the core of a `LoginPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [LoginContext](/docs/sessionkit/login-context) provided as `context`.
 
 ```ts
 register(context) {
@@ -138,7 +138,7 @@ All hooks associated with a `LoginPlugin` follow the same design pattern.
 type LoginHook = (context: LoginContext) => Promise<void>
 ```
 
-The only parameter passed to these functions is an instance of the [LoginContext](#) that was established to represent the state of the request. This function can perform any required logic to assist or validate the login request, and should return nothing when completed.
+The only parameter passed to these functions is an instance of the [LoginContext](/docs/sessionkit/login-context) that was established to represent the state of the request. This function can perform any required logic to assist or validate the login request, and should return nothing when completed.
 
 An example of a function hook is as follows:
 

@@ -7,11 +7,11 @@ published: true
 
 # Logout
 
-The `logout` method is made available on the [SessionKit](/docs/sessionkit/session-kit-factory) instance. It is used to remove one or more [Sessions](#) from [SessionStorage](/docs/sessionkit/session-storage). If an application is also referencing or storing sessions in their own applications state, the removal of those sessions must be done by the application.
+The `logout` method is made available on the [SessionKit](/docs/sessionkit/session-kit-factory) instance. It is used to remove one or more [Sessions](/docs/sessionkit/session) from [SessionStorage](/docs/sessionkit/session-storage). If an application is also referencing or storing sessions in their own applications state, the removal of those sessions must be done by the application.
 
 ## Usage
 
-Given an existing instance of the [SessionKit](/docs/sessionkit/session-kit-factory), the async method `logout` can be called and awaited without any additional parameters to remove all [Sessions](#).
+Given an existing instance of the [SessionKit](/docs/sessionkit/session-kit-factory), the async method `logout` can be called and awaited without any additional parameters to remove all [Sessions](/docs/sessionkit/session).
 
 ```ts
 await sessionKit.logout()

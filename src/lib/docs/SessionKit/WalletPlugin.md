@@ -15,7 +15,7 @@ For application developers that wish to include a `WalletPlugin` in their applic
 
 ### SessionKit
 
-One or more `WalletPlugin` instances need to be passed as part of the [SessionKit](/docs/sessionkit/session-kit-factory) arguments during instantiation to provide users who perform the [Login](#) method a choice in how to authenticate.
+One or more `WalletPlugin` instances need to be passed as part of the [SessionKit](/docs/sessionkit/session-kit-factory) arguments during instantiation to provide users who perform the [Login](/docs/sessionkit/login) method a choice in how to authenticate.
 
 ```ts
 const sessionKit = new SessionKit({
@@ -69,7 +69,7 @@ class WalletPluginExample extends AbstractWalletPlugin {
 }
 ```
 
-This configuration is read by the [SessionKit](/docs/sessionkit/session-kit-factory) to determine how to prompt the end user during the [Login](#) call.
+This configuration is read by the [SessionKit](/docs/sessionkit/session-kit-factory) to determine how to prompt the end user during the [Login](/docs/sessionkit/login) call.
 
 - `requiresChainSelect`: Determines if the Session Kit needs to ask the end user which blockchain to authenticate against. Set this value to `false` if the wallet itself will offer the opportunity to select a blockchain.
 - `requiresPermissionSelect`: Determines if the Session Kit needs to ask the end user which account and permission it will authenticate against. Set this value to `false` if the wallet will allow the user to select an account during authentication.
@@ -121,9 +121,9 @@ This is accomplished by specifying a `get id()` method on the class which return
 
 ### Method: Login
 
-In order for the `WalletPlugin` to authenticate users, it will need to implement the `login` method. This method accepts a [LoginContext](#) as its only parameter, which provides the plugin and wallet with potential information about the request.
+In order for the `WalletPlugin` to authenticate users, it will need to implement the `login` method. This method accepts a [LoginContext](/docs/sessionkit/login-context) as its only parameter, which provides the plugin and wallet with potential information about the request.
 
-**Note**: If during the [Login](#) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](/docs/sessionkit/user-interface) instance provided on the [LoginContext](#) can be used to prompt the user.
+**Note**: If during the [Login](/docs/sessionkit/login) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](/docs/sessionkit/user-interface) instance provided on the [LoginContext](/docs/sessionkit/login-context) can be used to prompt the user.
 
 The `WalletPlugin` will now need to communicate with the external application in order to formulate a response. The goal is for the `login` method to return an object that matches the [WalletPluginLoginResponse](https://wharfkit.github.io/session/interfaces/WalletPluginLoginResponse.html) interface that contains:
 
@@ -155,7 +155,7 @@ class WalletPluginExample extends AbstractWalletPlugin {
 }
 ```
 
-If the `WalletPlugin` does not support any form of [Login](#) for end users and only supports signing transactions, simply throw an error in this method call.
+If the `WalletPlugin` does not support any form of [Login](/docs/sessionkit/login) for end users and only supports signing transactions, simply throw an error in this method call.
 
 ```ts
 class WalletPluginExample extends AbstractWalletPlugin {
@@ -167,16 +167,16 @@ class WalletPluginExample extends AbstractWalletPlugin {
 
 ### Method: Sign
 
-One of the primary purposes of a `WalletPlugin` is to facilitate the signing of transactions. To do this it must implement the `sign` method which accepts two parameters, a [ResolvedSigningRequest](#) and a [TransactContext](#).
+One of the primary purposes of a `WalletPlugin` is to facilitate the signing of transactions. To do this it must implement the `sign` method which accepts two parameters, a [ResolvedSigningRequest](#) and a [TransactContext](/docs/sessionkit/transact-context).
 
-**Note**: If during the [Transact](#) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](/docs/sessionkit/user-interface) instance provided on the [TransactContext](#) can be used to prompt the user.
+**Note**: If during the [Transact](/docs/sessionkit/transact) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](/docs/sessionkit/user-interface) instance provided on the [TransactContext](/docs/sessionkit/transact-context) can be used to prompt the user.
 
 The `WalletPlugin` will then need to communicate with the external application, relaying the transaction, in order to retrieve a signature. This process should return an object that matches the [WalletPluginSignResponse](https://wharfkit.github.io/session/interfaces/WalletPluginSignResponse.html) interface that contains:
 
 - `signatures`: An array containing one or more [Signature](#) typed objects with signatures authorizing the transaction.
 - `resolved`: An optional [ResolvedSigningRequest](#) in the event the transaction was modified by the wallet.
 
-**Note**: If the `WalletPlugin` or external application modifies the transaction and returns it, it may invalidate any signatures previously created by the [TransactPlugin](#) calls that were originally made. We would recommend that the wallet should not
+**Note**: If the `WalletPlugin` or external application modifies the transaction and returns it, it may invalidate any signatures previously created by the [TransactPlugin](/docs/sessionkit/transact-plugin) calls that were originally made. We would recommend that the wallet should not
 
 Once completed this information can be returned to the Session Kit to complete the transaction.
 

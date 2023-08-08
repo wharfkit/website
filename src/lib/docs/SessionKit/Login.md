@@ -8,7 +8,7 @@ hidden: true
 
 # Login
 
-The `login` method is made available on a [SessionKit](/docs/sessionkit/session-kit-factory) instance. It is used to present the authentication process to the end user of the application. Upon completion this process it returns a [LoginResult](#) to the application which contains a usable instance of the resulting [Session](/docs/sessionkit/session).
+The `login` method is made available on a [SessionKit](/docs/sessionkit/session-kit-factory) instance. It is used to present the authentication process to the end user of the application. Upon completion this process it returns a [LoginResult](/docs/sessionkit/login-result) to the application which contains a usable instance of the resulting [Session](/docs/sessionkit/session).
 
 ## Usage
 
@@ -22,13 +22,13 @@ const result = await sessionKit.login()
 
 While awaiting the result of this call, the [UserInterface](/docs/sessionkit/user-interface) defined in the [SessionKit](/docs/sessionkit/session-kit-factory) will present any required choices to the end user that allows them to select a [WalletPlugin](/docs/sessionkit/wallet-plugin), a [ChainDefinition](/docs/utilities/common-library#chaindefinition), and a [PermissionLevel](#). The choices made by the end user will be used to create and configure a new [Session](/docs/sessionkit/session) instance.
 
-Upon completion the `login` method will return a [LoginResult](#) that contains:
+Upon completion the `login` method will return a [LoginResult](/docs/sessionkit/login-result) that contains:
 
 - The `session` that is now available for use to perform transactions.
 - The `response` from the [WalletPlugin](/docs/sessionkit/wallet-plugin) that was used, indicating which blockchain and permission was returned.
-- The `context` object (a [LoginContext](#)) that was used during the login process.
+- The `context` object (a [LoginContext](/docs/sessionkit/login-context)) that was used during the login process.
 
-The [Session](/docs/sessionkit/session) instance that was returned in the result will automatically be persisted in the application through use of the [SessionStorage](/docs/sessionkit/session-storage) adapter and in the future can be retrieved with the [restore](#) method.
+The [Session](/docs/sessionkit/session) instance that was returned in the result will automatically be persisted in the application through use of the [SessionStorage](/docs/sessionkit/session-storage) adapter and in the future can be retrieved with the [Restore](/docs/sessionkit/restore) method.
 
 ## Options
 

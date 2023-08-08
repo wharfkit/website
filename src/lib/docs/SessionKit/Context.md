@@ -7,7 +7,7 @@ published: false
 
 # Context
 
-A `Context` is a short lived state object that exists for the duration of a [Login](#) or [Transact](#) call.
+A `Context` is a short lived state object that exists for the duration of a [Login](/docs/sessionkit/login) or [Transact](/docs/sessionkit/transact) call.
 
 ## Usage
 
@@ -19,8 +19,8 @@ Why
 
 ## Reference
 
-- [LoginContext](#)
-- [TransactContext](#)
-- [LoginPlugin](#)
-- [TransactPlugin](#)
+- [LoginContext](/docs/sessionkit/login-context)
+- [TransactContext](/docs/sessionkit/transact-context)
+- [LoginPlugin](/docs/sessionkit/login-plugin)
+- [TransactPlugin](/docs/sessionkit/transact-plugin)
 - [WalletPlugin](/docs/sessionkit/wallet-plugin)

@@ -8,7 +8,7 @@ published: true
 
 # Session
 
-Each `Session` class instance represents a specific [blockchain account](https://docs.eosnetwork.com/docs/latest/core-concepts/accounts) with an associated [WalletPlugin](/docs/sessionkit/wallet-plugin) that can be used to perform transactions using the [transact](#) method. It can also be used to access information about the account related to the session and to help automatically template API calls.
+Each `Session` class instance represents a specific [blockchain account](https://docs.eosnetwork.com/docs/latest/core-concepts/accounts) with an associated [WalletPlugin](/docs/sessionkit/wallet-plugin) that can be used to perform transactions using the [Transact](/docs/sessionkit/transact) method. It can also be used to access information about the account related to the session and to help automatically template API calls.
 
 ## Creation
 
@@ -51,16 +51,16 @@ The first parameter passed to the `Session` is an object containing all the requ
 
 The second parameter is an optional object, with every individual property of the object also being optional. This parameter allows passing additional data to further customize the `Session`.
 
-- `abis`: An array of [ABI](#) definitions to preload for this session to optimize [transact](#) calls.
+- `abis`: An array of [ABI](#) definitions to preload for this session to optimize [Transact](/docs/sessionkit/transact) calls.
 - `abiCache`: An instance of an [ABICache](#) that overrides the default one utilized by the session.
-- `allowModify`: A boolean value indicating whether any [TransactPlugin](#) and [WalletPlugin](/docs/sessionkit/wallet-plugin) can modify transactions being processed.
+- `allowModify`: A boolean value indicating whether any [TransactPlugin](/docs/sessionkit/transact-plugin) and [WalletPlugin](/docs/sessionkit/wallet-plugin) can modify transactions being processed.
 - `appName`: A string to identify the app the session is used in.
 - `broadcast`: A boolean value indicating whether the `transact` call should broadcast transactions by default.
-- `expireSeconds`: An integer indicating the default number of seconds to specify for the expiration value during the [transact](#) call.
+- `expireSeconds`: An integer indicating the default number of seconds to specify for the expiration value during the [Transact](/docs/sessionkit/transact) call.
 - `fetch`: An instance of fetch, if required in a server side application based on the Node.js version.
 - `storage`: An instance of [SessionStorage](/docs/sessionkit/session-storage) if the application needs to override the default storage mechanisms.
-- `transactPlugins`: An array of [TransactPlugin](#) instances this session should use.
-- `transactPluginsOptions`: An object containing key/value pairs of any options required by the [TransactPlugin](#) instances provided.
+- `transactPlugins`: An array of [TransactPlugin](/docs/sessionkit/transact-plugin) instances this session should use.
+- `transactPluginsOptions`: An object containing key/value pairs of any options required by the [TransactPlugin](/docs/sessionkit/transact-plugin) instances provided.
 - `ui`: An instance of a [UserInterface](/docs/sessionkit/user-interface) if this Session is being used in a environment where required.
 
 ## Usage
@@ -69,7 +69,7 @@ Once a `Session` instance is created, methods can be called to perform specific 
 
 ### Methods
 
-- `transact`: The [transact](#) method is the most commonly used method on a `Session` instance and is used to sign and broadcast a transaction.
+- `transact`: The [Transact](/docs/sessionkit/transact) method is the most commonly used method on a `Session` instance and is used to sign and broadcast a transaction.
 - `serialize`: A method which converts the `Session` into a plain JSON object for storage purposes.
 
 A complete list of all methods found on can be found in the [class definition](https://wharfkit.github.io/session/classes/Session.html#abiCache).
@@ -82,7 +82,7 @@ On any established instance of a `Session`, the following are common properties 
 - `actor`: The name of the account for this session.
 - `permission`: The [Permission](#) name associated to the account being used.
 - `permissionLevel`: The [PermissionLevel](#) that contains the account and permission for the session.
-- `client`: An instance of an [APIClient](#) that can be used to access information from the blockchain related to this session.
+- `client`: An instance of an [APIClient](/docs/antelope/api-client) that can be used to access information from the blockchain related to this session.
 
 ## Related Materials
 

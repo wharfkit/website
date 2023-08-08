@@ -41,6 +41,6 @@ The end user themselves can be prompted for this information through custom UI e
 
 Once this information is returned to the [SessionKit](/docs/sessionkit/session-kit-factory), the following will take place:
 
-- Any registered [LoginPlugin](#) with `beforeLogin` hooks will be executed.
+- Any registered [LoginPlugin](/docs/sessionkit/login-plugin) with `beforeLogin` hooks will be executed.
 - The selected [WalletPlugin](/docs/sessionkit/wallet-plugin) will take over to perform the login operation.
-- Any registered [LoginPlugin](#) with `afterLogin` hooks will be executed.
+- Any registered [LoginPlugin](/docs/sessionkit/login-plugin) with `afterLogin` hooks will be executed.

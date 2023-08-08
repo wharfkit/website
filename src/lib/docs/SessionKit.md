@@ -33,7 +33,7 @@ For any web application that allows users to login with their own wallet, this i
 
 ### [Session](/docs/sessionkit/session)
 
-Developers working with the Session Kit will primarily be working with individual [Session](/docs/sessionkit/session) objects throughout their apps, whether manually defined in an application or created by the [SessionKit](/docs/sessionkit/session-kit-factory) factory methods. A [Session](/docs/sessionkit/session) represents the connection between the application and account on an Antelope-based blockchain. Each session offers a [transact](/docs/sessionkit/transact) method that allows actions to be performed by the account against a given blockchain. The result of this call returns a [TransactResult](/docs/sessionkit/transact-result) containing the result from the [APIClient](/docs/antelope/api-client), details of the fully crafted [Transaction](/docs/antelope/name), and any changes [TransactPlugins](/docs/sessionkit/transact-plugin) may have made.
+Developers working with the Session Kit will primarily be working with individual [Session](/docs/sessionkit/session) objects throughout their apps, whether manually defined in an application or created by the [SessionKit](/docs/sessionkit/session-kit-factory) factory methods. A [Session](/docs/sessionkit/session) represents the connection between the application and account on an Antelope-based blockchain. Each session offers a [Transact](/docs/sessionkit/transact) method that allows actions to be performed by the account against a given blockchain. The result of this call returns a [TransactResult](/docs/sessionkit/transact-result) containing the result from the [APIClient](/docs/antelope/api-client), details of the fully crafted [Transaction](/docs/antelope/name), and any changes [TransactPlugins](/docs/sessionkit/transact-plugin) may have made.
 
 For any Node.js application that internally manages account details, this is a good starting point.
 
@@ -43,7 +43,7 @@ The Session Kit also exports many interfaces for developers to extend and custom
 
 ### [WalletPlugin](/docs/sessionkit/wallet-plugin)
 
-Each [WalletPlugin](/docs/sessionkit/wallet-plugin) instance provides the required code to facilitate the [login](/docs/sessionkit/login) method of the [SessionKit](/docs/sessionkit/session-kit-factory) to create a new session, as well as providing the means for a [Session](/docs/sessionkit/session) to perform a transaction using the [transact](/docs/sessionkit/transact) method. Every [Session](/docs/sessionkit/session) instance as well as the [SessionKit](/docs/sessionkit/session-kit-factory) itself requires at least one [WalletPlugin](/docs/sessionkit/wallet-plugin). This interface provides the structure required these methods to operate either locally performing this logic in-app or through direct communication with an external wallet application.
+Each [WalletPlugin](/docs/sessionkit/wallet-plugin) instance provides the required code to facilitate the [login](/docs/sessionkit/login) method of the [SessionKit](/docs/sessionkit/session-kit-factory) to create a new session, as well as providing the means for a [Session](/docs/sessionkit/session) to perform a transaction using the [Transact](/docs/sessionkit/transact) method. Every [Session](/docs/sessionkit/session) instance as well as the [SessionKit](/docs/sessionkit/session-kit-factory) itself requires at least one [WalletPlugin](/docs/sessionkit/wallet-plugin). This interface provides the structure required these methods to operate either locally performing this logic in-app or through direct communication with an external wallet application.
 
 ### [LoginPlugin](/docs/sessionkit/login-plugin)
 
@@ -51,11 +51,11 @@ One or more [LoginPlugin](/docs/sessionkit/login-plugin) instances can be passed
 
 ### [TransactPlugin](/docs/sessionkit/transact-plugin)
 
-One or more [TransactPlugin](/docs/sessionkit/transact-plugin) instances can be passed to either individual [Session](/docs/sessionkit/session) instances or the [SessionKit](/docs/sessionkit/session-kit-factory) in order to add new logic during the [transact](/docs/sessionkit/transact) call. The interface provides the expected structure of a plugin to allow it to register `beforeSign`, `afterSign`, and `afterBroadcast` hooks that allow execution of custom code at specific points of the [transact](/docs/sessionkit/transact) process. These plugins can be useful to perform custom logic when performing transactions or after they have executed.
+One or more [TransactPlugin](/docs/sessionkit/transact-plugin) instances can be passed to either individual [Session](/docs/sessionkit/session) instances or the [SessionKit](/docs/sessionkit/session-kit-factory) in order to add new logic during the [Transact](/docs/sessionkit/transact) call. The interface provides the expected structure of a plugin to allow it to register `beforeSign`, `afterSign`, and `afterBroadcast` hooks that allow execution of custom code at specific points of the [Transact](/docs/sessionkit/transact) process. These plugins can be useful to perform custom logic when performing transactions or after they have executed.
 
 ### [UserInterface](/docs/sessionkit/user-interface)
 
-During instantiation of the [SessionKit](/docs/sessionkit/session-kit-factory), one [UserInterface](/docs/sessionkit/user-interface) instance is required to provide interactivity to the end user during the [login](/docs/sessionkit/login) process. Optionally the [UserInterface](/docs/sessionkit/user-interface) can also provide interactivity during the [transact](/docs/sessionkit/transact) call, either directly or through the various types of plugins.
+During instantiation of the [SessionKit](/docs/sessionkit/session-kit-factory), one [UserInterface](/docs/sessionkit/user-interface) instance is required to provide interactivity to the end user during the [login](/docs/sessionkit/login) process. Optionally the [UserInterface](/docs/sessionkit/user-interface) can also provide interactivity during the [Transact](/docs/sessionkit/transact) call, either directly or through the various types of plugins.
 
 ## Utilities
 

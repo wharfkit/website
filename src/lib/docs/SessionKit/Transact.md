@@ -7,7 +7,7 @@ published: true
 
 # Transact
 
-The `transact` method is available on every [Session](/docs/sessionkit/session) instance and is used to perform one or more actions against smart contracts. Once completed it will return a [TransactResult](#) object containing the results of the actions performed.
+The `transact` method is available on every [Session](/docs/sessionkit/session) instance and is used to perform one or more actions against smart contracts. Once completed it will return a [TransactResult](/docs/sessionkit/transact-result) object containing the results of the actions performed.
 
 ## Usage
 
