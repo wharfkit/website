@@ -117,4 +117,5 @@ interface KitPage {
   features: KitFeature[]
   examples: KitFeature[]
   cta: KitFeature
+  screenshots: string[]
 }
