@@ -1,9 +1,17 @@
 import sessionKit from "$lib/assets/images/kits/session-kit.svg"
+import screenshot1 from "$lib/assets/images/kits/sessionkit/screenshot-1.webp"
+import screenshot2 from "$lib/assets/images/kits/sessionkit/screenshot-2.webp"
+import screenshot3 from "$lib/assets/images/kits/sessionkit/screenshot-3.webp"
 
 const kit: KitPage = {
   title: "Session Kit",
   subtitle: "Create an experience that your users will love.",
   logo: sessionKit,
+  screenshots: [
+    screenshot1,
+    screenshot2,
+    screenshot3,
+  ],
   features: [
     {
       title: "Manage sessions with ease.",
