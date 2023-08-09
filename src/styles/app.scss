@@ -232,13 +232,12 @@ pre:hover > .copy-button:hover {
 }
 
 blockquote {
-  background-color: var(--color-secondary-50);
-  background-color: var(--theme-surface1);
-
+  background-color: var(--theme-surface9);
   padding-block: var(--space-m);
   padding-inline: var(--space-m);
   font-size: var(--fs-0);
   border-radius: var(--border-radius);
+  border: 1px solid var(--theme-border1);
 }
 
 table {
