@@ -4,9 +4,16 @@
   import Header from "$lib/components/Header/Header.svelte"
   import Footer from "$lib/components/Footer.svelte"
   import Seo from "$lib/components/Seo.svelte"
+
+  const PROD = import.meta.env.PROD
+  const BASE_URL = import.meta.env.BASE_URL
 </script>
 
 <svelte:head>
+  {#if PROD && BASE_URL.includes("wharfkit.com")}
+    <script defer data-domain="wharfkit.com" src="https://stats.greymass.com/js/script.js"></script>
+  {/if}
+
   <style>
     body {
       background: var(--page-background);
