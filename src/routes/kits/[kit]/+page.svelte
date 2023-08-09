@@ -246,6 +246,10 @@
     white-space: pre-line;
   }
 
+  .feature .description ul {
+    margin-top: var(--space-s);
+  }
+
   .examples .grid {
     --minimum: 40ch;
     margin-top: var(--space-xl);
