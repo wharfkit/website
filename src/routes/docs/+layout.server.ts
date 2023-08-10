@@ -15,9 +15,14 @@ export const load = (async () => {
     const groupedDocs = await fetchGroupedDocs(importedDocs)
     const orderedDocs = orderSections(groupedDocs, displayOrder)
 
+    const meta = {
+        title: 'Docs',
+    };
+
     return {
         rootPath: '/docs',
         rootTitle: 'Documentation',
         docs: orderedDocs,
+        meta,
     }
 }) satisfies LayoutServerLoad
