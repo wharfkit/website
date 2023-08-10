@@ -18,6 +18,11 @@ export function formatSectionTitle(section: string) {
   return sectionTitle
 }
 
+export const removeHiddenArticles = (section: DocumentationSection): DocumentationSection => ({
+  ...section,
+  articles: section.articles.filter(isDocNotHidden)
+})
+
 /**
  * Filters the documentation articles by title based on the query
  * @param sections 
@@ -29,7 +34,7 @@ export function filterDocumentationArticles(
   query: string
 ): DocumentationSection[] {
   if (query === "") {
-    return sections;
+    return sections.map(removeHiddenArticles)
   }
 
   const filteredSections: DocumentationSection[] = [];
@@ -108,7 +113,8 @@ function groupBySection(docs: DocumentationArticle[]): Record<string, Documentat
   return grouped
 }
 
-const isDocVisible = (doc: DocumentationArticle): boolean => doc.published === true
+export const isDocNotHidden = (doc: DocumentationArticle) => doc.hidden !== true
+const isDocPublished = (doc: DocumentationArticle): boolean => doc.published === true
 const docSort = (a: DocumentationArticle, b: DocumentationArticle): number => (a.order || 100) - (b.order || 100)
 
 export const importedGuides = import.meta.glob("/src/lib/guides/**/*.md") as Record<string, () => Promise<MarkdownFile>>
@@ -125,7 +131,7 @@ export async function fetchDocs(docFiles: Record<string, () => Promise<MarkdownF
   )
   const docs = allDocs
     .map(makeDoc)
-    .filter(isDocVisible)
+    .filter(isDocPublished)
     .sort(docSort)
 
   return docs

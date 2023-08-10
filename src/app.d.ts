@@ -34,6 +34,7 @@ interface DocumentationArticle {
   description: string
   headings: HeadingNode[]
   published?: boolean
+  hidden?: boolean
   order?: number
   toc?: boolean
 }
