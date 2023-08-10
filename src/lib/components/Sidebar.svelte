@@ -1,12 +1,17 @@
 <script lang="ts">
-  import { filterDocumentationArticles, formatSectionTitle } from "$lib/utils/docs"
+  import {
+    filterDocumentationArticles,
+    formatSectionTitle,
+    removeHiddenArticles,
+  } from "$lib/utils/docs"
   import Filter from "./Filter.svelte"
   import { page } from "$app/stores"
 
   export let docs: DocumentationSection[]
   export let rootPath: string
   export let title: string
-  let filteredSections = docs
+
+  let filteredSections = docs.map(removeHiddenArticles)
   let innerWidth: number
   let sideNav: HTMLDetailsElement
   let isQuerying = false
