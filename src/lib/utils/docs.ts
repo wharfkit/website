@@ -18,6 +18,7 @@ export function formatSectionTitle(section: string) {
   return sectionTitle
 }
 
+export const isSectionNotHidden = (section: DocumentationSection) => section.articles.length > 0
 export const removeHiddenArticles = (section: DocumentationSection): DocumentationSection => ({
   ...section,
   articles: section.articles.filter(isDocNotHidden)
@@ -34,7 +35,7 @@ export function filterDocumentationArticles(
   query: string
 ): DocumentationSection[] {
   if (query === "") {
-    return sections.map(removeHiddenArticles)
+    return sections.map(removeHiddenArticles).filter(isSectionNotHidden)
   }
 
   const filteredSections: DocumentationSection[] = [];

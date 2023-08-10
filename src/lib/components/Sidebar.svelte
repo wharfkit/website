@@ -3,6 +3,7 @@
     filterDocumentationArticles,
     formatSectionTitle,
     removeHiddenArticles,
+    isSectionNotHidden,
   } from "$lib/utils/docs"
   import Filter from "./Filter.svelte"
   import { page } from "$app/stores"
@@ -11,7 +12,7 @@
   export let rootPath: string
   export let title: string
 
-  let filteredSections = docs.map(removeHiddenArticles)
+  let filteredSections = docs.map(removeHiddenArticles).filter(isSectionNotHidden)
   let innerWidth: number
   let sideNav: HTMLDetailsElement
   let isQuerying = false
