@@ -33,7 +33,29 @@ const result = await session.transact(arguments)
 
 ## Arguments
 
+The `transact` call takes an instance of [TransactArgs](https://wharfkit.github.io/session/interfaces/TransactArgs.html), which is an object that requires an object that represents a transaction specified in one of four variants.
+
+```ts
+interface TransactArgs {
+  transaction?: AnyTransaction
+  action?: AnyAction
+  actions?: AnyAction[]
+  request?: SigningRequest | string
+}
+```
+
+Despite all values being optional, one must be specified to define the type of input.
+
+- `action`: Provide a single [Action](#) without the [Transaction](#) data.
+- `actions`: Provide an array of [Actions](#) without the [Transaction](#) data.
+- `transaction`: Provide a complete [Transaction](#) containing [Action(s)](#).
+- `request`: Provide a [SigningRequest](#) object.
+
+Examples of each are provided below.
+
 ### Action
+
+A single [Action](#) may be passed in to the `transact` call on the `action` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](#) using this data.
 
 ```ts
 const arguments = {
@@ -44,6 +66,8 @@ const result = await session.transact(arguments)
 ```
 
 ### Action(s)
+
+An array of [Actions](#) may be passed in to the `transact` call on the `actions` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](#) using this data.
 
 ```ts
 const arguments = {
@@ -59,6 +83,8 @@ const result = await session.transact(arguments)
 
 ### Transaction
 
+A complete [Transaction](#) may be passed in to the `transact` call on the `transaction` property of the arguments.
+
 ```ts
 const arguments = {
   transaction: Transaction.from(...),
@@ -68,6 +94,8 @@ const result = await session.transact(arguments)
 ```
 
 ### Signing Request
+
+A [SigningRequest](#) may be passed in to the `transact` call on the `request` property of the arguments. The `transact` flow will take the request and resolve any placeholder data it contains to form a [Transaction](#).
 
 ```ts
 const arguments = {
@@ -79,89 +107,58 @@ const result = await session.transact(arguments)
 
 ## Options
 
+Additional parameters may optionally be passed to the `transact` method. The option specified in this way will override the default values inherited from the [Session](/docs/sessionkit/session) for this call to `transact`.
+
 ```ts
-/**
- * Options for the [[Session.transact]] method.
- */
-export interface TransactOptions {
-  /**
-   * An array of ABIs to use when resolving the transaction.
-   */
+interface TransactOptions {
   abis?: TransactABIDef[]
-  /**
-   * An optional ABICacheInterface to control how ABIs are loaded.
-   */
   abiCache?: ABICacheInterface
-  /**
-   * Whether to allow the signer to make modifications to the request
-   * (e.g. applying a cosigner action to pay for resources).
-   *
-   * Defaults to true if [[broadcast]] is true or unspecified; otherwise false.
-   */
   allowModify?: boolean
-  /**
-   * Whether to broadcast the transaction or just return the signature.
-   * Defaults to true.
-   */
   broadcast?: boolean
-  /**
-   * Chain to use when configured with multiple chains.
-   */
   chain?: Checksum256Type
-  /**
-   * The number of seconds in the future this transaction will expire.
-   */
   expireSeconds?: number
-  /**
-   * Specific transact plugins to use for this transaction.
-   */
   transactPlugins?: AbstractTransactPlugin[]
-  /**
-   * Optional parameters passed in to the various transact plugins.
-   */
   transactPluginsOptions?: TransactPluginsOptions
 }
 ```
 
-Additional parameters may optionally be passed to the `login` method in order to further control the flow of this specific call. The option specified in this way will override the defaults inherited the [SessionKit](/docs/sessionkit/session-kit-factory) for this specific call to `login`.
+### abis
 
-Commonly used parameters that can be passed this way include:
-
-- `chain`: The blockchain ID to login against, preventing any user chain selection.
-- `chains`: An array blockchain IDs to allow logging in against, overriding the defaults from the [SessionKit](/docs/sessionkit/session-kit-factory)
-- `permissionLevel`: A specific [PermissionLevel](#) to login with, preventing any user account selection.
-- `walletPlugin`: A specific [WalletPlugin](/docs/sessionkit/wallet-plugin) to authenticate with, preventing any user wallet selection.
-
-A complete list of all parameters can be found in the [LoginOptions](https://wharfkit.github.io/session/interfaces/LoginOptions.html) documentation.
-
-### Example Override
-
-Given the following scenario, where the `SessionKit` is configured to use 5 available blockchains:
+An array of [ABIs](#) can be passed to a specific `transact` call using the [TransactABIDef](https://wharfkit.github.io/session/interfaces/TransactABIDef.html) format.
 
 ```ts
-const sessionKit = new SessionKit(
-  {
-    ...args,
-    chains: [
-      Chains.Jungle4,
-      Chains.EOS,
-      Chains.Telos,
-      Chains.UX,
-      Chains.WAX,
-    ],
-  },
-  options
-)
-
-const result = await sessionKit.login()
+interface TransactABIDef {
+  account: NameType
+  abi: ABIDef
+}
 ```
 
-The call to `login` without any parameters will allow the user through various means to authenticate with any of those blockchains. However, if the application needs to be able to support all of those blockchains but wants to call `login` against a specific chain in one situation, they can then call the `login` method and specify that one blockchain.
+This format allows associating an account name of a contract with the [ABI](#) for the contract. Each ABI passed in this way appends the data to the internal [ABICache](#) utilized to optimize API call patterns.
 
-```ts
-const result = await sessionKit.login({
-  chain: Chains.Jungle4,
-})
-```
+### abiCache
 
-Passing the `chain` parameter with the single blockchain will force that decision during the login process while inheriting all other possible options from the `SessionKit` itself.
+An instance of an [ABICache](#) to use for this `transact` call. This will override the built-in ABICache the [Session](#) already utilizes.
+
+### allowModify
+
+A boolean flag to indicate whether the [TransactPlugin](#) and [WalletPlugin](#) instances are allowed to modify the transaction the `transact` caller has provided. Set `allowModify: false` on the transaction if the transaction as submitted should be immutable during the call.
+
+### broadcast
+
+A boolean flag indicating whether or not the `transact` call should broadcast the signed transaction to the blockchain.
+
+### chain
+
+A [Checksum256](#) value representing the blockchain this transaction is specifically for. This option is only needed if calling `transact` with a [SigningRequest](#) type argument, where the request is `multichain: true`.
+
+### expireSeconds
+
+The number of seconds in the future to set the expiration of the transaction, defaulting to 120.
+
+### transactPlugin
+
+An array of [TransactPlugin](#) instances to utilize during this specific `transact` call.
+
+### transactPluginOptions
+
+Any options required by the [TransactPlugin](#) instances.
