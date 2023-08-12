@@ -3,6 +3,7 @@ title: TransactResult
 description: description
 category: SessionKit
 published: true
+hidden: true
 ---
 
 # TransactResult

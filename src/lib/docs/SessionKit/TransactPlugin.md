@@ -1,8 +1,9 @@
 ---
-title: TransactPlugin
+title: "Plugin: Transact"
 description: change_me
 category: SessionKit
 published: true
+order: 999
 ---
 
 # TransactPlugin

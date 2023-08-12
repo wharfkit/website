@@ -1,8 +1,9 @@
 ---
-title: UserInterface
+title: "Plugin: UserInterface"
 description: change_me
 category: SessionKit
 published: true
+order: 999
 ---
 
 # UserInterface

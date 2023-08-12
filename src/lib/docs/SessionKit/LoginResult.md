@@ -3,6 +3,7 @@ title: LoginResult
 description: change_me
 category: SessionKit
 published: true
+hidden: true
 ---
 
 # LoginResult

@@ -3,6 +3,7 @@ title: TransactContext
 description: description
 category: SessionKit
 published: true
+hidden: true
 ---
 
 # TransactContext

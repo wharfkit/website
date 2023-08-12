@@ -1,8 +1,9 @@
 ---
-title: LoginPlugin
+title: "Plugin: Login"
 description: change_me
 category: SessionKit
 published: true
+order: 999
 ---
 
 # LoginPlugin

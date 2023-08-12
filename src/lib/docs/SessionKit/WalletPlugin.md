@@ -1,8 +1,9 @@
 ---
-title: WalletPlugin
+title: "Plugin: Wallet"
 description: change_me
 category: SessionKit
 published: true
+order: 999
 ---
 
 # WalletPlugin
