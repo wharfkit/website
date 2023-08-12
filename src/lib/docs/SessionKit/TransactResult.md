@@ -45,7 +45,7 @@ The results returned from the [APIClient](/docs/antelope/api-client) after succe
 
 ### revisions
 
-An instance of [TransactRevisions](https://wharfkit.github.io/session/classes/TransactRevisions.html) which contains a history of modifications made to the transaction through the execution of the included [TransactPlugins](/docs/sessionkit/transact-plugin).
+An instance of [TransactRevisions](https://wharfkit.github.io/session/classes/TransactRevisions.html) which contains a history of modifications made to the transaction through the execution of the included [TransactPlugins](/docs/sessionkit/plugin-transact).
 
 ### signatures
 

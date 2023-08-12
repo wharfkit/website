@@ -14,7 +14,7 @@ An instance of a `UserInterface` is required for the [SessionKit](/docs/sessionk
 
 A typical developer will never make calls directly against the `UserInterface`, with the exception being developers who:
 
-1. Create any type of [Plugin](#), such as [LoginPlugin](/docs/sessionkit/login-plugin), [TransactPlugin](/docs/sessionkit/transact-plugin), or [WalletPlugin](/docs/sessionkit/wallet-plugin) packages
+1. Create any type of [Plugin](#), such as [LoginPlugin](/docs/sessionkit/plugin-login), [TransactPlugin](/docs/sessionkit/plugin-transact), or [WalletPlugin](/docs/sessionkit/plugin-wallet) packages
 2. Create a custom `UserInterface` instance for inclusion in the [SessionKit](/docs/sessionkit/session-kit-factory)
 
 All developers who are building interactive applications will however be required to include an instance of a `UserInterface` to the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation, an example of which is below:
@@ -44,8 +44,8 @@ Wharf maintains and distributes a core package called the [WebRenderer](/docs/se
 The `UserInterface` is primarily responsible for two major aspects of the [SessionKit](/docs/sessionkit/session-kit-factory), **communication** of information to the user and **prompting** of user interactions. These responsibilities are carried out through various other components, including:
 
 - During calls to the [Login](/docs/sessionkit/login) and [Transact](/docs/sessionkit/transact) methods of the [SessionKit](/docs/sessionkit/session-kit-factory)
-- During interactions with the active [WalletPlugin](/docs/sessionkit/wallet-plugin)
-- While processing [hooks](#) defined by [LoginPlugin](/docs/sessionkit/login-plugin) or [TransactPlugin](/docs/sessionkit/transact-plugin) packages
+- During interactions with the active [WalletPlugin](/docs/sessionkit/plugin-wallet)
+- While processing [hooks](#) defined by [LoginPlugin](/docs/sessionkit/plugin-login) or [TransactPlugin](/docs/sessionkit/plugin-transact) packages
 
 **Communication**
 
@@ -114,14 +114,14 @@ This time can be used to prepare UI elements (in DOM or other mediums) before an
 login(context: LoginContext): Promise<UserInterfaceLoginResponse>
 ```
 
-After initial processing has been completed by the [SessionKit](/docs/sessionkit/session-kit-factory), the `login` method of the given `UserInterface` is called. The [SessionKit](/docs/sessionkit/session-kit-factory) will pass in an instance of a [LoginContext](/docs/sessionkit/login-context) to the `UserInterface` to provide information about the request and how to interact with the user. This information will include which [WalletPlugin](/docs/sessionkit/wallet-plugin) instances are available and any metadata values the application developer has defined.
+After initial processing has been completed by the [SessionKit](/docs/sessionkit/session-kit-factory), the `login` method of the given `UserInterface` is called. The [SessionKit](/docs/sessionkit/session-kit-factory) will pass in an instance of a [LoginContext](/docs/sessionkit/login-context) to the `UserInterface` to provide information about the request and how to interact with the user. This information will include which [WalletPlugin](/docs/sessionkit/plugin-wallet) instances are available and any metadata values the application developer has defined.
 
-This data will be used in order to facilitate a number of scenarios based on the various capabilities of the [WalletPlugin](/docs/sessionkit/wallet-plugin) instances in use:
+This data will be used in order to facilitate a number of scenarios based on the various capabilities of the [WalletPlugin](/docs/sessionkit/plugin-wallet) instances in use:
 
-1. Prompt the user to select a [WalletPlugin](/docs/sessionkit/wallet-plugin), if multiple are provided and it was not defined during the [Login](/docs/sessionkit/login) call.
-2. Prompt the user to select a blockchain, if multiple are provided and the selected [WalletPlugin](/docs/sessionkit/wallet-plugin) has [requiresChainSelect](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresChainSelect) set to `true`. If the [WalletPlugin](/docs/sessionkit/wallet-plugin) also has an array of `supportedChains` defined, the list of available chains must be filtered down to match this list.
-3. Prompt the user to enter an account name manually, if the selected [WalletPlugin](/docs/sessionkit/wallet-plugin) has [requiresPermissionEntry](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresPermissionEntry) set to `true`.
-4. Prompt the user to select a permission associated to a [PublicKey](#), if the selected [WalletPlugin](/docs/sessionkit/wallet-plugin) has [requiresPermissionSelect](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresPermissionSelect) set to `true`.
+1. Prompt the user to select a [WalletPlugin](/docs/sessionkit/plugin-wallet), if multiple are provided and it was not defined during the [Login](/docs/sessionkit/login) call.
+2. Prompt the user to select a blockchain, if multiple are provided and the selected [WalletPlugin](/docs/sessionkit/plugin-wallet) has [requiresChainSelect](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresChainSelect) set to `true`. If the [WalletPlugin](/docs/sessionkit/plugin-wallet) also has an array of `supportedChains` defined, the list of available chains must be filtered down to match this list.
+3. Prompt the user to enter an account name manually, if the selected [WalletPlugin](/docs/sessionkit/plugin-wallet) has [requiresPermissionEntry](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresPermissionEntry) set to `true`.
+4. Prompt the user to select a permission associated to a [PublicKey](#), if the selected [WalletPlugin](/docs/sessionkit/plugin-wallet) has [requiresPermissionSelect](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresPermissionSelect) set to `true`.
 
 The [SessionKit](/docs/sessionkit/session-kit-factory) will await a response from the `UserInterface` conforming to the [UserInterfaceLoginResponse](#) pattern or until an `Error` is thrown.
 
@@ -131,7 +131,7 @@ The [SessionKit](/docs/sessionkit/session-kit-factory) will await a response fro
 onLoginComplete: () => Promise<void>
 ```
 
-After the [WalletPlugin](/docs/sessionkit/wallet-plugin) successfully completes its login operations, the [SessionKit](/docs/sessionkit/session-kit-factory) will issue the `onLoginComplete` call against the `UserInterface`, which gives it the opportunity to reset itself and perform any clean-up required.
+After the [WalletPlugin](/docs/sessionkit/plugin-wallet) successfully completes its login operations, the [SessionKit](/docs/sessionkit/session-kit-factory) will issue the `onLoginComplete` call against the `UserInterface`, which gives it the opportunity to reset itself and perform any clean-up required.
 
 #### Transact
 
@@ -153,7 +153,7 @@ Immediately upon the developer's call to [Transact](/docs/sessionkit/transact) a
 onSign: () => Promise<void>
 ```
 
-After any included [TransactPlugin](/docs/sessionkit/transact-plugin) instances have had their opportunity to process their [beforeSign](#) hooks, the `onSign` call is made to the user interface to indicate that the transaction is about to be signed by the [WalletPlugin](/docs/sessionkit/wallet-plugin).
+After any included [TransactPlugin](/docs/sessionkit/plugin-transact) instances have had their opportunity to process their [beforeSign](#) hooks, the `onSign` call is made to the user interface to indicate that the transaction is about to be signed by the [WalletPlugin](/docs/sessionkit/plugin-wallet).
 
 ##### onSignComplete
 
@@ -161,7 +161,7 @@ After any included [TransactPlugin](/docs/sessionkit/transact-plugin) instances 
 onSignComplete: () => Promise<void>
 ```
 
-Following a successful call to the [WalletPlugin](/docs/sessionkit/wallet-plugin) to sign the transaction and all [TransactPlugin](/docs/sessionkit/transact-plugin) instances have executed their [afterSign](#) hooks, the `onSignComplete` call is made to indicate a signature has been retrieved.
+Following a successful call to the [WalletPlugin](/docs/sessionkit/plugin-wallet) to sign the transaction and all [TransactPlugin](/docs/sessionkit/plugin-transact) instances have executed their [afterSign](#) hooks, the `onSignComplete` call is made to indicate a signature has been retrieved.
 
 ##### onBroadcast
 
@@ -179,7 +179,7 @@ Note that if the `broadcast: false` flag is set, this event will not be called.
 onBroadcastComplete: () => Promise<void>
 ```
 
-Following a successful call to broadcast the transaction and execution of the [TransactPlugin](/docs/sessionkit/transact-plugin) instances [afterBroadcast](#) hooks, the `onBroadcastComplete` call is made to indicate that the transaction has been successfully broadcast to the designated blockchain.
+Following a successful call to broadcast the transaction and execution of the [TransactPlugin](/docs/sessionkit/plugin-transact) instances [afterBroadcast](#) hooks, the `onBroadcastComplete` call is made to indicate that the transaction has been successfully broadcast to the designated blockchain.
 
 Note that if the `broadcast: false` flag is set, this event will not be called.
 
@@ -197,9 +197,9 @@ Outside of the event-driven life cycle methods above, one of the most important 
 
 Examples of instances where `prompt` may be called are:
 
-- A [WalletPlugin](/docs/sessionkit/wallet-plugin) during the [Login](/docs/sessionkit/login) and [Transact](/docs/sessionkit/transact) calls
-- A [LoginPlugin](/docs/sessionkit/login-plugin) during the [Login](/docs/sessionkit/login) call
-- A [TransactPlugin](/docs/sessionkit/transact-plugin) during the [Transact](/docs/sessionkit/transact) call
+- A [WalletPlugin](/docs/sessionkit/plugin-wallet) during the [Login](/docs/sessionkit/login) and [Transact](/docs/sessionkit/transact) calls
+- A [LoginPlugin](/docs/sessionkit/plugin-login) during the [Login](/docs/sessionkit/login) call
+- A [TransactPlugin](/docs/sessionkit/plugin-transact) during the [Transact](/docs/sessionkit/transact) call
 
 Each [plugin](#) that makes the call needs to provide arguments that match the `PromptArgs` interface and await a response, which will come in the form of a [CancelablePromise](#). This special type of promise allows the prompt to either be accepted, rejected, or canceled.
 
@@ -297,7 +297,7 @@ getTranslate: (namespace?: string) => UserInterfaceTranslateFunction
 
 This method defines how Wharf or [Plugins](#) should retrieve an instance of the `UserInterfaceTranslateFunction` of a given namespace. [Plugins](#) specifically will make use of this call to access and provide translations for their content within a given user interface.
 
-By default the [AbstractUserInterface](/docs/sessionkit/user-interface) class will [define this method](https://github.com/wharfkit/session/blob/20d64d6410effda124265cd94fabf0da8a08e0c8/src/ui.ts#L118-L120) for use in plugins.
+By default the [AbstractUserInterface](/docs/sessionkit/plugin-user-interface) class will [define this method](https://github.com/wharfkit/session/blob/20d64d6410effda124265cd94fabf0da8a08e0c8/src/ui.ts#L118-L120) for use in plugins.
 
 #### addTranslations
 

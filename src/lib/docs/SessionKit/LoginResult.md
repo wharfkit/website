@@ -24,11 +24,11 @@ interface LoginResult {
 
 ### context
 
-The [LoginContext](/docs/sessionkit/login-context) instance that was used by both the [SessionKit](/docs/sessionkit/session-kit-factory) and [LoginPlugins](/docs/sessionkit/login-plugin) during the [Login](/docs/sessionkit/login) process.
+The [LoginContext](/docs/sessionkit/login-context) instance that was used by both the [SessionKit](/docs/sessionkit/session-kit-factory) and [LoginPlugins](/docs/sessionkit/plugin-login) during the [Login](/docs/sessionkit/login) process.
 
 ### response
 
-The response data from the [WalletPlugin](/docs/sessionkit/wallet-plugin) used during the [Login](/docs/sessionkit/login) process.
+The response data from the [WalletPlugin](/docs/sessionkit/plugin-wallet) used during the [Login](/docs/sessionkit/login) process.
 
 ### session
 

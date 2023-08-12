@@ -171,7 +171,7 @@ register(context) {
 
 The transaction lifecycle currently has 3 points which hooks can be established.
 
-- `beforeSign`: Occurs before the transaction is signed by the [WalletPlugin](/docs/sessionkit/wallet-plugin).
+- `beforeSign`: Occurs before the transaction is signed by the [WalletPlugin](/docs/sessionkit/plugin-wallet).
 - `afterSign`: Occurs after the transaction is signed and before it is broadcast to the network.
 - `afterBroadcast`: Occurs after the transaction is broadcast.
 

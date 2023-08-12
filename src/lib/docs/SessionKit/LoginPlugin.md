@@ -126,7 +126,7 @@ register(context) {
 
 The login lifecycle currently has 3 points which hooks can be established.
 
-- `beforeLogin`: Occurs before the login request is processed by the [WalletPlugin](/docs/sessionkit/wallet-plugin).
+- `beforeLogin`: Occurs before the login request is processed by the [WalletPlugin](/docs/sessionkit/plugin-wallet).
 - `afterLogin`: Occurs after the login request is completed.
 
 These types are provided by the exported `LoginHookTypes` enumeration. Each hook type is either a mutable hook or an immutable hook, based on where in the lifecycle the hook is executed.

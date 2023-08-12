@@ -29,7 +29,7 @@ The `LoginContext` will provide information it knows about from the `SessionKit`
 - An array of [ChainDefinition](/docs/utilities/common-library#chaindefinition) objects as defined in the [SessionKit](/docs/sessionkit/session-kit-factory) configuration.
 - A [PermissionLevel](#) if the [SessionKit](/docs/sessionkit/session-kit-factory)'s `login` call was made for a specific account.
 - A list of predetermined [uiRequirements](#) indicating what type of prompting needs to be done.
-- An array of [WalletPlugin](/docs/sessionkit/wallet-plugin) objects based on the [SessionKit](/docs/sessionkit/session-kit-factory) configuration to indicate which wallets can be used.
+- An array of [WalletPlugin](/docs/sessionkit/plugin-wallet) objects based on the [SessionKit](/docs/sessionkit/session-kit-factory) configuration to indicate which wallets can be used.
 
 During this call, the `UserInterface` itself needs to use this information and return three pieces of information:
 
@@ -41,6 +41,6 @@ The end user themselves can be prompted for this information through custom UI e
 
 Once this information is returned to the [SessionKit](/docs/sessionkit/session-kit-factory), the following will take place:
 
-- Any registered [LoginPlugin](/docs/sessionkit/login-plugin) with `beforeLogin` hooks will be executed.
-- The selected [WalletPlugin](/docs/sessionkit/wallet-plugin) will take over to perform the login operation.
-- Any registered [LoginPlugin](/docs/sessionkit/login-plugin) with `afterLogin` hooks will be executed.
+- Any registered [LoginPlugin](/docs/sessionkit/plugin-login) with `beforeLogin` hooks will be executed.
+- The selected [WalletPlugin](/docs/sessionkit/plugin-wallet) will take over to perform the login operation.
+- Any registered [LoginPlugin](/docs/sessionkit/plugin-login) with `afterLogin` hooks will be executed.

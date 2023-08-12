@@ -21,6 +21,6 @@ Why
 
 - [LoginContext](/docs/sessionkit/login-context)
 - [TransactContext](/docs/sessionkit/transact-context)
-- [LoginPlugin](/docs/sessionkit/login-plugin)
-- [TransactPlugin](/docs/sessionkit/transact-plugin)
-- [WalletPlugin](/docs/sessionkit/wallet-plugin)
+- [LoginPlugin](/docs/sessionkit/plugin-login)
+- [TransactPlugin](/docs/sessionkit/plugin-transact)
+- [WalletPlugin](/docs/sessionkit/plugin-wallet)

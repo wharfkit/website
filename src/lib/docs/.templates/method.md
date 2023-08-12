@@ -19,12 +19,12 @@ const sessionKit = new SessionKit(args, options)
 const result = await sessionKit.login()
 ```
 
-While awaiting the result of this call, the [UserInterface](/docs/sessionkit/user-interface) defined in the [SessionKit](/docs/sessionkit/session-kit-factory) will present any required choices to the end user that allows them to select a [WalletPlugin](/docs/sessionkit/wallet-plugin), a [ChainDefinition](/docs/utilities/common-library#chaindefinition), and a [PermissionLevel](#). The choices made by the end user will be used to create and configure a new [Session](/docs/sessionkit/session) instance.
+While awaiting the result of this call, the [UserInterface](/docs/sessionkit/plugin-user-interface) defined in the [SessionKit](/docs/sessionkit/session-kit-factory) will present any required choices to the end user that allows them to select a [WalletPlugin](/docs/sessionkit/plugin-wallet), a [ChainDefinition](/docs/utilities/common-library#chaindefinition), and a [PermissionLevel](#). The choices made by the end user will be used to create and configure a new [Session](/docs/sessionkit/session) instance.
 
 Upon completion the `login` method will return a [LoginResult](/docs/sessionkit/login-result) that contains:
 
 - The `session` that is now available for use to perform transactions.
-- The `response` from the [WalletPlugin](/docs/sessionkit/wallet-plugin) that was used, indicating which blockchain and permission was returned.
+- The `response` from the [WalletPlugin](/docs/sessionkit/plugin-wallet) that was used, indicating which blockchain and permission was returned.
 - The `context` object (a [LoginContext](/docs/sessionkit/login-context)) that was used during the login process.
 
 The [Session](/docs/sessionkit/session) instance that was returned in the result will automatically be persisted in the application through use of the [SessionStorage](/docs/sessionkit/session-storage) adapter and in the future can be retrieved with the [Restore](/docs/sessionkit/restore) method.
@@ -38,7 +38,7 @@ Commonly used parameters that can be passed this way include:
 - `chain`: The blockchain ID to login against, preventing any user chain selection.
 - `chains`: An array blockchain IDs to allow logging in against, overriding the defaults from the [SessionKit](/docs/sessionkit/session-kit-factory)
 - `permissionLevel`: A specific [PermissionLevel](#) to login with, preventing any user account selection.
-- `walletPlugin`: A specific [WalletPlugin](/docs/sessionkit/wallet-plugin) to authenticate with, preventing any user wallet selection.
+- `walletPlugin`: A specific [WalletPlugin](/docs/sessionkit/plugin-wallet) to authenticate with, preventing any user wallet selection.
 
 A complete list of all parameters can be found in the [LoginOptions](https://wharfkit.github.io/session/interfaces/LoginOptions.html) documentation.
 
