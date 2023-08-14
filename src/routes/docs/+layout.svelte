@@ -82,7 +82,13 @@
 
   @media (min-width: 768px) {
     main {
-      grid-template-columns: 16rem minmax(0, 1fr);
+      grid-template-columns: 16rem minmax(0, 1fr) 0px;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+    main {
+      transition: grid-template-columns 300ms;
     }
   }
 
