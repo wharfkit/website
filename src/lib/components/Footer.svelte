@@ -1,7 +1,6 @@
 <script lang="ts">
   // import data from "$lib/footerData"
   // import { capitalize } from "$lib/utils/general"
-  import ThemeToggle from "./ThemeToggle.svelte"
   import { Logo } from "./Header"
 </script>
 
@@ -25,10 +24,6 @@
           </ul>
         </li>
       {/each}
-      <li class="box">
-        <h3>Theme</h3>
-        <ThemeToggle />
-      </li>
     </menu> -->
     <div class="bottom">
       <a href="/">
@@ -38,9 +33,6 @@
         Wharf is an open source project sponsored by the
         <a href="https://antelope.io/">Antelope Coalition</a>
       </p>
-      <div class="">
-        <ThemeToggle />
-      </div>
     </div>
   </nav>
 </footer>
