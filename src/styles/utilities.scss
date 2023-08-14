@@ -57,4 +57,10 @@
   .justify-center {
     justify-content: center;
   }
+
+  .mobile-only {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
 }

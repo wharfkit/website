@@ -3,6 +3,7 @@
   import MenuToggle from "./MenuToggle.svelte"
   import { page } from "$app/stores"
   import MegaMenuItem from "./MegaMenuItem.svelte"
+  import ThemeToggle from "../ThemeToggle.svelte"
 
   let innerWidth: number
   let menuWrapper: HTMLDetailsElement
@@ -49,59 +50,74 @@
       </a>
     </div>
 
-    <details class="menu" open={!isMobile} bind:this={menuWrapper} on:toggle={toggleMenu}>
-      <MenuToggle {isMenuOpen} />
-      <menu bind:this={menu}>
-        <li>
-          <details class="kits-menu" bind:this={kitsMenu}>
-            <summary>
-              <span class="nav-item"
-                >Kits
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6" /></svg>
-              </span>
-            </summary>
-            <ul>
-              <MegaMenuItem {section} title="Kits Overview" href="/kits" onClick={closeNav} />
-              <MegaMenuItem {section} title="Session Kit" href="/kits/session" onClick={closeNav} />
-              <MegaMenuItem
-                {section}
-                title="Contract Kit"
-                href="/kits/contract"
-                onClick={closeNav} />
-              <MegaMenuItem {section} title="Account Kit" href="/kits/account" onClick={closeNav} />
-            </ul>
-          </details>
-        </li>
+    <div class="right small">
+      <div class="mobile-only">
+        <ThemeToggle />
+      </div>
 
-        <li class:active={new RegExp("/docs").test(section)}>
-          <a href="/docs" on:click={closeNav}><span class="nav-item">Documentation</span></a>
-        </li>
-        <li class:active={new RegExp("/guides").test(section)}>
-          <a href="/guides" on:click={closeNav}><span class="nav-item">Guides</span></a>
-        </li>
-        <li class:active={new RegExp("/blog").test(section)}>
-          <a href="/blog" on:click={closeNav}><span class="nav-item">Blog</span></a>
-        </li>
-        <li class:active={new RegExp("/brand").test(section)}>
-          <a href="/brand" on:click={closeNav}><span class="nav-item">Brand</span></a>
-        </li>
-        <li class:active={new RegExp("/about").test(section)}>
-          <a href="/about" on:click={closeNav}><span class="nav-item">About</span></a>
-        </li>
-      </menu>
-    </details>
+      <details class="menu" open={!isMobile} bind:this={menuWrapper} on:toggle={toggleMenu}>
+        <MenuToggle {isMenuOpen} />
+        <menu bind:this={menu}>
+          <li>
+            <details class="kits-menu" bind:this={kitsMenu}>
+              <summary>
+                <span class="nav-item"
+                  >Kits
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6" /></svg>
+                </span>
+              </summary>
+              <ul>
+                <MegaMenuItem {section} title="Kits Overview" href="/kits" onClick={closeNav} />
+                <MegaMenuItem
+                  {section}
+                  title="Session Kit"
+                  href="/kits/session"
+                  onClick={closeNav} />
+                <MegaMenuItem
+                  {section}
+                  title="Contract Kit"
+                  href="/kits/contract"
+                  onClick={closeNav} />
+                <MegaMenuItem
+                  {section}
+                  title="Account Kit"
+                  href="/kits/account"
+                  onClick={closeNav} />
+              </ul>
+            </details>
+          </li>
 
-    <div class="right">
+          <li class:active={new RegExp("/docs").test(section)}>
+            <a href="/docs" on:click={closeNav}><span class="nav-item">Documentation</span></a>
+          </li>
+          <li class:active={new RegExp("/guides").test(section)}>
+            <a href="/guides" on:click={closeNav}><span class="nav-item">Guides</span></a>
+          </li>
+          <li class:active={new RegExp("/blog").test(section)}>
+            <a href="/blog" on:click={closeNav}><span class="nav-item">Blog</span></a>
+          </li>
+          <li class:active={new RegExp("/brand").test(section)}>
+            <a href="/brand" on:click={closeNav}><span class="nav-item">Brand</span></a>
+          </li>
+          <li class:active={new RegExp("/about").test(section)}>
+            <a href="/about" on:click={closeNav}><span class="nav-item">About</span></a>
+          </li>
+        </menu>
+      </details>
+    </div>
+
+    <div class="right large">
+      <ThemeToggle />
       <a class="button" href="https://github.com/wharfkit">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +188,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: var(--space-s);
+    /* gap: var(--space-xs); */
   }
 
   nav menu {
@@ -349,8 +365,16 @@
       color: var(--header-background, var(--swell-mist));
     }
 
-    .right {
+    .right.large {
       display: none;
+    }
+
+    .right.small {
+      /* gap: var(--space-2xs); */
+    }
+
+    .right.small .mobile-only {
+      display: flex;
     }
   }
 </style>
