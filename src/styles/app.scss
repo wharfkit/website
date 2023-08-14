@@ -164,7 +164,8 @@ hr {
   // gap: var(--space-m);
   gap: var(--space-s);
   list-style: none;
-  padding: var(--space-m);
+  padding-inline: var(--space-m);
+  padding-block: var(--space-s);
   color: var(--theme-text-heading);
 }
 

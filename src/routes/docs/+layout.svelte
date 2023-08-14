@@ -68,7 +68,7 @@
   main {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-m);
   }
 
   nav {
@@ -81,8 +81,9 @@
     display: none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     main {
+      gap: var(--space-l-xl);
       grid-template-columns: 16rem minmax(0, 1fr) 0px;
     }
   }
