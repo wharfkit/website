@@ -214,7 +214,6 @@
     font-family: var(--ff-heading);
     color: var(--header-text-color, var(--theme-header-text));
     min-width: fit-content;
-    transition: all 200ms;
   }
 
   menu li a {
@@ -302,6 +301,12 @@
 
   .right .button span {
     display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) and (max-width: 1000px) {
+    menu li {
+      transition: 200ms;
+    }
   }
 
   @media (min-width: 900px) {

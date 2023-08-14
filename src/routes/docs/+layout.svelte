@@ -87,7 +87,7 @@
     }
   }
 
-  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) and (max-width: 1250px) {
     main {
       transition: grid-template-columns 300ms;
     }
