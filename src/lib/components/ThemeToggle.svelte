@@ -89,8 +89,8 @@
     background: linear-gradient(
       to bottom,
       var(--header-background) 0%,
-      transparent 30%,
-      transparent 70%,
+      var(--header-background-transparent) 30%,
+      var(--header-background-transparent) 70%,
       var(--header-background) 100%
     );
   }

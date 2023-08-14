@@ -130,6 +130,7 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           class="lucide lucide-github"
+          aria-label="Github Icon"
           ><path
             d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path
             d="M9 18c-4.51 2-5-2-7-2" /></svg>
@@ -174,7 +175,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    gap: var(--space-l);
+    gap: var(--space-m);
     border-radius: var(--_nav-radius);
     position: relative;
   }
@@ -184,18 +185,21 @@
     display: inline-flex;
   }
 
+  .left a {
+    width: 146px;
+  }
+
   .right {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /* gap: var(--space-xs); */
   }
 
   nav menu {
     display: flex;
     justify-content: center;
     justify-content: space-between;
-    gap: var(--space-2xs);
+    /* gap: var(--space-2xs); */
     list-style: none;
     padding-inline: 0;
     height: 100%;
@@ -205,11 +209,12 @@
     display: flex;
     align-items: center;
     font-weight: 600;
-    font-size: var(--fs-0);
+    font-size: var(--fs--1);
     /* padding-inline: var(--space-xs); */
     font-family: var(--ff-heading);
     color: var(--header-text-color, var(--theme-header-text));
     min-width: fit-content;
+    transition: all 200ms;
   }
 
   menu li a {
@@ -226,7 +231,7 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--space-3xs);
-    padding-inline: var(--space-xs);
+    padding-inline: var(--space-2xs);
     padding-block: var(--space-2xs);
   }
 
@@ -286,15 +291,39 @@
     gap: var(--space-s);
   }
 
-  a.button {
-    padding-inline-start: 2.75rem;
-    padding-inline-end: 3rem;
+  .right .button {
+    padding-inline-start: var(--space-s);
+    padding-inline-end: var(--space-xs);
     margin-inline: var(--space-2xs);
     margin-block: var(--space-2xs);
     font-family: var(--ff-body);
     font-size: var(--fs-0);
   }
 
+  .right .button span {
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    menu li {
+      font-size: var(--fs-0);
+    }
+
+    menu li span {
+      padding-inline: var(--space-xs);
+    }
+
+    .right .button {
+      padding-inline-start: var(--space-l);
+      padding-inline-end: var(--space-l);
+    }
+
+    .right .button span {
+      display: block;
+    }
+  }
+
+  /* Mobile nav */
   @media (max-width: 768px) {
     nav {
       --header-height: fit-content;
@@ -330,6 +359,7 @@
       border-radius: var(--border-radius, var(--space-2xs));
       border-radius: 16px;
       position: relative;
+      font-size: var(--fs-0);
     }
 
     details,
@@ -367,10 +397,6 @@
 
     .right.large {
       display: none;
-    }
-
-    .right.small {
-      /* gap: var(--space-2xs); */
     }
 
     .right.small .mobile-only {
