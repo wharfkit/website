@@ -20,8 +20,10 @@
     }
     /* prettier-ignore */
     body[data-theme="light"] {
-      --footer-background: var(--swell-mist);
+      /* --footer-background: var(--swell-mist); */
       --footer-background: white;
+      --header-background: #ffffff;
+      --header-background-transparent: #ffffff00;
       --page-background: linear-gradient(
         180deg,
         #7be7ce 0rem,
@@ -33,10 +35,11 @@
 
     /* prettier-ignore */
     body[data-theme="dark"] {
-      --footer-background: #151720;
+      /* --footer-background: #151720; */
       --footer-background: var(--color-primary-999);
-      --header-background: #262936;
-      --header-background: var(--wharf-blue);
+      /* --header-background: #262936; */
+      --header-background: var(--wharf-blue); /* #494E62 */
+      --header-background-transparent: #494E6200;
       --page-background: 
         linear-gradient(180deg, 
           hsl(228deg 15% 34%) 0rem,
