@@ -51,7 +51,8 @@
     /* prettier-ignore */
     body[data-theme="dark"] {
       --footer-background: hsl(228, 21%, 10%);
-      --header-background: var(--wharf-blue);
+      --header-background: var(--wharf-blue); /* #494E62 */
+      --header-background-transparent: #494E6200;
       background:       linear-gradient(180deg, 
        transparent 10rem,
       hsl(229deg 17% 18%) 60rem
@@ -102,9 +103,9 @@
       <div class="box stack">
         <h2>What is Wharf?</h2>
         <p>
-          Wharf is a free, open-source framework of intuitive developer tools for building
-          web-based apps on Antelope blockchains. Its three modular kits (Session, Account, and
-          Contract) can be used separately or combined to create any number of web3 applications.
+          Wharf is a free, open-source framework of intuitive developer tools for building web-based
+          apps on Antelope blockchains. Its three modular kits (Session, Account, and Contract) can
+          be used separately or combined to create any number of web3 applications.
         </p>
       </div>
       <div class="logo | box place-center">

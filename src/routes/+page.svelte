@@ -29,7 +29,8 @@
     /* prettier-ignore */
     body[data-theme="dark"] {
       --footer-background: hsl(228, 21%, 10%);
-      --header-background: var(--wharf-blue);
+      --header-background: var(--wharf-blue); /* #494E62 */
+      --header-background-transparent: #494E6200;
       --page-background: 
       linear-gradient(180deg, 
       hsl(166deg 69% 69%) 0%,
