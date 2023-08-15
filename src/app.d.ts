@@ -37,6 +37,7 @@ interface DocumentationArticle {
   hidden?: boolean
   order?: number
   toc?: boolean
+  category?: string
 }
 
 interface DocumentationSection {
