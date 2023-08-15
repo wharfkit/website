@@ -38,4 +38,8 @@
     cursor: pointer;
     background-color: var(--theme-surface2);
   }
+
+  button:active svg {
+    scale: 0.95;
+  }
 </style>
