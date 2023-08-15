@@ -3,6 +3,7 @@
   import Sidebar from "$lib/components/Sidebar.svelte"
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
   import TOC from "$lib/components/TOC.svelte"
+  import ScrollToTop from "$lib/components/ScrollToTop.svelte"
   import { page } from "$app/stores"
   export let data: LayoutData
   const { docs } = data
@@ -60,6 +61,7 @@
   {#if tocVisible && headings && headings.length > 0}
     <aside>
       <TOC {headings} {title} {section} />
+      <ScrollToTop />
     </aside>
   {/if}
 </main>
@@ -68,7 +70,7 @@
   main {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-m);
   }
 
   nav {
@@ -81,9 +83,16 @@
     display: none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     main {
-      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: var(--space-l-xl);
+      grid-template-columns: 16rem minmax(0, 1fr) 0px;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) and (max-width: 1250px) {
+    main {
+      transition: grid-template-columns 300ms;
     }
   }
 
