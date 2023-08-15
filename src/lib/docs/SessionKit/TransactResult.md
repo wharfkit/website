@@ -1,9 +1,10 @@
 ---
 title: TransactResult
-description: description
+description: The data returned from a call to the transact method on a Session
 category: SessionKit
 published: true
 hidden: true
+requiresReview: true
 ---
 
 # TransactResult

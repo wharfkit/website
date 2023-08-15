@@ -1,6 +1,6 @@
 ---
 title: CancelablePromises
-description: change_me
+description: An adaptation of the cancelable promise pattern allowing promises to either be resolved, rejected, or canceled.
 category: SessionKit
 published: false
 hidden: true

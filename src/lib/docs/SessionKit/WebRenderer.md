@@ -1,8 +1,9 @@
 ---
 title: WebRenderer
-description: change_me
+description: An out of the box interface for use with the Session Kit to facilitate interactions with users of an application
 category: SessionKit
 published: true
+requiresReview: true
 ---
 
 # WebRenderer

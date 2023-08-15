@@ -1,10 +1,11 @@
 ---
 title: Session Kit Overview
-description: The Session Kit is a software development kit focused on managing Antelope-based user sessions in web applications.
+description: The Session Kit is a software development kit focused on managing Antelope-based user sessions in web applications. It facilitates the signing of transactions, allowing users to "sign in" to web applications, and provides integration with external wallets.
 category: SessionKit
 order: 1
 published: true
 slug: index
+requiresReview: true
 ---
 
 # Session Kit Overview

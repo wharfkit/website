@@ -1,9 +1,10 @@
 ---
 title: BrowserLocalStorage
-description: change_me
+description: The default SessionStorage adapter used by the Session Kit to persist data within applications.
 category: SessionKit
 published: true
 hidden: true
+requiresReview: true
 ---
 
 # BrowserLocalStorage

@@ -1,9 +1,10 @@
 ---
 title: "Plugin: UserInterface"
-description: change_me
+description: "The Session Kit when used in a web application utilizes a UserInterface plugin to provide user interactivity."
 category: SessionKit
 published: true
 order: 999
+requiresReview: true
 ---
 
 # UserInterface

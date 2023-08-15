@@ -1,9 +1,10 @@
 ---
 title: Session
-description: change_me
+description: A Session represents the connection between an applications code and a Antelope blockchain account. It can be used to allow users to perform smart contract actions using a wallet of their choice, or directly perform actions given a private key.
 category: SessionKit
 order: 1
 published: true
+requiresReview: true
 ---
 
 # Session

@@ -4,6 +4,7 @@ description: The SessionKit is responsible for creating and managing end user Se
 category: SessionKit
 order: 2
 published: true
+requiresReview: true
 ---
 
 # SessionKit (Factory)

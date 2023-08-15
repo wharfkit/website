@@ -1,8 +1,9 @@
 ---
 title: Common Library
-description: change_me
+description: A library of common tools, types, and data made available throughout the entire Wharf SDK product suite
 category: Utilities
 published: true
+requiresReview: true
 ---
 
 # Common

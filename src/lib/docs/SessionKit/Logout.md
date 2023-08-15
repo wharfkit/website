@@ -1,8 +1,9 @@
 ---
 title: Logout
-description: change_me
+description: The logout method of the Session Kit will log out a specific session and remove any persistent data
 category: SessionKit
 published: true
+requiresReview: true
 ---
 
 # Logout

@@ -1,9 +1,10 @@
 ---
 title: LoginResult
-description: change_me
+description: The data returned from a call to the login method from the Session Kit
 category: SessionKit
 published: true
 hidden: true
+requiresReview: true
 ---
 
 # LoginResult

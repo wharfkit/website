@@ -1,13 +1,14 @@
 ---
 title: Login
-description: change_me
+description: The login method allows users to log in to web applications using the Session Kit with an Antelope blockchain based account.
 category: SessionKit
 published: true
+requiresReview: true
 ---
 
 # Login
 
-The `login` method is made available on a [SessionKit](/docs/sessionkit/session-kit-factory) instance. It is used to present the authentication process to the end user of the application. Upon completion this process it returns a [LoginResult](/docs/sessionkit/login-result) to the application which contains a usable instance of the resulting [Session](/docs/sessionkit/session).
+The `login` method is made available on the [SessionKit](/docs/sessionkit/session-kit-factory) instance. It is used to present the authentication process to the end user of the application. Upon completion this process it returns a [LoginResult](/docs/sessionkit/login-result) to the application which contains a usable instance of the resulting [Session](/docs/sessionkit/session).
 
 ## Usage
 

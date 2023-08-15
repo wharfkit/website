@@ -1,9 +1,10 @@
 ---
 title: "Plugin: Login"
-description: change_me
+description: "Extend the functionality of the Session Kit's transaction processing by creating and/or including plugins your application."
 category: SessionKit
 published: true
 order: 999
+requiresReview: true
 ---
 
 # LoginPlugin

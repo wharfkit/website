@@ -1,9 +1,10 @@
 ---
 title: "Plugin: Wallet"
-description: change_me
+description: "Integrate external wallet software with the Session Kit to allow users to both log in and sign transactions."
 category: SessionKit
 published: true
 order: 999
+requiresReview: true
 ---
 
 # WalletPlugin

@@ -4,6 +4,7 @@ description: A storage adapter interface to persist Sessions within the SessionK
 category: SessionKit
 published: true
 hidden: true
+requiresReview: true
 ---
 
 # SessionStorage
