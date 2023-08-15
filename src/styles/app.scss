@@ -252,7 +252,8 @@ thead {
 td,
 th {
   padding-block: var(--space-xs);
-  padding-inline-start: var(--space-s);
+  padding-inline: var(--space-s);
+  vertical-align: top;
 }
 
 .overflow-hidden {
