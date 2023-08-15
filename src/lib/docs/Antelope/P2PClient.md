@@ -7,7 +7,7 @@ published: true
 
 # P2PClient
 
-The `P2PClient` provided by the [Antelope](#) library is a client capable of sending and receiving messages on a native Antelope peer-to-peer network.
+The `P2PClient` provided by the [Antelope](/docs/antelope) library is a client capable of sending and receiving messages on a native Antelope peer-to-peer network.
 
 A functional example of the code from this guide can be found here:
 
@@ -32,10 +32,13 @@ socket.connect(9876, "jungle4.greymass.com")
 
 This will create a listener and connect it to the desired endpoint.
 
-The next step is setting up the `P2PClient` instance and giving it an instance of a [P2PProvider](https://wharfkit.github.io/antelope/interfaces/P2PProvider.html). A default provider is exported from the [Antelope](#) library and is named [SimpleEnvelopeP2PProvider](https://wharfkit.github.io/antelope/classes/SimpleEnvelopeP2PProvider.html). This provider accepts the `socket` created in the first step and instructs the client to listen to the events it emits.
+The next step is setting up the `P2PClient` instance and giving it an instance of a [P2PProvider](https://wharfkit.github.io/antelope/interfaces/P2PProvider.html). A default provider is exported from the [Antelope](/docs/antelope) library and is named [SimpleEnvelopeP2PProvider](https://wharfkit.github.io/antelope/classes/SimpleEnvelopeP2PProvider.html). This provider accepts the `socket` created in the first step and instructs the client to listen to the events it emits.
 
 ```ts
-import { P2PClient, SimpleEnvelopeP2PProvider } from "@wharfkit/antelope"
+import {
+  P2PClient,
+  SimpleEnvelopeP2PProvider,
+} from "@wharfkit/antelope"
 
 const client = new P2PClient({
   provider: new SimpleEnvelopeP2PProvider(socket),
@@ -56,11 +59,20 @@ More advanced implementations can be implemented to alter the point in time it s
 **Note**: The `fetch` instance can be omitted if using Node.js v18 or later.
 
 ```ts
-import { APIClient, Checksum256, FetchProvider, P2P, PrivateKey } from "@wharfkit/antelope"
+import {
+  APIClient,
+  Checksum256,
+  FetchProvider,
+  P2P,
+  PrivateKey,
+} from "@wharfkit/antelope"
 import fetch from "node-fetch"
 
 // Establish API Client and embedding fetch for nodejs below v18
-const fetchProvider = new FetchProvider("https://jungle4.greymass.com", { fetch })
+const fetchProvider = new FetchProvider(
+  "https://jungle4.greymass.com",
+  { fetch }
+)
 const apiClient = new APIClient({ provider: fetchProvider })
 
 // Request current chain state via get_info call to sync from this point forward
@@ -128,4 +140,4 @@ client.on("message", (msg) => {
 })
 ```
 
-From here on out, the script will remain connected to the peer and continuously receive new messages for as long as it's running. Each message received will be encoded as one of the [NetMessage](https://github.com/wharfkit/antelope/blob/64fe9cb/src/p2p/types.ts) variants, of which all of the data will be natively typed with the [Antelope](#) library. Additional logic can be established to receive blocks, transactions, and the other message types.
+From here on out, the script will remain connected to the peer and continuously receive new messages for as long as it's running. Each message received will be encoded as one of the [NetMessage](https://github.com/wharfkit/antelope/blob/64fe9cb/src/p2p/types.ts) variants, of which all of the data will be natively typed with the [Antelope](/docs/antelope) library. Additional logic can be established to receive blocks, transactions, and the other message types.

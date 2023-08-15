@@ -7,7 +7,7 @@ published: true
 
 # APIClient
 
-The `APIClient` provided by the [Antelope](#) library is an abstraction built using [Fetch](#) that gives developers and their applications easy access to the native API calls.
+The `APIClient` provided by the [Antelope](/docs/antelope) library is an abstraction built using [Fetch](#) that gives developers and their applications easy access to the native API calls.
 
 ## Usage
 
@@ -33,7 +33,9 @@ This example uses the [node-fetch](https://www.npmjs.com/package/node-fetch) pac
 import { APIClient } from "@wharfkit/antelope"
 import fetch from "node-fetch"
 
-const provider = new FetchProvider("https://jungle4.greymass.com", { fetch })
+const provider = new FetchProvider("https://jungle4.greymass.com", {
+  fetch,
+})
 const client = new APIClient({ provider })
 ```
 
@@ -155,7 +157,7 @@ The resulting response will then use native JavaScript types, as illustrated bel
 
 ### Unsupported API Calls
 
-If an API call isn't implemented yet within the `APIClient`, we'd encourage you to contribute to the [Antelope](#) codebase and open a pull request.
+If an API call isn't implemented yet within the `APIClient`, we'd encourage you to contribute to the [Antelope](/docs/antelope) codebase and open a pull request.
 
 #### Contributing New API Calls
 
@@ -195,7 +197,9 @@ export class AccountsByAuthorizers extends Struct {
 With this code implemented, an `APIClient` instance is able to call:
 
 ```ts
-const response = await client.v1.chain.get_accounts_by_authorizers(keys)
+const response = await client.v1.chain.get_accounts_by_authorizers(
+  keys
+)
 ```
 
 The `response` will be fully typed and ready to use in a developer's application.
