@@ -2,7 +2,8 @@
 title: Plugins
 description: change_me
 category: SessionKit
-order: 1
+published: false
+hidden: true
 ---
 
 # Plugins
@@ -29,7 +30,7 @@ Based on the type of development being done, the following subsections may be mo
 
 ### Plugin Development
 
-A developer who is creating a [LoginPlugin](#), [TransactPlugin](#), or [WalletPlugin](#) will want to familiarize themselves with:
+A developer who is creating a [LoginPlugin](/docs/sessionkit/plugin-login), [TransactPlugin](/docs/sessionkit/plugin-transact), or [WalletPlugin](/docs/sessionkit/plugin-wallet) will want to familiarize themselves with:
 
 - The [prompt](#) method to interact with the user.
 - The [status](#) method to provide logging and status updates.
@@ -45,15 +46,15 @@ A developer who is creating a custom `UserInterface` instance will need to imple
 - The [Translation](#) interface to allow localization of the UI.
 - The logging and error handling events.
 
-An example of how a `UserInterface` can be implemented can be found in the [WebRenderer](#) package.
+An example of how a `UserInterface` can be implemented can be found in the [WebRenderer](/docs/sessionkit/web-renderer) package.
 
 ### Prompt
 
 Outside of the event-driven life cycle methods above, one of the most important abilities a `UserInterface` provides is for [Plugins](#) to interact with users. This is done using the `prompt` call made available through the [context](#) given to every [plugin](#) to either display information or await some form of user interaction. Examples of instances where `prompt` may be called are:
 
-- A [WalletPlugin](#) during the [login](#) and [transact](#) calls.
-- A [LoginPlugin](#) during the [login](#) call.
-- A [TransactPlugin](#) during the [transact](#) call.
+- A [WalletPlugin](/docs/sessionkit/plugin-wallet) during the [Login](/docs/sessionkit/login) and [Transact](/docs/sessionkit/transact) calls.
+- A [LoginPlugin](/docs/sessionkit/plugin-login) during the [Login](/docs/sessionkit/login) call.
+- A [TransactPlugin](/docs/sessionkit/plugin-transact) during the [Transact](/docs/sessionkit/transact) call.
 
 Each [plugin](#) that makes the call needs to provide arguments that match the `PromptArgs` interface and await a response, which will come in the form of a [CancelablePromise](#). This special type of promise allows the prompt to either be accepted, rejected, or canceled from within the plugin itself.
 
@@ -75,7 +76,15 @@ The `PromptElement` array is populated by one or more objects that make up the d
 
 ```ts
 interface PromptElement {
-  type: "accept" | "asset" | "button" | "close" | "countdown" | "link" | "qr" | "textarea"
+  type:
+    | "accept"
+    | "asset"
+    | "button"
+    | "close"
+    | "countdown"
+    | "link"
+    | "qr"
+    | "textarea"
   label?: string
   data?: unknown
 }

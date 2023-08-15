@@ -10,3 +10,6 @@ notes.md
 yarn-error.log
 
 /static/fonts/*/static
+
+# Jetbrains project files
+/.idea

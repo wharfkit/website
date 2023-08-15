@@ -164,7 +164,8 @@ hr {
   // gap: var(--space-m);
   gap: var(--space-s);
   list-style: none;
-  padding: var(--space-m);
+  padding-inline: var(--space-m);
+  padding-block: var(--space-s);
   color: var(--theme-text-heading);
 }
 
@@ -232,13 +233,12 @@ pre:hover > .copy-button:hover {
 }
 
 blockquote {
-  background-color: var(--color-secondary-50);
-  background-color: var(--theme-surface1);
-
+  background-color: var(--theme-surface9);
   padding-block: var(--space-m);
   padding-inline: var(--space-m);
   font-size: var(--fs-0);
   border-radius: var(--border-radius);
+  border: 1px solid var(--theme-border1);
 }
 
 table {
@@ -252,7 +252,8 @@ thead {
 td,
 th {
   padding-block: var(--space-xs);
-  padding-inline-start: var(--space-s);
+  padding-inline: var(--space-s);
+  vertical-align: top;
 }
 
 .overflow-hidden {

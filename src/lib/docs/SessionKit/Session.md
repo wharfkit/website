@@ -1,66 +1,97 @@
 ---
 title: Session
-description: change_me
+description: A Session represents the connection between an applications code and a Antelope blockchain account. It can be used to allow users to perform smart contract actions using a wallet of their choice, or directly perform actions given a private key.
 category: SessionKit
 order: 1
+published: true
+requiresReview: true
 ---
 
 # Session
 
-A `Session` instance represents a specific blockchain account and an associated [WalletPlugin](#) it can use to perform transactions using the [Transact](#) method.
+Each `Session` class instance represents a specific [blockchain account](https://docs.eosnetwork.com/docs/latest/core-concepts/accounts) with an associated [WalletPlugin](/docs/sessionkit/plugin-wallet) that can be used to perform transactions using the [Transact](/docs/sessionkit/transact) method. It can also be used to access information about the account related to the session and to help automatically template API calls.
 
-## Usage
+## Creation
 
-### Generating a Session
+Sessions can be created manually for use in applications so long as all the relevant data is provided. Once created a `Session` will offer multiple read-only properties and a handful of methods.
 
-For web applications using the [SessionKit](#), the [login](#) method will generate and return an already configured `Session` instance based on the decisions a user makes in the [UserInterface](#).
-
-### Creating a Session
-
-Sessions can also manually be created for use in scripted environments.
+The minimum required information to create a `Session` instance is as follows.
 
 ```ts
 import { Session } from "@wharfkit/session"
 
-const session = new Session({
+const args = {
   chain: {
     id: "73e4385a2708e6d7048834fbc1079f2fabb17b3c125b146af438971e90716c4d",
     url: "https://jungle4.greymass.com",
   },
   actor: "wharfkit1111",
   permission: "active",
-  walletPlugin: new WalletPluginPrivateKey("5Jtoxgny5tT7NiNFp1MLogviuPJ9NniWjnU4wKzaX4t7pL4kJ8s"),
-})
+  walletPlugin: new WalletPluginPrivateKey(
+    "5Jtoxgny5tT7NiNFp1MLogviuPJ9NniWjnU4wKzaX4t7pL4kJ8s"
+  ),
+}
+
+const options = {
+  // Additional options
+}
+
+const session = new Session(args, options)
 ```
 
-Once you have a session a number of utility methods are available:
+### [Arguments](https://wharfkit.github.io/session/interfaces/SessionArgs.html)
 
-## Anatomy
+The first parameter passed to the `Session` is an object containing all the required configuration data.
 
-```ts
-// APIClient configured for this account/chain
-const client = session.client
+- `chain`: The [ChainDefinition](/docs/utilities/common-library#chaindefinition) that defines which blockchain this session is for
+- `actor`: The name of the account on the defined blockchain the session will utilize.
+- `permission`: The name of the [Permission](#) associated to the account the session will use.
+- `walletPlugin`: An instance of a [WalletPlugin](/docs/sessionkit/plugin-wallet) that allows signing transactions for this session.
 
-// The account name
-const actor = session.actor
+### [Options](https://wharfkit.github.io/session/interfaces/SessionOptions.html)
 
-// The account permission
-const permission = session.permission
+The second parameter is an optional object, with every individual property of the object also being optional. This parameter allows passing additional data to further customize the `Session`.
 
-// Sign and broadcast transaction using WalletPlugin
-session.transact(transaction)
+- `abis`: An array of [ABI](#) definitions to preload for this session to optimize [Transact](/docs/sessionkit/transact) calls.
+- `abiCache`: An instance of an [ABICache](#) that overrides the default one utilized by the session.
+- `allowModify`: A boolean value indicating whether any [TransactPlugin](/docs/sessionkit/plugin-transact) and [WalletPlugin](/docs/sessionkit/plugin-wallet) can modify transactions being processed.
+- `appName`: A string to identify the app the session is used in.
+- `broadcast`: A boolean value indicating whether the `transact` call should broadcast transactions by default.
+- `expireSeconds`: An integer indicating the default number of seconds to specify for the expiration value during the [Transact](/docs/sessionkit/transact) call.
+- `fetch`: An instance of fetch, if required in a server side application based on the Node.js version.
+- `storage`: An instance of [SessionStorage](/docs/sessionkit/session-storage) if the application needs to override the default storage mechanisms.
+- `transactPlugins`: An array of [TransactPlugin](/docs/sessionkit/plugin-transact) instances this session should use.
+- `transactPluginsOptions`: An object containing key/value pairs of any options required by the [TransactPlugin](/docs/sessionkit/plugin-transact) instances provided.
+- `ui`: An instance of a [UserInterface](/docs/sessionkit/plugin-user-interface) if this Session is being used in a environment where required.
 
-// Create signature for a given transaction (no broadcast or plugins)
-session.signTransaction(transaction)
-```
+## Usage
 
-## Purpose
+Once a `Session` instance is created, methods can be called to perform specific operations and read-only properties are available.
 
-Why
+### Methods
 
-## Reference
+- `transact`: The [Transact](/docs/sessionkit/transact) method is the most commonly used method on a `Session` instance and is used to sign and broadcast a transaction.
+- `serialize`: A method which converts the `Session` into a plain JSON object for storage purposes.
 
-- [APIClient](#)
-- [Name](#)
-- [PermissionLevel](#)
-- [Transact](#)
+A complete list of all methods found on can be found in the [class definition](https://wharfkit.github.io/session/classes/Session.html#abiCache).
+
+### Properties
+
+On any established instance of a `Session`, the following are common properties made available for the application to read:
+
+- `chain`: The [ChainDefinition](/docs/utilities/common-library#chaindefinition) of which blockchain this session is for.
+- `actor`: The name of the account for this session.
+- `permission`: The [Permission](#) name associated to the account being used.
+- `permissionLevel`: The [PermissionLevel](#) that contains the account and permission for the session.
+- `client`: An instance of an [APIClient](/docs/antelope/api-client) that can be used to access information from the blockchain related to this session.
+
+## Related Materials
+
+### Guides
+
+- [Getting started: Web Apps](/guides/sessionkit/getting-started-web-app)
+- [Getting started: Node.js](/guides/sessionkit/getting-started-node-js)
+
+### TypeDocs
+
+- [Session Documentation](https://wharfkit.github.io/session/classes/Session.html)

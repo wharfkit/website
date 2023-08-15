@@ -33,6 +33,7 @@
     body[data-theme="dark"] {
       --footer-background: linear-gradient(180deg, hsl(229deg 21% 10% / 0.3), #262936 5rem), #262936;
       --header-background: #262936;
+      --header-background-transparent: #26293600;
       --page-background: 
         linear-gradient(180deg, 
           hsl(228deg 15% 34%) 0rem,
