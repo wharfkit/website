@@ -36,6 +36,6 @@
   button:hover {
     opacity: 1;
     cursor: pointer;
-    background-color: var(--theme-surface1);
+    background-color: var(--theme-surface2);
   }
 </style>

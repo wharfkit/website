@@ -8,8 +8,6 @@
     currentArticles?.findIndex((article) => article.title === currentDoc.title) ?? -1
   $: previousDoc = currentArticles?.[currentIndex - 1]
   $: nextDoc = currentArticles?.[currentIndex + 1]
-
-  // $: console.log({ currentDoc, allSections, currentSection, currentArticles, currentIndex })
 </script>
 
 <div class="buttons">
@@ -32,7 +30,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: var(--space-l);
+    margin-top: var(--space-xl);
   }
 
   a {
@@ -59,7 +57,7 @@
     text-decoration: none;
   }
 
-  a:hover .title {
-    text-decoration: underline;
+  a:hover {
+    background-color: var(--theme-surface2);
   }
 </style>
