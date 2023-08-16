@@ -77,7 +77,7 @@
                 </span>
               </summary>
               <ul>
-                <MegaMenuItem {section} title="Kits Overview" href="/kits" onClick={closeNav} />
+                <MegaMenuItem {section} title="Overview" href="/kits" onClick={closeNav} />
                 <MegaMenuItem
                   {section}
                   title="Session Kit"
@@ -199,7 +199,7 @@
     display: flex;
     justify-content: center;
     justify-content: space-between;
-    /* gap: var(--space-2xs); */
+    gap: var(--space-3xs);
     list-style: none;
     padding-inline: 0;
     height: 100%;
@@ -309,7 +309,11 @@
     }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 950px) {
+    nav menu {
+      gap: var(--space-2xs);
+    }
+
     menu li {
       font-size: var(--fs-0);
     }
@@ -356,7 +360,7 @@
       z-index: 999;
       display: none;
       flex-direction: column;
-      gap: var(--space-s);
+      gap: var(--space-xs);
     }
 
     menu li {
@@ -365,6 +369,11 @@
       border-radius: 16px;
       position: relative;
       font-size: var(--fs-0);
+    }
+
+    menu li span {
+      padding-inline: var(--space-s);
+      /* padding-block: var(--space-xs); */
     }
 
     details,
