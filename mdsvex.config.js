@@ -1,9 +1,6 @@
 import { defineMDSveXConfig as defineConfig } from "mdsvex"
-// import codeScreenshot from "remark-code-screenshot"
-// import toc from "remark-toc"
-import rehypeToc from "rehype-toc"
 import rehypeSlug from "rehype-slug"
-// import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypeSectionize from "@hbsnow/rehype-sectionize"
 
 const config = defineConfig({
   extensions: [".svelte.md", ".md", ".svx"],
@@ -13,7 +10,7 @@ const config = defineConfig({
   },
 
   remarkPlugins: [],
-  rehypePlugins: [rehypeSlug],
+  rehypePlugins: [rehypeSlug, rehypeSectionize],
 })
 
 export default config
