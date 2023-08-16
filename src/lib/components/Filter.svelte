@@ -21,15 +21,28 @@
       input?.focus()
     }
 
-    if (event.key === "Escape") {
-      if (query) {
-        event.preventDefault()
-        handleClear()
+    if (input?.matches(":focus")) {
+      if (event.key === "Escape") {
+        if (query) {
+          event.preventDefault()
+          handleClear()
+          return
+        } else {
+          event.preventDefault()
+          input?.blur()
+          return
+        }
+      }
+
+      if (event.key === "ArrowDown") {
+        console.log("down")
         return
       }
 
-      event.preventDefault()
-      input?.blur()
+      if (event.key === "ArrowUp") {
+        console.log("up")
+        return
+      }
     }
   }
 </script>
