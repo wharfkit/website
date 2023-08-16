@@ -16,8 +16,7 @@
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    class="lucide lucide-arrow-up-to-line"
-    ><path d="M5 3h14" /><path d="m18 13-6-6-6 6" /><path d="M12 7v14" /></svg>
+    class="lucide lucide-arrow-up"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></svg>
 </button>
 
 <style>
@@ -26,9 +25,11 @@
     top: calc(100vh - 56px - var(--space-l));
     color: var(--theme-text-heading);
     align-self: flex-end;
-    border-radius: var(--border-radius);
-    padding-inline: var(--space-s);
-    padding-block: var(--space-s);
+    border-radius: 50%;
+    width: var(--space-2xl);
+    height: var(--space-2xl);
+    display: grid;
+    place-items: center;
     opacity: 0.3;
     transition: opacity 300ms;
   }
