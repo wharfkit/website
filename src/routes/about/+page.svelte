@@ -159,10 +159,9 @@
       <div class="card | box stack align-left">
         <h3>The Antelope Coalition</h3>
         <p>
-          The Coalition is run by the ENF, and coordinates the efforts of all Antelope-based chains
-          to manage shared resources, such as the Antelope protocol and community. Wharf was created
-          in response to a Request for Proposal from the Coalition that outlined the need for SDKs
-          for Antelope developers.
+          The Antelope Coalition coordinates the efforts of all Antelope-based chains and manages shared resources, 
+        such as the Antelope protocol and community. Wharf was created in response to a Request for Proposal 
+        from the Coalition that outlined the need for SDKs for Antelope developers.
         </p>
         <a href="https://eosnetwork.com/antelope/" class="button">Learn More</a>
       </div>
