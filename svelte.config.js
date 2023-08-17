@@ -20,6 +20,10 @@ const config = {
 
   kit: {
     adapter: adapter(),
+    prerender: {
+      // TODO: remove this once /docs/sessionkit/login-context
+      handleHttpError: "warn",
+    },
   },
 }
 
