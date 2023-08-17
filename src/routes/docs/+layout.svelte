@@ -5,6 +5,7 @@
   import TOC from "$lib/components/TOC.svelte"
   import ScrollToTop from "$lib/components/ScrollToTop.svelte"
   import { page } from "$app/stores"
+  import ObserveSections from "../../lib/components/ObserveSections.svelte"
   export let data: LayoutData
   const { docs } = data
 
@@ -55,7 +56,9 @@
         <Breadcrumbs {breadcrumbs} />
       </nav>
     {/if}
-    <slot />
+    <ObserveSections>
+      <slot />
+    </ObserveSections>
   </div>
 
   {#if tocVisible && headings && headings.length > 0}
