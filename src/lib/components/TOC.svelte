@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { intersectingSections } from "$lib/stores"
   export let section: string
   export let title: string
   export let headings: HeadingNode[]
+
+  $: console.log($intersectingSections)
 
   const GITHUB_EDIT_URL = `https://github.com/wharfkit/website/edit/master/src/lib/docs/${section}/${title}.md`
 </script>
@@ -17,6 +20,7 @@
       <li>
         <a
           href={`#${heading.id}`}
+          class:active={heading.id && $intersectingSections.includes(heading.id)}
           style={heading.elName === "H3" ? "padding-inline-start: var(--space-2xs);" : ""}>
           {heading.text}
         </a>
@@ -71,6 +75,11 @@
 
   a:hover {
     text-decoration: underline;
+  }
+
+  a.active {
+    color: var(--theme-text-heading);
+    font-weight: 600;
   }
 
   .edit.button {
