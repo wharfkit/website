@@ -4,8 +4,6 @@
   export let title: string
   export let headings: HeadingNode[]
 
-  $: console.log($activeTocSection)
-
   const GITHUB_EDIT_URL = `https://github.com/wharfkit/website/edit/master/src/lib/docs/${section}/${title}.md`
 </script>
 
