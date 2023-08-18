@@ -3,7 +3,6 @@
   import Sidebar from "$lib/components/Sidebar.svelte"
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
   import TOC from "$lib/components/TOC.svelte"
-  import ScrollToTop from "$lib/components/ScrollToTop.svelte"
   import { page } from "$app/stores"
   import ObserveSections from "../../lib/components/ObserveSections.svelte"
   export let data: LayoutData
@@ -64,7 +63,6 @@
   {#if tocVisible && headings && headings.length > 0}
     <aside>
       <TOC {headings} {title} {section} />
-      <ScrollToTop />
     </aside>
   {/if}
 </main>
