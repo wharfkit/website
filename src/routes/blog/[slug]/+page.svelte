@@ -99,4 +99,10 @@
     border-radius: var(--space-s);
     margin-block: var(--space-m);
   }
+
+  article :global(section) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+  }
 </style>
