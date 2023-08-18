@@ -32,9 +32,6 @@
     grid-column: 1 / 4;
     grid-row: 1;
     text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
     color: inherit;
   }
 
@@ -50,6 +47,7 @@
   }
 
   header h2 {
+    margin-top: var(--space-xs);
     font-size: var(--fs-5);
   }
 
