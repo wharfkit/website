@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { intersectingSections } from "$lib/stores"
+  import { activeTocSection } from "$lib/stores"
   export let section: string
   export let title: string
   export let headings: HeadingNode[]
 
-  $: console.log($intersectingSections)
+  $: console.log($activeTocSection)
 
   const GITHUB_EDIT_URL = `https://github.com/wharfkit/website/edit/master/src/lib/docs/${section}/${title}.md`
 </script>
@@ -12,7 +12,7 @@
 <nav aria-label="Table of Contents" class="toc">
   <header>
     <p>
-      <a href="#article">{title}</a>
+      <a href="#top">{title}</a>
     </p>
   </header>
   <menu>
@@ -20,7 +20,8 @@
       <li>
         <a
           href={`#${heading.id}`}
-          class:active={heading.id && $intersectingSections.includes(heading.id)}
+          class:active={$activeTocSection === heading.id}
+          on:click={() => ($activeTocSection = heading.id)}
           style={heading.elName === "H3" ? "padding-inline-start: var(--space-2xs);" : ""}>
           {heading.text}
         </a>
