@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { activeTocSection } from "$lib/stores"
   export let section: string
   export let title: string
   export let headings: HeadingNode[]
@@ -9,7 +10,7 @@
 <nav aria-label="Table of Contents" class="toc">
   <header>
     <p>
-      <a href="#article">{title}</a>
+      <a href="#top">{title}</a>
     </p>
   </header>
   <menu>
@@ -17,6 +18,8 @@
       <li>
         <a
           href={`#${heading.id}`}
+          class:active={$activeTocSection === heading.id}
+          on:click={() => ($activeTocSection = heading.id)}
           style={heading.elName === "H3" ? "padding-inline-start: var(--space-2xs);" : ""}>
           {heading.text}
         </a>
@@ -71,6 +74,11 @@
 
   a:hover {
     text-decoration: underline;
+  }
+
+  a.active {
+    color: var(--theme-text-heading);
+    font-weight: 600;
   }
 
   .edit.button {

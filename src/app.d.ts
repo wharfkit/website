@@ -58,7 +58,7 @@ interface DocumentationMetadata extends MarkdownMetadata {
 
 interface HeadingNode {
   text: string
-  id?: string
+  id: string
   elName: string
 }
 
