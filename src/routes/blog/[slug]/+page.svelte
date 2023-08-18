@@ -57,12 +57,10 @@
 
 <main>
   <article class="stack">
-    {#if image}
-      <img src={image} alt="blog post header" />
-    {/if}
-
     {#if videolink}
       <Video {videolink} {transcriptlink} />
+    {:else if image}
+      <img src={image} alt="blog post header" />
     {/if}
 
     <header>
