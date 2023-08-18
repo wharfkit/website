@@ -42,6 +42,12 @@
     transition: opacity 300ms;
   }
 
+  @media (max-width: 768px) {
+    button {
+      display: none;
+    }
+  }
+
   button::after {
     content: "";
     position: absolute;
