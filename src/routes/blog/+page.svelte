@@ -1,9 +1,12 @@
 <script lang="ts">
   import PostPreview from "$lib/components/PostPreview.svelte"
+  import FeaturedPost from "$lib/components/FeaturedPost.svelte"
   import type { PageData } from "./$types"
   import { page } from "$app/stores"
   import { goto } from "$app/navigation"
   import { postsPerPage } from "$lib/config"
+
+  export let data: PageData
 
   $: tag = $page.url.searchParams.get("tag")
 
@@ -14,15 +17,18 @@
     goto(url, { noScroll: true })
   }
 
-  export let data: PageData
+  $: [newestPost, ...posts] = data.posts
 </script>
 
 <main>
+  <h1 class="visually-hidden">Blog</h1>
+  <FeaturedPost post={newestPost} />
+
   <section>
     <aside>
       <nav>
         <div class="sidebar-header">
-          <h1 class="sidebar-title"><a href="/blog">Blog</a></h1>
+          <p class="sidebar-title"><a href="/blog">Blog</a></p>
         </div>
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
@@ -45,10 +51,10 @@
     </aside>
 
     <div class="list">
-      <ul class="posts | stack">
-        {#each data.posts as post}
+      <ul class="posts">
+        {#each posts as post}
           <li>
-            <PostPreview {...post} />
+            <PostPreview {post} />
           </li>
         {/each}
       </ul>
@@ -63,6 +69,11 @@
 </main>
 
 <style>
+  main {
+    display: grid;
+    gap: var(--space-4xl);
+  }
+
   section {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -79,8 +90,26 @@
     top: var(--space-xl);
   }
 
-  .sidebar-list {
+  .sidebar-list,
+  .sidebar-title {
     color: var(--theme-text-heading);
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+    align-items: center;
+    padding-top: var(--space-s);
+  }
+
+  .posts {
+    list-style: none;
+    padding-inline: unset;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    column-gap: var(--space-xl);
+    row-gap: var(--space-3xl);
   }
 
   @media screen and (min-width: 900px) {
@@ -92,19 +121,9 @@
       grid-template-columns: 16rem minmax(0, 1fr);
       justify-items: start;
     }
-  }
 
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4xl);
-    align-items: center;
-    max-inline-size: 80ch;
-  }
-
-  .posts {
-    list-style: none;
-    gap: var(--space-4xl);
-    padding-inline: unset;
+    .posts {
+      row-gap: var(--space-2xl);
+    }
   }
 </style>

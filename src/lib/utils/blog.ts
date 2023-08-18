@@ -11,8 +11,10 @@ export const getThumbnail = (url: string) => {
   return `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
 }
 
-export const getImage = (metadata: BlogPost) => {
-  if (metadata.image) {
+export const getImage = (metadata: { [key: string]: any; } | undefined) => {
+  if (!metadata) {
+    return defaultImage
+  } else if (metadata.image) {
     return metadata.image
   } else if (metadata.videolink) {
     return getThumbnail(metadata.videolink)
@@ -44,9 +46,11 @@ export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise
       const pathBase = '/blog/'
       const slug = slugify(metadata?.title)
       const path = pathBase + slug
+      const image = getImage(metadata)
 
       return {
         ...metadata,
+        image,
         content,
         sourcePath,
         path,
