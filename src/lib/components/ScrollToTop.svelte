@@ -1,7 +1,5 @@
 <script lang="ts">
-  export function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+  import { scrollToTop } from "$lib/utils"
 </script>
 
 <button on:click={scrollToTop}>
