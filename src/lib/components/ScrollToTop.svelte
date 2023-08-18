@@ -18,11 +18,21 @@
 </button>
 
 <style>
+  :global([data-theme="light"]) {
+    --_theme-stt-background: var(--seafoam-mint);
+    --_theme-stt-foreground: var(--wharf-blue);
+  }
+
+  :global([data-theme="dark"]) {
+    --_theme-stt-background: var(--footer-background);
+    --_theme-stt-foreground: white;
+  }
+
   button {
-    position: sticky;
-    top: calc(100vh - 56px - var(--space-l));
+    position: fixed;
+    bottom: var(--space-l);
+    right: var(--space-l);
     color: var(--theme-text-heading);
-    align-self: flex-end;
     border-radius: 50%;
     width: var(--space-2xl);
     height: var(--space-2xl);
@@ -32,13 +42,29 @@
     transition: opacity 300ms;
   }
 
+  button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--_theme-stt-background);
+    opacity: 0;
+    transition: opacity 300ms;
+    z-index: -1;
+  }
+
   button:hover {
     opacity: 1;
     cursor: pointer;
-    background-color: var(--theme-surface2);
+    color: var(--_theme-stt-foreground);
   }
 
-  button:active svg {
+  button:hover::after {
+    opacity: 1;
+  }
+
+  button:active {
     scale: 0.95;
+    transition: scale 200ms;
   }
 </style>
