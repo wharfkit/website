@@ -41,6 +41,11 @@
   }
 
   a:is(:hover, :focus) {
+    color: var(--color);
     text-decoration: underline;
+  }
+
+  a:visited {
+    color: var(--color);
   }
 </style>
