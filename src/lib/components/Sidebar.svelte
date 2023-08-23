@@ -36,6 +36,7 @@
 
 <nav class="sidebar" aria-label="Section List">
   <details open={!isMobile} bind:this={sideNav}>
+    <!-- svelte-ignore a11y-no-noninteractive-tabindex-->
     <summary class="sidebar-header" tabindex={!isMobile ? -1 : 0}>
       <h2 class="sidebar-title">
         <a href={rootPath}>{title}</a>
@@ -55,11 +56,11 @@
     <menu class="sidebar-list">
       {#each filteredSections as { title: section, articles }}
         <li class="section">
-          <h3 class="sidebar-subtitle sidebar-list-item">
-            <a href="{rootPath}/{section.toLowerCase()}">
+          <a class="sidebar-subtitle sidebar-list-item" href="{rootPath}/{section.toLowerCase()}">
+            <h3>
               {formatSectionTitle(section)}
-            </a>
-          </h3>
+            </h3>
+          </a>
 
           <menu class="articles">
             {#each articles as article}
@@ -118,7 +119,11 @@
     transform: rotate(-90deg);
   }
 
-  .sidebar-subtitle a,
+  .sidebar-subtitle > * {
+    font-size: var(--fs--1);
+  }
+
+  .sidebar-subtitle,
   .sidebar-title a {
     color: inherit;
     text-decoration: none;
@@ -142,12 +147,8 @@
     display: block;
   }
 
-  .sidebar-subtitle a {
-    flex: 1;
-  }
-
   .articles a:hover,
-  .sidebar-subtitle a:hover {
+  .sidebar-subtitle:hover {
     text-decoration: underline;
   }
 
