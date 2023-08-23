@@ -38,9 +38,9 @@ a:visited {
 }
 
 :is(button, a):focus-visible {
-  outline: 2px solid #f78d1e;
-  outline-offset: 2px;
-  border-radius: 12px;
+  outline: 2px solid var(--color-focus);
+  // outline-offset: 2px;
+  // border-radius: 12px;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
