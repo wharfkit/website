@@ -72,9 +72,9 @@
 <div class="page">
   <slot />
 </div>
+<ScrollToTop />
 <Footer />
 <ScrollListener />
-<ScrollToTop />
 
 <style>
   .page {
