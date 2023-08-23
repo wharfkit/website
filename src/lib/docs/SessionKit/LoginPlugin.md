@@ -1,23 +1,22 @@
 ---
 title: "Plugin: Login"
-description: "Extend the functionality of the Session Kit's transaction processing by creating and/or including plugins your application."
-category: SessionKit
+description: "Extend the functionality of the Session Kit's transaction processing by creating and/or including plugins in your application."
+category: Session Kit
 published: true
 order: 999
-requiresReview: true
 ---
 
 # LoginPlugin
 
-A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed as an end user is authenticating through the [Login](/docs/sessionkit/login) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
+A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed when an end user is authenticating through the [Login](/docs/sessionkit/login) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
 
 ## Usage
 
-For application developers that wish to use a `LoginPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/sessionkit/session-kit-factory) factory or included as part of a [Login](/docs/sessionkit/login) call.
+For application developers that wish to use a `LoginPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [Session Kit](/docs/sessionkit/session-kit-factory) factory or included as part of a [Login](/docs/sessionkit/login) call.
 
-### SessionKit
+### Session Kit
 
-Passing a `LoginPlugin` to the options parameter of the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation causes every call to the [Login](/docs/sessionkit/login) method to trigger its custom logic.
+Passing a `LoginPlugin` to the options parameter of the [Session Kit](/docs/sessionkit/session-kit-factory) during instantiation causes every call to the [Login](/docs/sessionkit/login) method to trigger its custom logic.
 
 ```ts
 const sessionKit = new SessionKit(
@@ -42,9 +41,9 @@ const result = await sessionKit.login({
 
 ## Development
 
-The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks which are performed at specific points during the [Login](/docs/sessionkit/login) call.
+The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools to help developers create plugins for the [Session Kit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks, which are performed at specific points during the [Login](/docs/sessionkit/login) call.
 
-The [login-plugin-template](https://github.com/wharfkit/login-plugin-template) is available as a template on Github to help developers get started.
+The [login-plugin-template](https://github.com/wharfkit/login-plugin-template) is available on Github to help developers get started.
 
 ### Structure
 
@@ -125,12 +124,12 @@ register(context) {
 
 ### Hooks
 
-The login lifecycle currently has 3 points which hooks can be established.
+The login lifecycle currently has 3 points at which hooks can be established.
 
 - `beforeLogin`: Occurs before the login request is processed by the [WalletPlugin](/docs/sessionkit/plugin-wallet).
 - `afterLogin`: Occurs after the login request is completed.
 
-These types are provided by the exported `LoginHookTypes` enumeration. Each hook type is either a mutable hook or an immutable hook, based on where in the lifecycle the hook is executed.
+These types are provided by the exported `LoginHookTypes` enumeration. Each hook type is either a mutable hook or an immutable hook, based on when the hook is executed.
 
 #### Hook Functions
 
