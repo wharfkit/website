@@ -15,29 +15,104 @@
     dispatch("queryChange", query)
   }
 
+  function handleArrowUp() {
+    const activeElement = document.activeElement as HTMLAnchorElement
+
+    // check if active is in the sidebar
+    if (!activeElement?.closest(".sidebar")) {
+      return
+    }
+
+    let prev: HTMLAnchorElement | HTMLInputElement | null | undefined = undefined
+
+    // if the active element is an article
+    if (activeElement?.closest(".articles")) {
+      // select the previous article
+      prev = activeElement?.parentElement?.previousElementSibling?.querySelector("a")
+      // if no previous article, select the section title
+      if (!prev) {
+        prev = activeElement?.closest(".section")?.querySelector("a")
+      }
+      // if the active element is a section title
+    } else if (activeElement?.matches(".sidebar-subtitle")) {
+      // select the last article in the previous section
+      prev = activeElement?.parentElement?.previousElementSibling
+        ?.querySelector(".articles")
+        ?.lastElementChild?.querySelector("a")
+      // if no previous section, reselect the filter input
+      if (!prev) {
+        prev = document.querySelector("#filter") as HTMLInputElement
+      }
+    }
+
+    // check if prev is not the sidebar title
+    if (prev && !prev.matches(".sidebar-title a")) {
+      prev.focus()
+    }
+  }
+
+  function handleArrowDown() {
+    const active = document.activeElement as HTMLAnchorElement
+
+    // check if active is in the sidebar
+    if (!active?.closest(".sidebar")) {
+      return
+    }
+
+    const firstArticleOfSection = active?.nextElementSibling?.querySelector("a")
+    const nextArticle = active?.parentElement?.nextElementSibling?.querySelector("a")
+    const nextSection =
+      active?.parentElement?.parentElement?.parentElement?.nextElementSibling?.querySelector("a")
+
+    // focus next anchor element in the sidebar
+    const next = firstArticleOfSection ?? nextArticle ?? nextSection
+
+    if (next) {
+      next.focus()
+    }
+  }
+
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "/") {
       event.preventDefault()
       input?.focus()
     }
 
-    if (event.key === "Escape") {
-      if (query) {
+    if (input?.matches(":focus")) {
+      if (event.key === "Escape") {
+        if (query) {
+          event.preventDefault()
+          handleClear()
+          return
+        } else {
+          event.preventDefault()
+          input?.blur()
+          return
+        }
+      }
+    }
+
+    if (query) {
+      if (event.key === "ArrowDown") {
         event.preventDefault()
-        handleClear()
+        handleArrowDown()
         return
       }
 
-      event.preventDefault()
-      input?.blur()
+      if (event.key === "ArrowUp") {
+        event.preventDefault()
+        handleArrowUp()
+        return
+      }
     }
   }
 </script>
 
 <svelte:window on:keydown={handleKeyDown} />
 
-<div class="wrapper">
+<search>
   <input
+    id="filter"
     type="text"
     bind:this={input}
     bind:value={query}
@@ -62,10 +137,11 @@
       </svg>
     </button>
   {/if}
-</div>
+</search>
 
 <style>
-  .wrapper {
+  search {
+    display: block;
     position: relative;
     margin-block-start: var(--space-s);
   }
@@ -121,21 +197,18 @@
   button {
     position: absolute;
     padding: 0;
-    padding-inline: var(--space-m);
     right: 0;
+    right: var(--space-xs);
     top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
     border: none;
-    outline: none;
+    border-radius: 50%;
     cursor: pointer;
+    padding: 5px;
   }
 
   button svg {
     opacity: 0.5;
-  }
-
-  button:focus-visible svg {
-    box-shadow: 0 0 0 2px var(--theme-text3);
   }
 </style>
