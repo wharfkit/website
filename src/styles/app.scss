@@ -14,6 +14,7 @@ body {
   min-height: 100vh;
   gap: var(--body-gap, var(--space-xl-2xl));
   padding-block-start: var(--space-s);
+  -webkit-tap-highlight-color: transparent;
 }
 
 main {
@@ -23,14 +24,23 @@ main {
 }
 
 a {
-  color: var(--color-secondary-600);
-  color: var(--theme-text2);
+  color: var(--theme-text-link);
   font-weight: 600;
   text-decoration-thickness: 2px;
 }
 
+a:hover {
+  color: var(--theme-text-link-hover);
+}
+
+a:visited {
+  color: var(--theme-text-link-visited);
+}
+
 :is(button, a):focus-visible {
-  outline: 2px solid var(--color-primary-200);
+  outline: 2px solid var(--color-focus);
+  // outline-offset: 2px;
+  // border-radius: 12px;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -101,6 +111,10 @@ button {
   isolation: isolate;
 }
 
+.button:is(:visited, :hover) {
+  color: var(--button-text, var(--color-primary-900));
+}
+
 .button::after {
   content: "";
   inset: 0;
@@ -164,7 +178,8 @@ hr {
   // gap: var(--space-m);
   gap: var(--space-s);
   list-style: none;
-  padding: var(--space-m);
+  padding-inline: var(--space-m);
+  padding-block: var(--space-s);
   color: var(--theme-text-heading);
 }
 
@@ -232,13 +247,12 @@ pre:hover > .copy-button:hover {
 }
 
 blockquote {
-  background-color: var(--color-secondary-50);
-  background-color: var(--theme-surface1);
-
+  background-color: var(--theme-surface9);
   padding-block: var(--space-m);
   padding-inline: var(--space-m);
   font-size: var(--fs-0);
   border-radius: var(--border-radius);
+  border: 1px solid var(--theme-border1);
 }
 
 table {
@@ -252,7 +266,8 @@ thead {
 td,
 th {
   padding-block: var(--space-xs);
-  padding-inline-start: var(--space-s);
+  padding-inline: var(--space-s);
+  vertical-align: top;
 }
 
 .overflow-hidden {

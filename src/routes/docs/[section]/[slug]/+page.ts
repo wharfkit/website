@@ -6,9 +6,7 @@ import { createBreadcrumbs } from '$lib/utils/docs'
 export const load = (async ({ params, parent }) => {
     try {
         const { slug } = params
-
-        const { docs, rootPath, rootTitle } = await parent()
-
+        const { docs, rootPath, rootTitle, meta: parentMeta } = await parent()
         const section = docs.find((section) => section.title.toLowerCase() === params.section)
 
         if (!section) {
@@ -22,7 +20,8 @@ export const load = (async ({ params, parent }) => {
         }
 
         const meta = {
-            title: doc.title.concat(" - ", capitalize(doc.section)),
+            ...parentMeta,
+            title: doc.title.concat(" - ", parentMeta.title),
             description: doc.description,
         }
 

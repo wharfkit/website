@@ -1,15 +1,20 @@
 <script lang="ts">
-  import { filterDocumentationArticles, formatSectionTitle } from "$lib/utils/docs"
+  import {
+    filterDocumentationArticles,
+    formatSectionTitle,
+    removeHiddenArticles,
+    isSectionNotHidden,
+  } from "$lib/utils/docs"
   import Filter from "./Filter.svelte"
   import { page } from "$app/stores"
 
   export let docs: DocumentationSection[]
   export let rootPath: string
   export let title: string
-  let filteredSections = docs
+
+  let filteredSections = docs.map(removeHiddenArticles).filter(isSectionNotHidden)
   let innerWidth: number
   let sideNav: HTMLDetailsElement
-  let currentPath = $page.url.pathname
   let isQuerying = false
 
   $: isMobile = innerWidth <= 768
@@ -31,6 +36,7 @@
 
 <nav class="sidebar" aria-label="Section List">
   <details open={!isMobile} bind:this={sideNav}>
+    <!-- svelte-ignore a11y-no-noninteractive-tabindex-->
     <summary class="sidebar-header" tabindex={!isMobile ? -1 : 0}>
       <h2 class="sidebar-title">
         <a href={rootPath}>{title}</a>
@@ -50,38 +56,24 @@
     <menu class="sidebar-list">
       {#each filteredSections as { title: section, articles }}
         <li class="section">
-          <details open={!isMobile || isQuerying}>
-            <summary class="sidebar-list-item" tabindex={!isMobile ? -1 : 0}>
-              <h3 class="sidebar-subtitle">
-                <a href="{rootPath}/{section.toLowerCase()}">
-                  {formatSectionTitle(section)}
-                </a>
-              </h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
-            </summary>
+          <a class="sidebar-subtitle sidebar-list-item" href="{rootPath}/{section.toLowerCase()}">
+            <h3>
+              {formatSectionTitle(section)}
+            </h3>
+          </a>
 
-            <menu class="articles">
-              {#each articles as article}
-                <li>
-                  <a
-                    href={article.path}
-                    on:click={collapseNav}
-                    class:active={article.path === currentPath}>
-                    {article.title}
-                  </a>
-                </li>
-              {/each}
-            </menu>
-          </details>
+          <menu class="articles">
+            {#each articles as article}
+              <li>
+                <a
+                  href={article.path}
+                  on:click={collapseNav}
+                  class:active={article.path === $page.url.pathname}>
+                  {article.title}
+                </a>
+              </li>
+            {/each}
+          </menu>
         </li>
       {/each}
     </menu>
@@ -127,7 +119,11 @@
     transform: rotate(-90deg);
   }
 
-  .sidebar-subtitle a,
+  .sidebar-subtitle > * {
+    font-size: var(--fs--1);
+  }
+
+  .sidebar-subtitle,
   .sidebar-title a {
     color: inherit;
     text-decoration: none;
@@ -151,7 +147,8 @@
     display: block;
   }
 
-  .articles a:hover {
+  .articles a:hover,
+  .sidebar-subtitle:hover {
     text-decoration: underline;
   }
 
@@ -171,12 +168,10 @@
       pointer-events: none;
     }
 
-    .sidebar-subtitle a,
     .sidebar-title a {
       pointer-events: auto;
     }
 
-    .sidebar-subtitle a:hover,
     .sidebar-title a:hover {
       text-decoration: underline;
     }

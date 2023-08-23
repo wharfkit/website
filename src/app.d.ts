@@ -34,8 +34,10 @@ interface DocumentationArticle {
   description: string
   headings: HeadingNode[]
   published?: boolean
+  hidden?: boolean
   order?: number
   toc?: boolean
+  category?: string
 }
 
 interface DocumentationSection {
@@ -56,7 +58,7 @@ interface DocumentationMetadata extends MarkdownMetadata {
 
 interface HeadingNode {
   text: string
-  id?: string
+  id: string
   elName: string
 }
 
@@ -117,4 +119,5 @@ interface KitPage {
   features: KitFeature[]
   examples: KitFeature[]
   cta: KitFeature
+  screenshots: string[]
 }

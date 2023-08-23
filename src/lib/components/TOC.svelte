@@ -1,22 +1,26 @@
 <script lang="ts">
+  import { activeTocSection } from "$lib/stores"
+  import { scrollToTop } from "../utils"
   export let section: string
   export let title: string
   export let headings: HeadingNode[]
 
-  const GITHUB_EDIT_URL = `https://github.com/wharfkit/docs/edit/master/${section}/${title}.md`
+  const GITHUB_EDIT_URL = `https://github.com/wharfkit/website/edit/master/src/lib/docs/${section}/${title}.md`
 </script>
 
 <nav aria-label="Table of Contents" class="toc">
   <header>
-    <p>
-      <a href="#article">{title}</a>
-    </p>
+    <button on:click={scrollToTop}>
+      <span>{title}</span>
+    </button>
   </header>
   <menu>
     {#each headings as heading}
       <li>
         <a
           href={`#${heading.id}`}
+          class:active={$activeTocSection === heading.id}
+          on:click={() => ($activeTocSection = heading.id)}
           style={heading.elName === "H3" ? "padding-inline-start: var(--space-2xs);" : ""}>
           {heading.text}
         </a>
@@ -44,7 +48,14 @@
     border-radius: var(--border-radius) var(--border-radius) 0 0;
   }
 
-  nav header a {
+  header button {
+    padding: 0;
+    cursor: pointer;
+    flex: 1;
+    text-align: left;
+  }
+
+  header button span {
     font-size: var(--fs--1);
     font-weight: 600;
     color: var(--theme-text-heading);
@@ -69,8 +80,14 @@
     padding-block: var(--space-2xs);
   }
 
-  a:hover {
+  a:hover,
+  header button:hover span {
     text-decoration: underline;
+  }
+
+  a.active {
+    color: var(--theme-text-heading);
+    font-weight: 600;
   }
 
   .edit.button {

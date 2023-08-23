@@ -4,17 +4,28 @@
   import Header from "$lib/components/Header/Header.svelte"
   import Footer from "$lib/components/Footer.svelte"
   import Seo from "$lib/components/Seo.svelte"
+  import ScrollListener from "$lib/components/ScrollListener.svelte"
+  import ScrollToTop from "$lib/components/ScrollToTop.svelte"
+
+  const PROD = import.meta.env.PROD
+  const BASE_URL = import.meta.env.BASE_URL
 </script>
 
 <svelte:head>
+  {#if PROD && BASE_URL.includes("wharfkit.com")}
+    <script defer data-domain="wharfkit.com" src="https://stats.greymass.com/js/script.js"></script>
+  {/if}
+
   <style>
     body {
       background: var(--page-background);
     }
     /* prettier-ignore */
     body[data-theme="light"] {
-      --footer-background: var(--swell-mist);
+      /* --footer-background: var(--swell-mist); */
       --footer-background: white;
+      --header-background: #ffffff;
+      --header-background-transparent: #ffffff00;
       --page-background: linear-gradient(
         180deg,
         #7be7ce 0rem,
@@ -26,10 +37,11 @@
 
     /* prettier-ignore */
     body[data-theme="dark"] {
-      --footer-background: #151720;
+      /* --footer-background: #151720; */
       --footer-background: var(--color-primary-999);
-      --header-background: #262936;
-      --header-background: var(--wharf-blue);
+      /* --header-background: #262936; */
+      --header-background: var(--wharf-blue); /* #494E62 */
+      --header-background-transparent: #494E6200;
       --page-background: 
         linear-gradient(180deg, 
           hsl(228deg 15% 34%) 0rem,
@@ -60,7 +72,9 @@
 <div class="page">
   <slot />
 </div>
+<ScrollToTop />
 <Footer />
+<ScrollListener />
 
 <style>
   .page {

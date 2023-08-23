@@ -48,7 +48,8 @@
 
     body[data-theme="dark"] {
       --footer-background: hsl(228, 21%, 10%);
-      --header-background: var(--wharf-blue);
+      --header-background: var(--wharf-blue); /* #494E62 */
+      --header-background-transparent: #494e6200;
       --page-background: #262936;
       --radial-0: hsl(166, 60%, 50%) 0%;
       --radial-1: hsl(197, 20%, 40%) 20%;
@@ -113,9 +114,9 @@
     <div class="box stack">
       <h2>Try out the Session Kit.</h2>
       <p>
-        Learn how to define a Session and perform transactions with our Node.js Guide, or
-        discover how to connect wallets to a web application and prompt transactions with our Web
-        App Guide. And check back soon for more guides on the other kits!
+        Learn how to define a Session and perform transactions with our Node.js Guide, or discover
+        how to connect wallets to a web application and prompt transactions with our Web App Guide.
+        And check back soon for more guides on the other kits!
       </p>
       <div class="buttons | cluster">
         <a href="/guides/sessionkit/getting-started-node-js" class="button">Node.js Tutorial</a>
@@ -146,16 +147,22 @@
       <div class="card three">
         <h3>The Antelope SDK</h3>
         <p>
-          Every kit in Wharf is built using the Antelope SDK, the core library which provides Javascript native types, client interfaces, and other tools to make it easy to work with any Antelope-based blockchain.
+          Every kit in Wharf is built using the Antelope SDK, the core library which provides
+          Javascript native types, client interfaces, and other tools to make it easy to work with
+          any Antelope-based blockchain.
         </p>
         <div class="buttons | cluster">
-            <a href="/docs/antelope" class="button">Documentation</a>
-            <a href="https://github.com/wharfkit/antelope" class="button">Github</a>
+          <a href="/docs/antelope" class="button">Documentation</a>
+          <a href="https://github.com/wharfkit/antelope" class="button">Github</a>
         </div>
       </div>
       <div class="card three">
         <h3>Protocol Standards</h3>
-        <p>Transactions that pass through the Wharf kits are standardized and represented as <a href="https://github.com/greymass/eosio-signing-request/">Signing Requests</a>.</p>
+        <p>
+          Transactions that pass through the Wharf kits are standardized and represented as <a
+            href="https://github.com/greymass/eosio-signing-request/">Signing Requests</a
+          >.
+        </p>
       </div>
     </div>
   </div>

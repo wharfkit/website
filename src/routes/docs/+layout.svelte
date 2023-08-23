@@ -4,6 +4,7 @@
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
   import TOC from "$lib/components/TOC.svelte"
   import { page } from "$app/stores"
+  import ObserveSections from "../../lib/components/ObserveSections.svelte"
   export let data: LayoutData
   const { docs } = data
 
@@ -33,6 +34,7 @@
     body[data-theme="dark"] {
       --footer-background: linear-gradient(180deg, hsl(229deg 21% 10% / 0.3), #262936 5rem), #262936;
       --header-background: #262936;
+      --header-background-transparent: #26293600;
       --page-background: 
         linear-gradient(180deg, 
           hsl(228deg 15% 34%) 0rem,
@@ -47,27 +49,29 @@
 <main>
   <Sidebar {docs} title={data.rootTitle} rootPath={data.rootPath} />
 
+  {#if tocVisible && headings && headings.length > 0}
+    <aside>
+      <TOC {headings} {title} {section} />
+    </aside>
+  {/if}
+
   <div class="content">
     {#if breadcrumbs}
       <nav aria-label="Breadcrumbs">
         <Breadcrumbs {breadcrumbs} />
       </nav>
     {/if}
-    <slot />
+    <ObserveSections>
+      <slot />
+    </ObserveSections>
   </div>
-
-  {#if tocVisible && headings && headings.length > 0}
-    <aside>
-      <TOC {headings} {title} {section} />
-    </aside>
-  {/if}
 </main>
 
 <style>
   main {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-m);
   }
 
   nav {
@@ -80,9 +84,27 @@
     display: none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     main {
-      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: var(--space-l-xl);
+      grid-template-columns: 16rem minmax(0, 1fr) 0px;
+    }
+
+    aside {
+      display: none;
+      grid-column: 3 / 4;
+      grid-row: 1;
+    }
+
+    .content {
+      grid-column: 2 / 3;
+      grid-row: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) and (max-width: 1250px) {
+    main {
+      transition: grid-template-columns 300ms;
     }
   }
 

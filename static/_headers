@@ -1,0 +1,5 @@
+# Apply these headers to all pages
+/*
+  strict-transport-security: max-age=31536000; includeSubDomains;
+  X-Frame-Options: DENY
+  x-xss-protection: 1

@@ -1,4 +1,4 @@
-article > * {
+article section > * {
   margin-block-start: var(--space-m);
 }
 
@@ -22,7 +22,7 @@ article :is(h4, h5, h6) {
 
 /* Tighten headers directly following h1, h2 */
 
-article :is(h1, h2) + :is(h2, h3, h4, h5, h6) {
+article :is(h1, h2) + section > :is(h2, h3, h4, h5, h6) {
   margin-block-start: var(--space-m);
 }
 
@@ -56,13 +56,14 @@ article img {
 }
 
 article tbody tr:nth-child(odd) {
-  background-color: var(--color-secondary-50);
+  background-color: var(--theme-surface2);
   border-radius: var(--border-radius);
 }
 
-article table {
-  width: 100%;
-  table-layout: fixed;
+article td,
+article th {
+  min-width: min-content;
+  max-width: 60ch;
 }
 
 article ::target > h2 {
