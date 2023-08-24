@@ -5,7 +5,7 @@ published: true
 order: 11
 ---
 
-# Accesing data from an Antelope Smart Contract
+# Accessing data from an Antelope Smart Contract
 
 This guide will show how the `Table` class provided by the Contract Kit can be used to access table data from an existing smart contract in a web application.
 

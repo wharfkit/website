@@ -61,7 +61,7 @@ console.log(contract.actionNames)
 
 #### Manually specifying the authorization
 
-While not required, the `authoriztion` may be passed in the options as a 3rd parameter. By default the contract will create a placeholder authorization which the [Session](/docs/sessionkit/session) will automatically resolve to the current account and permission.
+While not required, the `authorization` may be passed in the options as a 3rd parameter. By default the contract will create a placeholder authorization which the [Session](/docs/sessionkit/session) will automatically resolve to the current account and permission.
 
 ```ts
 const action = contract.action(
@@ -115,7 +115,7 @@ Action {
 */
 ```
 
-We'd recommend getting familiar with these types and using them, you can find more information about them in the [Antelope documentation](/docs/antelope). If you do need to work with native Javsacript data types in your application, there are a number of methods to convert this data to standard types.
+We'd recommend getting familiar with these types and using them, you can find more information about them in the [Antelope documentation](/docs/antelope). If you do need to work with native Javascript data types in your application, there are a number of methods to convert this data to standard types.
 
 To convert the entire action back to a plain JSON representation of the entire action object, the `Serializer.objectify()` method can be used against the `Action` itself.
 
