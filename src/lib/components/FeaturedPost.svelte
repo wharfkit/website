@@ -2,7 +2,7 @@
   import { capitalize } from "$lib/utils"
 
   export let post: BlogPost
-  let { title, path, image, tags } = post
+  let { title, path, image, tags, description } = post
 </script>
 
 <article>
@@ -16,6 +16,7 @@
     <header>
       <p class="tag">Latest {capitalize(tags[0])}</p>
       <h2>{title}</h2>
+      <p class="description">{description}</p>
     </header>
   </a>
 </article>
@@ -47,12 +48,16 @@
   }
 
   header h2 {
-    margin-top: var(--space-xs);
+    margin-top: var(--space-2xs);
     font-size: var(--fs-5);
   }
 
+  .description {
+    margin-top: var(--space-xs);
+  }
+
   .image {
-    grid-column: 2 / 7;
+    grid-column: 3 / 7;
     grid-row: 1;
   }
 
