@@ -32,4 +32,4 @@ The response data from the [WalletPlugin](/docs/session-kit/plugin-wallet) used 
 
 ### session
 
-The [Session](/docs/sessionkit/session) created by the [SessionKit](/docs/sessionkit/session-kit-factory), based on the end user's choices during the [Login](/docs/sessionkit/login) process.
+The [Session](/docs/session-kit/session) created by the [SessionKit](/docs/session-kit/session-kit-factory), based on the end user's choices during the [Login](/docs/session-kit/login) process.

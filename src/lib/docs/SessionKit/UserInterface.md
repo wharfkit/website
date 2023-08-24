@@ -8,16 +8,16 @@ order: 999
 
 # UserInterface
 
-An instance of a `UserInterface` is required for the [SessionKit](/docs/sessionkit/session-kit-factory) and is responsible for rendering out information to the end user and facilitating interactions when required. The [SessionKit](/docs/sessionkit/session-kit-factory) does this by exporting an interface named `UserInterface`, which defines the patterns used for interactions during the [Login](/docs/sessionkit/login) and [Transact](/docs/sessionkit/transact) method calls.
+An instance of a `UserInterface` is required for the [SessionKit](/docs/session-kit/session-kit-factory) and is responsible for rendering out information to the end user and facilitating interactions when required. The [SessionKit](/docs/session-kit/session-kit-factory) does this by exporting an interface named `UserInterface`, which defines the patterns used for interactions during the [Login](/docs/session-kit/login) and [Transact](/docs/session-kit/transact) method calls.
 
 ## Usage
 
 A typical developer will never make calls directly against the `UserInterface`, with the exception of developers who:
 
-1. Create any type of [Plugin](#), such as a [LoginPlugin](/docs/sessionkit/plugin-login), [TransactPlugin](/docs/sessionkit/plugin-transact), or [WalletPlugin](/docs/sessionkit/plugin-wallet) package.
-2. Create a custom `UserInterface` instance for inclusion in the [SessionKit](/docs/sessionkit/session-kit-factory).
+1. Create any type of [Plugin](#), such as a [LoginPlugin](/docs/session-kit/plugin-login), [TransactPlugin](/docs/session-kit/plugin-transact), or [WalletPlugin](/docs/session-kit/plugin-wallet) package.
+2. Create a custom `UserInterface` instance for inclusion in the [SessionKit](/docs/session-kit/session-kit-factory).
 
-All developers who are building interactive applications, however, will be required to include an instance of a `UserInterface` to the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation, an example of which is below:
+All developers who are building interactive applications, however, will be required to include an instance of a `UserInterface` to the [SessionKit](/docs/session-kit/session-kit-factory) during instantiation, an example of which is below:
 
 ```ts
 import { SessionKit } from "@wharfkit/session"
@@ -37,11 +37,11 @@ const sessionKit = new SessionKit({
 })
 ```
 
-Wharf maintains and distributes a core package called the [WebRenderer](/docs/sessionkit/web-renderer) that acts as a default implementation of a `UserInterface`. More details about this implementation can be found in the [WebRenderer](/docs/sessionkit/web-renderer) documentation or on the [Github](https://github.com/wharfkit/web-renderer) repository.
+Wharf maintains and distributes a core package called the [WebRenderer](/docs/session-kit/web-renderer) that acts as a default implementation of a `UserInterface`. More details about this implementation can be found in the [WebRenderer](/docs/session-kit/web-renderer) documentation or on the [Github](https://github.com/wharfkit/web-renderer) repository.
 
 ## Purpose
 
-The `UserInterface` is primarily responsible for two major aspects of the [SessionKit](/docs/sessionkit/session-kit-factory): **communication** of information to the user, and **prompting** of user interactions. These responsibilities are carried out through various other components, including:
+The `UserInterface` is primarily responsible for two major aspects of the [SessionKit](/docs/session-kit/session-kit-factory): **communication** of information to the user, and **prompting** of user interactions. These responsibilities are carried out through various other components, including:
 
 - During calls to the [Login](/docs/session-kit/login) and [Transact](/docs/session-kit/transact) methods of the [SessionKit](/docs/session-kit/session-kit-factory)
 - During interactions with the active [WalletPlugin](/docs/session-kit/plugin-wallet)
@@ -73,7 +73,7 @@ A full example of how a `UserInterface` can be implemented can be found in the [
 
 ### Architecture
 
-The `UserInterface` components of the [SessionKit](/docs/sessionkit/session-kit-factory) are designed with inheritance in mind, to optionally allow developers to extend existing core code in order to more effectively build custom implementations. This inheritance structure can roughly be viewed as:
+The `UserInterface` components of the [SessionKit](/docs/session-kit/session-kit-factory) are designed with inheritance in mind, to optionally allow developers to extend existing core code in order to more effectively build custom implementations. This inheritance structure can roughly be viewed as:
 
 ```
 DefinedUserInterface (e.g. WebRenderer)
@@ -87,14 +87,14 @@ The `UserInterface` ([docs](https://wharfkit.github.io/session/interfaces/UserIn
 
 Through the Session Kit, Wharf currently has two major life cycle processes in which the `UserInterface` is utilized:
 
-1. The [Login](/docs/sessionkit/login) call on an instance of the [SessionKit](/docs/sessionkit/session-kit-factory).
-2. The [Transact](/docs/sessionkit/transact) call on an individual [Session](/docs/sessionkit/session).
+1. The [Login](/docs/session-kit/login) call on an instance of the [SessionKit](/docs/session-kit/session-kit-factory).
+2. The [Transact](/docs/session-kit/transact) call on an individual [Session](/docs/session-kit/session).
 
 When developers make calls to these methods in their applications, a life cycle event is started and a [context](#) object is spawned for its duration. This [context](#) contains an instance of the `UserInterface`, which the [SessionKit](/docs/session-kit/session-kit-factory) and various [Plugins](#) may call to interact with the user.
 
 #### Login
 
-When an application calls the [Login](/docs/sessionkit/login) method of the [SessionKit](/docs/sessionkit/session-kit-factory), a series of events is triggered against an implemented `UserInterface` and its methods.
+When an application calls the [Login](/docs/session-kit/login) method of the [SessionKit](/docs/session-kit/session-kit-factory), a series of events is triggered against an implemented `UserInterface` and its methods.
 
 Listed below are all of the methods this sequence will call, in chronological order:
 
@@ -123,7 +123,7 @@ This data will be used in order to facilitate a number of scenarios based on the
 3. Prompt the user to enter an account name manually, if the selected [WalletPlugin](/docs/session-kit/plugin-wallet) has [requiresPermissionEntry](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresPermissionEntry) set to `true`.
 4. Prompt the user to select a permission associated to a [PublicKey](#), if the selected [WalletPlugin](/docs/session-kit/plugin-wallet) has [requiresPermissionSelect](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresPermissionSelect) set to `true`.
 
-The [SessionKit](/docs/sessionkit/session-kit-factory) will await a response from the `UserInterface` conforming to the [UserInterfaceLoginResponse](#) pattern, or until an `Error` is thrown.
+The [SessionKit](/docs/session-kit/session-kit-factory) will await a response from the `UserInterface` conforming to the [UserInterfaceLoginResponse](#) pattern, or until an `Error` is thrown.
 
 ##### onLoginComplete
 
@@ -279,7 +279,7 @@ Part of the **Communication** responsibility of the `UserInterface` is also hand
 translate: UserInterfaceTranslateFunction
 ```
 
-This method must follow the [UserInterfaceTranslateFunction](#) interface and utilize whichever technologies are best suited to the task of facilitating content translation. The [WebRenderer](/docs/sessionkit/web-renderer) serves as [an example of how this can be done](https://github.com/wharfkit/web-renderer/blob/06cddd54ec78d8110747d4e5d67989a8cd1dce8f/src/index.ts#L244-L250), as it translates Wharf's expectation of a translation string into the i18n library it's using.
+This method must follow the [UserInterfaceTranslateFunction](#) interface and utilize whichever technologies are best suited to the task of facilitating content translation. The [WebRenderer](/docs/session-kit/web-renderer) serves as [an example of how this can be done](https://github.com/wharfkit/web-renderer/blob/06cddd54ec78d8110747d4e5d67989a8cd1dce8f/src/index.ts#L244-L250), as it translates Wharf's expectation of a translation string into the i18n library it's using.
 
 ```ts
 export type UserInterfaceTranslateFunction = (

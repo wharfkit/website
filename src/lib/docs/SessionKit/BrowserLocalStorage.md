@@ -12,7 +12,7 @@ The `BrowserLocalStorage` is the default [SessionStorage](/docs/session-kit/sess
 
 ## Usage
 
-By default no action is needed to use `BrowserLocalStorage`, as it is included as the default `storage` value on the [SessionKit](/docs/sessionkit/session-kit-factory).
+By default no action is needed to use `BrowserLocalStorage`, as it is included as the default `storage` value on the [SessionKit](/docs/session-kit/session-kit-factory).
 
 ## Anatomy
 

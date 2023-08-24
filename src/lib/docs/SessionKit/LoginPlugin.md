@@ -8,7 +8,7 @@ order: 999
 
 # LoginPlugin
 
-A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed when an end user is authenticating through the [Login](/docs/sessionkit/login) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
+A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed when an end user is authenticating through the [Login](/docs/session-kit/login) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
 
 ## Usage
 
@@ -41,7 +41,7 @@ const result = await sessionKit.login({
 
 ## Development
 
-The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools to help developers create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks, which are performed at specific points during the [Login](/docs/sessionkit/login) call.
+The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools to help developers create plugins for the [SessionKit](/docs/session-kit/session-kit-factory). These plugins register custom logic through the use of hooks, which are performed at specific points during the [Login](/docs/session-kit/login) call.
 
 The [login-plugin-template](https://github.com/wharfkit/login-plugin-template) is available on Github to help developers get started.
 
