@@ -21,7 +21,7 @@ const config = {
   kit: {
     adapter: adapter(),
     prerender: {
-      // TODO: remove this once /docs/sessionkit/login-context
+      // TODO: remove this once /docs/session-kit/login-context
       handleHttpError: "warn",
     },
   },

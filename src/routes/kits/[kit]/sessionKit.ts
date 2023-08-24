@@ -24,7 +24,7 @@ const kit: KitPage = {
         "Automatically persisting a session between log-ins and log-outs",
       ],
       link: {
-        href: "/guides/sessionkit",
+        href: "/guides/session-kit",
         text: "Go to Session Kit Guides",
       },
     },
@@ -63,7 +63,7 @@ const kit: KitPage = {
   cta: {
     title: "Learn more about the Session Kit through our guides.",
     link: {
-      href: "/guides/sessionkit",
+      href: "/guides/session-kit",
       text: "Go to Guides",
     },
   },

@@ -33,7 +33,7 @@ The [additional dependencies](https://github.com/wharfkit/contract/blob/dev/pack
 
 ## The `ContractKit` Factory Class
 
-The `ContractKit` class offered by the Contract Kit package is a factory method that's capable of dynamically loading and producing `Contract` objects. Each `Contract` object represents an instance of a specific smart contract on the blockchain. With this object, an application can access data from the contract's tables, create actions to use with the [Session Kit](/docs/sessionkit), and utilize other methods to help the application interact with the smart contract.
+The `ContractKit` class offered by the Contract Kit package is a factory method that's capable of dynamically loading and producing `Contract` objects. Each `Contract` object represents an instance of a specific smart contract on the blockchain. With this object, an application can access data from the contract's tables, create actions to use with the [Session Kit](/docs/session-kit), and utilize other methods to help the application interact with the smart contract.
 
 If dynamically loading contracts, an instance of the `ContractKit` must first be established within the application. The only argument required to create an instance will be an `APIClient` that allows the kit to communicate with the blockchain.
 

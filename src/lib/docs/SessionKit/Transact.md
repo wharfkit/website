@@ -9,11 +9,11 @@ requiresReview: true
 
 # Transact
 
-The `transact` method is available on every [Session](/docs/sessionkit/session) instance and is used to perform one or more actions against smart contracts. Once completed it will return a [TransactResult](/docs/sessionkit/transact-result) object containing the results of the actions performed.
+The `transact` method is available on every [Session](/docs/session-kit/session) instance and is used to perform one or more actions against smart contracts. Once completed it will return a [TransactResult](/docs/session-kit/transact-result) object containing the results of the actions performed.
 
 ## Usage
 
-With an existing [Session](/docs/sessionkit/session) instance, the async method `transact` can be called with the required arguments.
+With an existing [Session](/docs/session-kit/session) instance, the async method `transact` can be called with the required arguments.
 
 ```ts
 const arguments = {
@@ -109,7 +109,7 @@ const result = await session.transact(arguments)
 
 ## Options
 
-Additional parameters may optionally be passed to the `transact` method. The option specified in this way will override the default values inherited from the [Session](/docs/sessionkit/session) for this call to `transact`.
+Additional parameters may optionally be passed to the `transact` method. The option specified in this way will override the default values inherited from the [Session](/docs/session-kit/session) for this call to `transact`.
 
 ```ts
 interface TransactOptions {
