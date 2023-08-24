@@ -20,7 +20,7 @@ Why
 
 ## Reference
 
-- [LoginContext](/docs/session-kit/login-context)
+- LoginContext
 - [TransactContext](/docs/session-kit/transact-context)
 - [LoginPlugin](/docs/session-kit/plugin-login)
 - [TransactPlugin](/docs/session-kit/plugin-transact)

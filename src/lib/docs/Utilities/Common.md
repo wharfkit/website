@@ -17,7 +17,7 @@ Listed below are the components found within this package.
 import { Chains } from "@wharfkit/common"
 ```
 
-The `Chains` constant is a predefined list of known blockchains. Each blockchain stored here contains a completed [ChainDefinition](/docs/utilities/common-library#chaindefinition) that is ready for use in an application. These can be passed in during the initialization of the [Session Kit](/docs/sessionkit) or the Contract Kit.
+The `Chains` constant is a predefined list of known blockchains. Each blockchain stored here contains a completed [ChainDefinition](/docs/utilities/common-library#chaindefinition) that is ready for use in an application. These can be passed in during the initialization of the [Session Kit](/docs/session-kit) or the Contract Kit.
 
 ```ts
 const sessionKit = new SessionKit({

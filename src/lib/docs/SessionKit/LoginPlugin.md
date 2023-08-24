@@ -8,7 +8,7 @@ order: 999
 
 # LoginPlugin
 
-A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed when an end user is authenticating through the [Login](/docs/session-kit/login) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
+A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/session-kit) that allows custom logic to be performed when an end user is authenticating through the [Login](/docs/session-kit/login) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
 
 ## Usage
 
@@ -114,7 +114,7 @@ const result = sessionKit.login({
 
 ### Register
 
-At the core of a `LoginPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [LoginContext](/docs/session-kit/login-context) provided as `context`.
+At the core of a `LoginPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the LoginContext provided as `context`.
 
 ```ts
 register(context) {
@@ -139,7 +139,7 @@ All hooks associated with a `LoginPlugin` follow the same design pattern.
 type LoginHook = (context: LoginContext) => Promise<void>
 ```
 
-The only parameter passed to these functions is an instance of the [LoginContext](/docs/session-kit/login-context) that was established to represent the state of the request. This function can perform any required logic to assist or validate the login request, and should return nothing when completed.
+The only parameter passed to these functions is an instance of the LoginContext that was established to represent the state of the request. This function can perform any required logic to assist or validate the login request, and should return nothing when completed.
 
 An example of a function hook is as follows:
 
