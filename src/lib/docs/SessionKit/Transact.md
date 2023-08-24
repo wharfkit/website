@@ -1,7 +1,7 @@
 ---
 title: Transact
 description: A method on an established Session that will utilize the configured plugins to sign and broadcast a transaction on an Antelope blockchain.
-category: Session Kit
+category: SessionKit
 published: true
 order: 1
 ---
