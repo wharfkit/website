@@ -15,14 +15,14 @@ The Contract Kit is a suite of tools to help applications interact with smart co
 
 Listed below is a set of guides that are published as part of a technical preview in August 2023.
 
-### [Loading Contracts](/guides/contractkit/loading-contracts)
+### [Loading Contracts](/guides/contract-kit/loading-contracts)
 
 Learn how to dynamically create a `Contract` instance from an existing Smart Contracts.
 
-### [Reading Table Data](/guides/contractkit/reading-tables)
+### [Reading Table Data](/guides/contract-kit/reading-tables)
 
 Using an established `Contract` to access `Table` instances to read data from a smart contract.
 
-### [Creating Actions](/guides/contractkit/creating-actions)
+### [Creating Actions](/guides/contract-kit/creating-actions)
 
 Using an established `Contract` to create `Action` data for use while performing transactions.

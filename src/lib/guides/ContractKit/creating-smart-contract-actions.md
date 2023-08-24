@@ -7,7 +7,7 @@ order: 12
 
 # Creating Actions for an Antelope Smart Contract
 
-This guide covers how to use the Contract Kit to create an `Action` based on an existing smart contract for use in a web application. The resulting `Action` returned from this process can then be passed into the [transact](/docs/sessionkit/transact) method of a [Session](/docs/sessionkit/session).
+This guide covers how to use the Contract Kit to create an `Action` based on an existing smart contract for use in a web application. The resulting `Action` returned from this process can then be passed into the [transact](/docs/session-kit/transact) method of a [Session](/docs/session-kit/session).
 
 > **NOTE**: This guide was originally written in August of 2023 and is based upon the `0.4.x` release of `@wharfkit/contract`. It will be updated once the Contract Kit is finalized to reflect any potential changes being made as we work towards a 1.0.0 release.
 
@@ -42,7 +42,7 @@ const action = contract.action("transfer", {
 })
 ```
 
-The resulting action of this call is serialized and ready to be passed in to the [transact](/docs/sessionkit/transact) method of a [Session](/docs/sessionkit/session).
+The resulting action of this call is serialized and ready to be passed in to the [transact](/docs/session-kit/transact) method of a [Session](/docs/session-kit/session).
 
 ```ts
 // Perform the transfer action using a Session
@@ -61,7 +61,7 @@ console.log(contract.actionNames)
 
 #### Manually specifying the authorization
 
-While not required, the `authorization` may be passed in the options as a 3rd parameter. By default the contract will create a placeholder authorization which the [Session](/docs/sessionkit/session) will automatically resolve to the current account and permission.
+While not required, the `authorization` may be passed in the options as a 3rd parameter. By default the contract will create a placeholder authorization which the [Session](/docs/session-kit/session) will automatically resolve to the current account and permission.
 
 ```ts
 const action = contract.action(
