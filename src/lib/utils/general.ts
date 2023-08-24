@@ -37,13 +37,13 @@ const kits: KitsRedirects = {
   "contractkit": "contract-kit",
   "starterkit": "starter-kit",
 }
-export function handleKitRedirect(params: LayoutParams) {
+export function handleKitRedirect(rootPath: string, params: LayoutParams) {
   if (!params.section) return
 
   if (params.section in kits) {
-    let path = '/docs/' + kits[params.section]
+    let path = rootPath.concat("/", kits[params.section])
     if (params.slug) {
-      path = path + '/' + params.slug
+      path = path.concat('/', params.slug)
     }
     throw redirect(301, path)
   }

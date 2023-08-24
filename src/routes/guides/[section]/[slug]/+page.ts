@@ -4,39 +4,34 @@ import { capitalize } from '$lib/utils'
 import { createBreadcrumbs } from '$lib/utils/docs'
 
 export const load = (async ({ params, parent }) => {
-    try {
-        const { slug } = params
+    const { docs, rootPath, rootTitle, meta: parentMeta } = await parent()
 
-        const { docs, rootPath, rootTitle } = await parent()
+    const section = docs.find((section) => section.slug === params.section)
 
-        const section = docs.find((section) => section.title.toLowerCase() === params.section)
+    if (!section) {
+        throw error(404, 'Section not found')
+    }
 
-        if (!section) {
-            throw error(404, 'Section not found')
-        }
+    const doc = section.articles.find((doc) => doc.slug === params.slug)
 
-        const doc = section.articles.find((doc) => doc.slug === slug)
+    if (!doc) {
+        throw error(404, 'Doc not found')
+    }
 
-        if (!doc) {
-            throw error(404, 'Doc not found')
-        }
+    const meta = {
+        ...parentMeta,
+        title: doc.title.concat(" - ", parentMeta.title),
+        description: doc.description,
+    }
 
-        const meta = {
-            title: doc.title.concat(" - ", capitalize(doc.section)),
-            description: doc.description,
-        }
-
-        return {
-            section: section.title,
-            doc,
-            meta,
-            headings: doc.headings,
-            title: doc.title,
-            toc: doc.toc,
-            breadcrumbs: createBreadcrumbs({ rootPath, rootTitle, section: section.title, doc }),
-        }
-    } catch (err) {
-        throw error(404, 'Error fetching doc')
+    return {
+        section: section.title,
+        doc,
+        meta,
+        headings: doc.headings,
+        title: doc.title,
+        toc: doc.toc,
+        breadcrumbs: createBreadcrumbs({ rootPath, rootTitle, section: section.title, doc }),
     }
 }) satisfies PageLoad;
 
