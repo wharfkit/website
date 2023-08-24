@@ -7,7 +7,7 @@ published: true
 
 # Restore
 
-The `restore` method is made available on the [SessionKit](/docs/sessionkit/session-kit-factory) instance. When called, the `SessionKit` instance will access its own [SessionStorage](/docs/sessionkit/session-storage) in an attempt to return a valid [Session](/docs/sessionkit/session) for the application to use. This method is intended to be used on page load to restore any previous user sessions automatically, or when any form of account switcher that allows the end user to switch between accounts is being used in a multi-account environment.
+The `restore` method is made available on the [SessionKit](/docs/session-kit/session-kit-factory) instance. When called, the `SessionKit` instance will access its own [SessionStorage](/docs/session-kit/session-storage) in an attempt to return a valid [Session](/docs/session-kit/session) for the application to use. This method is intended to be used on page load to restore any previous user sessions automatically, or when any form of account switcher that allows the end user to switch between accounts is being used in a multi-account environment.
 
 ## Usage
 
@@ -17,7 +17,7 @@ Given an existing instance of the [SessionKit](/docs/session-kit/session-kit-fac
 const session = await sessionKit.restore()
 ```
 
-The value returned from the `restore` method will be an instance of the [Session](/docs/sessionkit/session), ready to use. This usage of the restore method is commonly used on page load to automatically populate the previously active session.
+The value returned from the `restore` method will be an instance of the [Session](/docs/session-kit/session), ready to use. This usage of the restore method is commonly used on page load to automatically populate the previously active session.
 
 If no session was found, a value of `undefined` will be returned.
 

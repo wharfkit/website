@@ -8,7 +8,7 @@ order: 999
 
 # TransactPlugin
 
-The `TransactPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed while a transaction is being processed in a [Transact](/docs/sessionkit/transact) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
+The `TransactPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed while a transaction is being processed in a [Transact](/docs/session-kit/transact) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
 
 ## Usage
 
@@ -70,7 +70,7 @@ const result = await session.transact(
 
 ## Development
 
-The `TransactPlugin` interface and `AbstractTransactPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks, which are performed at specific points during the [Transact](/docs/sessionkit/transact) call.
+The `TransactPlugin` interface and `AbstractTransactPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/session-kit/session-kit-factory). These plugins register custom logic through the use of hooks, which are performed at specific points during the [Transact](/docs/session-kit/transact) call.
 
 The [transact-plugin-template](https://github.com/wharfkit/transact-plugin-template) is available on Github to help developers get started.
 
@@ -196,7 +196,7 @@ type TransactHookMutable = (
 ) => Promise<TransactHookResponse | void>
 ```
 
-The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](#) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context`, which is the [TransactContext](/docs/sessionkit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
+The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](#) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context`, which is the [TransactContext](/docs/session-kit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
 
 The hook function must either return nothing, or return an object that matches the [TransactHookResponse](https://wharfkit.github.io/session/interfaces/TransactHookResponse.html) interface. This requires that it pass back a `request` value, which can either be modified or simply pass back the `request` value it received. This response may also optionally pass back an array of signatures, if the plugin itself was responsible for appending signatures to this upcoming transaction.
 
@@ -223,7 +223,7 @@ type TransactHookImmutable = (
 ) => Promise<void>
 ```
 
-The first parameter of a `TransactHookImmutable` is the `result` value and is an instance of [TransactResult](/docs/sessionkit/transact-result) that contains information about the results of a transaction up until that point in time. The second is the `context`, which is the [TransactContext](/docs/sessionkit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
+The first parameter of a `TransactHookImmutable` is the `result` value and is an instance of [TransactResult](/docs/session-kit/transact-result) that contains information about the results of a transaction up until that point in time. The second is the `context`, which is the [TransactContext](/docs/session-kit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
 
 These hooks do not need to return anything, and anything they return will be ignored.
 

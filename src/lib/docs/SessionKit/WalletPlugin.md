@@ -12,11 +12,11 @@ The `WalletPlugin` is a type of plugin for the [Session Kit](/docs/session-kit) 
 
 ## Usage
 
-For application developers that wish to include a `WalletPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/sessionkit/session-kit-factory) factory or included as an argument on a new [Session](/docs/sessionkit/session).
+For application developers that wish to include a `WalletPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/session-kit/session-kit-factory) factory or included as an argument on a new [Session](/docs/session-kit/session).
 
 ### SessionKit
 
-One or more `WalletPlugin` instances need to be passed as part of the [SessionKit](/docs/sessionkit/session-kit-factory) arguments during instantiation to provide users who perform the [Login](/docs/sessionkit/login) method with a choice in how to authenticate.
+One or more `WalletPlugin` instances need to be passed as part of the [SessionKit](/docs/session-kit/session-kit-factory) arguments during instantiation to provide users who perform the [Login](/docs/session-kit/login) method with a choice in how to authenticate.
 
 ```ts
 const sessionKit = new SessionKit({
@@ -156,7 +156,7 @@ class WalletPluginExample extends AbstractWalletPlugin {
 }
 ```
 
-If the `WalletPlugin` does not support any form of [Login](/docs/sessionkit/login) for end users and only supports signing transactions, simply throw an error in this method call:
+If the `WalletPlugin` does not support any form of [Login](/docs/session-kit/login) for end users and only supports signing transactions, simply throw an error in this method call:
 
 ```ts
 class WalletPluginExample extends AbstractWalletPlugin {
@@ -168,7 +168,7 @@ class WalletPluginExample extends AbstractWalletPlugin {
 
 ### Method: Sign
 
-One of the primary purposes of a `WalletPlugin` is to facilitate the signing of transactions. To do this it must implement the `sign` method, which accepts two parameters: a [ResolvedSigningRequest](#) and a [TransactContext](/docs/sessionkit/transact-context).
+One of the primary purposes of a `WalletPlugin` is to facilitate the signing of transactions. To do this it must implement the `sign` method, which accepts two parameters: a [ResolvedSigningRequest](#) and a [TransactContext](/docs/session-kit/transact-context).
 
 **Note**: If during the [Transact](/docs/session-kit/transact) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](/docs/session-kit/plugin-user-interface) instance provided on the [TransactContext](/docs/session-kit/transact-context) can be used to prompt the user.
 
