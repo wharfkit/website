@@ -2,13 +2,10 @@ import type { LayoutServerLoad } from "./$types"
 import { fetchGroupedDocs, orderSections, importedGuides } from "$lib/utils"
 
 /**
-* Order the sections here.
-* prettier-ignore
-*/
-const displayOrder = [
-  "session-kit",
-  "contract-kit"
-]
+ * Order the sections here.
+ * prettier-ignore
+ */
+const displayOrder = ["session-kit", "contract-kit"]
 
 export const prerender = true
 
