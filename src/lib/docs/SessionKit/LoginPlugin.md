@@ -124,7 +124,7 @@ register(context) {
 
 ### Hooks
 
-The login lifecycle currently has 3 points at which hooks can be established.
+The login lifecycle currently has 2 points at which hooks can be established.
 
 - `beforeLogin`: Occurs before the login request is processed by the [WalletPlugin](/docs/session-kit/plugin-wallet).
 - `afterLogin`: Occurs after the login request is completed.
