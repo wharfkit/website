@@ -1,7 +1,7 @@
 ---
 title: SessionStorage
 description: A storage adapter interface to persist Sessions within the Session Kit.
-category: Session Kit
+category: SessionKit
 published: true
 hidden: true
 ---
