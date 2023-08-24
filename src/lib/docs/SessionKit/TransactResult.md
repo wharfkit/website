@@ -4,7 +4,6 @@ description: The data returned from a call to the transact method on a Session
 category: SessionKit
 published: true
 hidden: true
-requiresReview: true
 ---
 
 # TransactResult
@@ -13,7 +12,7 @@ Upon a successful call to the [Transact](/docs/sessionkit/transact) method of a 
 
 ## Properties
 
-The `TransactResult` object contains the following properties.
+The `TransactResult` object contains the following properties:
 
 ```ts
 interface TransactResult {
@@ -38,7 +37,7 @@ A representation of the transaction performed in the [SigningRequest](#) format.
 
 ### resolved
 
-The [ResolvedSigningRequest](#) that was used during the [Transact](/docs/sessionkit/transact) call which has been resolved to ensure proper tapos values and to template any placeholder values that may have existed in the [SigningRequest](#).
+The [ResolvedSigningRequest](#) that was used during the [Transact](/docs/sessionkit/transact) call, which has been resolved to ensure proper tapos values and to template any placeholder values that may have existed in the [SigningRequest](#).
 
 ### response
 
