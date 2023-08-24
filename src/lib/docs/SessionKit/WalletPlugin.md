@@ -177,7 +177,7 @@ The `WalletPlugin` will then need to communicate with the external application, 
 - `signatures`: An array containing one or more [Signature](#) typed objects with signatures authorizing the transaction.
 - `resolved`: An optional [ResolvedSigningRequest](#), in the event that the transaction was modified by the wallet.
 
-**Note**: If the `WalletPlugin` or external application modifies the transaction and returns it, it may invalidate any signatures previously created by the [TransactPlugin](/docs/session-kit/plugin-transact) calls that were originally made. We would recommend that the wallet should not
+**Note**: If the `WalletPlugin` or external application modifies the transaction and returns it, it may invalidate any signatures previously created by the [TransactPlugin](/docs/session-kit/plugin-transact) calls that were originally made. We would recommend that the wallet should not modify the transaction when signatures are present already during the signing process and instead write a plugin for Wharf.
 
 Once completed, this information can be returned to the Session Kit to complete the transaction.
 
