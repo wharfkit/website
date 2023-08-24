@@ -1,7 +1,7 @@
 ---
 title: "Plugin: Login"
 description: "Extend the functionality of the Session Kit's transaction processing by creating and/or including plugins in your application."
-category: Session Kit
+category: SessionKit
 published: true
 order: 999
 ---
@@ -12,11 +12,11 @@ A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that
 
 ## Usage
 
-For application developers that wish to use a `LoginPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [Session Kit](/docs/sessionkit/session-kit-factory) factory or included as part of a [Login](/docs/sessionkit/login) call.
+For application developers that wish to use a `LoginPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/sessionkit/session-kit-factory) factory or included as part of a [Login](/docs/sessionkit/login) call.
 
-### Session Kit
+### SessionKit
 
-Passing a `LoginPlugin` to the options parameter of the [Session Kit](/docs/sessionkit/session-kit-factory) during instantiation causes every call to the [Login](/docs/sessionkit/login) method to trigger its custom logic.
+Passing a `LoginPlugin` to the options parameter of the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation causes every call to the [Login](/docs/sessionkit/login) method to trigger its custom logic.
 
 ```ts
 const sessionKit = new SessionKit(
@@ -41,7 +41,7 @@ const result = await sessionKit.login({
 
 ## Development
 
-The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools to help developers create plugins for the [Session Kit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks, which are performed at specific points during the [Login](/docs/sessionkit/login) call.
+The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools to help developers create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks, which are performed at specific points during the [Login](/docs/sessionkit/login) call.
 
 The [login-plugin-template](https://github.com/wharfkit/login-plugin-template) is available on Github to help developers get started.
 
