@@ -1,7 +1,7 @@
 ---
 title: Login
 description: The login method allows users to log in to web applications using the Session Kit with an Antelope blockchain based account.
-category: Session Kit
+category: SessionKit
 published: true
 ---
 
