@@ -1,15 +1,18 @@
 import type { LayoutServerLoad } from './$types';
-import { createBreadcrumbs } from '$lib/utils';
+import { createBreadcrumbs, handleKitRedirect } from '$lib/utils';
 import { error } from '@sveltejs/kit'
 
 export const load = (async ({ parent, params }) => {
   const parentData = await parent()
   const { docs, rootPath, rootTitle, meta: parentMeta } = parentData
+  let pathSection = params.section
 
-  const section = docs.find((section) => section.title.toLowerCase() === params.section)
+  handleKitRedirect(params)
+
+  const section = docs.find((section) => section.slug === pathSection)
 
   if (!section) {
-    throw error(404)
+    throw error(404, "Section not found")
   }
 
   const meta = {
