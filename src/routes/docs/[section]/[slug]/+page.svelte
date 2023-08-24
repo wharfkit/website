@@ -11,9 +11,7 @@
 </script>
 
 <article id="article">
-  <!-- <ObserveSections> -->
   {@html data.doc.content}
-  <!-- </ObserveSections> -->
 </article>
 
 <PageButtons currentDoc={data.doc} allSections={data.docs} />
