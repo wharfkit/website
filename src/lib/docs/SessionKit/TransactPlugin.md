@@ -1,15 +1,14 @@
 ---
 title: "Plugin: Transact"
 description: "Extend the functionality of the Session Kit's transaction processing by creating and/or including plugins your application."
-category: SessionKit
+category: Session Kit
 published: true
 order: 999
-requiresReview: true
 ---
 
 # TransactPlugin
 
-The `TransactPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed while a transaction is being processed in a [Transact](/docs/sessionkit/transact) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
+The `TransactPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed while a transaction is being processed in a [Transact](/docs/sessionkit/transact) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
 
 ## Usage
 
@@ -71,9 +70,9 @@ const result = await session.transact(
 
 ## Development
 
-The `TransactPlugin` interface and `AbstractTransactPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks which are performed at specific points during the [Transact](/docs/sessionkit/transact) call.
+The `TransactPlugin` interface and `AbstractTransactPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks, which are performed at specific points during the [Transact](/docs/sessionkit/transact) call.
 
-The [transact-plugin-template](https://github.com/wharfkit/transact-plugin-template) is available as a template on Github to help developers get started.
+The [transact-plugin-template](https://github.com/wharfkit/transact-plugin-template) is available on Github to help developers get started.
 
 ### Structure
 
@@ -170,13 +169,13 @@ register(context) {
 
 ### Hooks
 
-The transaction lifecycle currently has 3 points which hooks can be established.
+The transaction lifecycle currently has 3 points at which hooks can be established.
 
 - `beforeSign`: Occurs before the transaction is signed by the [WalletPlugin](/docs/sessionkit/plugin-wallet).
 - `afterSign`: Occurs after the transaction is signed and before it is broadcast to the network.
 - `afterBroadcast`: Occurs after the transaction is broadcast.
 
-These types are provided by the exported `TransactHookTypes` enumeration. Each hook type is either a mutable hook or an immutable hook, based on where in the lifecycle the hook is executed.
+These types are provided by the exported `TransactHookTypes` enumeration. Each hook type is either a mutable hook or an immutable hook, based on where the hook is executed in the lifecycle.
 
 ```ts
 interface TransactHooks {
@@ -188,7 +187,7 @@ interface TransactHooks {
 
 #### Mutable Hooks
 
-The `beforeSign` hook is a `TransactHookMutable` and is able to modify the transaction during while it's processing its internal logic.
+The `beforeSign` hook is a `TransactHookMutable` and is able to modify the transaction while it's processing its internal logic.
 
 ```ts
 type TransactHookMutable = (
@@ -197,7 +196,7 @@ type TransactHookMutable = (
 ) => Promise<TransactHookResponse | void>
 ```
 
-The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](#) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context` which is the [TransactContext](/docs/sessionkit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
+The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](#) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context`, which is the [TransactContext](/docs/sessionkit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
 
 The hook function must either return nothing, or return an object that matches the [TransactHookResponse](https://wharfkit.github.io/session/interfaces/TransactHookResponse.html) interface. This requires that it pass back a `request` value, which can either be modified or simply pass back the `request` value it received. This response may also optionally pass back an array of signatures, if the plugin itself was responsible for appending signatures to this upcoming transaction.
 
@@ -224,7 +223,7 @@ type TransactHookImmutable = (
 ) => Promise<void>
 ```
 
-The first parameter of a `TransactHookImmutable` is the `result` value and is an instance of [TransactResult](/docs/sessionkit/transact-result) that contains information about the results of a transaction up until that point in time. The second is the `context` which is the [TransactContext](/docs/sessionkit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
+The first parameter of a `TransactHookImmutable` is the `result` value and is an instance of [TransactResult](/docs/sessionkit/transact-result) that contains information about the results of a transaction up until that point in time. The second is the `context`, which is the [TransactContext](/docs/sessionkit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
 
 These hooks do not need to return anything, and anything they return will be ignored.
 
@@ -238,4 +237,4 @@ async function afterSignHook(result, context) {
 
 ## Examples
 
-Beyond the [transact-plugin-template](https://github.com/wharfkit/transact-plugin-template) template to serve as an example codebase, a number of [open source plugins](https://github.com/orgs/wharfkit/repositories?q=transact-plugin&type=all&language=&sort=) can also reviewed to observe how these plugins can be built.
+Beyond the [transact-plugin-template](https://github.com/wharfkit/transact-plugin-template) that serves as an example codebase, a number of [open-source plugins](https://github.com/orgs/wharfkit/repositories?q=transact-plugin&type=all&language=&sort=) can also be reviewed to observe how these plugins can be built.
