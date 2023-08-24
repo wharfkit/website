@@ -1,15 +1,15 @@
 ---
 title: Loading Contracts
-category: ContractKit
+category: Contract Kit
 published: true
 order: 10
 ---
 
-# Dynamically loading Antelope Smart Contracts
+# Dynamically Loading Antelope Smart Contracts
 
-This guide will show one method to setup the Contract Kit and use it to dynamically load `Contract` instances in web applications. An second guide will be added in the future to show how to statically include pregenerated `Contract` instances using the upcoming `@wharfkit/cli` application.
+This guide will show one method for setting up the Contract Kit and using it to dynamically load `Contract` instances in web applications. A second guide will be added in the future to show how you can statically include pregenerated `Contract` instances using the upcoming `@wharfkit/cli` application.
 
-> **NOTE**: This guide was originally written in August of 2023 and is based upon the `0.4.x` release of `@wharfkit/contract`. It will be updated once the Contract Kit is finalized to reflect any potential changes being made as we work towards a 1.0.0 release.
+> **NOTE**: This guide was originally written in August of 2023 and is based upon the `0.4.x` release of `@wharfkit/contract`. It will be updated once the Contract Kit is finalized, to reflect any potential changes that are made as we progress towards a 1.0.0 release.
 
 ## What is the Contract Kit?
 
@@ -17,7 +17,7 @@ The Contract Kit is a set of tools designed to help developers interact with sma
 
 ## Adding the Contract Kit
 
-In order to utilize the Contract Kit in a web application, the package just needs to be added to the project using your preferred package manager:
+In order to utilize the Contract Kit in a web application, the package simply needs to be added to the project using your preferred package manager:
 
 ```bash
 yarn add @wharfkit/contract
@@ -29,11 +29,11 @@ or
 npm install @wharfkit/contract
 ```
 
-The [additional dependencies](https://github.com/wharfkit/contract/blob/dev/package.json#L21-L26) the Contract Kit requires will automatically be installed.
+The [additional dependencies](https://github.com/wharfkit/contract/blob/dev/package.json#L21-L26) that the Contract Kit requires will automatically be installed.
 
 ## The `ContractKit` Factory Class
 
-The `ContractKit` class offered by the Contract Kit package is a factory method that's capable of dynamically loading and producing `Contract` objects. Each `Contract` object represents an instance of a specific smart contract on the blockchain. With this object an application can access data from the contracts tables, create actions to use with the [SessionKit](/docs/session-kit), and utilize other methods to help the application interact with the smart contract.
+The `ContractKit` class offered by the Contract Kit package is a factory method that's capable of dynamically loading and producing `Contract` objects. Each `Contract` object represents an instance of a specific smart contract on the blockchain. With this object, an application can access data from the contract's tables, create actions to use with the [Session Kit](/docs/session-kit), and utilize other methods to help the application interact with the smart contract.
 
 If dynamically loading contracts, an instance of the `ContractKit` must first be established within the application. The only argument required to create an instance will be an `APIClient` that allows the kit to communicate with the blockchain.
 
@@ -45,11 +45,11 @@ const contractKit = new ContractKit({
 })
 ```
 
-The `contractKit` variable is now a ready-to-use instance of the kit and can be used to dynamically load contracts into the application.
+The `ContractKit` variable is now a ready-to-use instance of the kit, and can be used to dynamically load contracts into the application.
 
 ## Loading a `Contract`
 
-With the kit established the application can now create an instance of a `Contract` using the `load` method of the `ContractKit`. In this example the code will load the `eosio.token` contract from the Jungle 4 blockchain.
+With the kit established, the application can now create an instance of a `Contract` using the `load` method of the `ContractKit`. In this example, the code will load the `eosio.token` contract from the Jungle 4 blockchain.
 
 ```ts
 const contract = await contractKit.load("eosio.token")
