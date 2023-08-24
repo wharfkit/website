@@ -57,8 +57,8 @@ Brief usage description
 
 ### Guides
 
-- [Getting started: Web Apps](/guides/sessionkit/getting-started-web-app)
-- [Getting started: Node.js](/guides/sessionkit/getting-started-node-js)
+- [Getting started: Web Apps](/guides/session-kit/getting-started-web-app)
+- [Getting started: Node.js](/guides/session-kit/getting-started-node-js)
 
 ### TypeDocs
 

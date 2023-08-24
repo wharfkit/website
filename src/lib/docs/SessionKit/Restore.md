@@ -11,7 +11,7 @@ The `restore` method is made available on the [SessionKit](/docs/sessionkit/sess
 
 ## Usage
 
-Given an existing instance of the [SessionKit](/docs/sessionkit/session-kit-factory), the async method `restore` can be called and awaited without any additional parameters to automatically restore the last active session.
+Given an existing instance of the [SessionKit](/docs/session-kit/session-kit-factory), the async method `restore` can be called and awaited without any additional parameters to automatically restore the last active session.
 
 ```ts
 const session = await sessionKit.restore()
@@ -23,11 +23,11 @@ If no session was found, a value of `undefined` will be returned.
 
 ## Options
 
-The `restore` method can also optionally accept an object to specify which [Session](/docs/sessionkit/session) should be restored.
+The `restore` method can also optionally accept an object to specify which [Session](/docs/session-kit/session) should be restored.
 
 ### Example: Switch Accounts
 
-The `restore` method can also be used in conjunction with the [GetSessions](#) method provided by the [SessionKit](/docs/sessionkit/session-kit-factory) to restore a specific [Session](/docs/sessionkit/session). This is a recommended approach in multi-account environments where the application allows the user to actively switch between accounts.
+The `restore` method can also be used in conjunction with the [GetSessions](#) method provided by the [SessionKit](/docs/session-kit/session-kit-factory) to restore a specific [Session](/docs/session-kit/session). This is a recommended approach in multi-account environments where the application allows the user to actively switch between accounts.
 
 ```ts
 // Retrieve a list of all sessions that exist
@@ -51,4 +51,4 @@ const session = await sessionKit.restore({
 })
 ```
 
-The result of this call will be the most recently used [Session](/docs/sessionkit/session) for the Jungle 4 blockchain.
+The result of this call will be the most recently used [Session](/docs/session-kit/session) for the Jungle 4 blockchain.

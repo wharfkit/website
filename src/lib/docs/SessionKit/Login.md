@@ -11,7 +11,7 @@ The `login` method is made available on the [SessionKit](/docs/sessionkit/sessio
 
 ## Usage
 
-Given an existing instance of the [SessionKit](/docs/sessionkit/session-kit-factory), the async method `login` can be called and awaited without any additional parameters.
+Given an existing instance of the [SessionKit](/docs/session-kit/session-kit-factory), the async method `login` can be called and awaited without any additional parameters.
 
 ```ts
 const sessionKit = new SessionKit(args, options)
@@ -38,7 +38,7 @@ Commonly used parameters that can be passed this way include:
 - `chain`: The blockchain ID to login against, preventing any user chain selection.
 - `chains`: An array of blockchain IDs to allow logging in against, overriding the defaults from the [SessionKit](/docs/sessionkit/session-kit-factory).
 - `permissionLevel`: A specific [PermissionLevel](#) to login with, preventing any user account selection.
-- `walletPlugin`: A specific [WalletPlugin](/docs/sessionkit/plugin-wallet) to authenticate with, preventing any user wallet selection.
+- `walletPlugin`: A specific [WalletPlugin](/docs/session-kit/plugin-wallet) to authenticate with, preventing any user wallet selection.
 
 A complete list of all parameters can be found in the [LoginOptions](https://wharfkit.github.io/session/interfaces/LoginOptions.html) documentation.
 

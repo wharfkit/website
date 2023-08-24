@@ -12,11 +12,11 @@ The `TransactPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit)
 
 ## Usage
 
-For application developers that wish to use a `TransactPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/sessionkit/session-kit-factory) factory, directly to an individual [Session](/docs/sessionkit/session), or included as part of a [Transact](/docs/sessionkit/transact) call.
+For application developers that wish to use a `TransactPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/session-kit/session-kit-factory) factory, directly to an individual [Session](/docs/session-kit/session), or included as part of a [Transact](/docs/session-kit/transact) call.
 
 ### SessionKit
 
-Passing a `TransactPlugin` to the options parameter of the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation causes every [Session](/docs/sessionkit/session) it creates to automatically use the specified plugin. In the example below, each session that is the result of the [Login](/docs/sessionkit/login) call will automatically inherit and use the specified plugin.
+Passing a `TransactPlugin` to the options parameter of the [SessionKit](/docs/session-kit/session-kit-factory) during instantiation causes every [Session](/docs/session-kit/session) it creates to automatically use the specified plugin. In the example below, each session that is the result of the [Login](/docs/session-kit/login) call will automatically inherit and use the specified plugin.
 
 ```ts
 import { TransactPluginResourceProvider } from "@wharfkit/transact-plugin-resource-provider"
@@ -36,7 +36,7 @@ const result = await sessionKit.login()
 
 ### Session
 
-A `TransactPlugin` instance can also be passed as an option to a [Session](/docs/sessionkit/session) during manual creation.
+A `TransactPlugin` instance can also be passed as an option to a [Session](/docs/session-kit/session) during manual creation.
 
 ```ts
 import { TransactPluginResourceProvider } from "@wharfkit/transact-plugin-resource-provider"
@@ -53,7 +53,7 @@ const session = new Session(
 
 ### Transact
 
-During an individual [Transact](/docs/sessionkit/transact) call, a `TransactPlugin` can also be passed to only execute during that call.
+During an individual [Transact](/docs/session-kit/transact) call, a `TransactPlugin` can also be passed to only execute during that call.
 
 ```ts
 import { TransactPluginResourceProvider } from "@wharfkit/transact-plugin-resource-provider"
@@ -159,7 +159,7 @@ const result = session.transact(
 
 ### Register
 
-At the core of a `TransactPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [TransactContext](/docs/sessionkit/transact-context) provided as `context`.
+At the core of a `TransactPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [TransactContext](/docs/session-kit/transact-context) provided as `context`.
 
 ```ts
 register(context) {
@@ -171,7 +171,7 @@ register(context) {
 
 The transaction lifecycle currently has 3 points at which hooks can be established.
 
-- `beforeSign`: Occurs before the transaction is signed by the [WalletPlugin](/docs/sessionkit/plugin-wallet).
+- `beforeSign`: Occurs before the transaction is signed by the [WalletPlugin](/docs/session-kit/plugin-wallet).
 - `afterSign`: Occurs after the transaction is signed and before it is broadcast to the network.
 - `afterBroadcast`: Occurs after the transaction is broadcast.
 

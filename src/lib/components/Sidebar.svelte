@@ -54,11 +54,11 @@
     </summary>
     <Filter on:queryChange={handleQueryChange} />
     <menu class="sidebar-list">
-      {#each filteredSections as { title: section, articles }}
+      {#each filteredSections as { title: sectionTitle, slug, articles }}
         <li class="section">
-          <a class="sidebar-subtitle sidebar-list-item" href="{rootPath}/{section.toLowerCase()}">
+          <a class="sidebar-subtitle sidebar-list-item" href="{rootPath}/{slug}">
             <h3>
-              {formatSectionTitle(section)}
+              {formatSectionTitle(sectionTitle)}
             </h3>
           </a>
 

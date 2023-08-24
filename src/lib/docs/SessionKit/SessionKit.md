@@ -15,7 +15,7 @@ The `SessionKit` class provided by the [Session Kit](/docs/sessionkit) is respon
 
 When using the `SessionKit` within a web application, the developer will first establish an instance of the class with the required [SessionKitArgs](https://wharfkit.github.io/session/interfaces/SessionKitArgs.html).
 
-A simple example for a web application using the [WebRenderer](/docs/sessionkit/web-renderer) and [WalletPluginAnchor](#) would be as follows:
+A simple example for a web application using the [WebRenderer](/docs/session-kit/web-renderer) and [WalletPluginAnchor](#) would be as follows:
 
 ```ts
 import { SessionKit } from "@wharfkit/session"
@@ -47,8 +47,8 @@ The first parameter passed to the `SessionKit` is an object containing all the r
 
 - `appName`: The name of the application
 - `chains`: An array of blockchains that the app supports
-- `ui`: An instance of a [UserInterface](/docs/sessionkit/plugin-user-interface), like the [WebRenderer](/docs/sessionkit/web-renderer)
-- `walletPlugins`: An array containing at least one [WalletPlugin](/docs/sessionkit/plugin-wallet)
+- `ui`: An instance of a [UserInterface](/docs/session-kit/plugin-user-interface), like the [WebRenderer](/docs/session-kit/web-renderer)
+- `walletPlugins`: An array containing at least one [WalletPlugin](/docs/session-kit/plugin-wallet)
 
 ### [Options](https://wharfkit.github.io/session/interfaces/SessionKitOptions.html)
 
@@ -68,9 +68,9 @@ The second parameter passed would be all of the optional arguments:
 
 A number of methods are available on an instance of the `SessionKit`.
 
-- [Login](/docs/sessionkit/login): Initiate the login process for a user.
-- [Logout](/docs/sessionkit/logout): Perform a logout of a given session, or logout all existing sessions.
-- [Restore](/docs/sessionkit/restore): Restore and return the most recently used session, or a specific session based on the args provided.
+- [Login](/docs/session-kit/login): Initiate the login process for a user.
+- [Logout](/docs/session-kit/logout): Perform a logout of a given session, or logout all existing sessions.
+- [Restore](/docs/session-kit/restore): Restore and return the most recently used session, or a specific session based on the args provided.
 - [restoreAll](#): Restore all sessions and return them in an array.
 - [getSessions](#): Return an array of [SerializedSessions](#)
 
@@ -80,7 +80,7 @@ A number of methods are available on an instance of the `SessionKit`.
 
 ### Guides
 
-- [Getting started: Web Apps](/guides/sessionkit/getting-started-web-app)
+- [Getting started: Web Apps](/guides/session-kit/getting-started-web-app)
 
 ### TypeDocs
 

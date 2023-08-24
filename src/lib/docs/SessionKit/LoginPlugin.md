@@ -12,11 +12,11 @@ A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that
 
 ## Usage
 
-For application developers that wish to use a `LoginPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/sessionkit/session-kit-factory) factory or included as part of a [Login](/docs/sessionkit/login) call.
+For application developers that wish to use a `LoginPlugin` in their application, the plugin code needs to be included in the project and then passed to either the [SessionKit](/docs/session-kit/session-kit-factory) factory or included as part of a [Login](/docs/session-kit/login) call.
 
 ### SessionKit
 
-Passing a `LoginPlugin` to the options parameter of the [SessionKit](/docs/sessionkit/session-kit-factory) during instantiation causes every call to the [Login](/docs/sessionkit/login) method to trigger its custom logic.
+Passing a `LoginPlugin` to the options parameter of the [SessionKit](/docs/session-kit/session-kit-factory) during instantiation causes every call to the [Login](/docs/session-kit/login) method to trigger its custom logic.
 
 ```ts
 const sessionKit = new SessionKit(
@@ -31,7 +31,7 @@ const sessionKit = new SessionKit(
 
 ### Login
 
-During an individual [Login](/docs/sessionkit/login) call, a `LoginPlugin` can also be passed to only execute during that call.
+During an individual [Login](/docs/session-kit/login) call, a `LoginPlugin` can also be passed to only execute during that call.
 
 ```ts
 const result = await sessionKit.login({
@@ -114,7 +114,7 @@ const result = sessionKit.login({
 
 ### Register
 
-At the core of a `LoginPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [LoginContext](/docs/sessionkit/login-context) provided as `context`.
+At the core of a `LoginPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [LoginContext](/docs/session-kit/login-context) provided as `context`.
 
 ```ts
 register(context) {
@@ -126,7 +126,7 @@ register(context) {
 
 The login lifecycle currently has 3 points at which hooks can be established.
 
-- `beforeLogin`: Occurs before the login request is processed by the [WalletPlugin](/docs/sessionkit/plugin-wallet).
+- `beforeLogin`: Occurs before the login request is processed by the [WalletPlugin](/docs/session-kit/plugin-wallet).
 - `afterLogin`: Occurs after the login request is completed.
 
 These types are provided by the exported `LoginHookTypes` enumeration. Each hook type is either a mutable hook or an immutable hook, based on when the hook is executed.
@@ -139,7 +139,7 @@ All hooks associated with a `LoginPlugin` follow the same design pattern.
 type LoginHook = (context: LoginContext) => Promise<void>
 ```
 
-The only parameter passed to these functions is an instance of the [LoginContext](/docs/sessionkit/login-context) that was established to represent the state of the request. This function can perform any required logic to assist or validate the login request, and should return nothing when completed.
+The only parameter passed to these functions is an instance of the [LoginContext](/docs/session-kit/login-context) that was established to represent the state of the request. This function can perform any required logic to assist or validate the login request, and should return nothing when completed.
 
 An example of a function hook is as follows:
 

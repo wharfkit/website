@@ -12,7 +12,7 @@ The `transact` method is available on every [Session](/docs/sessionkit/session) 
 
 ## Usage
 
-With an existing [Session](/docs/sessionkit/session) instance, the async method `transact` can be called with the required arguments.
+With an existing [Session](/docs/session-kit/session) instance, the async method `transact` can be called with the required arguments.
 
 ```ts
 const arguments = {
