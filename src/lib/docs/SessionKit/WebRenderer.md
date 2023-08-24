@@ -1,9 +1,8 @@
 ---
 title: WebRenderer
-description: An out of the box interface for use with the Session Kit to facilitate interactions with users of an application
-category: SessionKit
+description: An out-of-th-box interface for use with the Session Kit, to facilitate interactions with users of an application.
+category: Session Kit
 published: true
-requiresReview: true
 ---
 
 # WebRenderer
