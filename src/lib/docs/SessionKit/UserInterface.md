@@ -114,7 +114,7 @@ This time can be used to prepare UI elements (in DOM or other mediums) before an
 login(context: LoginContext): Promise<UserInterfaceLoginResponse>
 ```
 
-After initial processing has been completed by the [SessionKit](/docs/session-kit/session-kit-factory), the `login` method of the given `UserInterface` is called. The [SessionKit](/docs/session-kit/session-kit-factory) will pass in an instance of a [LoginContext](/docs/session-kit/login-context) to the `UserInterface` to provide information about the request and how to interact with the user. This information will include which [WalletPlugin](/docs/session-kit/plugin-wallet) instances are available and any metadata values the application developer has defined.
+After initial processing has been completed by the [SessionKit](/docs/session-kit/session-kit-factory), the `login` method of the given `UserInterface` is called. The [SessionKit](/docs/session-kit/session-kit-factory) will pass in an instance of a LoginContext to the `UserInterface` to provide information about the request and how to interact with the user. This information will include which [WalletPlugin](/docs/session-kit/plugin-wallet) instances are available and any metadata values the application developer has defined.
 
 This data will be used in order to facilitate a number of scenarios based on the various capabilities of the [WalletPlugin](/docs/session-kit/plugin-wallet) instances in use:
 

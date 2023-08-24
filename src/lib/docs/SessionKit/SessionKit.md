@@ -9,7 +9,7 @@ requiresReview: true
 
 # SessionKit (Factory)
 
-The `SessionKit` class provided by the [Session Kit](/docs/sessionkit) is responsible for creating and managing end user [Session](/docs/session-kit/session) instances specifically for **web applications**, through actions such as [Login](/docs/session-kit/login) and [Restore](/docs/session-kit/restore). Only **one instance is required** for the entire application and should be made widely available.
+The `SessionKit` class provided by the [Session Kit](/docs/session-kit) is responsible for creating and managing end user [Session](/docs/session-kit/session) instances specifically for **web applications**, through actions such as [Login](/docs/session-kit/login) and [Restore](/docs/session-kit/restore). Only **one instance is required** for the entire application and should be made widely available.
 
 ## Creation
 

@@ -25,7 +25,7 @@ Upon completion, the `login` method will return a [LoginResult](/docs/session-ki
 
 - The `session` that is now available to perform transactions.
 - The `response` from the [WalletPlugin](/docs/session-kit/plugin-wallet) that was used, indicating which blockchain and permission was returned.
-- The `context` object (a [LoginContext](/docs/session-kit/login-context)) that was used during the login process.
+- The `context` object (a LoginContext) that was used during the login process.
 
 The [Session](/docs/session-kit/session) instance that was returned in the result will automatically be persisted in the application through use of the [SessionStorage](/docs/session-kit/session-storage) adapter, and in the future can be retrieved with the [Restore](/docs/session-kit/restore) method.
 

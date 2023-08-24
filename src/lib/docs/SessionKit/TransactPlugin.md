@@ -8,7 +8,7 @@ order: 999
 
 # TransactPlugin
 
-The `TransactPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed while a transaction is being processed in a [Transact](/docs/session-kit/transact) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
+The `TransactPlugin` is a type of plugin for the [Session Kit](/docs/session-kit) that allows custom logic to be performed while a transaction is being processed in a [Transact](/docs/session-kit/transact) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
 
 ## Usage
 

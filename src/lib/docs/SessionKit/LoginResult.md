@@ -24,7 +24,7 @@ interface LoginResult {
 
 ### context
 
-The [LoginContext](/docs/session-kit/login-context) instance that was used by both the [SessionKit](/docs/session-kit/session-kit-factory) and [LoginPlugins](/docs/session-kit/plugin-login) during the [Login](/docs/session-kit/login) process.
+The LoginContext instance that was used by both the [SessionKit](/docs/session-kit/session-kit-factory) and [LoginPlugins](/docs/session-kit/plugin-login) during the [Login](/docs/session-kit/login) process.
 
 ### response
 
