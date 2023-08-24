@@ -61,7 +61,7 @@ The account name where the contract is deployed needs to be passed as a paramete
 
 With an instance of a `Contract` now loaded, the application can make use of it to either:
 
-- [Create actions for use in transact](#)
-- [Load data from the contract tables](#)
+- [Create actions for use in transact](/guides/contract-kit/creating-actions)
+- [Load data from the contract tables](/guides/contract-kit/reading-tables)
 
 Stay tuned as more [guides](/guides), [documentation](/docs) and [example codebases](https://github.com/orgs/wharfkit/repositories?q=example&type=all&language=&sort=) are added, or ask questions in the [Github discussion board for WharfKit](https://github.com/orgs/wharfkit/discussions)!
