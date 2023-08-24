@@ -59,7 +59,7 @@ export function filterDocumentationArticles(
 export function createBreadcrumbs({ rootPath, rootTitle, section, doc }: { rootPath: string, rootTitle: string, section: string, doc?: DocumentationArticle }): BreadCrumb[] {
   const breadcrumbs: BreadCrumb[] = [
     { title: rootTitle, path: rootPath },
-    { title: capitalize(section), path: `${rootPath}/${section}` },
+    { title: formatSectionTitle(section), path: `${rootPath}/${section}` },
   ]
 
   if (doc) {

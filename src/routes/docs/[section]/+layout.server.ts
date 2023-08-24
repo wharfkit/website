@@ -27,7 +27,7 @@ export const load = (async ({ parent, params }) => {
     toc: section.indexPage.toc,
     title: section.indexPage.title,
     headings: section.indexPage.headings,
-    breadcrumbs: createBreadcrumbs({ rootPath, rootTitle, section: section.title }),
+    breadcrumbs: createBreadcrumbs({ rootPath, rootTitle, section: section.slug }),
   };
 
 }) satisfies LayoutServerLoad;

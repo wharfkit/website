@@ -31,7 +31,7 @@ export const load = (async ({ params, parent }) => {
         headings: doc.headings,
         title: doc.title,
         toc: doc.toc,
-        breadcrumbs: createBreadcrumbs({ rootPath, rootTitle, section: section.title, doc }),
+        breadcrumbs: createBreadcrumbs({ rootPath, rootTitle, section: section.slug, doc }),
     }
 }) satisfies PageLoad;
 
