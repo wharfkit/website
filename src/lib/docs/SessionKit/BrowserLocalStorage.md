@@ -1,7 +1,7 @@
 ---
 title: BrowserLocalStorage
 description: The default SessionStorage adapter used by the Session Kit to persist data within applications.
-category: Session Kit
+category: SessionKit
 published: true
 hidden: true
 ---
