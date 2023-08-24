@@ -168,9 +168,9 @@ class WalletPluginExample extends AbstractWalletPlugin {
 
 ### Method: Sign
 
-One of the primary purposes of a `WalletPlugin` is to facilitate the signing of transactions. To do this it must implement the `sign` method, which accepts two parameters: a [ResolvedSigningRequest](#) and a [TransactContext](/docs/session-kit/transact-context).
+One of the primary purposes of a `WalletPlugin` is to facilitate the signing of transactions. To do this it must implement the `sign` method, which accepts two parameters: a [ResolvedSigningRequest](#) and a TransactContext.
 
-**Note**: If during the [Transact](/docs/session-kit/transact) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](/docs/session-kit/plugin-user-interface) instance provided on the [TransactContext](/docs/session-kit/transact-context) can be used to prompt the user.
+**Note**: If during the [Transact](/docs/session-kit/transact) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](/docs/session-kit/plugin-user-interface) instance provided on the TransactContext can be used to prompt the user.
 
 The `WalletPlugin` will then need to communicate with the external application, relaying the transaction, in order to retrieve a signature. This process should return an object that matches the [WalletPluginSignResponse](https://wharfkit.github.io/session/interfaces/WalletPluginSignResponse.html) interface that contains:
 

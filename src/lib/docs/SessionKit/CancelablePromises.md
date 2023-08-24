@@ -21,7 +21,7 @@ Why
 ## Reference
 
 - LoginContext
-- [TransactContext](/docs/session-kit/transact-context)
+- TransactContext
 - [LoginPlugin](/docs/session-kit/plugin-login)
 - [TransactPlugin](/docs/session-kit/plugin-transact)
 - [WalletPlugin](/docs/session-kit/plugin-wallet)
