@@ -1,7 +1,7 @@
 ---
 title: "Plugin: Transact"
 description: "Extend the functionality of the Session Kit's transaction processing by creating and/or including plugins your application."
-category: Session Kit
+category: SessionKit
 published: true
 order: 999
 ---
