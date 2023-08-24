@@ -1,7 +1,7 @@
 ---
 title: Restore
 description: The restore method of the Session Kit allows the retrieval and use of a persisted Session between uses of an application.
-category: Session Kit
+category: SessionKit
 published: true
 ---
 
