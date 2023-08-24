@@ -71,10 +71,8 @@ A number of methods are available on an instance of the `SessionKit`.
 - [Login](/docs/session-kit/login): Initiate the login process for a user.
 - [Logout](/docs/session-kit/logout): Perform a logout of a given session, or logout all existing sessions.
 - [Restore](/docs/session-kit/restore): Restore and return the most recently used session, or a specific session based on the args provided.
-- [restoreAll](#): Restore all sessions and return them in an array.
-- [getSessions](#): Return an array of [SerializedSessions](#)
-
-### Properties
+- `restoreAll`: Restore all sessions and return them in an array.
+- `getSessions`: Return an array of [SerializedSessions](#)
 
 ## Related Materials
 
