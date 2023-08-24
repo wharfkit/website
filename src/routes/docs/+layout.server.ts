@@ -4,7 +4,14 @@ import { fetchGroupedDocs, orderSections, importedDocs } from "$lib/utils"
 /**
  * Order the sections here.
  */
-const displayOrder = ["SessionKit", "ContractKit", "AccountKit", "Utilities", "Antelope"]
+// prettier-ignore
+const displayOrder = [
+  "session-kit",
+  "contract-kit",
+  "account-kit",
+  "utilities",
+  "antelope"
+]
 
 export const prerender = true
 

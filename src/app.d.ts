@@ -42,6 +42,7 @@ interface DocumentationArticle {
 
 interface DocumentationSection {
   title: string
+  slug: string
   indexPage: DocumentationArticle
   articles: DocumentationArticle[]
 }
@@ -57,8 +58,8 @@ interface DocumentationMetadata extends MarkdownMetadata {
 }
 
 interface HeadingNode {
+  id: string | undefined
   text: string
-  id: string
   elName: string
 }
 
