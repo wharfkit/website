@@ -1,10 +1,9 @@
 ---
 title: Session
-description: A Session represents the connection between an applications code and a Antelope blockchain account. It can be used to allow users to perform smart contract actions using a wallet of their choice, or directly perform actions given a private key.
+description: A Session represents the connection between an application's code and an Antelope blockchain account. It can be used to allow users to perform smart contract actions using a wallet of their choice, or directly perform actions given a private key.
 category: SessionKit
 order: 1
 published: true
-requiresReview: true
 ---
 
 # Session
@@ -13,9 +12,9 @@ Each `Session` class instance represents a specific [blockchain account](https:/
 
 ## Creation
 
-Sessions can be created manually for use in applications so long as all the relevant data is provided. Once created a `Session` will offer multiple read-only properties and a handful of methods.
+Sessions can be created manually for use in applications, so long as all the relevant data is provided. Once created, a `Session` will offer multiple read-only properties and a handful of methods.
 
-The minimum required information to create a `Session` instance is as follows.
+The minimum required information to create a `Session` instance is as follows:
 
 ```ts
 import { Session } from "@wharfkit/session"
@@ -43,10 +42,10 @@ const session = new Session(args, options)
 
 The first parameter passed to the `Session` is an object containing all the required configuration data.
 
-- `chain`: The [ChainDefinition](/docs/utilities/common-library#chaindefinition) that defines which blockchain this session is for
-- `actor`: The name of the account on the defined blockchain the session will utilize.
-- `permission`: The name of the [Permission](#) associated to the account the session will use.
-- `walletPlugin`: An instance of a [WalletPlugin](/docs/session-kit/plugin-wallet) that allows signing transactions for this session.
+- `chain`: The [ChainDefinition](/docs/utilities/common-library#chaindefinition) that defines which blockchain this session is for.
+- `actor`: The name of the account on the defined blockchain that the session will utilize.
+- `permission`: The name of the [Permission](#) associated to the account that the session will use.
+- `walletPlugin`: An instance of a [WalletPlugin](/docs/sessionkit/plugin-wallet) that allows signing transactions for this session.
 
 ### [Options](https://wharfkit.github.io/session/interfaces/SessionOptions.html)
 
@@ -59,10 +58,10 @@ The second parameter is an optional object, with every individual property of th
 - `broadcast`: A boolean value indicating whether the `transact` call should broadcast transactions by default.
 - `expireSeconds`: An integer indicating the default number of seconds to specify for the expiration value during the [Transact](/docs/session-kit/transact) call.
 - `fetch`: An instance of fetch, if required in a server side application based on the Node.js version.
-- `storage`: An instance of [SessionStorage](/docs/session-kit/session-storage) if the application needs to override the default storage mechanisms.
-- `transactPlugins`: An array of [TransactPlugin](/docs/session-kit/plugin-transact) instances this session should use.
-- `transactPluginsOptions`: An object containing key/value pairs of any options required by the [TransactPlugin](/docs/session-kit/plugin-transact) instances provided.
-- `ui`: An instance of a [UserInterface](/docs/session-kit/plugin-user-interface) if this Session is being used in a environment where required.
+- `storage`: An instance of [SessionStorage](/docs/sessionkit/session-storage) if the application needs to override the default storage mechanisms.
+- `transactPlugins`: An array of [TransactPlugins](/docs/sessionkit/plugin-transact) instances this session should use.
+- `transactPluginsOptions`: An object containing key/value pairs of any options required by the [TransactPlugin](/docs/sessionkit/plugin-transact) instances provided.
+- `ui`: An instance of a [UserInterface](/docs/sessionkit/plugin-user-interface), if this Session is being used in a environment where required.
 
 ## Usage
 
@@ -73,7 +72,7 @@ Once a `Session` instance is created, methods can be called to perform specific 
 - `transact`: The [Transact](/docs/session-kit/transact) method is the most commonly used method on a `Session` instance and is used to sign and broadcast a transaction.
 - `serialize`: A method which converts the `Session` into a plain JSON object for storage purposes.
 
-A complete list of all methods found on can be found in the [class definition](https://wharfkit.github.io/session/classes/Session.html#abiCache).
+A complete list of all methods can be found in the [class definition](https://wharfkit.github.io/session/classes/Session.html#abiCache).
 
 ### Properties
 

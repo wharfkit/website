@@ -1,15 +1,14 @@
 ---
 title: "Plugin: Login"
-description: "Extend the functionality of the Session Kit's transaction processing by creating and/or including plugins your application."
+description: "Extend the functionality of the Session Kit's transaction processing by creating and/or including plugins in your application."
 category: SessionKit
 published: true
 order: 999
-requiresReview: true
 ---
 
 # LoginPlugin
 
-A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/session-kit) that allows custom logic to be performed as an end user is authenticating through the [Login](/docs/session-kit/login) call. These plugins can be developed either for a specific applications needs or built generically and released publicly as packages any application can use.
+A `LoginPlugin` is a type of plugin for the [Session Kit](/docs/sessionkit) that allows custom logic to be performed when an end user is authenticating through the [Login](/docs/sessionkit/login) call. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
 
 ## Usage
 
@@ -42,9 +41,9 @@ const result = await sessionKit.login({
 
 ## Development
 
-The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools for developers to create plugins for the [SessionKit](/docs/session-kit/session-kit-factory). These plugins register custom logic through the use of hooks which are performed at specific points during the [Login](/docs/session-kit/login) call.
+The `LoginPlugin` interface and `AbstractLoginPlugin` abstract class are tools to help developers create plugins for the [SessionKit](/docs/sessionkit/session-kit-factory). These plugins register custom logic through the use of hooks, which are performed at specific points during the [Login](/docs/sessionkit/login) call.
 
-The [login-plugin-template](https://github.com/wharfkit/login-plugin-template) is available as a template on Github to help developers get started.
+The [login-plugin-template](https://github.com/wharfkit/login-plugin-template) is available on Github to help developers get started.
 
 ### Structure
 
@@ -125,12 +124,12 @@ register(context) {
 
 ### Hooks
 
-The login lifecycle currently has 3 points which hooks can be established.
+The login lifecycle currently has 3 points at which hooks can be established.
 
 - `beforeLogin`: Occurs before the login request is processed by the [WalletPlugin](/docs/session-kit/plugin-wallet).
 - `afterLogin`: Occurs after the login request is completed.
 
-These types are provided by the exported `LoginHookTypes` enumeration. Each hook type is either a mutable hook or an immutable hook, based on where in the lifecycle the hook is executed.
+These types are provided by the exported `LoginHookTypes` enumeration. Each hook type is either a mutable hook or an immutable hook, based on when the hook is executed.
 
 #### Hook Functions
 
