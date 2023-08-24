@@ -1,7 +1,7 @@
 ---
 title: "Plugin: Wallet"
 description: "Integrate external wallet software with the Session Kit to allow users to both log in and sign transactions."
-category: Session Kit
+category: SessionKit
 published: true
 order: 999
 ---
