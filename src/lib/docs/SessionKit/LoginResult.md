@@ -1,10 +1,9 @@
 ---
 title: LoginResult
-description: The data returned from a call to the login method from the Session Kit
+description: The data returned from a call to the login method from the Session Kit.
 category: SessionKit
 published: true
 hidden: true
-requiresReview: true
 ---
 
 # LoginResult
@@ -13,7 +12,7 @@ Upon a successful call to the [Login](/docs/session-kit/login) method of the [Se
 
 ## Properties
 
-The `LoginResult` object contains the following properties.
+The `LoginResult` object contains the following properties:
 
 ```ts
 interface LoginResult {
@@ -33,4 +32,4 @@ The response data from the [WalletPlugin](/docs/session-kit/plugin-wallet) used 
 
 ### session
 
-The [Session](/docs/session-kit/session) created by the [SessionKit](/docs/session-kit/session-kit-factory) based on the end user choices during the [Login](/docs/session-kit/login) process.
+The [Session](/docs/sessionkit/session) created by the [SessionKit](/docs/sessionkit/session-kit-factory), based on the end user's choices during the [Login](/docs/sessionkit/login) process.
