@@ -9,7 +9,7 @@ requiresReview: true
 
 # SessionStorage
 
-The `SessionStorage` interface is a design pattern that outlines how the [SessionKit](/docs/sessionkit/session-kit-factory) will utilize storage. Developers may use this interface to define custom storage engines should the [BrowserLocalStorage](/docs/sessionkit/browser-local-storage) included by default not meet the applications needs.
+The `SessionStorage` interface is a design pattern that outlines how the [SessionKit](/docs/session-kit/session-kit-factory) will utilize storage. Developers may use this interface to define custom storage engines should the [BrowserLocalStorage](/docs/session-kit/browser-local-storage) included by default not meet the applications needs.
 
 ## Anatomy
 

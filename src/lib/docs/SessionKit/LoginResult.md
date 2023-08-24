@@ -9,7 +9,7 @@ requiresReview: true
 
 # LoginResult
 
-Upon a successful call to the [Login](/docs/sessionkit/login) method of the [SessionKit](/docs/sessionkit/session-kit-factory), the response returned will be an object that matches the `LoginResult` interface.
+Upon a successful call to the [Login](/docs/session-kit/login) method of the [SessionKit](/docs/session-kit/session-kit-factory), the response returned will be an object that matches the `LoginResult` interface.
 
 ## Properties
 
@@ -25,12 +25,12 @@ interface LoginResult {
 
 ### context
 
-The [LoginContext](/docs/sessionkit/login-context) instance that was used by both the [SessionKit](/docs/sessionkit/session-kit-factory) and [LoginPlugins](/docs/sessionkit/plugin-login) during the [Login](/docs/sessionkit/login) process.
+The [LoginContext](/docs/session-kit/login-context) instance that was used by both the [SessionKit](/docs/session-kit/session-kit-factory) and [LoginPlugins](/docs/session-kit/plugin-login) during the [Login](/docs/session-kit/login) process.
 
 ### response
 
-The response data from the [WalletPlugin](/docs/sessionkit/plugin-wallet) used during the [Login](/docs/sessionkit/login) process.
+The response data from the [WalletPlugin](/docs/session-kit/plugin-wallet) used during the [Login](/docs/session-kit/login) process.
 
 ### session
 
-The [Session](/docs/sessionkit/session) created by the [SessionKit](/docs/sessionkit/session-kit-factory) based on the end user choices during the [Login](/docs/sessionkit/login) process.
+The [Session](/docs/session-kit/session) created by the [SessionKit](/docs/session-kit/session-kit-factory) based on the end user choices during the [Login](/docs/session-kit/login) process.

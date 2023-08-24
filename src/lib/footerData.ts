@@ -71,7 +71,7 @@ export default [
       },
       {
         name: "Sessionkit",
-        href: "/docs/sessionkit",
+        href: "/docs/session-kit",
       },
       {
         name: "Antelope",
