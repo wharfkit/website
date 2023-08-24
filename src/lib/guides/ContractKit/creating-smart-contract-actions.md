@@ -1,19 +1,19 @@
 ---
 title: Creating Actions
-category: ContractKit
+category: Contract Kit
 published: true
 order: 12
 ---
 
 # Creating Actions for an Antelope Smart Contract
 
-This guide covers how to use the Contract Kit to create an `Action` based on an existing smart contract for use in a web application. The resulting `Action` returned from this process can then be passed into the [transact](/docs/sessionkit/transact) method of a [Session](/docs/sessionkit/session).
+This guide covers how to use the Contract Kit to create an `Action` based on an existing smart contract, for use in a web application. The resulting `Action` returned from this process can then be passed into the [transact](/docs/sessionkit/transact) method of a [Session](/docs/sessionkit/session).
 
-> **NOTE**: This guide was originally written in August of 2023 and is based upon the `0.4.x` release of `@wharfkit/contract`. It will be updated once the Contract Kit is finalized to reflect any potential changes being made as we work towards a 1.0.0 release.
+> **NOTE**: This guide was originally written in August of 2023 and is based upon the `0.4.x` release of `@wharfkit/contract`. It will be updated once the Contract Kit is finalized, to reflect any potential changes that are made as we progress towards a 1.0.0 release.
 
 ## Getting Started
 
-Please review the [Dynamically loading Antelope Smart Contracts](#) guide before proceeding to understand how to establish a `Contract` instance in an application.
+Please review the [Dynamically Loading Antelope Smart Contracts](#) guide before proceeding to understand how to establish a `Contract` instance in an application.
 
 ## Creating an Action
 
@@ -29,7 +29,7 @@ The first parameter is a string that matches the name of the action as defined i
 
 The second parameter is an object that includes the required data to complete the transaction. In the example below, the `eosio.token` contract is loaded and the `transfer` method is specified, passing along the object containing the data for the transfer.
 
-The third parameter is an optional object that allows passing additional data such as specific authorizations.
+The third parameter is an optional object that allows you to pass additional data such as specific authorizations.
 
 ```ts
 // The `contract` variable is a loaded instance of the eosio.token contract
@@ -42,14 +42,14 @@ const action = contract.action("transfer", {
 })
 ```
 
-The resulting action of this call is serialized and ready to be passed in to the [transact](/docs/sessionkit/transact) method of a [Session](/docs/sessionkit/session).
+The resulting action of this call is serialized and ready to be passed into the [transact](/docs/sessionkit/transact) method of a [Session](/docs/sessionkit/session).
 
 ```ts
 // Perform the transfer action using a Session
 const result = session.transact({ action })
 ```
 
-Each `Contract` instance is reusable and can be used to create any number of actions or access table data. It also provides quick access to information about the contract itself, such as providing a list of all available actions on the `actionNames` property.
+Each `Contract` instance is reusable, and can be used to create any number of actions or access table data. It also provides quick access to information about the contract itself, such as a list of all available actions on the `actionNames` property.
 
 ```ts
 console.log(contract.actionNames)
@@ -59,9 +59,9 @@ console.log(contract.actionNames)
 */
 ```
 
-#### Manually specifying the authorization
+#### Manually Specifying the Authorization
 
-While not required, the `authorization` may be passed in the options as a 3rd parameter. By default the contract will create a placeholder authorization which the [Session](/docs/sessionkit/session) will automatically resolve to the current account and permission.
+While not required, the `authorization` may be passed in the options as a 3rd parameter. By default, the contract will create a placeholder authorization, which the [Session](/docs/sessionkit/session) will automatically resolve to the current account and permission.
 
 ```ts
 const action = contract.action(
@@ -115,7 +115,7 @@ Action {
 */
 ```
 
-We'd recommend getting familiar with these types and using them, you can find more information about them in the [Antelope documentation](/docs/antelope). If you do need to work with native Javascript data types in your application, there are a number of methods to convert this data to standard types.
+We'd recommend getting familiar with these types and using them - you can find more information about them in the [Antelope documentation](/docs/antelope). If you do need to work with native Javascript data types in your application, there are a number of methods to convert this data to standard types.
 
 To convert the entire action back to a plain JSON representation of the entire action object, the `Serializer.objectify()` method can be used against the `Action` itself.
 
