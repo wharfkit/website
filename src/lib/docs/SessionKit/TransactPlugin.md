@@ -159,7 +159,7 @@ const result = session.transact(
 
 ### Register
 
-At the core of a `TransactPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the [TransactContext](/docs/session-kit/transact-context) provided as `context`.
+At the core of a `TransactPlugin` is the `register` method, which is responsible for registering custom logic at specific points in the transaction lifecycle through the use of hooks. This `register` call is made available to the plugin through the TransactContext provided as `context`.
 
 ```ts
 register(context) {
@@ -196,7 +196,7 @@ type TransactHookMutable = (
 ) => Promise<TransactHookResponse | void>
 ```
 
-The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](#) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context`, which is the [TransactContext](/docs/session-kit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
+The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](#) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context`, which is the TransactContext instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
 
 The hook function must either return nothing, or return an object that matches the [TransactHookResponse](https://wharfkit.github.io/session/interfaces/TransactHookResponse.html) interface. This requires that it pass back a `request` value, which can either be modified or simply pass back the `request` value it received. This response may also optionally pass back an array of signatures, if the plugin itself was responsible for appending signatures to this upcoming transaction.
 
@@ -223,7 +223,7 @@ type TransactHookImmutable = (
 ) => Promise<void>
 ```
 
-The first parameter of a `TransactHookImmutable` is the `result` value and is an instance of [TransactResult](/docs/session-kit/transact-result) that contains information about the results of a transaction up until that point in time. The second is the `context`, which is the [TransactContext](/docs/session-kit/transact-context) instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
+The first parameter of a `TransactHookImmutable` is the `result` value and is an instance of [TransactResult](/docs/session-kit/transact-result) that contains information about the results of a transaction up until that point in time. The second is the `context`, which is the TransactContext instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
 
 These hooks do not need to return anything, and anything they return will be ignored.
 
