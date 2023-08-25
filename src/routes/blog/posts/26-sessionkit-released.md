@@ -22,7 +22,7 @@ One of the major components of Wharf, the [Session Kit](/kits/session), is now p
 
 All of these [and more](https://github.com/orgs/wharfkit/repositories) are available now, and compatible with the Session Kit v1.0 release.
 
-Ready to get started? Follow one of our [Session Kit Guides](/guides/sessionkit) to learn how to integrate or build an Antelope-based web application. If you have any questions, we invite you to join the [Discussions on Github](https://github.com/orgs/wharfkit/discussions).
+Ready to get started? Follow one of our [Session Kit Guides](/guides/session-kit) to learn how to integrate or build an Antelope-based web application. If you have any questions, we invite you to join the [Discussions on Github](https://github.com/orgs/wharfkit/discussions).
 
 ## WharfKit.com
 

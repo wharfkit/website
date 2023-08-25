@@ -3,8 +3,8 @@
   import Sidebar from "$lib/components/Sidebar.svelte"
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte"
   import TOC from "$lib/components/TOC.svelte"
-  import ScrollToTop from "$lib/components/ScrollToTop.svelte"
   import { page } from "$app/stores"
+  import ObserveSections from "../../lib/components/ObserveSections.svelte"
   export let data: LayoutData
   const { docs } = data
 
@@ -49,21 +49,22 @@
 <main>
   <Sidebar {docs} title={data.rootTitle} rootPath={data.rootPath} />
 
+  {#if tocVisible && headings && headings.length > 0}
+    <aside>
+      <TOC {headings} {title} {section} />
+    </aside>
+  {/if}
+
   <div class="content">
     {#if breadcrumbs}
       <nav aria-label="Breadcrumbs">
         <Breadcrumbs {breadcrumbs} />
       </nav>
     {/if}
-    <slot />
+    <ObserveSections>
+      <slot />
+    </ObserveSections>
   </div>
-
-  {#if tocVisible && headings && headings.length > 0}
-    <aside>
-      <TOC {headings} {title} {section} />
-      <ScrollToTop />
-    </aside>
-  {/if}
 </main>
 
 <style>
@@ -87,6 +88,17 @@
     main {
       gap: var(--space-l-xl);
       grid-template-columns: 16rem minmax(0, 1fr) 0px;
+    }
+
+    aside {
+      display: none;
+      grid-column: 3 / 4;
+      grid-row: 1;
+    }
+
+    .content {
+      grid-column: 2 / 3;
+      grid-row: 1;
     }
   }
 

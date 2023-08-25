@@ -57,12 +57,10 @@
 
 <main>
   <article class="stack">
-    {#if image}
-      <img src={image} alt="blog post header" />
-    {/if}
-
     {#if videolink}
       <Video {videolink} {transcriptlink} />
+    {:else if image}
+      <img src={image} alt="blog post header" />
     {/if}
 
     <header>
@@ -98,5 +96,11 @@
   img {
     border-radius: var(--space-s);
     margin-block: var(--space-m);
+  }
+
+  article :global(section) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
   }
 </style>

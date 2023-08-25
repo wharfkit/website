@@ -15,7 +15,10 @@
   --theme-text-heading-inverse: white;
   --theme-text-body: var(--color-neutral-900);
   --theme-text-body-inverse: var(--color-neutral-300);
-  --theme-text-link: var(--color-secondary-600);
+
+  --theme-text-link: #0a836f;
+  --theme-text-link-hover: #1cb095;
+  --theme-text-link-visited: #7a4578;
 
   --theme-surface1: white;
   --theme-surface2: var(--color-secondary-50);
@@ -31,6 +34,7 @@
   --sidebar-item-color: var(--color-secondary-600);
 
   --theme-border1: hsla(0 0% 0% / 0.2);
+  --theme-border2: hsla(0 0% 0% / 0.1);
 }
 
 @mixin theme-dark {
@@ -44,7 +48,10 @@
   --theme-text-heading-inverse: var(--wharf-blue);
   --theme-text-body: var(--color-neutral-300);
   --theme-text-body-inverse: var(--color-neutral-900);
-  --theme-text-link: var(--reef-turquoise);
+
+  --theme-text-link: #35ccae;
+  --theme-text-link-hover: #b2f2e1;
+  --theme-text-link-visited: #f8b9ff;
 
   --theme-surface1: hsl(228, 15%, 18%);
   --theme-surface2: #262936;
@@ -60,6 +67,7 @@
   --sidebar-item-color: var(--color-primary-100);
 
   --theme-border1: hsla(0 0% 100% / 0.2);
+  --theme-border2: hsla(0 0% 100% / 0.1);
 }
 
 :root {

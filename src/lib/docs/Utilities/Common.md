@@ -1,16 +1,15 @@
 ---
 title: Common Library
-description: A library of common tools, types, and data made available throughout the entire Wharf SDK product suite
+description: A library of common tools, types, and data made available throughout the entire Wharf SDK product suite.
 category: Utilities
 published: true
-requiresReview: true
 ---
 
 # Common
 
-The `@wharfkit/common` is an open source library that provides shared types and functionality across the Wharf project. It is published on [npmjs.org](https://npmjs.com/package/@wharfkit/common) is available on [Github](https://github.com/wharfkit/common/). It is automatically included with many Wharf packages and made available as part of their distribution.
+The `@wharfkit/common` is an open-source library that provides shared types and functionality across the Wharf project. It is published on [npmjs.org](https://npmjs.com/package/@wharfkit/common), and is available on [Github](https://github.com/wharfkit/common/). It is automatically included with many Wharf packages and made available as part of their distribution.
 
-These are the components found within this package.
+Listed below are the components found within this package.
 
 ## Chains
 
@@ -18,7 +17,7 @@ These are the components found within this package.
 import { Chains } from "@wharfkit/common"
 ```
 
-The `Chains` constant is a predefined list of known blockchains. Each blockchain stored here contains a completed [ChainDefinition](/docs/utilities/common-library#chaindefinition) ready for use in an application. These can be passed in during the initialization of the [SessionKit](/docs/sessionkit) or the ContractKit.
+The `Chains` constant is a predefined list of known blockchains. Each blockchain stored here contains a completed [ChainDefinition](/docs/utilities/common-library#chaindefinition) that is ready for use in an application. These can be passed in during the initialization of the [Session Kit](/docs/session-kit) or the Contract Kit.
 
 ```ts
 const sessionKit = new SessionKit({
@@ -37,7 +36,7 @@ import { ChainDefinition } from "@wharfkit/common"
 
 The `ChainDefinition` class is provided to define the information required to describe an Antelope blockchain. It contains identifying information about the network and connection information.
 
-The most basic instantiation of a `ChainDefinition` requires passing the blockchains ID and the URL of an API it can use to connect with.
+The most basic instantiation of a `ChainDefinition` requires passing the blockchain's ID and the URL of an API it can use to connect with.
 
 ```ts
 const jungle = ChainDefinition.from({

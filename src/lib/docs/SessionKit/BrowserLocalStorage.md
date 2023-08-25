@@ -4,16 +4,15 @@ description: The default SessionStorage adapter used by the Session Kit to persi
 category: SessionKit
 published: true
 hidden: true
-requiresReview: true
 ---
 
 # BrowserLocalStorage
 
-The `BrowserLocalStorage` is the default [SessionStorage](/docs/sessionkit/session-storage) adapter used by the [SessionKit](/docs/sessionkit/session-kit-factory). It is used to persist [Session](/docs/sessionkit/session) data in the application and utilizes `localStorage` as the storage medium.
+The `BrowserLocalStorage` is the default [SessionStorage](/docs/session-kit/session-storage) adapter used by the [SessionKit](/docs/session-kit/session-kit-factory). It is used to persist [Session](/docs/session-kit/session) data in the application and utilizes `localStorage` as the storage medium.
 
 ## Usage
 
-By default no action is needed to use the `BrowserLocalStorage` as it is included as the default `storage` value on the [SessionKit](/docs/sessionkit/session-kit-factory).
+By default no action is needed to use `BrowserLocalStorage`, as it is included as the default `storage` value on the [SessionKit](/docs/session-kit/session-kit-factory).
 
 ## Anatomy
 

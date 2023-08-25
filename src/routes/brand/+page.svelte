@@ -311,6 +311,7 @@
     gap: var(--space-3xs);
     transition: var(--background-transition);
     flex: 1;
+    word-break: break-all;
   }
 
   p.montserrat {

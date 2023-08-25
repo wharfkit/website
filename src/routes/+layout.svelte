@@ -4,6 +4,8 @@
   import Header from "$lib/components/Header/Header.svelte"
   import Footer from "$lib/components/Footer.svelte"
   import Seo from "$lib/components/Seo.svelte"
+  import ScrollListener from "$lib/components/ScrollListener.svelte"
+  import ScrollToTop from "$lib/components/ScrollToTop.svelte"
 
   const PROD = import.meta.env.PROD
   const BASE_URL = import.meta.env.BASE_URL
@@ -70,7 +72,9 @@
 <div class="page">
   <slot />
 </div>
+<ScrollToTop />
 <Footer />
+<ScrollListener />
 
 <style>
   .page {
