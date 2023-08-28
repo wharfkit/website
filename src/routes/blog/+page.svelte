@@ -22,8 +22,9 @@
 
 <main>
   <h1 class="visually-hidden">Blog</h1>
-  <FeaturedPost post={newestPost} />
-
+  {#key newestPost}
+    <FeaturedPost post={newestPost} />
+  {/key}
   <section>
     <aside>
       <nav>
@@ -50,21 +51,23 @@
       </nav>
     </aside>
 
-    <div class="list">
-      <ul class="posts">
-        {#each posts as post}
-          <li>
-            <PostPreview {post} />
-          </li>
-        {/each}
-      </ul>
+    {#key posts}
+      <div class="list">
+        <ul class="posts">
+          {#each posts as post}
+            <li>
+              <PostPreview {post} />
+            </li>
+          {/each}
+        </ul>
 
-      {#if tag && data.posts.length < data.totals.tags[tag]}
-        <button class="button" on:click={() => loadMore()}>Load more {tag}s</button>
-      {:else if !tag && data.posts.length < data.totals.total}
-        <button class="button" on:click={() => loadMore()}>Load more posts</button>
-      {/if}
-    </div>
+        {#if tag && data.posts.length < data.totals.tags[tag]}
+          <button class="button" on:click={() => loadMore()}>Load more {tag}s</button>
+        {:else if !tag && data.posts.length < data.totals.total}
+          <button class="button" on:click={() => loadMore()}>Load more posts</button>
+        {/if}
+      </div>
+    {/key}
   </section>
 </main>
 
