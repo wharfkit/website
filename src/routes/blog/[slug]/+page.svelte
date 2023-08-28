@@ -25,7 +25,7 @@
     body[data-theme="light"] {
       --footer-background: var(--swell-mist);
       --footer-background: white;
-      --page-background: url("/src/lib/assets/patterns/2545.svg") no-repeat right top -5rem / contain, 
+      --page-background: url("/images/patterns/2545.svg") no-repeat right top -5rem / contain, 
       linear-gradient(
         180deg,
         #494E62 5rem,
@@ -38,7 +38,7 @@
 
     /* prettier-ignore */
     body[data-theme="dark"] {
-      --page-background: url("/src/lib/assets/patterns/2545.svg") no-repeat right top -5rem / contain, 
+      --page-background: url("/images/patterns/2545.svg") no-repeat right top -5rem / contain, 
         linear-gradient(180deg, 
         #7BE7CE -8rem, 
         /* #494E62 10rem,  */
