@@ -2,6 +2,8 @@
   import { capitalize } from "$lib/utils"
 
   export let post: BlogPost
+  export let sort: string | null
+
   let { title, path, image, tags, description } = post
 </script>
 
@@ -14,7 +16,7 @@
 
   <a class="card" href={path}>
     <header>
-      <p class="tag">Latest {capitalize(tags[0])}</p>
+      <p class="tag">{sort === "asc" ? "Oldest" : "Latest"} {capitalize(tags[0])}</p>
       <h2>{title}</h2>
       <p class="description">{description}</p>
     </header>
@@ -48,11 +50,12 @@
   }
 
   header h2 {
-    margin-top: var(--space-2xs);
     font-size: var(--fs-5);
   }
 
   .description {
+    font-family: var(--ff-body);
+    font-weight: 400;
     margin-top: var(--space-xs);
   }
 

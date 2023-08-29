@@ -82,9 +82,11 @@ interface DocUpdate {
 interface BlogQueryOptions {
   limit?: number
   tag?: BlogPostTag
+  sort?: BlogPostSort
 }
 
 type BlogPostTag = "video" | "article" | "all"
+type BlogPostSort = "asc" | "desc"
 
 interface BlogPost {
   title: string

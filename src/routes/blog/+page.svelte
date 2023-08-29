@@ -1,6 +1,7 @@
 <script lang="ts">
   import PostPreview from "$lib/components/PostPreview.svelte"
   import FeaturedPost from "$lib/components/FeaturedPost.svelte"
+  import Dropdown from "$lib/components/Dropdown.svelte"
   import type { PageData } from "./$types"
   import { page } from "$app/stores"
   import { goto } from "$app/navigation"
@@ -9,6 +10,7 @@
   export let data: PageData
 
   $: tag = $page.url.searchParams.get("tag")
+  $: sort = $page.url.searchParams.get("sort")
 
   const loadMore = () => {
     const url = new URL($page.url)
@@ -17,13 +19,19 @@
     goto(url, { noScroll: true })
   }
 
+  $: getLink = (tag: string) => {
+    const url = new URL($page.url)
+    url.searchParams.set("tag", tag)
+    return String(url)
+  }
+
   $: [newestPost, ...posts] = data.posts
 </script>
 
 <main>
   <h1 class="visually-hidden">Blog</h1>
   {#key newestPost}
-    <FeaturedPost post={newestPost} />
+    <FeaturedPost post={newestPost} {sort} />
   {/key}
   <section>
     <aside>
@@ -31,19 +39,20 @@
         <div class="sidebar-header">
           <p class="sidebar-title"><a href="/blog">Blog</a></p>
         </div>
+        <Dropdown />
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="/blog?tag=all" class="sidebar-subtitle" class:active={tag === "all"}>
+            <a href={getLink("all")} class="sidebar-subtitle" class:active={tag === "all"}>
               All posts ({data.totals.total})
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="/blog?tag=video" class="sidebar-subtitle" class:active={tag === "video"}>
+            <a href={getLink("video")} class="sidebar-subtitle" class:active={tag === "video"}>
               Videos ({data.totals.tags["video"]})
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="/blog?tag=article" class="sidebar-subtitle" class:active={tag === "article"}>
+            <a href={getLink("article")} class="sidebar-subtitle" class:active={tag === "article"}>
               Articles ({data.totals.tags["article"]})
             </a>
           </li>
