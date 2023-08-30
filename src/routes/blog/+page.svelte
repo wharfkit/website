@@ -28,6 +28,29 @@
   $: [newestPost, ...posts] = data.posts
 </script>
 
+<svelte:head>
+  <style>
+    /* prettier-ignore */
+    body[data-theme="dark"] {
+      --footer-background: #262936;
+      --page-background: url("/images/patterns/2545.svg") no-repeat center top -5rem / contain, 
+        linear-gradient(180deg, 
+        #7BE7CE -10rem, 
+        /* #494E62 10rem,  */
+        color-mix(in srgb, #494E62 100%, #262936) 10rem,
+        color-mix(in srgb, #494E62 60%, #262936) 15rem,
+        color-mix(in srgb, #494E62 40%, #262936) 17rem,
+        color-mix(in srgb, #494E62 20%, #262936) 20rem,
+        color-mix(in srgb, #494E62 10%, #262936) 22rem,
+        color-mix(in srgb, #262936 30%, #151720) 27rem,
+        #151720 30rem,
+        #151720 calc(100% - 10rem),
+        var(--color-primary-999) 100%
+        ) no-repeat;
+    }
+  </style>
+</svelte:head>
+
 <main>
   <h1 class="visually-hidden">Blog</h1>
   {#key newestPost}
@@ -90,7 +113,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
-    gap: var(--space-xl);
+    gap: var(--space-4xl);
   }
 
   aside {
@@ -127,10 +150,11 @@
   @media screen and (min-width: 900px) {
     aside {
       display: block;
+      width: 100%;
     }
 
     section {
-      grid-template-columns: 16rem minmax(0, 1fr);
+      grid-template-columns: 12rem minmax(0, 1fr);
       justify-items: start;
     }
 
