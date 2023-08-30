@@ -2,20 +2,24 @@
   import { page } from "$app/stores"
   import { goto } from "$app/navigation"
 
-  // $: sort = $page.url.searchParams.get("sort")
-
   const options = [
-    { value: "desc", label: "Newest" },
-    { value: "asc", label: "Oldest" },
+    { value: "desc", label: "Latest posts" },
+    { value: "asc", label: "Oldest posts" },
   ]
 
   let selected = options[0]
+  let details: HTMLDetailsElement
 
   const changeSort = () => {
     const url = new URL($page.url)
-    // const limit = Number(url.searchParams.get("limit"))
     url.searchParams.set("sort", String(selected.value))
     goto(url, { noScroll: true })
+  }
+
+  const handleClick = (option: (typeof options)[number]) => {
+    selected = option
+    changeSort()
+    details.removeAttribute("open")
   }
 </script>
 
@@ -24,7 +28,7 @@
   on:change={changeSort}
   name="sort"
   id="select-sort"
-  class="sidebar-subtitle">
+  class="visually-hidden">
   {#each options as option}
     <option value={option}>
       {option.label}
@@ -32,23 +36,92 @@
   {/each}
 </select>
 
+<details bind:this={details}>
+  <summary>
+    <span>{selected.label}</span>
+    <span>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M6 9L12 15L18 9"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </span>
+  </summary>
+  <ul>
+    {#each options as option}
+      <li>
+        <button on:click={() => handleClick(option)}>
+          {option.label}
+        </button>
+      </li>
+    {/each}
+  </ul>
+</details>
+
 <style>
-  select {
-    width: 100%;
-    margin-inline: var(--space-m);
-    padding-inline: 0;
-    border: none;
-    border-radius: var(--space-s);
-    background-color: transparent;
+  details {
+    position: relative;
+    font-family: var(--ff-body);
     font-size: var(--fs--1);
-    font-weight: 400;
-    color: var(--theme-text-heading);
-    cursor: pointer;
-    margin-block: var(--space-xs);
-    /* height: var(--space-xl); */
+    font-weight: 600;
   }
 
-  select:focus {
-    outline: 3px solid var(--theme-color-primary);
+  ul {
+    list-style: none;
+    padding-inline: var(--space-2xs);
+    padding-block: var(--space-2xs);
+    background: var(--theme-surface1);
+    border-radius: 12px;
+    margin-top: var(--space-2xs);
+    display: grid;
+    position: absolute;
+    width: 100%;
+  }
+
+  summary {
+    color: var(--theme-text-heading);
+    background: var(--theme-surface1);
+    border-radius: 12px;
+    padding-inline: var(--space-m);
+    padding-block: var(--space-2xs);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  svg {
+    transition: transform 60ms ease-out;
+  }
+
+  details[open] svg {
+    transform: rotate(-180deg);
+  }
+
+  li button {
+    padding-inline: var(--space-xs);
+    padding-block: var(--space-2xs);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--theme-text-heading);
+    width: 100%;
+    text-align: left;
+  }
+
+  summary:hover {
+    background: color-mix(in srgb, var(--theme-text-heading) 3%, var(--theme-surface1));
+  }
+
+  li button:hover {
+    background: color-mix(in srgb, var(--theme-text-heading) 3%, var(--theme-surface1));
   }
 </style>
