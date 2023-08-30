@@ -125,6 +125,10 @@
     top: var(--space-xl);
   }
 
+  .sidebar-header {
+    margin-bottom: var(--space-3xs);
+  }
+
   .sidebar-list,
   .sidebar-title {
     color: var(--theme-text-heading);
