@@ -23,13 +23,19 @@ export const getImage = (metadata: { [key: string]: any; } | undefined) => {
   }
 }
 
+const chronologicalSort = (a: { date: string; }, b: { date: string; }) => {
+  return Number(new Date(a.date)) - Number(new Date(b.date))
+}
 
+const reverseChronologicalSort = (a: { date: string; }, b: { date: string; }) => {
+  return Number(new Date(b.date)) - Number(new Date(a.date))
+}
 
 export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise<BlogPost[]> {
   const allPostFiles = import.meta.glob("/src/routes/blog/**/*.md")
   const iterablePosts = Object.entries(allPostFiles)
 
-  const { limit, tag } = queryOptions
+  const { limit, tag, sort } = queryOptions
 
   const allPosts = await Promise.all(
     iterablePosts.map(async ([source, resolver]) => {
@@ -60,8 +66,14 @@ export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise
     })
   )
 
-  // Reverse Chronological Sort Order
-  let sortedPosts = allPosts.sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+  let sortedPosts: BlogPost[]
+
+  // Sort
+  if (sort === "asc") {
+    sortedPosts = allPosts.sort(chronologicalSort)
+  } else {
+    sortedPosts = allPosts.sort(reverseChronologicalSort)
+  }
 
   // Filter by Tag
   if (tag) {
@@ -73,7 +85,6 @@ export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise
   if (limit && limit < sortedPosts.length && limit > 0) {
     sortedPosts = sortedPosts.slice(0, limit)
   }
-
 
   return sortedPosts
 }
