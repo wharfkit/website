@@ -25,6 +25,7 @@
   const toggleChange = () => {
     const value = themeToggleInput.checked ? "light" : "dark"
     theme.set(value)
+    themeToggleInput.blur()
   }
 </script>
 

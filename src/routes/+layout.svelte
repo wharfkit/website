@@ -8,11 +8,10 @@
   import ScrollToTop from "$lib/components/ScrollToTop.svelte"
 
   const PROD = import.meta.env.PROD
-  const BASE_URL = import.meta.env.BASE_URL
 </script>
 
 <svelte:head>
-  {#if PROD && BASE_URL.includes("wharfkit.com")}
+  {#if PROD}
     <script defer data-domain="wharfkit.com" src="https://stats.greymass.com/js/script.js"></script>
   {/if}
 
@@ -50,7 +49,7 @@
           hsl(229deg 21% 10%) 11rem
         ) no-repeat;
 
-      --page-background: url("/src/lib/assets/patterns/2545.svg") no-repeat center top -5rem / contain, 
+      --page-background: url("/images/patterns/2545.svg") no-repeat center top -5rem / contain, 
         linear-gradient(180deg, 
         #7BE7CE -10rem, 
         /* #494E62 10rem,  */
