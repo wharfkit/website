@@ -35,6 +35,8 @@
   }
 
   .description {
+    font-family: var(--ff-body);
+    font-weight: 400;
     margin-top: var(--space-xs);
   }
 </style>
