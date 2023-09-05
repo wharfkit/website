@@ -111,7 +111,8 @@ button {
   isolation: isolate;
 }
 
-.button:is(:visited, :hover) {
+.button:visited,
+.button:hover {
   color: var(--button-text, var(--color-primary-900));
 }
 
