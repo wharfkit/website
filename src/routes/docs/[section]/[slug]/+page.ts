@@ -24,7 +24,7 @@ export const load = (async ({ params, parent }) => {
     }
 
     return {
-        section: section.title,
+        section,
         doc,
         meta,
         headings: doc.headings,
