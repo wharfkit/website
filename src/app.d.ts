@@ -26,6 +26,7 @@ interface MarkdownMetadata {
 }
 
 interface DocumentationArticle {
+  source: string
   title: string
   path: string
   section: string
