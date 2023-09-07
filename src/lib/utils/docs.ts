@@ -169,6 +169,7 @@ export function makeDoc({ source, markdown }: { source: string, markdown: Markdo
 
   const doc = {
     ...metadata,
+    source,
     title,
     path,
     section,
