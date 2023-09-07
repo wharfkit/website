@@ -18,6 +18,7 @@ The minimum required information to create a `Session` instance is as follows:
 
 ```ts
 import { Session } from "@wharfkit/session"
+import { WalletPluginPrivateKey } from '@wharfkit/wallet-plugin-privatekey'
 
 const args = {
   chain: {
