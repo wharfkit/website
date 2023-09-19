@@ -121,11 +121,9 @@
   </section>
 
   <section class="contract | box stack center">
-    <h4>Looking to build a smart contract?</h4>
-    <p>Wharf can’t help you with that, but we’ve got some friends who can.</p>
-    <a href="https://docs.eosnetwork.com/docs/latest/quick-start/write-a-contract" class="button">
-      Go to the Antelope Developer Portal
-    </a>
+    <h2>Want to keep up with the latest Wharf developments?</h2>
+    <p>Check out our blog for regular video updates and technical previews.</p>
+    <a href="/blog" class="button">Go to the Blog</a>
   </section>
 
   <section class="cards | switcher">
@@ -150,9 +148,9 @@
   </section>
 
   <section class="box stack center">
-    <h2>Want to keep up with the latest Wharf developments?</h2>
+    <h2>Ready to dive in? Wharf's docs have everything you need to start building.</h2>
     <p>Check out our blog for regular video updates and technical previews.</p>
-    <a href="/blog" class="button">Go to the Blog</a>
+    <a href="/docs" class="button">Go to Documentation</a>
   </section>
 
   <!-- <section class="vision | full-bleed">
