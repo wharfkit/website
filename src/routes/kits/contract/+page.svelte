@@ -151,7 +151,9 @@
       Explore the new resources released by the ENF! Enhance your understanding and stay updated
       with the cutting-edge developments in the world of Smart Contracts.
     </p>
-    <a href="#" class="button">Click here to access the new resources</a>
+    <a href="https://docs.eosnetwork.com/docs/latest/quick-start/write-a-contract/" class="button">
+      Click here to access the new resources
+    </a>
   </section>
 
   <section class="feature three">
