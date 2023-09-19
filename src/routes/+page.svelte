@@ -150,9 +150,9 @@
   </section>
 
   <section class="box stack center">
-    <h2>Want to keep up with the latest Wharf developments?</h2>
+    <h2>Looking to build a smart contract?</h2>
     <p>Check out our blog for regular video updates and technical previews.</p>
-    <a href="/blog" class="button">Go to the Blog</a>
+    <a href="/docs" class="button">Go to the Blog</a>
   </section>
 
   <!-- <section class="vision | full-bleed">
