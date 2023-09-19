@@ -1,10 +1,11 @@
 <script lang="ts">
+  import slugify from "@sindresorhus/slugify"
   import { isDocNotHidden } from "../utils"
   export let currentDoc: DocumentationArticle
   export let allSections: DocumentationSection[]
 
   const getActiveSection = (doc: DocumentationArticle) =>
-    allSections.filter((section) => section.title === doc.category)[0]
+    allSections.filter((section) => section.slug === slugify(doc.category || ""))[0]
 
   const getCurrentIndex = (currentArticles: DocumentationArticle[], doc: DocumentationArticle) =>
     currentArticles.findIndex((article) => article.title === doc.title)

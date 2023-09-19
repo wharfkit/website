@@ -4,16 +4,15 @@ description: A method on an established Session that will utilize the configured
 category: SessionKit
 published: true
 order: 1
-requiresReview: true
 ---
 
 # Transact
 
-The `transact` method is available on every [Session](/docs/sessionkit/session) instance and is used to perform one or more actions against smart contracts. Once completed it will return a [TransactResult](/docs/sessionkit/transact-result) object containing the results of the actions performed.
+The `transact` method is available on every [Session](/docs/session-kit/session) instance and is used to perform one or more actions against smart contracts. Once completed, it will return a [TransactResult](/docs/session-kit/transact-result) object containing the results of the actions performed.
 
 ## Usage
 
-With an existing [Session](/docs/sessionkit/session) instance, the async method `transact` can be called with the required arguments.
+With an existing [Session](/docs/session-kit/session) instance, the async method `transact` can be called with the required arguments.
 
 ```ts
 const arguments = {
@@ -35,7 +34,7 @@ const result = await session.transact(arguments)
 
 ## Arguments
 
-The `transact` call takes an instance of [TransactArgs](https://wharfkit.github.io/session/interfaces/TransactArgs.html), which is an object that requires an object that represents a transaction specified in one of four variants.
+The `transact` call takes an instance of [TransactArgs](https://wharfkit.github.io/session/interfaces/TransactArgs.html), which requires an object that represents a transaction specified in one of four variants.
 
 ```ts
 interface TransactArgs {
@@ -57,7 +56,7 @@ Examples of each are provided below.
 
 ### Action
 
-A single [Action](#) may be passed in to the `transact` call on the `action` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](#) using this data.
+A single [Action](#) may be passed into the `transact` call on the `action` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](#) using this data.
 
 ```ts
 const arguments = {
@@ -69,7 +68,7 @@ const result = await session.transact(arguments)
 
 ### Action(s)
 
-An array of [Actions](#) may be passed in to the `transact` call on the `actions` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](#) using this data.
+An array of [Actions](#) may be passed into the `transact` call on the `actions` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](#) using this data.
 
 ```ts
 const arguments = {
@@ -85,7 +84,7 @@ const result = await session.transact(arguments)
 
 ### Transaction
 
-A complete [Transaction](#) may be passed in to the `transact` call on the `transaction` property of the arguments.
+A complete [Transaction](#) may be passed into the `transact` call on the `transaction` property of the arguments.
 
 ```ts
 const arguments = {
@@ -97,7 +96,7 @@ const result = await session.transact(arguments)
 
 ### Signing Request
 
-A [SigningRequest](#) may be passed in to the `transact` call on the `request` property of the arguments. The `transact` flow will take the request and resolve any placeholder data it contains to form a [Transaction](#).
+A [SigningRequest](#) may be passed into the `transact` call on the `request` property of the arguments. The `transact` flow will take the request and resolve any placeholder data it contains to form a [Transaction](#).
 
 ```ts
 const arguments = {
@@ -109,7 +108,7 @@ const result = await session.transact(arguments)
 
 ## Options
 
-Additional parameters may optionally be passed to the `transact` method. The option specified in this way will override the default values inherited from the [Session](/docs/sessionkit/session) for this call to `transact`.
+Additional parameters may be optionally passed to the `transact` method. The option specified in this way will override the default values inherited from the [Session](/docs/session-kit/session) for this call to `transact`.
 
 ```ts
 interface TransactOptions {
@@ -124,7 +123,7 @@ interface TransactOptions {
 }
 ```
 
-### abis
+### ABIs
 
 An array of [ABIs](#) can be passed to a specific `transact` call using the [TransactABIDef](https://wharfkit.github.io/session/interfaces/TransactABIDef.html) format.
 
@@ -135,32 +134,32 @@ interface TransactABIDef {
 }
 ```
 
-This format allows associating an account name of a contract with the [ABI](#) for the contract. Each ABI passed in this way appends the data to the internal [ABICache](#) utilized to optimize API call patterns.
+This format allows you to associate an account name of a contract with the [ABI](#) for the contract. Each ABI passed in this way appends the data to the internal [ABICache](#) utilized to optimize API call patterns.
 
-### abiCache
+### ABICache
 
 An instance of an [ABICache](#) to use for this `transact` call. This will override the built-in ABICache the [Session](#) already utilizes.
 
-### allowModify
+### AllowModify
 
-A boolean flag to indicate whether the [TransactPlugin](#) and [WalletPlugin](#) instances are allowed to modify the transaction the `transact` caller has provided. Set `allowModify: false` on the transaction if the transaction as submitted should be immutable during the call.
+A boolean flag to indicate whether the [TransactPlugin](#) and [WalletPlugin](#) instances are allowed to modify the transaction that the `transact` caller has provided. Set `allowModify: false` on the transaction if the transaction as submitted should be immutable during the call.
 
-### broadcast
+### Broadcast
 
 A boolean flag indicating whether or not the `transact` call should broadcast the signed transaction to the blockchain.
 
-### chain
+### Chain
 
 A [Checksum256](#) value representing the blockchain this transaction is specifically for. This option is only needed if calling `transact` with a [SigningRequest](#) type argument, where the request is `multichain: true`.
 
-### expireSeconds
+### ExpireSeconds
 
 The number of seconds in the future to set the expiration of the transaction, defaulting to 120.
 
-### transactPlugin
+### TransactPlugin
 
 An array of [TransactPlugin](#) instances to utilize during this specific `transact` call.
 
-### transactPluginOptions
+### TransactPluginOptions
 
 Any options required by the [TransactPlugin](#) instances.

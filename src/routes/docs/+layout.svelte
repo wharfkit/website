@@ -11,8 +11,6 @@
   $: breadcrumbs = $page.data.breadcrumbs
   $: tocVisible = $page.data.toc
   $: headings = $page.data.headings
-  $: title = $page.data.title
-  $: section = $page.data.section
 </script>
 
 <svelte:head>
@@ -49,6 +47,12 @@
 <main>
   <Sidebar {docs} title={data.rootTitle} rootPath={data.rootPath} />
 
+  {#if tocVisible && headings && headings.length > 0}
+    <aside>
+      <TOC {headings} />
+    </aside>
+  {/if}
+
   <div class="content">
     {#if breadcrumbs}
       <nav aria-label="Breadcrumbs">
@@ -59,12 +63,6 @@
       <slot />
     </ObserveSections>
   </div>
-
-  {#if tocVisible && headings && headings.length > 0}
-    <aside>
-      <TOC {headings} {title} {section} />
-    </aside>
-  {/if}
 </main>
 
 <style>
@@ -88,6 +86,17 @@
     main {
       gap: var(--space-l-xl);
       grid-template-columns: 16rem minmax(0, 1fr) 0px;
+    }
+
+    aside {
+      display: none;
+      grid-column: 3 / 4;
+      grid-row: 1;
+    }
+
+    .content {
+      grid-column: 2 / 3;
+      grid-row: 1;
     }
   }
 

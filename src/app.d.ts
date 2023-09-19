@@ -26,6 +26,7 @@ interface MarkdownMetadata {
 }
 
 interface DocumentationArticle {
+  source: string
   title: string
   path: string
   section: string
@@ -42,6 +43,7 @@ interface DocumentationArticle {
 
 interface DocumentationSection {
   title: string
+  slug: string
   indexPage: DocumentationArticle
   articles: DocumentationArticle[]
 }
@@ -57,8 +59,8 @@ interface DocumentationMetadata extends MarkdownMetadata {
 }
 
 interface HeadingNode {
+  id: string | undefined
   text: string
-  id: string
   elName: string
 }
 
@@ -81,9 +83,11 @@ interface DocUpdate {
 interface BlogQueryOptions {
   limit?: number
   tag?: BlogPostTag
+  sort?: BlogPostSort
 }
 
 type BlogPostTag = "video" | "article" | "all"
+type BlogPostSort = "asc" | "desc"
 
 interface BlogPost {
   title: string

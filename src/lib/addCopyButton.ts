@@ -13,6 +13,7 @@ export default function copyButton(
     copyBtn.innerHTML = btnText
     // activeClass acts as flag so we don't add another copy button by mistake
     copyBtn.classList.add(activeClass)
+    copyBtn.ariaLabel = "Copy code"
     node.appendChild(copyBtn)
     copyBtn.addEventListener("click", async () => {
       if (navigator.clipboard) {

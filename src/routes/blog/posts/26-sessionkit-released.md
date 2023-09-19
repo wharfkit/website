@@ -14,15 +14,15 @@ This article will outline details of the v1.0 release of the Session Kit, inform
 
 One of the major components of Wharf, the [Session Kit](/kits/session), is now production ready and available in a v1.0 release. Along with this comes the release of dozens of other important components, samples, plugins, and templates:
 
-- [The Web Renderer](#), which provides an out-of-the-box user experience.
-- [4 sample projects](#) that illustrate how Wharf integrates into popular web frameworks.
+- [The Web Renderer](https://github.com/wharfkit/web-renderer), which provides an out-of-the-box user experience.
+- [4 sample projects](https://github.com/orgs/wharfkit/repositories?q=example&type=all&language=&sort=) that illustrate how Wharf integrates into popular web frameworks.
 - [4 wallet plugins](https://github.com/wharfkit/?q=wallet&type=all&language=&sort=), which allow users to access apps with their preferred wallet.
 - [4 transact plugins](https://github.com/wharfkit/?q=transact&type=all&language=&sort=) that make performing transactions on Antelope blockchains easier.
-- [3 plugin templates](#), which allow developers to extend the Session Kit.
+- [3 plugin templates](https://github.com/orgs/wharfkit/repositories?q=template&type=all&language=&sort=), which allow developers to extend the Session Kit.
 
 All of these [and more](https://github.com/orgs/wharfkit/repositories) are available now, and compatible with the Session Kit v1.0 release.
 
-Ready to get started? Follow one of our [Session Kit Guides](/guides/sessionkit) to learn how to integrate or build an Antelope-based web application. If you have any questions, we invite you to join the [Discussions on Github](https://github.com/orgs/wharfkit/discussions).
+Ready to get started? Follow one of our [Session Kit Guides](/guides/session-kit) to learn how to integrate or build an Antelope-based web application. If you have any questions, we invite you to join the [Discussions on Github](https://github.com/orgs/wharfkit/discussions).
 
 ## WharfKit.com
 

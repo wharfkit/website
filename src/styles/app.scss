@@ -14,6 +14,7 @@ body {
   min-height: 100vh;
   gap: var(--body-gap, var(--space-xl-2xl));
   padding-block-start: var(--space-s);
+  -webkit-tap-highlight-color: transparent;
 }
 
 main {
@@ -23,14 +24,23 @@ main {
 }
 
 a {
-  color: var(--color-secondary-600);
-  color: var(--theme-text2);
+  color: var(--theme-text-link);
   font-weight: 600;
   text-decoration-thickness: 2px;
 }
 
+a:hover {
+  color: var(--theme-text-link-hover);
+}
+
+a:visited {
+  color: var(--theme-text-link-visited);
+}
+
 :is(button, a):focus-visible {
-  outline: 2px solid var(--color-primary-200);
+  outline: 2px solid var(--color-focus);
+  // outline-offset: 2px;
+  // border-radius: 12px;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -99,6 +109,11 @@ button {
   cursor: pointer;
   position: relative;
   isolation: isolate;
+}
+
+.button:visited,
+.button:hover {
+  color: var(--button-text, var(--color-primary-900));
 }
 
 .button::after {

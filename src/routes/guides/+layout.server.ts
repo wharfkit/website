@@ -1,22 +1,26 @@
-import type { LayoutServerLoad } from './$types'
-import { fetchGroupedDocs, orderSections, importedGuides } from "$lib/utils";
+import type { LayoutServerLoad } from "./$types"
+import { fetchGroupedDocs, orderSections, importedGuides } from "$lib/utils"
 
 /**
  * Order the sections here.
+ * prettier-ignore
  */
-const displayOrder = [
-    'SessionKit',
-];
+const displayOrder = ["session-kit", "contract-kit"]
 
 export const prerender = true
 
 export const load = (async () => {
-    const groupedDocs = await fetchGroupedDocs(importedGuides)
-    const orderedDocs = orderSections(groupedDocs, displayOrder)
+  const groupedDocs = await fetchGroupedDocs(importedGuides)
+  const orderedDocs = orderSections(groupedDocs, displayOrder)
 
-    return {
-        rootPath: '/guides',
-        rootTitle: 'Guides',
-        docs: orderedDocs,
-    }
+  const meta = {
+    title: "Guides",
+  }
+
+  return {
+    rootPath: "/guides",
+    rootTitle: "Guides",
+    docs: orderedDocs,
+    meta,
+  }
 }) satisfies LayoutServerLoad

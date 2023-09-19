@@ -52,7 +52,7 @@
     background: var(--footer-background, var(--theme-footer-background));
     padding-inline: var(--page-padding-inline);
     padding-block: var(--space-m);
-    z-index: 999;
+    z-index: 900;
   }
 
   nav {

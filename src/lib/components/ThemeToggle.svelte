@@ -25,6 +25,7 @@
   const toggleChange = () => {
     const value = themeToggleInput.checked ? "light" : "dark"
     theme.set(value)
+    themeToggleInput.blur()
   }
 </script>
 
@@ -77,7 +78,6 @@
     -webkit-tap-highlight-color: transparent;
     overflow: hidden;
     align-self: stretch;
-    /* border: 1px solid green; */
     width: 48px;
     position: relative;
   }
@@ -95,8 +95,11 @@
     );
   }
 
+  label:focus-within {
+    outline: 2px solid var(--color-focus);
+  }
+
   .icons {
-    /* border: 1px solid red; */
     height: 200%;
     width: 20px;
     display: grid;

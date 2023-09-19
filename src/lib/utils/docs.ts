@@ -40,13 +40,14 @@ export function filterDocumentationArticles(
 
   const filteredSections: DocumentationSection[] = [];
 
-  sections.forEach(({ articles, title, indexPage }) => {
+  sections.forEach((section) => {
+    const { articles, title } = section;
     const filteredArticles = articles.filter((article) =>
       article.title.toLowerCase().includes(query.toLowerCase())
     );
 
     if (filteredArticles.length > 0 || title.toLowerCase().includes(query.toLowerCase())) {
-      filteredSections.push({ articles: filteredArticles, title, indexPage });
+      filteredSections.push({ ...section, articles: filteredArticles });
     }
   });
 
@@ -58,7 +59,7 @@ export function filterDocumentationArticles(
 export function createBreadcrumbs({ rootPath, rootTitle, section, doc }: { rootPath: string, rootTitle: string, section: string, doc?: DocumentationArticle }): BreadCrumb[] {
   const breadcrumbs: BreadCrumb[] = [
     { title: rootTitle, path: rootPath },
-    { title: capitalize(section), path: `${rootPath}/${section}` },
+    { title: formatSectionTitle(section), path: `${rootPath}/${section}` },
   ]
 
   if (doc) {
@@ -162,12 +163,13 @@ export function makeDoc({ source, markdown }: { source: string, markdown: Markdo
   const description = metadata?.description || getFirstParagraph(content)
   const toc = metadata?.toc ?? true
   const root = source.split("/")[3]
-  const section = metadata?.category?.toLowerCase() || ""
+  const section = slugify(metadata?.category || "")
   const path = `/${root}/${section}/${slug}`
   const headings = parseHeadings(content)
 
   const doc = {
     ...metadata,
+    source,
     title,
     path,
     section,
@@ -192,7 +194,12 @@ export function orderSections(groupedDocs: Record<string, DocumentationArticle[]
     const allArticles = groupedDocs[section.toLowerCase()]
     if (!allArticles) return []
     const [indexPage, articles] = extractSectionIndexPage(allArticles)
-    return { title: formatSectionTitle(section), articles, indexPage }
+    return {
+      title: formatSectionTitle(section),
+      slug: slugify(section),
+      articles,
+      indexPage
+    }
   })
   return sections
 }

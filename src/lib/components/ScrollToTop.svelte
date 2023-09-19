@@ -70,18 +70,22 @@
     z-index: -1;
   }
 
-  button:hover {
+  button:is(:hover, :focus-within) {
     opacity: 1;
     cursor: pointer;
     color: var(--_theme-stt-foreground);
   }
 
-  button:hover::after {
+  button:is(:hover, :focus-within)::after {
     opacity: 1;
   }
 
   button:active {
     scale: 0.95;
     transition: scale 200ms;
+  }
+
+  button:focus-within {
+    z-index: 999;
   }
 </style>

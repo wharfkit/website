@@ -10,12 +10,16 @@
   --theme-text1: black;
   --theme-text2: var(--color-secondary-600);
   --theme-text3: var(--color-neutral-500);
+  --theme-text4: black;
 
   --theme-text-heading: var(--color-primary-800);
   --theme-text-heading-inverse: white;
   --theme-text-body: var(--color-neutral-900);
   --theme-text-body-inverse: var(--color-neutral-300);
-  --theme-text-link: var(--color-secondary-600);
+
+  --theme-text-link: #0a836f;
+  --theme-text-link-hover: #1cb095;
+  --theme-text-link-visited: #7a4578;
 
   --theme-surface1: white;
   --theme-surface2: var(--color-secondary-50);
@@ -40,12 +44,16 @@
   --theme-text1: white;
   --theme-text2: var(--color-secondary-400);
   --theme-text3: var(--color-primary-900);
+  --theme-text4: var(--reef-turquoise);
 
   --theme-text-heading: white;
   --theme-text-heading-inverse: var(--wharf-blue);
   --theme-text-body: var(--color-neutral-300);
   --theme-text-body-inverse: var(--color-neutral-900);
-  --theme-text-link: var(--reef-turquoise);
+
+  --theme-text-link: #35ccae;
+  --theme-text-link-hover: #b2f2e1;
+  --theme-text-link-visited: #f8b9ff;
 
   --theme-surface1: hsl(228, 15%, 18%);
   --theme-surface2: #262936;

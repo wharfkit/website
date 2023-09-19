@@ -4,16 +4,15 @@ description: The data returned from a call to the transact method on a Session
 category: SessionKit
 published: true
 hidden: true
-requiresReview: true
 ---
 
 # TransactResult
 
-Upon a successful call to the [Transact](/docs/sessionkit/transact) method of a [Session](/docs/sessionkit/session), the response returned will be an object that matches the `TransactResult` interface.
+Upon a successful call to the [Transact](/docs/session-kit/transact) method of a [Session](/docs/session-kit/session), the response returned will be an object that matches the `TransactResult` interface.
 
 ## Properties
 
-The `TransactResult` object contains the following properties.
+The `TransactResult` object contains the following properties:
 
 ```ts
 interface TransactResult {
@@ -30,7 +29,7 @@ interface TransactResult {
 
 ### chain
 
-The [ChainDefinition](/docs/utilities/common-library#chaindefinition) of the blockchain that was used in the [Transact](/docs/sessionkit/transact) call.
+The [ChainDefinition](/docs/utilities/common-library#chaindefinition) of the blockchain that was used in the [Transact](/docs/session-kit/transact) call.
 
 ### request
 
@@ -38,7 +37,7 @@ A representation of the transaction performed in the [SigningRequest](#) format.
 
 ### resolved
 
-The [ResolvedSigningRequest](#) that was used during the [Transact](/docs/sessionkit/transact) call which has been resolved to ensure proper tapos values and to template any placeholder values that may have existed in the [SigningRequest](#).
+The [ResolvedSigningRequest](#) that was used during the [Transact](/docs/session-kit/transact) call, which has been resolved to ensure proper tapos values and to template any placeholder values that may have existed in the [SigningRequest](#).
 
 ### response
 
@@ -46,7 +45,7 @@ The results returned from the [APIClient](/docs/antelope/api-client) after succe
 
 ### revisions
 
-An instance of [TransactRevisions](https://wharfkit.github.io/session/classes/TransactRevisions.html) which contains a history of modifications made to the transaction through the execution of the included [TransactPlugins](/docs/sessionkit/plugin-transact).
+An instance of [TransactRevisions](https://wharfkit.github.io/session/classes/TransactRevisions.html) which contains a history of modifications made to the transaction through the execution of the included [TransactPlugins](/docs/session-kit/plugin-transact).
 
 ### signatures
 
