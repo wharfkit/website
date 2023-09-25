@@ -2,7 +2,11 @@
 title: Table
 description: change_me
 category: ContractKit
+published: true
+order: 4
 ---
+
+Getting a `Table` instance from a `Contract`, and how to query that table.
 
 ```ts
 const table = new Table({

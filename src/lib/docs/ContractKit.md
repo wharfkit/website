@@ -1,3 +1,10 @@
-# ContractKit Index
+---
+title: ContractKit Overview
+description: change me
+category: ContractKit
+order: 2
+published: true
+slug: index
+---
 
-Page will have documentation overview of this Kit and links to other documents.
+Overview of the Contract Kit (similar to [session kit overview](/docs/session-kit))

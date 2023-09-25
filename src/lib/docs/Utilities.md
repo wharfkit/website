@@ -2,7 +2,7 @@
 title: Utilities Overview
 category: Utilities
 description: An overview of all the utilities provided as part of the Wharf SDK product suite.
-order: 1
+order: 3
 published: true
 slug: index
 ---
