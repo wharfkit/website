@@ -1,6 +1,6 @@
 ---
 title: Contract
-description: change_me
+description: The central interface within the ContractKit for directly interacting and managing Antelope chain contracts, offering methods for data retrieval and action generation.
 category: ContractKit
 published: true
 order: 2
@@ -8,12 +8,7 @@ order: 2
 
 # Contract
 
-The `Contract` class in ContractKit provides an essential interface for those wanting to interact directly with Antelope chain contracts. It offers a myriad of methods that provide functionality ranging from retrieving contract data to generating contract actions that can be executed using the SessionKit.
-## **Attributes Overview:**
-
-- **abi**: The ABI associated with the contract you're dealing with.
-- **account**: The unique name of the account associated with the contract.
-- **client**: This refers to the API client which plays a crucial role in facilitating communication with the blockchain.
+The `Contract` class in ContractKit provides an essential interface for those wanting to interact directly with Antelope chain contracts. It offers a myriad of methods that provide functionality ranging from retrieving contract data to generating contract actions that can be executed using the [SessionKit](/docs/session-kit/transact).
 
 ## **Methods Overview:**
 
@@ -21,7 +16,7 @@ The `Contract` class in ContractKit provides an essential interface for those wa
     - Type: Getter Method
     - What it does: Returns an array of the table names associated with the given contract.
 
-2. [**table()**](/docs/session-kit/session)
+2. [**table()**](/docs/contract-kit/table)
     - Type: Method
     - What it does: Helps in retrieving a specific table from the contract.
 
@@ -29,7 +24,7 @@ The `Contract` class in ContractKit provides an essential interface for those wa
     - Type: Getter Method
     - What it does: Provides an array of the names of actions associated with the contract.
 
-4. [**action()**](#ActionMethod)
+4. [**action()**](/docs/contract-kit/action-method)
     - Type: Method
     - What it does: Generates a specific action that you can later pass to the `SessionKit` to have it executed on the chain.
 
