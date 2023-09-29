@@ -6,6 +6,8 @@ published: true
 order: 5
 ---
 
+# Get Method
+
 The `get` method allows for precise retrieval of rows from a [table](/docs/contract-kit/table). By specifying query parameters, users can pinpoint a particular row or a set of rows they want to fetch.
 
 ## Usage

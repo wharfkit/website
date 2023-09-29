@@ -6,6 +6,8 @@ published: true
 order: 4
 ---
 
+# Table
+
 The `Table` class acts as a primary interface to access and interact with tables within a smart contract. With its methods, you can fetch rows, scopes, or even metadata, making data retrieval streamlined and intuitive.
 
 To initialize a `Table` instance from a `Contract`, you'll typically use the [Contract](/docs/contract-kit/contract) [table() method](/docs/contract-kit/table-method). Once the table instance is available, you can query its data using the provided methods.

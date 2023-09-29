@@ -6,6 +6,8 @@ published: true
 order: 3
 ---
 
+# Table Method
+
 ## Overview
 
 The `table` method provided by the [Contract](/docs/contract-kit/contract) class within ContractKit is a convenient way to obtain a specific table instance of a smart contract.

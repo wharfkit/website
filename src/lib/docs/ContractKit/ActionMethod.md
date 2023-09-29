@@ -6,7 +6,7 @@ published: true
 order: 3
 ---
 
-# Action
+# Action Method
 
 The `action` method assists in generating an Antelope [Action](/docs/antelope/action) instance. Actions can be created using this method then be passed to the [SessionKit transact](/docs/session-kit/transact) method to be executed on chain.
 

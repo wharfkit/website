@@ -6,7 +6,7 @@ published: true
 order: 5
 ---
 
-## Query (Method)
+# Query Method
 
 The `query` method retrieves rows from a blockchain table based on the provided query parameters. This method allows for a fine-tuned search within the table, returning rows that match the specified criteria.
 
