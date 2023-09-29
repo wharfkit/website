@@ -6,11 +6,13 @@ published: true
 order: 3
 ---
 
-# Action Method
+# Action
 
 The `action` method assists in generating an Antelope [Action](/docs/antelope/action) instance. Actions can be created using this method then be passed to the [SessionKit transact](/docs/session-kit/transact) method to be executed on chain.
 
 ## Usage
+
+With an instance of the `Contract` class, you can use the `action` method to generate an action instance.
 
 ```typescript
 const action = tokenContract.action(
@@ -30,3 +32,16 @@ console.log(action)
 // {"account":"eosio.token","name":"transfer","authorization":[{"actor":"foo","permission":"active"}],"data":"80b1915e5d268dca00000092019ca65e010000000000000004454f5300000000185468616e6b7320666f7220616c6c20746865206669736821"}
 session.transact({ action }) // executing the action on chain
 ```
+
+## Arguments
+
+The `action` method takes three arguments:
+
+- `name`: The name of the action. Can be a string or an instance of [Name](/docs/antelope/name).
+- `data`: The data to be used to execute that action. This will vary depending on the contract action that is used.
+- `options`: An optional object that can be used to specify the authorization for the action. Defaults to using placeholder values.
+
+
+## Return Value
+
+The `action` method returns an instance of [Action](/docs/antelope/action).

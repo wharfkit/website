@@ -6,22 +6,22 @@ published: true
 order: 5
 ---
 
-# Get Method
+# Get
 
 The `get` method allows for precise retrieval of rows from a [table](/docs/contract-kit/table). By specifying query parameters, users can pinpoint a particular row or a set of rows they want to fetch.
 
 ## Usage
 
 ```typescript
-const row = await contract.table('table_name').get(value, queryParams);  
+const row = await contract.table('table_name').get(index_value, queryParams);  
 // This will retrieve a single table row based on the given parameters.
 ```
 
 ## Parameters:
 
-- **value** (Optional): Can be a Name, UInt64, UInt128, Float64, Checksum256, Checksum160 or string. It helps to narrow down the search by setting the bounds of the query. If not provided, the first row will be returned.
+- `value` (Optional): Can be a [Name](/docs/antelope/name), [UInt64](/docs/antelope/uint64), [UInt128](/docs/antelope/uint128), [Float64](/docs/antelope/float64), [Checksum256](/docs/antelope/checksum256), [Checksum160](/docs/antelope/checksum160) or string. It helps to narrow down the search by setting the bounds of the query. If not provided, the first row will be returned.
   
-- **queryParams**: An object to further refine the search. Defined as:
+- `queryParams`: An object to further refine the search. Defined as:
 
 ```typescript
 interface QueryParams {
@@ -37,6 +37,6 @@ interface QueryParams {
 }
 ```
 
-## Returns:
+## Return Value
 
-**Row**: A promise that resolves to a single table row. If the row cannot be found or if the specified index is not present in the ABI, an error will be thrown.
+A single table row is returned.

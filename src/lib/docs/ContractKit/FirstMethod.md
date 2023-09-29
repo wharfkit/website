@@ -6,7 +6,7 @@ published: true
 order: 5
 ---
 
-# First Method
+# First
 
 The first method provides a convenient way to retrieve a limited number of rows from a [table](/docs/contract-kit/table), starting from the first row.
 
@@ -15,9 +15,9 @@ The first method provides a convenient way to retrieve a limited number of rows 
 ```typescript
 const cursor = contract.table('table_name').first(1000, queryParams);  // Returns a cursor that can be used to paginate through the first 1000 rows.
 ```
-## Parameters:
+## Arguments
 
-*limit*: The number of rows to retrieve. It must be provided.
+`limit`: The number of rows to retrieve. It must be provided.
 *queryParams*: An optional object that can be used to specify the query parameters. It can have the following properties:
 
 ```typescript
@@ -34,6 +34,6 @@ interface QueryParams {
 }
 ```
 
-## Returns:
+## Return Value
 
 It returns a [TableCursor](/docs/contract-kit/cursor) which you can then use to paginate through the rows.
