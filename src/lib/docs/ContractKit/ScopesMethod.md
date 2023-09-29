@@ -6,6 +6,8 @@ published: true
 order: 6
 ---
 
+# Scopes Method
+
 The `scopes` method provides a structured way to retrieve all the scopes of a particular [table](/docs/contract-kit/table). On Antelope chains, tables can have different sets of data, each stored under a unique scope. This method helps developers to fetch all scopes for a specific table.
 
 ### Usage

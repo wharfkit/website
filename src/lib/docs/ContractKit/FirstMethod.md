@@ -6,6 +6,8 @@ published: true
 order: 5
 ---
 
+# First Method
+
 The first method provides a convenient way to retrieve a limited number of rows from a [table](/docs/contract-kit/table), starting from the first row.
 
 ## Usage
