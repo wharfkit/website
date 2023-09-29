@@ -1,5 +1,5 @@
 ---
-title: Action
+title: Action (Method)
 description: Provides functionality for genereting an Antelope Action instance that can then be passed to a a session.transact() method.
 category: ContractKit
 published: true
