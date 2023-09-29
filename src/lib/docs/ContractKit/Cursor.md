@@ -18,7 +18,7 @@ The `next` method is used to fetch rows from a blockchain table. It accepts a si
 
 ### Returns:
 
-**Promise<RowType>**: A promise that resolves to an array of rows.
+**Row**: A promise that resolves to an array of rows.
 
 ### Usage
 

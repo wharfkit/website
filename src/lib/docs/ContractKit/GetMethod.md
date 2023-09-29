@@ -37,4 +37,4 @@ interface QueryParams {
 
 ## Returns:
 
-**Promise<RowType>**: A promise that resolves to a single table row. If the row cannot be found or if the specified index is not present in the ABI, an error will be thrown.
+**Row**: A promise that resolves to a single table row. If the row cannot be found or if the specified index is not present in the ABI, an error will be thrown.
