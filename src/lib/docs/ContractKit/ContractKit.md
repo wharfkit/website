@@ -1,6 +1,6 @@
 ---
 title: ContractKit (Factory)
-description: Class designed to streamline the process of creating Class instances.
+description: The Contract Kit is responsible for facilitating the creation of Contract instances through the load method.
 category: ContractKit
 published: true
 order: 1
@@ -8,42 +8,51 @@ order: 1
 
 # ContractKit Class
 
-`ContractKit` is a class designed to streamline the process of creating instances of the [`Contract`](/docs/contract-kit/contract) class. This class plays a central role in facilitating communication with on-chain contracts.
+The `ContractKit` class provided by the [Contract Kit](/docs/contract-kit) is a factory class that facilitates the creation of [Contract](/docs/contract-kit/contract) instances.
 
-### Parameters
+### Creation
 
-The `ContractKit` class accepts a single parameter:
+When using the `SessionKit` within a web application, the developer will first establish an instance of the class with the required ContractKit arguments.
 
-- **ContractKitArgs**: An object containing the arguments required to instantiate the `ContractKit` class.
+A simple example would be as follows:
 
 ```typescript
-const ContractKitArgs: ContractKitArgs = {
-    client,
-}
+import { ContractKit } from "@wharfkit/contract-kit"
+import { APIClient } from "@wharfkit/antelope"
+
+const contractKit = new ContractKit({
+    client: new APIClient("https://jungle3.greymass.com"),
+});
 ```
 
-Where client is an [API client](/api/antelope/api-client) instance.
+### Arguments
 
-### Return Value
+The first parameter passed to the `ContractKit` is an object containing one required configuration.
 
-The `ContractKit` class returns an instance of the `ContractKit` class.
+- `client`: The [API client](/docs/antelope/api-client) used to fetch smart contract data.
 
-## **load()** method:
+### Options
+
+The second parameter passed would be all of the optional arguments:
+
+- `abiCache`: An instance of the [ABICache](/docs/antelope/abi-cache-interface) interface. Can be used to cache ABIs across multiple ContractKit `load` calls.
+- `abis`: An array of [ABIDefinition](/docs/antelope/abi-definition) objects. Can be used to pass ABIs directly to the ContractKit instance (eliminating the need to fetch them from the blockchain.)
+
+## Usage
+
+### Load Method
 
 The `load` method is used to load a specific contract.
 
-### Parameters:
-
-- **contractName**: The name of the contract you want to load.
-
-### Returns:
-
-- **Contract**: An instance of the `Contract` class.
-
-## Usage Example:
-
 ```typescript
-contractKit = new ContractKit(ContractKitArgs);
-
-const contract = await contractKit.load('eosio')
+const contract = contractKit.load("eosio.token");
 ```
+
+### Arguments
+
+The `load` method accepts a single parameter:
+
+- `contractName`: The name of the contract to load.
+### Return Value
+
+The `load` method returns a [Contract](/docs/contract-kit/contract) instance.
