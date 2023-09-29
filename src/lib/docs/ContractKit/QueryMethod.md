@@ -12,14 +12,22 @@ The `query` method retrieves rows from a blockchain table based on the provided 
 
 ### Usage
 
+A `query` method is available on the [Table](/docs/contract-kit/table) class. Here's an example of how to use it:
+
 ```typescript
-const tableCursor = contract.table('table_name').query(queryParams);
-// Retrieves rows from the table based on the specified queryParams.
+const tableCursor = contract.table('table_name').query({
+    index: 'index_name',
+    scope: 'scope_name',
+    key_type: 'i64',
+    json: true,
+    maxRows: 1000,
+    rowsPerAPIRequest: 100,
+});
 ```
 
-## Parameters:
+## Arguments
 
-**queryParams:** An object with criteria to filter the table rows. Defined as:
+`queryParams`: An object with criteria to filter the table rows. Defined as:
 
 ```typescript
 interface QueryParams {
@@ -35,6 +43,6 @@ interface QueryParams {
 }
 ```
 
-## Returns:
+## Returns Value
 
 A [cursor](/docs/contract-kit/table) is returned, which can be used to paginate through the table rows.

@@ -6,7 +6,7 @@ published: true
 order: 3
 ---
 
-# Table Method
+# Table
 
 ## Overview
 
@@ -14,16 +14,18 @@ The `table` method provided by the [Contract](/docs/contract-kit/contract) class
 
 ## Usage
 
+To use the `table` method, one first needs to initialize a [Contract](/docs/contract-kit/contract) instance. The `table` method can then be used to retrieve a table instance for a specific contract table.
+
 ```typescript
 // Retrieve a table instance using the `table` method
-const myTable = contract.table('desired_table_name');
+const table = contract.table('table_name');
 ```
 
-## Parameters
+## Arguments
 
 The `table` method accepts a single parameter:
 
-- **tableName**: The name of the table you want to retrieve.
+- `tableName`: The name of the contract table to retrieve.
 
 ## Return Value
 
