@@ -16,8 +16,8 @@ To initialize a `Table` instance from a `Contract`, you'll typically use the [Co
 
 Here's a quick overview of the available methods. Click on each method for a detailed explanation and usage:
 
-1. [**query**](/docs/contract-kit/query) - Queries the table based on given parameters.
-2. [**get**](/docs/contract-kit/get) - Retrieves a specific row from the table.
-3. [**first**](/docs/contract-kit/first) - Fetches the initial set of rows from the table.
-4. [**all**](/docs/contract-kit/all) - Retrieves all rows from the table.
-5. [**scopes**](/docs/contract-kit/scopes) - Obtains the different scopes within the table.
+1. [**query**](/docs/contract-kit/query-method) - Queries the table based on given parameters.
+2. [**get**](/docs/contract-kit/get-method) - Retrieves a specific row from the table.
+3. [**first**](/docs/contract-kit/first-method) - Fetches the initial set of rows from the table.
+4. [**all**](/docs/contract-kit/all-method) - Retrieves all rows from the table.
+5. [**scopes**](/docs/contract-kit/scopes-method) - Obtains the different scopes within the table.
