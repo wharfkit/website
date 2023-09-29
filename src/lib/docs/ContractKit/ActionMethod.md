@@ -28,4 +28,5 @@ const action = tokenContract.action(
 )
 console.log(action)
 // {"account":"eosio.token","name":"transfer","authorization":[{"actor":"foo","permission":"active"}],"data":"80b1915e5d268dca00000092019ca65e010000000000000004454f5300000000185468616e6b7320666f7220616c6c20746865206669736821"}
+session.transact({ action }) // executing the action on chain
 ```

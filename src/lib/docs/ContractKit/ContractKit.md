@@ -10,22 +10,40 @@ order: 1
 
 `ContractKit` is a class designed to streamline the process of creating instances of the [`Contract`](/docs/contract-kit/contract) class. This class plays a central role in facilitating communication with on-chain contracts.
 
-## **Setting Up ContractKit**
+### Parameters
 
-To begin, you'd need to prepare the arguments required to instantiate the `ContractKit` class. As an example:
+The `ContractKit` class accepts a single parameter:
+
+- **ContractKitArgs**: An object containing the arguments required to instantiate the `ContractKit` class.
 
 ```typescript
-const mockContractKitArgs: ContractKitArgs = {
+const ContractKitArgs: ContractKitArgs = {
     client,
 }
 ```
 
-Where client is your [API client](/api/antelope/api-client) instance.
+Where client is an [API client](/api/antelope/api-client) instance.
 
-##Usage Example
+### Return Value
+
+The `ContractKit` class returns an instance of the `ContractKit` class.
+
+## **load()** method:
+
+The `load` method is used to load a specific contract.
+
+### Parameters:
+
+- **contractName**: The name of the contract you want to load.
+
+### Returns:
+
+- **Contract**: An instance of the `Contract` class.
+
+## Usage Example:
 
 ```typescript
-contractKit = new ContractKit(mockContractKitArgs);
+contractKit = new ContractKit(ContractKitArgs);
 
-const contract = contractKit.load('eosio')
+const contract = await contractKit.load('eosio')
 ```
