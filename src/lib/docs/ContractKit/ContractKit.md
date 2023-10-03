@@ -10,7 +10,7 @@ order: 1
 
 The `ContractKit` class provided by the [Contract Kit](/docs/contract-kit) is a factory class that facilitates the creation of [Contract](/docs/contract-kit/contract) instances.
 
-### Creation
+## Creation
 
 When using the `SessionKit` within a web application, the developer will first establish an instance of the class with the required ContractKit arguments.
 
