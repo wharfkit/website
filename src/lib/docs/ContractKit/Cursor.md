@@ -1,6 +1,6 @@
 ---
 title: Cursor
-description: A utility within ContractKit to efficiently navigate and fetch rows from blockchain tables with pagination.
+description: A utility within the ContractKit to efficiently navigate and fetch rows from smart contract tables with pagination.
 category: ContractKit
 published: true
 order: 4
@@ -8,7 +8,7 @@ order: 4
 
 # Cursor
 
-The Cursor class is an extension of the [Table](/docs/contract-kit/table) class. It's purpose-built to fetch rows from a blockchain table efficiently, providing pagination capabilities.
+The Cursor class is an extension of the [Table](/docs/contract-kit/table) class. It's purpose-built to fetch rows from smart contract tables efficiently, providing pagination capabilities.
 
 ## Creation
 

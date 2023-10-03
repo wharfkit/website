@@ -23,25 +23,14 @@ const scopeCursor = contract.table('table_name').scopes({
 });
 ```
 
-## Arguments
+## Options
 
-`queryParams`: An object that offers filtering and pagination for scopes. Its properties include:
+The `scopes` method accepts an optional object that can be used to specify the query parameters. It can have the following properties:
 
-```typescript
-interface QueryParams {
-    // Represents the start of the range for bounded queries.
-    from?: API.v1.TableIndexType | string | number;
-
-    // Represents the end of the range for bounded queries.
-    to?: API.v1.TableIndexType | string | number;
-
-    // Limit for the number of scopes to retrieve. Helps in optimizing the fetch process.
-    maxRows?: number;
-
-    // Dictates the number of scopes fetched in a single API request, useful for pagination and limiting API calls.
-    rowsPerAPIRequest?: number;
-}
-```
+- `from`: Represents the start of the range for bounded queries.
+- `to`: Represents the end of the range for bounded queries.
+- `maxRows`: Limit for the number of scopes to retrieve. Helps in optimizing the fetch process.
+- `rowsPerAPIRequest`: Dictates the number of scopes fetched in a single API request, useful for pagination and limiting API calls.
 
 ## Returns Value
 
