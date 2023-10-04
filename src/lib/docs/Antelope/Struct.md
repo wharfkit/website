@@ -2,33 +2,42 @@
 title: Struct
 description: change_me
 category: Antelope
-published: false
+published: true
+requiresReview: true
 ---
 
-The `Struct` class is one in which developers can extend in order to define core or [ABI](#) type objects for use in the [Serializer](#).
+# Struct
 
-The [ContractKit](#) will automatically generate `Struct` objects during its code generation process.
-
-As an example, the [open source](https://github.com/greymass/unicove) project [Unicove.com](https://unicove.com) uses a small library of `Struct` classes to manually define the known smart contract actions it allows users to perform. These types are all defined here:
-
-https://github.com/greymass/unicove/blob/dev/src/abi-types.ts
-
-These types are then imported into the application logic and used whenever transaction data is being assembled to automatically serialize the data.
-
-https://github.com/greymass/unicove/blob/c98183514bb919719ac46fa97aa931c9d3998152/src/pages/transfer/main.svelte#L51-L56
-
-The [abi2core](#) library can also be used to read a smart contract's ABI and automatically generate these instances of `Struct` for a project.
-
-https://github.com/greymass/abi2core/
+The `Struct` type represents a data structure, typically as part of an [ABI](#), that can be encoded and decoded using the [Serializer](#) for use on the blockchain.
 
 ## Defining Structs
 
-Each `Struct` can either be written to use TypeScript's [experimental decorators](https://www.typescriptlang.org/tsconfig#experimentalDecorators) or written more verbosely in plain Javascript.
-
-This is an example of the `eosio.token` contract and its `transfer` action, written both using the experimental decorators and then in plain javascript.
+The `Struct` type in the Antelope library represents one entry in the `structs` array found within an [ABI](#).
 
 ```ts
-// Using experimentalDecorators in TypeScript
+{
+  structs: [
+    {
+      base: "",
+      name: "transfer",
+      fields: [
+        { name: "from", type: "name" },
+        { name: "to", type: "name" },
+        { name: "quantity", type: "asset" },
+        { name: "memo", type: "string" },
+      ],
+    },
+  ]
+}
+```
+
+This on-chain representation of a `Struct` allows the Antelope blockchain to encode and decode data of this type for use in smart contracts. In a similar way, the `Struct` found in the Antelope library also allows the [Serializer](#) to encode and decode this data within Javascript applications. Many of these `Struct` objects exist as core types offered by the library, such as [Asset](#), [Name](#), and [PermissionLevel](#).
+
+These `Struct` types are automatically generated and used while using the [Serializer](#), but that requires retrieving and passing the entire [ABI](#). To help optimize applications and their need to retrieve data from remote endpoints, the `Struct` class can also be used to define ABI-like definitions as code.
+
+This can be done using TypeScript and the [experimental decorators](https://www.typescriptlang.org/tsconfig#experimentalDecorators) compiler option:
+
+```ts
 @Struct.type("transfer")
 export class Transfer extends Struct {
   @Struct.field(Name) from!: Name
@@ -36,8 +45,11 @@ export class Transfer extends Struct {
   @Struct.field(Asset) quantity!: Asset
   @Struct.field("string") memo!: string
 }
+```
 
-// Using plain JavaScript
+They can also be created in plain Javascript by manually defining all the properties:
+
+```ts
 class Transfer extends Struct {
   static abiName = "transfer"
   static abiFields = [
@@ -63,7 +75,7 @@ class Transfer extends Struct {
 
 ## Using Structs
 
-Once a `Struct` class is defined, they can be used to define the data within an [Action](#) without needing the ABI. Utilizing the definitions from the section above, a token `transfer` action can be written as:
+Once a `Struct` class is defined, they can be used to easily create encodable data within an [Action](#) without needing the ABI. Utilizing the definitions from the section above, a token `transfer` action can be written as:
 
 ```ts
 const data = Transfer.from({
