@@ -15,7 +15,7 @@ The `Table` class acts as a primary interface to access and interact with tables
 To initialize a `Table` instance from a `Contract`, you'll typically use the [Contract](/docs/contract-kit/contract) [table() method](/docs/contract-kit/table-method). However, you can also create a `Table` instance directly using its constructor:
 
 ```typescript
-import { Table } from "@wharfkit/contract-kit";
+import { Table } from "@wharfkit/contract";
 import { APIClient } from "@wharfkit/antelope";
 import type { TableRow } from "./types";
 

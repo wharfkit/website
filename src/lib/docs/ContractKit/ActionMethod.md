@@ -21,6 +21,22 @@ const action = tokenContract.action(
         from: 'foo',
         to: 'bar',
         quantity: '1.0000 EOS',
+    }
+)
+console.log(action)
+// {"account":"eosio.token","name":"transfer","authorization":[{ "actor": "............1", "permission": "............2"}],"data":"80b1915e5d268dca00000092019ca65e010000000000000004454f5300000000185468616e6b7320666f7220616c6c20746865206669736821"}
+session.transact({ action }) // executing the action on chain
+```
+
+You can use the optional parameter to specify the authorization value for the action.
+
+```typescript
+const action = tokenContract.action(
+    'transfer', // or Name.from('transfer')
+    {
+        from: 'foo',
+        to: 'bar',
+        quantity: '1.0000 EOS',
     },
     {
         authorization: [
@@ -28,9 +44,6 @@ const action = tokenContract.action(
         ]
     }
 )
-console.log(action)
-// {"account":"eosio.token","name":"transfer","authorization":[{"actor":"foo","permission":"active"}],"data":"80b1915e5d268dca00000092019ca65e010000000000000004454f5300000000185468616e6b7320666f7220616c6c20746865206669736821"}
-session.transact({ action }) // executing the action on chain
 ```
 
 ## Arguments
@@ -40,7 +53,6 @@ The `action` method takes three arguments:
 - `name`: The name of the action. Can be a string or an instance of [Name](/docs/antelope/name).
 - `data`: The data to be used to execute that action. This will vary depending on the contract action that is used.
 - `options`: An optional object that can be used to specify the authorization for the action. Defaults to using placeholder values.
-
 
 ## Return Value
 
