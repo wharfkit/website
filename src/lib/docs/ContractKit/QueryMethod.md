@@ -8,11 +8,11 @@ order: 5
 
 # Query Method
 
-The `query` method retrieves rows from a blockchain table based on the provided query parameters. This method allows for a fine-tuned search within the table, returning rows that match the specified criteria.
+The `query` method retrieves rows from a smart contract table based on the provided query parameters. This method allows for a fine-tuned search within the table, returning rows that match the specified criteria.
 
 ### Usage
 
-The `query` method is available on the [Table](/docs/contract-kit/table) class. When no arguments are passed, it will return a [cursor](/docs/contract-kit/cursor) that can be used to paginate through every single row of the the table:
+The `query` method is available on any [Table](/docs/contract-kit/table) instance. When no arguments are passed, it will return a [cursor](/docs/contract-kit/cursor) that can be used to paginate through every single row of the the table:
 
 ```typescript
 const tableCursor = contract.table('table_name').query();

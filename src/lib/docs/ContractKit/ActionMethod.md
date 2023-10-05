@@ -8,11 +8,11 @@ order: 3
 
 # Action
 
-The `action` method assists in generating an Antelope [Action](/docs/antelope/action) instance. Actions can be created using this method then be passed to the [SessionKit transact](/docs/session-kit/transact) method to be executed on chain.
+The `action` method assists in generating an Antelope [Action](/docs/antelope/action) instance. Actions can be created using this method and then be passed to the [SessionKit transact](/docs/session-kit/transact) method to be executed on chain.
 
 ## Usage
 
-The `action` method is available on all [Contract](/docs/contract-kit/contract) instances. It can be used to generate an [action](/docs/antelope/action) instance.
+The `action` method is available on any [Contract](/docs/contract-kit/contract) instance. It can be used to generate an [action](/docs/antelope/action) instance.
 
 ```typescript
 const action = tokenContract.action(

@@ -10,10 +10,10 @@ order: 3
 
 ## Overview
 
-The `table` method provided by the [Contract](/docs/contract-kit/contract) class within the ContractKit is a convenient way to obtain a specific table instance of a smart contract.
+The `table` method allows for the retrieval of a specific [table](/docs/contract-kit/table) instance from a [Contract](/docs/contract-kit/contract) instance.
 
 ## Usage
-The `table` method is available on the [Contract](/docs/contract-kit/contract) class. It can be used to retrieve a specific table instance of a smart contract. Here is a basic example:
+The `table` method is available on any [Contract](/docs/contract-kit/contract) instance. Here is a basic example of how to use it:
 
 ```typescript
 const table = contract.table('table_name');

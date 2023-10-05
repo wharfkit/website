@@ -12,9 +12,11 @@ The Cursor class is an extension of the [Table](/docs/contract-kit/table) class.
 
 ## Creation
 
-A Cursor instance is returned by the [query](/docs/contract-kit/query-method), [first](/docs/contract-kit/first-method) and [scopes](/docs/contract-kit/scopes-method) methods of the [Table](/docs/contract-kit/table) class.
+A Cursor instance is returned by the [query](/docs/contract-kit/query-method), [first](/docs/contract-kit/first-method) and [scopes](/docs/contract-kit/scopes-method) methods of a [Table](/docs/contract-kit/table) instance.
     
 ## Usage
+
+### Next Method
 
 Once a `Cursor` instance has been created, the `next` method can be used to paginate through rows from the table. Here is a simple example:
 
@@ -30,11 +32,7 @@ const cursor = contract.table('table_name').query()
 const rows = await cursor.next(100) // fetches 100 rows
 ```
 
-### Next Method
-
-The `next` method is used to fetch rows from a blockchain table. It accepts a single parameter:
-
-### Arguments
+### Options
 
 - `rowsPerAPIRequest`: The number of rows to fetch in a single API request. Defaults to whatever was passed when the cursor was created by either `query`, `first` or `scopes`.
 

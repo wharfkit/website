@@ -8,11 +8,11 @@ order: 7
 
 # All
 
-The `all` method, provided by the [Table](/docs/contract-kit/table) class within the ContractKit, allows developers to fetch all rows of data present in a specified table within a smart contract.
+The `all` method allows developers to fetch all rows of data present in a specified table within a smart contract.
 
 ## Usage
 
-The `all` method is available on the [Table](/docs/contract-kit/table) class. It can be used to fetch all rows of a table. Here is a basic example:
+The `all` method is available on any [Table](/docs/contract-kit/table) instance. It can be used to fetch all rows of a table. Here is a basic example:
 
 ```typescript
 const rows = await contract.table('table_name').all();
