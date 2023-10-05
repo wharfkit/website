@@ -21,13 +21,13 @@ import { ContractKit } from "@wharfkit/contract"
 import { APIClient } from "@wharfkit/antelope"
 
 const contractKit = new ContractKit({
-    client: new APIClient("https://jungle3.greymass.com"),
+    client: new APIClient("https://jungle4.greymass.com"),
 });
 ```
 
 ### Arguments
 
-The first parameter passed to the `ContractKit` is an object containing one required configuration.
+The only required parameter to initialize a `ContractKit` instance is an object containing containing a single value.
 
 - `client`: The [API client](/docs/antelope/api-client) used to fetch smart contract data.
 
@@ -45,7 +45,7 @@ The second parameter passed would be all of the optional arguments:
 The `load` method is used to load a specific contract.
 
 ```typescript
-const contract = contractKit.load("eosio.token");
+const contract = await contractKit.load("eosio.token");
 ```
 
 ### Arguments

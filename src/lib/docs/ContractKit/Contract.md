@@ -25,7 +25,7 @@ import abi from "./eosio-abi.json" // ABI for the eosio.token contract
 const contractArgs = {
     abi,
     account: "eosio.token",
-    client: new APIClient("https://jungle3.greymass.com"),
+    client: new APIClient("https://jungle4.greymass.com"),
 }
 
 const contract = new Contract(contractArgs)
