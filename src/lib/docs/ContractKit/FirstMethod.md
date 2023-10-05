@@ -8,17 +8,36 @@ order: 5
 
 # First
 
-The first method provides a convenient way to retrieve a limited number of rows from a [table](/docs/contract-kit/table), starting from the first row.
+The first method provides a convenient way to retrieve a limited number of rows from a [table](/docs/contract-kit/table) instance.
 
 ## Usage
+
+The `first` method can be called with a single paramter to specify the number of rows to retrieve:
+
+```typescript
+const cursor = contract.table('table_name').first(1000);  // Returns a cursor that can be used to paginate through the first 1000 rows.
+```
+
+A `scope` can be specified to only retrieve rows from a specific scope:
+
+```typescript
+const cursor = contract.table('table_name').first(1000, {
+    scope: 'scope_name',
+}); 
+// Returns a cursor that can be used to paginate through the first 1000 rows of entries with the 'scope_name' scope.
+```
+
+Any of the query options can be used to further refine which rows are retrieved:
 
 ```typescript
 const cursor = contract.table('table_name').first(1000, {
     index: 'index_name',
     scope: 'scope_name',
-    key_type: 'i64',
-});  // Returns a cursor that can be used to paginate through the first 1000 rows.
+    from: 17,
+});
+// Returns a cursor that can be used to paginate through the first 1000 rows of entries with the 'scope_name' scope, 'index_name' index, starting from index value 17. 
 ```
+
 ## Arguments
 
 - `limit`: The number of rows to retrieve. It must be provided.

@@ -20,14 +20,14 @@ Once a `Cursor` instance has been created, the `next` method can be used to pagi
 
 ```typescript
 const cursor = contract.table('table_name').query()
-cursor.next() // fetches as many rows as can be fetched in a single API request
+const rows = await cursor.next() // fetches as many rows as can be fetched in a single API request
 ```
 
 A `rowsPerAPIRequest` can be specified when calling the next method to control the number of rows fetched:
 
 ```typescript 
 const cursor = contract.table('table_name').query()
-cursor.next(100) // fetches 100 rows
+const rows = await cursor.next(100) // fetches 100 rows
 ```
 
 ### Next Method
