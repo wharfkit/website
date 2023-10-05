@@ -25,7 +25,7 @@ const table = new Table({
     abi,
     account: "contract_name",
     name: "table_name",
-    client: new APIClient("https://jungle3.greymass.com"),
+    client: new APIClient("https://jungle4.greymass.com"),
     rowType: TableRow,
     defaultRowLimit: 1000,
     defaultScope: 'scope_name'

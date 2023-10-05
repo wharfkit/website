@@ -29,14 +29,14 @@ const tableCursor = contract.table('table_name').query({
 
 The `query` method accepts an optional object that can be used to specify the query parameters. It can have the following properties:
 
--`index`: Specifies the field or index in the table for querying.
--`index_position`: Designates the position of the index in multi-index tables.
--`scope`: Defines the scope of the query to refine the search.
--`key_type`: Indicates the type of key for the queried index.
--`from`: Denotes the start of the range for bounded queries.
--`to`: Denotes the end of the range for bounded queries.
--`maxRows`: Specifies the maximum number of rows to fetch.
--`rowsPerAPIRequest`: Determines the number of rows fetched per API request for pagination.
+- `index`: Specifies the field or index in the table for querying.
+- `index_position`: Designates the position of the index in multi-index tables.
+- `scope`: Defines the scope of the query to refine the search.
+- `key_type`: Indicates the type of key for the queried index.
+- `from`: Denotes the start of the range for bounded queries.
+- `to`: Denotes the end of the range for bounded queries.
+- `maxRows`: Specifies the maximum number of rows to fetch.
+- `rowsPerAPIRequest`: Determines the number of rows fetched per API request for pagination.
 
 ## Returns Value
 

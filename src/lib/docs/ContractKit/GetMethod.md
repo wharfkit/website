@@ -25,10 +25,10 @@ const row = await contract.table('table_name').get(index_value, queryParams);
 
 The `get` method accepts an optional object that can be used to specify the query parameters. It can have the following properties:
 
--`index`: Specifies the field or index in the table for querying.
--`index_position`: Designates the position of the index in multi-index tables.
--`scope`: Defines the scope of the query to refine the search.
--`key_type`: Indicates the type of key for the queried index.
+- `index`: Specifies the field or index in the table for querying.
+- `index_position`: Designates the position of the index in multi-index tables.
+- `scope`: Defines the scope of the query to refine the search.
+- `key_type`: Indicates the type of key for the queried index.
 
 ## Return Value
 
