@@ -12,7 +12,7 @@ The first method provides a convenient way to retrieve a limited number of rows 
 
 ## Usage
 
-The `first` method can be called with a single paramter to specify the number of rows to retrieve:
+The `first` method is available on the [Table](/docs/contract-kit/table) class. It can be called with a single parameter to specify the number of rows to retrieve:
 
 ```typescript
 const cursor = contract.table('table_name').first(1000);  // Returns a cursor that can be used to paginate through the first 1000 rows.
@@ -31,7 +31,7 @@ Any of the query options can be used to further refine which rows are retrieved:
 
 ```typescript
 const cursor = contract.table('table_name').first(1000, {
-    index: 'index_name',
+    index_position: 'secondary',
     scope: 'scope_name',
     from: 17,
 });

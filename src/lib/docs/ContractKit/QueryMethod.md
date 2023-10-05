@@ -12,17 +12,42 @@ The `query` method retrieves rows from a blockchain table based on the provided 
 
 ### Usage
 
-A `query` method is available on the [Table](/docs/contract-kit/table) class. Here's an example of how to use it:
+The `query` method is available on the [Table](/docs/contract-kit/table) class. When no arguments are passed, it will return a [cursor](/docs/contract-kit/cursor) that can be used to paginate through every single row of the the table:
+
+```typescript
+const tableCursor = contract.table('table_name').query();
+// Returns a cursor that can be used to paginate through every row of the table.
+```
+
+To obtain a cursor that can be used to paginate through rows of a table within a specific scope, the `query` method can be called with a `scope` option:
 
 ```typescript
 const tableCursor = contract.table('table_name').query({
-    index: 'index_name',
     scope: 'scope_name',
-    key_type: 'i64',
-    json: true,
-    maxRows: 1000,
-    rowsPerAPIRequest: 100,
 });
+// Returns a cursor that can be used to paginate through rows of the table with the 'scope_name' scope.
+```
+
+The `maxRows` and `rowsPerAPIRequests` options are also available when using the `query` method:
+
+```typescript
+const tableCursor = contract.table('table_name').query({
+    maxRows: 100,
+    rowsPerAPIRequest: 10
+});
+// Returns a cursor that can be used to paginate through the first 100 rows of the table, with 10 rows fetched per API request.
+```
+
+Any query option can be used in conjunction with each other to specify exactly which rows the cursor should paginate over:
+
+```typescript
+const tableCursor = contract.table('table_name').query({
+    index_position: 'secondary',
+    scope: 'scope_name',
+    from: 42,
+    maxRows: 1000,
+});
+// Returns a cursor that can be used to paginate through the first 1000 rows of the table with the 'scope_name' scope, starting from secondary index value 42.
 ```
 
 ## Options

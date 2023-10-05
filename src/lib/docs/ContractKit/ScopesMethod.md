@@ -12,15 +12,31 @@ The `scopes` method provides a structured way to retrieve all the scopes of a pa
 
 ### Usage
 
-To use this method, one first needs to obtain a [Table](/docs/contract-kit/table) instance. The `scopes` method can then be called to retrieve any and all the scopes of the contract table.
+The `scopes` method is available on the [Table](/docs/contract-kit/table) class. When no arguments are passed, the method will return a [cursor](/docs/contract-kit/cursor) that can be used to paginate through every single scope of the table:
+
+```typescript
+const scopeCursor = contract.table('table_name').scopes();
+// Returns a cursor that can be used to paginate through every scope of the table.
+```
+
+To obtain a cursor that can be used to paginate through scopes of a table within a specific range, the `scopes` method can be called with `from` and `to` options:
 
 ```typescript
 const scopeCursor = contract.table('table_name').scopes({
     from: 'scope_name_1',
     to: 'scope_name_10',
+});
+// Returns a cursor that can be used to paginate through scopes of the table between 'scope_name_1' and 'scope_name_10'.
+```
+
+The `maxRows` and `rowsPerAPIRequest` options are also available when using the `scopes` method:
+
+```typescript
+const scopeCursor = contract.table('table_name').scopes({
     maxRows: 100,
     rowsPerAPIRequest: 10
 });
+// Returns a cursor that can be used to paginate through the first 100 scopes of the table, with 10 scopes fetched per API request.
 ```
 
 ## Options

@@ -12,7 +12,7 @@ The `action` method assists in generating an Antelope [Action](/docs/antelope/ac
 
 ## Usage
 
-With an instance of the `Contract` class, you can use the `action` method to generate an action instance.
+The `action` method is available on all [Contract](/docs/contract-kit/contract) instances. It can be used to generate an [action](/docs/antelope/action) instance.
 
 ```typescript
 const action = tokenContract.action(
@@ -28,7 +28,7 @@ console.log(action)
 session.transact({ action }) // executing the action on chain
 ```
 
-You can use the optional parameter to specify the authorization value for the action.
+The optional parameter can be used to specify the authorization value for the action.
 
 ```typescript
 const action = tokenContract.action(
