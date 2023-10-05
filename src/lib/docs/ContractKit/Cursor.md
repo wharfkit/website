@@ -16,12 +16,18 @@ A Cursor instance is returned by the [query](/docs/contract-kit/query-method), [
     
 ## Usage
 
-Once a `Cursor` instance is available, you can use its `next` method to fetch rows from the table. Here is an example:
+Once a `Cursor` instance has been created, the `next` method can be used to paginate through rows from the table. Here is a simple example:
 
 ```typescript
-const cursor = contract.table('table_name').get()
-cursor.next(10) // fetches 10 rows
+const cursor = contract.table('table_name').query()
 cursor.next() // fetches as many rows as can be fetched in a single API request
+```
+
+A `rowsPerAPIRequest` can be specified when calling the next method to control the number of rows fetched:
+
+```typescript 
+const cursor = contract.table('table_name').query()
+cursor.next(100) // fetches 100 rows
 ```
 
 ### Next Method
