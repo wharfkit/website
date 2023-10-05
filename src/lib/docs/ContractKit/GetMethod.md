@@ -12,14 +12,47 @@ The `get` method allows for precise retrieval of rows from a [table](/docs/contr
 
 ## Usage
 
+The `get` method is available on the [Table](/docs/contract-kit/table) class. It can be called without arguments to get the first row of a table:
+
 ```typescript
-const row = await contract.table('table_name').get(index_value, queryParams);  
-// This will retrieve a single table row based on the given parameters.
+const row = await contract.table('table_name').get();
+// This will retrieve the first row of the table.
+```
+
+To get a specific row, the `get` method can be called with a value argument:
+
+```typescript
+const row = await contract.table('table_name').get(17);
+// This will retrieve the first row where the primary index has a value of 17.
+```
+
+To get a specific row associated to a specific table scope, the `get` method can be called with a `scope` option:
+
+```typescript
+const row = await contract.table('table_name').get(17, { scope: 'scope_name' });
+// This will retrieve the first row where the primary index has a value of 17 and the scope is 'scope_name'.
+```
+
+To get a specific row based on a secondary index, the `get` method can be called with a value argument and a `index_position` option:
+
+```typescript
+const row = await contract.table('table_name').get('teamgreymass', { index_position: 'secondary' });
+// This will retrieve the first row where the secondary index has a value of 'teamgreymass'.
+```
+
+Any query option can be used in conjunction with eachother to further refine the search for a specific row:
+
+```typescript
+const row = await contract.table('table_name').get('teamgreymass', {
+    index_position: 'secondary',
+    scope: 'scope_name',
+});
+// This will retrieve the first row where the secondary index has a value of 'teamgreymass' and the scope is 'scope_name'.
 ```
 
 ## Arguments
 
-- `value` (Optional): Can be a [Name](/docs/antelope/name), [UInt64](/docs/antelope/uint64), [UInt128](/docs/antelope/uint128), [Float64](/docs/antelope/float64), [Checksum256](/docs/antelope/checksum256), [Checksum160](/docs/antelope/checksum160) or string. it is a search value that is used to fetch the desired row. The `index` by which the search value is used to fetch rows can be defined via the `index` or `index_position` options, but if those are provided than the primary table index will be used. If the `value` argument is not provided, the first row of the table will be returned.
+- `value` (Optional): Can be a [Name](/docs/antelope/name), [UInt64](/docs/antelope/uint64), [UInt128](/docs/antelope/uint128), [Float64](/docs/antelope/float64), [Checksum256](/docs/antelope/checksum256), [Checksum160](/docs/antelope/checksum160) or string. it is a search value that is used to fetch the desired row. The `index` by which the search value is used to fetch rows can be defined via the `index_position` option, but if those are provided than the primary table index will be used. If the `value` argument is not provided, the first row of the table will be returned.
   
 ## Options
 

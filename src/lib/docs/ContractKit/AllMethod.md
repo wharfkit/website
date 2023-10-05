@@ -12,7 +12,7 @@ The `all` method, provided by the [Table](/docs/contract-kit/table) class within
 
 ## Usage
 
-The `all` method can be used to fetch all rows of a table. Here is a basic example:
+The `all` method is available on the [Table](/docs/contract-kit/table) class. It can be used to fetch all rows of a table. Here is a basic example:
 
 ```typescript
 const rows = await contract.table('table_name').all();
