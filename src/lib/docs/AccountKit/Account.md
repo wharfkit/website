@@ -1,6 +1,6 @@
 ---
 title: Account
-description: A Account represents the connection between an application's code and an Antelope blockchain contract. It facilates interaction with smart contracts by offering methods for data retrieval and action generation.
+description: An Account instance represents the connection between an application's code and an Antelope blockchain account. It facilates interaction with accounts by offering methods for data retrieval and action generation.
 category: AccountKit
 published: true
 order: 2
