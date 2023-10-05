@@ -8,11 +8,11 @@ order: 5
 
 # Get
 
-The `get` method allows for precise retrieval of rows from a [table](/docs/contract-kit/table). By specifying query parameters, users can pinpoint a particular row or a set of rows they want to fetch.
+The `get` method allows for precise retrieval of a row from a [table](/docs/contract-kit/table) instance.
 
 ## Usage
 
-The `get` method is available on the [Table](/docs/contract-kit/table) class. It can be called without arguments to get the first row of a table:
+The `get` method is available on any [Table](/docs/contract-kit/table) instance. It can be called without arguments to get the first row of a table:
 
 ```typescript
 const row = await contract.table('table_name').get();
