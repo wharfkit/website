@@ -18,7 +18,7 @@ To link a specific permission level to a smart contract action, you can use the 
 const action = testAccount.linkauth('eosio.token', 'transfer', 'active');
 ```
 
-In the example above, the action transfer from the smart contract eosio.token has been linked to the active permission level.
+In the example above, an action linking the contract `eosio.token` to the `active` permission level is generated.
 
 ## Arguments
 
