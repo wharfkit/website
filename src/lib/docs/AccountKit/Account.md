@@ -42,7 +42,7 @@ The only parameter passed to the `Account` class is an object containing all the
 
 ## Usage
 
-Once a `Account` instance is created, methods and read-only properties are available.
+Once an `Account` instance is created, the following methods and read-only properties are available.
 
 ### Methods
 

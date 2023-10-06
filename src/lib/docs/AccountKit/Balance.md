@@ -8,11 +8,11 @@ order: 5
 
 # Balance
 
-The balance method allows you to retrieve the balance of an account for a specific token.
+The balance method allows you to retrieve the balance of an account for a specific token. It returns an [Asset](/docs/antelope/asset) instance representing the balance of the queried token.
 
 ## Usage
 
-The balance method is available on any account instance. Here's a basic example of how to use it:
+The balance method is available on any [account](/docs/account-kit/balance) instance. Here's a basic example of how to use it:
 
 ```typescript
 const balance = await testAccount.balance();
@@ -22,16 +22,16 @@ const balance = await testAccount.balance();
 To retrieve the balance for a secondary token:
 
 ```typescript
-const balance = await testAccount.balance('eosio.token', 'EOS');
-// Returns the balance of the 'EOS' token for the account.
+const balance = await testAccount.balance('eosio.token', 'USDT');
+// Returns the balance of the 'USDT' token for the account.
 ```
 
-## Arguments
+## Options
 
-The balance method can accept up to two parameters:
+The balance method can accept up to two optional parameters:
 
-- `contract`: (optional) The contract of the token you wish to query. Defaults to the system token contract.
-- `symbol`: (optional) The symbol of the token you wish to query.
+- `contract`:  The contract of the token balance that is being retrieved. Defaults to the system token contract.
+- `symbol`: The symbol of the token balance that is being retrieved. Defaults to the system token symbol.
 
 ## Return Value
 
