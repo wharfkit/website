@@ -48,4 +48,4 @@ The `load` method accepts a single parameter:
 - `accountName`: The name of the account to load.
 ### Return Value
 
-The `load` method returns an [Account](/docs/Account-kit/Account) instance.
+The `load` method returns an [Account](/docs/account-kit/account) instance.
