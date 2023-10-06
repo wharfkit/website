@@ -48,6 +48,7 @@ Once an `Account` instance is created, the following methods and read-only prope
 
 - [`balance`](/docs/account-kit/balance-method): Retrieves a specific balance for the account.
 - [`permission`](/docs/account-kit/permission-method): Retrieves a specific [Permission](/docs/account-kit/permission) instance from the account.
+- [`permission method`](/docs/account-kit/permission-method): Retrieves a specific [Permission](/docs/account-kit/permission) instance from the account.
 - [`resource`](/docs/account-kit/resource-method): Retrieves a specific [Resource](/docs/account-kit/resource) instance from the account.
 - [`resources`](/docs/account-kit/resources-method): Retrieves all [Resource](/docs/account-kit/resource) instances from the account.
 - [`setPermission`](/docs/account-kit/set-permission): Generates an [Action](/docs/antelope/action) instance that can be used to set a permission on the account.

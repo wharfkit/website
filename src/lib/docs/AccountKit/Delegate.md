@@ -8,7 +8,7 @@ order: 8
 
 # Delegate
 
-The delegate method is used to stake EOS tokens for bandwidth and CPU resources on the EOS blockchain. By staking, an account can allocate these resources either for its own benefit or for another account. The method provides flexibility in how resources are allocated, allowing for CPU, bandwidth, or both to be specified. Moreover, the EOS tokens that are staked remain within the owner's control, meaning they can be unstaked and reclaimed after a cool-down period.
+The delegate method is used to stake EOS tokens for bandwidth and CPU resources on Antelope blockchains. By staking, an account can allocate these resources either for its own benefit or for another account. The method provides flexibility in how resources are allocated, allowing for CPU, bandwidth, or both to be specified.
 
 ## Usage
 
