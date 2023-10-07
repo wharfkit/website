@@ -1,6 +1,6 @@
 ---
 title: Scopes (Method)
-description: Extracts the different scopes within a given table, allowing users to understand the specific contexts in which the table data is organized.
+description: Returns the scopes available within a given table.
 category: ContractKit
 published: true
 order: 6
@@ -8,11 +8,11 @@ order: 6
 
 # Scopes
 
-The `scopes` method provides a structured way to retrieve all the scopes of a particular [table](/docs/contract-kit/table). On Antelope chains, tables can have different sets of data, each stored under a unique scope. This method helps developers to fetch all scopes for a specific table.
+The `scopes` method provides a way to retrieve all the scopes available on a particular smart contract table. On Antelope chains, tables can have different sets of data, each stored under a unique scope. This method helps developers to fetch all scopes for a specific table.
 
 ### Usage
 
-The `scopes` method is available on the [Table](/docs/contract-kit/table) class. When no arguments are passed, the method will return a [cursor](/docs/contract-kit/cursor) that can be used to paginate through every single scope of the table:
+The `scopes` method is available on the [Table](/docs/contract-kit/table) class. When no arguments are passed, the method will return a [Cursor](/docs/contract-kit/cursor) instance that can be used to paginate through every single scope of the table:
 
 ```typescript
 const scopeCursor = contract.table('table_name').scopes();
@@ -23,13 +23,13 @@ To obtain a cursor that can be used to paginate through scopes of a table within
 
 ```typescript
 const scopeCursor = contract.table('table_name').scopes({
-    from: 'scope_name_1',
-    to: 'scope_name_10',
+    from: 'scope_5',
+    to: 'scope_10',
 });
-// Returns a cursor that can be used to paginate through scopes of the table between 'scope_name_1' and 'scope_name_10'.
+// Returns a cursor that can be used to paginate through scopes of the table between 'scope_5' and 'scope_10'.
 ```
 
-The `maxRows` and `rowsPerAPIRequest` options are also available when using the `scopes` method:
+The `maxRows` and `rowsPerAPIRequests` options are also available to specify the maximum number of rows that the `Cursor` instance should retrieve and the number of rows that should be fetched per API request:
 
 ```typescript
 const scopeCursor = contract.table('table_name').scopes({
@@ -50,4 +50,4 @@ The `scopes` method accepts an optional object that can be used to specify the q
 
 ## Returns Value
 
-A [cursor](/docs/contract-kit/cursor) is returned, which can be used to paginate through the scopes of the table.
+The `scopes` method returns a [Cursor](/docs/contract-kit/cursor) instance, which can be used to paginate through the scopes of the table.

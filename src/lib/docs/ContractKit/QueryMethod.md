@@ -1,6 +1,6 @@
 ---
 title: Query (Method)
-description: change_me
+description: Returns a cursor that can be used to fetch rows from a smart contract table following a set of query parameters.
 category: ContractKit
 published: true
 order: 5
@@ -8,18 +8,18 @@ order: 5
 
 # Query Method
 
-The `query` method retrieves rows from a smart contract table based on the provided query parameters. This method allows for a fine-tuned search within the table, returning rows that match the specified criteria.
+The `query` method retrieves rows from a smart contract table based on the provided query parameters. It returns a [Cursor](/docs/contract-kit/cursor) instance that can be used to paginate through the table rows.
 
 ### Usage
 
-The `query` method is available on any [Table](/docs/contract-kit/table) instance. When no arguments are passed, it will return a [cursor](/docs/contract-kit/cursor) that can be used to paginate through every single row of the the table:
+The `query` method is available on any [Table](/docs/contract-kit/table) instance. When no arguments are passed, it will return a [Cursor](/docs/contract-kit/cursor) instance that can be used to paginate through every single row of the the table:
 
 ```typescript
 const tableCursor = contract.table('table_name').query();
-// Returns a cursor that can be used to paginate through every row of the table.
+// Returns a cursor that can be used to paginate through every row of the 'table_name' table.
 ```
 
-To obtain a cursor that can be used to paginate through rows of a table within a specific scope, the `query` method can be called with a `scope` option:
+To obtain a `Cursor` instance that can be used to paginate through rows that belong to a specific scope, the `query` method can be called with a `scope` option:
 
 ```typescript
 const tableCursor = contract.table('table_name').query({
@@ -28,7 +28,7 @@ const tableCursor = contract.table('table_name').query({
 // Returns a cursor that can be used to paginate through rows of the table with the 'scope_name' scope.
 ```
 
-The `maxRows` and `rowsPerAPIRequests` options are also available when using the `query` method:
+The `maxRows` and `rowsPerAPIRequests` options are also available to specify the maximum number of rows that the `Cursor` instance should retrieve and the number of rows that should be fetched per API request:
 
 ```typescript
 const tableCursor = contract.table('table_name').query({
@@ -54,10 +54,9 @@ const tableCursor = contract.table('table_name').query({
 
 The `query` method accepts an optional object that can be used to specify the query parameters. It can have the following properties:
 
-- `index`: Specifies the field or index in the table for querying.
-- `index_position`: Designates the position of the index in multi-index tables.
-- `scope`: Defines the scope of the query to refine the search.
-- `key_type`: Indicates the type of key for the queried index.
+- `index_position`: Designates the position of the index in multi-index tables. This will affect which `from` and `to` values can be used. In Antelope chains, the index positions follow the pattern of `primary`, `secondary`, `tertiary`, etc.
+- `scope`: Defines the scope of the rows that should be retrieved.
+- `key_type`: Indicates the type of index key to be used. This is useful when using secondary indexes.
 - `from`: Denotes the start of the range for bounded queries.
 - `to`: Denotes the end of the range for bounded queries.
 - `maxRows`: Specifies the maximum number of rows to fetch.
@@ -65,4 +64,4 @@ The `query` method accepts an optional object that can be used to specify the qu
 
 ## Returns Value
 
-A [cursor](/docs/contract-kit/table) is returned, which can be used to paginate through the table rows.
+A [Cursor](/docs/contract-kit/table) instance is returned, which can be used to paginate through the table rows.

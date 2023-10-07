@@ -1,6 +1,6 @@
 ---
 title: All (Method)
-description: Retrieve all rows of a specific table within a blockchain contract using the `all` method.
+description: Retrieves all rows of a specific smart contract table.
 category: ContractKit
 published: true
 order: 7
@@ -8,7 +8,7 @@ order: 7
 
 # All
 
-The `all` method allows developers to fetch all rows of data present in a specified table within a smart contract.
+The `all` method allows developers to fetch all rows of data present in a specified smart contract table.
 
 ## Usage
 
@@ -40,7 +40,7 @@ Any query options can be used in conjunction with each other to further refine t
 
 ```typescript
 const rows = contract.table('table_name').all({
-    index: 'index_name',
+    index_position: 'secondary',
     scope: 'scope_name',
     key_type: 'i64',
     from: 1,
@@ -56,10 +56,9 @@ console.log(rows); // Logs all rows of the 'table_name' table with the defined q
 
 The `all` method accepts an optional object that can be used to specify the query parameters. It can have the following properties:
 
-- `index`: Specifies the field or index in the table for querying.
-- `index_position`: Designates the position of the index in multi-index tables.
-- `scope`: Defines the scope of the query to refine the search.
-- `key_type`: Indicates the type of key for the queried index.
+- `index_position`: Designates the position of the index in multi-index tables. This will affect which `from` and `to` values can be used. In Antelope chains, the index positions follow the pattern of `primary`, `secondary`, `tertiary`, etc.
+- `scope`: Defines the scope of the rows that should be retrieved.
+- `key_type`: Indicates the type of index key to be used. This is useful when using secondary indexes.
 - `from`: Denotes the start of the range for bounded queries.
 - `to`: Denotes the end of the range for bounded queries.
 - `maxRows`: Specifies the maximum number of rows to fetch.
