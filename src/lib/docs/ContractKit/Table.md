@@ -1,6 +1,6 @@
 ---
 title: Table
-description: Represents a table within a blockchain smart contract and facilitates querying this table for data.
+description: The Table class serves as a wrapper for Antelope smart contract tables. It offers several helper methods to help retrieve table data.
 category: ContractKit
 published: true
 order: 4
@@ -8,11 +8,11 @@ order: 4
 
 # Table
 
-The `Table` class acts as a primary interface to access and interact with tables within a smart contract. With its methods, one can fetch rows and scopes, making data retrieval streamlined and intuitive.
+`Table` class instances represent a specific `Antelope smart contract table`. They make available several methods to retrieve table data.
 
 ## Creation
 
-To initialize a `Table` instance from a `Contract`, you'll typically use the [Contract](/docs/contract-kit/contract) [table() method](/docs/contract-kit/table-method). However, you can also create a `Table` instance directly using its constructor:
+To initialize a `Table` instance, the [Contract](/docs/contract-kit/contract) [table() method](/docs/contract-kit/table-method) is usually used. However, a `Table` instance can also be instantiated directly using its constructor:
 
 ```typescript
 import { Table } from "@wharfkit/contract";
@@ -34,20 +34,20 @@ const table = new Table({
 
 ### Arguments
 
-The `Table` constructor accepts an object containing all the required configuration data:
+The `Table` constructor accepts an object containing the following configuration data:
 
 - `abi`: The [ABI](/docs/antelope/abi) definition for the contract.
 - `account`: The name of the account that the contract is deployed to.
 - `name`: The name of the table to retrieve.
-- `client`: An instance of an [APIClient](/docs/antelope/api-client) that will be used to communicate with the blockchain.
+- `client`: An instance of an [APIClient](/docs/antelope/api-client) that will be used to fetch blockchain data.
 
 ### Options
 
-The `Table` constructor also acceptssome  optional configuration data in the single parameter:
+The `Table` constructor also accepts some options:
 
-- `rowType`: The type of the rows returned by the table. This is used to cast the data returned by the blockchain into a specific type.
-- `defaultRowLimit`: The default number of rows to fetch when using the `all` method.
-- `defaultScope`: The default scope to use when fetching rows from the table.
+- `rowType`: The data type of the rows returned by the `Table` instance.
+- `defaultRowLimit`: The default number of rows to fetch when using the `all` and `query` methods.
+- `defaultScope`: The default scope to use when fetching table rows.
 
 ## Usage
 
@@ -55,20 +55,16 @@ Once a `Table` instance is created, methods and read-only properties are availab
 
 ### Methods:
 
-Here's a quick overview of the available methods. Click on each method for a detailed explanation and usage:
-
-- [query](/docs/contract-kit/query-method) - Queries the table based on given parameters.
+- [all](/docs/contract-kit/all-method) - Retrieves all table rows.
+- [first](/docs/contract-kit/first-method) - Returns a `Cursor` instance that can be used to paginate through a specified number of table rows.
 - [get](/docs/contract-kit/get-method) - Retrieves a specific row from the table.
-- [first](/docs/contract-kit/first-method) - Fetches the initial set of rows from the table.
-- [all](/docs/contract-kit/all-method) - Retrieves all rows from the table.
-- [scopes](/docs/contract-kit/scopes-method) - Obtains the different scopes within the table.
+- [query](/docs/contract-kit/query-method) - Returns a `Cursor` instance that can be used to paginate through rows given specific query parameters.
+- [scopes](/docs/contract-kit/scopes-method) - Returns a `Cursor` instance that can be used to fetch the different scopes available in the table.
 
 ### Properties:
 
-Here are the read-only properties available on a `Table` instance:
-
-- `account`: The name of the account that the contract is deployed to.
 - `abi`: The [ABI](/docs/antelope/abi) definition for the contract.
+- `account`: The name of the account that the contract is deployed to.
 - `name`: The name of the table.
 - `rowType`: The type of the rows returned by the table.
-- `tableAbi`: The ABI definition for the table.
+- `tableAbi`: The part of the ABI definition that is specific to the table.
