@@ -8,7 +8,7 @@ order: 7
 
 # BuyRamBytes
 
-The `buyRamBytes` method facilitates the purchase of RAM by letting you specify the number of bytes directly. It returns an [Action](/docs/antelope/action) object detailing the RAM purchase request.
+The `buyRamBytes` method facilitates the purchase of RAM by letting you specify a number of bytes to purchase. It returns an [Action](/docs/antelope/action) object detailing the RAM purchase request.
 
 ## Usage
 
@@ -18,7 +18,7 @@ The `buyRamBytes` method is available on any [account](/docs/account-kit/account
 const action = testAccount.buyRamBytes(1024);
 ```
 
-To override the receiver of the RAM purchase:
+To override the receiver of the RAM purchase, the `receiver` option can be specified:
 
 ```typescript
 const action = testAccount.buyRamBytes(1024, {
@@ -32,9 +32,9 @@ const action = testAccount.buyRamBytes(1024, {
 
 ## Options
 
-The `buyRamBytes` method accepts an optional `options` object containing the following property:
+The `buyRamBytes` method accepts an optional object with the following property:
 
-- `receiver`: (optional) Specifies an EOS account to receive the RAM. Defaults to the payer if not provided.
+- `receiver`: Specifies the Antelope account that should receive the RAM. Defaults to the payer.
 
 ## Return Value
 

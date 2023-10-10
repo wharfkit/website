@@ -1,6 +1,6 @@
 ---
 title: BuyRam (Method)
-description: Acquire RAM using EOS tokens.
+description: Acquire RAM using a specific amount of tokens.
 category: ContractKit
 published: true
 order: 6
@@ -12,19 +12,19 @@ The `buyRam` method allows accounts to purchase RAM using a specific amount of t
 
 ## Usage
 
-The `buyRam` method is available on any [account](/docs/account-kit/account) instance. Here is a basic example detailing how to purchase RAM using a specific amount of a token:
+The `buyRam` method is available on any [account](/docs/account-kit/account) instance. Here is a basic example detailing how to purchase RAM using a specific amount of token:
 
 ```typescript
 const action = testAccount.buyRam('1.0000 EOS');
 ```
 
-Alternatively, an antelope [Asset](/docs/antelope/asset) instance can also be passed instead of a string:
+Alternatively, an antelope [Asset](/docs/antelope/asset) instance can also be passed:
 
 ```typescript
 const action = testAccount.buyRam(Asset.from(1.0000, '4,EOS'));
 ```
 
-You can also override the receiver of the RAM purchase:
+To specify a receiver for the RAM purchase, the `receiver` option can be specified:
 
 ```typescript
 const action = testAccount.buyRam('1.0000 EOS', {
@@ -34,13 +34,13 @@ const action = testAccount.buyRam('1.0000 EOS', {
 
 ## Arguments
 
-- `amount`: The amount of EOS to be used for purchasing RAM, specified as a string (e.g., `'1.0000 EOS'`).
+- `amount`: The amount of tokens to be used for purchasing RAM, it can be a string or an [Asset](/docs/antelope/asset) instance.
 
 ## Options
 
-The `buyRam` method accepts an optional `options` object containing the following property:
+The `buyRam` method accepts an optional object with the following property:
 
-- `receiver`: (optional) Specifies an EOS account to receive the RAM. Defaults to the payer if not provided.
+- `receiver`: Specifies the Antelope account that should receive the RAM. Defaults to the payer.
 
 ## Return Value
 
