@@ -12,9 +12,7 @@ The `AccountKit` class provided by the [Account Kit](/docs/account-kit) is a fac
 
 ## Creation
 
-When using the `AccountKit` within a web application, the developer will first establish an instance of the class with the required AccountKit arguments.
-
-A simple example would be as follows:
+When using the `AccountKit` factory class within a web application, the developer will first need to instantiate it. Here is a basic example:
 
 ```typescript
 import { AccountKit } from "@wharfkit/Account"
@@ -27,18 +25,18 @@ const AccountKit = new AccountKit({
 
 ### Arguments
 
-The only required parameter to initialize a `AccountKit` instance is an object containing containing a single value.
+The only required parameter to initialize an `AccountKit` instance is an object containing a single property:
 
-- `client`: The [API client](/docs/antelope/api-client) used to fetch smart Account data.
+- `client`: The [API client](/docs/antelope/api-client) used to fetch the on-chain account data.
 
 ## Usage
 
 ### Load Method
 
-The `load` method is used to load a specific Account.
+Once an AccountKit instance is obtainer, the `load` method can be used to obtain an [Account](/docs/account-kit/account) instance for a specific blockchain account.
 
 ```typescript
-const Account = await AccountKit.load("teamgreymass");
+const account = await AccountKit.load("teamgreymass");
 ```
 
 ### Arguments

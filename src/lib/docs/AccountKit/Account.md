@@ -1,6 +1,6 @@
 ---
 title: Account
-description: An Account instance represents the connection between an application's code and an Antelope blockchain account. It facilates interaction with accounts by offering methods for data retrieval and action generation.
+description: An Account instance is a wapper for Antelope blockchain accounts. It facilitates interaction with accounts by offering methods for account data retrieval and action generation.
 category: AccountKit
 published: true
 order: 2
@@ -8,13 +8,11 @@ order: 2
 
 # Account
 
-The `Account` class instance represents a specific [blockchain smart contract](https://docs.eosnetwork.com/docs/latest/smart-contracts/). It offers a myriad of methods that provide functionality ranging from retrieving contract data to generating contract actions that can be executed using the [SessionKit](/docs/session-kit/transact).
+Each `Account` class instance represents a specific blockchain account. It offers several helper methods to facilitate interaction with that account.
 
 ## Creation
 
-Accounts can be created manually for use in applications, so long as all the relevant data is provided. Once created, a `Account` will offer multiple read-only properties and a handful of methods.
-
-The minimum required information to create a `Account` instance is as follows:
+In most cases, the [AccountKit Factory](/docs/account-kit/account-kit) will be used to instantiate `Account` instances. However, they can also be created manually if the relevant data is provided. Here is a basic example:
 
 ```ts
 import { Account } from "@wharfkit/contract"
@@ -33,11 +31,11 @@ const contract = new Account(contractArgs)
 
 ### Arguments
 
-The only parameter passed to the `Account` class is an object containing all the required configuration data.
+The only parameter passed to the `Account` class constructor is an object containing the following configuration data:
 
-- `abi`: The [ABI](/docs/antelope/abi) definition for the contract.
+- `abi`: The [ABI definition](/docs/antelope/abi) for the contract.
 - `account`: The name of the account that the contract is deployed to.
-- `data`: The account's data.
+- `data`: The account's data. Generally, this will be obtained using a [get_account API call](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index#operation/get_account). <!-- TODO: Replace this with link from Antelope API docs. Maybe from the antelope docs?? -->
 - `client`: An instance of an [APIClient](/docs/antelope/api-client) that will be used to communicate with the blockchain.
 
 ## Usage
@@ -50,13 +48,13 @@ Once an `Account` instance is created, the following methods and read-only prope
 - [`permission`](/docs/account-kit/permission-method): Retrieves a specific [Permission](/docs/account-kit/permission) instance from the account.
 - [`permission method`](/docs/account-kit/permission-method): Retrieves a specific [Permission](/docs/account-kit/permission) instance from the account.
 - [`resource`](/docs/account-kit/resource-method): Retrieves a specific [Resource](/docs/account-kit/resource) instance from the account.
-- [`resources`](/docs/account-kit/resources-method): Retrieves all [Resource](/docs/account-kit/resource) instances from the account.
+- [`resources`](/docs/account-kit/resources-method): Retrieves a `Resources` instance from the [@wharfkit/resources package](https://www.npmjs.com/package/@wharfkit/resources).
 - [`setPermission`](/docs/account-kit/set-permission): Generates an [Action](/docs/antelope/action) instance that can be used to set a permission on the account.
 - [`removePermission`](/docs/account-kit/remove-permission): Generates an [Action](/docs/antelope/action) instance that can be used to remove a permission from the account.
-- [`linkauth`](/docs/account-kit/linkauth): Generates an [Action](/docs/antelope/action) instance that can be used to link an authorization to an action on the account.
-- [`unlinkauth`](/docs/account-kit/unlinkauth): Generates an [Action](/docs/antelope/action) instance that can be used to unlink an authorization from an action on the account.
+- [`linkauth`](/docs/account-kit/linkauth): Generates an [Action](/docs/antelope/action) instance that can be used to link an account authorization to a contract action.
+- [`unlinkauth`](/docs/account-kit/unlinkauth): Generates an [Action](/docs/antelope/action) instance that can be used to unlink an account authorization from a contract action.
 - [`buyRam`](/docs/account-kit/buy-ram): Generates an [Action](/docs/antelope/action) instance that can be used to buy RAM for the account.
-- [`buyRamBytes`](/docs/account-kit/buy-ram-bytes): Generates an [Action](/docs/antelope/action) instance that can be used to buy RAM for the account.
+- [`buyRamBytes`](/docs/account-kit/buy-ram-bytes): Generates an [Action](/docs/antelope/action) instance that can be used to buy RAM in bytes for the account.
 - [`sellRam`](/docs/account-kit/sell-ram): Generates an [Action](/docs/antelope/action) instance that can be used to sell RAM for the account.
 - [`delegate`](/docs/account-kit/delegate): Generates an [Action](/docs/antelope/action) instance that can be used to delegate resources for the account.
 - [`undelegate`](/docs/account-kit/undelegate): Generates an [Action](/docs/antelope/action) instance that can be used to undelegate resources for the account.
