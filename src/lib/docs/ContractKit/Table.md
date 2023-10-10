@@ -8,11 +8,11 @@ order: 4
 
 # Table
 
-`Table` class instances represent a specific `Antelope smart contract table`. They make available several methods to retrieve table data.
+A `Table` class instances represents a specific `Antelope smart contract table`. It has several methods that simplify the process of retrieving table data.
 
 ## Creation
 
-To initialize a `Table` instance, the [Contract](/docs/contract-kit/contract) [table() method](/docs/contract-kit/table-method) is usually used. However, a `Table` instance can also be instantiated directly using its constructor:
+The [Contract](/docs/contract-kit/contract) [table() method](/docs/contract-kit/table-method) is usually used to obtain `Table` instances. However, it can also be instantiated directly using its constructor:
 
 ```typescript
 import { Table } from "@wharfkit/contract";
@@ -63,8 +63,8 @@ Once a `Table` instance is created, methods and read-only properties are availab
 
 ### Properties:
 
-- `abi`: The [ABI](/docs/antelope/abi) definition for the contract.
+- `abi`: The [ABI definition](/docs/antelope/abi) for the contract.
 - `account`: The name of the account that the contract is deployed to.
-- `name`: The name of the table.
-- `rowType`: The type of the rows returned by the table.
+- `name`: The name of the smart contract table.
+- `rowType`: The Typescript type of the rows returned by the table.
 - `tableAbi`: The part of the ABI definition that is specific to the table.

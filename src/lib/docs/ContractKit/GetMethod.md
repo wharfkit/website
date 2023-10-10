@@ -8,7 +8,7 @@ order: 5
 
 # Get
 
-The `get` method allows for the retrieval of a single row from a [table](/docs/contract-kit/table) instance.
+The `get` method allows for the retrieval of a single row from a [Table](/docs/contract-kit/table) instance.
 
 ## Usage
 
@@ -19,14 +19,14 @@ const row = await contract.table('table_name').get();
 // This will retrieve the first row of the table.
 ```
 
-To get a specific row, the `get` method can be called with a primary index value:
+To get a specific row, the `get` method can be called with a primary index value as it's only parameter:
 
 ```typescript
 const row = await contract.table('table_name').get(17);
 // This will retrieve the first row where the primary index has a value of 17.
 ```
 
-To get a row associated to a specific table scope, the `get` method can be called with a `scope` option:
+To get a row associated to a specific table scope, the `get` method can be called with the `scope` option:
 
 ```typescript
 const row = await contract.table('table_name').get(17, { scope: 'scope_name' });
@@ -44,7 +44,7 @@ Any query option can be used in conjunction with eachother to further refine the
 
 ```typescript
 const row = await contract.table('table_name').get('teamgreymass', {
-    index_position: 'secondary',
+    index_position: 'tertiary',
     scope: 'scope_name',
 });
 // This will retrieve the first row where the tertiary index has a value of 'teamgreymass' and the scope is 'scope_name'.
@@ -58,7 +58,7 @@ const row = await contract.table('table_name').get('teamgreymass', {
 
 The `get` method accepts an optional object that can be used to specify the query parameters. It can have the following properties:
 
-- `index_position`: Designates the position of the index in multi-index tables. This will affect which `from` and `to` values can be used. In Antelope chains, the index positions follow the pattern of `primary`, `secondary`, `tertiary`, etc.
+- `index_position`: Designates the index to use in the API query. This will affect which `from` and `to` values can be used. In Antelope chains, the index positions follow the pattern of `primary`, `secondary`, `tertiary`, etc.
 - `scope`: Defines the scope of the rows that should be retrieved.
 - `key_type`: Indicates the type of index key to be used. This is useful when using secondary indexes.
 

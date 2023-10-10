@@ -8,11 +8,11 @@ order: 6
 
 # Scopes
 
-The `scopes` method provides a way to retrieve all the scopes available on a particular smart contract table. On Antelope chains, tables can have different sets of data, each stored under a unique scope. This method helps developers to fetch all scopes for a specific table.
+The `scopes` method provides a way to retrieve all the scopes on a particular smart contract table. On Antelope chains, tables can have different sets of data, each stored under a unique scope. This method helps developers to fetch all scopes available for a specific table.
 
 ### Usage
 
-The `scopes` method is available on the [Table](/docs/contract-kit/table) class. When no arguments are passed, the method will return a [Cursor](/docs/contract-kit/cursor) instance that can be used to paginate through every single scope of the table:
+The `scopes` method is available on any [Table](/docs/contract-kit/table) instance. When no arguments are passed, the method will return a [Cursor](/docs/contract-kit/cursor) instance that can be used to paginate through every single scope of the table:
 
 ```typescript
 const scopeCursor = contract.table('table_name').scopes();
@@ -41,7 +41,7 @@ const scopeCursor = contract.table('table_name').scopes({
 
 ## Options
 
-The `scopes` method accepts an optional object that can be used to specify the query parameters. It can have the following properties:
+The `scopes` method accepts an object as an optional second parameter that can be used to specify the query parameters. It can have the following properties:
 
 - `from`: Represents the start of the range for bounded queries.
 - `to`: Represents the end of the range for bounded queries.
