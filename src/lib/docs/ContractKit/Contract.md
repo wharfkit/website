@@ -8,11 +8,11 @@ order: 2
 
 # Contract
 
-`Contract` class instances represent a specific `Antelope smart contract`. They make available several methods to retrieve contract data as well as generating contract actions that can be executed using the [SessionKit transact method](/docs/session-kit/transact).
+A `Contract` class instance represents a specific `Antelope smart contract`. It makes available several methods to retrieve contract data as well as generating contract actions that can be executed using the [SessionKit transact method](/docs/session-kit/transact).
 
 ## Creation
 
-In most cases, `Contract` instances will be created by the [ContractKit](/docs/contract-kit) load method. However, they can also be created manually:
+In most cases, `Contract` instances will be created by the [ContractKit](/docs/contract-kit/contract-kit) load method. However, they can also be created manually:
 
 ```ts
 import { Contract } from "@wharfkit/contract"
@@ -31,9 +31,9 @@ const contract = new Contract(contractArgs)
 
 ### Arguments
 
-The only parameter passed to the `Contract` class constructor is an object containing all the following configuration data:
+The only parameter passed to the `Contract` class constructor is an object containing the following configuration data:
 
-- `abi`: The [ABI](/docs/antelope/abi) definition for the contract.
+- `abi`: The [ABI definition](/docs/antelope/abi) for the smart contract.
 - `account`: The name of the account that the contract is deployed to.
 - `client`: An instance of an [APIClient](/docs/antelope/api-client) that will be used to fetch blockchain data.
 
@@ -48,7 +48,7 @@ Once a `Contract` instance is created, methods and read-only properties are avai
 
 ### Properties
 
-- `abi`: The [ABI](/docs/antelope/abi) definition for the contract.
+- `abi`: The [ABI definition](/docs/antelope/abi) for the contract.
 - `account`: The name of the account that the contract is deployed to.
-- `actionNames`: An array of the names of actions that exist on the contract.
-- `tableNames`: An array of the names of table that exist on the contract.
+- `actionNames`: An array with the names of actions that exist on the contract.
+- `tableNames`: An array with the names of table that exist on the contract.

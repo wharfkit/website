@@ -18,14 +18,14 @@ The `table` method is available on any [Contract](/docs/contract-kit/contract) i
 
 ```typescript
 const table = contract.table('table_name');
-// Returns a table instance for the 'table_name' table.
+// Returns a Table instance for the 'table_name' table.
 ```
 
 To specify the default scope to be used when fetching rows with the resulting `table` instance, the `table` method can be called with an optional `scope` parameter:
 
 ```typescript
 const table = contract.table('table_name', 'scope_name');
-// Returns a table instance for the 'table_name' table with the default scope 'scope_name'.
+// Returns a Table instance for the 'table_name' table with the default scope 'scope_name'.
 ```
 
 ## Arguments
@@ -37,6 +37,7 @@ The `table` method accepts a single argument:
 ## Options
 
 - `scope`: The default scope to be used when fetching rows with the `Table` instance.
+- `rowType`: The Typescript type of the rows that will be returned by the `Table` instance.
 
 ## Return Value
 

@@ -12,7 +12,7 @@ The `ContractKit` class provided by the [Contract Kit](/docs/contract-kit) is a 
 
 ## Creation
 
-When using the `ContractKit` within a web application, an instance of the class must first be created:
+When using the `ContractKit` within a web application, an instance of the class must first be created. Here is a basic example:
 
 ```typescript
 import { ContractKit } from "@wharfkit/contract"
@@ -38,7 +38,7 @@ const kit = const kit = new ContractKit({
 });
 ```
 
-To pass ABIs directly to the `ContractKit` instance, an array of [ABIDefinition](/docs/antelope/abi) objects can be passed as an optional parameter:
+To pass ABIs directly to the `ContractKit` instance, an array of [ABIDefinition](/docs/antelope/abi) objects can also be passed:
 
 ```typescript
 import { ContractKit } from "@wharfkit/contract"
@@ -63,14 +63,14 @@ A single argument is required to initialize a `ContractKit` instance:
 
 The following options can be passed in the second parameter of the `ContractKit` constructor:
 
-- `abiCache`: An instance of the [ABICache](/docs/antelope/abi-cache-interface) interface. Can be used to cache ABIs across multiple ContractKit `load` calls.
-- `abis`: An array of [ABIDefinition](/docs/antelope/abi-definition) objects. Can be used to pass ABIs directly to the ContractKit instance (eliminating the need to fetch them from the blockchain.)
+- `abiCache`: An instance of the [ABICache](/docs/antelope/abi-cache-interface) interface which can be used to cache ABIs across multiple ContractKit `load` calls.
+- `abis`: An array of [ABIDefinition](/docs/antelope/abi-definition) objects. This option can be used to pass ABIs directly to the ContractKit instance (eliminating the need for the ContractKit to fetch them from an API node).
 
 ## Usage
 
 ### Load Method
 
-The `load` method is used to load a specific [contract](/docs/contract-kit/contract) instance.
+Once a `ContractKit` instance is created, the `load` method can be used to instantiate a specific [Contract](/docs/contract-kit/contract) instance.
 
 ```typescript
 const contract = await contractKit.load("eosio.token");
@@ -80,7 +80,7 @@ const contract = await contractKit.load("eosio.token");
 
 The `load` method accepts a single parameter:
 
-- `contractName`: The name of the contract to load.
+- `contractName`: The name of the contract to instantiate.
 
 ### Return Value
 
