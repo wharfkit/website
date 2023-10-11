@@ -1,6 +1,6 @@
 ---
 title: RemovePermission (Method)
-description: Delete a custom permission level from an account.
+description: Used to generate an action to delete a custom permission from an Antelope account.
 category: AccountKit
 published: true
 order: 13
@@ -8,11 +8,11 @@ order: 13
 
 # RemovePermission
 
-The `removePermission` method is used to delete custom permissions from an EOS account. If a custom permission is no longer required, or if it poses a security risk, you can use this method to remove it.
+The `removePermission` method is used to delete custom permissions from an Antelope account. 
 
 ## Usage
 
-To delete a custom permission from an account, utilize the `removePermission` method on any [account](/docs/account-kit/account) instance:
+Tthe `removePermission` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
 const action = testAccount.removePermission('claim');
@@ -22,8 +22,8 @@ In the example above, an action that deletes the `claim` permission is generated
 
 ## Arguments
 
-- `permissionName`: The name of the custom permission you intend to remove.
+- `permissionName`: The name of the custom permission that is to be removed.
 
 ## Return Value
 
-The removePermission method returns an [Action](/docs/antelope/action) instance detailing the deletion request. This action can then be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `removePermission` method returns an [Action](/docs/antelope/action) instance.
