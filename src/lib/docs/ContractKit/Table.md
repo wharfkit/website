@@ -1,113 +1,70 @@
 ---
 title: Table
-description: change_me
+description: The Table class serves as a wrapper for Antelope smart contract tables. It offers several helper methods to help retrieve table data.
 category: ContractKit
 published: true
 order: 4
 ---
 
-Getting a `Table` instance from a `Contract`, and how to query that table.
+# Table
 
-```ts
+A `Table` class instances represents a specific `Antelope smart contract table`. It has several methods that simplify the process of retrieving table data.
+
+## Creation
+
+The [Contract](/docs/contract-kit/contract) [table() method](/docs/contract-kit/table-method) is usually used to obtain `Table` instances. However, it can also be instantiated directly using its constructor:
+
+```typescript
+import { Table } from "@wharfkit/contract";
+import { APIClient } from "@wharfkit/antelope";
+import type { TableRow } from "./types";
+
+import abi from "./abi.json"; // ABI for the contract that hosts the table.
+
 const table = new Table({
-  contract: "eosio",
-  name: "namebids",
-  client: mockClient,
-})
-
-// first row, default order
-table.first()
-
-// first 10 rows, default order
-table.first(10)
-
-// all rows (recursive fetching), default order
-const cursor = table.all()
-cursor.next()
-
-// throw error, query not provided
-table.where()
-
-// throw error, query not provided
-table.where({})
-
-// throw error, query not provided
-const table = new Table({
-  contract: "delphioracle",
-  name: "datapoints",
-  client: mockClient,
-})
-table.where({ scope: "eosusd" })
+    abi,
+    account: "contract_name",
+    name: "table_name",
+    client: new APIClient("https://jungle4.greymass.com"),
+    rowType: TableRow,
+    defaultRowLimit: 1000,
+    defaultScope: 'scope_name'
+});
 ```
 
-```ts
-// ------- FIND -------
+### Arguments
 
-// throws error
-table.find()
+The `Table` constructor accepts an object containing the following configuration data:
 
-// find by default index
-// curl http://eos.greymass.com/v1/chain/get_table_rows -d '{"table":"producers","limit":10,"code":"eosio","scope":"eosio","json":true,"lower_bound":"teamgreymass","upper_bound":"teamgreymass"}'
-producersTable.find("teamgreymass")
+- `abi`: The [ABI](/docs/antelope/abi) definition for the contract.
+- `account`: The name of the account that the contract is deployed to.
+- `name`: The name of the table to retrieve.
+- `client`: An instance of an [APIClient](/docs/antelope/api-client) that will be used to fetch blockchain data.
 
-// find by named index
-// curl http://eos.greymass.com/v1/chain/get_table_rows -d '{"code":"decentiumorg","scope":"decentiumorg","table":"trending","json":true,"lower_bound":5,"upper_bound":5}'
-decentiumTable.find(5, {
-  index: "id",
-})
+### Options
 
-// find by default index in a scope
-// curl http://eos.greymass.com/v1/chain/get_table_rows -d '{"table":"datapoints","limit":10,"code":"delphioracle","scope":"eosusd","json":true,"lower_bound":"18446744073708221438","upper_bound":"18446744073708221438"}'
-delphiTable.find("18446744073708221438", {
-  scope: "eosusd",
-})
+The `Table` constructor also accepts some options:
 
-// find by named index in a scope
-// curl http://eos.greymass.com/v1/chain/get_table_rows -d '{"code":"decentiumorg","scope":"decentiumorg","table":"trending","json":true,"scope":"decentiumorg","lower_bound":5,"upper_bound":5}'
-decentiumTable.find(5, {
-  index: "id",
-  scope: "decentiumorg",
-})
-```
+- `rowType`: The data type of the rows returned by the `Table` instance.
+- `defaultRowLimit`: The default number of rows to fetch when using the `all` and `query` methods.
+- `defaultScope`: The default scope to use when fetching table rows.
 
-```ts
-// ------- WHERE -------
+## Usage
 
-// throws error
-table.where()
+Once a `Table` instance is created, methods and read-only properties are available.
 
-// throws error
-table.where({})
+### Methods:
 
-// where by default index
-// curl http://eos.greymass.com/v1/chain/get_table_rows -d '{"table":"producers","code":"eosio","scope":"eosio","json":true,"lower_bound":"eosnationftw","upper_bound":"teamgreymass"}'
-producersTable.where({
-    from: "eosnationftw",
-    to: "teamgreymass"
-})
+- [all](/docs/contract-kit/all-method) - Retrieves all table rows.
+- [first](/docs/contract-kit/first-method) - Returns a `Cursor` instance that can be used to paginate through a specified number of table rows.
+- [get](/docs/contract-kit/get-method) - Retrieves a specific row from the table.
+- [query](/docs/contract-kit/query-method) - Returns a `Cursor` instance that can be used to paginate through rows given specific query parameters.
+- [scopes](/docs/contract-kit/scopes-method) - Returns a `Cursor` instance that can be used to fetch the different scopes available in the table.
 
-// where using named index
-// curl http://eos.greymass.com/v1/chain/get_table_rows -d '{"table":"trending","code":"decentiumorg","scope":"decentiumorg","limit":10,"lower_bound":"101511","upper_bound":"105056","index_position":"secondary","key_type":"i64","json":true}'
-decentiumTable.where({
-    from: 101511,
-    to: 105056,
-    index: 'score'
-})
+### Properties:
 
-// where using scope and default
-// curl http://eos.greymass.com/v1/chain/get_table_rows -d '{"code":"decentiumorg","scope":"decentiumorg","table":"trending","json":true,"lower_bound":5,"upper_bound":7}'
-decentiumTable.where({
-    from: 5,
-    to: 7,
-    scope: 'decentiumorg'
-})
-
-// where using scope and named index
-// curl http://eos.greymass.com/v1/chain/get_table_rows -d '{"table":"trending","code":"decentiumorg","scope":"decentiumorg","limit":10,"lower_bound":"101511","upper_bound":"105056","index_position":"secondary","key_type":"i64","json":true}'
-decentiumTable.where({
-    from: 101511,
-    to: 105056,
-    scope: 'decentiumorg'
-    index: 'score'
-})
-```
+- `abi`: The [ABI definition](/docs/antelope/abi) for the contract.
+- `account`: The name of the account that the contract is deployed to.
+- `name`: The name of the smart contract table.
+- `rowType`: The Typescript type of the rows returned by the table.
+- `tableAbi`: The part of the ABI definition that is specific to the table.
