@@ -3,7 +3,7 @@ title: Permission (Method)
 description: Retrieve a specific permission level associated with an Antelope blockchain account.
 category: AccountKit
 published: true
-order: 6
+order: 11
 ---
 
 # Permission

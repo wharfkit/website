@@ -3,7 +3,7 @@ title: setPermission Method
 description: Update or set a permission level on an Antelope blockchain account.
 category: AccountKit
 published: true
-order: 3
+order: 14
 ---
 
 # SetPermission

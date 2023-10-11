@@ -3,7 +3,7 @@ title: Resource (Class)
 description: Represents a specific resource type and provides details related to its usage in an Antelope blockchain account.
 category: AccountKit
 published: true
-order: 9
+order: 16
 ---
 
 # Resource Class

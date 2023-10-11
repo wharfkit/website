@@ -3,7 +3,7 @@ title:
 description: Manage undelegation of EOS bandwidth resources for an account.
 category: ContractKit
 published: true
-order: 4
+order: 8
 ---
 
 # Undelegate

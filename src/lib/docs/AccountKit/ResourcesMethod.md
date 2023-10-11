@@ -3,7 +3,7 @@ title: Resources (Method)
 description: Initializes and returns a resource library configured for a specific blockchain account.
 category: AccountKit
 published: true
-order: 11
+order: 17
 ---
 
 # Resources

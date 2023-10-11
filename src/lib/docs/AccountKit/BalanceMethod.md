@@ -3,7 +3,7 @@ title: Balance (Method)
 description: Retrieve the balance of an account for a specific token.
 category: ContractKit
 published: true
-order: 5
+order: 3
 ---
 
 # Balance

@@ -1,6 +1,6 @@
 ---
 title: Account
-description: An Account instance is a wapper for Antelope blockchain accounts. It facilitates interaction with accounts by offering methods for account data retrieval and action generation.
+description: An Account instance is a wrapper for Antelope blockchain accounts. It facilitates interaction with accounts by offering methods for account data retrieval and action generation.
 category: AccountKit
 published: true
 order: 2

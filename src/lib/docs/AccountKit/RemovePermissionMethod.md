@@ -3,7 +3,7 @@ title: RemovePermission (Method)
 description: Delete a custom permission level from an account.
 category: AccountKit
 published: true
-order: 10
+order: 13
 ---
 
 # RemovePermission

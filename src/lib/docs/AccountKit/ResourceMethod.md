@@ -3,7 +3,7 @@ title: Resource (Method)
 description: Retrieve a specific resource instance (CPU, NET, or RAM) from the account.
 category: AccountKit
 published: true
-order: 10
+order: 15
 ---
 
 # Resource (Method)

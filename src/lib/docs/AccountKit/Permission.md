@@ -1,9 +1,9 @@
 ---
 title: Permission
-description: A title: Permission represents the connection between an application's code and an Antelope blockchain permission.
+description: A Permission instance is a wrapper for Antelope blockchain account permissions.
 category: AccountKit
 published: true
-order: 2
+order: 12
 ---
 
 # Permission

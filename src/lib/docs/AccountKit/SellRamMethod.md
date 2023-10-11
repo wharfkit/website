@@ -3,7 +3,7 @@ title: SellRam (Method)
 description: Liquidate a specified amount of RAM for EOS tokens.
 category: AccountKit
 published: true
-order: 11
+order: 6
 ---
 
 # SellRam

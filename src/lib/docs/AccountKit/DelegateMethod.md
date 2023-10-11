@@ -3,7 +3,7 @@ title: Delegate (Method)
 description: Delegate tokens for bandwidth or CPU resources.
 category: AccountKit
 published: true
-order: 8
+order: 7
 ---
 
 # Delegate

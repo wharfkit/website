@@ -3,7 +3,7 @@ title: BuyRamBytes (Method)
 description: Acquire a specific number of bytes of RAM.
 category: AccountKit
 published: true
-order: 7
+order: 4
 ---
 
 # BuyRamBytes

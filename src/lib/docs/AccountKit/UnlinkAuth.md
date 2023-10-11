@@ -3,7 +3,7 @@ title: UnlinkAuth (Method)
 description: Removes the link between an action and a permission for EOS accounts.
 category: AccountKit
 published: true
-order: 13
+order: 10
 ---
 
 # UnlinkAuth

@@ -3,7 +3,7 @@ title: BuyRam (Method)
 description: Acquire RAM using a specific amount of tokens.
 category: ContractKit
 published: true
-order: 6
+order: 5
 ---
 
 # BuyRam
