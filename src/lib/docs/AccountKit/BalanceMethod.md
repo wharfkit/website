@@ -1,6 +1,6 @@
 ---
 title: Balance (Method)
-description: Retrieve the balance of an account for a specific token.
+description: Used to retrieve the balance of an account for a specific token.
 category: ContractKit
 published: true
 order: 3

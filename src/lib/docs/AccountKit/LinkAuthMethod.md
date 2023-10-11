@@ -1,6 +1,6 @@
 ---
 title: Linkauth (Method)
-description: Set a specific permission level.
+description: Used to generate an action that sets a specific permission level.
 category: AccountKit
 published: true
 order: 9
@@ -8,7 +8,7 @@ order: 9
 
 # Linkauth
 
-The `linkauth` method provides a way for an Antelope account owner to link a specific action of a smart contract to a permission level. By using it, one can specify unique permissions for certain actions on specific smart contract actions.
+The `linkauth` method provides a way for an Antelope account owner to link a specific smart contract action to a permission level. By using it, one can specify unique permissions on specific smart contract actions.
 
 ## Usage
 
@@ -18,7 +18,7 @@ The `linkauth` method is available on any [Account](/docs/account-kit/account) i
 const action = testAccount.linkauth('eosio.token', 'transfer', 'active');
 ```
 
-In the example above, an action linking the `eosio.token` `transfer` action to the `active` permission level is generated. This makes it so that the `active` permission level is required to execute the `transfer` action on the `eosio.token` contract.
+In the example above, an action linking the `eosio.token` `transfer` action to the `active` permission level is generated. This makes it the `active` permission level is required to execute the `transfer` action on the `eosio.token` smart contract.
 
 ## Arguments
 

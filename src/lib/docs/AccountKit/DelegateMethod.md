@@ -1,6 +1,6 @@
 ---
 title: Delegate (Method)
-description: Delegate tokens for bandwidth or CPU resources.
+description: Used to generate an action to delegate tokens for bandwidth or CPU resources.
 category: AccountKit
 published: true
 order: 7
