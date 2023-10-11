@@ -34,7 +34,7 @@ const action = testAccount.buyRamBytes(1024, {
 
 The `buyRamBytes` method accepts an optional object with the following property:
 
-- `receiver`: Specifies the Antelope account that should receive the RAM. Defaults to the payer.
+- `receiver`: Specifies the account name of the Antelope account that should receive the RAM. Defaults to the payer.
 
 ## Return Value
 
