@@ -1,6 +1,6 @@
 ---
 title: Resource (Class)
-description: Represents a specific resource type and provides details related to its usage in an Antelope blockchain account.
+description: A Resource instance is a wrapper for a specific account resource (CPU, NET, or RAM) on Antelope blockchains.
 category: AccountKit
 published: true
 order: 16
@@ -8,11 +8,11 @@ order: 16
 
 # Resource Class
 
-The Resource class represents a specific resource type (CPU, NET, or RAM) within the Antelope blockchain. It provides a structured way to access various details related to the resource, such as its available capacity, current usage, and maximum limit.
+Each `Resource` instance represents a specific account resource (CPU, NET, or RAM). It provides a structured way to access various details related to the resource.
 
 ## Creation
 
-The `Resource` class will generally be returned by the [resource](/docs/account-kit/resource-method) and [resources](/docs/account-kit/resources-method) methods on the [Account](/docs/account-kit/account) class. However, a new instance of the `Resource` class can be directly constructed by passing in the resource type and account data:
+The `Resource` class will generally be returned by the [resource](/docs/account-kit/resource-method) method on [Account](/docs/account-kit/account) instances. However, a new instance of the `Resource` class can also be constructed directly. Here is an example of how to do that:
 
 ```typescript 
 const cpuResource = new Resource('cpu', {
@@ -36,8 +36,8 @@ const cpuResource = new Resource('cpu', {
 
 The `Resource` class accepts two parameters:
 
-- `resourceType`: The type of resource to create. Supported types include `cpu`, `net`, and `ram`.
-- `data`: The data object representing the Antelope blockchain account details. This can be obtained from any [account](/docs/account-kit/account) instance using the `data` property.
+- `resourceType`: The type of resource that `Resource` instance is wrapping. Supported types include `cpu`, `net`, and `ram`.
+- `data`: The data object representing the Antelope blockchain account details. This can be obtained using the `data` property on any [account](/docs/account-kit/account) instance.
 
 ## Usage
 
@@ -45,7 +45,7 @@ The `Resource` class accepts two parameters:
 
 Once initialized, a `Resource` instance provides the following properties:
 
-- `available`: Amount of the resource that's currently free for use.
-- `used`: Amount of the resource currently in use.
-- `max`: Maximum capacity of the resource available to the account.
-- `weight`: When applicable, the weight or priority of the resource will also be provided. This is primarily relevant for `cpu` and `net` resources.
+- `available`: Amount of the resource that is currently available for use.
+- `used`: Amount of the resource currently being used.
+- `max`: Maximum amount of resource that is usable.
+- `weight`: For `cpu` and `net` resources, the weight (or priority) of the resource will also be available.
