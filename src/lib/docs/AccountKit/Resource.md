@@ -8,11 +8,11 @@ order: 16
 
 # Resource Class
 
-Each `Resource` instance represents a specific account resource (CPU, NET, or RAM). It provides a structured way to access various details related to the resource.
+Each `Resource` instance represents a specific Antelope account resource (CPU, NET, or RAM). It provides a structured way to access various details related to that resource.
 
 ## Creation
 
-The `Resource` class will generally be returned by the [resource](/docs/account-kit/resource-method) method on [Account](/docs/account-kit/account) instances. However, a new instance of the `Resource` class can also be constructed directly. Here is an example of how to do that:
+The `Resource` class will generally be returned by the [resource](/docs/account-kit/resource-method) method which is available on any [Account](/docs/account-kit/account) instance. However, a new instance of the `Resource` class can also be constructed directly. Here is an example of how to do so:
 
 ```typescript 
 const cpuResource = new Resource('cpu', {
@@ -34,10 +34,10 @@ const cpuResource = new Resource('cpu', {
 
 ### Arguments
 
-The `Resource` class accepts two parameters:
+The `Resource` class constructor accepts two parameters:
 
-- `resourceType`: The type of resource that `Resource` instance is wrapping. Supported types include `cpu`, `net`, and `ram`.
-- `data`: The data object representing the Antelope blockchain account details. This can be obtained using the `data` property on any [account](/docs/account-kit/account) instance.
+- `resourceType`: The type of resource that the `Resource` instance is wrapping. Can be either `cpu`, `net` or `ram`.
+- `data`: The data object representing the Antelope blockchain account details. This can be obtained using the `data` property on any [Account](/docs/account-kit/account) instance.
 
 ## Usage
 
@@ -47,5 +47,5 @@ Once initialized, a `Resource` instance provides the following properties:
 
 - `available`: Amount of the resource that is currently available for use.
 - `used`: Amount of the resource currently being used.
-- `max`: Maximum amount of resource that is usable.
+- `max`: Maximum amount of resource that can be used.
 - `weight`: For `cpu` and `net` resources, the weight (or priority) of the resource will also be available.
