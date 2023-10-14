@@ -20,7 +20,7 @@ npm install --save @wharfkit/antelope
 yarn add @wharfkit/antelope
 ```
 
-If you are using the [SessionKit](/docs/session-kit/session-kit-factory) or [ContractKit](#), this package will automatically be included as a dependency in your project and available for use.
+If you are using the [SessionKit](/docs/session-kit/session-kit-factory) or [ContractKit](/docs/contract-kit/contract-kit-factory), this package will automatically be included as a dependency in your project and available for use.
 
 ## Imports
 

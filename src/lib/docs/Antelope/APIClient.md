@@ -7,7 +7,7 @@ published: true
 
 # APIClient
 
-The `APIClient` provided by the [Antelope](/docs/antelope) library is an abstraction built using [Fetch](#) that gives developers and their applications easy access to the native API calls.
+The `APIClient` provided by the [Antelope](/docs/antelope) library is an abstraction built using [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) that gives developers and their applications easy access to the native API calls.
 
 ## Usage
 
@@ -25,7 +25,7 @@ const client = new APIClient({
 
 #### Fetch Compatibility
 
-In a Node.js environment where the version is less than v18 and [fetch](#) isn't natively available, an instance of a `FetchProvider` must be created and given to the `APIClient`.
+In a Node.js environment where the version is less than v18 and [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) isn't natively available, an instance of a `FetchProvider` must be created and given to the `APIClient`.
 
 This example uses the [node-fetch](https://www.npmjs.com/package/node-fetch) package.
 
@@ -125,7 +125,7 @@ GetInfoResponse {
 
 #### Converting Typed Responses
 
-If the application requires the response to be untyped, the [Serializer](#) can be used to convert the response into untyped values.
+If the application requires the response to be untyped, the [Serializer](/docs/antelope/serializer) can be used to convert the response into untyped values.
 
 ```ts
 const response = await client.v1.chain.get_info()
@@ -175,7 +175,7 @@ async get_accounts_by_authorizers(keys: PublicKeyType[]) {
 }
 ```
 
-The `responseType` is named [AccountsByAuthorizers](https://github.com/wharfkit/antelope/pull/59/commits/b85448be3c99fccb45d76d310b698ea6a36ec7eb#diff-4fed12baf5e6587e33b5186d9ecfbdfd88e2076de11f00ac676c47fe657844cfR162-R176) and is defined in `src/api/v1/types.ts`. This [Struct](#) defines the structure of the data the API will return and defines all the native Antelope types for those fields.
+The `responseType` is named [AccountsByAuthorizers](https://github.com/wharfkit/antelope/pull/59/commits/b85448be3c99fccb45d76d310b698ea6a36ec7eb#diff-4fed12baf5e6587e33b5186d9ecfbdfd88e2076de11f00ac676c47fe657844cfR162-R176) and is defined in `src/api/v1/types.ts`. This [Struct](/docs/antelope/struct) defines the structure of the data the API will return and defines all the native Antelope types for those fields.
 
 ```ts
 @Struct.type("account_by_authorizers_row")

@@ -26,7 +26,7 @@ While the base `Int` type is never used directly, it provides common functionali
 - VarInt
 - VarUInt
 
-These can all be included in projects for direct use and are returned by a number of different API requests. They are all used in the internals of other core types, like the `UInt64` value contained in the [Name](#) type or the [Asset](#) type containing both a `UInt64` and `Int64` value.
+These can all be included in projects for direct use and are returned by a number of different API requests. They are all used in the internals of other core types, like the `UInt64` value contained in the [Name](/docs/antelope/name) type or the [Asset](/docs/antelope/asset) type containing both a `UInt64` and `Int64` value.
 
 ## Usage
 

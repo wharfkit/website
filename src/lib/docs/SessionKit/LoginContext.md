@@ -24,11 +24,11 @@ Why
 
 The `LoginContext` will provide information it knows about from the `SessionKit` configuration, including data relevant to:
 
-- The name of the app as defined by [appName](#).
+- The name of the app as defined by [appName](/docs/antelope/name).
 - A [ChainDefinition](/docs/utilities/common-library#chaindefinition) if the [SessionKit](/docs/session-kit/session-kit-factory)'s `login` call was made for a specific blockchain.
 - An array of [ChainDefinition](/docs/utilities/common-library#chaindefinition) objects as defined in the [SessionKit](/docs/session-kit/session-kit-factory) configuration.
-- A [PermissionLevel](#) if the [SessionKit](/docs/session-kit/session-kit-factory)'s `login` call was made for a specific account.
-- A list of predetermined [uiRequirements](#) indicating what type of prompting needs to be done.
+- A [PermissionLevel](/docs/antelope/permission-level) if the [SessionKit](/docs/session-kit/session-kit-factory)'s `login` call was made for a specific account.
+- A list of predetermined `uiRequirements` indicating what type of prompting needs to be done.
 - An array of [WalletPlugin](/docs/session-kit/plugin-wallet) objects based on the [SessionKit](/docs/session-kit/session-kit-factory) configuration to indicate which wallets can be used.
 
 During this call, the `UserInterface` itself needs to use this information and return three pieces of information:

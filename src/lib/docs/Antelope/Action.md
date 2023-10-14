@@ -1,6 +1,6 @@
 ---
 title: Action
-description: The Action type represents a single action to be performed on an Antelope blockchain. An action on the blockchain is a call to execute a function on a [Smart Contract](#)
+description: The Action type represents a single action to be performed on an Antelope blockchain.
 category: Antelope
 published: true
 requiresReview: true
@@ -8,7 +8,7 @@ requiresReview: true
 
 # Action
 
-The `Action` type represents a single action call against a smart contract method. One or more of these actions are required for the creation of a [Transaction](#).
+The `Action` type represents a single action call against a smart contract method. One or more of these actions are required for the creation of a [Transaction](/docs/antelope/transaction).
 
 ## Anatomy of an Action
 
@@ -35,7 +35,7 @@ Every action on an Antelope blockchain consists of the following information:
 
 The first two fields `account` and `name` correspond to the smart contract and method the action will call. The `account` specifies the account name the smart contract is deployed on and the `name` indicates the name of the method to call.
 
-The `authorization` array defines the account(s) that will authorize the accounts that authorize the transaction in the [PermissionLevel](#) format. Each account specified as an `authorization` will need to be accompanied by [Signature](#).
+The `authorization` array defines the account(s) that will authorize the accounts that authorize the transaction in the [PermissionLevel](/docs/antelope/permission-level) format. Each account specified as an `authorization` will need to be accompanied by [Signature](/docs/antelope/signature).
 
 Finally, the `data` object in the action defines the parameters passed to the smart contract call. This field on the action is serialized before it's submitted to the blockchain, which is what the `Action` Antelope data type helps achieve. This data type provides the methods needed in order to encode and decode the serialized data, depending on the developer's needs.
 
@@ -69,13 +69,13 @@ const action = Action.from(data)
 const action = Action.from(data, abi)
 ```
 
-The resulting typed `Action` will be represented in the serialized format and be ready for inclusion in a [Transaction](#).
+The resulting typed `Action` will be represented in the serialized format and be ready for inclusion in a [Transaction](/docs/antelope/transaction).
 
 ### Creating an Action
 
 #### Using Unserialized Data With an ABI
 
-An [ABI](#) can also be passed as a 2nd parameter to the `.from` method to automatically convert unserialized data.
+An [ABI](/docs/antelope/abi) can also be passed as a 2nd parameter to the `.from` method to automatically convert unserialized data.
 
 ```ts
 const data = {
@@ -108,7 +108,7 @@ const typedAction = Action.from(untypedAction, abi)
 
 #### Using Unserialized Data With a Struct
 
-A [Struct](#) can be used to wrap unserialized `Action` data for automatic serialization.
+A [Struct](/docs/antelope/struct) can be used to wrap unserialized `Action` data for automatic serialization.
 
 ```ts
 @Struct.type("transfer")
@@ -147,7 +147,7 @@ const typedAction = Action.from(untypedAction)
 
 #### Using Unserialized Data With a Predefined ABI
 
-The [ABI](#) passed in as a 2nd parameter can also be manually defined or read from a cached version.
+The [ABI](/docs/antelope/abi) passed in as a 2nd parameter can also be manually defined or read from a cached version.
 
 ```ts
 const data = {
@@ -235,11 +235,11 @@ const typedAction = Action.from(data)
 
 ### Decoding Action data
 
-Instances of the `Action` type can also be used to decode the action data and represent it in native Antelope core types. Each `Action` instance has a built-in `decodeData` method which utilizes the [Serializer](#) to convert the data.
+Instances of the `Action` type can also be used to decode the action data and represent it in native Antelope core types. Each `Action` instance has a built-in `decodeData` method which utilizes the [Serializer](/docs/antelope/serializer) to convert the data.
 
 #### Using decodeAction With an ABI
 
-Any [ABI](#) either manually defined in-code or retrieved from an [APIClient](#) can be passed to `decodeData` to decode the serialized data into an object.
+Any [ABI](/docs/antelope/abi) either manually defined in-code or retrieved from an [APIClient](/docs/antelope/api-client) can be passed to `decodeData` to decode the serialized data into an object.
 
 ```ts
 const data = {
@@ -270,7 +270,7 @@ const decoded = typedAction.decodeData(abi)
 
 #### Using decodeAction With a Struct
 
-Any [Struct](#) types defined in-code can be passed to `decodeData` to decode the serialized data into an object.
+Any [Struct](/docs/antelope/struct) types defined in-code can be passed to `decodeData` to decode the serialized data into an object.
 
 ```ts
 @Struct.type("transfer")
@@ -305,7 +305,7 @@ const decoded = typedAction.decodeData(Transfer)
 
 #### Making Data Human Readable
 
-The `decodeData` function returns all values in Antelope typed formats ([Name](#), [Asset](#), etc) for developers to work with in their applications. In order to display this data in a human readable format, the [Serializer](#) provides a helper function called [objectify](#) which will iterate over a data structure and convert all the Antelope types to human readable values.
+The `decodeData` function returns all values in Antelope typed formats ([Name](/docs/antelope/name), [Asset](/docs/antelope/asset), etc) for developers to work with in their applications. In order to display this data in a human readable format, the [Serializer](/docs/antelope/serializer) provides a helper function called [Objectify](/docs/antelope/serializer#objectify) which will iterate over a data structure and convert all the Antelope types to human readable values.
 
 ```ts
 @Struct.type("transfer")

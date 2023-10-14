@@ -13,7 +13,7 @@ A `Table` class instances represents a specific table defined within an Antelope
 
 ## Creation
 
-Generally with an existing [Contract](/docs/contract-kit/contract) instance, the [table() method](/docs/contract-kit/table-method) can be used to create `Table` instances. If the need arises to manually create a `Table` instance it can also be instantiated by providing the ABI, account name, table name, and an [APIClient](#).
+Generally with an existing [Contract](/docs/contract-kit/contract) instance, the [table() method](/docs/contract-kit/table-method) can be used to create `Table` instances. If the need arises to manually create a `Table` instance it can also be instantiated by providing the ABI, account name, table name, and an [APIClient](/docs/antelope/api-client).
 
 ```typescript
 import { Table } from "@wharfkit/contract"
@@ -36,7 +36,7 @@ The `Table` constructor accepts an object containing the following configuration
 
 - `abi`: The complete [ABI](/docs/antelope/abi) of the smart contract.
 - `account`: The name of the account that the contract is deployed to on-chain.
-- `name`: The name of the table to retrieve as defined in the [ABI](#).
+- `name`: The name of the table to retrieve as defined in the [ABI](/docs/antelope/abi).
 - `client`: An instance of an [APIClient](/docs/antelope/api-client) that will be used to fetch blockchain data.
 
 ### Options
@@ -54,10 +54,10 @@ Given an existing `Table` instance, a number of methods and read-only properties
 ### Methods:
 
 - [get](/docs/contract-kit/get-method) - Retrieves a specific row from the table by a given key.
-- [query](/docs/contract-kit/query-method) - Returns a [Cursor](#) to paginate through rows given specific query parameters.
-- [first](/docs/contract-kit/first-method) - Returns a [Cursor](#) to paginate through the first X table rows using the default order.
+- [query](/docs/contract-kit/query-method) - Returns a [Cursor](/docs/contract-kit/cursor) to paginate through rows given specific query parameters.
+- [first](/docs/contract-kit/first-method) - Returns a [Cursor](/docs/contract-kit/cursor) to paginate through the first X table rows using the default order.
 - [all](/docs/contract-kit/all-method) - Recursively retrieve all table rows using multiple API calls.
-- [scopes](/docs/contract-kit/scopes-method) - Returns a [Cursor](#) to fetch the different table scopes available in the table.
+- [scopes](/docs/contract-kit/scopes-method) - Returns a [Cursor](/docs/contract-kit/cursor) to fetch the different table scopes available in the table.
 
 ### Properties:
 

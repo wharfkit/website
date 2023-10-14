@@ -7,13 +7,13 @@ published: true
 
 # ABI
 
-The `ABI` ([Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface)) in Antelope-based blockchains is a JSON data structure that defines the structure of a [Smart Contract](#) and instructs the [Serializer](#) on how to encode or decode data.
+The `ABI` ([Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface)) in Antelope-based blockchains is a JSON data structure that defines the structure of a Smart Contract and instructs the [Serializer](/docs/antelope/serializer) on how to encode or decode data.
 
 This document will focus on the retrieval and processing of existing ABIs for use in the Javascript context. For more information about ABIs, as well as how to create them while developing a smart contract, please refer to [docs.eosnetwork.com](https://docs.eosnetwork.com/docs/latest/advanced-topics/understanding-ABI-files).
 
 ## Retrieving an ABI Using an APIClient
 
-An `ABI` can be loaded from the blockchain using an [APIClient](#). To do this we first need to establish the [APIClient](#) with the appropriate endpoint configured and then call the `get_abi` API endpoint.
+An `ABI` can be loaded from the blockchain using an [APIClient](/docs/antelope/api-client). To do this we first need to establish the [APIClient](/docs/antelope/api-client) with the appropriate endpoint configured and then call the `get_abi` API endpoint.
 
 ```ts
 // Establish APIClient instance with appropriate endpoint
@@ -75,11 +75,11 @@ This allows the creation of an ABI using `ABI.from()` using multiple formats tha
 
 ## Usage
 
-The `ABI` data type is typically used as a parameter when creating an [Action](#), using the [Serializer](#), or used internally when working with [Struct](#) data types.
+The `ABI` data type is typically used as a parameter when creating an [Action](/docs/antelope/action), using the [Serializer](/docs/antelope/serializer), or used internally when working with [Struct](/docs/antelope/struct) data types.
 
 ### Creating an `Action`
 
-When creating an [Action](#) based on untyped action data, the ABI itself must be passed as the 2nd parameter to `Action.from()` in order to serialize the action data.
+When creating an [Action](/docs/antelope/action) based on untyped action data, the ABI itself must be passed as the 2nd parameter to `Action.from()` in order to serialize the action data.
 
 ```ts
 const { abi } = await client.v1.chain.get_abi("eosio.token")
@@ -115,7 +115,7 @@ const action = Action.from(data, abi)
 
 ### Decoding an `Action`
 
-When decoding an [Action](#) in order to view its raw data, the `decodeData` method of the action requires the ABI in order to convert the hex data into a readable data format.
+When decoding an [Action](/docs/antelope/action) in order to view its raw data, the `decodeData` method of the action requires the ABI in order to convert the hex data into a readable data format.
 
 ```ts
 const { abi } = await client.v1.chain.get_abi("eosio.token")
@@ -146,7 +146,7 @@ const decoded = action.decodeData(abi)
 
 ### Using the Serializer
 
-An [Action](#) can also be decoded using the [Serializer](#), where you will pass:
+An [Action](/docs/antelope/action) can also be decoded using the [Serializer](/docs/antelope/serializer), where you will pass:
 
 - the `abi`
 - the `type`, which is the name of the action as defined in the ABI

@@ -7,15 +7,15 @@ order: 2
 requiresReview: true
 ---
 
-# Table
+# Table (Method)
 
 ## Overview
 
-The `table` method creates a specific [Table](/docs/contract-kit/table-class) instance from an existing [Contract](/docs/contract-kit/contract) object.
+The `table` method creates a specific [Table](/docs/contract-kit/table-class) instance from an existing [Contract](/docs/contract-kit/contract) object. The resulting [Table](/docs/contract-kit/table-class) can then be used to request data from the smart contract.
 
 ## Usage
 
-The `table` method can be called and the only required argument that must be passed is the name of the table as defined in the [ABI](#).
+The `table` method can be called and the only required argument that must be passed is the name of the table as defined in the [ABI](/docs/antelope/abi).
 
 ```typescript
 const table = contract.table("table_name")
@@ -46,7 +46,7 @@ const table = contract.table("table_name", "scope_name")
 
 ### Row Type
 
-A third optional parameter can also be passed that allows manually defining the data response type for all requests against this [Table](/docs/contract-kit/table-class) object.
+A third optional parameter can also be passed that allows manually defining the data response type using a [Struct](/docs/antelope/struct) for all requests against the [Table](/docs/contract-kit/table-class) object.
 
 ```typescript
 @Struct.type("name_bid")

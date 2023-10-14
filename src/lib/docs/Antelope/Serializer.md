@@ -8,7 +8,7 @@ requiresReview: true
 
 # Serializer
 
-Most data read from and written to Antelope-based blockchains is serialized using an [ABI](#). The `Serializer` within the Antelope SDK is a utility that facilitates the encoding and decoding of this type of data from the blockchain. All of the data encoding it handles has its functionality mirrored from the C++ implementation that runs the blockchain.
+Most data read from and written to Antelope-based blockchains is serialized using an [ABI](/docs/antelope/abi). The `Serializer` within the Antelope SDK is a utility that facilitates the encoding and decoding of this type of data from the blockchain. All of the data encoding it handles has its functionality mirrored from the C++ implementation that runs the blockchain.
 
 ## Usage
 
@@ -20,13 +20,13 @@ import { Serializer } from "@wharfkit/antelope"
 
 ## Encode
 
-The `.encode()` method on the `Serializer` accepts multiple variations of parameters, all of which will return an encoded instance of the data as a [Bytes](#) object.
+The `.encode()` method on the `Serializer` accepts multiple variations of parameters, all of which will return an encoded instance of the data as a [Bytes](/docs/antelope/bytes) object.
 
 ### Native Antelope Types
 
 In the most simple example any core Antelope data type can be passed as the `object` parameter of the call.
 
-This example shows passing an [Asset](#) typed object and encoding it into the [Bytes](#) type.
+This example shows passing an [Asset](/docs/antelope/asset) typed object and encoding it into the [Bytes](/docs/antelope/bytes) type.
 
 ```ts
 import { Asset, Serializer } from "@wharfkit/antelope"
@@ -52,9 +52,9 @@ console.log(String(encoded))
 
 ### Custom Struct
 
-The same encoding can also be performed against a custom [Struct](#) as defined in your application or by the [Contract Kit](#).
+The same encoding can also be performed against a custom [Struct](/docs/antelope/struct) as defined in your application or by the [Contract Kit](/docs/contract-kit).
 
-This example defines a custom [Struct](#) that matches an `eosio.token` contract `transfer` action and creates an instance of it using the `Struct.from()` method. This object can then be passed into the `Serializer` in order to convert it to [Bytes](#).
+This example defines a custom [Struct](/docs/antelope/struct) that matches an `eosio.token` contract `transfer` action and creates an instance of it using the `Struct.from()` method. This object can then be passed into the `Serializer` in order to convert it to [Bytes](/docs/antelope/bytes).
 
 ```ts
 import { Asset, Name, Struct, Serializer } from "@wharfkit/antelope"
@@ -94,9 +94,9 @@ console.log(String(encoded))
 
 ### Untyped data and Struct
 
-The serializer is also capable of assembling a [Struct](#) dynamically before the encoding if passed any object and a compatible [Struct](#) or native Antelope type.
+The serializer is also capable of assembling a [Struct](/docs/antelope/struct) dynamically before the encoding if passed any object and a compatible [Struct](/docs/antelope/struct) or native Antelope type.
 
-In this example the `object` passed to the encoder is a string representation of an [Asset](#) which is accompanied by a secondary `type` parameter where the actual [Struct](#) is passed to define it.
+In this example the `object` passed to the encoder is a string representation of an [Asset](/docs/antelope/asset) which is accompanied by a secondary `type` parameter where the actual [Struct](/docs/antelope/struct) is passed to define it.
 
 ```ts
 import { Asset, Serializer } from "@wharfkit/antelope"
@@ -123,9 +123,9 @@ console.log(String(encoded))
 
 ### Untyped Data and ABI
 
-The `Serializer` is capable of accepting an untyped object, [ABI](#), and struct name as a string to encode data and return a [Bytes](#) object.
+The `Serializer` is capable of accepting an untyped object, [ABI](/docs/antelope/abi), and struct name as a string to encode data and return a [Bytes](/docs/antelope/bytes) object.
 
-The following example shows an untyped variable named `object`, alongside an [ABI](#) that defines a `struct` named `my_struct` that defines the objects format. The `object`, [ABI](#), and a 3rd string parameter with the string name of the struct are passed in to the encode method in order to serialize the data and return an instance of [Bytes](#).
+The following example shows an untyped variable named `object`, alongside an [ABI](/docs/antelope/abi) that defines a `struct` named `my_struct` that defines the objects format. The `object`, [ABI](/docs/antelope/abi), and a 3rd string parameter with the string name of the struct are passed in to the encode method in order to serialize the data and return an instance of [Bytes](/docs/antelope/bytes).
 
 ```ts
 import { ABI, Serializer } from "@wharfkit/antelope"
@@ -160,11 +160,11 @@ console.log(String(encoded))
 
 ## Decode
 
-The `.decode()` method of the `Serializer` accepts any encoded version of data and will return either a native Antelope type or an instance of a custom [Struct](#).
+The `.decode()` method of the `Serializer` accepts any encoded version of data and will return either a native Antelope type or an instance of a custom [Struct](/docs/antelope/struct).
 
 ### Using encoded data
 
-The `data` parameter passed in to the `.decode()` method can be passed either as hex data or as an instance of [Bytes](#).
+The `data` parameter passed in to the `.decode()` method can be passed either as hex data or as an instance of [Bytes](/docs/antelope/bytes).
 
 ```ts
 import { Asset, Serializer } from "@wharfkit/antelope"
@@ -189,11 +189,11 @@ console.log(String(decoded))
 // 1.0000 FOO
 ```
 
-Here the decoder is instructed to use the [Asset](#) Antelope type during the decoding of the raw data being passed in. This results in an [Asset](#) typed object being returned as the result.
+Here the decoder is instructed to use the [Asset](/docs/antelope/asset) Antelope type during the decoding of the raw data being passed in. This results in an [Asset](/docs/antelope/asset) typed object being returned as the result.
 
 ### Using Custom Struct
 
-A custom defined [Struct](#) may also be passed in as the `type` alongside the data, resulting in the data being decoded using a specific type.
+A custom defined [Struct](/docs/antelope/struct) may also be passed in as the `type` alongside the data, resulting in the data being decoded using a specific type.
 
 ```ts
 import { Asset, Name, Serializer, Struct } from "@wharfkit/antelope"
@@ -230,7 +230,7 @@ console.log(JSON.stringify(decoded))
 
 ### Using an ABI
 
-An [ABI](#) parameter may also be passed in alongside a `type` parameter to allow decoding using an ABI directly.
+An [ABI](/docs/antelope/abi) parameter may also be passed in alongside a `type` parameter to allow decoding using an ABI directly.
 
 ```ts
 import { APIClient, Serializer } from "@wharfkit/antelope"
@@ -260,7 +260,7 @@ console.log(JSON.stringify(decoded))
 // {"from":"foo","to":"bar","quantity":"1.0000 EOS","memo":"hello"}
 ```
 
-The [ABI](#) can either be embedded directly within the application or it can be retrieved from an [APIClient](#). In the example above the code is loading the ABI for the `eosio.token` contract from the Jungle 4 blockchain. It then passes the encoded data, the ABI, and the type to retrieve from the ABI as a string.
+The [ABI](/docs/antelope/abi) can either be embedded directly within the application or it can be retrieved from an [APIClient](/docs/antelope/api-client). In the example above the code is loading the ABI for the `eosio.token` contract from the Jungle 4 blockchain. It then passes the encoded data, the ABI, and the type to retrieve from the ABI as a string.
 
 ## Utilities
 
@@ -268,7 +268,7 @@ The [ABI](#) can either be embedded directly within the application or it can be
 
 ### Objectify
 
-The `Serializer` provides a method that is capable of converting [Struct](#) data types into native Javascript data types. This can be useful when interfacing with code which isn't expecting the Antelope native data types or when outputting JSON data.
+The `Serializer` provides a method that is capable of converting [Struct](/docs/antelope/struct) data types into native Javascript data types. This can be useful when interfacing with code which isn't expecting the Antelope native data types or when outputting JSON data.
 
 ```ts
 import { Asset, Name, Serializer, Struct } from "@wharfkit/antelope"

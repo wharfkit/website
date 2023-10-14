@@ -7,11 +7,11 @@ published: true
 
 # PrivateKey
 
-The `PrivateKey` core type represents an instance of a private key for use in [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography). Each instance of `PrivateKey` can be used to sign data to create a [Signature](#), retrieve the associated [PublicKey](#), and convert between the private key formats supported in Antelope blockchains,
+The `PrivateKey` core type represents an instance of a private key for use in [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography). Each instance of `PrivateKey` can be used to sign data to create a [Signature](/docs/antelope/signature), retrieve the associated [PublicKey](/docs/antelope/public-key), and convert between the private key formats supported in Antelope blockchains,
 
 ## Anatomy of a PrivateKey
 
-On an instance of `PrivateKey`, the key data is stored on the property `.data` as [Bytes](#) and is associated with a specific curve (`K1`, `W1` and `WA`) using the `.type` property.
+On an instance of `PrivateKey`, the key data is stored on the property `.data` as [Bytes](/docs/antelope/bytes) and is associated with a specific curve (`K1`, `W1` and `WA`) using the `.type` property.
 
 ```ts
 PrivateKey {
@@ -33,7 +33,7 @@ PrivateKey {
 import { PrivateKey } from "@wharfkit/antelope"
 ```
 
-The `PrivateKey` type can be used to load different private key formats for use in an application. Each instance of a private key can also be converted to the corresponding [PublicKey](#). The `PrivateKey` type can also be used to randomly generate new private keys.
+The `PrivateKey` type can be used to load different private key formats for use in an application. Each instance of a private key can also be converted to the corresponding [PublicKey](/docs/antelope/public-key). The `PrivateKey` type can also be used to randomly generate new private keys.
 
 ### Using a private key
 
@@ -42,13 +42,17 @@ An application with a key accessible in a string format can use the static `Priv
 ```ts
 import { PrivateKey } from "@wharfkit/antelope"
 
-const privateKey = PrivateKey.from("PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB")
+const privateKey = PrivateKey.from(
+  "PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB"
+)
 ```
 
 The same syntax can be used to also import keys in the [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) format.
 
 ```ts
-const privateKey = PrivateKey.from("5HpqJutRAMfVn7Qc9vGMnCMoNiASZVx89QZVcpfCmFAoBaFQJVD")
+const privateKey = PrivateKey.from(
+  "5HpqJutRAMfVn7Qc9vGMnCMoNiASZVx89QZVcpfCmFAoBaFQJVD"
+)
 ```
 
 These two private keys are the same and function identically, they are just represented in different string formats.
@@ -64,7 +68,9 @@ By default when converting a `PrivateKey` instance to a `string`, the default An
 ```ts
 import { PrivateKey } from "@wharfkit/antelope"
 
-const privateKey = PrivateKey.from("PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB")
+const privateKey = PrivateKey.from(
+  "PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB"
+)
 
 console.log(String(privateKey))
 // PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB
@@ -82,7 +88,9 @@ An instance of a `PrivateKey` can also be used to export the key in the [WIF](ht
 ```ts
 import { PrivateKey } from "@wharfkit/antelope"
 
-const privateKey = PrivateKey.from("PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB")
+const privateKey = PrivateKey.from(
+  "PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB"
+)
 
 console.log(privateKey.toWif())
 // 5HpqJutRAMfVn7Qc9vGMnCMoNiASZVx89QZVcpfCmFAoBaFQJVD
@@ -92,12 +100,14 @@ In the early days of this ecosystem, WIF formatted keys were the default used by
 
 ### Retrieve the public key
 
-Any instance of a `PrivateKey` can return the associated [PublicKey](#) by calling the `.toPublic()` method.
+Any instance of a `PrivateKey` can return the associated [PublicKey](/docs/antelope/public-key) by calling the `.toPublic()` method.
 
 ```ts
 import { PrivateKey } from "@wharfkit/antelope"
 
-const privateKey = PrivateKey.from("PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB")
+const privateKey = PrivateKey.from(
+  "PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB"
+)
 
 const publicKey = privateKey.toPublic()
 
@@ -123,16 +133,18 @@ PublicKey {
 
 ### Signing
 
-Each instance of a `PrivateKey` provides methods which can be used to sign different data types and return a valid [Signature](#).
+Each instance of a `PrivateKey` provides methods which can be used to sign different data types and return a valid [Signature](/docs/antelope/signature).
 
 #### Checksum
 
-The `signDigest` method on a `PrivateKey` accepts a [Checksum](#) type parameter and will return a [Signature](#).
+The `signDigest` method on a `PrivateKey` accepts a [Checksum](/docs/antelope/checksum) type parameter and will return a [Signature](/docs/antelope/signature).
 
 ```ts
 import { PrivateKey } from "@wharfkit/antelope"
 
-const privateKey = PrivateKey.from("PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB")
+const privateKey = PrivateKey.from(
+  "PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB"
+)
 
 const signature = privateKey.signDigest(
   "5206a2e62f2e1235dba4e991b830fb3106fa3531015446cafc3817c65a6b73e7"
@@ -159,14 +171,18 @@ Signature {
 
 #### Data
 
-The `PrivateKey` also offers a `signMessage` method which can accept any [Bytes](#) type object and return a valid [Signature](#) for it. Internally the [Bytes](#) data is converted to a [Checksum](#) type, a hash generated, and the passed in to `signDigest`.
+The `PrivateKey` also offers a `signMessage` method which can accept any [Bytes](/docs/antelope/bytes) type object and return a valid [Signature](/docs/antelope/signature) for it. Internally the [Bytes](/docs/antelope/bytes) data is converted to a [Checksum](/docs/antelope/checksum) type, a hash generated, and the passed in to `signDigest`.
 
 ```ts
 import { PrivateKey } from "@wharfkit/antelope"
 
-const privateKey = PrivateKey.from("PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB")
+const privateKey = PrivateKey.from(
+  "PVT_K1_YjESL5u6WX72L7ipTh9cgA7LXMN63RbViPecTXNKA1w8jhoB"
+)
 
-const signature = privateKey.signMessage(Bytes.from("hello world", "utf8"))
+const signature = privateKey.signMessage(
+  Bytes.from("hello world", "utf8")
+)
 
 console.log(signature)
 /**
