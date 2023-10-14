@@ -12,7 +12,7 @@ The `linkauth` method provides a way for an Antelope account owner to link a spe
 
 ## Usage
 
-The `linkauth` method is available on any [Account](/docs/account-kit/account) instance. It can be used as follows:
+The `linkauth` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
 const action = testAccount.linkauth('eosio.token', 'transfer', 'active');

@@ -33,4 +33,4 @@ const balance = await testAccount.balance('eosio.token', 'USDT');
 
 ## Return Value
 
-The balance method returns an instance of the [Asset](/docs/antelope/asset) class.
+The `balance` method returns an instance of the [Asset](/docs/antelope/asset) class.

@@ -12,7 +12,7 @@ The `buyRamBytes` method facilitates the purchase of RAM by letting you specify 
 
 ## Usage
 
-The `buyRamBytes` method is available on any [account](/docs/account-kit/account) instance. Here's a basic example of how to use it:
+The `buyRamBytes` method is available on any [account](/docs/account-kit/account) instance. Here is how to use it:
 
 ```typescript
 const action = testAccount.buyRamBytes(1024);
