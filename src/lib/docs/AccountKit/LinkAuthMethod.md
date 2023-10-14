@@ -1,5 +1,5 @@
 ---
-title: Linkauth (Method)
+title: LinkAuth (Method)
 description: Used to generate an action that sets a specific permission level.
 category: AccountKit
 published: true
@@ -8,14 +8,13 @@ order: 9
 
 # Linkauth
 
-The `linkauth` method provides a way for an Antelope account owner to link a specific smart contract action to a permission level. By using it, one can specify unique permissions on specific smart contract actions.
-
+The `linkAuth` method provides a way for an Antelope account owner to require a specific account permission level when executing a specific action on a smart contract.
 ## Usage
 
-The `linkauth` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
+The `linkAuth` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
-const action = testAccount.linkauth('eosio.token', 'transfer', 'active');
+const action = testAccount.linkAuth('eosio.token', 'transfer', 'active');
 ```
 
 In the example above, an action linking the `eosio.token` `transfer` action to the `active` permission level is generated. This makes it the `active` permission level is required to execute the `transfer` action on the `eosio.token` smart contract.
@@ -28,4 +27,4 @@ In the example above, an action linking the `eosio.token` `transfer` action to t
 
 ## Return Value
 
-The `linkauth` method returns an [Action](/docs/antelope/action) instance detailing the link request. This action can then be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `linkAuth` method returns an [Action](/docs/antelope/action) instance detailing the link request. This action can then be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.

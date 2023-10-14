@@ -8,7 +8,7 @@ order: 8
 
 # Undelegate
 
-The `undelegate` method allows Antelope account holders to undelegate CPU or bandwidth resources from their account.
+The `undelegate` method allows Antelope account owners to undelegate CPU or bandwidth resources from their account.
 
 ## Usage
 

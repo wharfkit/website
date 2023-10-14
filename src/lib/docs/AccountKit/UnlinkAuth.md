@@ -1,6 +1,6 @@
 ---
 title: UnlinkAuth (Method)
-description: Removes the link between an action and a permission for EOS accounts.
+description: Used to generate an action that removes the link between an action and a permission for EOS accounts.
 category: AccountKit
 published: true
 order: 10
@@ -8,23 +8,23 @@ order: 10
 
 # UnlinkAuth
 
-The `unlinkauth` method is used to disconnect a custom permission from a specific contract action for an EOS account. This is beneficial for users who want to revert to the default permissions for an action or replace a custom permission with a different one.
+The `unlinkAuth` method is used to remove the requirement of a specific account permission level being used to execute a specific smart contract action.
 
 ## Usage
 
-To unlink a custom permission from a specific action:
+The `unlinkAuth` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
-const action = testAccount.unlinkauth('eosio.token', 'transfer');
+const action = testAccount.unlinkAuth('eosio.token', 'transfer');
 ```
 
-In the example above, an action that unlinks the `eosio.token` contract from the `transfer` action is generated.
+In the example above, we generate an action that removes any permission level requirement from the `eosio.token` `transfer` action.
 
 ## Arguments
 
-- `contract`: The smart contract account whose action we intend to unlink.
-- `actionName`: The name of the action that we intend to unlink.
+- `contract`: The smart contract account containing the action.
+- `actionName`: The name of the action.
 
 ## Return Value
 
-The unlinkauth method returns an [Action](/docs/antelope/action) instance detailing the request to unlink the custom permission from the specified action. The action can then be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `unlinkAuth` method returns an [Action](/docs/antelope/action) instance detailing the removal of a permission level requirement. The action can then be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
