@@ -8,34 +8,62 @@ order: 4
 
 # Cursor
 
-The `Cursor` class is an extension of the [Table](/docs/contract-kit/table) class. It is used to efficiently paginate through rows of a specific smart contract table.
+The `Cursor` type an iterator that is returned from specific calls against a [Table](/docs/contract-kit/table-class) instance. A Cursor instance will be returned when using the [query](/docs/contract-kit/query-method), [first](/docs/contract-kit/first-method) and [scopes](/docs/contract-kit/scopes-method) methods of any [Table](/docs/contract-kit/table-class) instance.
 
-## Creation
-
-A Cursor instance can be returned by the [query](/docs/contract-kit/query-method), [first](/docs/contract-kit/first-method) and [scopes](/docs/contract-kit/scopes-method) methods of any [Table](/docs/contract-kit/table) instance.
-    
 ## Usage
 
-### Next Method
+After calling one of the [Table](/docs/contract-kit/table-class) methods which returns a cursor, the cursor must be called and awaited to return data from the table.
 
-Once a `Cursor` instance has been created, the `next` method can be used to paginate through rows from the table. Here is a basic example:
+### Next
+
+The `next` method can be used to retrieve the next results based on the query provided and allows pagination through rows from the table.
 
 ```typescript
-const cursor = contract.table('table_name').query()
+const cursor = contract.table("table_name").query()
 const rows = await cursor.next() // fetches as many rows as can be fetched in a single API request
 ```
 
-A `rowsPerAPIRequest` can be specified when calling the `next` method to control the number of rows fetched:
+The cursor can be iterated upon and called multiple times to retrieve subsequent data further in the table.
 
-```typescript 
-const cursor = contract.table('table_name').query()
-const rows = await cursor.next(100) // fetches 100 rows
+```typescript
+const cursor = contract.table("table_name").query()
+const rows = await cursor.next() // returns rows 1 through 100
+const more = await cursor.next() // returns rows 101 through 200
+// etc...
 ```
 
-### Options
+Optionally a number may be passed as a parameter to the `next` call in order to request a specific number of results returned from the request.
 
-- `rowsPerAPIRequest`: The number of rows to fetch. Defaults to whatever was passed when the cursor was created by either `query`, `first` or `scopes`.
+```typescript
+const cursor = contract.table("table_name").query()
+const rows = await cursor.next(100) // attempts to fetch 100 rows
+```
+
+### All
+
+The `.all()` method is also available on a given `Cursor` object, which will attempt to recursively call the table until it reaches the end.
+
+```typescript
+const cursor = contract.table("table_name").query()
+const rows = await cursor.all() // attempts to fetch all rows
+```
+
+This call should be used with caution, as it may perform many requests against the API.
+
+### Reset
+
+A `.reset()` method is also available on a cursor to reset its position back to the start while iterating over table data.
+
+```typescript
+const cursor = contract.table("table_name").query()
+const rows = await cursor.next() // returns rows 1 through 100
+const more = await cursor.next() // returns rows 101 through 200
+
+cursor.reset()
+
+const start = await cursor.next() // returns rows 1 through 100
+```
 
 ### Returns Value
 
-The `next` method returns a promise that resolves to an array of table rows.
+Each method of a `Cursor` (except `.reset()`) returns an array of typed objects that represent the rows of the smart contract table.
