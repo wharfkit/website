@@ -4,6 +4,7 @@ description: The Contract Kit is responsible for facilitating the creation of Co
 category: ContractKit
 published: true
 order: 3
+requiresReview: true
 ---
 
 # ContractKit Class

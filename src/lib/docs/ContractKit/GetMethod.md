@@ -4,6 +4,7 @@ description: A method to retrieve a specific row from a smart contract table.
 category: ContractKit
 published: true
 order: 5
+requiresReview: true
 ---
 
 # Get

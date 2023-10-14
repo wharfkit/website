@@ -4,6 +4,7 @@ description: Returns a specific table instance.
 category: ContractKit
 published: true
 order: 2
+requiresReview: true
 ---
 
 # Table

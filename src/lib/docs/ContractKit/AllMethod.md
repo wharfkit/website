@@ -4,6 +4,7 @@ description: Retrieves all rows of a specific smart contract table.
 category: ContractKit
 published: true
 order: 7
+requiresReview: true
 ---
 
 # All

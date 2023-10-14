@@ -4,6 +4,7 @@ description: Returns a cursor that can be used to fetch rows from a smart contra
 category: ContractKit
 published: true
 order: 5
+requiresReview: true
 ---
 
 # Query

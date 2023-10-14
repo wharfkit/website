@@ -4,6 +4,7 @@ description: A utility class within the ContractKit that is used to efficiently 
 category: ContractKit
 published: true
 order: 4
+requiresReview: true
 ---
 
 # Cursor

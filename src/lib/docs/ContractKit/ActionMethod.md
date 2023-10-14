@@ -4,6 +4,7 @@ description: Provides functionality for generating an Antelope Action instance f
 category: ContractKit
 published: true
 order: 2
+requiresReview: true
 ---
 
 # Action
