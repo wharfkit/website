@@ -8,7 +8,7 @@ requiresReview: true
 
 # Transaction
 
-The `Transaction` type within the Antelope SDKs represents a fully formed transaction that could be used on an Antelope blockchain. It contains all the header information to secure and limit the transaction execution as well as an array containing one or more [Action](#) objects.
+The `Transaction` type within the Antelope SDKs represents a fully formed transaction that could be used on an Antelope blockchain. It contains all the header information to secure and limit the transaction execution as well as an array containing one or more [Action](/docs/antelope/action) objects.
 
 ## Variants
 
@@ -44,7 +44,7 @@ All combined, the representation of this data structure in a JSON format is as f
 }
 ```
 
-Each [Action](#) passed to a transaction must be encoded as either as raw hex data or passed in as a [Struct](#).
+Each [Action](/docs/antelope/action) passed to a transaction must be encoded as either as raw hex data or passed in as a [Struct](/docs/antelope/struct).
 
 ### SignedTransaction
 
@@ -70,7 +70,7 @@ The new JSON representation with these two additional fields is as follows:
 
 ### PackedTransaction
 
-The `PackedTransaction` type is the encoded version of either a `Transaction` or a `SignedTransaction`, where the transaction is encoded using the [Serializer](#) as the `packed_trx` field and the signatures appended to the `signatures` array. The payload format also includes additional information about the transaction such as the `compression` flag to control compression on the encoded payload and the `packed_context_free_data` field for data outside of the transaction to include.
+The `PackedTransaction` type is the encoded version of either a `Transaction` or a `SignedTransaction`, where the transaction is encoded using the [Serializer](/docs/antelope/serializer) as the `packed_trx` field and the signatures appended to the `signatures` array. The payload format also includes additional information about the transaction such as the `compression` flag to control compression on the encoded payload and the `packed_context_free_data` field for data outside of the transaction to include.
 
 A simplistic look at the JSON representation of this data is as follows:
 
@@ -87,7 +87,7 @@ A simplistic look at the JSON representation of this data is as follows:
 
 ### Creating a Transaction
 
-In most cases while creating a transaction, the application can automatically generate current TaPoS headers using the [APIClient](#) and the `get_info` endpoint. The resulting response from this call contains a `getTransactionHeader` method which will automatically create all the appropriate fields based on the API call. The only remaining data that must be included is the `actions` containing an array of smart contract actions to perform.
+In most cases while creating a transaction, the application can automatically generate current TaPoS headers using the [APIClient](/docs/antelope/api-client) and the `get_info` endpoint. The resulting response from this call contains a `getTransactionHeader` method which will automatically create all the appropriate fields based on the API call. The only remaining data that must be included is the `actions` containing an array of smart contract actions to perform.
 
 ```ts
 import { Action, APIClient, Transaction } from "@wharfkit/antelope"
@@ -145,9 +145,9 @@ The result stored as `transaction` will be an instance of `Transaction` and be r
 
 ### Using ABIs
 
-If while assembling a `Transaction` the `actions` array contains unserialized data, an [ABI](#) is required as the second parameter to facilitate the encoding.
+If while assembling a `Transaction` the `actions` array contains unserialized data, an [ABI](/docs/antelope/abi) is required as the second parameter to facilitate the encoding.
 
-The example below shows the `actions[0].data` field as an unserialized version of an `eosio.token::transfer` action alongside an [ABI](#) that defines the structure of that data. Both of these values are then passed in during the formation of the `Transaction` object.
+The example below shows the `actions[0].data` field as an unserialized version of an `eosio.token::transfer` action alongside an [ABI](/docs/antelope/abi) that defines the structure of that data. Both of these values are then passed in during the formation of the `Transaction` object.
 
 ```ts
 import { Transaction } from "@wharfkit/antelope"
@@ -197,7 +197,7 @@ const transaction = Transaction.from(tx, abi)
 
 ### Loading ABIs
 
-To encode untyped data during the creation of a `Transaction`, an [ABI](#) may be loaded from the blockchain using an [APIClient](#) and passed in.
+To encode untyped data during the creation of a `Transaction`, an [ABI](/docs/antelope/abi) may be loaded from the blockchain using an [APIClient](/docs/antelope/api-client) and passed in.
 
 ```ts
 import { Transaction } from "@wharfkit/antelope"
@@ -232,7 +232,7 @@ const transaction = Transaction.from(tx, abi)
 
 ### Transaction IDs
 
-Every transaction on an Antelope blockchain has an associated Transaction ID, which is a [Checksum256](#) hash of the contents of the transaction. Each `Transaction` typed object can automatically access this ID by accessing the `.id` property of the transaction. This property is a getter that automatically calculates and returns the value based on its state.
+Every transaction on an Antelope blockchain has an associated Transaction ID, which is a [Checksum256](/docs/antelope/checksum) hash of the contents of the transaction. Each `Transaction` typed object can automatically access this ID by accessing the `.id` property of the transaction. This property is a getter that automatically calculates and returns the value based on its state.
 
 ```ts
 const transaction = Transaction.from({

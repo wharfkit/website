@@ -8,11 +8,11 @@ requiresReview: true
 
 # PermissionLevel
 
-A `PermissionLevel` is a named identifier linked to an [Authority](#) structure on a specific account.
+A `PermissionLevel` is a named identifier linked to an [Authority](/docs/antelope/authority) structure on a specific account.
 
 ## Anatomy of a PermissionLevel
 
-Each `PermissionLevel` is the combination of two individual [Name](#) type properties that together signify a specific account name and permission name.
+Each `PermissionLevel` is the combination of two individual [Name](/docs/antelope/name) type properties that together signify a specific account name and permission name.
 
 A permission name can be represented as a string:
 
@@ -34,7 +34,7 @@ Both contain:
 1. `actor`: The name of the account
 2. `permission`: The name of the permission on the specified account
 
-These two elements combine allowing for the lookup of a specific account and then accessing the named [Authority](#) of the account.
+These two elements combine allowing for the lookup of a specific account and then accessing the named [Authority](/docs/antelope/authority) of the account.
 
 ## Usage
 
@@ -75,4 +75,4 @@ console.log(perm.permission)
 // Name-typed permission object
 ```
 
-The `PermissionLevel` instance itself can be cast to a string in order to output the shorthand format, while both the `actor` and `permission` properties are available as instances of [Name](#) types.
+The `PermissionLevel` instance itself can be cast to a string in order to output the shorthand format, while both the `actor` and `permission` properties are available as instances of [Name](/docs/antelope/name) types.

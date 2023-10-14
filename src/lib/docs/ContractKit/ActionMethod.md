@@ -7,7 +7,7 @@ order: 2
 requiresReview: true
 ---
 
-# Action
+# Action (Method)
 
 The `action` method is a convenient way to generate an Antelope [Action](/docs/antelope/action) instance from a [Contract](/docs/contract-kit/contract) instance. Actions can be created using this method and then be passed to the SessionKit [transact](/docs/session-kit/transact) method to be executed on chain.
 
@@ -30,7 +30,7 @@ const action = tokenContract.action(
 
 The `action` method takes two arguments:
 
-- `name`: The name of the action as defined in the [ABI](#). Can be a string or an instance of [Name](/docs/antelope/name).
+- `name`: The name of the action as defined in the [ABI](/docs/antelope/abi). Can be a string or an instance of [Name](/docs/antelope/name).
 - `data`: The data to be used within the action as an object. This will vary depending on the contract action that is used.
 
 ## Options

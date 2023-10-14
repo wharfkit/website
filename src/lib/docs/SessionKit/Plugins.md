@@ -36,7 +36,7 @@ A developer who is creating a [LoginPlugin](/docs/session-kit/plugin-login), [Tr
 - The [status](#) method to provide logging and status updates.
 - The [Translation](#) properties and methods to localize their plugin.
 
-Many examples of plugins that have already been created and can be useful as reference material can be found in the [Plugins](#) section.
+Many examples of plugins that have already been created and can be useful as reference material can be found in the Plugins section.
 
 ### Custom UI Development
 
@@ -50,13 +50,13 @@ An example of how a `UserInterface` can be implemented can be found in the [WebR
 
 ### Prompt
 
-Outside of the event-driven life cycle methods above, one of the most important abilities a `UserInterface` provides is for [Plugins](#) to interact with users. This is done using the `prompt` call made available through the [context](#) given to every [plugin](#) to either display information or await some form of user interaction. Examples of instances where `prompt` may be called are:
+Outside of the event-driven life cycle methods above, one of the most important abilities a `UserInterface` provides is for Plugins to interact with users. This is done using the `prompt` call made available through the [context](#) given to every plugin to either display information or await some form of user interaction. Examples of instances where `prompt` may be called are:
 
 - A [WalletPlugin](/docs/session-kit/plugin-wallet) during the [Login](/docs/session-kit/login) and [Transact](/docs/session-kit/transact) calls.
 - A [LoginPlugin](/docs/session-kit/plugin-login) during the [Login](/docs/session-kit/login) call.
 - A [TransactPlugin](/docs/session-kit/plugin-transact) during the [Transact](/docs/session-kit/transact) call.
 
-Each [plugin](#) that makes the call needs to provide arguments that match the `PromptArgs` interface and await a response, which will come in the form of a [CancelablePromise](#). This special type of promise allows the prompt to either be accepted, rejected, or canceled from within the plugin itself.
+Each plugin that makes the call needs to provide arguments that match the `PromptArgs` interface and await a response, which will come in the form of a [CancelablePromise](#). This special type of promise allows the prompt to either be accepted, rejected, or canceled from within the plugin itself.
 
 The arguments accepted by the `prompt` call must match:
 

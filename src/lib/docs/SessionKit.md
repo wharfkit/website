@@ -9,12 +9,12 @@ slug: index
 
 # Session Kit Overview
 
-One of Wharf's major components is the Session Kit, an SDK focused on managing sessions linked to Antelope-based accounts.
+The Session Kit is an SDK focused on managing the connection between applications and Antelope-based accounts through the use of web2-like user sessions.
 
 Its primary responsibilities are:
 
-- To facilitate the signing of transactions.
-- To allow users to "sign in" to web applications.
+- To facilitate the signing of transactions by users.
+- To allow users to authenticate with web applications.
 - To integrate with Antelope-based wallets.
 
 This section of the documentation offers a technical overview of all of the components surfaced by the Session Kit. For step-by-step guides and tutorials, please visit the [Session Kit Guides](/guides/session-kit).

@@ -8,7 +8,7 @@ requiresReview: true
 
 # Bytes
 
-The `Bytes` type is the internal type used for the majority of other Antelope types and is regularly used in conjunction with the [Serializer](#). The `Bytes` type is capable of wrapping hex, utf-8, and native JavaScript buffers and arrays which it internally stores as an `Uint8Array`.
+The `Bytes` type is the internal type used for the majority of other Antelope types and is regularly used in conjunction with the [Serializer](/docs/antelope/serializer). The `Bytes` type is capable of wrapping hex, utf-8, and native JavaScript buffers and arrays which it internally stores as an `Uint8Array`.
 
 ## Usage
 

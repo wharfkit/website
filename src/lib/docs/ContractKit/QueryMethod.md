@@ -9,7 +9,7 @@ requiresReview: true
 
 # Query
 
-The `query` method retrieves rows from a smart contract [Table](#) instance based on the provided query parameters. It returns a [Cursor](/docs/contract-kit/cursor) instance that can be used to paginate through the table rows within the specified query range.
+The `query` method retrieves rows from a smart contract [Table](/docs/contract-kit/table) instance based on the provided query parameters. It returns a [Cursor](/docs/contract-kit/cursor) instance that can be used to paginate through the table rows within the specified query range.
 
 ### Usage
 

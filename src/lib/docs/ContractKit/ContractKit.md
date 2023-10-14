@@ -13,7 +13,7 @@ The `ContractKit` class provided by the [Contract Kit](/docs/contract-kit) is a 
 
 ## Creation
 
-When using the `ContractKit` within a web application, an instance of the class must first be created. The only required argument during the creation of the `ContractKit` is an instance of an [APIClient](#) to allow it to make requests to the specified blockchain.
+When using the `ContractKit` within a web application, an instance of the class must first be created. The only required argument during the creation of the `ContractKit` is an instance of an [APIClient](/docs/antelope/api-client) to allow it to make requests to the specified blockchain.
 
 ```typescript
 import { ContractKit } from "@wharfkit/contract"
@@ -55,7 +55,7 @@ const kit = const kit = new ContractKit({
 
 #### ABIs
 
-An array of existing [ABI](/docs/antelope/abi) objects that have already been loaded in the application. This option can be used to pass ABIs directly to the ContractKit instance, eliminating the need for the ContractKit to fetch them using an [APIClient](#).
+An array of existing [ABI](/docs/antelope/abi) objects that have already been loaded in the application. This option can be used to pass ABIs directly to the ContractKit instance, eliminating the need for the ContractKit to fetch them using an [APIClient](/docs/antelope/api-client).
 
 ```typescript
 import { ContractKit } from "@wharfkit/contract"

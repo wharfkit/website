@@ -8,7 +8,7 @@ requiresReview: true
 
 # Checksum
 
-The `Checksum` type is the base of a family of different checksum types used for hashing different [Bytes](#) values. Each variant can be used to compute the hash of a given value and also provides equality helpers for comparison purposes.
+The `Checksum` type is the base of a family of different checksum types used for hashing different [Bytes](/docs/antelope/bytes) values. Each variant can be used to compute the hash of a given value and also provides equality helpers for comparison purposes.
 
 ## Variants
 
@@ -26,7 +26,7 @@ Any of the above variants can be included and used in a project. For the example
 
 ### Casting
 
-When given a string or a [Bytes](#) type, the data can be passed into the `.from()` method to establish a new instance of a `Checksum`.
+When given a string or a [Bytes](/docs/antelope/bytes) type, the data can be passed into the `.from()` method to establish a new instance of a `Checksum`.
 
 ```ts
 import { Checksum256 } from "@wharfkit/antelope"
@@ -38,7 +38,7 @@ const checksum = Checksum256.from(
 
 ### Hashing
 
-The `Checksum` variants also offer a static `.hash()` method which allows computing a checksum of any [Bytes](#) type provided.
+The `Checksum` variants also offer a static `.hash()` method which allows computing a checksum of any [Bytes](/docs/antelope/bytes) type provided.
 
 ```ts
 import { Checksum256 } from "@wharfkit/antelope"

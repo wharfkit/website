@@ -4,7 +4,9 @@
   import { scrollToTop } from "../utils"
   export let headings: HeadingNode[]
   const GITHUB_EDIT_URL =
-    `https://github.com/wharfkit/website/blob/dev` + $page.data.section.indexPage.source
+    `https://github.com/wharfkit/website/blob/dev` + $page && $page.data.section.indexPage
+      ? $page.data.section.indexPage.source
+      : ""
 </script>
 
 <nav aria-label="Table of Contents" class="toc">

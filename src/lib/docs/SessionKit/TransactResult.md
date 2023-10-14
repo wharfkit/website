@@ -33,11 +33,11 @@ The [ChainDefinition](/docs/utilities/common-library#chaindefinition) of the blo
 
 ### request
 
-A representation of the transaction performed in the [SigningRequest](#) format.
+A representation of the transaction performed in the [SigningRequest](https://github.com/greymass/eosio-signing-request/tree/master/src) format.
 
 ### resolved
 
-The [ResolvedSigningRequest](#) that was used during the [Transact](/docs/session-kit/transact) call, which has been resolved to ensure proper tapos values and to template any placeholder values that may have existed in the [SigningRequest](#).
+The `ResolvedSigningRequest` that was used during the [Transact](/docs/session-kit/transact) call, which has been resolved to ensure proper tapos values and to template any placeholder values that may have existed in the [SigningRequest](https://github.com/greymass/eosio-signing-request/tree/master/src).
 
 ### response
 
@@ -49,12 +49,12 @@ An instance of [TransactRevisions](https://wharfkit.github.io/session/classes/Tr
 
 ### signatures
 
-An array of [Signatures](#) that were used in authorizing the transaction.
+An array of [Signatures](/docs/antelope/signature) that were used in authorizing the transaction.
 
 ### signer
 
-The [PermissionLevel](#) representation of the account and permission used to authorize the transaction.
+The [PermissionLevel](/docs/antelope/permission-level) representation of the account and permission used to authorize the transaction.
 
 ### transaction
 
-A representation of the transaction performed in the [ResolvedTransaction](#) format.
+A representation of the transaction performed in the `ResolvedTransaction` format.
