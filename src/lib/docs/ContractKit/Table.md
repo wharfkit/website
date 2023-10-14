@@ -4,6 +4,7 @@ description: The Table class serves as a wrapper for Antelope smart contract tab
 category: ContractKit
 published: true
 order: 3
+requiresReview: true
 ---
 
 # Table

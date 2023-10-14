@@ -4,6 +4,7 @@ description: The Contract class serves as a wrapper for Antelope smart contracts
 category: ContractKit
 published: true
 order: 1
+requiresReview: true
 ---
 
 # Contract
