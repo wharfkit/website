@@ -3,8 +3,8 @@
   import { activeTocSection } from "$lib/stores"
   import { scrollToTop } from "../utils"
   export let headings: HeadingNode[]
-
-  const GITHUB_EDIT_URL = `https://github.com/wharfkit/website/blob/dev` + $page.data.doc.source
+  const GITHUB_EDIT_URL =
+    `https://github.com/wharfkit/website/blob/dev` + $page.data.section.indexPage.source
 </script>
 
 <nav aria-label="Table of Contents" class="toc">
