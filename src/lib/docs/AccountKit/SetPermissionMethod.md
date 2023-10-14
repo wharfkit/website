@@ -1,5 +1,5 @@
 ---
-title: setPermission Method
+title: SetPermission (Method)
 description: Used to generate an action that updates or creates a permission level on an Antelope blockchain account.
 category: AccountKit
 published: true
