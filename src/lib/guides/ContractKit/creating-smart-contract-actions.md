@@ -13,7 +13,7 @@ This guide covers how to use the Contract Kit to create an `Action` based on an 
 
 ## Getting Started
 
-Please review the [Dynamically Loading Antelope Smart Contracts](#) guide before proceeding to understand how to establish a `Contract` instance in an application.
+Please review the [Dynamically Loading Antelope Smart Contracts](/guides/contract-kit/loading-contracts) guide before proceeding to understand how to establish a `Contract` instance in an application.
 
 ## Creating an Action
 

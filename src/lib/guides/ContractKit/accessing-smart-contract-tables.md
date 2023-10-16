@@ -13,7 +13,7 @@ This guide will show how the `Table` class provided by the Contract Kit can be u
 
 ## Getting Started
 
-Please review the [Dynamically Loading Antelope Smart Contracts](#) guide before proceeding, to understand how to establish a `Contract` instance in an application.
+Please review the [Dynamically Loading Antelope Smart Contracts](/guides/contract-kit/loading-contracts) guide before proceeding, to understand how to establish a `Contract` instance in an application.
 
 ## The Table
 

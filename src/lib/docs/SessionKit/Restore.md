@@ -27,7 +27,7 @@ The `restore` method can also optionally accept an object to specify which [Sess
 
 ### Example: Switch Accounts
 
-The `restore` method can also be used in conjunction with the [GetSessions](#) method provided by the [SessionKit](/docs/session-kit/session-kit-factory) to restore a specific [Session](/docs/session-kit/session). This is a recommended approach in multi-account environments where the application allows the user to actively switch between accounts.
+The `restore` method can also be used in conjunction with the `getSessions()` method provided by the [SessionKit](/docs/session-kit/session-kit-factory) to restore a specific [Session](/docs/session-kit/session). This is a recommended approach in multi-account environments where the application allows the user to actively switch between accounts.
 
 ```ts
 // Retrieve a list of all sessions that exist

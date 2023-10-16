@@ -18,7 +18,7 @@ The minimum required information to create a `Session` instance is as follows:
 
 ```ts
 import { Session } from "@wharfkit/session"
-import { WalletPluginPrivateKey } from '@wharfkit/wallet-plugin-privatekey'
+import { WalletPluginPrivateKey } from "@wharfkit/wallet-plugin-privatekey"
 
 const args = {
   chain: {
@@ -45,15 +45,15 @@ The first parameter passed to the `Session` is an object containing all the requ
 
 - `chain`: The [ChainDefinition](/docs/utilities/common-library#chaindefinition) that defines which blockchain this session is for.
 - `actor`: The name of the account on the defined blockchain that the session will utilize.
-- `permission`: The name of the [Permission](#) associated to the account that the session will use.
+- `permission`: The name of an [Authority](/docs/antelope/authority) defined on the account that the session will use.
 - `walletPlugin`: An instance of a [WalletPlugin](/docs/session-kit/plugin-wallet) that allows signing transactions for this session.
 
 ### [Options](https://wharfkit.github.io/session/interfaces/SessionOptions.html)
 
 The second parameter is an optional object, with every individual property of the object also being optional. This parameter allows passing additional data to further customize the `Session`.
 
-- `abis`: An array of [ABI](#) definitions to preload for this session to optimize [Transact](/docs/session-kit/transact) calls.
-- `abiCache`: An instance of an [ABICache](#) that overrides the default one utilized by the session.
+- `abis`: An array of [ABI](/docs/antelope/abi) definitions to preload for this session to optimize [Transact](/docs/session-kit/transact) calls.
+- `abiCache`: An instance of an `ABICache` that overrides the default one utilized by the session.
 - `allowModify`: A boolean value indicating whether any [TransactPlugin](/docs/session-kit/plugin-transact) and [WalletPlugin](/docs/session-kit/plugin-wallet) can modify transactions being processed.
 - `appName`: A string to identify the app the session is used in.
 - `broadcast`: A boolean value indicating whether the `transact` call should broadcast transactions by default.
@@ -81,8 +81,8 @@ On any established instance of a `Session`, the following are common properties 
 
 - `chain`: The [ChainDefinition](/docs/utilities/common-library#chaindefinition) of which blockchain this session is for.
 - `actor`: The name of the account for this session.
-- `permission`: The [Permission](#) name associated to the account being used.
-- `permissionLevel`: The [PermissionLevel](#) that contains the account and permission for the session.
+- `permission`: The [Authority](/docs/antelope/authority) name associated to the account being used.
+- `permissionLevel`: The [PermissionLevel](/docs/antelope/permission-level) that contains the account and permission for the session.
 - `client`: An instance of an [APIClient](/docs/antelope/api-client) that can be used to access information from the blockchain related to this session.
 
 ## Related Materials
