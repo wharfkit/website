@@ -1,6 +1,6 @@
 ---
 title: Resource (Class)
-description: A Resource instance is a wrapper for a specific account resource (CPU, NET, or RAM) on Antelope blockchains.
+description: A Resource instance is a wrapper for a specific account resource on Antelope blockchain accounts.
 category: AccountKit
 published: true
 order: 16
@@ -12,7 +12,7 @@ Each `Resource` instance represents a specific Antelope account resource (CPU, N
 
 ## Creation
 
-The `Resource` class will generally be returned by the [resource](/docs/account-kit/resource-method) method which is available on any [Account](/docs/account-kit/account) instance. However, a new instance of the `Resource` class can also be constructed directly. Here is an example of how to do so:
+The `Resource` class will generally be returned by the [resource method](/docs/account-kit/resource-method) which is available on any [Account](/docs/account-kit/account) instance. However, a new instance of the `Resource` class can also be constructed directly. Here is an example of how to do so:
 
 ```typescript 
 const cpuResource = new Resource('cpu', {
@@ -43,9 +43,9 @@ The `Resource` class constructor accepts two parameters:
 
 ### Properties
 
-Once initialized, a `Resource` instance provides the following properties:
+Once initialized, a `Resource` instance provides the following read-only properties:
 
 - `available`: Amount of the resource that is currently available for use.
 - `used`: Amount of the resource currently being used.
-- `max`: Maximum amount of resource that can be used.
-- `weight`: For `cpu` and `net` resources, the weight (or priority) of the resource will also be available.
+- `max`: Maximum amount of the resource that can be used.
+- `weight`: For `cpu` and `net` resources, the weight of the resource will also be available. This represents the account's share of staked resources compared to the total staked by everyone on the network.

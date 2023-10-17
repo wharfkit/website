@@ -20,7 +20,7 @@ const allResources = myAccount.resources();
 
 ## Options
 
-- `sampleAccount`:  The name of a sample account. It is used to specify the account to use when sampling usage.
+- `sampleAccount`:  The name of a sample account. It is used to specify the account to use when sampling overall network usage.
 
 ## Return Value
 

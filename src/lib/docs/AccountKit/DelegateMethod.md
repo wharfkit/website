@@ -1,6 +1,6 @@
 ---
 title: Delegate (Method)
-description: Used to generate an action to delegate tokens for bandwidth or CPU resources.
+description: Used to generate an action to delegate tokens for NET or CPU resources.
 category: AccountKit
 published: true
 order: 7
@@ -8,17 +8,17 @@ order: 7
 
 # Delegate
 
-The `delegate` method is used to stake tokens for bandwidth and CPU resources on Antelope blockchains. By staking, an account can allocate resources either for its own benefit or for another account. The method provides flexibility in how resources are allocated, allowing for CPU, bandwidth, or both to be specified.
+The `delegate` method is used to stake tokens for NET and CPU resources on Antelope blockchains. By staking, an account can allocate resources either for its own benefit or for another account. The method provides flexibility in how resources are allocated, allowing for CPU, NET, or both to be specified.
 
 ## Usage
 
-The `delegate` method is available on any [Account](/docs/account-kit/account) instance. Here is a basic example:
+The `delegate` method is available on any [Account](/docs/account-kit/account) instance. Here is a basic example of how to use it:
 
 ```typescript
 const action = testAccount.delegate({cpu: '1.0000 EOS', net: '0.5000 EOS'});
 ```
 
-You can also specify only one of the resources:
+A single resource can also be specified:
 
 ```typescript
 // Staking only for CPU

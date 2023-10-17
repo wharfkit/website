@@ -1,7 +1,7 @@
 ---
 title: Balance (Method)
 description: Used to retrieve the balance of an account for a specific token.
-category: ContractKit
+category: AccountKit
 published: true
 order: 3
 ---
@@ -12,7 +12,7 @@ The `balance` method allows you to retrieve the balance of an account for a spec
 
 ## Usage
 
-The `balance` method is available on any [account](/docs/account-kit/balance) instance. Here's a basic example of how to use it:
+The `balance` method is available on any [Account](/docs/account-kit/account) instance. Here is a basic example of how to use it:
 
 ```typescript
 const balance = await testAccount.balance();

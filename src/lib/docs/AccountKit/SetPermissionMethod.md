@@ -11,35 +11,35 @@ order: 14
 The `setPermission` method is used to update or establish a new permission level on an Antelope account. 
 
 ## Usage
-The `setPermission` method is available on any [Account](/docs/account-kit/account) instance. To generate an action that will add a new permission level to an account, an instantiated [Permission](/docs/account-kit/permission) can be passed to the `setPermission` method. Here is a basic example:
+The `setPermission` method is available on any [Account](/docs/account-kit/account) instance. To generate an action that will add a new permission level to an account, a [Permission](/docs/account-kit/permission) instance can be passed to the `setPermission` method. Here is a basic example of how to do that:
 
 ```typescript
 const permission = Permission.from({
-    parent: 'owner',
-    perm_name: 'claim',
+    parent: 'owner', // The name of the parent permission level
+    perm_name: 'claim', // The name of the permission level
     required_auth: {
         keys: [
             {
-                key: 'PUB_K1_6XXTaRpWhPwnb7CTV9zVsCBrvCpYMMPSk8E8hsJxhf6V9t8aT5',
-                weight: 1,
+                key: 'PUB_K1_6XXTaRpWhPwnb7CTV9zVsCBrvCpYMMPSk8E8hsJxhf6V9t8aT5', // The public key that can be used to prove authority
+                weight: 1, // The weight of the key
             },
         ],
     },
 })
 
-const action = account.setPermission(permission)
+const action = account.setPermission(permission) // Generates the action that will create the permission level
 ```
 
-To update a permission level on an account, the [permission](/docs/account-kit/permission-method) method can be used to obtain a [Permission](/docs/account-kit/permission) instance which can then be modified and passed to the `setPermission` method. Here is a basic example:
+To update a permission level on an account, the [permission method](/docs/account-kit/permission-method) can be used to obtain a [Permission](/docs/account-kit/permission) instance which can then be modified and passed to the `setPermission` method. Here is a basic example of how to do so:
 
 
 ```typescript
 const permission = account.permission('claim')
 
-// Update the permission
+// Update the permission by adding a new key
 permission.addKey('PUB_K1_6XXTaRpWhPwnb7CTV9zVsCBrvCpYMMPSk8E8hsJxhf6V9t8aT6', 10)
 
-const action = setPermission(permission: Permission)
+const action = setPermission(permission)
 ```
 
 ## Arguments

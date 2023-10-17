@@ -23,7 +23,7 @@ const permission = account.permission('owner');
 
 The `permission` method requires a single parameter:
 
-- `permissionName`: The name of the permission to retrieve (eg. 'owner' or 'active').
+- `permissionName`: The name of the permission to retrieve (eg. `owner` or `active`).
 
 ## Return Value
 

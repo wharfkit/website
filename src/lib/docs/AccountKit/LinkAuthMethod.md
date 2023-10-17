@@ -1,6 +1,6 @@
 ---
 title: LinkAuth (Method)
-description: Used to generate an action that sets a specific permission level.
+description: Used to generate an action that creates a dependency between a smart contract action and a permission level.
 category: AccountKit
 published: true
 order: 9
@@ -17,12 +17,12 @@ The `linkAuth` method is available on any [Account](/docs/account-kit/account) i
 const action = testAccount.linkAuth('eosio.token', 'transfer', 'active');
 ```
 
-In the example above, an action linking the `eosio.token` `transfer` action to the `active` permission level is generated. This makes it the `active` permission level is required to execute the `transfer` action on the `eosio.token` smart contract.
+In the example above, an action creating a dependency between the `eosio.token` `transfer` action and the `active` permission level is generated. This makes it so the `active` permission level is required to execute the `transfer` action on the `eosio.token` smart contract.
 
 ## Arguments
 
 - `contract`: The account name of the account that the permission level should be linked to.
-- `actionName`: The action name that the permission level should be linked to.
+- `actionName`: The name of the action that the permission level should be linked to.
 - `permission`: The permission level that should be linked to the specified action (eg. `active`).
 
 ## Return Value

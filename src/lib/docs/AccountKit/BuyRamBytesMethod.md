@@ -8,11 +8,11 @@ order: 4
 
 # BuyRamBytes
 
-The `buyRamBytes` method facilitates the purchase of RAM by letting you specify a number of bytes to purchase. It returns an [Action](/docs/antelope/action) object detailing the RAM purchase request.
+The `buyRamBytes` method facilitates the purchase of RAM by letting you specify a number of bytes to purchase. It returns an [Action](/docs/antelope/action) instance detailing the RAM purchase request.
 
 ## Usage
 
-The `buyRamBytes` method is available on any [account](/docs/account-kit/account) instance. Here is how to use it:
+The `buyRamBytes` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
 const action = testAccount.buyRamBytes(1024);
@@ -38,4 +38,4 @@ The `buyRamBytes` method accepts an optional object with the following property:
 
 ## Return Value
 
-The `buyRamBytes` method returns an [Action](/docs/antelope/action) object detailing the RAM purchase request. This action can be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `buyRamBytes` method returns an [Action](/docs/antelope/action) instance detailing the RAM purchase request. This action can be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.

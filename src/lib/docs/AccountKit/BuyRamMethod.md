@@ -8,17 +8,17 @@ order: 5
 
 # BuyRam
 
-The `buyRam` method allows accounts to purchase RAM using a specific amount of tokens. It returns an [Action](/docs/antelope/action) object detailing the RAM purchase request.
+The `buyRam` method allows accounts to purchase RAM using a specific amount of tokens. It returns an [Action](/docs/antelope/action) instance detailing the RAM purchase request.
 
 ## Usage
 
-The `buyRam` method is available on any [account](/docs/account-kit/account) instance. Here is a basic example detailing how to purchase RAM using a specific amount of token:
+The `buyRam` method is available on any [Account](/docs/account-kit/account) instance. Here is a basic example detailing how to purchase RAM using a specific amount of tokens:
 
 ```typescript
 const action = testAccount.buyRam('1.0000 EOS');
 ```
 
-Alternatively, an antelope [Asset](/docs/antelope/asset) instance can also be passed:
+Alternatively, an antelope [Asset](/docs/antelope/asset) instance can be passed:
 
 ```typescript
 const action = testAccount.buyRam(Asset.from(1.0000, '4,EOS'));
@@ -44,4 +44,4 @@ The `buyRam` method accepts an optional object with the following property:
 
 ## Return Value
 
-The `buyRam` method returns an [Action](/docs/antelope/action) object detailing the RAM purchase request. This action can be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `buyRam` method returns an [Action](/docs/antelope/action) instance detailing the RAM purchase request. This action can be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.

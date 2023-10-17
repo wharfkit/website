@@ -1,6 +1,6 @@
 ---
 title: Undelegate (Method)
-description: Used to generate an action to undelegate CPU or bandwidth resources from an Antelope account.
+description: Used to generate an action to undelegate CPU or NET resources from an Antelope account.
 category: ContractKit
 published: true
 order: 8
@@ -8,7 +8,7 @@ order: 8
 
 # Undelegate
 
-The `undelegate` method allows Antelope account owners to undelegate CPU or bandwidth resources from their account.
+The `undelegate` method allows Antelope account owners to undelegate (unstake) CPU or NET resources from their account.
 
 ## Usage
 
@@ -31,9 +31,12 @@ const action = testAccount.undelegate({
 
 ## Arguments
 
-- `cpu`: The quantity of CPU resources to undelegate, specified as a string (e.g., '1.0000 EOS').
-- `net`: The quantity of NET resources to undelegate, specified as a string (e.g., '0.5000 EOS').
-- `receiver`: (optional) The Antelope account to which the undelegated resources should be returned. If not provided, it defaults to the account initiating the undelegate action.
+- `cpu`: The quantity of CPU resources to undelegate, specified as a string (e.g., `1.0000 EOS`).
+- `net`: The quantity of NET resources to undelegate, specified as a string (e.g., `0.5000 EOS`).
+
+## Options
+
+- `receiver`: The Antelope account to which the undelegated tokens should be returned. If not provided, it defaults to the account initiating the `undelegate` action.
 
 ## Return Value
 

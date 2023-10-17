@@ -8,7 +8,7 @@ order: 6
 
 # SellRam
 
-The `sellRam` method allows Antelope account owners to sell a specified amount of RAM in exchange for tokens.
+The `sellRam` method allows Antelope account owners to sell a specified amount of RAM.
 
 ## Usage
 

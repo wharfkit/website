@@ -12,7 +12,7 @@ The `AccountKit` class provided by the [Account Kit](/docs/account-kit) is a fac
 
 ## Creation
 
-When using the `AccountKit` factory class within a web application, the developer will first need to instantiate it. Here is a basic example:
+When using the `AccountKit` factory class within a web application, the developer will first need to instantiate it. Here is a basic example of how to do:
 
 ```typescript
 import { AccountKit } from "@wharfkit/Account"
@@ -33,7 +33,7 @@ The only required parameter to initialize an `AccountKit` instance is an object 
 
 ### Load Method
 
-Once an AccountKit instance is obtainer, the `load` method can be used to obtain an [Account](/docs/account-kit/account) instance for a specific blockchain account.
+Once an `AccountKit` instance is obtained, the `load` method can be used to obtain an [Account](/docs/account-kit/account) instance for a specific blockchain account. Here is an example of how to do so:
 
 ```typescript
 const account = await AccountKit.load("teamgreymass");
@@ -44,6 +44,7 @@ const account = await AccountKit.load("teamgreymass");
 The `load` method accepts a single parameter:
 
 - `accountName`: The name of the account to load.
+
 ### Return Value
 
 The `load` method returns an [Account](/docs/account-kit/account) instance.

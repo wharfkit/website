@@ -1,6 +1,6 @@
 ---
 title: Resource (Method)
-description: Retrieve a specific Resource instance from an account instance.
+description: Retrieve a specific Resource instance from an Account instance.
 category: AccountKit
 published: true
 order: 15
@@ -8,11 +8,11 @@ order: 15
 
 # Resource (Method)
 
-The resource method provides a way to obtain a specific [Resource](/docs/account-kit/resource) instance from an [Account](/docs/account-kit/account) instance. 
+The `resource` method provides a way to obtain a specific [Resource](/docs/account-kit/resource) instance from an [Account](/docs/account-kit/account) instance. 
 
 ## Usage
 
-The resource method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
+The `resource` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
 const cpuDetails = myAccount.resource('cpu');
@@ -24,6 +24,6 @@ const cpuDetails = myAccount.resource('cpu');
 
 ## Return Value
 
-The resource method returns a [Resource](/docs/account-kit/resource) instance.
+The `resource` method returns a [Resource](/docs/account-kit/resource) instance.
 
 
