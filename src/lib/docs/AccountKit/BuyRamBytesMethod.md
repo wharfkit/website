@@ -1,6 +1,6 @@
 ---
 title: BuyRamBytes (Method)
-description: Used to generate an action to acquire a specific number of bytes of RAM.
+description: Used to create an action to acquire a specific number of bytes of RAM.
 category: AccountKit
 published: true
 order: 4

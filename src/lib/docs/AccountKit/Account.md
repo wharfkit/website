@@ -12,7 +12,7 @@ Each `Account` class instance represents a specific blockchain account. It offer
 
 ## Creation
 
-In most cases, the [AccountKit Factory](/docs/account-kit/account-kit-factory) will be used to generate `Account` instances. However, they can also be created manually if the relevant data is provided. Here is a basic example of how to do so:
+In most cases, the [AccountKit Factory](/docs/account-kit/account-kit-factory) will be used to create `Account` instances. However, they can also be created manually if the relevant data is provided. Here is a basic example of how to do so:
 
 ```ts
 import { Account } from "@wharfkit/contract"
@@ -48,15 +48,15 @@ Once an `Account` instance is created, the following methods and read-only prope
 - [`permission`](/docs/account-kit/permission-method): Retrieves a specific account [Permission](/docs/account-kit/permission) instance.
 - [`resource`](/docs/account-kit/resource-method): Retrieves a specific [Resource](/docs/account-kit/resource) instance that contains some information on the account's resources.
 - [`resources`](/docs/account-kit/resources-method): Retrieves a `Resources` instance from the [@wharfkit/resources package](https://www.npmjs.com/package/@wharfkit/resources).
-- [`setPermission`](/docs/account-kit/set-permission-method): Generates an [Action](/docs/antelope/action) instance that can be used to set a permission on the account.
-- [`removePermission`](/docs/account-kit/remove-permission-method): Generates an [Action](/docs/antelope/action) instance that can be used to remove a permission from the account.
-- [`linkauth`](/docs/account-kit/linkauth-method): Generates an [Action](/docs/antelope/action) instance that can be used to require an account authorization for a contract action.
-- [`unlinkauth`](/docs/account-kit/unlinkauth-method): Generates an [Action](/docs/antelope/action) instance that can be used to remove the requirement of an account authorization for a contract action.
-- [`buyRam`](/docs/account-kit/buy-ram-mmethod): Generates an [Action](/docs/antelope/action) instance that can be used to buy RAM for the account.
-- [`buyRamBytes`](/docs/account-kit/buy-ram-bytes-method): Generates an [Action](/docs/antelope/action) instance that can be used to buy RAM in bytes for the account.
-- [`sellRam`](/docs/account-kit/sell-ram-method): Generates an [Action](/docs/antelope/action) instance that can be used to sell RAM for the account.
-- [`delegate`](/docs/account-kit/delegate-method): Generates an [Action](/docs/antelope/action) instance that can be used to have the account delegate resources.
-- [`undelegate`](/docs/account-kit/undelegate-method): Generates an [Action](/docs/antelope/action) instance that can be used to have the account undelegate resources.
+- [`setPermission`](/docs/account-kit/set-permission-method): Creates an [Action](/docs/antelope/action) instance that can be used to set a permission on the account.
+- [`removePermission`](/docs/account-kit/remove-permission-method): Creates an [Action](/docs/antelope/action) instance that can be used to remove a permission from the account.
+- [`linkauth`](/docs/account-kit/linkauth-method): Creates an [Action](/docs/antelope/action) instance that can be used to require an account authorization for a contract action.
+- [`unlinkauth`](/docs/account-kit/unlinkauth-method): Creates an [Action](/docs/antelope/action) instance that can be used to remove the requirement of an account authorization for a contract action.
+- [`buyRam`](/docs/account-kit/buy-ram-mmethod): Creates an [Action](/docs/antelope/action) instance that can be used to buy RAM for the account.
+- [`buyRamBytes`](/docs/account-kit/buy-ram-bytes-method): Creates an [Action](/docs/antelope/action) instance that can be used to buy RAM in bytes for the account.
+- [`sellRam`](/docs/account-kit/sell-ram-method): Creates an [Action](/docs/antelope/action) instance that can be used to sell RAM for the account.
+- [`delegate`](/docs/account-kit/delegate-method): Creates an [Action](/docs/antelope/action) instance that can be used to have the account delegate resources.
+- [`undelegate`](/docs/account-kit/undelegate-method): Creates an [Action](/docs/antelope/action) instance that can be used to have the account undelegate resources.
 
 ### Properties
 

@@ -9,7 +9,9 @@ slug: index
 
 # Account Kit Overview
 
-Another Wharf component is the Account Kit, an SDK focused on managing Antelope-based blockchain accounts.
+The Contract Kit is an SDK focused on managing and interacting with existing Antelope-based smart contracts.
+
+The Account Kit is an SDK focused on managing Antelope-based blockchain accounts.
 
 It's primary responsibilities are:
 
@@ -24,7 +26,7 @@ The Account Kit exports different classes for use in various types of applicatio
 
 ### [AccountKit](/docs/account-kit/account-kit-factory)
 
-The core component of Wharf's Account Kit is named after the SDK itself and offers itself as a customizable [factory class](https://refactoring.guru/design-patterns/factory-method). The [AccountKit](/docs/account-kit/account-kit) gives developers methods to generate [Account](/docs/account-kit/account) instances.
+The core component of Wharf's Account Kit is named after the SDK itself and offers itself as a customizable [factory class](https://refactoring.guru/design-patterns/factory-method). The [AccountKit](/docs/account-kit/account-kit) gives developers methods to create [Account](/docs/account-kit/account) instances.
 
 ### [Account](/docs/account-kit/account)
 
