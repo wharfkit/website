@@ -1,6 +1,6 @@
 ---
 title: RemovePermission (Method)
-description: Used to generate an action that deletes a custom permission level from an Antelope account.
+description: Used to create an action that deletes a custom permission from an Antelope account.
 category: AccountKit
 published: true
 order: 13
@@ -18,11 +18,11 @@ The `removePermission` method is available on any [Account](/docs/account-kit/ac
 const action = testAccount.removePermission('claim');
 ```
 
-In the example above, an action that deletes the `claim` permission level is generated.
+In the example above, an action that deletes the `claim` permission is created.
 
 ## Arguments
 
-- `permissionName`: The name of the permission level that is to be removed.
+- `permissionName`: The name of the permission that is to be removed.
 
 ## Return Value
 

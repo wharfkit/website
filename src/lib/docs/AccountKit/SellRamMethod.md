@@ -1,6 +1,6 @@
 ---
 title: SellRam (Method)
-description: Used to generate an action to sell a specified amount of RAM.
+description: Used to create an action to sell a specified amount of RAM.
 category: AccountKit
 published: true
 order: 6
@@ -18,7 +18,7 @@ The `sellRam` method is available on any [Account](/docs/account-kit/account) in
 const action = testAccount.sellRam(1024);
 ```
 
-In the above example, an action that sells `1024` bytes of RAM is generated.
+In the above example, an action that sells `1024` bytes of RAM is created.
 
 ## Arguments
 

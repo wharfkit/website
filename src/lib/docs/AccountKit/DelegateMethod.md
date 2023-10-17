@@ -1,6 +1,6 @@
 ---
 title: Delegate (Method)
-description: Used to generate an action to delegate tokens for NET or CPU resources.
+description: Used to create an action to delegate tokens for NET or CPU resources.
 category: AccountKit
 published: true
 order: 7

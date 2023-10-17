@@ -1,6 +1,6 @@
 ---
 title: LinkAuth (Method)
-description: Used to create an action that creates a dependency between a smart contract action and a permission level.
+description: Used to create an action that creates a dependency between a smart contract action and a permission.
 category: AccountKit
 published: true
 order: 9

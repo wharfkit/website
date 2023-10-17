@@ -18,16 +18,18 @@ In most cases, the [AccountKit Factory](/docs/account-kit/account-kit-factory) w
 import { Account } from "@wharfkit/contract"
 import { APIClient } from "@wharfkit/antelope"
 
-import abi from "./eosio-abi.json" // ABI for the eosio.token contract
-
-const contractArgs = {
-    abi,
-    account: "eosio.token",
+const accountArgs = {
+    data: {
+        account_name: "teamgreymass",
+        // All account data should be passed here.
+    },
     client: new APIClient("https://jungle4.greymass.com"),
 }
 
-const contract = new Account(contractArgs)
+const account = new Account(accountArgs)
 ```
+
+Optionally, you 
 
 ### Arguments
 
