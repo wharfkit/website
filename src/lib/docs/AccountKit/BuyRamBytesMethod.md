@@ -8,7 +8,7 @@ order: 4
 
 # BuyRamBytes
 
-The `buyRamBytes` method facilitates the purchase of RAM by letting you specify a number of bytes to purchase. It returns an [Action](/docs/antelope/action) instance detailing the RAM purchase request.
+The `buyRamBytes` method facilitates the purchase of RAM by letting you specify a number of bytes to purchase. It returns an [Action](/docs/antelope/action) instance detailing the RAM purchase. That action can then be signed and executed on-chain using the `SessionKit` [Transact](/docs/session-kit/transact) method.
 
 ## Usage
 
@@ -38,4 +38,4 @@ The `buyRamBytes` method accepts an optional object with the following property:
 
 ## Return Value
 
-The `buyRamBytes` method returns an [Action](/docs/antelope/action) instance detailing the RAM purchase request. This action can be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `buyRamBytes` method returns an [Action](/docs/antelope/action) instance. This action can be passed to the `SessionKit` [Transact](/docs/session-kit/transact) method for execution.

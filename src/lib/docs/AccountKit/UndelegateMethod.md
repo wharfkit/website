@@ -8,7 +8,7 @@ order: 8
 
 # Undelegate
 
-The `undelegate` method allows Antelope account owners to undelegate (unstake) CPU or NET resources from their account.
+The `undelegate` method allows Antelope account owners to undelegate (unstake) CPU or NET resources from their account. It returns an [Action](/docs/antelope/action) instance that details the undelegation. The action can then be signed and executed on-chain using the `SessionKit` [Transact](/docs/session-kit/transact) method.
 
 ## Usage
 
@@ -40,4 +40,4 @@ const action = testAccount.undelegate({
 
 ## Return Value
 
-The `undelegate` method returns an [Action](/docs/antelope/action) instance detailing the resource undelegation. This action can then be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `undelegate` method returns an [Action](/docs/antelope/action) instance. This action can then be passed to the `SessionKit` [Transact](/docs/session-kit/transact) method for execution.

@@ -8,7 +8,7 @@ order: 5
 
 # BuyRam
 
-The `buyRam` method allows accounts to purchase RAM using a specific amount of tokens. It returns an [Action](/docs/antelope/action) instance detailing the RAM purchase request.
+The `buyRam` method allows accounts to purchase RAM using a specific amount of tokens. It returns an [Action](/docs/antelope/action) instance detailing the RAM purchase. That action can then be signed and executed on-chain using the `SessionKit` [Transact](/docs/session-kit/transact) method.
 
 ## Usage
 
@@ -44,4 +44,4 @@ The `buyRam` method accepts an optional object with the following property:
 
 ## Return Value
 
-The `buyRam` method returns an [Action](/docs/antelope/action) instance detailing the RAM purchase request. This action can be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `buyRam` method returns an [Action](/docs/antelope/action) instance. This action can be passed to the `SessionKit` [Transact](/docs/session-kit/transact) method for execution.

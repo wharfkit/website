@@ -88,5 +88,5 @@ testPermission.removeWait({wait_sec: 100, weight: 1});
 
 - `perm_name`: Retrieves the name of the permission.
 - `parent`: Retrieves the name of the parent permission.
-- `required_auth`: Retrieves the [Authority](/docs/account-kit/authority) object that defines how authority is proven for the permission.
+- `required_auth`: Retrieves the [Authority](/docs/antelope/authority) object that defines how authority is proven for the permission.
 - `linked_actions`: Retrieves the linked actions that can only be called using the permission.

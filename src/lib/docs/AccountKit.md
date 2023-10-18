@@ -9,8 +9,6 @@ slug: index
 
 # Account Kit Overview
 
-The Contract Kit is an SDK focused on managing and interacting with existing Antelope-based smart contracts.
-
 The Account Kit is an SDK focused on managing Antelope-based blockchain accounts.
 
 It's primary responsibilities are:

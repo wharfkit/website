@@ -8,7 +8,7 @@ order: 7
 
 # Delegate
 
-The `delegate` method is used to stake tokens for NET and CPU resources on Antelope blockchains. By staking, an account can allocate resources either for its own benefit or for another account. The method provides flexibility in how resources are allocated, allowing for CPU, NET, or both to be specified.
+The `delegate` method is used to stake tokens for NET and CPU resources on Antelope blockchains. By staking, an account can allocate resources either for its own benefit or for another account. The method returns an [Action](/docs/antelope/action) instance detailing the resource delegation. That action can then be signed and executed on-chain using the `SessionKit` [Transact](/docs/session-kit/transact) method.
 
 ## Usage
 
@@ -60,4 +60,4 @@ const action = testAccount.delegate({
 
 ## Return Value
 
-The `delegate` method returns an [Action](/docs/antelope/action) instance detailing the resource delegation request. This action can then be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `delegate` method returns an [Action](/docs/antelope/action) instance. This action can then be passed to the `SessionKit` [Transact](/docs/session-kit/transact) method for execution.

@@ -8,7 +8,7 @@ order: 10
 
 # UnlinkAuth
 
-The `unlinkAuth` method is used to remove the requirement of a specific account permission being used to execute a specific smart contract action.
+The `unlinkAuth` method is used to remove the linking of a specific smart contract action to an account permission.
 
 ## Usage
 
@@ -27,4 +27,4 @@ In the example above, we create an action that removes the link between the `eos
 
 ## Return Value
 
-The `unlinkAuth` method returns an [Action](/docs/antelope/action) instance detailing the removal of the permission link. The action can then be passed to the [SessionKit Transact method](/docs/session-kit/transact) for execution.
+The `unlinkAuth` method returns an [Action](/docs/antelope/action) instance detailing the removal of the permission link. The action can then be passed to the `SessionKit` [Transact](/docs/session-kit/transact) method for execution.

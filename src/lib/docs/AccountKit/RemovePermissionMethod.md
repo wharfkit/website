@@ -8,7 +8,7 @@ order: 13
 
 # RemovePermission
 
-The `removePermission` method is used to delete custom permissions from an Antelope account. 
+The `removePermission` method is used to delete custom permissions from an Antelope account. It returns an [Action](/docs/antelope/action) instance detailing the permission removal. The action can then be signed and executed on-chain using the `SessionKit` [Transact](/docs/session-kit/transact) method.
 
 ## Usage
 
@@ -26,4 +26,4 @@ In the example above, an action that deletes the `claim` permission is created.
 
 ## Return Value
 
-The `removePermission` method returns an [Action](/docs/antelope/action) instance.
+The `removePermission` method returns an [Action](/docs/antelope/action) instance. This action can then be passed to the `SessionKit` [Transact](/docs/session-kit/transact) method for execution.

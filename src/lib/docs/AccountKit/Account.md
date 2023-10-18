@@ -23,22 +23,48 @@ const accountArgs = {
         account_name: "teamgreymass",
         // All account data should be passed here.
     },
-    client: new APIClient("https://jungle4.greymass.com"),
+    client: new APIClient({ url: "https://jungle4.greymass.com" }),
 }
 
 const account = new Account(accountArgs)
 ```
 
-Optionally, you 
+An optional [Contract](/docs/contract-kit/contract) instance can be passed to the `Account` class constructor:
+
+```ts
+import { ContractKit } from "@wharfkit/contract"
+import { Account } from "@wharfkit/account"
+
+const client = new APIClient({ url: "https://jungle4.greymass.com" })
+
+const contractKit = new ContractKit({
+    client,
+})
+
+const contract = await contractKit.load("contractname")
+
+const accountArgs = {
+    data: {
+        account_name: "teamgreymass",
+        // All account data should be passed here.
+    },
+    client,
+    contract,
+}
+
+const account = new Account(accountArgs)
+```
 
 ### Arguments
 
 The only parameter passed to the `Account` class constructor is an object containing the following configuration data:
 
-- `abi`: The [ABI definition](/docs/antelope/abi) for the contract.
-- `account`: The name of the account that the contract is deployed to.
 - `data`: The account's data. Generally, this will be obtained using a [get_account API call](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index#operation/get_account). <!-- TODO: Replace this with link from Antelope API docs. Maybe from the antelope docs?? -->
 - `client`: An instance of an [APIClient](/docs/antelope/api-client) that will be used to retrieve blockchain data.
+
+## Options
+
+- `contract`: An instance of a [Contract](/docs/contract-kit/contract) class that will be used to interact with the account. Defaults to the system contract.
 
 ## Usage
 
