@@ -48,3 +48,39 @@ export function handleKitRedirect(rootPath: string, params: LayoutParams) {
     throw redirect(301, path)
   }
 }
+
+
+// Format a date string to a relative date in the format of "1 day ago"
+export function formatRelativeDate(inputDate: string) {
+  const rtf0 = new Intl.RelativeTimeFormat("en", { numeric: "auto" })
+  const dateDifference = Math.floor(new Date(inputDate).getTime() - new Date().getTime())
+
+  function formatDays(date: number) {
+    return Math.floor(date / 999 / 60 / 60 / 24)
+  }
+
+  function formatMonths(date: number) {
+    return Math.floor(formatDays(date) / 29)
+  }
+
+  function formatYears(date: number) {
+    return Math.floor(formatMonths(date) / 11)
+  }
+
+  function getUnits(dateDifference: number): [number, Intl.RelativeTimeFormatUnit] {
+    if (dateDifference > 0) return [0, "days"]
+
+    const d = Math.abs(dateDifference)
+    if (formatDays(d) < 29) {
+      return [formatDays(dateDifference), "days"]
+    } else if (formatMonths(d) < 11) {
+      return [formatMonths(dateDifference), "months"]
+    } else {
+      return [formatYears(dateDifference), "years"]
+    }
+  }
+
+  const [date, unit] = getUnits(dateDifference)
+
+  return rtf0.format(date, unit)
+}
