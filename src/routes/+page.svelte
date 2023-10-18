@@ -213,14 +213,12 @@
 
   .hero h1 {
     font-size: var(--fs-6);
-    color: white;
     max-width: 20ch;
   }
 
   .hero p {
     font-size: var(--fs-1);
     font-weight: 500;
-    color: white;
     max-width: 35ch;
   }
 
