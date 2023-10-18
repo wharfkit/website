@@ -3,7 +3,7 @@ title: Resources (Method)
 description: Initializes and returns a @wharfkit/resources library Resources instance configured for a specific blockchain account.
 category: AccountKit
 published: true
-order: 17
+order: 15
 ---
 
 # Resources

@@ -3,7 +3,7 @@ title: RemovePermission (Method)
 description: Used to create an action that deletes a custom permission from an Antelope account.
 category: AccountKit
 published: true
-order: 13
+order: 14
 ---
 
 # RemovePermission

@@ -36,7 +36,7 @@ const perm = Permission.from({
 - `required_auth`: The [Authority](/docs/account-kit/authority) object defining how authority is proven for the permission.
 ### Options
 
-- `linked_actions`: An array of actions that can only be executed using the permission.
+- `linked_actions`: An array of smart contract actions. When passed as an option, those actions will be the only ones that can be executed using the permission.
 
 ## Usage
 
@@ -89,4 +89,4 @@ testPermission.removeWait({wait_sec: 100, weight: 1});
 - `perm_name`: Retrieves the name of the permission.
 - `parent`: Retrieves the name of the parent permission.
 - `required_auth`: Retrieves the [Authority](/docs/antelope/authority) object that defines how authority is proven for the permission.
-- `linked_actions`: Retrieves the linked actions that can only be called using the permission.
+- `linked_actions`: Retrieves the linked actions. Those are the only actions that can be executed using the permission.
