@@ -141,24 +141,6 @@
 </header>
 
 <style>
-  :global([data-theme="light"]) {
-    --theme-header-background: white;
-    --theme-header-text: var(--wharf-blue);
-    --theme-nav-toggle-background: var(--reef-turquoise);
-    --theme-nav-toggle-foreground: var(--theme-header-text);
-    --theme-nav-background: white;
-    --theme-nav-item-hover: var(--swell-mist);
-  }
-
-  :global([data-theme="dark"]) {
-    --theme-header-background: var(--wharf-blue);
-    --theme-header-text: white;
-    --theme-nav-toggle-background: var(--reef-turquoise);
-    --theme-nav-toggle-foreground: var(--wharf-blue);
-    --theme-nav-background: var(--wharf-blue);
-    --theme-nav-item-hover: var(--color-primary-800);
-  }
-
   header {
     display: flex;
     justify-content: center;

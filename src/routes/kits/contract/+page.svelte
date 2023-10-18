@@ -210,11 +210,6 @@
     gap: var(--space-m);
   }
 
-  .hero {
-    /* color: var(--theme-text-heading); */
-    color: white;
-  }
-
   .title {
     font-size: var(--fs-6);
   }

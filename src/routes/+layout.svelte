@@ -21,7 +21,6 @@
     }
     /* prettier-ignore */
     body[data-theme="light"] {
-      /* --footer-background: var(--swell-mist); */
       --footer-background: white;
       --header-background: #ffffff;
       --header-background-transparent: #ffffff00;
@@ -30,29 +29,17 @@
         #7be7ce 0rem,
         #b2f2e1 6rem,
         #f4faf4 15rem
-        /* #ffffff 10rem */
       );
     }
 
     /* prettier-ignore */
     body[data-theme="dark"] {
-      /* --footer-background: #151720; */
       --footer-background: var(--color-primary-999);
-      /* --header-background: #262936; */
       --header-background: var(--wharf-blue); /* #494E62 */
       --header-background-transparent: #494E6200;
-      --page-background: 
-        linear-gradient(180deg, 
-          hsl(228deg 15% 34%) 0rem,
-          hsl(228deg 15% 28%) 2rem,
-          hsl(228deg 16% 17%) 7rem,
-          hsl(229deg 21% 10%) 11rem
-        ) no-repeat;
-
       --page-background: url("/images/patterns/2545.svg") no-repeat center top -5rem / contain, 
         linear-gradient(180deg, 
         #7BE7CE -10rem, 
-        /* #494E62 10rem,  */
         color-mix(in srgb, #494E62 100%, #262936) 10rem,
         color-mix(in srgb, #494E62 60%, #262936) 15rem,
         color-mix(in srgb, #494E62 40%, #262936) 20rem,
