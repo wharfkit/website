@@ -4,7 +4,6 @@ description: Returns a specific table instance.
 category: ContractKit
 published: true
 order: 2
-requiresReview: true
 ---
 
 # Table (Method)
@@ -15,7 +14,7 @@ The `table` method creates a specific [Table](/docs/contract-kit/table-class) in
 
 ## Usage
 
-The `table` method can be called and the only required argument that must be passed is the name of the table as defined in the [ABI](/docs/antelope/abi).
+When the `table` method is called, the only required argument that must be passed is the name of the table as defined in the [ABI](/docs/antelope/abi).
 
 ```typescript
 const table = contract.table("table_name")
@@ -46,7 +45,7 @@ const table = contract.table("table_name", "scope_name")
 
 ### Row Type
 
-A third optional parameter can also be passed that allows manually defining the data response type using a [Struct](/docs/antelope/struct) for all requests against the [Table](/docs/contract-kit/table-class) object.
+A third optional parameter can also be passed that allows you to manually define the data response type, using a [Struct](/docs/antelope/struct) for all requests against the [Table](/docs/contract-kit/table-class) object.
 
 ```typescript
 @Struct.type("name_bid")
