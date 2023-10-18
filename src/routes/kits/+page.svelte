@@ -195,13 +195,11 @@
   .hero h1 {
     font-size: var(--fs-6);
     font-weight: 700;
-    color: white;
   }
 
   .hero p {
     font-size: var(--fs-2);
     font-weight: 600;
-    color: white;
   }
 
   .images {
