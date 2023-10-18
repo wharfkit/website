@@ -3,7 +3,6 @@ title: Struct
 description: change_me
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # Struct
@@ -31,7 +30,7 @@ The `Struct` type in the Antelope library represents one entry in the `structs` 
 }
 ```
 
-This on-chain representation of a `Struct` allows the Antelope blockchain to encode and decode data of this type for use in smart contracts. In a similar way, the `Struct` found in the Antelope library also allows the [Serializer](/docs/antelope/serializer) to encode and decode this data within Javascript applications. Many of these `Struct` objects exist as core types offered by the library, such as [Asset](/docs/antelope/asset), [Name](/docs/antelope/name), and [PermissionLevel](/docs/antelope/permission-level).
+This on-chain representation of a `Struct` allows the Antelope blockchain to encode and decode data of this type for use in smart contracts. In a similar way, the `Struct` found in the Antelope library also allows the [Serializer](/docs/antelope/serializer) to encode and decode this data within Javascript applications. Many of these `Struct` objects exist as core types offered by the library, such as [Asset](/docs/antelope/asset), [Name](/docs/antelope/name), and [Permission Level](/docs/antelope/permission-level).
 
 These `Struct` types are automatically generated and used while using the [Serializer](/docs/antelope/serializer), but that requires retrieving and passing the entire [ABI](/docs/antelope/abi). To help optimize applications and their need to retrieve data from remote endpoints, the `Struct` class can also be used to define ABI-like definitions as code.
 
@@ -108,4 +107,4 @@ When using the decorated versions of a `Struct` in a TypeScript codebase, there 
 
 Within the `tsconfig.json` in your project, one thing that is required is the use of `"experimentalDecorators": true`. An example of this can be found in [Unicove's tsconfig.json](https://github.com/greymass/unicove/blob/c98183514bb919719ac46fa97aa931c9d3998152/tsconfig.json#L19) file.
 
-Another flag that may be required depending on configuration is the `"useDefineForClassFields": true`. You know you'll need this one if you define a `Struct`, and attempt to use it, and all of the values within it come back as `undefined`.
+Another flag that may be required depending on configuration is the `"useDefineForClassFields": true`. You'll know you need this one if you define a `Struct`, attempt to use it, and all the values within it come back as `undefined`.
