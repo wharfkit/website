@@ -8,14 +8,14 @@ order: 15
 
 # Resources
 
-The `resources` method initializes and returns an instance of the [@wharfkit/resources](https://github.com/wharfkit/resources) library Resources instance. This class can be used to obtain information about the resources available to a specific blockchain account.
+The `resources` method initializes and returns an instance of the [@wharfkit/resources](https://www.npmjs.com/package/@wharfkit/resources) library Resources instance. This class can be used to obtain information about the resources available to a specific blockchain account.
 
 ## Usage
 
 The `resources` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
-const allResources = myAccount.resources();
+const resources = account.resources();
 ```
 
 ## Options
@@ -24,4 +24,4 @@ const allResources = myAccount.resources();
 
 ## Return Value
 
-The `resources` method returns an instance of the `Resources` class in the [@wharfkit/resources](https://github.com/wharfkit/resources) library.
+The `resources` method returns an instance of the `Resources` class in the [@wharfkit/resources](https://www.npmjs.com/package/@wharfkit/resources) library.
