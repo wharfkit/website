@@ -1,0 +1,14 @@
+name: "old-plugin"
+description: "A plugin to integrate HelloSign into your app."
+tags:
+  - contract
+  - hellosign
+  - signature
+  - esignature
+authorIcon: "https://avatars.githubusercontent.com/u/1025102?s=400&v=4"
+author: HelloSign
+version: "1.0.0"
+lastPublishedDate: "2003-03-31T18:00:00.000Z"
+sourceLink: "#"
+license: MIT
+link: "/plugins/hellosign-sdk"

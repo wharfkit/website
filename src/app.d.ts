@@ -125,3 +125,21 @@ interface KitPage {
   cta: KitFeature
   screenshots: string[]
 }
+
+type WharfkitPlugin = {
+  name: string;
+  description: string;
+  tags: string[];
+  author: string;
+  authorIcon: string;
+  version: string;
+  lastPublishedDate: string;
+  sourceLink: string;
+  license: string;
+  link: string;
+}
+
+type PluginQueryOptions = {
+  tag?: string
+  sort?: string
+}
