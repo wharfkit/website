@@ -12,7 +12,7 @@ An `Authority` is a named internal structure within an account that defines the 
 
 ## Anatomy of an Authority
 
-An `Authority` consists of 4 elements. The `keys`, `accounts`, and `waits` arrays contain different types of weighted entities which are valid for the `Authority`. The `threshold` indicates how many of the entities are required to satisfy this authority.
+An `Authority` consists of 4 elements. The `keys`, `accounts`, and `waits` contain different types of weighted entities which are valid for the `Authority`. The `threshold` indicates how many of the entities are required to satisfy this authority.
 
 ```ts
 {
@@ -67,7 +67,7 @@ const auth = Authority.from({
 })
 ```
 
-The most typical `Authority` is defined above which is satisfied simply by a signature from a single key. More advanced authorities can be defined by increasing the threshold and appending additional types of entities that can satisfy the threshold. Shown below is an example that requires a signature from a specific key as well as a signature provided that satisfies the `active` authority on the `foo` account.
+The most typical `Authority` is defined above, which is satisfied by a signature from a single key. More advanced authorities can be defined by increasing the threshold and appending additional types of entities that can satisfy the threshold. Shown below is an example that requires a signature from a specific key, as well as a signature provided that satisfies the `active` authority on the `foo` account.
 
 ```ts
 import { Authority } from "@wharfkit/antelope"
@@ -92,11 +92,11 @@ const auth = Authority.from({
 })
 ```
 
-The `Authority` class will also handle formatting of the object, which has [requirements on sorting of the data](https://github.com/wharfkit/antelope/blob/master/src/chain/authority.ts#L94-L102) that may otherwise trip up developers manually assembling these arrays.
+The `Authority` class will also handle formatting the object, which has [requirements on sorting of the data](https://github.com/wharfkit/antelope/blob/master/src/chain/authority.ts#L94-L102) that may otherwise trip up developers who are manually assembling these arrays.
 
 ### Working with Authorities
 
-Given an instance of an `Authority` a developer is given access to a number of helper methods to inspect the data.
+Given an instance of an `Authority`, a developer is given access to a number of helper methods to inspect the data.
 
 #### hasPermission
 
