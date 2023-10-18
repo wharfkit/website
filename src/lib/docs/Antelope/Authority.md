@@ -51,7 +51,7 @@ Each of the array elements is optional to allow for flexible `Authority` creatio
 
 ### Creating an Authority
 
-An instance of `Authority` can be created using the static `.from()` method and passing a threshold and at least one type of authority that will satisfy the threshold requirement.
+An instance of `Authority` can be created using the static `.from()` method, and passing a threshold alongside at least one type of authority that will satisfy the threshold requirement.
 
 ```ts
 import { Authority } from "@wharfkit/antelope"
