@@ -1,7 +1,23 @@
+<script lang="ts">
+  export let collapsed = false
+  import { tweened } from "svelte/motion"
+
+  const width = tweened(146, {
+    duration: 200,
+  })
+
+  const viewBoxWidth = tweened(346, {
+    duration: 200,
+  })
+
+  $: collapsed ? width.set(46) : width.set(146)
+  $: collapsed ? viewBoxWidth.set(113) : viewBoxWidth.set(346)
+</script>
+
 <svg
-  width="146"
+  width={$width}
   height="41"
-  viewBox="0 0 346 99"
+  viewBox={`0 0 ${$viewBoxWidth} 99`}
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
