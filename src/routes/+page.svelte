@@ -70,11 +70,6 @@
 
   <section class="kits | full-bleed">
     <div class="images">
-      <div class="account kit">
-        <a href="/kits/account">
-          <img src={accountKit} alt="account kit icon" />
-        </a>
-      </div>
       <div class="contract kit">
         <a href="/kits/contract">
           <img src={contractKit} alt="contract kit icon" />
@@ -83,6 +78,11 @@
       <div class="session kit">
         <a href="/kits/session">
           <img src={sessionKit} alt="session kit icon" />
+        </a>
+      </div>
+      <div class="account kit">
+        <a href="/kits/account">
+          <img src={accountKit} alt="account kit icon" />
         </a>
       </div>
     </div>
@@ -231,6 +231,23 @@
     margin-bottom: var(--space-xl);
   }
 
+  .images > :nth-child(1) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+    justify-items: end;
+  }
+
+  .images > :nth-child(2) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    justify-items: center;
+  }
+
+  .images > :nth-child(3) {
+    grid-column: 4 / 5;
+    grid-row: 2 / 4;
+  }
+
   .images::before {
     content: "";
     position: absolute;
@@ -254,23 +271,6 @@
 
   .kit a:hover img {
     transform: translateY(-0.5rem);
-  }
-
-  .account.kit {
-    grid-column: 2 / 3;
-    grid-row: 2 / 4;
-    justify-items: end;
-  }
-
-  .contract.kit {
-    grid-column: 3 / 4;
-    grid-row: 1 / 3;
-    justify-items: center;
-  }
-
-  .session.kit {
-    grid-column: 4 / 5;
-    grid-row: 2 / 4;
   }
 
   .center {
@@ -388,14 +388,14 @@
       --kit-bg-source: url("/src/lib/assets/images/Frame-2650.webp");
     }
 
-    .contract.kit::before {
+    .images > :nth-child(2)::before {
       content: url("/src/lib/assets/images/Frame-2588.webp");
       position: absolute;
       top: -25%;
       z-index: -1;
     }
 
-    :global([data-theme="dark"]) .contract.kit::before {
+    :global([data-theme="dark"]) .images > :nth-child(2)::before {
       content: url("/src/lib/assets/images/Frame-2588-dark.webp");
     }
 
