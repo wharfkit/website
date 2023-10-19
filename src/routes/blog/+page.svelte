@@ -29,6 +29,7 @@
 </script>
 
 <svelte:head>
+  <link rel="preload" as="image" href={newestPost.image} />
   <style>
     /* prettier-ignore */
     body[data-theme="dark"] {
@@ -146,12 +147,23 @@
     list-style: none;
     padding-inline: unset;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); */
+    /* grid-template-columns: 1fr 1fr; */
     column-gap: var(--space-xl);
     row-gap: var(--space-3xl);
   }
 
+  @media screen and (min-width: 600px) {
+    .posts {
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+  }
+
   @media screen and (min-width: 900px) {
+    .posts {
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+
     aside {
       display: block;
       width: 100%;
