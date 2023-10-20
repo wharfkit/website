@@ -30,7 +30,7 @@ The `Struct` type in the Antelope library represents one entry in the `structs` 
 }
 ```
 
-This on-chain representation of a `Struct` allows the Antelope blockchain to encode and decode data of this type for use in smart contracts. In a similar way, the `Struct` found in the Antelope library also allows the [Serializer](/docs/antelope/serializer) to encode and decode this data within Javascript applications. Many of these `Struct` objects exist as core types offered by the library, such as [Asset](/docs/antelope/asset), [Name](/docs/antelope/name), and [Permission Level](/docs/antelope/permission-level).
+This on-chain representation of a `Struct` allows the Antelope blockchain to encode and decode data of this type for use in smart contracts. In a similar way, the `Struct` found in the Antelope library also allows the [Serializer](/docs/antelope/serializer) to encode and decode this data within Javascript applications. Many of these `Struct` objects exist as core types offered by the library, such as [Asset](/docs/antelope/asset), [Name](/docs/antelope/name), and [PermissionLevel](/docs/antelope/permission-level).
 
 These `Struct` types are automatically generated and used while using the [Serializer](/docs/antelope/serializer), but that requires retrieving and passing the entire [ABI](/docs/antelope/abi). To help optimize applications and their need to retrieve data from remote endpoints, the `Struct` class can also be used to define ABI-like definitions as code.
 
