@@ -140,7 +140,7 @@ const transaction = Transaction.from({
 })
 ```
 
-The result stored as a `transaction` will be an instance of `Transaction` and be ready to sign.
+The result stored as the `transaction` property will be an instance of `Transaction` and be ready to sign.
 
 ### Using ABIs
 
