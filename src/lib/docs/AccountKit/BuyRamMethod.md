@@ -1,7 +1,7 @@
 ---
 title: BuyRam (Method)
 description: Used to create an action to acquire RAM using a specific amount of tokens.
-category: ContractKit
+category: AccountKit
 published: true
 order: 5
 ---

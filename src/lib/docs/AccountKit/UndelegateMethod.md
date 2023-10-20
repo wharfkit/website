@@ -1,7 +1,7 @@
 ---
 title: Undelegate (Method)
 description: Used to create an action to undelegate CPU or NET resources from an Antelope account.
-category: ContractKit
+category: AccountKit
 published: true
 order: 8
 ---
