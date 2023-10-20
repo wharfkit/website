@@ -11,7 +11,7 @@ The `Bytes` type is the internal type used for the majority of other Antelope ty
 
 ## Usage
 
-The `Bytes` type acts as the base data format for many other Antelope types, and so occasionally developers will need to coerce their data into one of the `BytesTypes`. This conversion can be performed by using the `Bytes.from` method and passing in any of the supported types.
+The `Bytes` type acts as the base data format for many other Antelope types, and so occasionally developers will need to coerce their data into one of the `BytesType` values. This conversion can be performed by using the `Bytes.from` method and passing in any of the supported types.
 
 ```ts
 import { Bytes } from "@wharfkit/antelope"
