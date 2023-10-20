@@ -11,7 +11,7 @@ The `Time` type represents the date format used by the blockchain and contains a
 
 ## Variants
 
-The `Time` type has 3 variants, all used at various points within the Antelope stack:
+The `Time` set of types has 3 variants, all used at various points within the Antelope stack:
 
 - `BlockTimestamp`: A measure of time from the blockchain genesis, used in Antelope block timestamps
 - `TimePoint`: A timestamp with millisecond accuracy, used on some API responses like `get_info`
