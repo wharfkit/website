@@ -12,7 +12,7 @@ An `Authority` is a named internal structure within an account that defines the 
 
 ## Anatomy of an Authority
 
-An `Authority` consists of 4 elements. The `keys`, `accounts`, and `waits` contain different types of weighted entities which are valid for the `Authority`. The `threshold` indicates how many of the entities are required to satisfy this authority.
+An `Authority` consists of 4 elements. The `keys`, `accounts`, and `waits` arrays contain different types of weighted entities which are valid for the `Authority`. The `threshold` indicates how many of the entities are required to satisfy this authority.
 
 ```ts
 {
