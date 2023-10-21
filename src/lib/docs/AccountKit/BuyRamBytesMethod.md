@@ -4,6 +4,7 @@ description: Used to create an action to acquire a specific number of bytes of R
 category: AccountKit
 published: true
 order: 4
+requiresReview: true
 ---
 
 # BuyRamBytes
@@ -15,15 +16,15 @@ The `buyRamBytes` method facilitates the purchase of RAM by letting you specify 
 The `buyRamBytes` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
-const action = testAccount.buyRamBytes(1024);
+const action = testAccount.buyRamBytes(1024)
 ```
 
 To override the receiver of the RAM purchase, the `receiver` option can be specified:
 
 ```typescript
 const action = testAccount.buyRamBytes(1024, {
-    receiver: 'wharfkit1112'
-});
+  receiver: "wharfkit1112",
+})
 ```
 
 ## Arguments

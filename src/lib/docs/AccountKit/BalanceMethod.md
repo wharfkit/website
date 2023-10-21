@@ -4,6 +4,7 @@ description: Used to retrieve the balance of an account for a specific token.
 category: AccountKit
 published: true
 order: 3
+requiresReview: true
 ---
 
 # Balance
@@ -15,14 +16,14 @@ The `balance` method allows you to retrieve the balance of an account for a spec
 The `balance` method is available on any [Account](/docs/account-kit/account) instance. Here is a basic example of how to use it:
 
 ```typescript
-const balance = await testAccount.balance();
+const balance = await testAccount.balance()
 // Returns the balance of the system token for the account.
 ```
 
 To retrieve the balance for a secondary token:
 
 ```typescript
-const balance = await testAccount.balance('eosio.token', 'USDT');
+const balance = await testAccount.balance("eosio.token", "USDT")
 // Returns the balance of the 'USDT' token for the account.
 ```
 

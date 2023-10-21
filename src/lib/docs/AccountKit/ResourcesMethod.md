@@ -4,6 +4,7 @@ description: Initializes and returns a @wharfkit/resources library Resources ins
 category: AccountKit
 published: true
 order: 15
+requiresReview: true
 ---
 
 # Resources
@@ -15,12 +16,12 @@ The `resources` method initializes and returns an instance of the [@wharfkit/res
 The `resources` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
-const resources = account.resources();
+const resources = account.resources()
 ```
 
 ## Options
 
-- `sampleAccount`:  The name of a sample account. It is used to specify the account to use when sampling overall network usage.
+- `sampleAccount`: The name of a sample account. It is used to specify the account to use when sampling overall network usage.
 
 ## Return Value
 
