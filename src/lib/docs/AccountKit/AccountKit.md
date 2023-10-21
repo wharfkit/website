@@ -4,6 +4,7 @@ description: The Account Kit is responsible for facilitating the creation of Acc
 category: AccountKit
 published: true
 order: 1
+requiresReview: true
 ---
 
 # AccountKit Class
@@ -18,7 +19,7 @@ When using the `AccountKit` factory class within a web application, the develope
 import { AccountKit } from "@wharfkit/account"
 import { Chains } from "@wharfkit/common"
 
-const accountKit = new AccountKit(Chains.EOS);
+const accountKit = new AccountKit(Chains.EOS)
 ```
 
 Optionally, a [Contract](/docs/contract-kit/contract) and/or an [APIClient](/docs/antelope/api-client) instance can be passed to the `AccountKit` factory class constructor:
@@ -32,17 +33,16 @@ import { ContractKit } from "@wharfkit/contract"
 const client = new APIClient({ url: "https://jungle4.greymass.com" })
 
 const contractKit = new ContractKit({
-    client,
+  client,
 })
 
 const contract = await contractKit.load("contractname")
 
 const accountKit = new AccountKit(Chains.EOS, {
-    client,
-    contract,
-});
+  client,
+  contract,
+})
 ```
-
 
 ### Arguments
 
@@ -64,7 +64,7 @@ A second optional parameter can be passed to the `AccountKit` constructor with t
 Once an `AccountKit` instance is obtained, the `load` method can be used to obtain an [Account](/docs/account-kit/account) instance for a specific Antelope blockchain account. Here is an example of how to do so:
 
 ```typescript
-const account = await accountKit.load("teamgreymass");
+const account = await accountKit.load("teamgreymass")
 ```
 
 ### Arguments

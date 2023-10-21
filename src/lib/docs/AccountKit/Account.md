@@ -4,6 +4,7 @@ description: An Account instance is a wrapper for Antelope blockchain accounts. 
 category: AccountKit
 published: true
 order: 2
+requiresReview: true
 ---
 
 # Account
@@ -19,11 +20,11 @@ import { Account } from "@wharfkit/contract"
 import { APIClient } from "@wharfkit/antelope"
 
 const accountArgs = {
-    data: {
-        account_name: "teamgreymass",
-        // All account data should be passed here.
-    },
-    client: new APIClient({ url: "https://jungle4.greymass.com" }),
+  data: {
+    account_name: "teamgreymass",
+    // All account data should be passed here.
+  },
+  client: new APIClient({ url: "https://jungle4.greymass.com" }),
 }
 
 const account = new Account(accountArgs)
@@ -38,18 +39,18 @@ import { Account } from "@wharfkit/account"
 const client = new APIClient({ url: "https://jungle4.greymass.com" })
 
 const contractKit = new ContractKit({
-    client,
+  client,
 })
 
 const contract = await contractKit.load("contractname")
 
 const accountArgs = {
-    data: {
-        account_name: "teamgreymass",
-        // All account data should be passed here.
-    },
-    client,
-    contract,
+  data: {
+    account_name: "teamgreymass",
+    // All account data should be passed here.
+  },
+  client,
+  contract,
 }
 
 const account = new Account(accountArgs)

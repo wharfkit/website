@@ -4,6 +4,7 @@ description: Used to create an action to acquire RAM using a specific amount of 
 category: AccountKit
 published: true
 order: 5
+requiresReview: true
 ---
 
 # BuyRam
@@ -15,21 +16,21 @@ The `buyRam` method allows accounts to purchase RAM using a specific amount of t
 The `buyRam` method is available on any [Account](/docs/account-kit/account) instance. Here is a basic example detailing how to purchase RAM using a specific amount of tokens:
 
 ```typescript
-const action = testAccount.buyRam('1.0000 EOS');
+const action = testAccount.buyRam("1.0000 EOS")
 ```
 
 Alternatively, an antelope [Asset](/docs/antelope/asset) instance can be passed:
 
 ```typescript
-const action = testAccount.buyRam(Asset.from(1.0000, '4,EOS'));
+const action = testAccount.buyRam(Asset.from(1.0, "4,EOS"))
 ```
 
 To specify a receiver for the RAM purchase, the `receiver` option can be specified:
 
 ```typescript
-const action = testAccount.buyRam('1.0000 EOS', {
-    receiver: 'wharfkit1112'
-});
+const action = testAccount.buyRam("1.0000 EOS", {
+  receiver: "wharfkit1112",
+})
 ```
 
 ## Arguments

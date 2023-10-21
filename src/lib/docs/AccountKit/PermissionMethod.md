@@ -4,6 +4,7 @@ description: Used to retrieve a specific Permission instance from an Account ins
 category: AccountKit
 published: true
 order: 11
+requiresReview: true
 ---
 
 # Permission
@@ -15,7 +16,7 @@ The `permission` method allows you to obtain a specific [Permission](/docs/accou
 The `permission` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
-const permission = account.permission('owner');
+const permission = account.permission("owner")
 // Fetches the 'owner' permission details for the specified account.
 ```
 

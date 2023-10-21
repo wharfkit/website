@@ -4,6 +4,7 @@ description: Used to create an action that deletes a custom permission from an A
 category: AccountKit
 published: true
 order: 14
+requiresReview: true
 ---
 
 # RemovePermission
@@ -15,7 +16,7 @@ The `removePermission` method is used to delete custom permissions from an Antel
 The `removePermission` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
-const action = testAccount.removePermission('claim');
+const action = testAccount.removePermission("claim")
 ```
 
 In the example above, an action that deletes the `claim` permission is created.

@@ -4,6 +4,7 @@ description: Used to create an action that creates a dependency between a smart 
 category: AccountKit
 published: true
 order: 9
+requiresReview: true
 ---
 
 # Linkauth
@@ -15,7 +16,11 @@ The `linkAuth` method provides a way for an Antelope account owner to limit an a
 The `linkAuth` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
-const action = testAccount.linkAuth('eosio.token', 'claimrewards', 'claim');
+const action = testAccount.linkAuth(
+  "eosio.token",
+  "claimrewards",
+  "claim"
+)
 ```
 
 In the example above, an action limiting the custom `claim` permission to the `eosio` `claimrewards` action is created. This makes it so the `claim` permission can only execute the `claimrewards` action on the `eosio` smart contract.

@@ -4,6 +4,7 @@ description: Used to create an action to undelegate CPU or NET resources from an
 category: AccountKit
 published: true
 order: 8
+requiresReview: true
 ---
 
 # Undelegate
@@ -15,7 +16,10 @@ The `undelegate` method allows Antelope account owners to undelegate (unstake) C
 The `undelegate` method is available on any [Account](/docs/account-kit/account) instance. Here is a basic example of how to use it:
 
 ```typescript
-const action = testAccount.undelegate({cpu: '1.0000 EOS', net: '0.5000 EOS'});
+const action = testAccount.undelegate({
+  cpu: "1.0000 EOS",
+  net: "0.5000 EOS",
+})
 // Initiates an undelegate action with the specified CPU and NET quantities.
 ```
 
@@ -23,10 +27,10 @@ The `receiver` option can also be specified to return the undelegated resources 
 
 ```typescript
 const action = testAccount.undelegate({
-    cpu: '1.0000 EOS',
-    net: '0.5000 EOS',
-    receiver: 'wharfkit1112'
-});
+  cpu: "1.0000 EOS",
+  net: "0.5000 EOS",
+  receiver: "wharfkit1112",
+})
 ```
 
 ## Arguments

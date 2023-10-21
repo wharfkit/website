@@ -4,6 +4,7 @@ description: Used to create an action that removes the dependency between a smar
 category: AccountKit
 published: true
 order: 10
+requiresReview: true
 ---
 
 # UnlinkAuth
@@ -15,7 +16,7 @@ The `unlinkAuth` method is used to remove the linking of a specific smart contra
 The `unlinkAuth` method is available on any [Account](/docs/account-kit/account) instance. Here is an example of how to use it:
 
 ```typescript
-const action = testAccount.unlinkAuth('eosio', 'claimrewards');
+const action = testAccount.unlinkAuth("eosio", "claimrewards")
 ```
 
 In the example above, we create an action that removes the link between the `eosio` `claimrewards` action and any account permission.
