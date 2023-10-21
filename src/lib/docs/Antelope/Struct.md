@@ -3,7 +3,6 @@ title: Struct
 description: change_me
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # Struct
@@ -108,4 +107,4 @@ When using the decorated versions of a `Struct` in a TypeScript codebase, there 
 
 Within the `tsconfig.json` in your project, one thing that is required is the use of `"experimentalDecorators": true`. An example of this can be found in [Unicove's tsconfig.json](https://github.com/greymass/unicove/blob/c98183514bb919719ac46fa97aa931c9d3998152/tsconfig.json#L19) file.
 
-Another flag that may be required depending on configuration is the `"useDefineForClassFields": true`. You know you'll need this one if you define a `Struct`, and attempt to use it, and all of the values within it come back as `undefined`.
+Another flag that may be required depending on configuration is the `"useDefineForClassFields": true`. You'll know you need this one if you define a `Struct`, attempt to use it, and all the values within it come back as `undefined`.

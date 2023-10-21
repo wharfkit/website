@@ -1,15 +1,14 @@
 ---
 title: Cursor
-description: A utility class within the ContractKit that is used to efficiently fetch rows from a specific smart contract table
+description: A utility class within the Contract Kit that is used to efficiently fetch rows from a specific smart contract table.
 category: ContractKit
 published: true
 order: 4
-requiresReview: true
 ---
 
 # Cursor
 
-The `Cursor` type an iterator that is returned from specific calls against a [Table](/docs/contract-kit/table-class) instance. A Cursor instance will be returned when using the [query](/docs/contract-kit/query-method), [first](/docs/contract-kit/first-method) and [scopes](/docs/contract-kit/scopes-method) methods of any [Table](/docs/contract-kit/table-class) instance.
+The `Cursor` type is an iterator that's returned from specific calls against a [Table](/docs/contract-kit/table-class) instance. A Cursor instance will be returned when using the [query](/docs/contract-kit/query-method), [first](/docs/contract-kit/first-method) and [scopes](/docs/contract-kit/scopes-method) methods of any [Table](/docs/contract-kit/table-class) instance.
 
 ## Usage
 

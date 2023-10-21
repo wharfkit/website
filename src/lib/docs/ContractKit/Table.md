@@ -4,7 +4,6 @@ description: The Table class serves as a wrapper for Antelope smart contract tab
 category: ContractKit
 published: true
 order: 3
-requiresReview: true
 ---
 
 # Table
@@ -13,7 +12,7 @@ A `Table` class instances represents a specific table defined within an Antelope
 
 ## Creation
 
-Generally with an existing [Contract](/docs/contract-kit/contract) instance, the [table() method](/docs/contract-kit/table-method) can be used to create `Table` instances. If the need arises to manually create a `Table` instance it can also be instantiated by providing the ABI, account name, table name, and an [APIClient](/docs/antelope/api-client).
+Generally with an existing [Contract](/docs/contract-kit/contract) instance, the [table() method](/docs/contract-kit/table-method) can be used to create `Table` instances. If the need arises to manually create a `Table` instance, it can also be instantiated by providing the ABI, account name, table name, and an [APIClient](/docs/antelope/api-client).
 
 ```typescript
 import { Table } from "@wharfkit/contract"

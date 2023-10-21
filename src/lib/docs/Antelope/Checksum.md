@@ -3,26 +3,25 @@ title: Checksum
 description: Create and compare checksum hashes utilized within the Antelope ecosystem.
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # Checksum
 
-The `Checksum` type is the base of a family of different checksum types used for hashing different [Bytes](/docs/antelope/bytes) values. Each variant can be used to compute the hash of a given value and also provides equality helpers for comparison purposes.
+The `Checksum` type is the base of a family of different checksum types used for hashing different [Bytes](/docs/antelope/bytes) values. Each variant can be used to compute the hash of a given value and also provide equality helpers for comparison purposes.
 
 ## Variants
 
-While the base `Checksum` type is never used directly, it provides common functionality for all of the following core types below.
+While the base `Checksum` type is never used directly, it provides common functionality for all of the following core types:
 
 - Checksum160 (ripemd160)
 - Checksum256 (sha256)
 - Checksum512 (sha512)
 
-These types can all be included in projects for use in the various places we typically find these types of hashes (e.g. Chain ID, Transaction ID).
+These types can all be included in projects, for use in the various places we typically find these types of hashes (e.g. Chain ID, Transaction ID).
 
 ## Usage
 
-Any of the above variants can be included and used in a project. For the example below the `Checksum256` type is being used, but identical syntax is available for `Checksum160` and `Checksum512`.
+Any of the above variants can be included and used in a project. For the example below, the `Checksum256` type is being used, but identical syntax is available for `Checksum160` and `Checksum512`.
 
 ### Casting
 
@@ -38,7 +37,7 @@ const checksum = Checksum256.from(
 
 ### Hashing
 
-The `Checksum` variants also offer a static `.hash()` method which allows computing a checksum of any [Bytes](/docs/antelope/bytes) type provided.
+The `Checksum` variants also offer a static `.hash()` method, which allows computing a checksum of any [Bytes](/docs/antelope/bytes) type provided.
 
 ```ts
 import { Checksum256 } from "@wharfkit/antelope"
