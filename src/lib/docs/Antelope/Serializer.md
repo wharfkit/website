@@ -12,7 +12,7 @@ Most data read from and written to Antelope-based blockchains is serialized usin
 
 ## Usage
 
-The `Serializer` can be called directly without instantiation to perform encoding, decoding, and various utility methods. To make use of all of these methods the `Serializer` namespace needs to be included in the project. Once included any of the methods can be called directly without any sort of instantiation.
+The `Serializer` can be called directly without instantiation to perform encoding, decoding, and various utility methods. To make use of all of these methods, the `Serializer` namespace needs to be included in the project. Once included, any of the methods can be called directly without any sort of instantiation.
 
 ```ts
 import { Serializer } from "@wharfkit/antelope"
@@ -24,7 +24,7 @@ The `.encode()` method on the `Serializer` accepts multiple variations of parame
 
 ### Native Antelope Types
 
-In the most simple example any core Antelope data type can be passed as the `object` parameter of the call.
+In the simplest example, any core Antelope data type can be passed as the `object` parameter of the call.
 
 This example shows passing an [Asset](/docs/antelope/asset) typed object and encoding it into the [Bytes](/docs/antelope/bytes) type.
 
@@ -92,11 +92,11 @@ console.log(String(encoded))
 // 000000000000285d000000000000ae39102700000000000004454f53000000000568656c6c6f
 ```
 
-### Untyped data and Struct
+### Untyped Data and Struct
 
 The serializer is also capable of assembling a [Struct](/docs/antelope/struct) dynamically before the encoding if passed any object and a compatible [Struct](/docs/antelope/struct) or native Antelope type.
 
-In this example the `object` passed to the encoder is a string representation of an [Asset](/docs/antelope/asset) which is accompanied by a secondary `type` parameter where the actual [Struct](/docs/antelope/struct) is passed to define it.
+In this example the `object` passed to the encoder is a string representation of an [Asset](/docs/antelope/asset), which is accompanied by a secondary `type` parameter where the actual [Struct](/docs/antelope/struct) is passed to define it.
 
 ```ts
 import { Asset, Serializer } from "@wharfkit/antelope"
@@ -162,7 +162,7 @@ console.log(String(encoded))
 
 The `.decode()` method of the `Serializer` accepts any encoded version of data and will return either a native Antelope type or an instance of a custom [Struct](/docs/antelope/struct).
 
-### Using encoded data
+### Using Encoded Data
 
 The `data` parameter passed in to the `.decode()` method can be passed either as hex data or as an instance of [Bytes](/docs/antelope/bytes).
 

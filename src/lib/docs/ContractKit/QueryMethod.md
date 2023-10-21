@@ -4,7 +4,6 @@ description: Returns a cursor that can be used to fetch rows from a smart contra
 category: ContractKit
 published: true
 order: 5
-requiresReview: true
 ---
 
 # Query
@@ -29,7 +28,7 @@ const tableCursor = contract.table("table_name").query({
 // Returns a cursor that can be used to paginate through results starting at the result where the primary key is 10
 ```
 
-In addition a `to` field can be used to specify an end point to the results.
+In addition, a `to` field can be used to specify an end point to the results.
 
 ```typescript
 const tableCursor = contract.table("table_name").query({
@@ -47,7 +46,7 @@ The `query` method accepts many an additional parameters to further refine the q
 - `to`: Denotes the end of the range for bounded queries.
 - `index_position`: Designates the index to use in the API query. This will affect which `from` and `to` values can be used. In Antelope chains, the index positions follow the pattern of `primary`, `secondary`, `tertiary`, etc.
 - `scope`: Defines the scope of the rows that should be retrieved.
-- `key_type`: Indicates the type of index key to be used. This is useful when using secondary indexes.
+- `key_type`: Indicates the type of index key to be used. This is useful when utilizing secondary indexes.
 - `maxRows`: Specifies the maximum number of rows to fetch.
 - `rowsPerAPIRequest`: Determines the number of rows fetched per API request for pagination.
 
@@ -64,7 +63,7 @@ const tableCursor = contract.table("table_name").query({
 
 ### Index Position
 
-Any query option can be used in conjunction with each other to specify exactly which rows the cursor should paginate over:
+Any query option can be used in conjunction with another to specify exactly which rows the cursor should paginate over:
 
 ```typescript
 const tableCursor = contract.table("table_name").query({

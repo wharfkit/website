@@ -3,7 +3,6 @@ title: PermissionLevel
 description: change_me
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # PermissionLevel
@@ -20,7 +19,7 @@ A permission name can be represented as a string:
 foo@active
 ```
 
-or as an object:
+Or as an object:
 
 ```ts
 {
@@ -31,10 +30,10 @@ or as an object:
 
 Both contain:
 
-1. `actor`: The name of the account
-2. `permission`: The name of the permission on the specified account
+1. `actor`: The name of the account.
+2. `permission`: The name of the permission on the specified account.
 
-These two elements combine allowing for the lookup of a specific account and then accessing the named [Authority](/docs/antelope/authority) of the account.
+These two elements combine to allow for the lookup of a specific account, and then to provide access to the named [Authority](/docs/antelope/authority) of the account.
 
 ## Usage
 

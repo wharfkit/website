@@ -3,18 +3,17 @@ title: Time
 description: change_me
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # Time
 
-The `Time` type represents the date format used by the blockchain and contains a number of helpers to convert between Javascript Dates objects and Antelope Time formats.
+The `Time` type represents the date format used by the blockchain and contains a number of helpers to convert between Javascript Date objects and Antelope Time formats.
 
 ## Variants
 
 The `Time` set of types has 3 variants, all used at various points within the Antelope stack:
 
-- `BlockTimestamp`: A measure of time from the blockchain genesis used in Antelope block timestamps
+- `BlockTimestamp`: A measure of time from the blockchain genesis, used in Antelope block timestamps
 - `TimePoint`: A timestamp with millisecond accuracy, used on some API responses like `get_info`
 - `TimePointSec`: A timestamp with second accuracy, used in places like a Transaction `expiration`
 

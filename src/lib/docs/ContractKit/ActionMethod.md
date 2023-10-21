@@ -4,7 +4,6 @@ description: Provides functionality for generating an Antelope Action instance f
 category: ContractKit
 published: true
 order: 2
-requiresReview: true
 ---
 
 # Action (Method)
@@ -37,7 +36,7 @@ The `action` method takes two arguments:
 
 The third parameter is optional and can be used to specify the following option:
 
-- `authorization`: An array of [PermissionLevel](docs/antelope/permission-level) objects that will be used to authorize the action. When this option is not specified, placeholder values will be used, which will be resolved to the the current signer of the transaction if the action is performed.
+- `authorization`: An array of [PermissionLevel](docs/antelope/permission-level) objects that will be used to authorize the action. When this option is not specified, placeholder values will be used, which will be resolved to the current signer of the transaction if the action is performed.
 
 ```typescript
 const action = tokenContract.action(

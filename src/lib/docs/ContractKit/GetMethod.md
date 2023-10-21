@@ -4,7 +4,6 @@ description: A method to retrieve a specific row from a smart contract table.
 category: ContractKit
 published: true
 order: 5
-requiresReview: true
 ---
 
 # Get
@@ -20,7 +19,7 @@ const row = await contract.table("table_name").get()
 // This will retrieve the first row of the table.
 ```
 
-To get a specific row, the `get` method can be called with a primary index value as it's only parameter:
+To get a specific row, the `get` method can be called with a primary index value as its only parameter:
 
 ```typescript
 const row = await contract.table("table_name").get(17)

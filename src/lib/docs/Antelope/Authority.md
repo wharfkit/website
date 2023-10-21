@@ -51,7 +51,7 @@ Each of the array elements is optional to allow for flexible `Authority` creatio
 
 ### Creating an Authority
 
-An instance of `Authority` can be created using the static `.from()` method and passing a threshold and at least one type of authority that will satisfy the threshold requirement.
+An instance of `Authority` can be created using the static `.from()` method, and passing a threshold alongside at least one type of authority that will satisfy the threshold requirement.
 
 ```ts
 import { Authority } from "@wharfkit/antelope"
@@ -67,7 +67,7 @@ const auth = Authority.from({
 })
 ```
 
-The most typical `Authority` is defined above which is satisfied simply by a signature from a single key. More advanced authorities can be defined by increasing the threshold and appending additional types of entities that can satisfy the threshold. Shown below is an example that requires a signature from a specific key as well as a signature provided that satisfies the `active` authority on the `foo` account.
+The most typical `Authority` is defined above, which is satisfied by a signature from a single key. More advanced authorities can be defined by increasing the threshold and appending additional types of entities that can satisfy the threshold. Shown below is an example that requires a signature from a specific key, as well as a signature provided that satisfies the `active` authority on the `foo` account.
 
 ```ts
 import { Authority } from "@wharfkit/antelope"
@@ -92,11 +92,11 @@ const auth = Authority.from({
 })
 ```
 
-The `Authority` class will also handle formatting of the object, which has [requirements on sorting of the data](https://github.com/wharfkit/antelope/blob/master/src/chain/authority.ts#L94-L102) that may otherwise trip up developers manually assembling these arrays.
+The `Authority` class will also handle formatting the object, which has [requirements on sorting of the data](https://github.com/wharfkit/antelope/blob/master/src/chain/authority.ts#L94-L102) that may otherwise trip up developers who are manually assembling these arrays.
 
 ### Working with Authorities
 
-Given an instance of an `Authority` a developer is given access to a number of helper methods to inspect the data.
+Given an instance of an `Authority`, a developer is given access to a number of helper methods to inspect the data.
 
 #### hasPermission
 

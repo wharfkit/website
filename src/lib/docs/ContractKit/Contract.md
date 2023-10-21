@@ -1,15 +1,14 @@
 ---
 title: Contract
-description: The Contract class serves as a wrapper for Antelope smart contracts. It offers several helper methods that provide functionality ranging from retrieving contract data to generating contract actions that can be executed using the SessionKit.
+description: The Contract class serves as a wrapper for Antelope smart contracts. It offers several helper methods that provide functionality, ranging from retrieving contract data to generating contract actions that can be executed using the Session Kit.
 category: ContractKit
 published: true
 order: 1
-requiresReview: true
 ---
 
 # Contract
 
-A `Contract` class instance represents a specific Antelope smart contract. It makes available several methods to retrieve contract data as well as generating contract actions that can be executed using the SessionKit [transact](/docs/session-kit/transact) method.
+A `Contract` class instance represents a specific Antelope smart contract. It makes several methods available to retrieve contract data, as well as generating contract actions that can be executed using the SessionKit [transact](/docs/session-kit/transact) method.
 
 ## Creation
 
@@ -52,4 +51,4 @@ Once a `Contract` instance is created, methods and read-only properties are avai
 - `abi`: The [ABI](/docs/antelope/abi) of the contract.
 - `account`: The name of the account that the contract is deployed to.
 - `actionNames`: An array with the names of actions that exist on the contract.
-- `tableNames`: An array with the names of table that exist on the contract.
+- `tableNames`: An array with the names of tables that exist on the contract.
