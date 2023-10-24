@@ -4,7 +4,6 @@ description: The Account Kit is responsible for facilitating the creation of Acc
 category: AccountKit
 published: true
 order: 1
-requiresReview: true
 ---
 
 # AccountKit Class
