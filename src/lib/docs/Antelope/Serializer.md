@@ -1,6 +1,6 @@
 ---
 title: Serializer
-description: An Antelope data serializer used to encode and decode compatible data types from ABI definitions
+description: An Antelope data serializer used to encode and decode compatible data types from ABI definitions.
 category: Antelope
 published: true
 ---
