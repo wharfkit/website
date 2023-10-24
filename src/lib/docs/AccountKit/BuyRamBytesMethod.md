@@ -4,7 +4,6 @@ description: Used to create an action to acquire a specific number of bytes of R
 category: AccountKit
 published: true
 order: 4
-requiresReview: true
 ---
 
 # BuyRamBytes
@@ -35,7 +34,7 @@ const action = testAccount.buyRamBytes(1024, {
 
 The `buyRamBytes` method accepts an optional object with the following property:
 
-- `receiver`: Specifies the account name of the Antelope account that should receive the RAM. Defaults to the payer.
+- `receiver`: Specifies the name of the Antelope account that should receive the RAM. Defaults to the payer.
 
 ## Return Value
 
