@@ -10,7 +10,7 @@
 <article>
   <div class="image">
     <a href={path}>
-      <img src={image} alt="blog post header" />
+      <img src={image} alt="blog post header" width="940" height="528" />
     </a>
   </div>
 
@@ -62,13 +62,22 @@
   .image {
     grid-column: 3 / 7;
     grid-row: 1;
+    background: hsl(228, 15%, 18%);
+    border-radius: var(--border-radius);
   }
 
   img {
     border-radius: var(--border-radius);
+    color: var(--wharf-blue);
+    width: auto;
+    height: auto;
   }
 
   @media (max-width: 1000px) {
+    header {
+      border-radius: 0;
+    }
+
     .card {
       grid-column: 1 / 7;
       grid-row: 2;

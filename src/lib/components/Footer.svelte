@@ -38,16 +38,6 @@
 </footer>
 
 <style>
-  :global([data-theme="light"]) {
-    --theme-footer-background: white;
-    --theme-footer-text: black;
-  }
-
-  :global([data-theme="dark"]) {
-    --theme-footer-background: hsl(var(--hue-wharf) 21% 10%);
-    --theme-footer-text: white;
-  }
-
   footer {
     background: var(--footer-background, var(--theme-footer-background));
     padding-inline: var(--page-padding-inline);

@@ -295,6 +295,12 @@ th {
   padding: var(--space-2xl-3xl);
 }
 
+/* Hero text colors are set like this to provide a readable default in both light and dark themes without client-side JS enabled */
+[data-theme] .hero,
+[data-theme] .hero :is(h1, p) {
+  color: white;
+}
+
 .hero .title {
   font-size: var(--fs-4);
   color: inherit;

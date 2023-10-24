@@ -36,6 +36,24 @@
 
   --theme-border1: hsla(0 0% 0% / 0.2);
   --theme-border2: hsla(0 0% 0% / 0.1);
+
+  // Logo
+  --logo-text: var(--wharf-blue);
+  --logo-bottom: var(--swell-mist);
+  --logo-middle: var(--seafoam-mint);
+  --logo-top: var(--reef-turquoise);
+
+  // Header
+  --theme-header-background: white;
+  --theme-header-text: var(--wharf-blue);
+  --theme-nav-toggle-background: var(--reef-turquoise);
+  --theme-nav-toggle-foreground: var(--theme-header-text);
+  --theme-nav-background: white;
+  --theme-nav-item-hover: var(--swell-mist);
+
+  // Footer
+  --theme-footer-background: white;
+  --theme-footer-text: black;
 }
 
 @mixin theme-dark {
@@ -70,6 +88,24 @@
 
   --theme-border1: hsla(0 0% 100% / 0.2);
   --theme-border2: hsla(0 0% 100% / 0.1);
+
+  // Logo
+  --logo-text: white;
+  --logo-bottom: var(--reef-turquoise);
+  --logo-middle: var(--seafoam-mint);
+  --logo-top: var(--swell-mist);
+
+  // Header
+  --theme-header-background: var(--wharf-blue);
+  --theme-header-text: white;
+  --theme-nav-toggle-background: var(--reef-turquoise);
+  --theme-nav-toggle-foreground: var(--wharf-blue);
+  --theme-nav-background: var(--wharf-blue);
+  --theme-nav-item-hover: var(--color-primary-800);
+
+  // Footer
+  --theme-footer-background: hsl(var(--hue-wharf) 21% 10%);
+  --theme-footer-text: white;
 }
 
 :root {
