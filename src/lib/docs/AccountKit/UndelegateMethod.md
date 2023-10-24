@@ -4,7 +4,6 @@ description: Used to create an action to undelegate CPU or NET resources from an
 category: AccountKit
 published: true
 order: 8
-requiresReview: true
 ---
 
 # Undelegate
