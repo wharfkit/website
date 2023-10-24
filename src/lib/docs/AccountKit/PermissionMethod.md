@@ -4,7 +4,6 @@ description: Used to retrieve a specific Permission instance from an Account ins
 category: AccountKit
 published: true
 order: 11
-requiresReview: true
 ---
 
 # Permission
