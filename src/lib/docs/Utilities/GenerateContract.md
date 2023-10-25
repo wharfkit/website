@@ -1,7 +1,8 @@
 ---
 title: Generate Contract (Command)
 description: Generates Contract code for a specified smart contract on the Antelope blockchain.
-category: Cli
+category: Utilities
+hidden: true
 published: true
 order: 2
 ---

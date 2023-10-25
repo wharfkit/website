@@ -1,7 +1,8 @@
 ---
 title: Generate Keys (Command)
 description: Generate a fresh pair of public and private keys for EOSIO blockchain interactions.
-category: Cli
+category: Utilities
+hidden: true
 published: true
 order: 4
 ---

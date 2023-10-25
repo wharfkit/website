@@ -1,7 +1,8 @@
 ---
 title: Create Account (Command)
 description: Create a new Antelope testnet account, optionally providing a public key.
-category: Cli
+category: Utilities
+hidden: true
 published: true
 order: 3
 ---
