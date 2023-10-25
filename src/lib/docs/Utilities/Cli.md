@@ -30,7 +30,7 @@ npx @wharfkit/cli help                                                          
 This will outline all commands available for the release being used.
 
 ```bash
-Usage: wharfkit [options] [command]
+Usage: npx @wharfkit/cli [options] [command]
 
 Wharf Command Line Utilities
 
