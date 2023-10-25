@@ -1,10 +1,9 @@
 ---
-title: Generate Keys (Command)
+title: CLI Keys
 description: Generate a fresh pair of public and private keys for EOSIO blockchain interactions.
 category: Utilities
-hidden: true
 published: true
-order: 4
+order: 3
 ---
 
 # Generate Keys
@@ -16,7 +15,7 @@ The `keys` command lets you produce a new set of public and private keys, which 
 The command is called using the `keys` keyword. Here is a basic example of how to use it:
 
 ```bash
-wharfkit keys
+npx @wharfkit/cli keys
 ```
 
 This command will output both the private key and its associated public key.
