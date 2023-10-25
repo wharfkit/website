@@ -4,7 +4,6 @@ description: Used to create an action that deletes a custom permission from an A
 category: AccountKit
 published: true
 order: 14
-requiresReview: true
 ---
 
 # RemovePermission

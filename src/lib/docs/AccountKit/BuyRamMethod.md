@@ -4,7 +4,6 @@ description: Used to create an action to acquire RAM using a specific amount of 
 category: AccountKit
 published: true
 order: 5
-requiresReview: true
 ---
 
 # BuyRam
@@ -19,13 +18,13 @@ The `buyRam` method is available on any [Account](/docs/account-kit/account) ins
 const action = testAccount.buyRam("1.0000 EOS")
 ```
 
-Alternatively, an antelope [Asset](/docs/antelope/asset) instance can be passed:
+Alternatively, an Antelope [Asset](/docs/antelope/asset) instance can be passed:
 
 ```typescript
 const action = testAccount.buyRam(Asset.from(1.0, "4,EOS"))
 ```
 
-To specify a receiver for the RAM purchase, the `receiver` option can be specified:
+To specify a receiver for the RAM purchase, the `receiver` option can be used:
 
 ```typescript
 const action = testAccount.buyRam("1.0000 EOS", {
@@ -35,13 +34,13 @@ const action = testAccount.buyRam("1.0000 EOS", {
 
 ## Arguments
 
-- `amount`: The amount of tokens to be used for purchasing RAM, it can be a string or an [Asset](/docs/antelope/asset) instance.
+- `amount`: The amount of tokens to be used for purchasing RAM -- it can be a string or an [Asset](/docs/antelope/asset) instance.
 
 ## Options
 
 The `buyRam` method accepts an optional object with the following property:
 
-- `receiver`: Specifies the account name of the Antelope account that should receive the RAM. Defaults to the payer.
+- `receiver`: Specifies the name of the Antelope account that should receive the RAM. Defaults to the payer.
 
 ## Return Value
 

@@ -1,9 +1,8 @@
 ---
 title: Serializer
-description: An Antelope data serializer used to encode and decode compatible data types from ABI definitions
+description: An Antelope data serializer used to encode and decode compatible data types from ABI definitions.
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # Serializer
@@ -12,7 +11,7 @@ Most data read from and written to Antelope-based blockchains is serialized usin
 
 ## Usage
 
-The `Serializer` can be called directly without instantiation to perform encoding, decoding, and various utility methods. To make use of all of these methods, the `Serializer` namespace needs to be included in the project. Once included, any of the methods can be called directly without any sort of instantiation.
+The `Serializer` can be called directly without instantiation to perform encoding, decoding, and various utility methods. To make use of all these methods, the `Serializer` namespace needs to be included in the project. Once included, any of the methods can be called directly without any sort of instantiation.
 
 ```ts
 import { Serializer } from "@wharfkit/antelope"
@@ -125,7 +124,7 @@ console.log(String(encoded))
 
 The `Serializer` is capable of accepting an untyped object, [ABI](/docs/antelope/abi), and struct name as a string to encode data and return a [Bytes](/docs/antelope/bytes) object.
 
-The following example shows an untyped variable named `object`, alongside an [ABI](/docs/antelope/abi) that defines a `struct` named `my_struct` that defines the objects format. The `object`, [ABI](/docs/antelope/abi), and a 3rd string parameter with the string name of the struct are passed in to the encode method in order to serialize the data and return an instance of [Bytes](/docs/antelope/bytes).
+The following example shows an untyped variable named `object`, alongside an [ABI](/docs/antelope/abi) that defines a `struct` named `my_struct` that defines the object's format. The `object`, [ABI](/docs/antelope/abi), and a 3rd string parameter with the string name of the struct are passed in to the encode method in order to serialize the data and return an instance of [Bytes](/docs/antelope/bytes).
 
 ```ts
 import { ABI, Serializer } from "@wharfkit/antelope"
@@ -260,11 +259,9 @@ console.log(JSON.stringify(decoded))
 // {"from":"foo","to":"bar","quantity":"1.0000 EOS","memo":"hello"}
 ```
 
-The [ABI](/docs/antelope/abi) can either be embedded directly within the application or it can be retrieved from an [APIClient](/docs/antelope/api-client). In the example above the code is loading the ABI for the `eosio.token` contract from the Jungle 4 blockchain. It then passes the encoded data, the ABI, and the type to retrieve from the ABI as a string.
+The [ABI](/docs/antelope/abi) can either be embedded directly within the application or it can be retrieved from an [APIClient](/docs/antelope/api-client). In the example above, the code is loading the ABI for the `eosio.token` contract from the Jungle 4 blockchain. It then passes the encoded data, the ABI, and the type to retrieve from the ABI as a string.
 
 ## Utilities
-
-### Stringify
 
 ### Objectify
 
@@ -314,4 +311,4 @@ console.log(object)
 */
 ```
 
-This example shows creating a strongly typed `transfer` object, which when output through `console.log` shows all of the Antelope data types. The `transfer` object is then passed to the `Serializer.objectify` method which walks the object and converts all of its properties into native Javascript types, like strings and numbers.
+This example shows how to create a strongly typed `transfer` object, which when output through `console.log` shows all of the Antelope data types. The `transfer` object is then passed to the `Serializer.objectify` method, which walks the object and converts all of its properties into native Javascript types (like strings and numbers).

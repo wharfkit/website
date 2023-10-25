@@ -4,7 +4,6 @@ description: A Permission instance is a wrapper for an Antelope blockchain accou
 category: AccountKit
 published: true
 order: 12
-requiresReview: true
 ---
 
 # Permission

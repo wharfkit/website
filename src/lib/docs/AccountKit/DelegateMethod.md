@@ -4,7 +4,6 @@ description: Used to create an action to delegate tokens for NET or CPU resource
 category: AccountKit
 published: true
 order: 7
-requiresReview: true
 ---
 
 # Delegate

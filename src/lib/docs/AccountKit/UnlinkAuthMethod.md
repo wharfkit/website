@@ -4,7 +4,6 @@ description: Used to create an action that removes the dependency between a smar
 category: AccountKit
 published: true
 order: 10
-requiresReview: true
 ---
 
 # UnlinkAuth
@@ -19,7 +18,7 @@ The `unlinkAuth` method is available on any [Account](/docs/account-kit/account)
 const action = testAccount.unlinkAuth("eosio", "claimrewards")
 ```
 
-In the example above, we create an action that removes the link between the `eosio` `claimrewards` action and any account permission.
+In the example above, we created an action that removes the link between the `eosio` `claimrewards` action and any account permission.
 
 ## Arguments
 

@@ -4,12 +4,11 @@ description: Used to create an action that creates a dependency between a smart 
 category: AccountKit
 published: true
 order: 9
-requiresReview: true
 ---
 
 # Linkauth
 
-The `linkAuth` method provides a way for an Antelope account owner to limit an account permission to being able to execute specific smart contract actions. It returns an [Action](/docs/antelope/action) instance that can be signed and executed on-chain using the `SessionKit` [Transact](/docs/session-kit/transact) method.
+The `linkAuth` method provides a way for an Antelope account owner to limit an account permission so that it's only able to execute specific smart contract actions. It returns an [Action](/docs/antelope/action) instance that can be signed and executed on-chain using the `SessionKit` [Transact](/docs/session-kit/transact) method.
 
 ## Usage
 
@@ -27,9 +26,9 @@ In the example above, an action limiting the custom `claim` permission to the `e
 
 ## Arguments
 
-- `contract`: The account name of the account that the permission should be linked to.
+- `contract`: The name of the account that the permission should be linked to.
 - `actionName`: The name of the action that the permission should be linked to.
-- `permission`: The name of the permission that should be linked to the specified action (eg. `claim`).
+- `permission`: The name of the permission that should be linked to the specified action (e.g. `claim`).
 
 ## Return Value
 

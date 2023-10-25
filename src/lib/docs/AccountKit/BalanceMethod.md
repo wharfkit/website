@@ -4,7 +4,6 @@ description: Used to retrieve the balance of an account for a specific token.
 category: AccountKit
 published: true
 order: 3
-requiresReview: true
 ---
 
 # Balance

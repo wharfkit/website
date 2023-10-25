@@ -3,7 +3,6 @@ title: Authority
 description: The data representation of an account authority, which defines a collection of keys and accounts alongside a threshold to authorize actions.
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # Authority

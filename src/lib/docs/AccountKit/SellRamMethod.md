@@ -4,7 +4,6 @@ description: Used to create an action to sell a specified amount of RAM.
 category: AccountKit
 published: true
 order: 6
-requiresReview: true
 ---
 
 # SellRam
