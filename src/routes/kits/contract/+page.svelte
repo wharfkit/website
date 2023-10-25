@@ -27,8 +27,8 @@
     /* prettier-ignore */
     body[data-theme="dark"] {
       --page-background:
-        linear-gradient(180deg, 
-        #7BE7CE -8rem, 
+        linear-gradient(180deg,
+        #7BE7CE -8rem,
         /* #494E62 10rem,  */
         color-mix(in srgb, #494E62 100%, #262936) 30rem,
         color-mix(in srgb, #494E62 60%, #262936) 35rem,
@@ -110,8 +110,9 @@
         </ul>
       </div>
       <div class="button-group | cluster">
-        <a href="#" class="button">Learn How to Read Tables</a>
-        <a href="#" class="button">Learn How to Create Actions</a>
+        <a href="/guides/contract-kit/reading-tables" class="button">Learn How to Read Tables</a>
+        <a href="/guides/contract-kit/creating-actions" class="button"
+          >Learn How to Create Actions</a>
       </div>
     </div>
   </section>
@@ -186,13 +187,13 @@
           </li>
         </ul>
       </div>
-      <a href="#" class="button">Learn to Use the CLI</a>
+      <a href="/docs/utilities/cli" class="button">Learn to Use the CLI</a>
     </div>
   </section>
 
   <section class="cta | box center stack | text-center text-balance align-center">
     <h2>Learn more about the Contract Kit with the Guides and Documentation.</h2>
-    <a href="/guides/contract-kit" class="button">Go to Contract Kit Guides</a>
+    <a href="/docs/contract-kit" class="button">Go to Contract Kit Docs</a>
   </section>
 </main>
 
