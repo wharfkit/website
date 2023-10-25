@@ -4,12 +4,11 @@ description: Initializes and returns a @wharfkit/resources library Resources ins
 category: AccountKit
 published: true
 order: 15
-requiresReview: true
 ---
 
 # Resources
 
-The `resources` method initializes and returns an instance of the [@wharfkit/resources](https://www.npmjs.com/package/@wharfkit/resources) library Resources instance. This class can be used to obtain information about the resources available to a specific blockchain account.
+The `resources` method initializes and returns an instance of the [@wharfkit/resources](https://www.npmjs.com/package/@wharfkit/resources) library. This class can be used to obtain information about the resources available to a specific blockchain account.
 
 ## Usage
 

@@ -4,7 +4,6 @@ description: An Account instance is a wrapper for Antelope blockchain accounts. 
 category: AccountKit
 published: true
 order: 2
-requiresReview: true
 ---
 
 # Account
@@ -69,7 +68,7 @@ The only parameter passed to the `Account` class constructor is an object contai
 
 ## Usage
 
-Once an `Account` instance is created, the following methods and read-only properties are available.
+Once an `Account` instance is created, the following methods and read-only properties are available:
 
 ### Methods
 
