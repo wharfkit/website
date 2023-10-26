@@ -4,7 +4,6 @@ description: Returns the scopes available within a given table.
 category: ContractKit
 published: true
 order: 6
-requiresReview: true
 ---
 
 # Scopes

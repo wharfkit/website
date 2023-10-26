@@ -1,14 +1,13 @@
 ---
 title: PublicKey
-description: The PublicKey type wraps the raw data representing a public key which can be used to output it in multiple formats.
+description: The PublicKey type wraps the raw data representing a public key, which can be used to output it in multiple formats.
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # PublicKey
 
-The `PublicKey` core type represents an instance of a public key for use in [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography). The `PublicKey` can be used during signature verification and be rendered to a string in any valid output format.
+The `PublicKey` core type represents an instance of a public key for use in [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography). The `PublicKey` can be used during signature verification and be rendered to a string in any valid output format.
 
 ## Usage
 
@@ -36,15 +35,15 @@ const publicKey = PublicKey.from(
 )
 ```
 
-Either format used to import with will result in a functionally identical public key.
+Either format will result in a functionally identical public key.
 
-### Exporting to string formats
+### Exporting to String Formats
 
-Similar to how public keys can be loaded using multiple formats, they can also be converted back in to the various string formats.
+Similar to how public keys can be loaded using multiple formats, they can also be converted back into the various string formats.
 
-#### Default format
+#### Default Format
 
-By default when converting a `PublicKey` instance to a `string`, the default Antelope private key format is used.
+When converting a `PublicKey` instance to a `string`, the default Antelope private key format is used.
 
 ```ts
 import { PublicKey } from "@wharfkit/antelope"
@@ -60,7 +59,7 @@ console.log(publicKey.toString())
 // PUB_K1_6LPN8xGye86wme4PwqN8TSxAfGTQvqBcN5jGnURJPHyqn3a973
 ```
 
-This format consists of 3 parts which are divided using `_` (underscore). It begins with the prefix of `PUB` to indicate that it as a public key. That is followed by a string to indicate the key type, which in the above example is a `K1` key. The last part of the format is the raw key data and checksum.
+This format consists of 3 parts which are divided using `_` (underscore). It begins with the prefix of `PUB` to indicate that it is a public key. That is followed by a string to indicate the key type, which in the above example is a `K1` key. The last part of the format is the raw key data and checksum.
 
 #### Legacy Formats
 

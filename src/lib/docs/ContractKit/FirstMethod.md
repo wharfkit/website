@@ -4,7 +4,6 @@ description: Returns a cursor that can be used to fetch a limited number of rows
 category: ContractKit
 published: true
 order: 5
-requiresReview: true
 ---
 
 # First

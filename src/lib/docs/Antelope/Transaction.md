@@ -3,16 +3,15 @@ title: Transaction
 description: The Transaction type represents a complete transaction containing one or more actions for an Antelope blockchain.
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # Transaction
 
-The `Transaction` type within the Antelope SDKs represents a fully formed transaction that could be used on an Antelope blockchain. It contains all the header information to secure and limit the transaction execution as well as an array containing one or more [Action](/docs/antelope/action) objects.
+The `Transaction` type within the Antelope SDKs represents a fully formed transaction that can be used on an Antelope blockchain. It contains all the header information to secure and limit the transaction execution, as well as an array containing one or more [Action](/docs/antelope/action) objects.
 
 ## Variants
 
-There are currently 3 variants of a transaction, each used for specific states the transaction may be in during the transact flow.
+There are currently 3 variants of a transaction, each used for specific states the transaction may be in during the transact flow:
 
 - `Transaction`: Typically used when creating or reading transaction data.
 - `SignedTransaction`: Also used when accessing transaction data, but includes signatures.
@@ -20,11 +19,11 @@ There are currently 3 variants of a transaction, each used for specific states t
 
 ### Transaction
 
-The `Transaction` type is the decoded version of a `PackedTransaction` which developers will use to perform smart contract actions or use directly for access to transaction data in their applications. Once a signature is generated for a given `Transaction`, it can also be cast into a `SignedTransaction` type which will also then include signature information.
+The `Transaction` type is the decoded version of a `PackedTransaction`, which developers will use to perform smart contract actions or use directly for access to transaction data in their applications. Once a signature is generated for a given `Transaction`, it can also be cast into a `SignedTransaction` type, which will then include signature information.
 
 The core structure of an Antelope `Transaction` contains the following:
 
-1. Transaction as Proof of Stake (TaPoS) values are embedded in every transaction as part of the consensus algorithm using the `ref_block_num` and `ref_block_prefix` fields.
+1. Transaction as Proof of Stake (TaPoS) values are embedded in every transaction as part of the consensus algorithm, using the `ref_block_num` and `ref_block_prefix` fields.
 2. Limitations about the execution of the transaction are also included in fields such as `expiration`, `max_net_usage_words`, `max_cpu_usage_mx`, and `delay_sec`.
 3. An array of encoded smart contract actions to perform are placed within the `actions` field, along with advanced events like `context_free_actions` and `transaction_extensions`.
 
@@ -44,7 +43,7 @@ All combined, the representation of this data structure in a JSON format is as f
 }
 ```
 
-Each [Action](/docs/antelope/action) passed to a transaction must be encoded as either as raw hex data or passed in as a [Struct](/docs/antelope/struct).
+Each [Action](/docs/antelope/action) passed to a transaction must be encoded as either raw hex data or passed in as a [Struct](/docs/antelope/struct).
 
 ### SignedTransaction
 
@@ -87,7 +86,7 @@ A simplistic look at the JSON representation of this data is as follows:
 
 ### Creating a Transaction
 
-In most cases while creating a transaction, the application can automatically generate current TaPoS headers using the [APIClient](/docs/antelope/api-client) and the `get_info` endpoint. The resulting response from this call contains a `getTransactionHeader` method which will automatically create all the appropriate fields based on the API call. The only remaining data that must be included is the `actions` containing an array of smart contract actions to perform.
+In most cases while creating a transaction, the application can automatically generate current TaPoS headers using the [APIClient](/docs/antelope/api-client) and the `get_info` endpoint. The resulting response from this call contains a `getTransactionHeader` method, which will automatically create all the appropriate fields based on the API call. The only remaining data that must be included are the `actions` containing an array of smart contract actions to perform.
 
 ```ts
 import { Action, APIClient, Transaction } from "@wharfkit/antelope"
@@ -114,7 +113,7 @@ const transaction = Transaction.from({
 
 ### Initializing a Transaction
 
-Given a completely formed transaction data with already encoded actions, the `Transaction` class works like all Antelope core types and can be loaded using the `.from()` static method.
+Given completely formed transaction data with already encoded actions, the `Transaction` class works like all Antelope core types and can be loaded using the `.from()` static method.
 
 ```ts
 import { Transaction } from "@wharfkit/antelope"
@@ -141,13 +140,13 @@ const transaction = Transaction.from({
 })
 ```
 
-The result stored as `transaction` will be an instance of `Transaction` and be ready to sign.
+The result stored as the `transaction` property will be an instance of `Transaction` and be ready to sign.
 
 ### Using ABIs
 
-If while assembling a `Transaction` the `actions` array contains unserialized data, an [ABI](/docs/antelope/abi) is required as the second parameter to facilitate the encoding.
+If the `actions` array contains unserialized data when assembling a `Transaction`, an [ABI](/docs/antelope/abi) is required as the second parameter to facilitate the encoding.
 
-The example below shows the `actions[0].data` field as an unserialized version of an `eosio.token::transfer` action alongside an [ABI](/docs/antelope/abi) that defines the structure of that data. Both of these values are then passed in during the formation of the `Transaction` object.
+The example below shows the `actions[0].data` field as an unserialized version of an `eosio.token::transfer` action, alongside an [ABI](/docs/antelope/abi) that defines the structure of that data. Both of these values are then passed in during the formation of the `Transaction` object.
 
 ```ts
 import { Transaction } from "@wharfkit/antelope"
@@ -274,7 +273,7 @@ console.log(String(transaction.id))
 
 ### Adding a Signature
 
-After a `Transaction` has been signed a `SignedTransaction` type can then be created. The example below shows the most simple path to create the new signed instance, by passing in all the fields from the original transaction and then append the signature.
+After a `Transaction` has been signed, a `SignedTransaction` type can then be created. The example below shows the simplest path to create the new signed instance, by passing in all the fields from the original transaction and then appending the signature.
 
 ```ts
 import { Transaction, SignedTransaction } from "@wharfkit/antelope"

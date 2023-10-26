@@ -3,7 +3,6 @@ title: Action
 description: The Action type represents a single action to be performed on an Antelope blockchain.
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # Action
@@ -33,9 +32,9 @@ Every action on an Antelope blockchain consists of the following information:
 }
 ```
 
-The first two fields `account` and `name` correspond to the smart contract and method the action will call. The `account` specifies the account name the smart contract is deployed on and the `name` indicates the name of the method to call.
+The first two fields, `account` and `name`, correspond to the smart contract and method the action will call. The `account` specifies the account name the smart contract is deployed on, and the `name` indicates the name of the method to call.
 
-The `authorization` array defines the account(s) that will authorize the accounts that authorize the transaction in the [PermissionLevel](/docs/antelope/permission-level) format. Each account specified as an `authorization` will need to be accompanied by [Signature](/docs/antelope/signature).
+The `authorization` array defines the account(s) that will authorize the accounts that authorize the transaction in the [PermissionLevel](/docs/antelope/permission-level) format. Each account specified as an `authorization` will need to be accompanied by a [Signature](/docs/antelope/signature).
 
 Finally, the `data` object in the action defines the parameters passed to the smart contract call. This field on the action is serialized before it's submitted to the blockchain, which is what the `Action` Antelope data type helps achieve. This data type provides the methods needed in order to encode and decode the serialized data, depending on the developer's needs.
 

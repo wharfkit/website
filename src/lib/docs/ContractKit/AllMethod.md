@@ -4,7 +4,6 @@ description: Retrieves all rows of a specific smart contract table.
 category: ContractKit
 published: true
 order: 7
-requiresReview: true
 ---
 
 # All
@@ -45,7 +44,7 @@ console.log(rows) // Logs all rows of the 'table_name' table with the 'scope_nam
 
 ### Query
 
-Providing a `from` and `to` values allows restricting the scope of all the results to a specific range.
+Providing `from` and `to` values allows you to restrict the scope of all the results to a specific range.
 
 ```typescript
 const rows = contract.table("table_name").all({ from: 1, to: 10 })

@@ -3,16 +3,15 @@ title: Signature
 description: change_me
 category: Antelope
 published: true
-requiresReview: true
 ---
 
 # Signature
 
-The `Signature` built-in type represents an instance of a signature as the result of [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography). Signatures are used within the Antelope ecosystem for things like authorizing a [Transaction](/docs/antelope/transaction) or a producer signing a block. A signature can be generated using a [PrivateKey](/docs/antelope/private-key) and signatures can be verified by comparing its contents to the corresponding [PublicKey](/docs/antelope/public-key).
+The `Signature` built-in type represents an instance of a signature as the result of [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography). Signatures are used within the Antelope ecosystem for things like authorizing a [Transaction](/docs/antelope/transaction) or a producer signing a block. A signature can be generated using a [PrivateKey](/docs/antelope/private-key) and signatures can be verified by comparing its contents to the corresponding [PublicKey](/docs/antelope/public-key).
 
 ## Format
 
-Internally a `Signature` object is stored as [Bytes](/docs/antelope/bytes) and a corresponding key type (`K1`, `R1`, or `WA`). When output as a string, the signatures plain text representation consists of
+Internally, a `Signature` object is stored as [Bytes](/docs/antelope/bytes) and a corresponding key type (`K1`, `R1`, or `WA`). When output as a string, the signature's plain text representation consists of:
 
 ```
 SIG_K1_JxL8qFxSRMAYKX5wEWyx7j6j2Vitu3k43RShVZ9NL2acATvLx9PyciFLSu7BFC7w1DPL4qwLSm7NxE7vBwGEChV6YFk1NN
@@ -32,7 +31,7 @@ const signature = Signature.from(
 
 ### Creating Signatures
 
-To create new signatures a [PrivateKey]() must be used to [sign](/docs/antelope/private-key#signing) a transaction digest.
+To create new signatures, a [PrivateKey]() must be used to [sign](/docs/antelope/private-key#signing) a transaction digest.
 
 ### Recover PublicKey
 
