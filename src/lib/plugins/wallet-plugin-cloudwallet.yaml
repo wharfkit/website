@@ -1,0 +1,12 @@
+name: "wallet-plugin-cloudwallet"
+description: "A WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with MyCloudWallet.com."
+tags:
+  - cloudwallet
+  - wallet
+  - session
+authorIcon: "https://avatars.githubusercontent.com/u/115573427?s=48&v=4"
+author: WharfKit
+version: "1.0.0"
+lastPublishedDate: "2023-09-19T18:00:00.000Z"
+sourceLink: https://github.com/wharfkit/wallet-plugin-cloudwallet
+license: BSD-3

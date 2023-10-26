@@ -15,6 +15,10 @@ export const GET = async ({ url }) => {
       options.sort = String(params.get("sort"))
     }
 
+    if (params.get("q")) {
+      options.query = String(params.get("q"))
+    }
+
     const allPlugins = await getAllPlugins(options)
 
     return json(allPlugins)

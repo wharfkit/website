@@ -1,6 +1,5 @@
 <script lang="ts">
   import { page } from "$app/stores"
-  import Filter from "../../lib/components/Filter.svelte"
 
   $: getLink = (tag: string) => {
     const currentSearchParams = new URLSearchParams($page.url.search)
@@ -51,8 +50,27 @@
         <a href="/plugins">WharfKit Plugins</a>
       </p>
     </div>
-    <!-- TODO: add search provider -->
-    <!-- <Filter placeholder={"Search for a plugin"} /> -->
+    <search>
+      <form action="/plugins">
+        <label for="search" class="visually-hidden">Search</label>
+        <input type="search" placeholder="Search plugins" name="q" />
+        <button type="submit" class="button" data-type="secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-search"
+            aria-hidden="true"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
+          <span class="visually-hidden">Search</span>
+        </button>
+      </form>
+    </search>
     <ul class="sidebar-list">
       <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("contract")}>Contract</a></li>
       <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("account")}>Account</a></li>
@@ -83,5 +101,49 @@
       gap: var(--space-l-xl);
       grid-template-columns: 16rem minmax(0, 1fr);
     }
+  }
+
+  search {
+    position: relative;
+    margin-block-start: var(--space-s);
+  }
+
+  search form {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+
+  input {
+    width: 100%;
+    padding-inline: var(--space-m);
+    height: var(--space-xl);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--fs-0);
+    font-family: var(--ff-body);
+    background-color: var(--input-background-color, var(--theme-surface2));
+    color: var(--theme-text1);
+    outline: none;
+    position: relative;
+  }
+
+  input:focus {
+    box-shadow: 0 0 0 2px var(--theme-text3);
+  }
+
+  input::placeholder {
+    color: var(--theme-text1);
+    font-style: italic;
+    opacity: 0.6;
+  }
+
+  search button {
+    --button-background: var(--input-background-color, var(--theme-surface2));
+    padding-inline: var(--space-s);
+  }
+
+  search button svg {
+    max-width: none;
   }
 </style>

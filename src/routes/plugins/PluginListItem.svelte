@@ -17,9 +17,13 @@
     <img src={authorIcon} class="author-icon" alt="" width="28" height="28" />
     <p>
       <span class="author">{author}</span>
-      <span class="version">published {version}</span>
-      -
-      <span class="last-published">{lastPublishedDate}</span>
+      {#if version}
+        <span class="version">published {version}</span>
+      {/if}
+      {#if lastPublishedDate}
+        -
+        <span class="last-published">{lastPublishedDate}</span>
+      {/if}
     </p>
   </div>
 </li>

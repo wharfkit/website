@@ -51,5 +51,7 @@
     "@sveltejs/adapter-cloudflare": "2.0.1"
   },
   "type": "module",
-  "dependencies": {}
+  "dependencies": {
+    "@orama/orama": "^2.0.0-beta.1"
+  }
 }

@@ -1,38 +1,67 @@
 import * as yaml from "js-yaml"
 import * as fs from "node:fs"
+import { create, insertMultiple, search } from '@orama/orama'
+import type { Orama, Results, SearchParams, TypedDocument } from "@orama/orama"
+import { browser } from "$app/environment"
 
-function loadPluginsFromYAML(directory: string) {
+const pluginSchema = {
+  name: 'string',
+  description: 'string',
+  tags: 'string[]',
+  author: 'string',
+  authorIcon: 'string',
+  lastPublishedDate: 'string',
+  version: 'string',
+  sourceLink: 'string',
+  license: 'string',
+  link: 'string'
+} as const
+
+export type PluginDocument = TypedDocument<Orama<typeof pluginSchema>>
+
+export const db: Orama<typeof pluginSchema> = await create({
+  schema: pluginSchema,
+}).then(async db => {
+  if (browser) return db
+  console.log('Orama database instance created')
   const plugins: WharfkitPlugin[] = []
-  const files = fs.readdirSync(directory)
+  const files = fs.readdirSync('src/lib/plugins')
   files.forEach(file => {
-    const plugin = yaml.load(fs.readFileSync(directory.concat('/', file), 'utf8')) as WharfkitPlugin
+    const plugin = yaml.load(fs.readFileSync('src/lib/plugins'.concat('/', file), 'utf8')) as WharfkitPlugin
     plugins.push(plugin)
   })
-  return plugins
-}
+  console.log('Loaded plugins from YAML',)
+  await insertMultiple(db, plugins)
+  console.log('Inserted plugins into database')
+  return db
+})
+
 
 export const getAllPlugins = async (options?: PluginQueryOptions) => {
-  const { tag, sort } = options || {}
-  let plugins = loadPluginsFromYAML('src/lib/plugins')
-
-  if (tag) {
-    plugins = plugins.filter(plugin => tag && plugin.tags.includes(tag))
+  let searchParams: SearchParams<Orama<typeof pluginSchema>> = {
   }
 
-  if (sort === "popular") {
-    // TODO: Implement popular sort
-  } else {
-    // Default to sorting by last published date
-    plugins = plugins.sort((a, b) => {
-      return new Date(b.lastPublishedDate).getTime() - new Date(a.lastPublishedDate).getTime()
-    })
+  if (options?.query) {
+    searchParams['term'] = options.query
   }
 
-  return plugins
+  if (options?.tag) {
+    searchParams['where'] = { 'tags': options.tag }
+  }
+
+  if (options?.sort) {
+    if (options.sort === 'latest') {
+      searchParams['sortBy'] = { property: 'lastPublishedDate', order: 'DESC' }
+    }
+  }
+
+  const results: Results<PluginDocument> = await search(db, searchParams)
+  return results.hits
 }
 
 export const getPlugin = async (name: string) => {
-  const plugins = await getAllPlugins()
-  const plugin = plugins.find(plugin => plugin.name === name)
-  return plugin
+  const result: Results<PluginDocument> = await search(db, {
+    where: { 'name': name }
+  })
+  return result.hits[0]
 }

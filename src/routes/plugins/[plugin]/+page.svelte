@@ -11,42 +11,53 @@
 <section>
   <article>
     <header>
-      <svg width="77" height="77" fill="none" xmlns="http://www.w3.org/2000/svg"
-        ><path
-          d="M0 35.586v15.073a8.209 8.209 0 0 0 4.134 7.126L34.3 75.037a8.209 8.209 0 0 0 8.15 0l30.167-17.252a8.209 8.209 0 0 0 4.133-7.126V35.586l-34.3 19.616a8.209 8.209 0 0 1-8.15 0L0 35.586Z"
-          fill="#7BE7CE" /><path
-          d="M0 35.806c0 1.178.63 2.265 1.652 2.85L34.298 57.34a8.209 8.209 0 0 0 8.155 0L75.1 38.656a3.284 3.284 0 0 0 1.652-2.85V25.474a8.209 8.209 0 0 0-4.13-7.124L42.452 1.084a8.209 8.209 0 0 0-8.155 0L4.131 18.35A8.209 8.209 0 0 0 0 25.474v10.332Z"
-          fill="#B2F2E1" /><path
-          d="M6.894 24.414c-1.766-1.02-1.766-2.674 0-3.694L35.321 4.31c1.767-1.02 4.631-1.02 6.398 0l28.427 16.41c1.767 1.02 1.767 2.674 0 3.694l-28.427 16.41c-1.767 1.02-4.631 1.02-6.398 0L6.894 24.415Z"
-          fill="#7BE7CE" /><g
-          clip-path="url(#a)"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          fill="#494E62"
-          ><path
-            d="M34.844 16.322c0-.475.668-.86 1.492-.86h12.656c.824 0 1.491.385 1.491.86v7.307c0 .476-.667.861-1.491.861-.824 0-1.492-.385-1.492-.86v-6.447H36.336c-.824 0-1.492-.385-1.492-.86ZM27.898 20.332c.824 0 1.492.386 1.492.861v6.446h11.164c.824 0 1.492.386 1.492.861 0 .476-.668.861-1.492.861H27.898c-.823 0-1.491-.385-1.491-.86v-7.308c0-.475.668-.86 1.491-.86Z" /></g
-        ><defs
-          ><clipPath id="a"
+      <div class="plugin-title-wrapper">
+        <div class="plugin-title">
+          <svg width="77" height="77" fill="none" xmlns="http://www.w3.org/2000/svg"
             ><path
-              fill="#fff"
-              transform="matrix(.86603 -.5 .86603 .5 13.133 22.411)"
-              d="M0 0h29.228v29.228H0z" /></clipPath
-          ></defs
-        ></svg>
-      <div>
-        <h1>{name}</h1>
-        <p><span>{version}</span> - <span>{lastPublishedDate}</span></p>
+              d="M0 35.586v15.073a8.209 8.209 0 0 0 4.134 7.126L34.3 75.037a8.209 8.209 0 0 0 8.15 0l30.167-17.252a8.209 8.209 0 0 0 4.133-7.126V35.586l-34.3 19.616a8.209 8.209 0 0 1-8.15 0L0 35.586Z"
+              fill="#7BE7CE" /><path
+              d="M0 35.806c0 1.178.63 2.265 1.652 2.85L34.298 57.34a8.209 8.209 0 0 0 8.155 0L75.1 38.656a3.284 3.284 0 0 0 1.652-2.85V25.474a8.209 8.209 0 0 0-4.13-7.124L42.452 1.084a8.209 8.209 0 0 0-8.155 0L4.131 18.35A8.209 8.209 0 0 0 0 25.474v10.332Z"
+              fill="#B2F2E1" /><path
+              d="M6.894 24.414c-1.766-1.02-1.766-2.674 0-3.694L35.321 4.31c1.767-1.02 4.631-1.02 6.398 0l28.427 16.41c1.767 1.02 1.767 2.674 0 3.694l-28.427 16.41c-1.767 1.02-4.631 1.02-6.398 0L6.894 24.415Z"
+              fill="#7BE7CE" /><g
+              clip-path="url(#a)"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              fill="#494E62"
+              ><path
+                d="M34.844 16.322c0-.475.668-.86 1.492-.86h12.656c.824 0 1.491.385 1.491.86v7.307c0 .476-.667.861-1.491.861-.824 0-1.492-.385-1.492-.86v-6.447H36.336c-.824 0-1.492-.385-1.492-.86ZM27.898 20.332c.824 0 1.492.386 1.492.861v6.446h11.164c.824 0 1.492.386 1.492.861 0 .476-.668.861-1.492.861H27.898c-.823 0-1.491-.385-1.491-.86v-7.308c0-.475.668-.86 1.491-.86Z" /></g
+            ><defs
+              ><clipPath id="a"
+                ><path
+                  fill="#fff"
+                  transform="matrix(.86603 -.5 .86603 .5 13.133 22.411)"
+                  d="M0 0h29.228v29.228H0z" /></clipPath
+              ></defs>
+          </svg>
+          <div>
+            <h1>{name}</h1>
+            <p>
+              {#if version}
+                <span>{version}</span>
+              {/if}
+              {#if lastPublishedDate}
+                - <span>{lastPublishedDate}</span>
+              {/if}
+            </p>
+          </div>
+        </div>
+
+        <ul class="tags | cluster">
+          {#each tags as tag}
+            <Tag>{tag}</Tag>
+          {/each}
+        </ul>
       </div>
-      <a href={sourceLink} class="button">Get this plugin</a>
+      <a href={sourceLink} class="source button">Get this plugin</a>
     </header>
-
-    <ul class="tags">
-      {#each tags as tag}
-        <Tag>{tag}</Tag>
-      {/each}
-    </ul>
+    <!-- content -->
   </article>
-
   <aside>
     <dl>
       <dt>Install</dt>
@@ -68,31 +79,35 @@
 
 <style>
   section {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--space-m);
   }
 
-  @media (min-width: 769px) {
-    section {
-      gap: var(--space-l-xl);
-      grid-template-columns: minmax(0, 1fr) 16rem;
-    }
+  article {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 55%;
   }
 
   header {
     display: flex;
-    gap: var(--space-m);
-    align-items: center;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
-  header div {
+  .source.button {
+    white-space: nowrap;
+  }
+
+  .plugin-title {
     display: grid;
-    flex: 1;
+    grid-template-columns: 77px auto;
+    gap: var(--space-m);
   }
 
   .tags {
-    display: flex;
     list-style: none;
     gap: var(--space-xs);
     padding: 0;
@@ -100,9 +115,15 @@
   }
 
   aside {
+    flex-basis: 16rem;
+    flex-grow: 1;
+  }
+
+  dl {
     background: var(--theme-surface8);
     padding: var(--space-m);
     border-radius: var(--space-m);
+    /* max-width: 16rem; */
   }
 
   dt,

@@ -1,0 +1,12 @@
+name: "wallet-plugin-wombat"
+description: "Wombat wallet plugin for the Wharf Session Kit "
+tags:
+  - wombat
+  - wallet
+  - session
+authorIcon: "https://avatars.githubusercontent.com/u/115573427?s=48&v=4"
+author: WharfKit
+version: "1.0.3"
+lastPublishedDate: "2023-09-19T18:00:00.000Z"
+sourceLink: "https://github.com/wharfkit/wallet-plugin-wombat"
+license: BSD-3

@@ -1,15 +1,19 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { getPlugin } from '$lib/utils';
 import { formatRelativeDate } from '$lib/utils';
+import type { Result } from '@orama/orama';
+import type { PluginDocument } from '$lib/utils/plugins';
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, fetch }) => {
   const { plugin: pluginName } = params
-  const plugin = await getPlugin(pluginName)
 
-  if (!plugin) {
+  const res = await fetch(`/api/plugins/${pluginName}`)
+  if (!res) {
     throw error(404, "Plugin not found")
   }
+
+  const { document }: Result<PluginDocument> = await res.json()
+  const plugin = document
 
   const formattedPlugin = {
     ...plugin,

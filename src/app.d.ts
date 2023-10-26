@@ -142,4 +142,5 @@ type WharfkitPlugin = {
 type PluginQueryOptions = {
   tag?: string
   sort?: string
+  query?: string
 }
