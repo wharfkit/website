@@ -48,7 +48,7 @@ The CLI provides a range of commands tailored for different purposes. This secti
 
 ### [Generate ContractKit Code](/docs/utilities/generate-type-script-code-command)
 
-The `generate` command is used to create TypeScript code for use in client applications tailored to a designated Antelope smart contract. The generated code can then be used to interact with the contract in a type-safe manner, provide autocompletion hints for contract data, and serve as an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping).
+The `generate` command is used to create TypeScript code for use in client applications, tailored to a designated Antelope smart contract. The generated code can then be used to interact with the contract in a type-safe manner, provide autocompletion hints for contract data, and serve as an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping).
 
 ### [Create Account](/docs/utilities/create-account-command)
 
