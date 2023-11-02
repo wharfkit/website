@@ -8,7 +8,7 @@ requiresReview: true
 
 # Resource Provider Specification
 
-This document contains revision 1 of the Resource Provider Specification. This specification can be adopted and applied by any Antelope blockchain which has enabled the [only bill first authorizer](/docs/utilities/resource-provider-spec#only-billing-the-first-authorizer) feature enabled, and is natively supported by Wharf's [Session Kit](#) through the use of optional plugins for applications to adopt.
+This document contains revision 1 of the Resource Provider Specification. This specification can be adopted and applied by any Antelope blockchain which has enabled the [only bill first authorizer](/docs/utilities/resource-provider-spec#only-billing-the-first-authorizer) feature enabled, and is natively supported by Wharf's [Session Kit](/docs/session-kit) through the use of optional plugins for applications to adopt.
 
 ## Overview
 
@@ -39,7 +39,7 @@ An overview of the overall architecture is illustrated in the diagram below.
 
 ![logic-flow](https://assets.wharfkit.com/resource-provider.png)
 
-The standard is designed to work with any combination of a supported SDK, a service provider, and optionally enhanced by adoption by the user's wallet/signer. The blockchain itself requires no support or knowledge of these processes in order to receive the transaction.
+The standard is designed to work with any combination of a supported SDK, a service provider, and optionally enhanced by adoption by the user's wallet/signer. The SDKs can gracefully fail continuing on with the transaction if the service provider fails to respond. The blockchain itself requires no support or knowledge of these processes in order to receive the transaction.
 
 ## Specification
 
@@ -53,11 +53,11 @@ The API listens for POST requests to a specific URL:
 /v1/resource_provider/request_transaction
 ```
 
-The POST body of this request will always contain a `signer` for use replacing any placeholder values, as well as one of three different variants of a transaction:
+The POST body of this request will always contain a `signer` for use replacing any placeholder values, as well as one of three different representations of a transaction:
 
-- A Signing Request payload
-- A Packed Transaction
-- A raw Transaction
+- A [Signing Request](https://github.com/greymass/eosio-signing-request/) payload
+- A [PackedTransaction](/docs/antelope/transaction#packedtransaction)
+- A [Transaction](/docs/antelope/transaction#transaction-1)
 
 Each of these formats and their request payloads are outlined in the following sections.
 
@@ -77,7 +77,7 @@ A signing request payload may be passed as the `request` parameter. Any placehol
 
 #### Packed Transaction
 
-A [PackedTransaction](#) may be passed as the `packedTransaction` value along with the `signer`. The `signatures` array within the transaction within the packed transaction will be empty since the resource provider will provide the first signature.
+A [PackedTransaction](/docs/antelope/transaction#packedtransaction) may be passed as the `packedTransaction` value along with the `signer`. The `signatures` array within the transaction within the packed transaction will be empty since the resource provider will provide the first signature.
 
 ```json
 {
@@ -96,7 +96,7 @@ A [PackedTransaction](#) may be passed as the `packedTransaction` value along wi
 
 #### Transaction
 
-A raw [Transaction](#) object without signatures may also be passed alongside the `signer` value.
+A raw [Transaction](/docs/antelope/transaction#transaction-1) object without signatures may also be passed alongside the `signer` value.
 
 ```json
 {
@@ -120,13 +120,13 @@ A raw [Transaction](#) object without signatures may also be passed alongside th
 
 ### API Response
 
-The resource provider API endpoint will respond with one of three potential types based on business logic it internally defines. Each of these responses have different HTTP response status codes mirrored as both the `code` value in the JSON as well as in the API response headers.
+The resource provider API endpoint will respond with one of three potential response types based on business logic it internally defines. Each of these responses have different HTTP response status codes mirrored as both the `code` value in the JSON as well as in the API response headers.
 
-Successful responses will also contain a `data` field which returns a modified transaction as the `request` value and an array of [Signature](#) values as `signatures`. Additional information about any fees applied may also optionally be set in this `data`.
+Successful responses will also contain a `data` field which returns a modified transaction as the `request` value and an array of [Signature](/docs/antelope/signature) values as `signatures`. Additional information about any fees applied may also optionally be set in this `data`.
 
 ##### Code: 200
 
-This response indicates that the request was successful and the resource provider returned a modified transaction with a valid [Signature](#) without charging a fee. A client or SDK interpreting this response should check the array of actions returned in the `data` to ensure it matches the original transaction and only contains an additional [noop action](#) and no errant actions.
+This response indicates that the request was successful and the resource provider returned a modified transaction with a valid [Signature](/docs/antelope/signature) without charging a fee. A client or SDK interpreting this response should check the array of actions returned in the `data` to ensure it matches the original transaction and only contains an additional [noop action](/docs/utilities/resource-provider-spec#the-noop-action) and no errant actions.
 
 ```json
 {
@@ -203,6 +203,28 @@ A dedicated [TransactPlugin](/docs/session-kit/plugin-transact) has been release
 
 [https://github.com/wharfkit/transact-plugin-resource-provider](https://github.com/wharfkit/transact-plugin-resource-provider)
 
+This plugin can be added to a project using Wharf by running:
+
+```bash
+yarn add @wharfkit/transact-plugin-resource-provider
+```
+
+And then including the plugin during the initialization of the Session Kit:
+
+```ts
+import { TransactPluginResourceProvider } from "@wharfkit/transact-plugin-resource-provider"
+
+const args = {
+  // SessionKit Arguments
+}
+
+const options = {
+  transactPlugins: [new TransactPluginResourceProvider()],
+}
+
+const sessionKit = new SessionKit(args, options)
+```
+
 This plugin can be included in any application utilizing Wharf and configured to access a specific resource provider by providing its URL. By default this resource provider plugin defaults to the Fuel API endpoints provided by [Greymass](https://www.greymass.com/products).
 
 ### Resource Providers
@@ -223,9 +245,9 @@ The wallets which currently fully support this standard are:
 
 - [Anchor](https://www.greymass.com/anchor)
 
-### Examples
+### Service Examples
 
-An example resource provider implementation for Revision 1 of the resource provider specification was released to serve as an example of how one might build a service to provide these types of resources.
+An example resource provider service implementation for Revision 1 of the resource provider specification was released to serve illustrate how one might build a service to provide these types of resources.
 
 [https://github.com/greymass/eosio-cosigner-example](https://github.com/greymass/eosio-cosigner-example)
 
@@ -247,4 +269,4 @@ In the Resource Provider model these noop actions are used to create lightweight
 
 Antelope-based blockchains have a [protocol feature](https://github.com/EOSIO/eos/issues/6332) named `ONLY_BILL_FIRST_AUTHORIZER` which when enabled changes the network resource billing rules to charge the full cost of a transaction to the first authorizer of the first action. The majority of Antelope-based blockchains have enabled this feature.
 
-The Resource Provider specification utilizes this feature to allow the one specific account to cover the resource costs of the entire transaction, regardless of the other parties involved in the other actions. This is done by prepending a [noop action](#) into the actions array of the transaction and providing a signature by the party assuming the cost of the resources.
+The Resource Provider specification utilizes this feature to allow the one specific account to cover the resource costs of the entire transaction, regardless of the other parties involved in the other actions. This is done by prepending a [noop action](/docs/utilities/resource-provider-spec#the-noop-action) into the actions array of the transaction and providing a signature by the party assuming the cost of the resources.
