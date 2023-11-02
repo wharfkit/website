@@ -22,7 +22,7 @@ This will result in a Jungle 4 Testnet account being created with a randomly gen
 
 > **SECURITY WARNING**: Note that by using this command through `npx`, your computer will be automatically downloading and using the latest version of `@wharfkit/cli` and then generating the private key locally. This approach is the easiest, but could be vulnerable to situations that may compromise the keys. Building `@wharfkit/cli` from source, reviewing the dependencies, and running in an isolated/secure environment can improve the security. In most situations these keys will be fine for development purposes, but to securely generate keys that will be associated with anything of real value, please consider using other methods of key generation or an HSM.
 
-> **IMPORTANT**: Save this private key, as it's the only way to access this account. Losing this key will prevent you from accessing this Testnet account.
+> **IMPORTANT**: Save this private key, as it's the only way to access this account. Losing this key will prevent you from accessing this testnet account.
 
 ## Options
 
