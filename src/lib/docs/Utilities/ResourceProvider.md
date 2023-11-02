@@ -8,7 +8,7 @@ requiresReview: true
 
 # Resource Provider Specification
 
-This document contains revision 1 of the Resource Provider Specification. This specification can be adopted and applied by any Antelope blockchain which has enabled the [only bill first authorizer](/docs/utilities/resource-provider-spec#only-billing-the-first-authorizer) feature enabled, and is natively supported by Wharf's [Session Kit](/docs/session-kit) through the use of optional plugins for applications to adopt.
+This document contains Revision 1 of the Resource Provider Specification. This specification can be adopted and applied by any Antelope blockchain which has enabled the [only bill first authorizer](/docs/utilities/resource-provider-spec#only-billing-the-first-authorizer) feature enabled, and is natively supported by Wharf's [Session Kit](/docs/session-kit) through the use of optional plugins.
 
 ## Overview
 
@@ -22,28 +22,28 @@ The Resource Provider specification provides a workflow, data types, and approac
 
 ### Motivation
 
-The Antelope blockchain resource model is a powerful and flexible tool that allows for granular billing of network resources, but is often too much of a burden for the average end user. Users must manually manage their own CPU, NET, and RAM which introduces a complex learning curve. These users are also encouraged to commit more resources than they will typically use to avoid unexpected resource interruptions while using applications.
+The Antelope blockchain resource model is a powerful and flexible tool that allows for granular billing of network resources, but is often too much of a burden for the average end user. Users must manually manage their own CPU, NET, and RAM, which introduces a complex learning curve. These users are also encouraged to commit more resources than they will typically use, to avoid unexpected resource interruptions while using applications.
 
-The Resource Provider specification defines a set processes which can be deployed to abstract away these complexities and automate the processes, either by providing resources for free or in exchange for a simple fee to cover these costs. This greatly improves the end user experience while still allowing more advanced users to utilize the more complex native resource management systems.
+The Resource Provider specification defines set processes which can be deployed to abstract away these complexities, either by providing resources for free, or in exchange for a simple fee. This greatly improves the end user experience, while still allowing advanced users to utilize the more complex native resource management systems.
 
 ## Architecture
 
 The functionality of a resource provider model depends on 4 independent systems:
 
-- An application, typically using an SDK to automatically perform these requests
-- A resource provider, running an API endpoint thats willing to service requests
-- An end users wallet/signer, which will authorize the transactions for the user
-- The blockchain which will ultimately accept and validate the transaction
+- An application, typically using an SDK to automatically perform these requests.
+- A resource provider, running an API endpoint that's willing to service requests.
+- An end user's wallet/signer, which will authorize the transactions for the user.
+- The blockchain which will ultimately accept and validate the transaction.
 
-An overview of the overall architecture is illustrated in the diagram below.
+An overview of the overall architecture is illustrated in the diagram below:
 
 ![logic-flow](https://assets.wharfkit.com/resource-provider.png)
 
-The standard is designed to work with any combination of a supported SDK, a service provider, and optionally enhanced by adoption by the user's wallet/signer. The SDKs can gracefully fail continuing on with the transaction if the service provider fails to respond. The blockchain itself requires no support or knowledge of these processes in order to receive the transaction.
+The standard is designed to work with any combination of supported SDK and service provider, and is optionally enhanced by adoption of the user's wallet/signer. The SDKs can gracefully fail continuing on with the transaction if the service provider fails to respond. The blockchain itself requires no support or knowledge of these processes in order to receive the transaction.
 
 ## Specification
 
-The design of a resource provider API endpoint consists of a single endpoint which will respond with one of three types of responses. An application or its SDKs will understand how to perform these requests, a service provider will respond to these requests, and a end users wallet/signer will optionally understand how to best display the metadata around this request.
+The design of a resource provider API consists of a single endpoint, which will respond with one of three types of responses. An application or its SDKs will understand how to perform these requests, a service provider will respond to these requests, and an end user's wallet/signer will optionally understand how to best display the metadata around this request.
 
 ### API Request
 
@@ -77,7 +77,7 @@ A signing request payload may be passed as the `request` parameter. Any placehol
 
 #### Packed Transaction
 
-A [PackedTransaction](/docs/antelope/transaction#packedtransaction) may be passed as the `packedTransaction` value along with the `signer`. The `signatures` array within the transaction within the packed transaction will be empty since the resource provider will provide the first signature.
+A [PackedTransaction](/docs/antelope/transaction#packedtransaction) may be passed as the `packedTransaction` value along with the `signer`. The `signatures` array within the packed transaction will be empty, since the resource provider will provide the first signature.
 
 ```json
 {
@@ -120,13 +120,13 @@ A raw [Transaction](/docs/antelope/transaction#transaction-1) object without sig
 
 ### API Response
 
-The resource provider API endpoint will respond with one of three potential response types based on business logic it internally defines. Each of these responses have different HTTP response status codes mirrored as both the `code` value in the JSON as well as in the API response headers.
+The resource provider API endpoint will respond with one of three potential response types, based on business logic it internally defines. Each of these responses has different HTTP response status codes, mirrored as both the `code` value in the JSON as well as in the API response headers.
 
-Successful responses will also contain a `data` field which returns a modified transaction as the `request` value and an array of [Signature](/docs/antelope/signature) values as `signatures`. Additional information about any fees applied may also optionally be set in this `data`.
+Successful responses will also contain a `data` field, which returns a modified transaction as the `request` value and an array of [Signature](/docs/antelope/signature) values as `signatures`. Additional information about any fees applied may also optionally be set in this `data`.
 
 ##### Code: 200
 
-This response indicates that the request was successful and the resource provider returned a modified transaction with a valid [Signature](/docs/antelope/signature) without charging a fee. A client or SDK interpreting this response should check the array of actions returned in the `data` to ensure it matches the original transaction and only contains an additional [noop action](/docs/utilities/resource-provider-spec#the-noop-action) and no errant actions.
+This response indicates that the request was successful and the resource provider returned a modified transaction with a valid [Signature](/docs/antelope/signature) without charging a fee. A client or SDK interpreting this response should check the array of actions returned in the `data` to ensure it matches the original transaction and only contains an additional [noop action](/docs/utilities/resource-provider-spec#the-noop-action), and no errant actions.
 
 ```json
 {
@@ -140,7 +140,7 @@ This response indicates that the request was successful and the resource provide
 
 ##### Code: 400
 
-The 400 response indicates the transaction was rejected by the resource provider and the client or SDK should proceed forward with the transaction as-is. This could occur for any reason, including that the account performing the transaction has sufficient resources of their own or the account has exceeded its usage quote. The `message` field on the response should explain the rationale for the rejection.
+The 400 response indicates the transaction was rejected by the resource provider and the client or SDK should proceed forward with the transaction as-is. This could occur for any reason, including that the account performing the transaction has sufficient resources of their own or the account has exceeded its usage quota. The `message` field on the response should explain the rationale for the rejection.
 
 ```json
 {
@@ -152,7 +152,7 @@ The 400 response indicates the transaction was rejected by the resource provider
 
 ##### Code: 402
 
-A response with the HTTP status code of 402 indicates that the request was successful, but the transaction now includes a transaction fee that must be paid to proceed. The resource provider has modified the transaction to include this fee and additional metadata has been set in the `data` field to explain these charges. The client or SDK should confirm that the costs match the new action(s) in the transaction and potentially prevent the transaction if the fee is too high.
+A response with the HTTP status code of 402 indicates that the request was successful, but the transaction now includes a transaction fee that must be paid to proceed. The resource provider has modified the transaction to include this fee and additional metadata has been set in the `data` field to explain these charges. The client or SDK should confirm that the costs match the new action(s) in the transaction, and potentially prevent the transaction if the fee is too high.
 
 ```json
 {
@@ -174,15 +174,15 @@ A response with the HTTP status code of 402 indicates that the request was succe
 
 Each successful request to a resource provider API endpoint will modify the original transaction that was submitted. This modification could be for a number of reasons, including:
 
-- A [noop action](/docs/utilities/resource-provider-spec#the-noop-action) was prepended to the actions array to make the resource providers account the [first authorizer](/docs/utilities/resource-provider-spec#only-billing-the-first-authorizer) to cover both CPU and NET resource costs of the transaction.
+- A [noop action](/docs/utilities/resource-provider-spec#the-noop-action) was prepended to the actions array to make the resource provider's account the [first authorizer](/docs/utilities/resource-provider-spec#only-billing-the-first-authorizer), to cover both CPU and NET resource costs of the transaction.
 - A token transfer action using a separate contract was appended to the transaction for the resource provider to collect a fee for the service being provided to the end user.
-- A RAM purchase action was appended to the transaction to purchase additional RAM resources from the network that will be allocated to the users account.
+- A RAM purchase action was appended to the transaction to purchase additional RAM resources from the network that will be allocated to the user's account.
 
-Additional transaction modifications not covered here may also be included based on the requirements of the resource provider. The SDKs and clients processing these modified requests can optionally validate these new actions on behalf of the user, to ensure the resource provider meets the standards set by the application developer.
+Additional transaction modifications not covered here may also be included, based on the requirements of the resource provider. The SDKs and clients processing these modified requests can optionally validate these new actions on behalf of the user, to ensure the resource provider meets the standards set by the application developer.
 
 ## Use Cases
 
-The Resource Provider specification offers use cases for a number of different types of entities that may which to provide network resources to users of specific applications and/or blockchains.
+The Resource Provider specification offers use cases for a number of different entities that may provide network resources to users of specific applications and/or blockchains.
 
 A few examples of potential use cases are:
 
@@ -191,19 +191,19 @@ A few examples of potential use cases are:
 - Network operators who need to provide limited free resources for any transaction.
 - Wallet software to improve UX for their users and create a revenue stream.
 
-The methods defined in this specification have broad potential beyond these use cases defined above and may be implemented by any party in which resource management becomes a barrier to adoption.
+The methods defined in this specification have broad potential beyond the use cases defined above, and may be implemented by any party when resource management becomes a barrier to adoption.
 
 ## Implementations
 
-The Resource Provider model has been in use now since 2020 utilizing this Revision 1 specification. As this list continues to grow, pull requests to this documentation are welcome to help expand and illustrate its usage throughout the Antelope ecosystem.
+The Resource Provider model has now been in use since 2020, utilizing this Revision 1 specification. As this list continues to grow, pull requests to this documentation are welcome to help expand and illustrate its usage throughout the Antelope ecosystem.
 
 ### Application/SDKs
 
-A dedicated [TransactPlugin](/docs/session-kit/plugin-transact) has been released for the Wharf [Session Kit](/docs/session-kit) which can be used to automatically request resources for transactions on behalf of any user. This plugin utilizes the API specification outlined in this document to request that transactions be covered by a resource provider.
+A dedicated [TransactPlugin](/docs/session-kit/plugin-transact) has been released for the Wharf [Session Kit](/docs/session-kit), which can be used to automatically request resources for transactions on behalf of any user. This plugin utilizes the API specification outlined in this document to request that transactions be covered by a resource provider.
 
 [https://github.com/wharfkit/transact-plugin-resource-provider](https://github.com/wharfkit/transact-plugin-resource-provider)
 
-This plugin can be added to a project using Wharf by running:
+This plugin can be added to any project using Wharf by running:
 
 ```bash
 yarn add @wharfkit/transact-plugin-resource-provider
@@ -225,13 +225,13 @@ const options = {
 const sessionKit = new SessionKit(args, options)
 ```
 
-This plugin can be included in any application utilizing Wharf and configured to access a specific resource provider by providing its URL. By default this resource provider plugin defaults to the Fuel API endpoints provided by [Greymass](https://www.greymass.com/products).
+This plugin can be included in any application utilizing Wharf, and configured to access a specific resource provider by providing its URL. This resource provider plugin defaults to the Fuel API endpoints provided by [Greymass](https://www.greymass.com/products).
 
 ### Resource Providers
 
-A number of deployments of following this standard exist within the Antelope ecosystem, many of which are used only for specific applications and some of which are general purpose for any application to make use of.
+A number of deployments following this standard exist within the Antelope ecosystem, many of which are used only for specific applications, and some of which are general-purpose for any application to make use of.
 
-The general purpose resource providers compatible with all applications are listed below:
+The general-purpose resource providers compatible with all applications are listed below:
 
 - Fuel: Available for EOS, Telos, WAX
 
@@ -239,7 +239,7 @@ Additional service providers will be added as new services come online.
 
 ### Wallets
 
-While any wallet/signer can sign these types of transactions, wallets who implement the metadata from the resource providers can display this data to end users to help inform them of the fees being paid and improve the user experience.
+While any wallet/signer can sign these types of transactions, wallets that implement the metadata from the resource providers can display this data to end users to help inform them of the fees being paid and improve their user experience.
 
 The wallets which currently fully support this standard are:
 
@@ -247,7 +247,7 @@ The wallets which currently fully support this standard are:
 
 ### Service Examples
 
-An example resource provider service implementation for Revision 1 of the resource provider specification was released to serve illustrate how one might build a service to provide these types of resources.
+An example resource provider service implementation for Revision 1 of the resource provider specification was released to illustrate how one might build a service to provide these types of resources.
 
 [https://github.com/greymass/eosio-cosigner-example](https://github.com/greymass/eosio-cosigner-example)
 
@@ -255,18 +255,18 @@ This example contains no business logic, but illustrates how to receive the inco
 
 ## Backwards Compatibility
 
-From a wallet/signer perspective, these transactions are received like any other transaction that requires a signature. Additional metadata may optionally passed from the application to signer to improve UX, but this data is not required for the resource provider model to function.
+From a wallet/signer perspective, these transactions are received like any other transaction that requires a signature. Additional metadata may optionally be passed from the application to the signer to improve UX, but this data is not required for the resource provider model to function.
 
 ## Appendix
 
 ### The noop action
 
-The term [noop](<https://en.wikipedia.org/wiki/NOP_(code)>) is a computer science term which means "no operation", or an operation that does nothing. On Antelope-based blockchains this is a smart contract action which performs no operations. These actions are often defined in the ABI of a smart contract but no code is written or compiled into the WASM for it.
+The term [noop](<https://en.wikipedia.org/wiki/NOP_(code)>) is a computer science term which means "no operation", or an operation that does nothing. On Antelope-based blockchains this is a smart contract action which performs no operations. These actions are often defined in the ABI of a smart contract, but no code is written or compiled into the WASM for it.
 
-In the Resource Provider model these noop actions are used to create lightweight actions to prepend into transactions with the explicit purpose of adding a specific authorization for use with the `ONLY_BILL_FIRST_AUTHORIZER` protocol feature.
+In the Resource Provider model, these noop actions are used to create lightweight actions to prepend into transactions, with the explicit purpose of adding a specific authorization for use with the `ONLY_BILL_FIRST_AUTHORIZER` protocol feature.
 
 ### Only billing the first authorizer
 
-Antelope-based blockchains have a [protocol feature](https://github.com/EOSIO/eos/issues/6332) named `ONLY_BILL_FIRST_AUTHORIZER` which when enabled changes the network resource billing rules to charge the full cost of a transaction to the first authorizer of the first action. The majority of Antelope-based blockchains have enabled this feature.
+Antelope-based blockchains have a [protocol feature](https://github.com/EOSIO/eos/issues/6332) named `ONLY_BILL_FIRST_AUTHORIZER`, which when enabled changes the network resource billing rules to charge the full cost of a transaction to the first authorizer of the first action. The majority of Antelope-based blockchains have enabled this feature.
 
-The Resource Provider specification utilizes this feature to allow the one specific account to cover the resource costs of the entire transaction, regardless of the other parties involved in the other actions. This is done by prepending a [noop action](/docs/utilities/resource-provider-spec#the-noop-action) into the actions array of the transaction and providing a signature by the party assuming the cost of the resources.
+The Resource Provider specification utilizes this feature to allow one specific account to cover the resource costs of the entire transaction, regardless of the other parties involved in the other actions. This is done by prepending a [noop action](/docs/utilities/resource-provider-spec#the-noop-action) into the actions array of the transaction and providing a signature by the party assuming the cost of the resources.
