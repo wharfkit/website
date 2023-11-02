@@ -4,25 +4,21 @@ description: A Command Line Interface (CLI) tool designed to assist developers b
 category: Utilities
 published: true
 order: 1
-requiresReview: true
 ---
 
 # Command Line Tool Overview
 
 A Command Line Interface (CLI) tool designed to assist developers building on Antelope blockchains.
 
-It's primary features are:
+Its primary features are:
 
 - Generation of Contract Kit code for specified Antelope smart contracts.
 - Creation of new Antelope blockchain testnet accounts using given or generated keys.
 - Generation of Antelope blockchain key pairs.
 
-This application runs using [Node.js](https://nodejs.org/en) and can either be
+This application runs using [Node.js](https://nodejs.org/en) and can either be quickly accessed with [npx](https://docs.npmjs.com/cli/v10/commands/npx), or built and installed locally.
 
-- Quickly accessed with [npx](https://docs.npmjs.com/cli/v10/commands/npx)
-- Built and installed locally
-
-This documentation will cover some of the CLI and its features. Also please refer to the `help` command for additional information.
+This documentation will cover some of the CLI and its features. You can also refer to the `help` command for additional information.
 
 ```bash
 npx @wharfkit/cli help                                                                                                                                                                                 ✔ 
@@ -48,15 +44,15 @@ Commands:
 
 ## Commands
 
-The CLI provides a range of commands tailored for different purposes. This section will introduce you to the major commands and their functionalities:
+The CLI provides a range of commands tailored for different purposes. This section will introduce the major commands and their functionalities:
 
 ### [Generate ContractKit Code](/docs/utilities/generate-type-script-code-command)
 
-The `generate` command is used to create TypeScript code for use in client applications tailored for a designated Antelope smart contract. The generated code can then be used to interact with the contract in a type-safe manner, provide autocompletion hints for contract data, and serve as an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping).
+The `generate` command is used to create TypeScript code for use in client applications tailored to a designated Antelope smart contract. The generated code can then be used to interact with the contract in a type-safe manner, provide autocompletion hints for contract data, and serve as an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping).
 
 ### [Create Account](/docs/utilities/create-account-command)
 
-With the `account` command developers can easily create a new testnet accounts for development and testing. This process will randomly generate account names and keys for quick access or allow additional parameters to be specified to select these values.
+With the `account` command, developers can easily create new testnet accounts for development and testing. This process will randomly generate account names and keys for quick access, but also allows additional parameters to be specified to select these values.
 
 ### [Generate Keys](/docs/utilities/generate-keys-command)
 
