@@ -1,15 +1,14 @@
 ---
 title: CLI Keys
-description: Generate a fresh pair of public and private keys for EOSIO blockchain interactions.
+description: Generate a fresh pair of public and private keys for Antelope blockchain interactions.
 category: Utilities
 published: true
 order: 3
-requiresReview: true
 ---
 
 # Generate Keys
 
-The `keys` command lets you produce a new set of public and private keys, which are essential for Antelope blockchain operations, such as account creation, transaction signing, and others.
+The `keys` command lets you produce a new set of public and private keys, which are essential for Antelope blockchain operations such as account creation and transaction signing, among others.
 
 ## Usage
 
