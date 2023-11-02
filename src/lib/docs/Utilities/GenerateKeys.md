@@ -4,6 +4,7 @@ description: Generate a fresh pair of public and private keys for EOSIO blockcha
 category: Utilities
 published: true
 order: 3
+requiresReview: true
 ---
 
 # Generate Keys

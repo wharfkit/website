@@ -4,6 +4,7 @@ description: Create a new Antelope testnet account, optionally providing a publi
 category: Utilities
 published: true
 order: 3
+requiresReview: true
 ---
 
 # Create Account

@@ -4,6 +4,7 @@ description: Generates ContractKit code in TypeScript for a specified smart cont
 category: Utilities
 published: true
 order: 3
+requiresReview: true
 ---
 
 # Generate ContractKit Code

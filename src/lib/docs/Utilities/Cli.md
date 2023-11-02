@@ -4,6 +4,7 @@ description: A Command Line Interface (CLI) tool designed to assist developers b
 category: Utilities
 published: true
 order: 1
+requiresReview: true
 ---
 
 # Command Line Tool Overview
