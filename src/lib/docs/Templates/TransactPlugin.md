@@ -8,11 +8,11 @@ order: 4
 
 # Transact Plugin Template
 
-The Transact Plugin Template lays out a structured path for developers aspiring to build their own [transaction plugins](/docs/session-kit/transact-plugin) harmonized with the [Wharf SessionKit](/docs/session-kit).
+The Transact Plugin Template is designed to provide developers with a foundational structure to craft their own [transact plugins](/docs/session-kit/plugin-transact) for the [Wharf SessionKit](/docs/session-kit).
 
 ## Usage
 
-### Initiating with the Template
+### Cloning the Repository
 
 To commence:
 
@@ -21,16 +21,16 @@ To commence:
 ```bash
 git clone https://github.com/wharfkit/transact-plugin-template.git transact-plugin-[name]
 ```
-Make sure to substitute `[name]` with the moniker you've chosen for your plugin.
+Replace `[name]` with the desired name for your plugin.
 
-3. Shift to the newly cloned directory:
+3. Navigate to the newly cloned directory:
 ```bash
 cd transact-plugin-[name]
 ```
 
-### Installation Procedure
+### Installing Dependencies
 
-Once retrieved, ensure you assemble all vital dependencies through:
+After cloning, ensure you have all the required dependencies by running:
 ```bash
 npm install
 ```
@@ -39,10 +39,9 @@ npm install
 
 After installation:
 
-1. **Access the `index.ts` file** - Herein lies the essence of your plugin.
-2. **Set a Distinct Identifier** - The `id` property furnishes a singular identifier for the plugin.
-3. **Equip Translations** - The `translations` property integrates localization strings, equipping multi-language support. By default, it adopts the `defaultTranslations` from the included `translations` file.
-4. **Establish Vital Hooks**: Within the `register` method, you can set necessary hooks for the plugin's execution.
-   - **Before Sign Hooks**: Register hooks meant to function before the signing phase. If a UI interaction occurs with an undefined function, an error gets broadcasted.
-   - **After Sign Hooks**: Similarly, set hooks to function after the signing phase. Again, errors are dispatched for undefined functions interacting with the UI.
-   - **After Broadcast Hooks**: Pin down hooks meant to be invoked post-transaction broadcasting. In situations where the plugin communicates with the UI and an undefined function is detected, an error message is broadcasted.
+1. **Access the `index.ts` file** - This is where the core logic of the plugin resides.
+2. **Set a Distinct Identifier** - The `id` attribute serves as a distinct identifier for your plugin.
+3. **Register Hooks**: Within the `register` method, you can seimplement and set necessary hooks for the plugin's execution.
+   - **Before Sign Hooks**: Register hooks that are called before the transaction is signed.
+   - **After Sign Hooks**: Register hooks that are called after the transaction is signed.
+   - **After Broadcast Hooks**: Register hooks that are called after the transaction is broadcasted.
