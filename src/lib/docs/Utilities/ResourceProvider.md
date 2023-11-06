@@ -53,7 +53,7 @@ The API listens for POST requests to a specific URL:
 /v1/resource_provider/request_transaction
 ```
 
-The POST body of this request will always contain a `signer` for use replacing any placeholder values, as well as one of three different representations of a transaction:
+The POST body of this request will always contain a `signer` to replace any placeholder values, as well as one of three different representations of a transaction:
 
 - A [Signing Request](https://github.com/greymass/eosio-signing-request/) payload
 - A [PackedTransaction](/docs/antelope/transaction#packedtransaction)
