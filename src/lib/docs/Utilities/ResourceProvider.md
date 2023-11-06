@@ -3,7 +3,6 @@ title: Resource Provider Spec
 description: A specification to allow 3rd party resource providers to cosign transactions and cover the resource cost of individual transactions.
 category: Utilities
 published: true
-requiresReview: true
 ---
 
 # Resource Provider Specification
