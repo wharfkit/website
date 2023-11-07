@@ -1,8 +1,9 @@
 import { getBlogPosts } from "$lib/utils"
 import { json, error } from "@sveltejs/kit"
 import { postsPerPage } from "$lib/config.js"
+import type { RequestHandler } from './$types'
 
-export const GET = async ({ url }) => {
+export const GET: RequestHandler = async ({ url }) => {
   try {
     const params = url.searchParams
 
