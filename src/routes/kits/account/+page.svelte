@@ -88,7 +88,7 @@
       <h2>Get all the info you need for Antelope accounts.</h2>
       <div class="description">
         <p>
-          The Account Kit works with custom APIs for each Antelope blockchain, so that you can
+          The Account Kit works with custom APIs for each Antelope blockchain, so you can
           easily gather any data you need.
         </p>
         <ul>
@@ -117,7 +117,7 @@
             ><path
               d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path
               d="M9 18c-4.51 2-5-2-7-2" /></svg>
-          See it on Github</a>
+          See It On Github</a>
       </div>
     </div>
   </section>
@@ -127,10 +127,12 @@
       <h2>Interact with token contracts.</h2>
       <div class="description">
         <p>
-          Standard Antelope token contracts can allow your users to perform transactions on the
-          blockchain. The Account Kit makes it simple to set up these transactions by providing
-          account balance information and creating transfer actions. This way, you can provide a
-          seamless transaction experience to your users.
+         You can use standard Antelope token contracts to let 
+        your users perform transactions on the blockchain. 
+        The Account Kit makes it simple to set up these 
+        transactions by providing account balance information 
+        and creating transfer actions. This way, you can provide 
+        a seamless transaction experience to your users.
         </p>
       </div>
       <div class="button-group | cluster">
@@ -226,8 +228,8 @@
       <h2>Take care of resources behind-the-scenes.</h2>
       <div class="description">
         <p>
-          Depending on the chain you’re building on, there are various Antelope resource models that
-          can trip up new users. You can help your users manage their resources or even abstract it
+          There are various Antelope resource models that can trip up new users, depending on the
+          chain you're building on. But you can help your users manage this or even abstract it
           all away with the Account Kit, which assists with resource calculations by:
         </p>
         <ul>
