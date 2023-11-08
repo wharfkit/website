@@ -180,7 +180,7 @@ With all the code in place, give it a try! Run the following command from your t
 node index.js
 ```
 
-Provided the testing account still has tokens at the time you're reading this guide, the transaction should be successfully executed on the Jungle 4 Testnet, and the link it provides  will show you the results on the network. The output of the script will look like this:
+Provided the testing account still has tokens at the time you're reading this guide, the transaction should be successfully executed on the Jungle 4 Testnet, and the link it provides will show you the results on the network. The output of the script will look like this:
 
 ```
 Transaction was successfully broadcast!

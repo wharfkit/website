@@ -24,12 +24,12 @@ export const db: Promise<Orama<typeof pluginSchema>> = create({
     if (browser) return db
     console.log("Orama database instance created")
     const plugins: WharfkitPlugin[] = []
-    const files = import.meta.glob("/src/lib/plugins/**.yaml", {as: 'raw', eager: true})
+    const files = import.meta.glob("/src/lib/plugins/**.yaml", { as: "raw", eager: true })
 
-        for (const path in files) {
-            const content = yaml.load(files[path]) as WharfkitPlugin
-            plugins.push(content)
-        }
+    for (const path in files) {
+      const content = yaml.load(files[path]) as WharfkitPlugin
+      plugins.push(content)
+    }
 
     console.log("Loaded plugins from YAML")
     await insertMultiple(db, plugins)

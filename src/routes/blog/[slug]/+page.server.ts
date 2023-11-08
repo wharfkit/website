@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit"
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad } from "./$types"
 import { getBlogPosts } from "$lib/utils"
 import { getImage } from "$lib/utils/blog"
 
@@ -23,4 +23,4 @@ export const load = (async ({ params }) => {
   } catch (e) {
     throw error(404)
   }
-}) satisfies PageServerLoad;
+}) satisfies PageServerLoad

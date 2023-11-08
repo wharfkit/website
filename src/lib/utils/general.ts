@@ -32,10 +32,10 @@ type KitsRedirects = {
 }
 
 const kits: KitsRedirects = {
-  "sessionkit": "session-kit",
-  "accountkit": "account-kit",
-  "contractkit": "contract-kit",
-  "starterkit": "starter-kit",
+  sessionkit: "session-kit",
+  accountkit: "account-kit",
+  contractkit: "contract-kit",
+  starterkit: "starter-kit",
 }
 export function handleKitRedirect(rootPath: string, params: LayoutParams) {
   if (!params.section) return
@@ -43,12 +43,11 @@ export function handleKitRedirect(rootPath: string, params: LayoutParams) {
   if (params.section in kits) {
     let path = rootPath.concat("/", kits[params.section])
     if (params.slug) {
-      path = path.concat('/', params.slug)
+      path = path.concat("/", params.slug)
     }
     throw redirect(301, path)
   }
 }
-
 
 // Format a date string to a relative date in the format of "1 day ago"
 export function formatRelativeDate(inputDate: string) {

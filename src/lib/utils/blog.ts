@@ -1,17 +1,15 @@
 import slugify from "@sindresorhus/slugify"
 import { postsPerPage } from "../config"
 
-
 const defaultImage =
   "https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-vector-no-bg.svg"
-
 
 export const getThumbnail = (url: string) => {
   const videoID = /^.*\/(.*)$/m.exec(url)[1]
   return `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
 }
 
-export const getImage = (metadata: { [key: string]: any; } | undefined) => {
+export const getImage = (metadata: { [key: string]: any } | undefined) => {
   if (!metadata) {
     return defaultImage
   } else if (metadata.image) {
@@ -23,11 +21,11 @@ export const getImage = (metadata: { [key: string]: any; } | undefined) => {
   }
 }
 
-const chronologicalSort = (a: { date: string; }, b: { date: string; }) => {
+const chronologicalSort = (a: { date: string }, b: { date: string }) => {
   return Number(new Date(a.date)) - Number(new Date(b.date))
 }
 
-const reverseChronologicalSort = (a: { date: string; }, b: { date: string; }) => {
+const reverseChronologicalSort = (a: { date: string }, b: { date: string }) => {
   return Number(new Date(b.date)) - Number(new Date(a.date))
 }
 
@@ -39,7 +37,7 @@ export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise
 
   const allPosts = await Promise.all(
     iterablePosts.map(async ([source, resolver]) => {
-      const resolved = await resolver() as MarkdownFile
+      const resolved = (await resolver()) as MarkdownFile
       const { metadata } = resolved
 
       const content = resolved.default.render().html
@@ -49,7 +47,7 @@ export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise
       })
 
       const sourcePath = source.slice(11, -3)
-      const pathBase = '/blog/'
+      const pathBase = "/blog/"
       const slug = slugify(metadata?.title)
       const path = pathBase + slug
       const image = getImage(metadata)
@@ -89,7 +87,6 @@ export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise
   return sortedPosts
 }
 
-
 export async function getTotalBlogPosts() {
   const allPostFiles = import.meta.glob("/src/routes/blog/**/*.md")
   return Object.keys(allPostFiles).length
@@ -101,7 +98,7 @@ export async function getTotalBlogPostsByTag() {
 
   const allPosts = await Promise.all(
     iterablePosts.flatMap(async ([source, resolver]) => {
-      const resolved = await resolver() as MarkdownFile
+      const resolved = (await resolver()) as MarkdownFile
       const { metadata } = resolved
 
       if (!metadata || !metadata.tags) {

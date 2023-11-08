@@ -1,8 +1,8 @@
-import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
-import { formatRelativeDate } from '$lib/utils';
-import type { Result } from '@orama/orama';
-import type { PluginDocument } from '$lib/utils/plugins';
+import { error } from "@sveltejs/kit"
+import type { PageServerLoad } from "./$types"
+import { formatRelativeDate } from "$lib/utils"
+import type { Result } from "@orama/orama"
+import type { PluginDocument } from "$lib/utils/plugins"
 
 export const load = (async ({ params, fetch }) => {
   const { plugin: pluginName } = params
@@ -17,7 +17,7 @@ export const load = (async ({ params, fetch }) => {
 
   const formattedPlugin = {
     ...plugin,
-    lastPublishedDate: formatRelativeDate(plugin.lastPublishedDate)
+    lastPublishedDate: formatRelativeDate(plugin.lastPublishedDate),
   }
-  return { plugin: formattedPlugin };
-}) satisfies PageServerLoad;
+  return { plugin: formattedPlugin }
+}) satisfies PageServerLoad

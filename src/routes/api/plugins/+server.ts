@@ -1,6 +1,6 @@
 import { getAllPlugins } from "$lib/server/plugins"
 import { json, error } from "@sveltejs/kit"
-import type { RequestHandler } from './$types'
+import type { RequestHandler } from "./$types"
 
 export const GET: RequestHandler = async ({ url }) => {
   try {
@@ -23,9 +23,7 @@ export const GET: RequestHandler = async ({ url }) => {
     const allPlugins = await getAllPlugins(options)
 
     return json(allPlugins)
-
   } catch (e) {
     throw error(500, "Error getting plugins" + e)
   }
 }
-

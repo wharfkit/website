@@ -12,17 +12,17 @@ declare module "*.md"
 
 interface MarkdownFile {
   metadata?: {
-    [key: string]: any;
-  };
+    [key: string]: any
+  }
   default: {
     render: () => {
-      html: string;
-    };
-  };
+      html: string
+    }
+  }
 }
 
 interface MarkdownMetadata {
-  [key: string]: any;
+  [key: string]: any
 }
 
 interface DocumentationArticle {
@@ -127,16 +127,16 @@ interface KitPage {
 }
 
 type WharfkitPlugin = {
-  name: string;
-  description: string;
-  tags: string[];
-  author: string;
-  authorIcon: string;
-  version: string;
-  lastPublishedDate: string;
-  sourceLink: string;
-  license: string;
-  link: string;
+  name: string
+  description: string
+  tags: string[]
+  author: string
+  authorIcon: string
+  version: string
+  lastPublishedDate: string
+  sourceLink: string
+  license: string
+  link: string
 }
 
 type PluginQueryOptions = {

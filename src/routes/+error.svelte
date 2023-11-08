@@ -9,9 +9,9 @@
     {#if $page.status === 404}
       <h1 class="title">Lost in the Digital Swell: <br /> The Ballad of the 404</h1>
     {:else}
-      <h1 class="title" id='error-title'>Error {$page.status}</h1>
+      <h1 class="title" id="error-title">Error {$page.status}</h1>
     {/if}
-    <p class="subtitle" id='error-message'>
+    <p class="subtitle" id="error-message">
       {$page.status} - {$page.error?.message}
     </p>
   </div>
@@ -66,8 +66,9 @@ So let this shanty be a warning, to sailors near and far, Beware the treacherous
     font-size: var(--fs-2);
   }
 
-  #error-title, #error-message {
-      color: var(--color-primary-800);
+  #error-title,
+  #error-message {
+    color: var(--color-primary-800);
   }
 
   pre {

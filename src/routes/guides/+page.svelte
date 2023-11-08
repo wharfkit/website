@@ -5,7 +5,10 @@
 <main>
   <h1>Guides</h1>
 
-  <p>Welcome to Wharf's Guides, where you can learn how to use Wharf to interact with Antelope-based blockchains. Use the sidebar on the left to select a category or specific guide and get started!</p>
+  <p>
+    Welcome to Wharf's Guides, where you can learn how to use Wharf to interact with Antelope-based
+    blockchains. Use the sidebar on the left to select a category or specific guide and get started!
+  </p>
 
   <hr />
 
