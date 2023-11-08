@@ -1,12 +1,12 @@
 name: "transact-plugin-resource-provider"
 description: "A TransactPlugin for the Wharf Session Kit. Attempt to automatically resolve resource issues using a 3rd party Resource Provider API before a transaction is signed."
 tags:
-  - transact
-  - resource
-  - session
+  - "transact"
+  - "resource"
+  - "session"
 authorIcon: "https://avatars.githubusercontent.com/u/115573427?s=48&v=4"
-author: WharfKit
+author: "WharfKit"
 version: "1.0.1"
 lastPublishedDate: "2023-09-08:00:00.000Z"
-sourceLink: https://github.com/wharfkit/transact-plugin-resource-provider
-license: BSD-3
+sourceLink: "https://github.com/wharfkit/transact-plugin-resource-provider"
+license: "BSD-3"

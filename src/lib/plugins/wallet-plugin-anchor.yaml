@@ -1,12 +1,12 @@
 name: "wallet-plugin-anchor"
 description: "A WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with the Anchor authenticator."
 tags:
-  - anchor
-  - wallet
-  - session
+  - "anchor"
+  - "wallet"
+  - "session"
 authorIcon: "https://avatars.githubusercontent.com/u/115573427?s=48&v=4"
-author: WharfKit
+author: "WharfKit"
 version: "1.1.0-rc1"
 lastPublishedDate: "2023-09-19T18:00:00.000Z"
-sourceLink: https://github.com/wharfkit/wallet-plugin-anchor
-license: BSD-3
+sourceLink: "https://github.com/wharfkit/wallet-plugin-anchor"
+license: "BSD-3"

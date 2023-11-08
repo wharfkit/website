@@ -1,11 +1,11 @@
 name: "login-plugin-template"
 description: "A template to create a LoginPlugin for use during a login call within the @wharfkit/session library."
 tags:
-  - login
-  - session
+  - "login"
+  - "session"
 authorIcon: "https://avatars.githubusercontent.com/u/115573427?s=48&v=4"
-author: WharfKit
+author: "WharfKit"
 version: ""
-lastPublishedDate: ""
+lastPublishedDate: "2023-11-08"
 sourceLink: "https://github.com/wharfkit/login-plugin-template"
-license: BSD-3
+license: "BSD-3"
