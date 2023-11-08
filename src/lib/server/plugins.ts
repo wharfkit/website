@@ -1,5 +1,4 @@
 import * as yaml from "js-yaml"
-import * as fs from "node:fs"
 import { create, insertMultiple, search } from "@orama/orama"
 import type { Orama, Results, SearchParams, TypedDocument } from "@orama/orama"
 import { browser } from "$app/environment"
@@ -14,7 +13,6 @@ const pluginSchema = {
   version: "string",
   sourceLink: "string",
   license: "string",
-  link: "string",
 } as const
 
 export type PluginDocument = TypedDocument<Orama<typeof pluginSchema>>
@@ -26,19 +24,18 @@ export const db: Promise<Orama<typeof pluginSchema>> = create({
     if (browser) return db
     console.log("Orama database instance created")
     const plugins: WharfkitPlugin[] = []
-    const files = fs.readdirSync("src/lib/plugins")
-    files.forEach((file) => {
-      const plugin = yaml.load(
-        fs.readFileSync("src/lib/plugins".concat("/", file), "utf8")
-      ) as WharfkitPlugin
-      plugins.push(plugin)
-    })
+    const files = import.meta.glob("/src/lib/plugins/**.yaml", {as: 'raw', eager: true})
+
+        for (const path in files) {
+            const content = yaml.load(files[path]) as WharfkitPlugin
+            plugins.push(content)
+        }
+
     console.log("Loaded plugins from YAML")
     await insertMultiple(db, plugins)
     console.log("Inserted plugins into database")
     return db
   } catch (error) {
-    console.log(error)
     return db
   }
 })
