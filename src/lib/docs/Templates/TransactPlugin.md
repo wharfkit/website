@@ -12,36 +12,33 @@ The Transact Plugin Template is designed to provide developers with a foundation
 
 ## Usage
 
-### Cloning the Repository
+There are two ways to use this template:
 
-To commence:
+### Option 1: Use the GitHub Template Clone Feature
+   1. Navigate to the [transact plugin template repository](https://github.com/wharfkit/transact-plugin-template) on GitHub.
+   2. Click on the `Use this template` button to create a new repository based on this template.
+   3. Follow the prompts to set up your new repository.
 
-1. Initiate your terminal or command interface.
-2. Clone the template repository via:
-```bash
-git clone https://github.com/wharfkit/transact-plugin-template.git transact-plugin-[name]
-```
-Replace `[name]` with the desired name for your plugin.
-
-3. Navigate to the newly cloned directory:
-```bash
-cd transact-plugin-[name]
-```
+### Option 2: Cloning the Repository Manually
+   1. Initiate your terminal or command interface.
+   2. Clone the template repository via:
+      ```bash
+      git clone https://github.com/wharfkit/transact-plugin-template.git transact-plugin-[name]
+      ```
+      Replace `[name]` with the desired name for your plugin.
+   3. Navigate to the newly cloned directory:
+      ```bash
+      cd transact-plugin-[name]
+      ```
 
 ### Installing Dependencies
 
-After cloning, ensure you have all the required dependencies by running:
+After setting up your plugin, install all the required dependencies using yarn:
+
 ```bash
-npm install
+yarn install
 ```
 
-### Personalizing the Plugin
+### Adapting the Plugin
 
-After installation:
-
-1. **Access the `index.ts` file** - This is where the core logic of the plugin resides.
-2. **Set a Distinct Identifier** - The `id` attribute serves as a distinct identifier for your plugin.
-3. **Register Hooks**: Within the `register` method, you can seimplement and set necessary hooks for the plugin's execution.
-   - **Before Sign Hooks**: Register hooks that are called before the transaction is signed.
-   - **After Sign Hooks**: Register hooks that are called after the transaction is signed.
-   - **After Broadcast Hooks**: Register hooks that are called after the transaction is broadcasted.
+For guidance on customizing your plugin, please refer to our detailed development [documentation](/docs/session-kit/plugin-transact#development).

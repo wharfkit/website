@@ -12,35 +12,33 @@ The Login Plugin Template is designed to provide developers with a foundational 
 
 ## Usage
 
-### Cloning the Repository
+There are two ways to use this template:
 
-To use this template:
+### Option 1: Use the GitHub Template Clone Feature
+   1. Navigate to the [login plugin template repository](https://github.com/wharfkit/login-plugin-template) on GitHub.
+   2. Click on the `Use this template` button to create a new repository based on this template.
+   3. Follow the prompts to set up your new repository.
 
-1. Launch your terminal or command interface.
-2. Clone the template repository with:
-```bash
-git clone https://github.com/wharfkit/login-plugin-template.git login-plugin-[name]
-```
-Replace `[name]` with the desired name for your plugin.
-
-3. Navigate to the newly cloned directory:
-```bash
-cd login-plugin-[name]
-```
+### Option 2: Cloning the Repository Manually
+   1. Launch your terminal or command interface.
+   2. Clone the template repository with:
+      ```bash
+      git clone https://github.com/wharfkit/login-plugin-template.git login-plugin-[name]
+      ```
+      Replace `[name]` with the desired name for your plugin.
+   3. Navigate to the newly cloned directory:
+      ```bash
+      cd login-plugin-[name]
+      ```
 
 ### Installing Dependencies
 
-After cloning, ensure you have all the required dependencies by running:
+After setting up your plugin, install all the required dependencies using yarn:
+
 ```bash
-npm install
+yarn install
 ```
 
 ### Adapting the Plugin
 
-Once your plugin is set up, you can begin customizing it to suit your needs.
-
-1. **Open the `index.ts` file** - This is where the core logic of the plugin resides.
-2. **Assign a Unique Identifier** - The `id` attribute serves as a distinct identifier for your plugin.
-3. **Register Hooks**: The `register` method lets you pin down necessary hooks for the plugin's operation.
-   - **Before Login Hooks**: Register hooks that are called before the login process.
-   - **After Login Hooks**: Similarly, register hooks that are called post-login.
+For guidance on customizing your plugin, please refer to our detailed development [documentation](/docs/session-kit/plugin-login#development).

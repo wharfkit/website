@@ -12,38 +12,33 @@ The Wallet Plugin Template is designed to provide developers with a foundational
 
 ## Usage
 
-### Cloning the Repository
+There are two ways to use this template:
 
-To use this template:
+### Option 1: Use the GitHub Template Clone Feature
+   1. Navigate to the [wallet plugin template repository](https://github.com/wharfkit/wallet-plugin-template) on GitHub.
+   2. Click on the `Use this template` button to create a new repository based on this template.
+   3. Follow the prompts to set up your new repository.
 
-1. Launch your terminal or command interface.
-2. Clone the template repository with:
-```bash
-git clone https://github.com/wharfkit/wallet-plugin-template.git wallet-plugin-[name]
-```
-Replace `[name]` with the desired name for your plugin.
-
-3. Navigate to the newly cloned directory:
-```bash
-cd wallet-plugin-[name]
-```
+### Option 2: Cloning the Repository Manually
+   1. Launch your terminal or command interface.
+   2. Clone the template repository with:
+      ```bash
+      git clone https://github.com/wharfkit/wallet-plugin-template.git wallet-plugin-[name]
+      ```
+      Replace `[name]` with the desired name for your plugin.
+   3. Navigate to the newly cloned directory:
+      ```bash
+      cd wallet-plugin-[name]
+      ```
 
 ### Installing Dependencies
 
-After cloning, ensure you have all the required dependencies by running:
+After setting up your plugin, install all the required dependencies using yarn:
+
 ```bash
-npm install
+yarn install
 ```
 
 ### Adapting the Plugin
 
-Once your plugin is set up, you can begin customizing it to suit your needs.
-
-1. **Open the `index.ts` file** - This is where the core logic of the plugin resides.
-2. **Adapt Configuration Attributes** - The `config` entity outlines the plugin's functionality. For instance, if you want the user interface to present a chain selector, set `requiresChainSelect` to `true` and if you want the permission to get selected before the plugin is used, set `requiresPermissionSelect` to `true`.
-3. **Revise Metadata** - The `metadata` structure informs the UI about the plugin. This is where you define your plugin's name, a brief description, its logo, and the plugin's main and download URLs.
-4. **Determine Unique Identifier and Title** - The `id` and `name` respectively provide a unique string identifier for the plugin and the name it showcases on the UI.
-5. **Implement Wallet Interaction Logic** - Many methods are available to implement, but the most important ones are:
-   - **Login**: The `login` method implements the necessary logic to log in using a wallet and yields the corresponding account name and chain.
-   - **Signing Transactions**: The `sign` function implements the necessary logic to sign transactions and yields the corresponding signature.
-
+For guidance on customizing your plugin, please refer to our detailed development [documentation](/docs/session-kit/plugin-wallet#development).
