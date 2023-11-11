@@ -1,27 +1,8 @@
 <script lang="ts">
+  import { getVideoID } from "$lib/utils/blog"
   export let videolink: string = ""
   export let transcriptlink: string = ""
   let play = false
-
-  const getVideoID = (videolink: string) => {
-    try {
-      const url = new URL(videolink)
-      if (url.hostname.includes("youtube.com")) {
-        const videoId = url.searchParams.get("v")
-        if (videoId) {
-          return videoId
-        }
-        if (url.pathname.includes("/live/")) {
-          return url.pathname.split("/").pop()
-        }
-      } else if (url.hostname.includes("youtu.be")) {
-        return url.pathname.slice(1)
-      }
-    } catch (error) {
-      console.error(error)
-      return ""
-    }
-  }
 
   let videoID = getVideoID(videolink)
   let videoEmbed = `https://www.youtube-nocookie.com/embed/${videoID}?autoplay=1`
