@@ -128,8 +128,8 @@ In order for the `WalletPlugin` to authenticate users, it will need to implement
 
 The `WalletPlugin` will now need to communicate with the external application in order to formulate a response. The goal is for the `login` method to return an object that matches the [WalletPluginLoginResponse](https://wharfkit.github.io/session/interfaces/WalletPluginLoginResponse.html) interface that contains:
 
-- `chain`: A typed [Checksum256](#) indicating the blockchain ID the user is logging in with.
-- `permissionLevel`: A typed [PermissionLevel](#) indicating which account and permission the user has selected.
+- `chain`: A typed [Checksum256](/docs/antelope/checksum) indicating the blockchain ID the user is logging in with.
+- `permissionLevel`: A typed [PermissionLevel](/docs/antelope/permission-level) indicating which account and permission the user has selected.
 
 Once that information is retrieved, it can then be returned to the Session Kit to finish the process.
 
@@ -168,14 +168,14 @@ class WalletPluginExample extends AbstractWalletPlugin {
 
 ### Method: Sign
 
-One of the primary purposes of a `WalletPlugin` is to facilitate the signing of transactions. To do this it must implement the `sign` method, which accepts two parameters: a [ResolvedSigningRequest](#) and a TransactContext.
+One of the primary purposes of a `WalletPlugin` is to facilitate the signing of transactions. To do this it must implement the `sign` method, which accepts two parameters: a `ResolvedSigningRequest` and a TransactContext.
 
 **Note**: If during the [Transact](/docs/session-kit/transact) process the `WalletPlugin` needs to interact with the end user, the [UserInterface](/docs/session-kit/plugin-user-interface) instance provided on the TransactContext can be used to prompt the user.
 
 The `WalletPlugin` will then need to communicate with the external application, relaying the transaction, in order to retrieve a signature. This process should return an object that matches the [WalletPluginSignResponse](https://wharfkit.github.io/session/interfaces/WalletPluginSignResponse.html) interface that contains:
 
-- `signatures`: An array containing one or more [Signature](#) typed objects with signatures authorizing the transaction.
-- `resolved`: An optional [ResolvedSigningRequest](#), in the event that the transaction was modified by the wallet.
+- `signatures`: An array containing one or more [Signature](/docs/antelope/signature) typed objects with signatures authorizing the transaction.
+- `resolved`: An optional `ResolvedSigningRequest`, in the event that the transaction was modified by the wallet.
 
 **Note**: If the `WalletPlugin` or external application modifies the transaction and returns it, it may invalidate any signatures previously created by the [TransactPlugin](/docs/session-kit/plugin-transact) calls that were originally made. We would recommend that the wallet should not modify the transaction when signatures are present already during the signing process and instead write a plugin for Wharf.
 

@@ -6,7 +6,9 @@
 </script>
 
 <a href={path}>
-  <img src={image} alt="blog post header" loading="lazy" />
+  <picture>
+    <img src={image} alt="blog post header" loading="lazy" width="552" height="310" />
+  </picture>
   <p class="tag">{capitalize(tags[0])}</p>
   <h2>{title}</h2>
   <p class="description">{description}</p>
@@ -29,9 +31,17 @@
     font-size: var(--fs-2);
   }
 
-  img {
-    border-radius: var(--border-radius);
+  picture {
+    background: hsl(228, 15%, 18%);
     margin-bottom: var(--space-xs);
+    border-radius: var(--border-radius);
+  }
+
+  img {
+    border-radius: inherit;
+    height: auto;
+    width: auto;
+    color: var(--wharf-blue);
   }
 
   .description {

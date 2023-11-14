@@ -29,13 +29,14 @@
 </script>
 
 <svelte:head>
+  <link rel="preload" as="image" href={newestPost.image} />
   <style>
     /* prettier-ignore */
     body[data-theme="dark"] {
       --footer-background: #262936;
-      --page-background: url("/images/patterns/2545.svg") no-repeat center top -5rem / contain, 
-        linear-gradient(180deg, 
-        #7BE7CE -10rem, 
+      --page-background: url("/images/patterns/2545.svg") no-repeat center top -5rem / contain,
+        linear-gradient(180deg,
+        #7BE7CE -10rem,
         /* #494E62 10rem,  */
         color-mix(in srgb, #494E62 100%, #262936) 10rem,
         color-mix(in srgb, #494E62 60%, #262936) 15rem,
@@ -146,12 +147,23 @@
     list-style: none;
     padding-inline: unset;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); */
+    /* grid-template-columns: 1fr 1fr; */
     column-gap: var(--space-xl);
     row-gap: var(--space-3xl);
   }
 
+  @media screen and (min-width: 600px) {
+    .posts {
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+  }
+
   @media screen and (min-width: 900px) {
+    .posts {
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+
     aside {
       display: block;
       width: 100%;

@@ -70,11 +70,6 @@
 
   <section class="kits | full-bleed">
     <div class="images">
-      <div class="account kit">
-        <a href="/kits/account">
-          <img src={accountKit} alt="account kit icon" />
-        </a>
-      </div>
       <div class="contract kit">
         <a href="/kits/contract">
           <img src={contractKit} alt="contract kit icon" />
@@ -83,6 +78,11 @@
       <div class="session kit">
         <a href="/kits/session">
           <img src={sessionKit} alt="session kit icon" />
+        </a>
+      </div>
+      <div class="account kit">
+        <a href="/kits/account">
+          <img src={accountKit} alt="account kit icon" />
         </a>
       </div>
     </div>
@@ -121,11 +121,9 @@
   </section>
 
   <section class="contract | box stack center">
-    <h4>Looking to build a smart contract?</h4>
-    <p>Wharf can’t help you with that, but we’ve got some friends who can.</p>
-    <a href="https://docs.eosnetwork.com/docs/latest/quick-start/write-a-contract" class="button">
-      Go to the Antelope Developer Portal
-    </a>
+    <h2>Want to keep up with the latest Wharf developments?</h2>
+    <p>Check out our blog for regular video updates and technical previews.</p>
+    <a href="/blog" class="button">Go to the Blog</a>
   </section>
 
   <section class="cards | switcher">
@@ -150,9 +148,9 @@
   </section>
 
   <section class="box stack center">
-    <h2>Want to keep up with the latest Wharf developments?</h2>
+    <h2>Ready to dive in? Wharf's docs have everything you need to start building.</h2>
     <p>Check out our blog for regular video updates and technical previews.</p>
-    <a href="/blog" class="button">Go to the Blog</a>
+    <a href="/docs" class="button">Go to Documentation</a>
   </section>
 
   <!-- <section class="vision | full-bleed">
@@ -215,14 +213,12 @@
 
   .hero h1 {
     font-size: var(--fs-6);
-    color: white;
     max-width: 20ch;
   }
 
   .hero p {
     font-size: var(--fs-1);
     font-weight: 500;
-    color: white;
     max-width: 35ch;
   }
 
@@ -233,6 +229,23 @@
     column-gap: var(--space-l);
     position: relative;
     margin-bottom: var(--space-xl);
+  }
+
+  .images > :nth-child(1) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+    justify-items: end;
+  }
+
+  .images > :nth-child(2) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    justify-items: center;
+  }
+
+  .images > :nth-child(3) {
+    grid-column: 4 / 5;
+    grid-row: 2 / 4;
   }
 
   .images::before {
@@ -258,23 +271,6 @@
 
   .kit a:hover img {
     transform: translateY(-0.5rem);
-  }
-
-  .account.kit {
-    grid-column: 2 / 3;
-    grid-row: 2 / 4;
-    justify-items: end;
-  }
-
-  .contract.kit {
-    grid-column: 3 / 4;
-    grid-row: 1 / 3;
-    justify-items: center;
-  }
-
-  .session.kit {
-    grid-column: 4 / 5;
-    grid-row: 2 / 4;
   }
 
   .center {
@@ -392,14 +388,14 @@
       --kit-bg-source: url("/src/lib/assets/images/Frame-2650.webp");
     }
 
-    .contract.kit::before {
+    .images > :nth-child(2)::before {
       content: url("/src/lib/assets/images/Frame-2588.webp");
       position: absolute;
       top: -25%;
       z-index: -1;
     }
 
-    :global([data-theme="dark"]) .contract.kit::before {
+    :global([data-theme="dark"]) .images > :nth-child(2)::before {
       content: url("/src/lib/assets/images/Frame-2588-dark.webp");
     }
 

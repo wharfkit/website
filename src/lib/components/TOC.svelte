@@ -1,17 +1,18 @@
 <script lang="ts">
+  import { page } from "$app/stores"
   import { activeTocSection } from "$lib/stores"
   import { scrollToTop } from "../utils"
-  export let section: string
-  export let title: string
   export let headings: HeadingNode[]
-
-  const GITHUB_EDIT_URL = `https://github.com/wharfkit/website/edit/master/src/lib/docs/${section}/${title}.md`
+  const GITHUB_EDIT_URL =
+    `https://github.com/wharfkit/website/blob/dev` + $page && $page.data.section.indexPage
+      ? $page.data.section.indexPage.source
+      : ""
 </script>
 
 <nav aria-label="Table of Contents" class="toc">
   <header>
     <button on:click={scrollToTop}>
-      <span>{title}</span>
+      <span>{$page.data.title}</span>
     </button>
   </header>
   <menu>
@@ -20,7 +21,7 @@
         <a
           href={`#${heading.id}`}
           class:active={$activeTocSection === heading.id}
-          on:click={() => ($activeTocSection = heading.id)}
+          on:click={() => ($activeTocSection = heading.id || "")}
           style={heading.elName === "H3" ? "padding-inline-start: var(--space-2xs);" : ""}>
           {heading.text}
         </a>

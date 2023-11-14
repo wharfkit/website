@@ -47,16 +47,16 @@ interface TransactArgs {
 
 Despite all values being optional, one must be specified to define the type of input.
 
-- `action`: Provide a single [Action](#) without the [Transaction](#) data.
-- `actions`: Provide an array of [Actions](#) without the [Transaction](#) data.
-- `transaction`: Provide a complete [Transaction](#) containing [Action(s)](#).
-- `request`: Provide a [SigningRequest](#) object.
+- `action`: Provide a single [Action](/docs/antelope/action) without the [Transaction](/docs/antelope/transaction) data.
+- `actions`: Provide an array of [Actions](/docs/antelope/action) without the [Transaction](/docs/antelope/transaction) data.
+- `transaction`: Provide a complete [Transaction](/docs/antelope/transaction) containing [Action(s)](/docs/antelope/action).
+- `request`: Provide a [SigningRequest](https://github.com/greymass/eosio-signing-request/tree/master/src) object.
 
 Examples of each are provided below.
 
 ### Action
 
-A single [Action](#) may be passed into the `transact` call on the `action` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](#) using this data.
+A single [Action](/docs/antelope/action) may be passed into the `transact` call on the `action` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](/docs/antelope/transaction) using this data.
 
 ```ts
 const arguments = {
@@ -68,7 +68,7 @@ const result = await session.transact(arguments)
 
 ### Action(s)
 
-An array of [Actions](#) may be passed into the `transact` call on the `actions` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](#) using this data.
+An array of [Actions](/docs/antelope/action) may be passed into the `transact` call on the `actions` property of the arguments. The `transact` flow will take the action and form a completed [Transaction](/docs/antelope/transaction) using this data.
 
 ```ts
 const arguments = {
@@ -84,7 +84,7 @@ const result = await session.transact(arguments)
 
 ### Transaction
 
-A complete [Transaction](#) may be passed into the `transact` call on the `transaction` property of the arguments.
+A complete [Transaction](/docs/antelope/transaction) may be passed into the `transact` call on the `transaction` property of the arguments.
 
 ```ts
 const arguments = {
@@ -96,7 +96,7 @@ const result = await session.transact(arguments)
 
 ### Signing Request
 
-A [SigningRequest](#) may be passed into the `transact` call on the `request` property of the arguments. The `transact` flow will take the request and resolve any placeholder data it contains to form a [Transaction](#).
+A [SigningRequest](https://github.com/greymass/eosio-signing-request/tree/master/src) payload may be passed into the `transact` call on the `request` property of the arguments. The `transact` flow will take the request and resolve any placeholder data it contains to form a [Transaction](/docs/antelope/transaction).
 
 ```ts
 const arguments = {
@@ -125,7 +125,7 @@ interface TransactOptions {
 
 ### ABIs
 
-An array of [ABIs](#) can be passed to a specific `transact` call using the [TransactABIDef](https://wharfkit.github.io/session/interfaces/TransactABIDef.html) format.
+An array of [ABIs](/docs/antelope/abi) can be passed to a specific `transact` call using the [TransactABIDef](https://wharfkit.github.io/session/interfaces/TransactABIDef.html) format.
 
 ```ts
 interface TransactABIDef {
@@ -134,15 +134,15 @@ interface TransactABIDef {
 }
 ```
 
-This format allows you to associate an account name of a contract with the [ABI](#) for the contract. Each ABI passed in this way appends the data to the internal [ABICache](#) utilized to optimize API call patterns.
+This format allows you to associate an account name of a contract with the [ABI](/docs/antelope/abi) for the contract. Each ABI passed in this way appends the data to the internal `ABICache` utilized to optimize API call patterns.
 
 ### ABICache
 
-An instance of an [ABICache](#) to use for this `transact` call. This will override the built-in ABICache the [Session](#) already utilizes.
+An instance of an `ABICache` to use for this `transact` call. This will override the built-in ABICache the [Session](/docs/session-kit/session) already utilizes.
 
 ### AllowModify
 
-A boolean flag to indicate whether the [TransactPlugin](#) and [WalletPlugin](#) instances are allowed to modify the transaction that the `transact` caller has provided. Set `allowModify: false` on the transaction if the transaction as submitted should be immutable during the call.
+A boolean flag to indicate whether the [TransactPlugin](/docs/session-kit/plugin-transact) and [WalletPlugin](/docs/session-kit/plugin-wallet) instances are allowed to modify the transaction that the `transact` caller has provided. Set `allowModify: false` on the transaction if the transaction as submitted should be immutable during the call.
 
 ### Broadcast
 
@@ -150,7 +150,7 @@ A boolean flag indicating whether or not the `transact` call should broadcast th
 
 ### Chain
 
-A [Checksum256](#) value representing the blockchain this transaction is specifically for. This option is only needed if calling `transact` with a [SigningRequest](#) type argument, where the request is `multichain: true`.
+A [Checksum256](/docs/antelope/checksum) value representing the blockchain this transaction is specifically for. This option is only needed if calling `transact` with a [SigningRequest](https://github.com/greymass/eosio-signing-request/tree/master/src) type argument, where the request is `multichain: true`.
 
 ### ExpireSeconds
 
@@ -158,8 +158,8 @@ The number of seconds in the future to set the expiration of the transaction, de
 
 ### TransactPlugin
 
-An array of [TransactPlugin](#) instances to utilize during this specific `transact` call.
+An array of [TransactPlugin](/docs/session-kit/plugin-transact) instances to utilize during this specific `transact` call.
 
 ### TransactPluginOptions
 
-Any options required by the [TransactPlugin](#) instances.
+Any options required by the [TransactPlugin](/docs/session-kit/plugin-transact) instances.

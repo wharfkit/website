@@ -11,8 +11,6 @@
   $: breadcrumbs = $page.data.breadcrumbs
   $: tocVisible = $page.data.toc
   $: headings = $page.data.headings
-  $: title = $page.data.title
-  $: section = $page.data.section
 </script>
 
 <svelte:head>
@@ -51,7 +49,7 @@
 
   {#if tocVisible && headings && headings.length > 0}
     <aside>
-      <TOC {headings} {title} {section} />
+      <TOC {headings} />
     </aside>
   {/if}
 

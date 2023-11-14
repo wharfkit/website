@@ -12,6 +12,7 @@
 
   $: section = $page.url.pathname
   $: isMobile = innerWidth <= 768
+  $: isTablet = innerWidth > 768 && innerWidth <= 1024
   $: isMenuOpen = false
 
   function toggleMenu() {
@@ -46,7 +47,7 @@
   <nav>
     <div class="left">
       <a href="/">
-        <HeaderLogo />
+        <HeaderLogo collapsed={isTablet} />
       </a>
     </div>
 
@@ -141,24 +142,6 @@
 </header>
 
 <style>
-  :global([data-theme="light"]) {
-    --theme-header-background: white;
-    --theme-header-text: var(--wharf-blue);
-    --theme-nav-toggle-background: var(--reef-turquoise);
-    --theme-nav-toggle-foreground: var(--theme-header-text);
-    --theme-nav-background: white;
-    --theme-nav-item-hover: var(--swell-mist);
-  }
-
-  :global([data-theme="dark"]) {
-    --theme-header-background: var(--wharf-blue);
-    --theme-header-text: white;
-    --theme-nav-toggle-background: var(--reef-turquoise);
-    --theme-nav-toggle-foreground: var(--wharf-blue);
-    --theme-nav-background: var(--wharf-blue);
-    --theme-nav-item-hover: var(--color-primary-800);
-  }
-
   header {
     display: flex;
     justify-content: center;
@@ -186,7 +169,7 @@
   }
 
   .left a {
-    width: 146px;
+    /* width: 146px; */
   }
 
   .right {
@@ -203,13 +186,15 @@
     list-style: none;
     padding-inline: 0;
     height: 100%;
+
+    transition: gap 200ms ease;
   }
 
   menu li {
     display: flex;
     align-items: center;
     font-weight: 600;
-    font-size: var(--fs--1);
+    font-size: var(--fs-0);
     /* padding-inline: var(--space-xs); */
     font-family: var(--ff-heading);
     color: var(--header-text-color, var(--theme-header-text));
@@ -292,15 +277,28 @@
 
   .right .button {
     padding-inline-start: var(--space-s);
-    padding-inline-end: var(--space-xs);
+    padding-inline-end: var(--space-s);
     margin-inline: var(--space-2xs);
     margin-block: var(--space-2xs);
     font-family: var(--ff-body);
     font-size: var(--fs-0);
+
+    transition: all 200ms ease;
+  }
+
+  .right .button svg {
+    /* Visually align icon to center */
+    translate: 2px 0;
   }
 
   .right .button span {
-    display: none;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+    opacity: 0;
+    translate: -2rem 0;
+    transition: opacity 800ms ease, translate 500ms ease;
   }
 
   @media (prefers-reduced-motion: no-preference) and (min-width: 768px) and (max-width: 1000px) {
@@ -309,17 +307,13 @@
     }
   }
 
-  @media (min-width: 950px) {
+  @media (min-width: 1024px) {
     nav menu {
-      gap: var(--space-2xs);
-    }
-
-    menu li {
-      font-size: var(--fs-0);
+      /* gap: var(--space-2xs); */
     }
 
     menu li span {
-      padding-inline: var(--space-xs);
+      /* padding-inline: var(--space-xs); */
     }
 
     .right .button {
@@ -327,8 +321,17 @@
       padding-inline-end: var(--space-l);
     }
 
+    .right .button svg {
+      translate: 0;
+    }
+
     .right .button span {
-      display: block;
+      position: relative;
+      width: auto;
+      white-space: normal;
+      overflow: visible;
+      opacity: 1;
+      translate: 0 0;
     }
   }
 
@@ -368,7 +371,6 @@
       border-radius: var(--border-radius, var(--space-2xs));
       border-radius: 16px;
       position: relative;
-      font-size: var(--fs-0);
     }
 
     menu li span {

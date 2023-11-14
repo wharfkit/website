@@ -95,14 +95,14 @@
   </div>
 
   <div class="images">
-    <div class="account kit">
-      <img src={accountKit} alt="account kit icon" height="180" width="180" />
-    </div>
     <div class="contract kit">
       <img src={contractKit} alt="contract kit icon" height="180" width="180" />
     </div>
     <div class="session kit">
       <img src={sessionKit} alt="session kit icon" height="180" width="180" />
+    </div>
+    <div class="account kit">
+      <img src={accountKit} alt="account kit icon" height="180" width="180" />
     </div>
   </div>
 
@@ -195,13 +195,11 @@
   .hero h1 {
     font-size: var(--fs-6);
     font-weight: 700;
-    color: white;
   }
 
   .hero p {
     font-size: var(--fs-2);
     font-weight: 600;
-    color: white;
   }
 
   .images {
@@ -234,19 +232,19 @@
     }
   }
 
-  .account.kit {
+  .images > :nth-child(2) {
     grid-column: 3 / 6;
     grid-row: 1 / 3;
     justify-self: center;
   }
 
-  .contract.kit {
+  .images > :nth-child(3) {
     grid-column: 5 / 7;
     grid-row: 2 / 4;
     justify-self: center;
   }
 
-  .session.kit {
+  .images > :nth-child(1) {
     grid-column: 2 / 4;
     grid-row: 2 / 4;
   }

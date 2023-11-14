@@ -19,7 +19,7 @@ const sessionKit = new SessionKit(args, options)
 const result = await sessionKit.login()
 ```
 
-While awaiting the result of this call, the [UserInterface](/docs/session-kit/plugin-user-interface) defined in the [SessionKit](/docs/session-kit/session-kit-factory) will present any required choices to the end user, which allows them to select a [WalletPlugin](/docs/session-kit/plugin-wallet), a [ChainDefinition](/docs/utilities/common-library#chaindefinition), and a [PermissionLevel](#). The choices made by the end user will be used to create and configure a new [Session](/docs/session-kit/session) instance.
+While awaiting the result of this call, the [UserInterface](/docs/session-kit/plugin-user-interface) defined in the [SessionKit](/docs/session-kit/session-kit-factory) will present any required choices to the end user, which allows them to select a [WalletPlugin](/docs/session-kit/plugin-wallet), a [ChainDefinition](/docs/utilities/common-library#chaindefinition), and a [PermissionLevel](/docs/antelope/permission-level). The choices made by the end user will be used to create and configure a new [Session](/docs/session-kit/session) instance.
 
 Upon completion, the `login` method will return a [LoginResult](/docs/session-kit/login-result) that contains:
 
@@ -37,7 +37,7 @@ Commonly used parameters that can be passed this way include:
 
 - `chain`: The blockchain ID to login against, preventing any user chain selection.
 - `chains`: An array of blockchain IDs to allow logging in against, overriding the defaults from the [SessionKit](/docs/session-kit/session-kit-factory).
-- `permissionLevel`: A specific [PermissionLevel](#) to login with, preventing any user account selection.
+- `permissionLevel`: A specific [PermissionLevel](/docs/antelope/permission-level) to login with, preventing any user account selection.
 - `walletPlugin`: A specific [WalletPlugin](/docs/session-kit/plugin-wallet) to authenticate with, preventing any user wallet selection.
 
 A complete list of all parameters can be found in the [LoginOptions](https://wharfkit.github.io/session/interfaces/LoginOptions.html) documentation.

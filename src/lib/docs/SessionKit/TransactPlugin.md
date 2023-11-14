@@ -196,7 +196,7 @@ type TransactHookMutable = (
 ) => Promise<TransactHookResponse | void>
 ```
 
-The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](#) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context`, which is the TransactContext instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
+The first parameter of a `TransactHookMutable` is the `request` value, which is an instance of a [SigningRequest](https://github.com/greymass/eosio-signing-request/tree/master/src) and represents the transaction at that point in the transaction lifecycle. The second parameter is the `context`, which is the TransactContext instance that was established to represent the state of the current transaction and provide methods to assist in interpreting the request.
 
 The hook function must either return nothing, or return an object that matches the [TransactHookResponse](https://wharfkit.github.io/session/interfaces/TransactHookResponse.html) interface. This requires that it pass back a `request` value, which can either be modified or simply pass back the `request` value it received. This response may also optionally pass back an array of signatures, if the plugin itself was responsible for appending signatures to this upcoming transaction.
 

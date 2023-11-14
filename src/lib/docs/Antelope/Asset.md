@@ -91,7 +91,7 @@ console.log(balance.units) // Int64.from(100000)
 console.log(Number(balance.units)) // Number(100000)
 ```
 
-With the `units` value of an asset being an `Int64`, it can make use of all the built-in [Int](#) math operations.
+With the `units` value of an asset being an `Int64`, it can make use of all the built-in [Int](/docs/antelope/int) math operations.
 
 ### Value
 

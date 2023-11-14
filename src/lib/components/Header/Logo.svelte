@@ -1,7 +1,23 @@
+<script lang="ts">
+  export let collapsed = false
+  import { tweened } from "svelte/motion"
+
+  const width = tweened(146, {
+    duration: 200,
+  })
+
+  const viewBoxWidth = tweened(346, {
+    duration: 200,
+  })
+
+  $: collapsed ? width.set(46) : width.set(146)
+  $: collapsed ? viewBoxWidth.set(113) : viewBoxWidth.set(346)
+</script>
+
 <svg
-  width="146"
+  width={$width}
   height="41"
-  viewBox="0 0 346 99"
+  viewBox={`0 0 ${$viewBoxWidth} 99`}
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
@@ -53,19 +69,3 @@
     d="M72.2431 50.6982C72.2431 51.6667 72.902 52.5956 74.0748 53.2804L77.9604 55.5494C80.4027 56.9755 80.4027 59.2876 77.9604 60.7138L73.5383 63.296C71.096 64.7221 67.1363 64.7221 64.6941 63.296L55.8499 58.1316L64.1576 53.2804C65.3304 52.5956 65.9893 51.6667 65.9893 50.6982L65.9893 50.0717C65.9893 49.1032 65.3304 48.1743 64.1576 47.4895L47.0057 37.474C44.5634 36.0478 44.5634 33.7357 47.0057 32.3096L51.4278 29.7274C53.87 28.3012 57.8297 28.3012 60.272 29.7274L77.9604 40.0562C80.4027 41.4823 80.4027 43.7944 77.9604 45.2206L74.0748 47.4895C72.902 48.1743 72.2431 49.1032 72.2431 50.0717L72.2431 50.6982Z"
     fill="#494E62" />
 </svg>
-
-<style>
-  :global([data-theme="light"]) {
-    --logo-text: var(--wharf-blue);
-    --logo-bottom: var(--swell-mist);
-    --logo-middle: var(--seafoam-mint);
-    --logo-top: var(--reef-turquoise);
-  }
-
-  :global([data-theme="dark"]) {
-    --logo-text: white;
-    --logo-bottom: var(--reef-turquoise);
-    --logo-middle: var(--seafoam-mint);
-    --logo-top: var(--swell-mist);
-  }
-</style>
