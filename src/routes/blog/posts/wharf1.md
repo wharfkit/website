@@ -18,25 +18,25 @@ Listed below is everything included in this release, along with helpful links an
 
 With this release, the Session Kit is updating to v1.1.0, with new optimizations and support for the Contract and Account Kits. The Session Kit makes it easy to manage sessions that are linked to Antelope-based accounts, by facilitating the signing of transactions and allowing users to sign in to web apps with Antelope-based wallets. It also includes an out-of-the-box UI Renderer that covers a range of common user scenarios, to help save development time and provide users with a seamless experience.
 
-[Website](https://localhost:5173/kits/session) | [Documentation](https://localhost:5173/docs/session-kit) | [Github](https://github.com/wharfkit/session)
+[Website](/kits/session) | [Documentation](/docs/session-kit) | [Github](https://github.com/wharfkit/session)
 
 ### Contract Kit (v1.0.0)
 
 The Contract Kit focuses primarily on smart contract interactivity, making it easy to read and write to the blockchain of your choice. Its standout feature is the Command Line tool, which helps developers to automatically generate code that can represent a smart contract in an application. The Contract Kit is also designed to optimize API access, helping developers to provide end users with faster response times.
 
-[Website](https://localhost:5173/kits/contract) | [Documentation](https://localhost:5173/docs/contract-kit) | [Github](https://github.com/wharfkit/contract)
+[Website](/kits/contract) | [Documentation](/docs/contract-kit) | [Github](https://github.com/wharfkit/contract)
 
 ### Account Kit (v1.0.0)
 
 The Account Kit makes it easy to manage Antelope user accounts, by providing custom APIs for each Antelope blockchain that can be used to easily gather any account information you need. It also gives developers the tools to help users manage their on-chain resources, or opt to abstract the complexity of the resource models away entirely if they prefer. Finally, it simplifies the process when users need to interact with token contracts, making in-app transactions more accessible.
 
-[Website](https://localhost:5173/kits/account) | [Documentation](https://localhost:5173/docs/account-kit) | [Github](https://github.com/wharfkit/account)
+[Website](/kits/account) | [Documentation](/docs/account-kit) | [Github](https://github.com/wharfkit/account)
 
 ### Resource Provider Specification (Rev. 1)
 
 The Antelope blockchain resource model is a powerful and flexible tool that allows for granular billing of network resources, but is often too much of a burden for the average end user. The Resource Provider Specification was created to ease this problem and move the complexities away from most users. This specification is published alongside the release of Wharf to allow any service to provide resources for their users, and is made available for use in the Session Kit using the [Resource Provider Plugin](https://github.com/wharfkit/transact-plugin-resource-provider).
 
-[Documentation](https://localhost:5173/docs/utilities/resource-provider-spec)
+[Documentation](/docs/utilities/resource-provider-spec)
 
 ## Core Libraries
 
@@ -44,7 +44,7 @@ The Antelope blockchain resource model is a powerful and flexible tool that allo
 
 This library contains core types, client interfaces, and other tools for working with Antelope-based blockchains. Developers in the space should note that this was formerly the @greymass/eosio library, distributed on [npmjs](https://www.npmjs.com/package/@greymass/eosio). Future distributions will be made using the new organization and namespace, and distributed as @wharfkit/antelope, again on [npmjs](https://www.npmjs.com/package/@wharfkit/antelope).
 
-[Documentation](https://localhost:5173/docs/antelope) | [Github](https://github.com/wharfkit/antelope)
+[Documentation](/docs/antelope) | [Github](https://github.com/wharfkit/antelope)
 
 ## Account Libraries
 
