@@ -8,7 +8,7 @@ order: 5
 
 # User Interface Template
 
-The User Interface Plugin Template is designed to provide developers with a foundational structure to craft their own [User Interfaces](/docs/session-kit/user-interface) for the [Wharf SessionKit](/docs/session-kit).
+The User Interface Plugin Template is designed to provide developers with a foundational structure to craft their own [User Interfaces](/docs/session-kit/plugin-user-interface) for the [Wharf SessionKit](/docs/session-kit).
 
 ## Usage
 
@@ -41,4 +41,4 @@ yarn install
 
 ### Customizing the User Interface
 
-Refer to the comprehensive development [documentation](/docs/session-kit/plugin-ui#development) for detailed instructions on how to tailor your user interface plugin to meet specific requirements.
+Refer to the comprehensive development [documentation](/docs/session-kit/plugin-user-interface#specification) for detailed instructions on how to tailor your user interface plugin to meet specific requirements.

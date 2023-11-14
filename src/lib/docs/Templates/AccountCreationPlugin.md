@@ -8,7 +8,7 @@ order: 1
 
 # Account Creation Plugin Template
 
-The Account Creation Plugin Template is designed to provide developers with a foundational structure to craft their own account creation plugins for the Wharf SessionKit.
+The Account Creation Plugin Template is designed to provide developers with a foundational structure to craft their own [account creation plugins](/docs/session-kit/plugin-account-creation) for the Wharf [SessionKit](/docs/session-kit).
 
 ## Usage
 
@@ -42,4 +42,4 @@ yarn install
 
 ### Adapting the Plugin
 
-For guidance on customizing your plugin, please refer to our detailed development [documentation](/docs/session-kit/plugin-account-creation).
+For guidance on customizing your plugin, please refer to our detailed development [documentation](/docs/session-kit/plugin-account-creation#development).

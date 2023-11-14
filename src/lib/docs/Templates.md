@@ -28,6 +28,6 @@ This template can be used to create [login plugins](/docs/session-kit/plugin-log
 
 This template can be used to create [transact plugins](/docs/session-kit/plugin-transact). These plugins can be used to extend the capabilities of the [SessionKit](/docs/session-kit) to allow developers to customize the logic of the Transact method before signing, after signing, and after broadcasting.
 
-## [User Interface Template](/docs/templates/ui-template)
+## [User Interface Template](/docs/templates/user-interface-template)
 
-This template can be used as to create [UI renderers](/docs/session-kit/user-interface). These crucial components of the [SessionKit](/docs/session-kit) are used to render the user interface for the end-user and they can be used to create custom interfaces for interacting with the `SessionKit`.
+This template can be used as to create [User Interfaces](/docs/session-kit/plugin-user-interface). These crucial components of the [SessionKit](/docs/session-kit) are used to render the user interface for the end-user and they can be used to create custom interfaces for interacting with the `SessionKit`.
