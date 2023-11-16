@@ -15,7 +15,7 @@ The Wharfkit Signing Request library provides a convenient way to interact with 
 
 ## Creation
 
-Signing requests are used primarily for two purposes:
+Signing requests are primarily created to serve two purposes:
 
 - Requesting a signature to authorize a transaction and perform smart contract actions.
 - Requesting a signature to verify ownership of an account with an identity proof.
