@@ -9,7 +9,7 @@ order: 5
 
 # Signing Request
 
-Signing Requests are a data type used in the Antelope ecosystem to facilitate the transferring transaction related data between applications. This is done using a compressed string format designed to encapsulate and make it easier to transport data, which can be communicated through various methods such as QR codes and hyperlinks.
+Signing Requests are a data type used in the Antelope ecosystem to facilitate the transferring transaction related data between applications for the purposes of generating a signature. This is done using a compressed string format designed to encapsulate and make it easier to transport data, which can be communicated through various methods such as QR codes and hyperlinks.
 
 The Wharfkit Signing Request library provides a convenient way to interact with this type of data through the `@wharfkit/signing-request` package. The `SigningRequest` class exported by this package offers methods to easily encode, decode, and resolve incomplete transaction data.
 
@@ -116,6 +116,34 @@ const request = SigningRequest.create({
 })
 ```
 
+#### Optional Parameters
+
+A second parameter can optionally also be included to provide additional ways for the `SigningRequest` instance to retrieve and process request data.
+
+```ts
+import { APIClient } from "@wharfkit/antelope"
+import { ABICache } from "@wharfkit/abicache"
+import zlib from "pako"
+
+const client = new APIClient({ url: "https://jungle4.greymass.com" })
+
+const signingRequest = SigningRequest.create(
+  {
+    action,
+  },
+  {
+    abiProvider: new ABICache(client),
+    zlib,
+  }
+)
+```
+
+This object may contain options for both the `abiProvider` and `zlib`.
+
+The `abiProvider` value is an object which understands how to efficiently retrieve ABI data from a given endpoint. In the example above, an instance of an `ABICache` from the `@wharfkit/abicache` package is provided, which can both load and cache ABIs from the API endpoint provided.
+
+The `zlib` value allows passing in a library that supports the zlib compression algorithm, which we'd recommend using the `pako` package for.
+
 ### The `identity` method
 
 For application that wish to verify the ownership of an account through the verification of a signature, the static `identity` method on the `SigningRequest` class can be used directly in order to create a mock transaction which can be signed. This is used typically to authenticate application users without performing an on-chain transaction, but still verifying their on-chain credentials.
@@ -184,23 +212,13 @@ The `encode` method accepts 3 optional parameters:
 - 2nd: A boolean to specify whether slashes should be included in the URI
 - 3rd: A string indicating what URI scheme should be used
 
-```typescript
-const uri = request.encode(false)
-
-console.log(uri) // esr://gmNgZGRkAIFXBqEFopc6760yugsVYWBggtKCMIEFRnclpF9eTWUACgAA
-```
-
-The slashes can also be omitted and the scheme can be customized like this:
-
-```typescript
-const uri = request.encode(false, false, "custom-scheme")
-
-console.log(uri) // custom-scheme:gmNgZGRkAIFXBqEFopc6760yugsVYWBggtKCMIEFRnclpF9eTWUACgAA
+```ts
+request.encode(compress, slashes, scheme)
 ```
 
 ### Decoding a Request
 
-A URI string can be decoded into a `SigningRequest` instance:
+A URI string can be decoded into a `SigningRequest` instance using the `from` static method.
 
 ```typescript
 const request = SigningRequest.from(
@@ -208,59 +226,77 @@ const request = SigningRequest.from(
 )
 ```
 
+Once decoded, the `SigningRequest` instance will then be usable with any of the additional methods outlined below.
+
 ### Resolving a Request
 
-For both identity and transaction signing requests, the `resolve` method can be used to generate a signing digest that can be signed by the wallet:
+A `SigningRequest` instance does not need always contain a transaction ready for signing or use on the blockchain. A signing request may be a single action, or an array of actions, or perhaps an action with placeholder values for the authorization or action data. For this reason, signing requests need to be resolved from this incomplete state into a resolved request.
+
+Resolving a signing request requires 3 pieces of information:
+
+- The `abis` related to the actions in the request, to serialize the required data.
+- The `authorization` to use within the completed transaction.
+- The `context` of the transaction, including transaction header details and optionally the chain ID.
+
+It is also useful to provide both an `abiProvider` to fetch ABI data as well as a `zlib` library in order to handle compressed requests.
+
+After a `SigningRequest` is resolved with the `resolve` method, a `ResolvedSigningRequest` object is created and returned.
 
 ```typescript
-// An encoded eosio:voteproducer transaction with placeholder authorization
-const uri =
-  "esr://gmNgZGRkAIFXBqEFopc6760yugsVYWBggtKCMIEFRnclpF9eTWUACgAA"
+import { APIClient } from "@wharfkit/antelope"
+import { ABICache } from "@wharfkit/abicache"
+import zlib from "pako"
 
-// Decode the URI
-const signingRequest = SigningRequest.from(uri)
+// Setup a new API Client for the designated chain
+const client = new APIClient({ url: "https://jungle4.greymass.com" })
 
-// Fetch the relevant ABIs
+// Define the options used when decoding/resolving the request
+const options = {
+  abiProvider: new ABICache(client),
+  zlib,
+}
+
+// Decode a signing request payload
+const signingRequest = SigningRequest.from(
+  "esr://gmNgZGRkAIFXBqEFopc6760yugsVYWBggtKCMIEFRnclpF9eTWUACgAA",
+  options
+)
+
+// Utilize a built-in helper to retrieve the related ABIs from an API endpoint
 const abis = await signingRequest.fetchAbis()
 
-// An authorization to resolve the transaction to
+// Define which authorization should be used for any missing authorization data
 const authorization = {
   actor: "teamgreymass",
   permission: "active",
 }
 
-// A recent block needs to be provided to resolve the transaction
-const client = new APIClient({ url: "jungle4.greymass.com" })
+// Generate a transaction header to resolve any missing transaction data
 const info = await client.v1.chain.get_info()
-const block = await client.v1.chain.get_block(info.head_block_num)
+const header = info.getTransactionHeader()
 
-// Resolve the transaction as a specific user
+// Resolve the transaction using the supplied data
 const resolvedSigningRequest = await signingRequest.resolve(
   abis,
   authorization,
-  block
+  header
 )
-
-// The signing digest can then be obtained
-const digest = resolvedSigningRequest.signingDigest
 ```
 
-#### Arguments
+The `ResolvedSigningRequest` returned now represents a complete transaction, which can be used for creating a signature. This can be done using one of the methods listed below.
 
-The `resolve` method accepts the following arguments:
+#### Signing Digest
 
-- `abis` - An array of [ABI](/docs/antelope/abi) definitions to be used to resolve the request. In the case of an identity request, this can be an empty array.
-- `authorization` - An object containing the `actor` and `permission` to be used to resolve the request.
-- `block` - A [block](/docs/antelope/block) object to be used to resolve the request. This is used as proof that the signing request was signed at a specific time.
+Retrieve the [Checksum256](#) value of the transaction from the `signingDigest` property of the `ResolvedSigningRequest`.
 
-Additional metadata about how the signing request should be handled can also be appended to this object:
+```ts
+resolvedSigningRequest.signingDigest // Checksum256
+```
 
-- `broadcast` - A boolean indicating whether a wallet processing this request should broadcast the transaction after signing. Defaults to `true`.
-- `callback` - A string/object that specifies the URL and HTTP Method to be called after the transaction is signed or broadcasted.
+#### Serialized Transaction
 
-#### Options
+Access the `serializedTransaction` property on the `ResolvedSigningRequest` to retrieve a `Uint8array` that represents the transaction.
 
-The `SigningRequest` constructor also accepts an optional second argument to control how the data is encoded:
-
-- `abiProvider` - An [ABI provider](/docs/antelope/abi-provider) that will be used to fetch ABIs for the request.
-- `zlib` - A [zlib](https://nodejs.org/api/zlib.html) provider that will be used to compress the request.
+```ts
+resolvedSigningRequest.serializedTransaction // Uint8array
+```
