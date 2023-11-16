@@ -11,7 +11,7 @@ order: 5
 
 Signing Requests are a data type used in the Antelope ecosystem to facilitate the transferring of transaction related data between applications for the purposes of generating a signature. This is done using a compressed string format designed to encapsulate and make it easier to transport data, which can be communicated through various methods such as QR codes and hyperlinks.
 
-The Wharfkit Signing Request library provides a convenient way to interact with this type of data through the `@wharfkit/signing-request` package. The `SigningRequest` class exported by this package offers methods to easily encode, decode, and resolve incomplete transaction data.
+The Wharfkit Signing Request library provides a convenient way to interact with this type of data through the `@wharfkit/signing-request` package. The `SigningRequest` class exported by this package offers methods to easily encode or decode transactions, and resolve incomplete transaction data.
 
 ## Creation
 
