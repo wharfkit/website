@@ -34,7 +34,7 @@ There are two ways to use this template:
 
 ### Installing Dependencies
 
-After setting up your plugin, install all the required dependencies using yarn:
+After setting up your plugin, install all the required dependencies:
 
 ```bash
 yarn install

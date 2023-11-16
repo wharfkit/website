@@ -30,4 +30,4 @@ This template can be used to create [transact plugins](/docs/session-kit/plugin-
 
 ## [User Interface Template](/docs/templates/user-interface-template)
 
-This template can be used as to create [User Interfaces](/docs/session-kit/plugin-user-interface). These crucial components of the [SessionKit](/docs/session-kit) are used to render the user interface for the end-user and they can be used to create custom interfaces for interacting with the `SessionKit`.
+This template can be used as to create [User Interfaces](/docs/session-kit/plugin-user-interface). These crucial components of the [SessionKit](/docs/session-kit) are used to render user interfaces that are used to interact with the `SessionKit`.

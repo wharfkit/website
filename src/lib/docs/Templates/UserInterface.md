@@ -1,6 +1,6 @@
 ---
 title: User Interface Template
-description: A comprehensive template for developers to craft user interfaces compatible with the Wharf SessionKit.
+description: A template for creating user interfaces for the Wharf SessionKit.
 category: Templates
 published: true
 order: 5
@@ -12,7 +12,7 @@ The User Interface Plugin Template is designed to provide developers with a foun
 
 ## Usage
 
-Developers can utilize this template in two primary ways:
+There are two ways to use this template:
 
 ### Option 1: Use the GitHub Template Clone Feature
    1. Go to the [user interface plugin template repository](https://github.com/wharfkit/ui-plugin-template) on GitHub.
@@ -33,7 +33,7 @@ Developers can utilize this template in two primary ways:
 
 ### Installing Dependencies
 
-Once your user interface setup is complete, install the necessary dependencies using yarn:
+Once your user interface setup is complete, install the necessary dependencies:
 
 ```bash
 yarn install
@@ -41,4 +41,4 @@ yarn install
 
 ### Customizing the User Interface
 
-Refer to the comprehensive development [documentation](/docs/session-kit/plugin-user-interface#specification) for detailed instructions on how to tailor your user interface plugin to meet specific requirements.
+For guidance on customizing your plugin, please refer to our detailed development [documentation](/docs/session-kit/plugin-user-interface#specification).

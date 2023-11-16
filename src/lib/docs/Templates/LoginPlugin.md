@@ -1,6 +1,6 @@
 ---
 title: Login Plugin Template
-description: A foundational template designed for the creation of login plugins integrated with the Wharf SessionKit.
+description: A template for creating login plugins for the Wharf SessionKit.
 category: Templates
 published: true
 order: 3
@@ -8,7 +8,7 @@ order: 3
 
 # Login Plugin Template
 
-The Login Plugin Template is designed to provide developers with a foundational structure to craft their own [login plugins](/docs/session-kit/plugin-login) for the [Wharf SessionKit](/docs/session-kit).
+The Login Plugin Template is designed to provide developers with a foundational structure to craft their own [login plugins](/docs/session-kit/plugin-login) for the Wharf [SessionKit](/docs/session-kit).
 
 ## Usage
 
@@ -33,7 +33,7 @@ There are two ways to use this template:
 
 ### Installing Dependencies
 
-After setting up your plugin, install all the required dependencies using yarn:
+After setting up your plugin, install all the required dependencies:
 
 ```bash
 yarn install

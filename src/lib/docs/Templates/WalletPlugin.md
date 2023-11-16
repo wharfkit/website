@@ -1,6 +1,6 @@
 ---
 title: Wallet Plugin Template
-description: A template to streamline the creation of wallet plugins compatible with the Wharf SessionKit.
+description: A template for creating wallet plugins for the Wharf SessionKit.
 category: Templates
 published: true
 order: 2
@@ -33,7 +33,7 @@ There are two ways to use this template:
 
 ### Installing Dependencies
 
-After setting up your plugin, install all the required dependencies using yarn:
+After setting up your plugin, install all the required dependencies:
 
 ```bash
 yarn install

@@ -8,7 +8,7 @@ requiresReview: true
 
 # AccountCreationPlugin
 
-The `AccountCreationPlugin` is a type of plugin for the [Session Kit](/docs/session-kit) that allows users to create antelope accounts from within an application. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
+The `AccountCreationPlugin` is a type of plugin for the [Session Kit](/docs/session-kit) that allows users to create antelope accounts from within applications using WharfKit. These plugins can be developed either for a specific application's needs, or built generically and released publicly as packages any application can use.
 
 
 ## Usage
@@ -30,13 +30,13 @@ const sessionKit = new SessionKit(
 
 ### Account Creation
 
-Once the account creation plugin has been added to the SessionKit factory, the `createAccount` method can be called to trigger the account creation process. Here is a basic example of how to use the `createAccount` method.
+Once the account creation plugin has been added to the `SessionKit` factory, the `createAccount` method can be called to trigger the account creation process. Here is a basic example of how to use the `createAccount` method.
 
 ```ts
 const newAccount = await sessionKit.createAccount()
 ```
 
-If the you want the account to be created on a specific chain, the `chain` parameter can be passed::
+In order for the account to be created on a specific chain, the `chain` parameter can be passed:
 
 ```ts
 import { Chains } from "@wharfkit/common"
@@ -46,7 +46,7 @@ const newAccount = await sessionKit.createAccount({
 })
 ```
 
-To specify an account name to be used during account creation, pass the `accountName` parameter to the method.
+To specify an account name to be used during the account creation, the `accountName` parameter can be used:
 
 ```ts
 const newAccount = await sessionKit.createAccount({
@@ -54,7 +54,7 @@ const newAccount = await sessionKit.createAccount({
 })
 ```
 
-In a situation, where multiple plugins are being used, the `pluginId` parameter can be used to specify which plugin should be used for account creation.
+In a situation where multiple plugins are being used, the `pluginId` parameter can be used to specify which plugin should be used for the account creation.
 
 ```ts
 const newAccount = await sessionKit.createAccount({
@@ -64,12 +64,11 @@ const newAccount = await sessionKit.createAccount({
 
 ## Development
 
-Developers can create their own `AccountCreationPlugin` using the provided interface and abstract class. These tools allow for the use of any account creation service available within Wharf.
-The [account-creation-plugin-template](https://github.com/wharfkit/account-creation-plugin-template) is available on Github to help developers get started.
+Developers can create their own `AccountCreationPlugin` using the provided interface and abstract class. These tools allow for the use of any Antelope account creation service within Wharf. The [account-creation-plugin-template](https://github.com/wharfkit/account-creation-plugin-template) is available on Github to help developers get started.
 
 ### Structure
 
-When building a `AccountCreationPlugin`, the shape of the plugin can either be a Javascript class or a simple object that conforms to the interface.
+When building an `AccountCreationPlugin`, the shape of the plugin can either be a Javascript class or a simple object that conforms to the following interface:
 
 ```ts
 interface AccountCreationPlugin {
@@ -82,12 +81,41 @@ interface AccountCreationPlugin {
   /** Configuration parameters */
   config: AccountCreationPluginConfig
 
+  /** Metadata about the account creation service */
+  metadata: AccountCreationPluginMetadata
+
   /** Function to trigger the account creation process */
   create: (context: AccountCreationContext) => Promise<CreateAccountResponse>
 }
 ```
 
-Certainly, here's how you can adapt this for the Account Creation Plugin:
+### Unique ID
+
+Each `AccountCreationPlugin` requires a unique identifier, used by the [SessionKit](/docs/session-kit/session-kit-factory) for serialization and distinguishing between different plugins.
+
+```ts
+class AccountCreationPluginExample extends AbstractAccountCreationPlugin {
+  get id() {
+    return "account-creation-plugin-example"
+  }
+}
+```
+
+This unique identifier is provided through a `get id()` method on the class, which returns a string. It's important to make this string descriptive and unique to avoid conflicts with other plugins and ensure correct identification within the Session Kit framework.
+
+### Name
+
+The `AccountCreationPlugin` should also include a `name` property that provides a user-friendly name for the account creation service.
+
+```ts
+class AccountCreationPluginExample extends AbstractAccountCreationPlugin {
+  get name() {
+    return "Account Creation Plugin Example"
+  }
+}
+```
+
+This name is used by the [SessionKit](/docs/session-kit) to display the account creation service to the end user.
 
 ### Config
 
@@ -105,10 +133,12 @@ class AccountCreationPluginExample extends AbstractAccountCreationPlugin {
 }
 ```
 
-This configuration is utilized by the [SessionKit](/docs/session-kit/session-kit-factory) to guide interactions with the end user during the account creation process.
+This configuration is utilized by the [SessionKit](/docs/session-kit) to guide interactions with the end user during the account creation process.
+
+The configuration object can include the following properties:
 
 - `requiresChainSelect`: Indicates if the Session Kit should prompt the user to choose a blockchain for account creation. Set to `false` if the plugin itself facilitates blockchain selection.
-- `supportedChains`: Optionally, a list of blockchain IDs that the plugin supports for account creation can be specified, particularly if the plugin is tailored to specific blockchains.
+- `supportedChains`: Optionally, a list of blockchain IDs that the plugin supports for account creation can be specified if the plugin is tailored to specific blockchains.
 
 ### Metadata
 
@@ -138,34 +168,11 @@ This metadata is important for providing users with information about the applic
 - `logo`: A base64 encoded image (or images for different themes) of the application's logo.
 - `homepage`: The URL of the application's homepage.
 
-### Unique ID
-
-Each `AccountCreationPlugin` requires a unique identifier, used by the [SessionKit](/docs/session-kit/session-kit-factory) for serialization and distinguishing between different plugins.
-
-```ts
-class AccountCreationPluginExample extends AbstractAccountCreationPlugin {
-  get id() {
-    return "account-creation-plugin-example"
-  }
-}
-```
-
-This unique identifier is provided through a `get id()` method on the class, which returns a string. It's important to make this string descriptive and unique to avoid conflicts with other plugins and ensure correct identification within the Session Kit framework.
-
-Certainly! Here's a similar structure for the `create` method in the `AccountCreationPlugin`:
-
 ### Method: Create
 
 The `AccountCreationPlugin` needs to implement the `create` method to facilitate blockchain account creation. This method should accept a `CreateAccountContext` as its parameter, providing the plugin with essential information about the account creation request.
 
-**Note**: If the `AccountCreationPlugin` requires user interaction during the account creation process, it can utilize the [UserInterface](/docs/session-kit/plugin-user-interface) instance provided in the `CreateAccountContext` to prompt the user.
-
-The plugin must communicate with the external service or application to generate the account creation response. The aim is for the `create` method to return an object that conforms to the `CreateAccountResponse` interface, which includes:
-
-- `chain`: A typed identifier indicating the blockchain on which the account is created.
-- `accountName`: The name of the newly created blockchain account.
-
-Once the account is successfully created and the information is gathered, it can be returned to the Session Kit to complete the process.
+The plugin must communicate with the external service or application to create the account and then return an object that conforms to the `CreateAccountResponse` interface.
 
 Below is an example of what the `create` method might look like in practice.
 
@@ -188,7 +195,7 @@ class AccountCreationPluginExample extends AbstractAccountCreationPlugin {
 }
 ```
 
-This example outlines the basic structure and flow for the `create` method in an `AccountCreationPlugin`, ensuring a smooth integration with the Session Kit's account creation process.
+**Note**: If the `AccountCreationPlugin` requires user interaction during the account creation process, it can utilize the [UserInterface](/docs/session-kit/plugin-user-interface) instance provided in the `CreateAccountContext` to prompt the user.
 
 ### Object Structure
 

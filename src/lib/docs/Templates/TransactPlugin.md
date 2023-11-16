@@ -1,6 +1,6 @@
 ---
 title: Transact Plugin Template
-description: A blueprint specifically designed to facilitate developers in creating transaction plugins for integration with the Wharf SessionKit.
+description: A template for creating transact plugins for the Wharf SessionKit.
 category: Templates
 published: true
 order: 4
@@ -33,7 +33,7 @@ There are two ways to use this template:
 
 ### Installing Dependencies
 
-After setting up your plugin, install all the required dependencies using yarn:
+After setting up your plugin, install all the required dependencies:
 
 ```bash
 yarn install
