@@ -230,11 +230,11 @@ Once decoded, the `SigningRequest` instance will then be usable with any of the 
 
 ### Resolving a Request
 
-A `SigningRequest` instance does not need always contain a transaction ready for signing or use on the blockchain. A signing request may be a single action, or an array of actions, or perhaps an action with placeholder values for the authorization or action data. For this reason, signing requests need to be resolved from this incomplete state into a resolved request.
+A `SigningRequest` instance does not necessarily always contain a transaction that is ready for signing or use on the blockchain. A signing request may be a single action, or an array of actions, or perhaps an action with placeholder values for the authorization or action data. For this reason, signing requests need to be resolved from this incomplete state into a resolved request.
 
-Resolving a signing request requires 3 pieces of information:
+The `resolve` method available on `SigningRequest` instances is used to resolve a request, and accepts 3 arguments:
 
-- The `abis` related to the actions in the request, to serialize the required data.
+- The `abis` related to the actions in the request, to serialize the required data. For identity requests, this can be an empty array.
 - The `authorization` to use within the completed transaction.
 - The `context` of the transaction, including transaction header details and optionally the chain ID.
 
