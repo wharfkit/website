@@ -1,4 +1,5 @@
 name: "wallet-plugin-wombat"
+pluginId: "@wharfkit/wallet-plugin-wombat"
 description: "Wombat wallet plugin for the Wharf Session Kit "
 tags:
   - "wombat"

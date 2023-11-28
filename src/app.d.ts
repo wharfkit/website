@@ -128,6 +128,8 @@ interface KitPage {
 
 type WharfkitPlugin = {
   name: string
+  namespace?: string
+  pluginId: string
   description: string
   tags: string[]
   author: string

@@ -1,4 +1,5 @@
 name: "login-plugin-template"
+pluginId: "@wharfkit/login-plugin-template"
 description: "A template to create a LoginPlugin for use during a login call within the @wharfkit/session library."
 tags:
   - "login"

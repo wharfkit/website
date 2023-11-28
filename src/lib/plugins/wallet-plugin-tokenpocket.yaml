@@ -1,4 +1,5 @@
 name: "wallet-plugin-tokenpocket"
+pluginId: "@wharfkit/wallet-plugin-tokenpocket"
 description: "A Session Kit wallet plugin for the TokenPocket wallet."
 tags:
   - "tokenpocket"

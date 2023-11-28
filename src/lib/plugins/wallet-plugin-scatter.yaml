@@ -1,4 +1,5 @@
 name: "wallet-plugin-scatter"
+pluginId: "@wharfkit/wallet-plugin-scatter"
 description: "A Session Kit wallet plugin for the Scatter wallet."
 tags:
   - "scatter"

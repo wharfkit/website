@@ -15,6 +15,7 @@ const pluginSchema = {
   sourceLink: "string",
   license: "string",
   readme: "string",
+  pluginId: "string",
 } as const
 
 export type PluginDocument = TypedDocument<Orama<typeof pluginSchema>>

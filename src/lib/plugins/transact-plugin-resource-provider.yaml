@@ -1,4 +1,5 @@
 name: "transact-plugin-resource-provider"
+pluginId: "@wharfkit/transact-plugin-resource-provider"
 description: "A TransactPlugin for the Wharf Session Kit. Attempt to automatically resolve resource issues using a 3rd party Resource Provider API before a transaction is signed."
 tags:
   - "transact"

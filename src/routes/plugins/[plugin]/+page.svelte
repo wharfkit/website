@@ -6,8 +6,7 @@
   export let data: PageData
 
   const { plugin } = data
-  const { name, version, lastPublishedDate, tags, authorIcon, author, license,  } = plugin
-  const installCommand = `yarn install ${name}`
+  const installCommand = `yarn install ${plugin.pluginId}`
 </script>
 
 <section>
@@ -43,11 +42,11 @@
               {#if plugin.version}
                 <span>{plugin.version}</span>
               {/if}
-            {#if version && lastPublishedDate}
+            {#if plugin.version && plugin.lastPublishedDate}
                 -
             {/if}
-              {#if lastPublishedDate}
-                <span>{lastPublishedDate}</span>
+              {#if plugin.lastPublishedDate}
+                <span>{plugin.lastPublishedDate}</span>
               {/if}
             </p>
           </div>
@@ -73,20 +72,28 @@
             <code>
                     {installCommand}
             </code>
-            <button class="button">Copy code</button>
+            <button class="button">Copy install script</button>
         </div>
     <dl>
+        {#if plugin.version}
       <dt>Version</dt>
       <dd>{plugin.version}</dd>
+            {/if}
+        {#if plugin.license}
       <dt>License</dt>
       <dd>{plugin.license}</dd>
+            {/if}
+        {#if plugin.lastPublishedDate}
       <dt>Last Published</dt>
       <dd>{plugin.lastPublishedDate}</dd>
+            {/if}
+        {#if plugin.author}
       <dt>Creator</dt>
       <dd class="author">
         <img src={plugin.authorIcon} class="author-icon" alt="" width="28" height="28" />
         {plugin.author}
       </dd>
+            {/if}
     </dl>
   </aside>
 </section>
@@ -125,7 +132,9 @@
 
   aside {
       display: grid;
-      gap: var(--space-2xs)
+      gap: var(--space-s);
+      align-items: start;
+      align-content: start;
   }
 
   .install {
@@ -144,13 +153,13 @@
       font-size: var(--fs--1);
       color: color-mix(in srgb, var(--_input-bg), var(--theme-text-body) 70%);
       white-space: nowrap;
-      overflow-x: scroll;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
       user-select: all;
   }
 
-
   .install code::before {
-    content: "\10095";
+    content: "$";
     margin-right: var(--space-2xs);
   }
 
@@ -181,8 +190,8 @@
   dl {
     background: var(--theme-surface8);
     padding: var(--space-m);
+    padding-block-start: var(--space-xs);
     border-radius: var(--space-m);
-    /* max-width: 16rem; */
   }
 
   dt,

@@ -1,4 +1,5 @@
 name: "wallet-plugin-cloudwallet"
+pluginId: "@wharfkit/wallet-plugin-cloudwallet"
 description: "A WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with MyCloudWallet.com."
 tags:
   - "cloudwallet"
