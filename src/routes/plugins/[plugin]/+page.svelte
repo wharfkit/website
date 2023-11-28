@@ -1,10 +1,13 @@
 <script lang="ts">
   import Tag from "../Tag.svelte"
+  // import {copyIcon} from "$lib/addCopyButton"
 
   import type { PageData } from "./$types"
   export let data: PageData
 
   const { plugin } = data
+  const { name, version, lastPublishedDate, tags, authorIcon, author, license,  } = plugin
+  const installCommand = `yarn install ${name}`
 </script>
 
 <section>
@@ -40,8 +43,11 @@
               {#if plugin.version}
                 <span>{plugin.version}</span>
               {/if}
-              {#if plugin.lastPublishedDate}
-                - <span>{plugin.lastPublishedDate}</span>
+            {#if version && lastPublishedDate}
+                -
+            {/if}
+              {#if lastPublishedDate}
+                <span>{lastPublishedDate}</span>
               {/if}
             </p>
           </div>
@@ -53,7 +59,6 @@
           {/each}
         </ul>
       </div>
-      <a href={plugin.sourceLink} class="source button">Get this plugin</a>
     </header>
 
     <div id="readme">
@@ -63,9 +68,14 @@
     </div>
   </article>
   <aside>
+        <div class="install">
+            <p>Install</p>
+            <code>
+                    {installCommand}
+            </code>
+            <button class="button">Copy code</button>
+        </div>
     <dl>
-      <dt>Install</dt>
-      <dd><code>wharfkit plugin install</code></dd>
       <dt>Version</dt>
       <dd>{plugin.version}</dd>
       <dt>License</dt>
@@ -113,8 +123,41 @@
     flex-wrap: wrap;
   }
 
-  .source.button {
-    white-space: nowrap;
+  aside {
+      display: grid;
+      gap: var(--space-2xs)
+  }
+
+  .install {
+      display: grid;
+      gap: var(--space-2xs)
+  }
+
+  .install code {
+      --_input-bg: var(--input-background-color, var(--theme-surface2));
+      resize: none;
+      border: none;
+      background-color: var(--_input-bg);
+      padding-inline: var(--space-s);
+      padding-block: var(--space-xs);
+      border-radius: var(--space-xs);
+      font-size: var(--fs--1);
+      color: color-mix(in srgb, var(--_input-bg), var(--theme-text-body) 70%);
+      white-space: nowrap;
+      overflow-x: scroll;
+      user-select: all;
+  }
+
+
+  .install code::before {
+    content: "\10095";
+    margin-right: var(--space-2xs);
+  }
+
+  .install p {
+      font-family: var(--ff-heading);
+      font-size: var(--fs-1);
+      font-weight: 600;
   }
 
   .plugin-title {
@@ -152,6 +195,10 @@
     font-family: var(--ff-heading);
   }
 
+  dd {
+      font-size: var(--fs--1);
+  }
+
   dd:not(:last-child) {
     padding-bottom: var(--space-xs);
     border-bottom: 1px solid var(--theme-border2);
@@ -167,13 +214,4 @@
     border-radius: var(--space-2xs);
   }
 
-  aside code {
-    background: none;
-    padding: 0;
-  }
-
-  aside code::before {
-    content: "$";
-    margin-right: var(--space-2xs);
-  }
 </style>
