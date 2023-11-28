@@ -5,7 +5,6 @@
   export let data: PageData
 
   const { plugin } = data
-  const { name, version, lastPublishedDate, tags, authorIcon, author, license, sourceLink } = plugin
 </script>
 
 <section>
@@ -36,42 +35,47 @@
               ></defs>
           </svg>
           <div>
-            <h1>{name}</h1>
+            <h1>{plugin.name}</h1>
             <p>
-              {#if version}
-                <span>{version}</span>
+              {#if plugin.version}
+                <span>{plugin.version}</span>
               {/if}
-              {#if lastPublishedDate}
-                - <span>{lastPublishedDate}</span>
+              {#if plugin.lastPublishedDate}
+                - <span>{plugin.lastPublishedDate}</span>
               {/if}
             </p>
           </div>
         </div>
 
         <ul class="tags | cluster">
-          {#each tags as tag}
+          {#each plugin.tags as tag}
             <Tag>{tag}</Tag>
           {/each}
         </ul>
       </div>
-      <a href={sourceLink} class="source button">Get this plugin</a>
+      <a href={plugin.sourceLink} class="source button">Get this plugin</a>
     </header>
-    <!-- content -->
+
+    <div id="readme">
+      <!-- <hr /> -->
+      {@html plugin.readme}
+      <!-- <svelte:component this={readme} /> -->
+    </div>
   </article>
   <aside>
     <dl>
       <dt>Install</dt>
       <dd><code>wharfkit plugin install</code></dd>
       <dt>Version</dt>
-      <dd>{version}</dd>
+      <dd>{plugin.version}</dd>
       <dt>License</dt>
-      <dd>{license}</dd>
+      <dd>{plugin.license}</dd>
       <dt>Last Published</dt>
-      <dd>{lastPublishedDate}</dd>
+      <dd>{plugin.lastPublishedDate}</dd>
       <dt>Creator</dt>
       <dd class="author">
-        <img src={authorIcon} class="author-icon" alt="" width="28" height="28" />
-        {author}
+        <img src={plugin.authorIcon} class="author-icon" alt="" width="28" height="28" />
+        {plugin.author}
       </dd>
     </dl>
   </aside>
@@ -88,6 +92,18 @@
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: 55%;
+  }
+
+  #readme :global(h1) {
+    display: none;
+  }
+
+  #readme :global(> *) {
+    margin-top: var(--space-m);
+  }
+
+  #readme :global(hr) {
+    margin-block: var(--space-xl);
   }
 
   header {

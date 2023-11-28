@@ -2,6 +2,7 @@ import * as yaml from "js-yaml"
 import { create, insertMultiple, search } from "@orama/orama"
 import type { Orama, Results, SearchParams, TypedDocument } from "@orama/orama"
 import { browser } from "$app/environment"
+import { compile } from 'mdsvex'
 
 const pluginSchema = {
   name: "string",
@@ -13,6 +14,7 @@ const pluginSchema = {
   version: "string",
   sourceLink: "string",
   license: "string",
+  readme: "string",
 } as const
 
 export type PluginDocument = TypedDocument<Orama<typeof pluginSchema>>
@@ -28,6 +30,8 @@ export const db: Promise<Orama<typeof pluginSchema>> = create({
 
     for (const path in files) {
       const content = yaml.load(files[path]) as WharfkitPlugin
+      const readme = await getPluginReadme(content.sourceLink) || ""
+      content.readme = readme
       plugins.push(content)
     }
 
@@ -66,4 +70,24 @@ export const getPlugin = async (name: string) => {
     where: { name: name },
   })
   return result.hits[0]
+}
+
+const getPluginReadme = async (repoLink: string) => {
+  const link = repoLink
+    .replace("github.com", "raw.githubusercontent.com")
+    .concat("/master/README.md")
+  const readme = await fetch(link)
+
+  try {
+    if (!readme.ok) throw new Error("Readme not found")
+    const text = await readme.text()
+    const html = await compile(text)
+    if (!html) throw new Error("Markdown could not be compiled")
+    return html.code
+  } catch (error) {
+    console.error(error)
+    return ""
+  }
+
+
 }
