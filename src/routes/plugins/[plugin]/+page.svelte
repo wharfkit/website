@@ -42,9 +42,9 @@
               {#if plugin.version}
                 <span>{plugin.version}</span>
               {/if}
-            {#if plugin.version && plugin.lastPublishedDate}
+              {#if plugin.version && plugin.lastPublishedDate}
                 -
-            {/if}
+              {/if}
               {#if plugin.lastPublishedDate}
                 <span>{plugin.lastPublishedDate}</span>
               {/if}
@@ -62,38 +62,43 @@
 
     <div id="readme">
       <!-- <hr /> -->
+      <!-- {@html plugin.readme} -->
       {@html plugin.readme}
-      <!-- <svelte:component this={readme} /> -->
+      <!-- {plugin.readme} -->
+      <!-- {@html js.code} -->
     </div>
   </article>
   <aside>
-        <div class="install">
-            <p>Install</p>
-            <code>
-                    {installCommand}
-            </code>
-            <button class="button">Copy install script</button>
-        </div>
+    <div class="install">
+      <p>Install</p>
+      <code>
+        {installCommand}
+      </code>
+      <button class="button">Copy install script</button>
+    </div>
     <dl>
-        {#if plugin.version}
-      <dt>Version</dt>
-      <dd>{plugin.version}</dd>
-            {/if}
-        {#if plugin.license}
-      <dt>License</dt>
-      <dd>{plugin.license}</dd>
-            {/if}
-        {#if plugin.lastPublishedDate}
-      <dt>Last Published</dt>
-      <dd>{plugin.lastPublishedDate}</dd>
-            {/if}
-        {#if plugin.author}
-      <dt>Creator</dt>
-      <dd class="author">
-        <img src={plugin.authorIcon} class="author-icon" alt="" width="28" height="28" />
-        {plugin.author}
-      </dd>
-            {/if}
+      {#if plugin.version}
+        <dt>Version</dt>
+        <dd>{plugin.version}</dd>
+      {/if}
+
+      {#if plugin.license}
+        <dt>License</dt>
+        <dd>{plugin.license}</dd>
+      {/if}
+
+      {#if plugin.lastPublishedDate}
+        <dt>Last Published</dt>
+        <dd>{plugin.lastPublishedDate}</dd>
+      {/if}
+
+      {#if plugin.author}
+        <dt>Creator</dt>
+        <dd class="author">
+          <img src={plugin.authorIcon} class="author-icon" alt="" width="28" height="28" />
+          {plugin.author}
+        </dd>
+      {/if}
     </dl>
   </aside>
 </section>
@@ -131,31 +136,31 @@
   }
 
   aside {
-      display: grid;
-      gap: var(--space-s);
-      align-items: start;
-      align-content: start;
+    display: grid;
+    gap: var(--space-s);
+    align-items: start;
+    align-content: start;
   }
 
   .install {
-      display: grid;
-      gap: var(--space-2xs)
+    display: grid;
+    gap: var(--space-2xs);
   }
 
   .install code {
-      --_input-bg: var(--input-background-color, var(--theme-surface2));
-      resize: none;
-      border: none;
-      background-color: var(--_input-bg);
-      padding-inline: var(--space-s);
-      padding-block: var(--space-xs);
-      border-radius: var(--space-xs);
-      font-size: var(--fs--1);
-      color: color-mix(in srgb, var(--_input-bg), var(--theme-text-body) 70%);
-      white-space: nowrap;
-      overflow-x: hidden;
-      text-overflow: ellipsis;
-      user-select: all;
+    --_input-bg: var(--input-background-color, var(--theme-surface2));
+    resize: none;
+    border: none;
+    background-color: var(--_input-bg);
+    padding-inline: var(--space-s);
+    padding-block: var(--space-xs);
+    border-radius: var(--space-xs);
+    font-size: var(--fs--1);
+    color: color-mix(in srgb, var(--_input-bg), var(--theme-text-body) 70%);
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    user-select: all;
   }
 
   .install code::before {
@@ -164,9 +169,9 @@
   }
 
   .install p {
-      font-family: var(--ff-heading);
-      font-size: var(--fs-1);
-      font-weight: 600;
+    font-family: var(--ff-heading);
+    font-size: var(--fs-1);
+    font-weight: 600;
   }
 
   .plugin-title {
@@ -205,7 +210,7 @@
   }
 
   dd {
-      font-size: var(--fs--1);
+    font-size: var(--fs--1);
   }
 
   dd:not(:last-child) {
@@ -222,5 +227,4 @@
   .author-icon {
     border-radius: var(--space-2xs);
   }
-
 </style>

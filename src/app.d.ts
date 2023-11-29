@@ -138,7 +138,7 @@ type WharfkitPlugin = {
   lastPublishedDate: string
   sourceLink: string
   license: string
-  readme: string
+  readme: any
 }
 
 type PluginQueryOptions = {

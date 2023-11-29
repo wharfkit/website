@@ -28,6 +28,7 @@ pre[class*="language-"] {
 }
 
 /* Code blocks */
+pre:has(code),
 pre[class*="language-"] {
   position: relative;
   padding: var(--space-m);
@@ -40,7 +41,7 @@ pre[class*="language-"] {
 /* Inline code */
 :not(pre) > code[class*="language-"],
 :not(pre) > code {
-  background: var(--theme-surface6);
+  background: var(--theme-surface8);
   color: var(--theme-text-body);
   text-shadow: none;
   padding-block: 0.125em;
