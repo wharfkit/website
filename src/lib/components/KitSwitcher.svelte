@@ -135,7 +135,7 @@
           token balances.
         </li>
       </ul>
-      <a href="/kits/account" class="button">Learn more (Coming Soon)</a>
+      <a href="/kits/account" class="button">Learn more</a>
     </div>
     <div class="contract kit | stack" class:active={active === "contract"}>
       <h3>Contract Kit</h3>

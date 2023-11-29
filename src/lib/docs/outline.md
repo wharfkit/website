@@ -2,6 +2,7 @@
   - AccountKit (Not complete)
   - Console Renderer
   - ContractKit (Not complete)
+  - Cli (Not complete)
   - SessionKit
     - ABICache
     - ChainDefinition
