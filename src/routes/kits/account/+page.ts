@@ -1,13 +1,13 @@
-import type { PageLoad } from './$types';
+import type { PageLoad } from "./$types"
 
 export const load = (async () => {
+  const meta = {
+    title: "Account Kit",
+    description:
+      "The Account Kit works with custom APIs for each Antelope blockchain, so you can easily gather any data you need.",
+  }
 
-    const meta = {
-        title: "Account Kit",
-        description: "Coming soon.",
-    }
-
-    return {
-        meta,
-    };
-}) satisfies PageLoad;
+  return {
+    meta,
+  }
+}) satisfies PageLoad
