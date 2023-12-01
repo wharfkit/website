@@ -67,11 +67,7 @@
     </header>
 
     <div id="readme">
-      <!-- <hr /> -->
-      <!-- {@html plugin.readme} -->
       {@html plugin.readme}
-      <!-- {plugin.readme} -->
-      <!-- {@html js.code} -->
     </div>
   </article>
   <aside>
@@ -82,7 +78,7 @@
       </code>
       <button class="button" on:click={copyToClipboard}>Copy install script</button>
     </div>
-    <dl>
+    <dl class="hidden-sm">
       {#if plugin.version}
         <dt>Version</dt>
         <dd>{plugin.version}</dd>
@@ -139,6 +135,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: var(--space-l);
   }
 
   aside {
@@ -146,6 +143,14 @@
     gap: var(--space-s);
     align-items: start;
     align-content: start;
+    flex-basis: 16rem;
+    flex-grow: 1;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      gap: var(--space-xl);
+    }
   }
 
   .install {
@@ -190,12 +195,7 @@
     list-style: none;
     gap: var(--space-xs);
     padding: 0;
-    padding-block: var(--space-m);
-  }
-
-  aside {
-    flex-basis: 16rem;
-    flex-grow: 1;
+    padding-top: var(--space-m);
   }
 
   dl {
@@ -232,5 +232,11 @@
 
   .author-icon {
     border-radius: var(--space-2xs);
+  }
+
+  .hidden-sm {
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 </style>

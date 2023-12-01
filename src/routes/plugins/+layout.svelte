@@ -31,8 +31,8 @@
       --footer-background: linear-gradient(180deg, hsl(229deg 21% 10% / 0.3), #262936 5rem), #262936;
       --header-background: #262936;
       --header-background-transparent: #26293600;
-      --page-background: 
-        linear-gradient(180deg, 
+      --page-background:
+        linear-gradient(180deg,
           hsl(228deg 15% 34%) 0rem,
           hsl(228deg 15% 28%) 2rem,
           hsl(228deg 16% 17%) 7rem,
@@ -71,7 +71,7 @@
         </button>
       </form>
     </search>
-    <ul class="sidebar-list">
+    <ul class="sidebar-list hidden-sm">
       <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("contract")}>Contract</a></li>
       <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("account")}>Account</a></li>
       <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("session")}>Session</a></li>
@@ -88,7 +88,7 @@
   main {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-m);
+    gap: var(--space-l-xl);
   }
 
   .sidebar-list-item {
@@ -98,7 +98,6 @@
 
   @media (min-width: 769px) {
     main {
-      gap: var(--space-l-xl);
       grid-template-columns: 16rem minmax(0, 1fr);
     }
   }
@@ -145,5 +144,11 @@
 
   search button svg {
     max-width: none;
+  }
+
+  .hidden-sm {
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 </style>
