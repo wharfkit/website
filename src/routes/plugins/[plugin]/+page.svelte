@@ -7,6 +7,12 @@
 
   const { plugin } = data
   const installCommand = `yarn install ${plugin.pluginId}`
+
+  function copyToClipboard() {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(installCommand)
+    }
+  }
 </script>
 
 <section>
@@ -74,7 +80,7 @@
       <code>
         {installCommand}
       </code>
-      <button class="button">Copy install script</button>
+      <button class="button" on:click={copyToClipboard}>Copy install script</button>
     </div>
     <dl>
       {#if plugin.version}
