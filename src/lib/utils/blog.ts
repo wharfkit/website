@@ -1,11 +1,36 @@
 import slugify from "@sindresorhus/slugify"
-import { postsPerPage } from "../config"
 
 const defaultImage =
   "https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-vector-no-bg.svg"
 
-export const getThumbnail = (url: string) => {
-  const videoID = /^.*\/(.*)$/m.exec(url)[1]
+export const getVideoID = (videolink: string): string | undefined => {
+  try {
+    const url = new URL(videolink)
+
+    // Long form youtube.com
+    if (url.hostname.includes("youtube.com")) {
+
+      // Regular video
+      let v = url.searchParams.get("v")
+      if (v !== null) return v
+
+      // Live video
+      if (url.pathname.includes("/live/")) {
+        return url.pathname.split("/").pop() || ""
+      }
+
+      // Shortened URL youtu.be
+    } else if (url.hostname.includes("youtu.be")) {
+      return url.pathname.slice(1)
+    }
+
+  } catch (error) {
+    console.error(error)
+    return ""
+  }
+}
+
+const getThumbnail = (videoID: string) => {
   return `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
 }
 
@@ -15,17 +40,22 @@ export const getImage = (metadata: { [key: string]: any } | undefined) => {
   } else if (metadata.image) {
     return metadata.image
   } else if (metadata.videolink) {
-    return getThumbnail(metadata.videolink)
+    const videoID = getVideoID(metadata.videolink)
+    if (!videoID) {
+      return defaultImage
+    } else {
+      return getThumbnail(videoID)
+    }
   } else {
     return defaultImage
   }
 }
 
-const chronologicalSort = (a: { date: string }, b: { date: string }) => {
+const chronologicalSort = (a: { date: string; }, b: { date: string; }) => {
   return Number(new Date(a.date)) - Number(new Date(b.date))
 }
 
-const reverseChronologicalSort = (a: { date: string }, b: { date: string }) => {
+const reverseChronologicalSort = (a: { date: string; }, b: { date: string; }) => {
   return Number(new Date(b.date)) - Number(new Date(a.date))
 }
 

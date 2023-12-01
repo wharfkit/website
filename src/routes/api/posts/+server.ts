@@ -9,8 +9,8 @@ export const GET: RequestHandler = async ({ url }) => {
 
     const options: BlogQueryOptions = {
       limit: Number(params.get("limit")) || postsPerPage,
-      tag: (params.get("tag") as BlogPostTag) || undefined,
-      sort: (params.get("sort") as BlogPostSort) || undefined,
+      tag: params.get("tag") as BlogPostTag || undefined,
+      sort: params.get("sort") as BlogPostSort || undefined,
     }
 
     const allPosts = await getBlogPosts(options)

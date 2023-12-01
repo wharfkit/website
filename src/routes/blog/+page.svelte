@@ -34,9 +34,9 @@
     /* prettier-ignore */
     body[data-theme="dark"] {
       --footer-background: #262936;
-      --page-background: url("/images/patterns/2545.svg") no-repeat center top -5rem / contain, 
-        linear-gradient(180deg, 
-        #7BE7CE -10rem, 
+      --page-background: url("/images/patterns/2545.svg") no-repeat center top -5rem / contain,
+        linear-gradient(180deg,
+        #7BE7CE -10rem,
         /* #494E62 10rem,  */
         color-mix(in srgb, #494E62 100%, #262936) 10rem,
         color-mix(in srgb, #494E62 60%, #262936) 15rem,
