@@ -19,5 +19,14 @@ export const load = (async ({ params, fetch }) => {
     ...plugin,
     lastPublishedDate: formatRelativeDate(plugin.lastPublishedDate),
   }
-  return { plugin: formattedPlugin }
+
+  const meta = {
+    title: plugin.name.concat(" - Plugins"),
+    description: plugin.description,
+  }
+
+  return {
+    meta,
+    plugin: formattedPlugin,
+  }
 }) satisfies PageServerLoad
