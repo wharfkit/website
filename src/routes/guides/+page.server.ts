@@ -1,15 +1,14 @@
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad } from "./$types"
 
-export const prerender = true;
+export const prerender = true
 
 export const load = (async () => {
+  // Set page metadata
+  const meta = {
+    title: "Guides",
+  }
 
-    // Set page metadata
-    const meta = {
-        title: 'Guides',
-    };
-
-    return {
-        meta,
-    };
-}) satisfies PageServerLoad;
+  return {
+    meta,
+  }
+}) satisfies PageServerLoad
