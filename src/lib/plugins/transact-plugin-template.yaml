@@ -1,0 +1,13 @@
+name: "transact-plugin-template"
+pluginId: "@wharfkit/transact-plugin-template"
+description: "Template used in the creation of @wharfkit/session transact plugins"
+tags:
+  - "transact"
+  - "session"
+  - "template"
+authorIcon: "https://avatars.githubusercontent.com/u/115573427?s=48&v=4"
+author: "WharfKit"
+version: ""
+lastPublishedDate: "2023-11-10:00:00.000Z"
+sourceLink: "https://github.com/wharfkit/transact-plugin-template"
+license: "BSD-3"

@@ -1,0 +1,13 @@
+name: "transact-plugin-cosigner"
+pluginId: "@wharfkit/transact-plugin-cosigner"
+description: "A TransactPlugin for the Wharf Session Kit. Cosign all transactions with a given private key to cover resource costs."
+tags:
+  - "transact"
+  - "session"
+  - "cosigner"
+authorIcon: "https://avatars.githubusercontent.com/u/115573427?s=48&v=4"
+author: "WharfKit"
+version: "1.1.0"
+lastPublishedDate: "2023-11-10:00:00.000Z"
+sourceLink: "https://github.com/wharfkit/transact-plugin-cosigner"
+license: "BSD-3"

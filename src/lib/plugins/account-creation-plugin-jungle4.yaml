@@ -1,0 +1,12 @@
+name: "account-creation-plugin-jungle4"
+pluginId: "@wharfkit/account-creation-plugin-jungle4"
+description: "A template to create a account-creationPlugin for use within the @wharfkit/session library."
+tags:
+  - "account"
+  - "jungle4"
+authorIcon: "https://avatars.githubusercontent.com/u/115573427?s=48&v=4"
+author: "WharfKit"
+version: "1.2.0"
+lastPublishedDate: "2023-11-10"
+sourceLink: "https://github.com/wharfkit/account-creation-plugin-jungle4"
+license: "BSD-3"
