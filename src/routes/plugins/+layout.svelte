@@ -76,7 +76,7 @@
       <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("wallet")}>Wallet</a></li>
       <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("login")}>Login</a></li>
       <li class="sidebar-subtitle sidebar-list-item">
-        <a href={getLink("transaction")}>Transaction</a>
+        <a href={getLink("transact")}>Transact</a>
       </li>
     </ul>
   </nav>
