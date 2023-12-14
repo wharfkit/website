@@ -72,10 +72,9 @@
       </form>
     </search>
     <ul class="sidebar-list hidden-sm">
-      <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("contract")}>Contract</a></li>
-      <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("account")}>Account</a></li>
       <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("session")}>Session</a></li>
       <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("wallet")}>Wallet</a></li>
+      <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("login")}>Login</a></li>
       <li class="sidebar-subtitle sidebar-list-item">
         <a href={getLink("transaction")}>Transaction</a>
       </li>
