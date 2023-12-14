@@ -3,12 +3,19 @@ title: Wharfkit Starter Kits
 description: Starter kits to jumpstart your development on Antelope blockchains with Wharfkit.
 category: Utilities
 published: true
-order: 2
+requiresReview: true
+order: 6
 ---
 
 # Wharfkit Starter Kits Overview
 
-Wharfkit starter kits exist to facilitate the initial setup for developers working on projects across different Antelope blockchains. The kits, including `@wharfkit/starter`, `@wharfkit/starter-eos`, `@wharfkit/starter-telos`, `@wharfkit/starter-wax`, and `@wharfkit/starter-jungle`, come with all the essential Wharfkit packages, as well as pre-configured `sessionKit` instances for transacting on the respective Antelope blockchains.
+The starter kits exist to facilitate the initial setup of developers wanting to use Wharfkit in their applications. The kits, including come with all the essential Wharfkit packages, as well as pre-configured `sessionKit` instances that can be used to quickly instantiate Wharf sessions. The available starter kits are: 
+
+- `@wharfkit/starter`: Used to interact with any of the main Antelope blockchains.
+- `@wharfkit/starter-eos`: Used to interact with the EOS blockchain.
+- `@wharfkit/starter-telos`: Used to interact with the Telos blockchain.
+- `@wharfkit/starter-wax`: Used to interact with the WAX blockchain.
+- `@wharfkit/starter-jungle`: Used to interact with the Jungle Testnet.
 
 ## Installation
 
@@ -70,7 +77,7 @@ import AccountKit from '@wharfkit/account';
     await sessionKit.login(); // Send a login request that can be used to login to any of the main Antelope blockchains
     ```
 
-- **Blockchain-Specific Kits**: For example, with the Jungle Testnet Starter Kit:
+- **Blockchain-Specific Kits**: Similarly, the blockchain-specific starter kits include pre-configured `sessionKit` instances that can be used to transact with the designated blockchain.
 
     ```ts
     import { sessionKit } from '@wharfkit/starter-jungle';
@@ -80,4 +87,4 @@ import AccountKit from '@wharfkit/account';
 
 ### For More Information
 
-For detailed guidance on how to use the `sessionKit` instance, refer to the [SessionKit documentation](/docs/session-kit). This comprehensive resource provides insights and examples for effectively utilizing `sessionKit` across different blockchain environments.
+For detailed guidance on how to use the `sessionKit` instance, refer to the [SessionKit documentation](/docs/session-kit). This comprehensive resource provides insights and examples for effectively creating and utilizing Wharf session across different blockchain environments.
