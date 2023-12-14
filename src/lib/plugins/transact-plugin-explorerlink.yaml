@@ -1,0 +1,13 @@
+name: "transact-plugin-explorerlink"
+pluginId: "@wharfkit/transact-plugin-explorerlink"
+description: "A TransactPlugin for the Wharf Session Kit. Displays a link to a block explorer at the end of a transaction."
+tags:
+  - "transact"
+  - "session"
+  - "explorerlink"
+authorIcon: "https://avatars.githubusercontent.com/u/115573427?s=48&v=4"
+author: "WharfKit"
+version: "1.0.1"
+lastPublishedDate: "2023-07-31"
+sourceLink: "https://github.com/wharfkit/transact-plugin-explorerlink"
+license: "BSD-3"
