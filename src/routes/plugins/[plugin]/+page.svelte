@@ -130,6 +130,11 @@
     margin-block: var(--space-xl);
   }
 
+  #readme :global(pre) {
+    overflow: scroll;
+    scrollbar-gutter: stable both-edges;
+  }
+
   header {
     display: flex;
     align-items: flex-start;
