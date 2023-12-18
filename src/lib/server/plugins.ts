@@ -35,6 +35,7 @@ export const db: Promise<Orama<typeof pluginSchema>> = create({
     for (const path in files) {
       const content = yaml.load(files[path]) as WharfkitPlugin
       const readme = (await getPluginReadme(content.sourceLink)) || ""
+      const release = await getPluginRelease(content.sourceLink)
       content.readme = readme
       plugins.push(content)
     }
@@ -90,6 +91,23 @@ const getPluginReadme = async (repoLink: string) => {
     const text = await readme.text()
     const html = await parse(text)
     return html.value
+  } catch (error) {
+    console.error(error)
+    return ""
+  }
+}
+
+const getPluginRelease = async (repoLink: string) => {
+  const link = repoLink.replace("github.com", "api.github.com/repos").concat("/releases/latest")
+  const res = await fetch(link)
+  try {
+    // if (!res.ok) throw new Error(`No release available at ${repoLink}`)
+    const json = await res.json()
+    console.log({ json })
+    const latestRelease = JSON.parse(json)
+    console.log(link, latestRelease)
+
+    // console.log(latestRelease?.tag_name, latestRelease?.published_at)
   } catch (error) {
     console.error(error)
     return ""
