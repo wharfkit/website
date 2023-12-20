@@ -31,8 +31,6 @@ async function fetchRepoData(repo) {
     },
   }
 
-  let json
-
   https
     .get(url, options, (res) => {
       let data = ""
@@ -43,7 +41,8 @@ async function fetchRepoData(repo) {
 
       res.on("end", () => {
         if (res.statusCode === 200) {
-          json = JSON.parse(data)
+          console.log({ data })
+          return data
         } else {
           console.error(
             `Error getting commit information for ${repo}. Status code: ${res.statusCode}`
@@ -54,17 +53,15 @@ async function fetchRepoData(repo) {
     .on("error", (error) => {
       console.error(`Error making API request: ${error.message}`)
     })
-
-  return json
 }
 
 async function main() {
   try {
     const repositories = await importTxtFile(FILE_PATH)
     repositories.forEach(async (repo) => {
-      const json = await fetchRepoData(repo)
-      const { name, description } = json
-      console.log(json)
+      const data = await fetchRepoData(repo)
+      const json = JSON.parse(data)
+      console.log({ json })
     })
   } catch (error) {
     console.error(error)
