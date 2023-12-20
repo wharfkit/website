@@ -1,7 +1,8 @@
 import { readFile } from "fs/promises"
 import https from "https"
 
-const FILE_PATH = "./src/lib/plugin-directory.txt"
+const PLUGIN_LIST_PATH = "./src/lib/plugin-directory.txt"
+const PLUGIN_INFO_PATH = "./src/lib/plugins/plugins.json"
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const GITHUB_HEADERS = {
   headers: {
@@ -10,18 +11,25 @@ const GITHUB_HEADERS = {
   },
 }
 
-/**
- * @param {string} filePath
- */
-async function importTxtFile(filePath) {
+async function importTxtFile() {
   try {
-    const text = await readFile(filePath, "utf-8")
+    const text = await readFile(PLUGIN_LIST_PATH, "utf-8")
     const lines = text.split("\n").filter((line) => line.trim() !== "")
 
     return lines
   } catch (error) {
     console.error(`Error importing file: ${error.message}`)
     return []
+  }
+}
+
+async function importPluginJson() {
+  try {
+    const text = await readFile(PLUGIN_INFO_PATH, "utf-8")
+    const json = JSON.parse(text)
+    return json
+  } catch (error) {
+    throw new Error(`Error importing plugin information json: ${error.message}`)
   }
 }
 
@@ -52,7 +60,7 @@ async function fetchRepoData(repo) {
           } else {
             reject(
               `Error getting repository information for ${repo}.
-                Status code: ${response.statusCode}`
+                                Status code: ${response.statusCode}`
             )
           }
         })
@@ -105,19 +113,20 @@ async function fetchSha(repo) {
 
 async function main() {
   try {
-    const plugins = await importTxtFile(FILE_PATH)
-    plugins.forEach(async (plugin) => {
+    const pluginList = await importTxtFile()
+    const pluginsInfo = await importPluginJson()
+    pluginList.forEach(async (plugin) => {
       const sha = await fetchSha(plugin)
       console.log({ plugin, sha })
-
-      // if sha changed
-      // const repoData = await fetchRepoData(plugin)
-      // const json = JSON.parse(repoData)
-      // const pluginData = extractFields(json)
-      //
-      // fetch(pluginData.sourceLink).then((v) => console.log({ v }))
-
-      // return pluginInfo
+      if (plugin in pluginsInfo) {
+        const { sha: currentVersion } = pluginsInfo[plugin]
+        if (sha !== currentVersion) {
+          // const repoData = await fetchRepoData(plugin)
+          // const json = JSON.parse(repoData)
+          // const pluginData = extractFields(json)
+          // return pluginInfo
+        }
+      }
     })
   } catch (error) {
     console.error(error)
