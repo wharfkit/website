@@ -62,14 +62,14 @@ async function main() {
     const repositories = await importTxtFile(FILE_PATH)
     repositories.forEach(async (repo) => {
       const repoData = await fetchRepoData(repo)
-      const {
-        name,
-        description,
-        topics,
-        // owner: { login: author, avatar_url: authorIcon },
-        html_url,
-        license: { name: licenseName },
-      } = repoData
+      // const {
+      //   name,
+      //   description,
+      //   topics,
+      //   // owner: { login: author, avatar_url: authorIcon },
+      //   html_url,
+      //   license: { name: licenseName },
+      // } = repoData
 
       console.log(Object.keys(repoData))
       // console.log({ name, description, topics, author, authorIcon, html_url, licenseName })
