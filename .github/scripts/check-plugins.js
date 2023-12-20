@@ -1,5 +1,4 @@
 import { readFile } from "fs/promises"
-import https from "https"
 
 const PLUGIN_LIST_PATH = "./src/lib/plugin-directory.txt"
 const PLUGIN_INFO_PATH = "./src/lib/plugins/plugins.json"
@@ -36,55 +35,14 @@ async function importPluginJson() {
 /**
  * @param {string} repo
  * */
-async function fetchRepoData(repo) {
+async function fetchRepo(repo) {
   const url = `https://api.github.com/repos/${repo}`
-  const options = {
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`,
-      "User-Agent": "GitHub Actions",
-    },
+  const response = await fetch(url, GITHUB_HEADERS)
+  if (!response.ok) {
+    const message = `Error fetching repo ${repo}: Error ${response.status}`
+    throw new Error(message)
   }
-
-  return new Promise((resolve, reject) => {
-    https
-      .get(url, options, (response) => {
-        let data = ""
-
-        response.on("data", (chunk) => {
-          data += chunk
-        })
-
-        response.on("end", () => {
-          if (response.statusCode === 200) {
-            resolve(data)
-          } else {
-            reject(
-              `Error getting repository information for ${repo}.
-                                Status code: ${response.statusCode}`
-            )
-          }
-        })
-      })
-      .on("error", (error) => {
-        reject(error)
-      })
-  })
-}
-
-/**
- * @param {Object} repo GitHub repository data from API
- * @param {string} repo.name
- * @param {string} repo.full_name
- * @param {string} repo.description
- * @param {string[]} repo.topics
- * @param {Object} repo.owner
- * @param {string} repo.owner.login
- * @param {string} repo.owner.avatar_url
- * @param {string} repo.html_url
- * @param {Object} repo.license
- * @param {string} repo.license.name
- * */
-function extractFields(repo) {
+  const repo = await response.json()
   return {
     name: repo.name,
     pluginId: repo.full_name,
@@ -94,6 +52,39 @@ function extractFields(repo) {
     authorIcon: repo.owner.avatar_url,
     sourceLink: repo.html_url,
     license: repo.license.name,
+  }
+}
+
+/**
+ * @param {string} repo
+ * */
+async function fetchRelease(repo) {
+  const url = `https://api.github.com/repos/${repo}/releases/latest`
+  const response = await fetch(url, GITHUB_HEADERS)
+  if (!response.ok) {
+    const message = `Error fetching latest release for ${repo}: Error ${response.status}`
+    throw new Error(message)
+  }
+  const release = await response.json()
+  return {
+    version: release.tag_name,
+    lastPublishedDate: release.published_at,
+  }
+}
+
+/**
+ * @param {string} repo
+ * */
+async function fetchReadme(repo) {
+  const url = `https://api.github.com/repos/${repo}/readme`
+  const response = await fetch(url, GITHUB_HEADERS)
+  if (!response.ok) {
+    const message = `Error fetching readme for ${repo}: Error ${response.status}`
+    throw new Error(message)
+  }
+  const { content } = await response.json()
+  return {
+    readme: content,
   }
 }
 
@@ -114,19 +105,25 @@ async function fetchSha(repo) {
 async function main() {
   try {
     const pluginList = await importTxtFile()
-    const pluginsInfo = await importPluginJson()
-    pluginList.forEach(async (plugin) => {
-      const sha = await fetchSha(plugin)
-      console.log({ plugin, sha })
-      if (plugin in pluginsInfo) {
-        const { sha: currentVersion } = pluginsInfo[plugin]
-        if (sha !== currentVersion) {
-          // const repoData = await fetchRepoData(plugin)
-          // const json = JSON.parse(repoData)
-          // const pluginData = extractFields(json)
-          // return pluginInfo
+    let allPlugins = await importPluginJson()
+
+    pluginList.every(async (plugin) => {
+      // Check if updates are needed
+      if (allPlugins[plugin]) {
+        const remoteSha = await fetchSha(plugin)
+        const { sha: currentSha } = allPlugins[plugin]
+        if (remoteSha === currentSha) {
+          return false
         }
       }
+
+      // Only fetch data when new plugin or new commit
+      const pluginRepo = await fetchRepo(plugin)
+      const pluginRelease = await fetchRelease(plugin)
+      const pluginReadme = await fetchReadme(plugin)
+      const pluginInfo = { ...pluginRepo, ...pluginRelease, ...pluginReadme }
+      allPlugins[plugin] = pluginInfo
+      return true
     })
   } catch (error) {
     console.error(error)
