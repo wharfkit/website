@@ -3,6 +3,12 @@ import https from "https"
 
 const FILE_PATH = "./src/lib/plugin-directory.txt"
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
+const GITHUB_HEADERS = {
+  headers: {
+    Authorization: `Bearer ${GITHUB_TOKEN}`,
+    "User-Agent": "GitHub Actions",
+  },
+}
 
 /**
  * @param {string} filePath
@@ -87,23 +93,22 @@ function extractFields(repo) {
  * @param {string} repo
  * */
 async function fetchSha(repo) {
-  const url = `https://api.github.com/repos/${repo}/commits/latest`
-  const response = await fetch(url)
+  const url = `https://api.github.com/repos/${repo}/commits`
+  const response = await fetch(url, GITHUB_HEADERS)
   if (!response.ok) {
-    const message = `Error fetching commits; ${response.status}`
+    const message = `Error fetching commits: ${response.status}`
     throw new Error(message)
   }
   const result = await response.json()
-  console.log({ result })
-  return result
+  return result[0].sha
 }
 
 async function main() {
   try {
     const plugins = await importTxtFile(FILE_PATH)
     plugins.forEach(async (plugin) => {
-      const { sha } = await fetchSha(plugin)
-      console.log({ sha })
+      const sha = await fetchSha(plugin)
+      console.log({ plugin, sha })
 
       // if sha changed
       // const repoData = await fetchRepoData(plugin)
