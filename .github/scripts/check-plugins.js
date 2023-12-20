@@ -66,9 +66,9 @@ async function main() {
   try {
     const repositories = await importTxtFile(FILE_PATH)
     repositories.forEach(async (repo) => {
-      const data = await fetchRepoData(repo)
-      // const json = JSON.parse(data)
-      // console.log({ json })
+      const repoData = await fetchRepoData(repo)
+      const { name, description } = repoData
+      console.log({ name, description })
     })
   } catch (error) {
     console.error(error)
