@@ -94,15 +94,16 @@ async function fetchSha(repo) {
     throw new Error(message)
   }
   const result = await response.json()
-  return result.sha
+  console.log({ result })
+  return result
 }
 
 async function main() {
   try {
     const plugins = await importTxtFile(FILE_PATH)
     plugins.forEach(async (plugin) => {
-      const sha = await fetchSha(plugin)
-      console.log(sha)
+      const { sha } = await fetchSha(plugin)
+      console.log({ sha })
 
       // if sha changed
       // const repoData = await fetchRepoData(plugin)
