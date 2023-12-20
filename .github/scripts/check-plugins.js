@@ -57,22 +57,43 @@ async function fetchRepoData(repo) {
   })
 }
 
+/**
+ * @param {Object} repo GitHub repository data from API
+ * @param {string} repo.name
+ * @param {string} repo.full_name
+ * @param {string} repo.description
+ * @param {string[]} repo.topics
+ * @param {Object} repo.owner
+ * @param {string} repo.owner.login
+ * @param {string} repo.owner.avatar_url
+ * @param {string} repo.html_url
+ * @param {Object} repo.license
+ * @param {string} repo.license.name
+ * */
+function extractFields(repo) {
+  return {
+    name: repo.name,
+    pluginId: repo.full_name,
+    description: repo.description,
+    tags: repo.topics,
+    author: repo.owner.login,
+    authorIcon: repo.owner.avatar_url,
+    sourceLink: repo.html_url,
+    license: repo.license.name,
+  }
+}
+
 async function main() {
   try {
     const repositories = await importTxtFile(FILE_PATH)
     repositories.forEach(async (repo) => {
       const repoData = await fetchRepoData(repo)
       const json = JSON.parse(repoData)
-      const {
-        name,
-        description,
-        topics,
-        owner: { login: author, avatar_url: authorIcon },
-        html_url,
-        license: { name: licenseName },
-      } = json
+      const pluginData = extractFields(json)
 
-      console.log({ name, description, topics, author, authorIcon, html_url, licenseName })
+      fetch(repo.html_url).then((v) => console.log({ v }))
+
+      // console.log(pluginData)
     })
   } catch (error) {
     console.error(error)
