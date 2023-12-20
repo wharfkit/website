@@ -88,8 +88,13 @@ function extractFields(repo) {
  * */
 async function fetchSha(repo) {
   const url = `https://api.github.com/repos/${repo}/commits`
-  const res = await fetch(url)
-  return JSON.parse(res).sha
+  const response = await fetch(url)
+  if (!response.ok) {
+    const message = `Error fetching commits; ${response.status}`
+    throw new Error(message)
+  }
+  const result = await response.json()
+  return result.sha
 }
 
 async function main() {
@@ -100,11 +105,11 @@ async function main() {
       console.log(sha)
 
       // if sha changed
-      const repoData = await fetchRepoData(plugin)
-      const json = JSON.parse(repoData)
-      const pluginData = extractFields(json)
-
-      fetch(pluginData.sourceLink).then((v) => console.log({ v }))
+      // const repoData = await fetchRepoData(plugin)
+      // const json = JSON.parse(repoData)
+      // const pluginData = extractFields(json)
+      //
+      // fetch(pluginData.sourceLink).then((v) => console.log({ v }))
 
       // return pluginInfo
     })
