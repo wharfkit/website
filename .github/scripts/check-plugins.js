@@ -41,7 +41,7 @@ async function fetchRepoData(repo) {
 
       res.on("end", () => {
         if (res.statusCode === 200) {
-          console.log({ data })
+          console.log({ repo, url, data })
           return data
         } else {
           console.error(
@@ -60,8 +60,8 @@ async function main() {
     const repositories = await importTxtFile(FILE_PATH)
     repositories.forEach(async (repo) => {
       const data = await fetchRepoData(repo)
-      const json = JSON.parse(data)
-      console.log({ json })
+      // const json = JSON.parse(data)
+      // console.log({ json })
     })
   } catch (error) {
     console.error(error)
