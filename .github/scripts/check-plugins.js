@@ -31,37 +31,30 @@ async function fetchRepoData(repo) {
     },
   }
 
-  try {
-    const repoData = https
-      .get(url, options, (res) => {
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, options, (response) => {
         let data = ""
 
-        res.on("data", (chunk) => {
+        response.on("data", (chunk) => {
           data += chunk
         })
 
-        res.on("end", () => {
-          if (!res.statusCode === 200) {
-            throw Error(
+        response.on("end", () => {
+          if (response.statusCode === 200) {
+            resolve(data)
+          } else {
+            reject(
               `Error getting repository information for ${repo}.
-                Status code: ${res.statusCode}`
+                Status code: ${response.statusCode}`
             )
           }
-
-          const json = JSON.parse(data)
-
-          // console.log({ repo, url, data })
-          return json
         })
       })
       .on("error", (error) => {
-        throw Error(`Error making API request: ${error.message}`)
+        reject(error)
       })
-
-    return repoData
-  } catch (error) {
-    console.error(error)
-  }
+  })
 }
 
 async function main() {
