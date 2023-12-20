@@ -42,16 +42,16 @@ async function fetchRepo(repo) {
     const message = `Error fetching repo ${repo}: Error ${response.status}`
     throw new Error(message)
   }
-  const repo = await response.json()
+  const repoData = await response.json()
   return {
-    name: repo.name,
-    pluginId: repo.full_name,
-    description: repo.description,
-    tags: repo.topics,
-    author: repo.owner.login,
-    authorIcon: repo.owner.avatar_url,
-    sourceLink: repo.html_url,
-    license: repo.license.name,
+    name: repoData.name,
+    pluginId: repoData.full_name,
+    description: repoData.description,
+    tags: repoData.topics,
+    author: repoData.owner.login,
+    authorIcon: repoData.owner.avatar_url,
+    sourceLink: repoData.html_url,
+    license: repoData.license.name,
   }
 }
 
