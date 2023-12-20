@@ -23,7 +23,7 @@ async function importTxtFile(filePath) {
  * @param {string} repo
  * */
 async function fetchRepoData(repo) {
-  const url = `https://api.github.com/repos/${repo}/commits/main`
+  const url = `https://api.github.com/repos/${repo}`
   const options = {
     headers: {
       Authorization: `Bearer ${GITHUB_TOKEN}`,
@@ -63,7 +63,8 @@ async function main() {
     const repositories = await importTxtFile(FILE_PATH)
     repositories.forEach(async (repo) => {
       const json = await fetchRepoData(repo)
-      console.log(json)
+      const { name, description } = json
+      console.log({ name, description })
     })
   } catch (error) {
     console.error(error)
