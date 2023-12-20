@@ -31,28 +31,35 @@ async function fetchRepoData(repo) {
     },
   }
 
-  https
-    .get(url, options, (res) => {
-      let data = ""
+  try {
+    https
+      .get(url, options, (res) => {
+        let data = ""
 
-      res.on("data", (chunk) => {
-        data += chunk
-      })
+        res.on("data", (chunk) => {
+          data += chunk
+        })
 
-      res.on("end", () => {
-        if (res.statusCode === 200) {
-          console.log({ repo, url, data })
-          return data
-        } else {
-          console.error(
-            `Error getting commit information for ${repo}. Status code: ${res.statusCode}`
-          )
-        }
+        res.on("end", () => {
+          if (!res.statusCode === 200) {
+            throw Error(
+              `Error getting repository information for ${repo}.
+                Status code: ${res.statusCode}`
+            )
+          }
+
+          const json = JSON.parse(data)
+
+          // console.log({ repo, url, data })
+          return json
+        })
       })
-    })
-    .on("error", (error) => {
-      console.error(`Error making API request: ${error.message}`)
-    })
+      .on("error", (error) => {
+        throw Error(`Error making API request: ${error.message}`)
+      })
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 async function main() {
