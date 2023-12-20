@@ -32,7 +32,7 @@ async function fetchRepoData(repo) {
   }
 
   try {
-    https
+    const repoData = https
       .get(url, options, (res) => {
         let data = ""
 
@@ -57,6 +57,8 @@ async function fetchRepoData(repo) {
       .on("error", (error) => {
         throw Error(`Error making API request: ${error.message}`)
       })
+
+    return repoData
   } catch (error) {
     console.error(error)
   }
@@ -67,8 +69,9 @@ async function main() {
     const repositories = await importTxtFile(FILE_PATH)
     repositories.forEach(async (repo) => {
       const repoData = await fetchRepoData(repo)
-      const { name, description } = repoData
-      console.log({ name, description })
+      console.log(repoData)
+      // const { name, description } = repoData
+      // console.log({ name, description })
     })
   } catch (error) {
     console.error(error)
