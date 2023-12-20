@@ -129,6 +129,8 @@ async function main() {
       allPlugins[plugin] = pluginInfo
       return true // continue with next plugin
     })
+
+    console.log({ allPlugins })
   } catch (error) {
     console.error(error)
   }
