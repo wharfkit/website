@@ -10,7 +10,7 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 async function importTxtFile(filePath) {
   try {
     const text = await readFile(filePath, "utf-8")
-    const lines = text.split("\n").map((line) => line.trim())
+    const lines = text.split("\n").filter((line) => line.trim() !== "")
 
     return lines
   } catch (error) {
