@@ -85,6 +85,21 @@ import AccountKit from '@wharfkit/account';
     await sessionKit.login(); // Send a login request specific to Jungle accounts
     ```
 
+
+### Pre-Configured `accountKit` and `contractKit` Instances
+
+For blockchain-specific starter kits, you can also import pre-configured `accountKit` and `contractKit` instances that are configured to work with the designated blockchain.
+
+    ```ts
+    import { accountKit, contractKit } from '@wharfkit/starter-jungle';
+
+    const account = await accountKit.load('teamgreymass');
+    // loads a Jungle 4 account and instantiates an Account instance
+
+    const contract = await contractKit.load('eosio.token');
+    // loads the eosio.token contract that is deployed on Jungle 4 and instantiates a Contract instance
+    ```
+
 ### For More Information
 
 For detailed guidance on how to use the `sessionKit` instance, refer to the [SessionKit documentation](/docs/session-kit). This comprehensive resource provides insights and examples for effectively creating and utilizing Wharf session across different blockchain environments.
