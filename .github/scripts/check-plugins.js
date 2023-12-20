@@ -87,7 +87,7 @@ function extractFields(repo) {
  * @param {string} repo
  * */
 async function fetchSha(repo) {
-  const url = `https://api.github.com/repos/${repo}/commits`
+  const url = `https://api.github.com/repos/${repo}/commits/latest`
   const response = await fetch(url)
   if (!response.ok) {
     const message = `Error fetching commits; ${response.status}`
