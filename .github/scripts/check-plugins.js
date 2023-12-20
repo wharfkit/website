@@ -62,6 +62,7 @@ async function main() {
     const repositories = await importTxtFile(FILE_PATH)
     repositories.forEach(async (repo) => {
       const repoData = await fetchRepoData(repo)
+      const json = JSON.parse(repoData)
       // const {
       //   name,
       //   description,
@@ -71,7 +72,7 @@ async function main() {
       //   license: { name: licenseName },
       // } = repoData
 
-      console.log(Object.keys(repoData))
+      console.log(Object.keys(json))
       // console.log({ name, description, topics, author, authorIcon, html_url, licenseName })
     })
   } catch (error) {
