@@ -83,17 +83,30 @@ function extractFields(repo) {
   }
 }
 
+/**
+ * @param {string} repo
+ * */
+async function fetchSha(repo) {
+  const url = `https://api.github.com/repos/${repo}/commits`
+  const res = fetch(url)
+  return JSON.parse(res).sha
+}
+
 async function main() {
   try {
-    const repositories = await importTxtFile(FILE_PATH)
-    repositories.forEach(async (repo) => {
-      const repoData = await fetchRepoData(repo)
+    const plugins = await importTxtFile(FILE_PATH)
+    plugins.forEach(async (plugin) => {
+      const sha = await fetchSha(plugin)
+      console.log(sha)
+
+      // if sha changed
+      const repoData = await fetchRepoData(plugin)
       const json = JSON.parse(repoData)
       const pluginData = extractFields(json)
 
       fetch(pluginData.sourceLink).then((v) => console.log({ v }))
 
-      // console.log(pluginData)
+      // return pluginInfo
     })
   } catch (error) {
     console.error(error)
