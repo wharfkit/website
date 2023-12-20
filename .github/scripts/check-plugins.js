@@ -17,7 +17,7 @@ async function importTxtFile() {
 
     return lines
   } catch (error) {
-    console.error(`Error importing file: ${error.message}`)
+    throw new Error(`Error importing plugin directory text file: ${error.message}`)
     return []
   }
 }
@@ -28,7 +28,7 @@ async function importPluginJson() {
     const json = JSON.parse(text)
     return json
   } catch (error) {
-    throw new Error(`Error importing plugin information json: ${error.message}`)
+    throw new Error(`Error importing plugin information json file: ${error.message}`)
   }
 }
 
@@ -39,7 +39,7 @@ async function fetchRepo(repo) {
   const url = `https://api.github.com/repos/${repo}`
   const response = await fetch(url, GITHUB_HEADERS)
   if (!response.ok) {
-    const message = `Error fetching repo ${repo}: Error ${response.status}`
+    const message = `Cannot fetch repo ${repo}: Error ${response.status}`
     throw new Error(message)
   }
   const repoData = await response.json()
@@ -62,8 +62,10 @@ async function fetchRelease(repo) {
   const url = `https://api.github.com/repos/${repo}/releases/latest`
   const response = await fetch(url, GITHUB_HEADERS)
   if (!response.ok) {
-    const message = `Error fetching latest release for ${repo}: Error ${response.status}`
-    throw new Error(message)
+    const message = `Cannot fetch latest release for ${repo}: Error ${response.status}`
+    // Not throwing so process can continue
+    console.error(message)
+    return {}
   }
   const release = await response.json()
   return {
@@ -79,8 +81,10 @@ async function fetchReadme(repo) {
   const url = `https://api.github.com/repos/${repo}/readme`
   const response = await fetch(url, GITHUB_HEADERS)
   if (!response.ok) {
-    const message = `Error fetching readme for ${repo}: Error ${response.status}`
-    throw new Error(message)
+    const message = `Cannot fetch readme for ${repo}: Error ${response.status}`
+    // Not throwing so process can continue
+    console.error(message)
+    return {}
   }
   const { content } = await response.json()
   return {
@@ -95,11 +99,11 @@ async function fetchSha(repo) {
   const url = `https://api.github.com/repos/${repo}/commits`
   const response = await fetch(url, GITHUB_HEADERS)
   if (!response.ok) {
-    const message = `Error fetching commits: ${response.status}`
+    const message = `Cannot fetch commit for ${repo}: Error ${response.status}`
     throw new Error(message)
   }
-  const result = await response.json()
-  return result[0].sha
+  const [result] = await response.json()
+  return result.sha
 }
 
 async function main() {
@@ -113,7 +117,7 @@ async function main() {
         const remoteSha = await fetchSha(plugin)
         const { sha: currentSha } = allPlugins[plugin]
         if (remoteSha === currentSha) {
-          return false
+          return false // skip to next plugin
         }
       }
 
@@ -123,7 +127,7 @@ async function main() {
       const pluginReadme = await fetchReadme(plugin)
       const pluginInfo = { ...pluginRepo, ...pluginRelease, ...pluginReadme }
       allPlugins[plugin] = pluginInfo
-      return true
+      return true // continue with next plugin
     })
   } catch (error) {
     console.error(error)
