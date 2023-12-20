@@ -91,7 +91,7 @@ async function main() {
       const json = JSON.parse(repoData)
       const pluginData = extractFields(json)
 
-      fetch(repo.html_url).then((v) => console.log({ v }))
+      fetch(pluginData.sourceLink).then((v) => console.log({ v }))
 
       // console.log(pluginData)
     })
