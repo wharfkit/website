@@ -1,0 +1,18 @@
+name: Plugin Directory Updater
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on: [push]
+  # schedule:
+  #   - cron: '5 * * * *'
+
+jobs:
+  update-plugins:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run script to watch repositories
+      run: node .github/scripts/check-plugins.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
