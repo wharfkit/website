@@ -18,7 +18,6 @@ async function importTxtFile() {
     return lines
   } catch (error) {
     throw new Error(`Error importing plugin directory text file: ${error.message}`)
-    return []
   }
 }
 
@@ -39,7 +38,7 @@ async function fetchRepo(repo) {
   const url = `https://api.github.com/repos/${repo}`
   const response = await fetch(url, GITHUB_HEADERS)
   if (!response.ok) {
-    const message = `Cannot fetch repo ${repo}: Error ${response.status}`
+    const message = `Error ${response.status}: Cannot fetch repo ${repo}`
     throw new Error(message)
   }
   const repoData = await response.json()
@@ -62,7 +61,7 @@ async function fetchRelease(repo) {
   const url = `https://api.github.com/repos/${repo}/releases/latest`
   const response = await fetch(url, GITHUB_HEADERS)
   if (!response.ok) {
-    const message = `Cannot fetch latest release for ${repo}: Error ${response.status}`
+    const message = `Error ${response.status}: Cannot fetch latest release for ${repo}`
     // Not throwing so process can continue
     console.error(message)
     return {}
@@ -81,7 +80,7 @@ async function fetchReadme(repo) {
   const url = `https://api.github.com/repos/${repo}/readme`
   const response = await fetch(url, GITHUB_HEADERS)
   if (!response.ok) {
-    const message = `Cannot fetch readme for ${repo}: Error ${response.status}`
+    const message = `Error ${response.status}: Cannot fetch readme for ${repo}`
     // Not throwing so process can continue
     console.error(message)
     return {}
@@ -99,40 +98,45 @@ async function fetchSha(repo) {
   const url = `https://api.github.com/repos/${repo}/commits`
   const response = await fetch(url, GITHUB_HEADERS)
   if (!response.ok) {
-    const message = `Cannot fetch commit for ${repo}: Error ${response.status}`
+    const message = `Error ${response.status}: Cannot fetch commit for ${repo}`
     throw new Error(message)
   }
   const [result] = await response.json()
   return result.sha
 }
 
+async function fetchPluginInfo(plugin) {
+  const pluginRepo = await fetchRepo(plugin)
+  const pluginRelease = await fetchRelease(plugin)
+  const pluginReadme = await fetchReadme(plugin)
+  return { ...pluginRepo, ...pluginRelease, ...pluginReadme }
+}
+
 async function main() {
+  const newPluginData = new Map()
   try {
     const pluginList = await importTxtFile()
-    let allPlugins = await importPluginJson()
+    const currentPluginData = await importPluginJson()
 
-    pluginList.every(async (plugin) => {
-      // Check if updates are needed
-      if (allPlugins[plugin]) {
+    pluginList.map(async (plugin) => {
+      // Check if no updates are needed
+      if (currentPluginData[plugin]) {
         const remoteSha = await fetchSha(plugin)
-        const { sha: currentSha } = allPlugins[plugin]
+        const { sha: currentSha } = currentPluginData[plugin]
         if (remoteSha === currentSha) {
-          return false // skip to next plugin
+          // Re-use existing data
+          newPluginData.set(plugin, currentPluginData[plugin])
+          return
         }
       }
 
-      // Only fetch data when new plugin or new commit
-      const pluginRepo = await fetchRepo(plugin)
-      const pluginRelease = await fetchRelease(plugin)
-      const pluginReadme = await fetchReadme(plugin)
-      const pluginInfo = { ...pluginRepo, ...pluginRelease, ...pluginReadme }
-      allPlugins[plugin] = pluginInfo
-      return true // continue with next plugin
+      const pluginInfo = fetchPluginInfo()
+      newPluginData.set(plugin, pluginInfo)
     })
-
-    console.log({ allPlugins })
   } catch (error) {
     console.error(error)
+  } finally {
+    console.log({ newPluginData })
   }
 }
 
