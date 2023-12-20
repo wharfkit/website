@@ -11,11 +11,7 @@ The Starter kits are a great way to start developing applications on Wharfkit. T
 
 The available kits are `@wharfkit/starter`, `@wharfkit/starter-eos`, `@wharfkit/starter-telos`, `@wharfkit/starter-wax`, and `@wharfkit/starter-jungle`.
 
-> **NOTE**: This guide is current as of December 2023 and reflects the latest versions of Wharfkit Starter Kits.
-
 ## Getting Started
-
-Ensure [Node.js](https://nodejs.org/en/) is installed, as it is a prerequisite for using Wharfkit packages.
 
 ### Step 1: Installation
 
@@ -49,13 +45,17 @@ import { AccountKit } from '@wharfkit/account';
 
 ### Step 3: Using SessionKit
 
-Use the `sessionKit` instance to log the user in and create a Wharf session:
+Use the `sessionKit` instance to create a Wharf session:
 
 ```js
 import { sessionKit } from '@wharfkit/starter';
 
 const session = await sessionKit.login(); // Initiates a login request
 ```
+
+Above, we are using a preconfigured instance of the `SessionKit` factory class. This instance comes bundled with a few essential Wharf plugins like the [Anchor Wallet plugin](https://www.npmjs.com/package/@wharfkit/wallet-plugin-anchor) and the [Web Renderer](https://www.npmjs.com/package/@wharfkit/web-renderer).
+
+This allows us to easily call the [Login](/docs/session-kit/login) method and create a session. Because we are using the base `@wharfkit/starter` kit, the `Login` method will let the user connect his wallet to any of the main Antelope blockchains. If you are using a blockchain-specific kit, calling the `Login` method will only let the user connect his wallet to the specified blockchain.
 
 ### Step 4: Sending a Transaction
 
@@ -79,7 +79,7 @@ const transactionArguments = {
 const transactionResult = await session.transact(transactionArguments);
 ```
 
-This example showcases a transfer using the `eosio.token` contract, employing the `transact` method on the `session` object for signing and broadcasting.
+This example showcases a transfer using the `eosio.token` contract, employing the `transact` method on the `session` object for signing and broadcasting. For more information on how to use the `transact` method, you can read the [Transact](/docs/session-kit/transact) documentation.
 
 ## Next Steps
 
