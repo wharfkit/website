@@ -31,7 +31,7 @@ async function fetchRepoData(repo) {
     },
   }
 
-  let json = ""
+  let json
 
   https
     .get(url, options, (res) => {
@@ -64,7 +64,7 @@ async function main() {
     repositories.forEach(async (repo) => {
       const json = await fetchRepoData(repo)
       const { name, description } = json
-      console.log({ name, description })
+      console.log(json)
     })
   } catch (error) {
     console.error(error)
