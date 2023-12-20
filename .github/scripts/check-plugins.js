@@ -63,17 +63,16 @@ async function main() {
     repositories.forEach(async (repo) => {
       const repoData = await fetchRepoData(repo)
       const json = JSON.parse(repoData)
-      // const {
-      //   name,
-      //   description,
-      //   topics,
-      //   // owner: { login: author, avatar_url: authorIcon },
-      //   html_url,
-      //   license: { name: licenseName },
-      // } = repoData
+      const {
+        name,
+        description,
+        topics,
+        owner: { login: author, avatar_url: authorIcon },
+        html_url,
+        license: { name: licenseName },
+      } = json
 
-      console.log(Object.keys(json))
-      // console.log({ name, description, topics, author, authorIcon, html_url, licenseName })
+      console.log({ name, description, topics, author, authorIcon, html_url, licenseName })
     })
   } catch (error) {
     console.error(error)
