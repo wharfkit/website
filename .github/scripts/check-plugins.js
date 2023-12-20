@@ -88,7 +88,7 @@ function extractFields(repo) {
  * */
 async function fetchSha(repo) {
   const url = `https://api.github.com/repos/${repo}/commits`
-  const res = fetch(url)
+  const res = await fetch(url)
   return JSON.parse(res).sha
 }
 
