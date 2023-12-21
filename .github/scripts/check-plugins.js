@@ -15,7 +15,7 @@ async function importTxtFile() {
     const text = await readFile(PLUGIN_LIST_PATH, "utf-8")
     const lines = text.split("\n").filter((line) => line.trim() !== "")
 
-    console.log(`Imported lines: \n${lines}`)
+    console.log(`Imported ${lines.length} lines from ${PLUGIN_LIST_PATH}`)
     return lines
   } catch (error) {
     throw new Error(`Error importing plugin directory text file: ${error.message}`)
@@ -26,7 +26,7 @@ async function importPluginJson() {
   try {
     const text = await readFile(PLUGIN_INFO_PATH, "utf-8")
     const json = JSON.parse(text)
-    console.log(`Imported json: \n${json}`)
+    console.log(`Imported ${Object.keys(json).length} plugins from ${PLUGIN_INFO_PATH}`)
     return json
   } catch (error) {
     throw new Error(`Error importing plugin information json file: ${error.message}`)
@@ -108,7 +108,7 @@ async function fetchSha(repo) {
 }
 
 async function fetchPluginInfo(plugin) {
-  console.log(`Fetching info for ${plugin}`)
+  console.log(`Fetching info for ${plugin}...`)
   const [pluginRepo, pluginRelease, pluginReadme] = await Promise.all([
     fetchRepo(plugin),
     fetchRelease(plugin),
@@ -129,13 +129,14 @@ async function main() {
         const remoteSha = await fetchSha(plugin)
         const { sha: currentSha } = currentPluginData[plugin]
         if (remoteSha === currentSha) {
+          console.log(`No updates found for ${plugin}`)
           // Re-use existing data
           newPluginData.set(plugin, currentPluginData[plugin])
           return
         }
       }
 
-      const pluginInfo = fetchPluginInfo(plugin)
+      const pluginInfo = await fetchPluginInfo(plugin)
       newPluginData.set(plugin, pluginInfo)
     })
   } catch (error) {
