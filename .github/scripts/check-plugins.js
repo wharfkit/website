@@ -106,9 +106,11 @@ async function fetchSha(repo) {
 }
 
 async function fetchPluginInfo(plugin) {
-  const pluginRepo = await fetchRepo(plugin)
-  const pluginRelease = await fetchRelease(plugin)
-  const pluginReadme = await fetchReadme(plugin)
+  const [pluginRepo, pluginRelease, pluginReadme] = await Promise.all([
+    fetchRepo(plugin),
+    fetchRelease(plugin),
+    fetchReadme(plugin),
+  ])
   return { ...pluginRepo, ...pluginRelease, ...pluginReadme }
 }
 
