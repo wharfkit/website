@@ -10,9 +10,6 @@ const GITHUB_HEADERS = {
   },
 }
 
-/**
- * @returns {string[]}
- * */
 async function importTxtFile() {
   try {
     const text = await readFile(PLUGIN_LIST_PATH, "utf-8")
@@ -26,7 +23,7 @@ async function importTxtFile() {
 }
 
 /**
- * @returns {Object<string, any>}
+ * @returns {Promise<Object<string, any>>}
  * */
 async function importPluginJson() {
   try {
@@ -131,8 +128,8 @@ async function fetchPluginInfo(plugin) {
 
 async function main() {
   try {
-    const pluginList = importTxtFile()
-    const currentPluginData = importPluginJson()
+    const pluginList = await importTxtFile()
+    const currentPluginData = await importPluginJson()
     const updatedPlugins = await Promise.all(
       pluginList.map(async (plugin) => {
         // Check if no updates are needed
