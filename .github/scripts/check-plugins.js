@@ -1,3 +1,4 @@
+import { updated } from "$app/stores"
 import { readFile } from "fs/promises"
 
 const PLUGIN_LIST_PATH = "./src/lib/plugin-directory.txt"
@@ -10,6 +11,9 @@ const GITHUB_HEADERS = {
   },
 }
 
+/**
+ * @returns {string[]}
+ * */
 async function importTxtFile() {
   try {
     const text = await readFile(PLUGIN_LIST_PATH, "utf-8")
@@ -22,6 +26,9 @@ async function importTxtFile() {
   }
 }
 
+/**
+ * @returns {Object<string, any>}
+ * */
 async function importPluginJson() {
   try {
     const text = await readFile(PLUGIN_INFO_PATH, "utf-8")
@@ -125,9 +132,9 @@ async function fetchPluginInfo(plugin) {
 
 async function main() {
   try {
-    const pluginList = await importTxtFile()
-    const currentPluginData = await importPluginJson()
-    const newPluginData = new Map(
+    const pluginList = importTxtFile()
+    const currentPluginData = importPluginJson()
+    const updatedPlugins = await Promise.all(
       pluginList.map(async (plugin) => {
         // Check if no updates are needed
         if (currentPluginData[plugin]) {
@@ -141,10 +148,10 @@ async function main() {
         }
 
         const pluginInfo = await fetchPluginInfo(plugin)
-        console.log({ plugin, pluginInfo })
         return [plugin, pluginInfo]
       })
     )
+    const newPluginData = new Map(updatedPlugins)
     console.log({ newPluginData })
   } catch (error) {
     console.error(error)
