@@ -1,5 +1,5 @@
 name: Plugin Directory Updater
-run-name: ${{ github.actor }} is testing out GitHub Actions
+run-name: Updating plugin directory from source repositories
 on: [push]
   # schedule:
   #   - cron: '5 * * * *'
