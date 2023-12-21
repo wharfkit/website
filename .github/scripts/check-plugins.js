@@ -1,4 +1,4 @@
-import { readFile } from "fs/promises"
+import { readFile, writeFile } from "fs/promises"
 
 const PLUGIN_LIST_PATH = "./src/lib/plugin-directory.txt"
 const PLUGIN_INFO_PATH = "./src/lib/plugins/plugins.json"
@@ -150,7 +150,7 @@ async function main() {
     const updatedPluginsMap = new Map(updatedPlugins)
     const updatedPluginsJson = Object.fromEntries(updatedPluginsMap)
     const updatedPluginsJsonString = JSON.stringify(updatedPluginsJson)
-    console.log({ updatedPluginsJsonString })
+    await writeFile(PLUGIN_INFO_PATH, updatedPluginsJsonString)
   } catch (error) {
     console.error(error)
   }

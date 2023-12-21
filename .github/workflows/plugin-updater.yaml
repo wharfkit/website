@@ -12,7 +12,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Run script to watch repositories
+    - name: Run script to update plugins
       run: node .github/scripts/check-plugins.js
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Stage changes
+      run: git add .
+      continue-on-error: true
+
+    - name: Show diff
+      run: git diff --cached
