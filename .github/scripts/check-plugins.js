@@ -147,8 +147,10 @@ async function main() {
         return [plugin, pluginInfo]
       })
     )
-    const newPluginData = new Map(updatedPlugins)
-    console.log({ newPluginData })
+    const updatedPluginsMap = new Map(updatedPlugins)
+    const updatedPluginsJson = Object.fromEntries(updatedPluginsMap)
+    const updatedPluginsJsonString = JSON.stringify(updatedPluginsJson)
+    console.log({ updatedPluginsJsonString })
   } catch (error) {
     console.error(error)
   }
