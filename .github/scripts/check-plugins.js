@@ -1,4 +1,3 @@
-import { updated } from "$app/stores"
 import { readFile } from "fs/promises"
 
 const PLUGIN_LIST_PATH = "./src/lib/plugin-directory.txt"
