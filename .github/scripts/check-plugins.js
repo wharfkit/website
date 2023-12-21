@@ -140,7 +140,7 @@ async function main() {
           }
         }
 
-        const pluginInfo = fetchPluginInfo(plugin)
+        const pluginInfo = await fetchPluginInfo(plugin)
         return [plugin, pluginInfo]
       })
     )
