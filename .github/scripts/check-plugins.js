@@ -135,7 +135,7 @@ async function main() {
         }
       }
 
-      const pluginInfo = fetchPluginInfo()
+      const pluginInfo = fetchPluginInfo(plugin)
       newPluginData.set(plugin, pluginInfo)
     })
   } catch (error) {
