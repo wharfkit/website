@@ -15,6 +15,7 @@ async function importTxtFile() {
     const text = await readFile(PLUGIN_LIST_PATH, "utf-8")
     const lines = text.split("\n").filter((line) => line.trim() !== "")
 
+    console.log(`Imported lines: \n${lines}`)
     return lines
   } catch (error) {
     throw new Error(`Error importing plugin directory text file: ${error.message}`)
@@ -25,6 +26,7 @@ async function importPluginJson() {
   try {
     const text = await readFile(PLUGIN_INFO_PATH, "utf-8")
     const json = JSON.parse(text)
+    console.log(`Imported json: \n${json}`)
     return json
   } catch (error) {
     throw new Error(`Error importing plugin information json file: ${error.message}`)
@@ -106,6 +108,7 @@ async function fetchSha(repo) {
 }
 
 async function fetchPluginInfo(plugin) {
+  console.log(`Fetching info for ${plugin}`)
   const [pluginRepo, pluginRelease, pluginReadme] = await Promise.all([
     fetchRepo(plugin),
     fetchRelease(plugin),
