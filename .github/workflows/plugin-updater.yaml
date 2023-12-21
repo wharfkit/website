@@ -17,9 +17,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Stage changes
-      run: git add .
-      continue-on-error: true
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5.0.2
+      with:
+        add-paths: src/lib/plugins/plugins.json
 
-    - name: Show diff
-      run: git diff --cached
