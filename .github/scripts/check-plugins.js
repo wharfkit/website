@@ -35,6 +35,7 @@ async function importPluginJson() {
 
 /**
  * @param {string} repo
+ * @returns {{name: string, pluginId: string, description: string, tags: string[], author: string, authorIcon: string, sourceLink: string, license: string}}
  * */
 async function fetchRepo(repo) {
   const url = `https://api.github.com/repos/${repo}`
@@ -58,6 +59,7 @@ async function fetchRepo(repo) {
 
 /**
  * @param {string} repo
+ * @returns {{version: string, lastPublishedDate: string } | {}}
  * */
 async function fetchRelease(repo) {
   const url = `https://api.github.com/repos/${repo}/releases/latest`
@@ -77,6 +79,7 @@ async function fetchRelease(repo) {
 
 /**
  * @param {string} repo
+ * @returns {{readme: string } | {}}
  * */
 async function fetchReadme(repo) {
   const url = `https://api.github.com/repos/${repo}/readme`
@@ -107,6 +110,9 @@ async function fetchSha(repo) {
   return result.sha
 }
 
+/**
+ * @param {string} plugin
+ * */
 async function fetchPluginInfo(plugin) {
   console.log(`Fetching info for ${plugin}...`)
   const [pluginRepo, pluginRelease, pluginReadme] = await Promise.all([
@@ -118,31 +124,29 @@ async function fetchPluginInfo(plugin) {
 }
 
 async function main() {
-  const newPluginData = new Map()
   try {
     const pluginList = await importTxtFile()
     const currentPluginData = await importPluginJson()
-
-    pluginList.map(async (plugin) => {
-      // Check if no updates are needed
-      if (currentPluginData[plugin]) {
-        const remoteSha = await fetchSha(plugin)
-        const { sha: currentSha } = currentPluginData[plugin]
-        if (remoteSha === currentSha) {
-          console.log(`No updates found for ${plugin}`)
-          // Re-use existing data
-          newPluginData.set(plugin, currentPluginData[plugin])
-          return
+    const newPluginData = new Map(
+      pluginList.map(async (plugin) => {
+        // Check if no updates are needed
+        if (currentPluginData[plugin]) {
+          const remoteSha = await fetchSha(plugin)
+          const { sha: currentSha } = currentPluginData[plugin]
+          if (remoteSha === currentSha) {
+            console.log(`No updates found for ${plugin}`)
+            // Re-use existing data
+            return [plugin, currentPluginData[plugin]]
+          }
         }
-      }
 
-      const pluginInfo = await fetchPluginInfo(plugin)
-      newPluginData.set(plugin, pluginInfo)
-    })
+        const pluginInfo = fetchPluginInfo(plugin)
+        return [plugin, pluginInfo]
+      })
+    )
+    console.log({ newPluginData })
   } catch (error) {
     console.error(error)
-  } finally {
-    console.log({ newPluginData })
   }
 }
 
