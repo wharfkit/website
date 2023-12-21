@@ -28,8 +28,7 @@ pre[class*="language-"] {
 }
 
 /* Code blocks */
-pre:has(code),
-pre[class*="language-"] {
+:is(pre:has(code), pre[class*="language-"]) {
   position: relative;
   padding: var(--space-m);
   word-break: normal;
