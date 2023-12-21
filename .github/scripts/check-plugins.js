@@ -141,6 +141,7 @@ async function main() {
         }
 
         const pluginInfo = await fetchPluginInfo(plugin)
+        console.log({ plugin, pluginInfo })
         return [plugin, pluginInfo]
       })
     )
