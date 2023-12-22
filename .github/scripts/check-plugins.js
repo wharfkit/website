@@ -94,8 +94,9 @@ async function fetchReadme(repo) {
     return {}
   }
   const { content } = await response.json()
+  const readme = atob(content)
   return {
-    readme: content,
+    readme,
   }
 }
 
