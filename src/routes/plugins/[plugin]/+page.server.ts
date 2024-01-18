@@ -12,12 +12,10 @@ export const load = (async ({ params, fetch }) => {
     throw error(404, "Plugin not found")
   }
 
-  const { document }: Result<PluginDocument> = await res.json()
-  const plugin = document
+  let { document: plugin }: Result<PluginDocument> = await res.json()
 
-  const formattedPlugin: WharfkitPlugin = {
-    ...plugin,
-    lastPublishedDate: formatRelativeDate(plugin.lastPublishedDate),
+  if (plugin.lastPublishedDate) {
+    plugin[lastPublishedDate] = formatRelativeDate(plugin.lastPublishedDate)
   }
 
   const meta = {
@@ -27,6 +25,6 @@ export const load = (async ({ params, fetch }) => {
 
   return {
     meta,
-    plugin: formattedPlugin,
+    plugin,
   }
 }) satisfies PageServerLoad

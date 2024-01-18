@@ -1,8 +1,8 @@
 name: Plugin Directory Updater
 run-name: Updating plugin directory from source repositories
-on: [push]
-  # schedule:
-  #   - cron: '5 * * * *'
+on:
+  schedule:
+    - cron: '5 * * * *'
 
 jobs:
   update-plugins:
@@ -21,4 +21,5 @@ jobs:
       uses: peter-evans/create-pull-request@v5.0.2
       with:
         add-paths: src/lib/plugins/plugins.json
+        title: "Updates to plugin directory"
 
