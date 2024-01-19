@@ -153,7 +153,7 @@ async function main() {
     )
     const updatedPluginsMap = new Map(updatedPlugins)
     const updatedPluginsJson = Object.fromEntries(updatedPluginsMap)
-    const updatedPluginsJsonString = JSON.stringify(updatedPluginsJson)
+    const updatedPluginsJsonString = JSON.stringify(updatedPluginsJson, null, 2)
     await writeFile(PLUGIN_INFO_PATH, updatedPluginsJsonString)
   } catch (error) {
     console.error(error)
