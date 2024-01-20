@@ -86,15 +86,12 @@ import AccountKit from '@wharfkit/account';
     ```
 
 
-### Pre-Configured `accountKit` and `contractKit` Instances
+### Pre-Configured `contractKit` instances
 
-For blockchain-specific starter kits, you can also import pre-configured `accountKit` and `contractKit` instances that are configured to work with the designated blockchain.
+For blockchain-specific starter kits, you can also import a pre-configured `contractKit` instance that is configured to work with the designated blockchain.
 
     ```ts
-    import { accountKit, contractKit } from '@wharfkit/starter-jungle';
-
-    const account = await accountKit.load('teamgreymass');
-    // loads a Jungle 4 account and instantiates an Account instance
+    import { contractKit } from '@wharfkit/starter-jungle';
 
     const contract = await contractKit.load('eosio.token');
     // loads the eosio.token contract that is deployed on Jungle 4 and instantiates a Contract instance
