@@ -15,7 +15,7 @@ export const load = (async ({ params, fetch }) => {
   let { document: plugin }: Result<PluginDocument> = await res.json()
 
   if (plugin.lastPublishedDate) {
-    plugin[lastPublishedDate] = formatRelativeDate(plugin.lastPublishedDate)
+    plugin["lastPublishedDate"] = formatRelativeDate(plugin.lastPublishedDate)
   }
 
   const meta = {

@@ -1,12 +1,13 @@
 <script lang="ts">
   import Tag from "../Tag.svelte"
-  // import {copyIcon} from "$lib/addCopyButton"
-
   import type { PageData } from "./$types"
   export let data: PageData
 
   const { plugin } = data
-  const installCommand = `yarn install ${plugin.pluginId}`
+  const installCommand =
+    plugin.author === "wharfkit"
+      ? `yarn install @${plugin.pluginId}`
+      : `yarn install ${plugin.pluginId}`
 
   function copyToClipboard() {
     if (navigator.clipboard) {
