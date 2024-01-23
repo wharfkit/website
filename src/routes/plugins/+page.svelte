@@ -13,7 +13,7 @@
   ]
 
   $: currentSort = $page.url.searchParams.get("sort") || "latest"
-  $: currentTag = $page.url.searchParams.get("tag") || "All"
+  $: currentTag = $page.url.searchParams.get("tag")?.split("-")[0] || "All"
   $: allPlugins = data.allPlugins
 </script>
 

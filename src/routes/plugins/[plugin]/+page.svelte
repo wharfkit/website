@@ -43,19 +43,23 @@
                   d="M0 0h29.228v29.228H0z" /></clipPath
               ></defs>
           </svg>
-          <div>
-            <h1>{plugin.name}</h1>
-            <p>
-              {#if plugin.version}
-                <span>{plugin.version}</span>
-              {/if}
-              {#if plugin.version && plugin.lastPublishedDate}
-                -
-              {/if}
-              {#if plugin.lastPublishedDate}
-                <span>{plugin.lastPublishedDate}</span>
-              {/if}
-            </p>
+          <div class="plugin-title-text">
+            <h1>
+              <a href={plugin.sourceLink}>{plugin.name}</a>
+            </h1>
+            {#if plugin.version || plugin.lastPublishedDate}
+              <p>
+                {#if plugin.version}
+                  <span>{plugin.version}</span>
+                {/if}
+                {#if plugin.version && plugin.lastPublishedDate}
+                  -
+                {/if}
+                {#if plugin.lastPublishedDate}
+                  <span>{plugin.lastPublishedDate}</span>
+                {/if}
+              </p>
+            {/if}
           </div>
         </div>
 
@@ -117,6 +121,20 @@
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: 55%;
+  }
+
+  .plugin-title-text {
+    display: grid;
+    align-content: center;
+  }
+
+  h1 a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   #readme :global(h1) {

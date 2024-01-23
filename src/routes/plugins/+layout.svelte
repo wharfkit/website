@@ -72,11 +72,17 @@
       </form>
     </search>
     <ul class="sidebar-list hidden-sm">
-      <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("session")}>Session</a></li>
-      <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("wallet")}>Wallet</a></li>
-      <li class="sidebar-subtitle sidebar-list-item"><a href={getLink("login")}>Login</a></li>
       <li class="sidebar-subtitle sidebar-list-item">
-        <a href={getLink("transact")}>Transact</a>
+        <a href={getLink("session-kit")}>Session</a>
+      </li>
+      <li class="sidebar-subtitle sidebar-list-item">
+        <a href={getLink("wallet-plugin")}>Wallet</a>
+      </li>
+      <li class="sidebar-subtitle sidebar-list-item">
+        <a href={getLink("login-plugin")}>Login</a>
+      </li>
+      <li class="sidebar-subtitle sidebar-list-item">
+        <a href={getLink("transact-plugin")}>Transact</a>
       </li>
     </ul>
   </nav>
