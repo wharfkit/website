@@ -96,8 +96,9 @@ async function fetchReadme(repo) {
     console.error(message)
     return {}
   }
-  const { content } = await response.json()
-  const readme = atob(content)
+  const { download_url } = await response.json()
+  const readmeRes = await fetch(download_url, GITHUB_HEADERS)
+  const readme = await readmeRes.text()
   return {
     readme,
   }
