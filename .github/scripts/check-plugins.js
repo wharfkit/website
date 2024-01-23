@@ -47,9 +47,9 @@ async function fetchRepo(repo) {
     const message = `Error ${response.status}: Cannot fetch repo ${repo}`
     throw new Error(message)
   }
-    const repoData = await response.json()
-    const author = repoData.owner.login
-    const license = author === "wharfkit" ? "BSD-3" : repoData.license.name,
+  const repoData = await response.json()
+  const author = repoData.owner.login
+  const license = author === "wharfkit" ? "BSD-3" : repoData.license.name
 
   return {
     name: repoData.name,
