@@ -1,6 +1,7 @@
 name: Plugin Directory Updater
 run-name: Updating plugin directory from source repositories
 on:
+  push:
   schedule:
     - cron: "*/5 * * * *"
 
