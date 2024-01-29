@@ -104,6 +104,9 @@
           <li class:active={new RegExp("/guides").test(section)}>
             <a href="/guides" on:click={closeNav}><span class="nav-item">Guides</span></a>
           </li>
+          <li class:active={new RegExp("/plugins").test(section)}>
+            <a href="/plugins" on:click={closeNav}><span class="nav-item">Plugins</span></a>
+          </li>
           <li class:active={new RegExp("/blog").test(section)}>
             <a href="/blog" on:click={closeNav}><span class="nav-item">Blog</span></a>
           </li>
@@ -112,9 +115,6 @@
           </li>
           <li class:active={new RegExp("/about").test(section)}>
             <a href="/about" on:click={closeNav}><span class="nav-item">About</span></a>
-          </li>
-          <li class:active={new RegExp("/plugins").test(section)}>
-            <a href="/plugins" on:click={closeNav}><span class="nav-item">Plugins</span></a>
           </li>
         </menu>
       </details>
