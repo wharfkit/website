@@ -12,6 +12,8 @@
     }
     return String(url)
   }
+
+  $: currentTag = $page.url.searchParams.get("tag") || ""
 </script>
 
 <svelte:head>
@@ -79,13 +81,19 @@
       <li class="sidebar-subtitle sidebar-list-item">
         <a href={getLink()}>All plugins</a>
       </li>
-      <li class="sidebar-subtitle sidebar-list-item">
+      <li
+        class="sidebar-subtitle sidebar-list-item"
+        class:active={new RegExp("wallet-plugin").test(currentTag)}>
         <a href={getLink("wallet-plugin")}>Wallet</a>
       </li>
-      <li class="sidebar-subtitle sidebar-list-item">
+      <li
+        class="sidebar-subtitle sidebar-list-item"
+        class:active={new RegExp("login").test(currentTag)}>
         <a href={getLink("login")}>Login</a>
       </li>
-      <li class="sidebar-subtitle sidebar-list-item">
+      <li
+        class="sidebar-subtitle sidebar-list-item"
+        class:active={new RegExp("transact-plugin").test(currentTag)}>
         <a href={getLink("transact-plugin")}>Transact</a>
       </li>
     </ul>
@@ -159,5 +167,19 @@
     @media (max-width: 768px) {
       display: none;
     }
+  }
+
+  li.active a {
+    position: relative;
+  }
+
+  li.active a::before {
+    content: "";
+    position: absolute;
+    inset-block: -0.5em;
+    inset-inline: -0.75em;
+    z-index: -1;
+    background-color: var(--theme-surface2);
+    border-radius: var(--border-radius);
   }
 </style>
