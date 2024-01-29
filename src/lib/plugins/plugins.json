@@ -108,8 +108,8 @@
     "authorIcon": "https://avatars.githubusercontent.com/u/115573427?v=4",
     "sourceLink": "https://github.com/wharfkit/wallet-plugin-wombat",
     "license": "BSD-3",
-    "version": "1.0.3",
-    "lastPublishedDate": "2023-09-19T22:12:16Z",
+    "version": "1.2.2",
+    "lastPublishedDate": "2024-01-29T16:40:08Z",
     "readme": "# @wharfkit/wallet-plugin-wombat\n\nA Session Kit wallet plugin for the [Wombat](https://www.wombat.app/) wallet.\n\n## Usage\n\nInclude this wallet plugin while initializing the SessionKit.\n\n**NOTE**: This wallet plugin will only work with the SessionKit and requires a browser-based environment.\n\n```ts\nimport {WalletPluginWombat} from '@wharfkit/wallet-plugin-wombat'\n\nconst kit = new SessionKit({\n    // ... your other options\n    walletPlugins: [new WalletPluginWombat()],\n})\n```\n\n## Developing\n\nYou need [Make](https://www.gnu.org/software/make/), [node.js](https://nodejs.org/en/) and [yarn](https://classic.yarnpkg.com/en/docs/install) installed.\n\nClone the repository and run `make` to checkout all dependencies and build the project. See the [Makefile](./Makefile) for other useful targets. Before submitting a pull request make sure to run `make lint`.\n\n---\n\nMade with ☕️ & ❤️ by [Greymass](https://greymass.com), if you find this useful please consider [supporting us](https://greymass.com/support-us).\n"
   },
   "wharfkit/account-creation-plugin-anchor": {
