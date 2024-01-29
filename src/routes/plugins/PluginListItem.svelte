@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Tag from "./Tag.svelte"
+  import TagGroup from "./TagGroup.svelte"
   export let plugin: WharfkitPlugin
   const { name, description, tags, authorIcon, author, version, lastPublishedDate } = plugin
   const link = `/plugins/${name}`
@@ -8,11 +8,9 @@
 <li>
   <h3><a href={link}>{name}</a></h3>
   <p>{description}</p>
-  <ul class="tags">
-    {#each tags as tag}
-      <Tag>{tag}</Tag>
-    {/each}
-  </ul>
+
+  <TagGroup {tags} />
+
   <div class="footer">
     <img src={authorIcon} class="author-icon" alt="" width="28" height="28" />
     <p>
@@ -38,13 +36,6 @@
 
   h3 a {
     text-decoration: none;
-  }
-
-  .tags {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    gap: var(--space-xs);
   }
 
   .footer {

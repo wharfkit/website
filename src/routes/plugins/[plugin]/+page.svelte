@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Tag from "../Tag.svelte"
   import type { PageData } from "./$types"
+  import TagGroup from "../TagGroup.svelte"
   export let data: PageData
 
   const { plugin } = data
@@ -63,11 +63,9 @@
           </div>
         </div>
 
-        <ul class="tags | cluster">
-          {#each plugin.tags as tag}
-            <Tag>{tag}</Tag>
-          {/each}
-        </ul>
+        <div class="tags">
+          <TagGroup tags={plugin.tags} />
+        </div>
       </div>
     </header>
 
@@ -216,8 +214,6 @@
   }
 
   .tags {
-    list-style: none;
-    gap: var(--space-xs);
     padding: 0;
     padding-top: var(--space-m);
   }
