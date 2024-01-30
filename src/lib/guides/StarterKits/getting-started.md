@@ -33,22 +33,14 @@ yarn add @wharfkit/starter-[blockchain]
 # Replace [blockchain] with 'eos', 'telos', 'wax', or 'jungle'
 ```
 
-### Step 2: Setting Up Your Project
+### Step 2: Using SessionKit
 
-After installation, import the `sessionKit` instance and other necessary modules from the necessary Wharf packages:
-
-```js
-import { ContractKit } from '@wharfkit/contract';
-import { AccountKit } from '@wharfkit/account';
-// Import other modules as needed
-```
-
-### Step 3: Using SessionKit
-
-Use the `sessionKit` instance to create a Wharf session:
+Use the `createSessionKit` method to instantiate a `SessionKit` instance and start a Wharf session:
 
 ```js
-import { sessionKit } from '@wharfkit/starter';
+import { createSessionKit } from '@wharfkit/starter';
+
+const sessionKit = await createSessionKit();
 
 const { session } = await sessionKit.login(); // Initiates a login request
 ```
@@ -57,9 +49,9 @@ Above, we are using a preconfigured instance of the `SessionKit` factory class. 
 
 This allows us to easily call the [Login](/docs/session-kit/login) method and create a session. Because we are using the base `@wharfkit/starter` kit, the `Login` method will let the user connect his wallet to any of the main Antelope blockchains. If you are using a blockchain-specific kit, calling the `Login` method will only let the user connect his wallet to the specified blockchain.
 
-### Step 4: Sending a Transaction
+### Step 3: Broadcasting a Transaction
 
-After logging in, utilize the `session` object for transaction operations. Here's a basic example of a transfer transaction:
+After logging your users in, utilize the `session` object for transaction operations. Here's a basic example of a transfer transaction:
 
 ```ts
 const transactionArguments = {

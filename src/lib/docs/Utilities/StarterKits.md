@@ -1,5 +1,5 @@
 ---
-title: Wharfkit Starter Kits
+title: Starter Kits
 description: Starter kits to jumpstart your development on Antelope blockchains with Wharfkit.
 category: Utilities
 published: true
@@ -7,7 +7,7 @@ requiresReview: true
 order: 6
 ---
 
-# Wharfkit Starter Kits Overview
+# Starter Kits Overview
 
 The starter kits exist to facilitate the initial setup of developers wanting to use Wharfkit in their applications. The kits, including come with all the essential Wharfkit packages, as well as pre-configured `sessionKit` instances that can be used to quickly instantiate Wharf sessions. The available starter kits are: 
 
@@ -58,45 +58,63 @@ npm install --save @wharfkit/starter-jungle
 
 ## Usage
 
-Once installed, you can start importing and using the Wharfkit packages that you need in your project. For example:
+Once installed, you can start importing and using the core Wharfkit modules that you need in your project. For example:
 
 ```ts
-import SessionKit from '@wharfkit/session';
-import ContractKit from '@wharfkit/contract';
-import AccountKit from '@wharfkit/account';
-// ... or any additional packages that are needed
+import {SessionKit, ContractKit, AccountKit} from '@wharfkit/starter';
+// ... or any additional modules that are needed
 ```
 
-### Pre-Configured `sessionKit` Instances
+### Pre-Configured `SessionKit` Instances
 
-- **General Starter Kit**: The `@wharfkit/starter` includes a pre-configured `sessionKit` instance that can be imported quickly and used to transact with any of the main Antelope blockchains.
+- **General Starter Kit**: The `@wharfkit/starter` includes a pre-configured `SessionKit` instance that can be generated quickly using the `createSessionKit` method. The `SessionKit` instance can then be used to transact with any of the main Antelope blockchains.
 
     ```ts
-    import { sessionKit } from '@wharfkit/starter';
+    import { createSessionKit } from '@wharfkit/starter';
+
+    const sessionKit = await createSessionKit();
 
     await sessionKit.login(); // Send a login request that can be used to login to any of the main Antelope blockchains
     ```
 
-- **Blockchain-Specific Kits**: Similarly, the blockchain-specific starter kits include pre-configured `sessionKit` instances that can be used to transact with the designated blockchain.
+- **Blockchain-Specific Kits**: Similarly, the blockchain-specific starter kits have pre-configured `SessionKit` instances that can be used to transact with the designated blockchain.
 
     ```ts
-    import { sessionKit } from '@wharfkit/starter-jungle';
+    import { createSessionKit } from '@wharfkit/starter-jungle';
+
+    const sessionKit = await createSessionKit();
 
     await sessionKit.login(); // Send a login request specific to Jungle accounts
     ```
 
+For detailed guidance on how to use the `sessionKit` instance, refer to the [SessionKit documentation](/docs/session-kit). This comprehensive resource provides insights and examples for effectively creating and utilizing Wharf session across different blockchain environments.
 
-### Pre-Configured `contractKit` instances
+### Pre-Configured `ContractKit` instances
 
-For blockchain-specific starter kits, you can also import a pre-configured `contractKit` instance that is configured to work with the designated blockchain.
+For blockchain-specific starter kits, you can also use the `createContractKit` method to generate a pre-configured `ContractKit` instance that are configured to work with the designated blockchain.
 
     ```ts
-    import { contractKit } from '@wharfkit/starter-jungle';
+    import { createContractKit } from '@wharfkit/starter-jungle';
+
+    const contractKit = await createContractKit();
 
     const contract = await contractKit.load('eosio.token');
     // loads the eosio.token contract that is deployed on Jungle 4 and instantiates a Contract instance
     ```
 
-### For More Information
+For detailed guidance on how to use the `ContractKit` instances, refer to the [ContractKit documentation](/docs/contract-kit).
 
-For detailed guidance on how to use the `sessionKit` instance, refer to the [SessionKit documentation](/docs/session-kit). This comprehensive resource provides insights and examples for effectively creating and utilizing Wharf session across different blockchain environments.
+### Pre-Configured `AccountKit` instances
+
+For blockchain-specific starter kits, you can also use the `createAccountKit` method to generate a pre-configured `AccountKit` instance that is configured to work with the designated blockchain.
+
+    ```ts
+    import { createAccountKit } from '@wharfkit/starter-jungle';
+
+    const accountKit = await createAccountKit();
+
+    const account = await accountKit.load('myaccount.gm');
+    // loads the myaccount.gm account that is deployed on Jungle 4 and instantiates an Account instance
+    ```
+
+For detailed guidance on how to use the `AccountKit` instances, refer to the [AccountKit documentation](/docs/account-kit).
