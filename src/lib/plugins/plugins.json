@@ -5,7 +5,6 @@
     "description": "Template to create a LoginPlugin for use during a login call within the Wharf Session Kit.",
     "tags": [
       "login",
-      "session-kit",
       "template"
     ],
     "author": "wharfkit",
@@ -20,7 +19,6 @@
     "description": "TransactPlugin for the Wharf Session Kit. Attempt to automatically resolve resource issues using a 3rd party Resource Provider API before a transaction is signed.",
     "tags": [
       "resource-provider",
-      "session-kit",
       "transact-plugin"
     ],
     "author": "wharfkit",
@@ -37,7 +35,6 @@
     "description": "WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with the Anchor authenticator.",
     "tags": [
       "anchor-authenticator",
-      "session-kit",
       "wallet-plugin"
     ],
     "author": "wharfkit",
@@ -52,7 +49,6 @@
     "description": "WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with MyCloudWallet.com.",
     "tags": [
       "mycloudwallet",
-      "session-kit",
       "wallet-plugin"
     ],
     "author": "wharfkit",
@@ -67,7 +63,6 @@
     "description": "WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with Scatter wallet.",
     "tags": [
       "scatter-wallet",
-      "session-kit",
       "wallet-plugin"
     ],
     "author": "wharfkit",
@@ -83,7 +78,6 @@
     "pluginId": "wharfkit/wallet-plugin-tokenpocket",
     "description": "WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with TokenPocket wallet.",
     "tags": [
-      "session-kit",
       "tokenpocket",
       "wallet-plugin"
     ],
@@ -100,7 +94,6 @@
     "pluginId": "wharfkit/wallet-plugin-wombat",
     "description": "WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with Wombat wallet.",
     "tags": [
-      "session-kit",
       "wallet-plugin",
       "wombatwallet"
     ],
@@ -119,7 +112,6 @@
     "tags": [
       "account-creation-plugin",
       "anchor",
-      "session-kit",
       "wharfkit"
     ],
     "author": "wharfkit",
@@ -163,7 +155,6 @@
     "description": "TransactPlugin for the Wharf Session Kit. Attempt to automatically correct resource issues (CPU/NET/RAM) before a transaction is signed.",
     "tags": [
       "autocorrect",
-      "session-kit",
       "transact-plugin"
     ],
     "author": "wharfkit",
@@ -178,7 +169,6 @@
     "description": "TransactPlugin for the Wharf Session Kit. Cosign all transactions with a given private key to cover resource costs.",
     "tags": [
       "cosigner",
-      "session-kit",
       "transact-plugin"
     ],
     "author": "wharfkit",
@@ -193,7 +183,6 @@
     "description": "TransactPlugin for the Wharf Session Kit. Displays a link to a block explorer at the end of a transaction.",
     "tags": [
       "explorelink",
-      "session-kit",
       "transact-plugin"
     ],
     "author": "wharfkit",
@@ -208,7 +197,6 @@
     "description": "TransactPlugin for the Wharf Session Kit. Calls a callback function when a broadcasted transaction is irrevirsible.",
     "tags": [
       "finality-callback",
-      "session-kit",
       "transact-plugin"
     ],
     "author": "wharfkit",
@@ -223,7 +211,6 @@
     "description": "TransactPlugin for the Wharf Session Kit. Calls a callback function when broadcasted transaction is final.",
     "tags": [
       "finality-checker",
-      "session-kit",
       "transact-plugin"
     ],
     "author": "wharfkit",
@@ -238,7 +225,6 @@
     "description": "TransactPlugin for the Wharf Session Kit. Used in testing to display mock interactions while performing transactions.",
     "tags": [
       "mock-interactions",
-      "session-kit",
       "transact-plugin"
     ],
     "author": "wharfkit",
@@ -252,7 +238,6 @@
     "pluginId": "wharfkit/transact-plugin-template",
     "description": "Template used in the creation of @wharfkit/session transact plugins",
     "tags": [
-      "session-kit",
       "template",
       "transact-plugin"
     ],
@@ -267,7 +252,6 @@
     "pluginId": "wharfkit/ui-plugin-template",
     "description": "Template to create a UserInterface for use during the login and transact calls of the Wharfkit Session Kit.",
     "tags": [
-      "session-kit",
       "template",
       "user-interface"
     ],
@@ -283,7 +267,6 @@
     "description": "WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with cleos cli.",
     "tags": [
       "cleos-cli",
-      "session-kit",
       "wallet-plugin"
     ],
     "author": "wharfkit",
@@ -298,7 +281,6 @@
     "description": "WalletPlugin for the Wharf Session Kit. Allow users to login and sign transactions with etheraccount.",
     "tags": [
       "etheraccount",
-      "session-kit",
       "wallet-plugin"
     ],
     "author": "wharfkit",
@@ -313,7 +295,6 @@
     "description": "Mock WalletPlugin to test various interactions using the web-ui-renderer",
     "tags": [
       "mock-wallet",
-      "session-kit",
       "wallet-plugin"
     ],
     "author": "wharfkit",
@@ -327,7 +308,6 @@
     "pluginId": "wharfkit/wallet-plugin-privatekey",
     "description": "WalletPlugin for the Wharf Session Kit. Automatically sign transactions using a given private key. Used primarily for server side applications and user interface testing.",
     "tags": [
-      "session-kit",
       "sign-transaction",
       "wallet-plugin"
     ],
