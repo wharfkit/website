@@ -1,8 +1,14 @@
-import * as yaml from "js-yaml"
 import { create, insertMultiple, search } from "@orama/orama"
 import type { Orama, Results, SearchParams, TypedDocument } from "@orama/orama"
 import { browser } from "$app/environment"
 import parse from "./md"
+import _pluginsJson from "../plugins/plugins.json"
+const pluginsJson = _pluginsJson as unknown as Record<string, WharfkitPlugin>
+
+const removeNullUndefined = <T extends Record<string, any>>(obj: T) =>
+  Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null)) as {
+    [K in keyof T as T[K] extends null | undefined ? never : K]: T[K]
+  }
 
 const pluginSchema = {
   name: "string",
@@ -26,24 +32,19 @@ export const db: Promise<Orama<typeof pluginSchema>> = create({
   try {
     if (browser) return db
     console.log("Orama database instance created")
-    const plugins: WharfkitPlugin[] = []
-    const files = import.meta.glob("/src/lib/plugins/**.yaml", {
-      as: "raw",
-      eager: true,
-    })
 
-    for (const path in files) {
-      const content = yaml.load(files[path]) as WharfkitPlugin
-      const readme = (await getPluginReadme(content.sourceLink)) || ""
-      content.readme = readme
-      plugins.push(content)
-    }
+    const pluginsPromises = Object.values(pluginsJson)
+      .map((plugin) => removeNullUndefined(plugin))
+      .map((plugin) => formatReadme(plugin))
 
-    console.log("Loaded plugins from YAML")
+    const plugins = await Promise.all(pluginsPromises)
+    console.log("Loaded plugins from JSON")
+
     await insertMultiple(db, plugins)
     console.log("Inserted plugins into database")
     return db
   } catch (error) {
+    console.error(error)
     return db
   }
 })
@@ -68,7 +69,6 @@ export const getAllPlugins = async (options?: PluginQueryOptions) => {
   }
 
   const results: Results<PluginDocument> = await search(await db, searchParams)
-  console.log(results)
   return results.hits
 }
 
@@ -79,19 +79,13 @@ export const getPlugin = async (name: string) => {
   return result.hits[0]
 }
 
-const getPluginReadme = async (repoLink: string) => {
-  const link = repoLink
-    .replace("github.com", "raw.githubusercontent.com")
-    .concat("/master/README.md")
-  const readme = await fetch(link)
-
+const formatReadme = async (plugin: WharfkitPlugin) => {
   try {
-    if (!readme.ok) throw new Error("Readme not found")
-    const text = await readme.text()
-    const html = await parse(text)
-    return html.value
+    const { readme } = plugin
+    const { value } = await parse(readme)
+    return { ...plugin, readme: value }
   } catch (error) {
     console.error(error)
-    return ""
+    return plugin
   }
 }

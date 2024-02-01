@@ -7,6 +7,7 @@ export const load = (async ({ url, fetch }) => {
   const res = await fetch(`/api/plugins${url.search}`)
   const allDocuments: Result<PluginDocument>[] = await res.json()
   const formattedPlugins = allDocuments.map(({ document }) => {
+    if (!document.lastPublishedDate) return document
     return {
       ...document,
       lastPublishedDate: formatRelativeDate(document.lastPublishedDate),

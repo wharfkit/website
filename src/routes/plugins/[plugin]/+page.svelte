@@ -1,12 +1,13 @@
 <script lang="ts">
-  import Tag from "../Tag.svelte"
-  // import {copyIcon} from "$lib/addCopyButton"
-
   import type { PageData } from "./$types"
+  import TagGroup from "../TagGroup.svelte"
   export let data: PageData
 
   const { plugin } = data
-  const installCommand = `yarn install ${plugin.pluginId}`
+  const installCommand =
+    plugin.author === "wharfkit"
+      ? `yarn install @${plugin.pluginId}`
+      : `yarn install ${plugin.pluginId}`
 
   function copyToClipboard() {
     if (navigator.clipboard) {
@@ -42,27 +43,29 @@
                   d="M0 0h29.228v29.228H0z" /></clipPath
               ></defs>
           </svg>
-          <div>
-            <h1>{plugin.name}</h1>
-            <p>
-              {#if plugin.version}
-                <span>{plugin.version}</span>
-              {/if}
-              {#if plugin.version && plugin.lastPublishedDate}
-                -
-              {/if}
-              {#if plugin.lastPublishedDate}
-                <span>{plugin.lastPublishedDate}</span>
-              {/if}
-            </p>
+          <div class="plugin-title-text">
+            <h1>
+              <a href={plugin.sourceLink}>{plugin.name}</a>
+            </h1>
+            {#if plugin.version || plugin.lastPublishedDate}
+              <p>
+                {#if plugin.version}
+                  <span>{plugin.version}</span>
+                {/if}
+                {#if plugin.version && plugin.lastPublishedDate}
+                  -
+                {/if}
+                {#if plugin.lastPublishedDate}
+                  <span>{plugin.lastPublishedDate}</span>
+                {/if}
+              </p>
+            {/if}
           </div>
         </div>
 
-        <ul class="tags | cluster">
-          {#each plugin.tags as tag}
-            <Tag>{tag}</Tag>
-          {/each}
-        </ul>
+        <div class="tags">
+          <TagGroup tags={plugin.tags} />
+        </div>
       </div>
     </header>
 
@@ -116,6 +119,20 @@
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: 55%;
+  }
+
+  .plugin-title-text {
+    display: grid;
+    align-content: center;
+  }
+
+  h1 a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   #readme :global(h1) {
@@ -197,8 +214,6 @@
   }
 
   .tags {
-    list-style: none;
-    gap: var(--space-xs);
     padding: 0;
     padding-top: var(--space-m);
   }
