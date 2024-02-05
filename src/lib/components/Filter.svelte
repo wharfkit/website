@@ -1,6 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte"
 
+  export let placeholder = "Filter articles by title"
+
   const dispatch = createEventDispatcher()
   let input: HTMLInputElement
   let query = ""
@@ -116,7 +118,7 @@
     type="text"
     bind:this={input}
     bind:value={query}
-    placeholder="Filter articles by title"
+    {placeholder}
     on:input={handleInput} />
   {#if !query}
     <div class="icon">/</div>
@@ -154,7 +156,7 @@
     border-radius: var(--border-radius);
     font-size: var(--fs-0);
     font-family: var(--ff-body);
-    background-color: var(--theme-surface2);
+    background-color: var(--input-background-color, var(--theme-surface2));
     color: var(--theme-text1);
     outline: none;
     position: relative;

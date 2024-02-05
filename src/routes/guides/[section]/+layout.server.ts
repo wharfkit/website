@@ -1,6 +1,6 @@
-import type { LayoutServerLoad } from './$types';
-import { createBreadcrumbs, handleKitRedirect } from '$lib/utils';
-import { error } from '@sveltejs/kit'
+import type { LayoutServerLoad } from "./$types"
+import { createBreadcrumbs, handleKitRedirect } from "$lib/utils"
+import { error } from "@sveltejs/kit"
 
 export const load = (async ({ parent, params }) => {
   const parentData = await parent()
@@ -28,6 +28,5 @@ export const load = (async ({ parent, params }) => {
     title: section.indexPage.title,
     headings: section.indexPage.headings,
     breadcrumbs: createBreadcrumbs({ rootPath, rootTitle, section: section.slug }),
-  };
-
-}) satisfies LayoutServerLoad;
+  }
+}) satisfies LayoutServerLoad

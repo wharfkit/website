@@ -6,7 +6,8 @@
   <h1>Documentation</h1>
 
   <p>
-    Welcome to Wharf's documentation, where you can find reference materials of all Wharf components. Use the sidebar on the left to select a category or specific guide and get started!
+    Welcome to Wharf's documentation, where you can find reference materials of all Wharf
+    components. Use the sidebar on the left to select a category or specific guide and get started!
   </p>
 
   <hr />

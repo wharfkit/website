@@ -2,11 +2,10 @@ import * as cheerio from "cheerio"
 import slugify from "@sindresorhus/slugify"
 import { capitalize } from "./general"
 
-
 /**
  * Formats the section title by capitalizing each word and removing dashes
- * @param section 
- * @returns 
+ * @param section
+ * @returns
  */
 export function formatSectionTitle(section: string) {
   // remove any dashes from section
@@ -21,14 +20,14 @@ export function formatSectionTitle(section: string) {
 export const isSectionNotHidden = (section: DocumentationSection) => section.articles.length > 0
 export const removeHiddenArticles = (section: DocumentationSection): DocumentationSection => ({
   ...section,
-  articles: section.articles.filter(isDocNotHidden)
+  articles: section.articles.filter(isDocNotHidden),
 })
 
 /**
  * Filters the documentation articles by title based on the query
- * @param sections 
- * @param query 
- * @returns 
+ * @param sections
+ * @param query
+ * @returns
  */
 export function filterDocumentationArticles(
   sections: DocumentationSection[],
@@ -38,25 +37,33 @@ export function filterDocumentationArticles(
     return sections.map(removeHiddenArticles).filter(isSectionNotHidden)
   }
 
-  const filteredSections: DocumentationSection[] = [];
+  const filteredSections: DocumentationSection[] = []
 
   sections.forEach((section) => {
-    const { articles, title } = section;
+    const { articles, title } = section
     const filteredArticles = articles.filter((article) =>
       article.title.toLowerCase().includes(query.toLowerCase())
-    );
+    )
 
     if (filteredArticles.length > 0 || title.toLowerCase().includes(query.toLowerCase())) {
-      filteredSections.push({ ...section, articles: filteredArticles });
+      filteredSections.push({ ...section, articles: filteredArticles })
     }
-  });
+  })
 
-  return filteredSections;
+  return filteredSections
 }
 
-
-
-export function createBreadcrumbs({ rootPath, rootTitle, section, doc }: { rootPath: string, rootTitle: string, section: string, doc?: DocumentationArticle }): BreadCrumb[] {
+export function createBreadcrumbs({
+  rootPath,
+  rootTitle,
+  section,
+  doc,
+}: {
+  rootPath: string
+  rootTitle: string
+  section: string
+  doc?: DocumentationArticle
+}): BreadCrumb[] {
   const breadcrumbs: BreadCrumb[] = [
     { title: rootTitle, path: rootPath },
     { title: formatSectionTitle(section), path: `${rootPath}/${section}` },
@@ -97,11 +104,10 @@ function getFirstParagraph(html: string): string {
   return firstParagraph
 }
 
-
 /**
  * Groups the docs by section name
- * @param docs 
- * @returns 
+ * @param docs
+ * @returns
  */
 function groupBySection(docs: DocumentationArticle[]): Record<string, DocumentationArticle[]> {
   const grouped = docs.reduce((acc, doc) => {
@@ -117,28 +123,34 @@ function groupBySection(docs: DocumentationArticle[]): Record<string, Documentat
 
 export const isDocNotHidden = (doc: DocumentationArticle) => doc.hidden !== true
 const isDocPublished = (doc: DocumentationArticle): boolean => doc.published === true
-const docSort = (a: DocumentationArticle, b: DocumentationArticle): number => (a.order || 100) - (b.order || 100)
+const docSort = (a: DocumentationArticle, b: DocumentationArticle): number =>
+  (a.order || 100) - (b.order || 100)
 
-export const importedGuides = import.meta.glob("/src/lib/guides/**/*.md") as Record<string, () => Promise<MarkdownFile>>
-export const importedDocs = import.meta.glob("/src/lib/docs/**/*.md") as Record<string, () => Promise<MarkdownFile>>
+export const importedGuides = import.meta.glob("/src/lib/guides/**/*.md") as Record<
+  string,
+  () => Promise<MarkdownFile>
+>
+export const importedDocs = import.meta.glob("/src/lib/docs/**/*.md") as Record<
+  string,
+  () => Promise<MarkdownFile>
+>
 
 /**
- * Makes all the docs from the provided 
- * @returns 
+ * Makes all the docs from the provided
+ * @returns
  */
 export async function fetchDocs(docFiles: Record<string, () => Promise<MarkdownFile>>) {
   const iterableDocs = Object.entries(docFiles)
   const allDocs = await Promise.all(
-    iterableDocs.map(async ([path, resolver]) => ({ source: path, markdown: await resolver() as MarkdownFile }))
+    iterableDocs.map(async ([path, resolver]) => ({
+      source: path,
+      markdown: (await resolver()) as MarkdownFile,
+    }))
   )
-  const docs = allDocs
-    .map(makeDoc)
-    .filter(isDocPublished)
-    .sort(docSort)
+  const docs = allDocs.map(makeDoc).filter(isDocPublished).sort(docSort)
 
   return docs
 }
-
 
 /**
  * Imports all the docs from the relevant /src/lib/ folder and groups them by section
@@ -155,7 +167,13 @@ export async function fetchGroupedDocs(docFiles: Record<string, () => Promise<Ma
  * @param markdown
  * @returns
  */
-export function makeDoc({ source, markdown }: { source: string, markdown: MarkdownFile }): DocumentationArticle {
+export function makeDoc({
+  source,
+  markdown,
+}: {
+  source: string
+  markdown: MarkdownFile
+}): DocumentationArticle {
   const metadata: DocumentationMetadata = markdown.metadata || {}
   const content = markdown.default.render().html
   const title = metadata?.title || getTitle(content)
@@ -185,11 +203,14 @@ export function makeDoc({ source, markdown }: { source: string, markdown: Markdo
 
 /**
  * Orders the sections based on the displayOrder array
- * @param groupedDocs 
- * @param order 
- * @returns 
+ * @param groupedDocs
+ * @param order
+ * @returns
  */
-export function orderSections(groupedDocs: Record<string, DocumentationArticle[]>, order: string[]): DocumentationSection[] {
+export function orderSections(
+  groupedDocs: Record<string, DocumentationArticle[]>,
+  order: string[]
+): DocumentationSection[] {
   const sections = order.flatMap((section) => {
     const allArticles = groupedDocs[section.toLowerCase()]
     if (!allArticles) return []
@@ -198,7 +219,7 @@ export function orderSections(groupedDocs: Record<string, DocumentationArticle[]
       title: formatSectionTitle(section),
       slug: slugify(section),
       articles,
-      indexPage
+      indexPage,
     }
   })
   return sections
@@ -207,7 +228,9 @@ export function orderSections(groupedDocs: Record<string, DocumentationArticle[]
 /**
  * Extracts index page from articles and removes it from the array
  */
-function extractSectionIndexPage(articles: DocumentationArticle[]): [DocumentationArticle, DocumentationArticle[]] {
+function extractSectionIndexPage(
+  articles: DocumentationArticle[]
+): [DocumentationArticle, DocumentationArticle[]] {
   const indexPage = articles.find((article) => article.slug === "index")
   const filteredArticles = articles.filter((article) => article.slug !== "index")
 

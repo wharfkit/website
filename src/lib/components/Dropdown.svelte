@@ -2,22 +2,26 @@
   import { page } from "$app/stores"
   import { goto } from "$app/navigation"
 
-  const options = [
+  const defaultOptions = [
     { value: "desc", label: "Latest posts" },
     { value: "asc", label: "Oldest posts" },
   ]
 
-  let selected = options[0]
+  export let options: { value: string; label: string }[] = defaultOptions
+  export let selected = options[0].value
+
+  $: selectedLabel = options.find((option) => option.value === selected)?.label
+
   let details: HTMLDetailsElement
 
   const changeSort = () => {
     const url = new URL($page.url)
-    url.searchParams.set("sort", String(selected.value))
+    url.searchParams.set("sort", selected)
     goto(url, { noScroll: true })
   }
 
   const handleClick = (option: (typeof options)[number]) => {
-    selected = option
+    selected = option.value
     changeSort()
     details.removeAttribute("open")
   }
@@ -38,7 +42,7 @@
 
 <details bind:this={details}>
   <summary>
-    <span>{selected.label}</span>
+    <span>{selectedLabel}</span>
     <span>
       <svg
         width="24"
@@ -83,6 +87,7 @@
     padding-block: var(--space-2xs);
     display: flex;
     justify-content: space-between;
+    gap: var(--space-2xs);
     align-items: center;
     cursor: pointer;
     user-select: none;

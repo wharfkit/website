@@ -10,7 +10,8 @@ const displayOrder = [
   "contract-kit",
   "account-kit",
   "utilities",
-  "antelope"
+  "antelope",
+  "templates"
 ]
 
 export const prerender = true

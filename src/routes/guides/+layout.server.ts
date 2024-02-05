@@ -5,7 +5,7 @@ import { fetchGroupedDocs, orderSections, importedGuides } from "$lib/utils"
  * Order the sections here.
  * prettier-ignore
  */
-const displayOrder = ["session-kit", "contract-kit"]
+const displayOrder = ["tutorials", "session-kit", "contract-kit", "starter-kits"]
 
 export const prerender = true
 

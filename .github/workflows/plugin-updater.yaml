@@ -1,0 +1,25 @@
+name: Plugin Directory Updater
+run-name: Updating plugin directory from source repositories
+on:
+  push:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  update-plugins:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run script to update plugins
+        run: node .github/scripts/check-plugins.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5.0.2
+        with:
+          add-paths: src/lib/plugins/plugins.json
+          title: "Automated updates to plugin directory"
