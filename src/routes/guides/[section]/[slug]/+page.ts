@@ -1,6 +1,5 @@
 import type { PageLoad } from "./$types"
 import { error } from "@sveltejs/kit"
-import { capitalize } from "$lib/utils"
 import { createBreadcrumbs } from "$lib/utils/docs"
 
 export const load = (async ({ params, parent }) => {
@@ -27,6 +26,7 @@ export const load = (async ({ params, parent }) => {
   return {
     section: section.title,
     doc,
+    editUrl: `https://github.com/wharfkit/website/blob/dev${doc.source}`,
     meta,
     headings: doc.headings,
     title: doc.title,

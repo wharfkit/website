@@ -11,6 +11,7 @@
   $: breadcrumbs = $page.data.breadcrumbs
   $: tocVisible = $page.data.toc
   $: headings = $page.data.headings
+  $: editUrl = $page.data.editUrl
 </script>
 
 <svelte:head>
@@ -33,8 +34,8 @@
       --footer-background: linear-gradient(180deg, hsl(229deg 21% 10% / 0.3), #262936 5rem), #262936;
       --header-background: #262936;
       --header-background-transparent: #26293600;
-      --page-background: 
-        linear-gradient(180deg, 
+      --page-background:
+        linear-gradient(180deg,
           hsl(228deg 15% 34%) 0rem,
           hsl(228deg 15% 28%) 2rem,
           hsl(228deg 16% 17%) 7rem,
@@ -49,7 +50,7 @@
 
   {#if tocVisible && headings && headings.length > 0}
     <aside>
-      <TOC {headings} />
+      <TOC {headings} {editUrl} />
     </aside>
   {/if}
 
