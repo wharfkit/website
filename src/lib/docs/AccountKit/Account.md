@@ -15,7 +15,7 @@ Each `Account` class instance represents a specific blockchain account. It offer
 In most cases, the [AccountKit Factory](/docs/account-kit/account-kit-factory) will be used to create `Account` instances. However, they can also be created manually if the relevant data is provided. Here is a basic example of how to do so:
 
 ```ts
-import { Account } from "@wharfkit/contract"
+import { Account } from "@wharfkit/account"
 import { APIClient } from "@wharfkit/antelope"
 
 const accountArgs = {
