@@ -3,10 +3,7 @@
   import { activeTocSection } from "$lib/stores"
   import { scrollToTop } from "../utils"
   export let headings: HeadingNode[]
-  const GITHUB_EDIT_URL =
-    `https://github.com/wharfkit/website/blob/dev` + $page && $page.data.section.indexPage
-      ? $page.data.section.indexPage.source
-      : ""
+  export let editUrl: string
 </script>
 
 <nav aria-label="Table of Contents" class="toc">
@@ -28,7 +25,7 @@
       </li>
     {/each}
   </menu>
-  <a href={GITHUB_EDIT_URL} class="edit button" data-type="secondary">Edit this page</a>
+  <a href={editUrl} class="edit button" data-type="secondary">Edit this page</a>
 </nav>
 
 <style>

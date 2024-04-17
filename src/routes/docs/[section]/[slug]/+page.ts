@@ -26,6 +26,7 @@ export const load = (async ({ params, parent }) => {
   return {
     section,
     doc,
+    editUrl: `https://github.com/wharfkit/website/blob/dev${doc.source}`,
     meta,
     headings: doc.headings,
     title: doc.title,
