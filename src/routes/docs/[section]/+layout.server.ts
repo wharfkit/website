@@ -25,6 +25,7 @@ export const load = (async ({ parent, params }) => {
     meta,
     section,
     toc: section.indexPage.toc,
+    editUrl: `https://github.com/wharfkit/website/blob/dev${section.indexPage.source}`,
     title: section.indexPage.title,
     headings: section.indexPage.headings,
     breadcrumbs: createBreadcrumbs({ rootPath, rootTitle, section: section.slug }),
