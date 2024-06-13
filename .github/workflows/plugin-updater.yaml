@@ -3,7 +3,7 @@ run-name: Updating plugin directory from source repositories
 on:
   push:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "0 0 * * *"
 
 jobs:
   update-plugins:
