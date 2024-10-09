@@ -122,9 +122,11 @@ console.log(balance.symbol.precision) // Number('8')
 ### Rendering Assets
 
 When displaying an `Asset` to a user and a readable format is required, the asset object itself just needs to be cast to a `String`.
+To display just the quantity without the symbol, you can access the quantity property.
 
 ```ts
 const balance = Asset.from("10.0000 FOO")
 
 console.log(String(balance)) // "10.0000 FOO"
+console.log(balance.quantity) // "10.0000"
 ```
