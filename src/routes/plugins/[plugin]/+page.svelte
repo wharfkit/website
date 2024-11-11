@@ -6,8 +6,8 @@
   const { plugin } = data
   const installCommand =
     plugin.author === "wharfkit"
-      ? `yarn install @${plugin.pluginId}`
-      : `yarn install ${plugin.pluginId}`
+      ? `yarn add @${plugin.pluginId}`
+      : `yarn add ${plugin.pluginId}`
 
   function copyToClipboard() {
     if (navigator.clipboard) {
