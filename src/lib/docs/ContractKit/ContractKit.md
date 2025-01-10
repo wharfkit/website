@@ -45,7 +45,7 @@ import { APIClient, ABICache } from "@wharfkit/antelope"
 
 const client = new APIClient("https://jungle4.greymass.com")
 
-const kit = const kit = new ContractKit({
+const kit = new ContractKit({
     client,
 }, {
     abiCache: new ABICache(client)
@@ -62,7 +62,7 @@ import { APIClient } from "@wharfkit/antelope"
 
 import abi from "./abi.json" // ABI for a contract that will be loaded
 
-const kit = const kit = new ContractKit({
+const kit = new ContractKit({
     client,
 }, {
     abis: [abi]
