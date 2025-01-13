@@ -22,7 +22,7 @@ const balance = await testAccount.balance()
 To retrieve the balance for a secondary token:
 
 ```typescript
-const balance = await testAccount.balance("eosio.token", "USDT")
+const balance = await testAccount.balance("USDT", "eosio.token")
 // Returns the balance of the 'USDT' token for the account.
 ```
 
