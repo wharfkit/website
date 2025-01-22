@@ -38,6 +38,7 @@ The `ContractKit` class offered by the Contract Kit package is a factory method 
 If dynamically loading contracts, an instance of the `ContractKit` must first be established within the application. The only argument required to create an instance will be an `APIClient` that allows the kit to communicate with the blockchain.
 
 ```ts
+import { APIClient } from "@wharfkit/antelope"
 import { ContractKit } from "@wharfkit/contract"
 
 const contractKit = new ContractKit({
