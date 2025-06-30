@@ -34,8 +34,8 @@ const action = testAccount.undelegate({
 
 ## Arguments
 
-- `cpu`: The quantity of CPU resources to undelegate, specified as a string (e.g., `1.0000 EOS`).
-- `net`: The quantity of NET resources to undelegate, specified as a string (e.g., `0.5000 EOS`).
+- `cpu`: The quantity of CPU resources to undelegate, specified as a string (e.g., `1.0000 A`).
+- `net`: The quantity of NET resources to undelegate, specified as a string (e.g., `0.5000 A`).
 
 ## Options
 

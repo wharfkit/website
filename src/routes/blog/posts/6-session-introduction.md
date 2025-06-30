@@ -107,7 +107,7 @@ const args = {
 const response = await session.transact(args)
 ```
 
-In the above example, it defines a single action that executes the `transfer` action on the `eosio.token` contract. It specifies that the intent is to send `0.0001 EOS` to the `wharfkittest` account from the `wharfkit1131` account with an empty memo.
+In the above example, it defines a single action that executes the `transfer` action on the `eosio.token` contract. It specifies that the intent is to send `0.0001 A` to the `wharfkittest` account from the `wharfkit1131` account with an empty memo.
 
 This action is being passed into the `transact` method call on the `Session` object on the last line, which facilitates the creation of the signature and sending the transaction to the blockchain.
 

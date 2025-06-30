@@ -124,7 +124,7 @@
         <h2>Built on Antelope, the most performant blockchain protocol.</h2>
         <p>
           Antelope is an open protocol that hosts multiple blockchains, including
-          <a href="https://eosnetwork.com/">EOS</a>,
+          <a href="https://vaulta.com/">VAULTA</a>,
           <a href="https://www.telos.net/">Telos</a>,
           <a href="https://www.wax.io/">WAX</a>, and the
           <a href="https://uxnetwork.io/">UX Network</a>. It was designed from the ground up to be
