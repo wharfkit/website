@@ -18,7 +18,7 @@ When using the `AccountKit` factory class within a web application, the develope
 import { AccountKit } from "@wharfkit/account"
 import { Chains } from "@wharfkit/common"
 
-const accountKit = new AccountKit(Chains.EOS)
+const accountKit = new AccountKit(Chains.VAULTA)
 ```
 
 Optionally, a [Contract](/docs/contract-kit/contract) and/or an [APIClient](/docs/antelope/api-client) instance can be passed to the `AccountKit` factory class constructor:
@@ -37,7 +37,7 @@ const contractKit = new ContractKit({
 
 const contract = await contractKit.load("contractname")
 
-const accountKit = new AccountKit(Chains.EOS, {
+const accountKit = new AccountKit(Chains.VAULTA, {
   client,
   contract,
 })

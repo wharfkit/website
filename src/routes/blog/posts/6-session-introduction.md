@@ -98,7 +98,7 @@ const args = {
     data: {
       from: "wharfkit1131",
       to: "wharfkittest",
-      quantity: "0.0001 EOS",
+      quantity: "0.0001 A",
       memo: "",
     },
   },

@@ -16,8 +16,8 @@ The `undelegate` method is available on any [Account](/docs/account-kit/account)
 
 ```typescript
 const action = testAccount.undelegate({
-  cpu: "1.0000 EOS",
-  net: "0.5000 EOS",
+  cpu: "1.0000 A",
+  net: "0.5000 A",
 })
 // Initiates an undelegate action with the specified CPU and NET quantities.
 ```
@@ -26,8 +26,8 @@ The `receiver` option can also be specified to return the undelegated resources 
 
 ```typescript
 const action = testAccount.undelegate({
-  cpu: "1.0000 EOS",
-  net: "0.5000 EOS",
+  cpu: "1.0000 A",
+  net: "0.5000 A",
   receiver: "wharfkit1112",
 })
 ```

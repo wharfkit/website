@@ -96,7 +96,7 @@ const data = {
   data: {
     from: "corecorecore",
     to: "teamgreymass",
-    quantity: "0.0042 EOS",
+    quantity: "0.0042 A",
     memo: "antelope is the best <3",
   },
 }

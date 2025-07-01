@@ -42,7 +42,7 @@ In order for the account to be created on a specific chain, the `chain` paramete
 import { Chains } from "@wharfkit/common"
 
 const newAccount = await sessionKit.createAccount({
-  chain: Chains.EOS,
+  chain: Chains.VAULTA,
 })
 ```
 
@@ -183,7 +183,7 @@ class AccountCreationPluginExample extends AbstractAccountCreationPlugin {
     const accountCreationResult = await externalAccountService.createAccount()
 
     // Extract the blockchain ID and account name from the result
-    const chainId = accountCreationResult.chainId // e.g. "EOS Mainnet ID"
+    const chainId = accountCreationResult.chainId // e.g. "VAULTA Mainnet ID"
     const accountName = accountCreationResult.accountName // e.g. "newuser1234"
 
     // Return this information to the Session Kit

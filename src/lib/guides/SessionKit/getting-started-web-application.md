@@ -132,7 +132,7 @@ const data = {
   data: {
     from: session.actor,
     to: "foo",
-    amount: "0.1234 EOS",
+    amount: "0.1234 A",
     memo: "",
   },
 }

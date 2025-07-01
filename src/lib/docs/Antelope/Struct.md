@@ -80,7 +80,7 @@ Once a `Struct` class is defined, they can be used to easily create encodable da
 const data = Transfer.from({
   from: "teamgreymass",
   to: "funds.gm",
-  quantity: "0.0001 EOS",
+  quantity: "0.0001 A",
   memo: "",
 })
 ```
@@ -95,7 +95,7 @@ const action = Action.from({
   data: Transfer.from({
     from: "teamgreymass",
     to: "funds.gm",
-    quantity: "0.0001 EOS",
+    quantity: "0.0001 A",
     memo: "",
   }),
 })
