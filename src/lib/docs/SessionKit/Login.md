@@ -52,7 +52,7 @@ const sessionKit = new SessionKit(
     ...args,
     chains: [
       Chains.Jungle4,
-      Chains.VAULTA,
+      Chains.Vaulta,
       Chains.Telos,
       Chains.UX,
       Chains.WAX,

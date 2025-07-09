@@ -42,7 +42,7 @@ In order for the account to be created on a specific chain, the `chain` paramete
 import { Chains } from "@wharfkit/common"
 
 const newAccount = await sessionKit.createAccount({
-  chain: Chains.VAULTA,
+  chain: Chains.Vaulta,
 })
 ```
 
