@@ -61,7 +61,7 @@
     <div class="box stack center">
       <h1>Modular SDK for Antelope Web Apps</h1>
       <p>
-        Wharf provides a fast and flexible way to build web3 projects on blockchains like EOS,
+        Wharf provides a fast and flexible way to build web3 projects on blockchains like VAULTA,
         Telos, WAX, and UX.
       </p>
       <a href="/guides" class="button">Start Building Today</a>
@@ -140,7 +140,7 @@
       <h3>Build on the most responsive blockchains.</h3>
       <p>
         The Antelope framework is behind some of the fastest, most secure, and user-friendly Web3
-        products and services. Together the EOS, Telos, WAX and UX networks reliably fulfill
+        products and services. Together the VAULTA, Telos, WAX and UX networks reliably fulfill
         millions of transactions per day.
       </p>
       <a href="https://antelope.io/" class="button">Learn More About Antelope</a>

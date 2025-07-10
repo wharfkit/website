@@ -12,7 +12,7 @@ order: 6
 The starter kits exist to facilitate the initial setup of developers wanting to use Wharfkit in their applications. The kits, including come with all the essential Wharfkit packages, as well as pre-configured `sessionKit` instances that can be used to quickly instantiate Wharf sessions. The available starter kits are: 
 
 - `@wharfkit/starter`: Used to interact with any of the main Antelope blockchains.
-- `@wharfkit/starter-eos`: Used to interact with the EOS blockchain.
+- `@wharfkit/starter-eos`: Used to interact with the VAULTA blockchain.
 - `@wharfkit/starter-telos`: Used to interact with the Telos blockchain.
 - `@wharfkit/starter-wax`: Used to interact with the WAX blockchain.
 - `@wharfkit/starter-jungle`: Used to interact with the Jungle Testnet.
@@ -28,7 +28,7 @@ yarn add @wharfkit/starter
 npm install --save @wharfkit/starter
 ```
 
-### EOS-Specific Starter Kit
+### VAULTA-Specific Starter Kit
 ```bash
 yarn add @wharfkit/starter-eos
 # or

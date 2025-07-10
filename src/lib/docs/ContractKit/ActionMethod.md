@@ -20,7 +20,7 @@ const action = tokenContract.action(
   {
     from: "foo",
     to: "bar",
-    quantity: "1.0000 EOS",
+    quantity: "1.0000 A",
   }
 )
 ```
@@ -44,7 +44,7 @@ const action = tokenContract.action(
   {
     from: "foo",
     to: "bar",
-    quantity: "1.0000 EOS",
+    quantity: "1.0000 A",
   },
   {
     authorization: [{ actor: "foo", permission: "active" }],

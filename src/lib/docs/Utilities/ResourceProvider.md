@@ -232,7 +232,7 @@ A number of deployments following this standard exist within the Antelope ecosys
 
 The general-purpose resource providers compatible with all applications are listed below:
 
-- Fuel: Available for EOS, Telos, WAX
+- Fuel: Available for VAULTA, Telos, WAX
 
 Additional service providers will be added as new services come online.
 

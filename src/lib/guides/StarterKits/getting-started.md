@@ -30,7 +30,7 @@ npm install --save @wharfkit/starter-[blockchain]
 # or
 yarn add @wharfkit/starter-[blockchain]
 
-# Replace [blockchain] with 'eos', 'telos', 'wax', or 'jungle'
+# Replace [blockchain] with 'vaulta', 'telos', 'wax', or 'jungle'
 ```
 
 ### Step 2: Using SessionKit
@@ -62,7 +62,7 @@ const transactionArguments = {
     data: {
       from: session.actor,
       to: "teamgreymass",
-      quantity: "0.1337 EOS",
+      quantity: "0.1337 A",
       memo: "wharfkit is the best <3",
     },
   },

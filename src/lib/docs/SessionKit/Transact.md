@@ -23,7 +23,7 @@ const arguments = {
     data: {
       from: session.actor,
       to: "teamgreymass",
-      quantity: "0.1337 EOS",
+      quantity: "0.1337 A",
       memo: "wharfkit is the best <3",
     },
   },

@@ -16,8 +16,8 @@ The `delegate` method is available on any [Account](/docs/account-kit/account) i
 
 ```typescript
 const action = testAccount.delegate({
-  cpu: "1.0000 EOS",
-  net: "0.5000 EOS",
+  cpu: "1.0000 A",
+  net: "0.5000 A",
 })
 ```
 
@@ -25,17 +25,17 @@ A single resource can also be specified:
 
 ```typescript
 // Staking only for CPU
-const cpuAction = testAccount.delegate({ cpu: "1.0000 EOS" })
+const cpuAction = testAccount.delegate({ cpu: "1.0000 A" })
 // Staking only for bandwidth (net)
-const netAction = testAccount.delegate({ net: "1.0000 EOS" })
+const netAction = testAccount.delegate({ net: "1.0000 A" })
 ```
 
 To delegate resources to another account:
 
 ```typescript
 const action = testAccount.delegate({
-  cpu: "1.0000 EOS",
-  net: "0.5000 EOS",
+  cpu: "1.0000 A",
+  net: "0.5000 A",
   receiver: "wharfkit1112",
 })
 ```
@@ -44,8 +44,8 @@ To delegate resources to another account and transfer the ownership of the stake
 
 ```typescript
 const action = testAccount.delegate({
-  cpu: "1.0000 EOS",
-  net: "0.5000 EOS",
+  cpu: "1.0000 A",
+  net: "0.5000 A",
   receiver: "wharfkit1112",
   transfer: true,
 })

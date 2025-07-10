@@ -42,7 +42,7 @@ For in-depth documentation and guides around Wharf and smart contract developmen
 
 - [Wharf Documentation](/docs)
 - [Wharf Guides](/guides)
-- [Write a Smart Contract - EOS Network](https://docs.eosnetwork.com/docs/latest/quick-start/write-a-contract/)
+- [Write a Smart Contract - VAULTA Network](https://docs.eosnetwork.com/docs/latest/quick-start/write-a-contract/)
 - [Smart Contract Quickstart - WAX Developer](https://developer.wax.io/build/dapp-development/smart-contract-quickstart/)
 
 ### Engage with other developers

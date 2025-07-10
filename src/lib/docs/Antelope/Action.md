@@ -26,7 +26,7 @@ Every action on an Antelope blockchain consists of the following information:
     data: {
         from: 'teamgreymass',
         to: 'funds.gm',
-        quantity: '0.0001 EOS',
+        quantity: '0.0001 A',
         memo: 'Thanks for all the fish!'
     }
 }
@@ -80,7 +80,7 @@ An [ABI](/docs/antelope/abi) can also be passed as a 2nd parameter to the `.from
 const data = {
   from: "teamgreymass",
   to: "funds.gm",
-  quantity: "0.0001 EOS",
+  quantity: "0.0001 A",
   memo: "Thanks for all the fish!",
 }
 
@@ -121,7 +121,7 @@ export class Transfer extends Struct {
 const data = Transfer.from({
   from: "teamgreymass",
   to: "funds.gm",
-  quantity: "0.0001 EOS",
+  quantity: "0.0001 A",
   memo: "Thanks for all the fish!",
 })
 
@@ -152,7 +152,7 @@ The [ABI](/docs/antelope/abi) passed in as a 2nd parameter can also be manually 
 const data = {
   from: "teamgreymass",
   to: "funds.gm",
-  quantity: "0.0001 EOS",
+  quantity: "0.0001 A",
   memo: "Thanks for all the fish!",
 }
 
@@ -342,7 +342,7 @@ const readable = Serializer.objectify(decoded)
 {
   from: 'teamgreymass',
   to: 'funds.gm',
-  quantity: '0.0001 EOS',
+  quantity: '0.0001 A',
   memo: 'Thanks for all the fish!'
 }
 */

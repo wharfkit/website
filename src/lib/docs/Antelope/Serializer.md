@@ -69,7 +69,7 @@ class Transfer extends Struct {
 const object = Transfer.from({
   from: "foo",
   to: "bar",
-  quantity: "1.0000 EOS",
+  quantity: "1.0000 A",
   memo: "hello",
 })
 
@@ -224,7 +224,7 @@ Transfer {
 */
 
 console.log(JSON.stringify(decoded))
-// {"from":"foo","to":"bar","quantity":"1.0000 EOS","memo":"hello"}
+// {"from":"foo","to":"bar","quantity":"1.0000 A","memo":"hello"}
 ```
 
 ### Using an ABI
@@ -256,7 +256,7 @@ Transfer {
 */
 
 console.log(JSON.stringify(decoded))
-// {"from":"foo","to":"bar","quantity":"1.0000 EOS","memo":"hello"}
+// {"from":"foo","to":"bar","quantity":"1.0000 A","memo":"hello"}
 ```
 
 The [ABI](/docs/antelope/abi) can either be embedded directly within the application or it can be retrieved from an [APIClient](/docs/antelope/api-client). In the example above, the code is loading the ABI for the `eosio.token` contract from the Jungle 4 blockchain. It then passes the encoded data, the ABI, and the type to retrieve from the ABI as a string.
@@ -281,7 +281,7 @@ class Transfer extends Struct {
 const transfer = Transfer.from({
   from: "foo",
   to: "bar",
-  quantity: "1.0000 EOS",
+  quantity: "1.0000 A",
   memo: "hello",
 })
 
@@ -305,7 +305,7 @@ console.log(object)
 { 
     from: 'foo', 
     to: 'bar', 
-    quantity: '1.0000 EOS', 
+    quantity: '1.0000 A', 
     memo: 'hello' 
 }
 */
