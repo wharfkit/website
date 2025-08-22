@@ -76,7 +76,7 @@ console.log(publicKey.toLegacyString())
 // EOS6LPN8xGye86wme4PwqN8TSxAfGTQvqBcN5jGnURJPHyqnXqNAR
 ```
 
-If the legacy format uses a prefix for keys which differs from `EOS`, it may be passed as a parameter on `toLegacyString` to set the prefix.
+If the legacy format uses a prefix for keys which differs from `A`, it may be passed as a parameter on `toLegacyString` to set the prefix.
 
 ```ts
 import { PublicKey } from "@wharfkit/antelope"

@@ -37,7 +37,7 @@ The third parameter is an optional object that allows you to pass additional dat
 const action = contract.action("transfer", {
   from: "foo",
   to: "bar",
-  quantity: "1.0000 EOS",
+  quantity: "1.0000 A",
   memo: "",
 })
 ```
@@ -69,7 +69,7 @@ const action = contract.action(
   {
     from: "foo",
     to: "bar",
-    quantity: "1.0000 EOS",
+    quantity: "1.0000 A",
     memo: "",
   },
   {
@@ -91,7 +91,7 @@ The `Action` type returned by the `Contract` is **strongly typed** and **seriali
 const action = contract.action("transfer", {
   from: "foo",
   to: "bar",
-  quantity: "1.0000 EOS",
+  quantity: "1.0000 A",
   memo: "",
 })
 
@@ -166,7 +166,7 @@ console.log(Serializer.objectify(decoded))
 /*{
   from: 'foo',
   to: 'bar',
-  quantity: '1.0000 EOS',
+  quantity: '1.0000 A',
   memo: ''
 }*/
 ```

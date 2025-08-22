@@ -59,7 +59,7 @@ const account = new Account(accountArgs)
 
 The only parameter passed to the `Account` class constructor is an object containing the following configuration data:
 
-- `data`: The account's data. Generally, this will be obtained using a [get_account API call](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index#operation/get_account). <!-- TODO: Replace this with link from Antelope API docs. Maybe from the antelope docs?? -->
+- `data`: The account's data. Generally, this will be obtained using a [get_account API call](https://docs.eosnetwork.com/apis/spring/latest/chain.api/#operation/get_account).
 - `client`: An instance of an [APIClient](/docs/antelope/api-client) that will be used to retrieve blockchain data.
 
 ## Options

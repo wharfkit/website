@@ -63,9 +63,9 @@ const balance = Asset.from(0.05, Asset.Symbol.fromParts("FOO", 4))
 The `fromUnits` method is also available to build `Asset` instances when performing integer math.
 
 ```ts
-// 10000 units + 4 precision + "EOS" label
-const balance = Asset.fromUnits(10000, "4,EOS")
-// 1.0000 EOS
+// 10000 units + 4 precision + "A" label
+const balance = Asset.fromUnits(10000, "4,A")
+// 1.0000 A
 
 // 100 units + 8 precision + "WAX" label
 const balance = Asset.fromUnits(100, "8,WAX")

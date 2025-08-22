@@ -130,7 +130,7 @@ const transferAction = {
   data: {
     from: session.actor,
     to: "wharfkittest",
-    quantity: "0.0001 EOS",
+    quantity: "0.0001 A",
     memo: "Hello World!",
   },
 }

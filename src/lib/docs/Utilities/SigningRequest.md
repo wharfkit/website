@@ -47,7 +47,7 @@ const action = {
   data: {
     from: "alice",
     to: "bob",
-    quantity: "1.0000 EOS",
+    quantity: "1.0000 A",
     memo: "Thanks for the coffee!",
   },
 }
