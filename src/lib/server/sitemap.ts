@@ -33,7 +33,7 @@ const staticRoutes: SitemapURL[] = [
  */
 async function getDocumentationURLs(): Promise<SitemapURL[]> {
   const docs = await fetchDocs(importedDocs)
-  
+
   return docs
     .filter((doc) => doc.published === true)
     .map((doc) => ({
@@ -48,7 +48,7 @@ async function getDocumentationURLs(): Promise<SitemapURL[]> {
  */
 async function getGuideURLs(): Promise<SitemapURL[]> {
   const guides = await fetchDocs(importedGuides)
-  
+
   return guides
     .filter((guide) => guide.published === true)
     .map((guide) => ({
@@ -63,7 +63,7 @@ async function getGuideURLs(): Promise<SitemapURL[]> {
  */
 async function getBlogURLs(): Promise<SitemapURL[]> {
   const posts = await getBlogPosts()
-  
+
   return posts.map((post) => ({
     loc: post.path,
     lastmod: post.date,
@@ -76,10 +76,10 @@ async function getBlogURLs(): Promise<SitemapURL[]> {
  * Get all plugin URLs
  */
 function getPluginURLs(): SitemapURL[] {
-  const plugins = Object.keys(pluginsData)
-  
-  return plugins.map((pluginId) => ({
-    loc: `/plugins/${pluginId}`,
+  const plugins = Object.values(pluginsData)
+
+  return plugins.map((plugin) => ({
+    loc: `/plugins/${plugin.name}`,
     priority: 0.5,
     changefreq: "weekly" as const,
   }))
@@ -94,9 +94,9 @@ export async function generateSitemapURLs(): Promise<SitemapURL[]> {
     getGuideURLs(),
     getBlogURLs(),
   ])
-  
+
   const pluginURLs = getPluginURLs()
-  
+
   return [...staticRoutes, ...docURLs, ...guideURLs, ...blogURLs, ...pluginURLs]
 }
 
@@ -109,14 +109,15 @@ export function generateSitemapXML(urls: SitemapURL[]): string {
       const loc = `${SITE_URL}${url.loc}`
       const lastmod = url.lastmod ? `\n    <lastmod>${url.lastmod}</lastmod>` : ""
       const changefreq = url.changefreq ? `\n    <changefreq>${url.changefreq}</changefreq>` : ""
-      const priority = url.priority !== undefined ? `\n    <priority>${url.priority}</priority>` : ""
-      
+      const priority =
+        url.priority !== undefined ? `\n    <priority>${url.priority}</priority>` : ""
+
       return `  <url>
     <loc>${loc}</loc>${lastmod}${changefreq}${priority}
   </url>`
     })
     .join("\n")
-  
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urlEntries}

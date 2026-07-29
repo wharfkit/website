@@ -182,7 +182,8 @@ export function makeDoc({
   const toc = metadata?.toc ?? true
   const root = source.split("/")[3]
   const section = slugify(metadata?.category || "")
-  const path = `/${root}/${section}/${slug}`
+  // If the slug is 'index', use just the section path
+  const path = slug === "index" ? `/${root}/${section}` : `/${root}/${section}/${slug}`
   const headings = parseHeadings(content)
 
   const doc = {
