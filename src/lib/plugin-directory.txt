@@ -4,7 +4,6 @@ wharfkit/wallet-plugin-anchor
 wharfkit/wallet-plugin-cloudwallet
 wharfkit/wallet-plugin-scatter
 wharfkit/wallet-plugin-tokenpocket
-wharfkit/wallet-plugin-wombat
 wharfkit/account-creation-plugin-anchor
 wharfkit/account-creation-plugin-jungle4
 wharfkit/account-creation-plugin-template
