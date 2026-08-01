@@ -242,7 +242,7 @@ While any wallet/signer can sign these types of transactions, wallets that imple
 
 The wallets which currently fully support this standard are:
 
-- [Anchor](https://www.greymass.com/anchor)
+- [Anchor](https://anchorwallet.io)
 
 ### Service Examples
 
