@@ -1,6 +1,6 @@
 ---
 title: Upgrading to WharfKit 4.0.0
-description: How to move a project from any earlier set of @wharfkit packages to the lockstep 4.0.0 release, covering the version change, the removed peer dependencies, and the API changes in antelope and session.
+description: How to move a project from any earlier set of @wharfkit packages to the 4.0.0 release, covering the version change, the removed peer dependencies, and the API changes in antelope and session.
 category: Upgrading
 published: true
 slug: index
@@ -14,9 +14,9 @@ The same release carries two sets of API changes that were already under way bef
 
 Package names on npm are unchanged. The source for every package moved to the `wharfkit/js` repository.
 
-## What lockstep means for your package.json
+## Package versions
 
-Every package that joined the release carries the version `4.0.0`, whatever version it was on before. `@wharfkit/antelope` goes from 1.2.0 to 4.0.0, `@wharfkit/session` from 1.7.0 to 4.0.0, `@wharfkit/cli` from 2.11.0 to 4.0.0.
+Every package in the release is version `4.0.0`, whatever version it was on before. `@wharfkit/antelope` moves from 1.2.0, `@wharfkit/session` from 1.7.0, and `@wharfkit/cli` from 2.11.0.
 
 Set every `@wharfkit/*` entry in your `package.json` to `^4.0.0`:
 
@@ -35,7 +35,7 @@ Inside the release, packages depend on each other by exact version (`"@wharfkit/
 
 Release candidates publish under the `next` dist-tag. Stable releases publish under `latest`.
 
-### Version each package moves from
+### Versions by package
 
 | Package                                       | Last standalone release | New version |
 | --------------------------------------------- | ----------------------- | ----------- |
@@ -88,21 +88,21 @@ Release candidates publish under the `next` dist-tag. Stable releases publish un
 
 ### Remove @wharfkit peer dependencies you added
 
-No `@wharfkit/*` package declares another `@wharfkit/*` package as a peer dependency. Plugins used to declare `@wharfkit/session`, and `@wharfkit/wallet-plugin-cloudwallet` also declared `@wharfkit/antelope`. Both are normal, exact-pinned dependencies in 4.0.0.
+No `@wharfkit/*` package declares another `@wharfkit/*` package as a peer dependency. Before 4.0.0, plugins declared `@wharfkit/session` as a peer dependency, and `@wharfkit/wallet-plugin-cloudwallet` also declared `@wharfkit/antelope`. Both are normal, exact-pinned dependencies in 4.0.0.
 
-If you added a `@wharfkit/*` entry to your own `package.json` only to satisfy a peer warning, and your code never imports it, remove the entry. Nothing errors when a stale entry stays, so this is the step most often missed. A stale entry with an old range is also the most common way to end up with two copies of a package after the upgrade.
+If you added a `@wharfkit/*` entry to your own `package.json` only to satisfy a peer warning, and your code never imports it, remove the entry. Nothing errors when a stale entry stays. A stale entry with an old range can leave two copies of a package in your tree after the upgrade.
 
 Keep the entries for packages you import directly. An application that calls `new SessionKit(...)` still depends on `@wharfkit/session`.
 
-`@wharfkit/svelte-components` keeps its `svelte` and `tailwindcss` peer dependencies. The policy covers `@wharfkit/*` packages only.
+`@wharfkit/svelte-components` keeps its `svelte` and `tailwindcss` peer dependencies. The change covers `@wharfkit/*` peer dependencies only.
 
 ### Remove resolutions and overrides you added
 
-If you pinned a `@wharfkit/*` package through yarn `resolutions`, npm `overrides`, or pnpm `overrides` to force deduplication or to silence a peer conflict, delete those entries and reinstall. They pin versions that no longer exist in the graph, and they can reintroduce the duplicate they were added to prevent.
+If you pinned a `@wharfkit/*` package through yarn `resolutions`, npm `overrides`, or pnpm `overrides` to force deduplication or to silence a peer conflict, delete those entries and reinstall. Those entries pin versions that are not in the 4.0.0 graph, and they can reintroduce the duplicate they were added to prevent.
 
 ### Node.js version
 
-Every 4.0.0 package declares `engines: {"node": ">=20.19.0"}`, and the SDK needs a JavaScript environment with `BigInt` and WebCrypto. Browser bundlers that consume ES modules meet that requirement. Projects that cannot move to a supported Node.js version can stay on the 1.x line:
+Every 4.0.0 package declares `engines: {"node": ">=20.19.0"}`. In the browser, the SDK needs `BigInt` and WebCrypto, which every browser released since 2020 provides. Projects that cannot move to a supported Node.js version can stay on the 1.x line:
 
 ```
 npm install @wharfkit/antelope@1
@@ -114,7 +114,7 @@ Both bundles of every 4.0.0 package are compiled to ES2020. In the 1.x and 3.x l
 
 Every Node.js version the `engines` field admits parses ES2020, and so does every current browser and bundler. Two cases fail:
 
-- **webpack 4**, whose bundled acorn cannot parse optional chaining in `node_modules`, and which reports it as `Module parse failed: Unexpected token`. webpack 5 is fine.
+- **webpack 4**, whose bundled acorn cannot parse optional chaining in `node_modules`, and which reports it as `Module parse failed: Unexpected token`. webpack 5 parses it.
 - **Browsers released before March 2020**: Chrome and Edge below 80, Firefox below 74, Safari below 13.1, iOS Safari below 13.4, Samsung Internet below 12.
 
 If you must serve one of those browsers, transpile `@wharfkit/*` in your build rather than excluding it from the transform step. Runtime behavior is unchanged: no API moved, and no polyfill is added or removed.
@@ -123,13 +123,13 @@ If you must serve one of those browsers, transpile `@wharfkit/*` in your build r
 
 `@wharfkit/cli`, `@wharfkit/protocol-esr` and `@wharfkit/session` re-export a namespace they import from a CommonJS dependency, such as the `zlib` option `session` hands to a signing request. In the 3.x line the CommonJS bundles built that namespace with a `null` prototype and froze it, so `namespace instanceof Object` was `false` and the object rejected writes. In 4.0.0 it inherits the dependency's own prototype and is not frozen, which matches the TypeScript sources and the ES module bundles.
 
-Reading properties and calling methods behaves the same either way. Code that tests one of these namespaces with `instanceof`, `Object.getPrototypeOf`, or `Object.isFrozen` sees a different answer, and code that assigns onto one now succeeds silently where it previously threw in strict mode.
+Reading properties and calling methods behaves the same either way. Code that tests one of these namespaces with `instanceof`, `Object.getPrototypeOf`, or `Object.isFrozen` sees a different answer, and code that assigns onto one succeeds silently in 4.0.0 where it threw in strict mode before.
 
 ### Licensing
 
 Every package in the release is licensed under plain `BSD-3-Clause`, with one license text across the repository. Before 4.0.0 the license text in most packages carried a no-military-use clause, some manifests declared it as `BSD-3-Clause-No-Military-License`, and `@wharfkit/signing-request` was MIT. If your license compliance tooling records `@wharfkit/*` packages by SPDX identifier, expect the identifiers to change.
 
-## Confirming you resolve one copy of antelope
+## Confirming one copy of antelope
 
 `@wharfkit/antelope` prints this to the console when it detects two copies of itself at runtime:
 
@@ -137,7 +137,7 @@ Every package in the release is licensed under plain `BSD-3-Clause`, with one li
 Detected alien instance of <type>, this usually means more than one version of @wharfkit/antelope has been included in your bundle.
 ```
 
-The warning fires once per process, so a quiet console after the first occurrence does not mean the problem cleared. Verify this first after upgrading, since resolving one copy of every `@wharfkit/*` package is the purpose of the lockstep release.
+The warning fires once per process, so a quiet console after the first occurrence does not mean the problem cleared. Check this first after upgrading. One copy of every `@wharfkit/*` package is the guarantee the 4.0.0 release provides.
 
 Check the installed tree directly:
 
@@ -148,23 +148,23 @@ pnpm why @wharfkit/antelope
 bun pm ls | grep @wharfkit/antelope
 ```
 
-One entry at `4.0.0` is the expected result. A second version comes from one known source.
+The expected result is one entry at `4.0.0`.
 
 ### Known source of a second copy
 
-**`@wharfkit/apiclient-leap`, `@wharfkit/apiclient-telos` and `@wharfkit/apiclient-wax`** did not join the lockstep release. `apiclient-leap` depends on `@wharfkit/antelope` at `^0.10.0-beta1`, which cannot resolve to 4.0.0, so any project using one of the three resolves two copies of antelope. Their own version number is 4.0.6, which is close to the lockstep line without being part of it.
+**`@wharfkit/apiclient-leap`, `@wharfkit/apiclient-telos` and `@wharfkit/apiclient-wax`** are not part of the 4.0.0 release. `apiclient-leap` depends on `@wharfkit/antelope` at `^0.10.0-beta1`, which cannot resolve to 4.0.0, so any project using one of the three resolves two copies of antelope. Their own version number is 4.0.6, which is unrelated to the 4.0.0 release.
 
-`@wharfkit/account-creation-plugin-metamask` used to bring a second copy through `@greymass/create-account`. In 4.0.0 the plugin no longer depends on that package, so a warning you saw only with the metamask plugin installed is gone.
+`@wharfkit/account-creation-plugin-metamask` used to bring a second copy through `@greymass/create-account`. In 4.0.0 the plugin no longer depends on that package, so that source of the warning is gone.
 
 ## What changed in @wharfkit/antelope 2.0
 
-These are API changes, unrelated to the repository move. The work was headed for a 2.0 release, and the lockstep number replaced it.
+These are API changes in `@wharfkit/antelope`, independent of the repository move. They were developed as antelope 2.0 and ship under the 4.0.0 version number.
 
 ### Cryptography library
 
 `elliptic`, `brorand` and `hash.js` were replaced by `@noble/curves` and `@noble/hashes`.
 
-**K1 signatures produced for the same key and message differ byte for byte from 1.x.** The canonical-signature search feeds the attempt counter through RFC 6979 extra entropy rather than through the old library's personalization string. Every signature the new code produces is valid and canonical, and verification of old signatures is unaffected. Tests that assert a literal expected signature string need re-recording.
+**K1 signatures produced for the same key and message differ from the ones 1.x produced.** The canonical-signature search feeds the attempt counter through RFC 6979 extra entropy rather than through the old library's personalization string. Every signature the new code produces is valid and canonical, and verification of old signatures is unaffected. Tests that assert a literal expected signature string need re-recording.
 
 **`PrivateKey.sharedSecret()` returns a different value for some key pairs.** The old derivation stripped leading zero bytes from the shared x-coordinate; the new one returns the full fixed-width 32 bytes, which is what the specification calls for. The two agree unless the x-coordinate starts with a zero byte, which happens for roughly one key pair in 256. To decrypt data encrypted with the old derivation, pass the `legacy` option:
 
@@ -184,7 +184,7 @@ Infinity and NaN render as the spellings nodeos emits: `inf`, `-inf`, `nan` and 
 
 `Name`, `PermissionLevel` and `PublicKey` gained a public `compare()` method as part of this.
 
-### fetch resolution and node-fetch
+### Default fetch implementation
 
 `FetchProvider` looks for `globalThis.fetch` first, then `window.fetch`. Node.js 18 and later ship a built-in `fetch`, so no `fetch` implementation needs to be passed on any supported Node.js version. If you were importing `node-fetch` and passing it in, you can drop it:
 
@@ -209,7 +209,7 @@ The `fetch` option stays supported for custom implementations and for instrument
 
 ## What changed in @wharfkit/session
 
-Two signatures on `SessionKit` changed shape. The rest of the 1.7.x line is unchanged.
+Two `SessionKit` method signatures changed. Everything else in the 1.7.x line is unchanged.
 
 ### The restore() argument type
 
@@ -251,7 +251,7 @@ const session = await sessionKit.restore()
 
 `acceptUrlSessionParam` renames the parameter, which defaults to `incomingWharfSession`. Reading the URL requires a browser; under Node.js `restore()` goes straight to storage.
 
-Anyone sending a session this way is handing over the wallet data it carries. Send it only to an origin you control.
+A session sent this way carries the wallet data needed to sign, so send it only to an origin you control.
 
 ### Choosing when two sessions are the same
 
@@ -276,9 +276,9 @@ An application holding several sessions for one account, separated by something 
 
 ## Packages that did not move
 
-Everything in the lockstep group is on 4.0.0. These packages are outside it, and their version numbers keep their own lines:
+These packages are not part of the 4.0.0 release and keep their own version numbers:
 
-- **`@wharfkit/apiclient-leap`, `@wharfkit/apiclient-telos`, `@wharfkit/apiclient-wax`** at 4.0.6, which is not part of the lockstep line.
+- **`@wharfkit/apiclient-leap`, `@wharfkit/apiclient-telos`, `@wharfkit/apiclient-wax`** at 4.0.6, a version number unrelated to the 4.0.0 release.
 - **`@wharfkit/console-renderer`** at 0.1.1, pinned to `@wharfkit/session` 0.3.1. It does not work with 4.0.0.
 - **`@wharfkit/wallet-plugin-wombat`**, for a wallet that is discontinued.
 - **`@wharfkit/wallet-plugin-etheraccount`, `@wharfkit/wallet-plugin-ledger`, `@wharfkit/transact-plugin-sessionkey`**, none of which were published.
@@ -294,4 +294,4 @@ Everything in the lockstep group is on 4.0.0. These packages are outside it, and
 7. Rename `RestoreArgs` imports to `PartialSerializedSession`, and pass `{setAsDefault}` to `persistSession` in place of the boolean.
 8. Check every place a `Float32` becomes a string.
 9. Add `{legacy: true}` to `sharedSecret` calls that read data encrypted before 4.0.0.
-10. Run the app and watch the console for the alien-instance warning.
+10. Run the app and watch the console for the `alien instance` warning.
