@@ -8,13 +8,9 @@ slug: index
 
 # Upgrading to WharfKit 4.0.0
 
-This release carries three separate changes, and this guide treats each one on its own.
+WharfKit 4.0.0 is the first release in which every `@wharfkit/*` package shares one version number and ships from one repository. Moving to it is a packaging change with no effect on any API.
 
-The first is **lockstep versioning**. Every `@wharfkit/*` package shares one version number and ships from one repository. This is a packaging change with no effect on any API.
-
-The second is **`@wharfkit/antelope` 2.0**, a set of API changes that was already under way before the packaging changed.
-
-The third is a smaller set of API changes in **`@wharfkit/session`**, also already under way.
+The same release carries two sets of API changes that were already under way before the packaging changed: `@wharfkit/antelope` 2.0, and a smaller set in `@wharfkit/session`.
 
 Package names on npm are unchanged. The source for every package moved to the `wharfkit/js` repository.
 
