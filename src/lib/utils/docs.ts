@@ -17,7 +17,8 @@ export function formatSectionTitle(section: string) {
   return sectionTitle
 }
 
-export const isSectionNotHidden = (section: DocumentationSection) => section.articles.length > 0
+export const isSectionNotHidden = (section: DocumentationSection) =>
+  section.articles.length > 0 || section.indexPage !== undefined
 export const removeHiddenArticles = (section: DocumentationSection): DocumentationSection => ({
   ...section,
   articles: section.articles.filter(isDocNotHidden),

@@ -11,7 +11,8 @@ const displayOrder = [
   "account-kit",
   "utilities",
   "antelope",
-  "templates"
+  "templates",
+  "upgrading"
 ]
 
 export const prerender = true
