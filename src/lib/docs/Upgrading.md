@@ -2,7 +2,7 @@
 title: Upgrading to WharfKit 4.0.0
 description: How to move a project from any earlier set of @wharfkit packages to the lockstep 4.0.0 release, covering the version change, the removed peer dependencies, and the API changes in antelope and session.
 category: Upgrading
-published: false
+published: true
 slug: index
 ---
 
