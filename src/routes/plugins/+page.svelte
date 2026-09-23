@@ -3,9 +3,14 @@
   import PluginListItem from "./PluginListItem.svelte"
   import Dropdown from "$lib/components/Dropdown.svelte"
   import { page } from "$app/stores"
-  import { capitalize } from "$lib/utils"
   import EmptyIcon from "./EmptyIcon.svelte"
   export let data: PageData
+
+  const typeLabels: Record<string, string> = {
+    wallet: "Wallet",
+    transact: "Transact",
+    "account-creation": "Account Creation",
+  }
 
   const sortOptions = [
     { value: "popular", label: "Popular" },
@@ -13,13 +18,13 @@
   ]
 
   $: currentSort = $page.url.searchParams.get("sort") || "latest"
-  $: currentTag = $page.url.searchParams.get("tag")?.split("-")[0] || "All"
+  $: currentType = typeLabels[$page.url.searchParams.get("type") ?? ""] ?? "All"
   $: allPlugins = data.allPlugins
 </script>
 
 <section>
   <header>
-    <h1>{capitalize(currentTag)} Plugins</h1>
+    <h1>{currentType} Plugins</h1>
     <div class="sort">
       <span>Sort by</span>
       <Dropdown options={sortOptions} selected={currentSort} />

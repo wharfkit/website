@@ -1,19 +1,19 @@
 <script lang="ts">
   import { page } from "$app/stores"
 
-  $: getLink = (tag?: string) => {
+  $: getLink = (type?: string) => {
     const currentSearchParams = new URLSearchParams($page.url.search)
     const url = new URL($page.url.origin + "/plugins")
     url.search = currentSearchParams.toString()
-    if (!tag) {
-      url.searchParams.delete("tag")
+    if (!type) {
+      url.searchParams.delete("type")
     } else {
-      url.searchParams.set("tag", tag)
+      url.searchParams.set("type", type)
     }
     return String(url)
   }
 
-  $: currentTag = $page.url.searchParams.get("tag") || ""
+  $: currentType = $page.url.searchParams.get("type") ?? ""
 </script>
 
 <svelte:head>
@@ -81,20 +81,16 @@
       <li class="sidebar-subtitle sidebar-list-item">
         <a href={getLink()}>All plugins</a>
       </li>
-      <li
-        class="sidebar-subtitle sidebar-list-item"
-        class:active={new RegExp("wallet-plugin").test(currentTag)}>
-        <a href={getLink("wallet-plugin")}>Wallet</a>
+      <li class="sidebar-subtitle sidebar-list-item" class:active={currentType === "wallet"}>
+        <a href={getLink("wallet")}>Wallet</a>
+      </li>
+      <li class="sidebar-subtitle sidebar-list-item" class:active={currentType === "transact"}>
+        <a href={getLink("transact")}>Transact</a>
       </li>
       <li
         class="sidebar-subtitle sidebar-list-item"
-        class:active={new RegExp("login").test(currentTag)}>
-        <a href={getLink("login")}>Login</a>
-      </li>
-      <li
-        class="sidebar-subtitle sidebar-list-item"
-        class:active={new RegExp("transact-plugin").test(currentTag)}>
-        <a href={getLink("transact-plugin")}>Transact</a>
+        class:active={currentType === "account-creation"}>
+        <a href={getLink("account-creation")}>Account Creation</a>
       </li>
     </ul>
   </nav>

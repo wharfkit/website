@@ -1,5 +1,5 @@
 name: Plugin Directory Updater
-run-name: Updating plugin directory from source repositories
+run-name: Updating plugin directory from npm
 on:
   push:
   schedule:
@@ -15,8 +15,6 @@ jobs:
 
       - name: Run script to update plugins
         run: node .github/scripts/check-plugins.js
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6

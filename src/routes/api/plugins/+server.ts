@@ -8,8 +8,8 @@ export const GET: RequestHandler = async ({ url }) => {
 
     const options: PluginQueryOptions = {}
 
-    if (params.get("tag")) {
-      options.tag = String(params.get("tag"))
+    if (params.get("type")) {
+      options.type = String(params.get("type"))
     }
 
     if (params.get("sort")) {

@@ -131,7 +131,6 @@ type WharfkitPlugin = {
   namespace?: string
   pluginId: string
   description: string
-  tags: string[]
   author: string
   authorIcon: string
   version: string
@@ -142,7 +141,7 @@ type WharfkitPlugin = {
 }
 
 type PluginQueryOptions = {
-  tag?: string
+  type?: string
   sort?: string
   query?: string
 }
