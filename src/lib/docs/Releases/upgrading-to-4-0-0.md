@@ -1,18 +1,19 @@
 ---
 title: Upgrading to WharfKit 4.0.0
-description: How to move a project from any earlier set of @wharfkit packages to the 4.0.0 release, covering the version change, the removed peer dependencies, and the API changes in antelope and session.
-category: Upgrading
+description: How to move a project from any earlier set of @wharfkit packages to the 4.0.0 release, covering the version change, the removed peer dependencies, and the API changes to expect.
+category: Releases
 published: true
-slug: index
+slug: upgrading-to-4-0-0
+order: 2
 ---
 
 # Upgrading to WharfKit 4.0.0
 
 WharfKit 4.0.0 is the first release in which every `@wharfkit/*` package shares one version number and ships from one repository. Moving to it is a packaging change with no effect on any API.
 
-The same release carries two sets of API changes that were already under way before the packaging changed: `@wharfkit/antelope` 2.0, and a smaller set in `@wharfkit/session`.
+The same release carries the API changes that were already under way before the packaging changed: `@wharfkit/antelope` 2.0, and a set of additions and two signature changes in `@wharfkit/session`.
 
-Package names on npm are unchanged. The source for every package moved to the `wharfkit/js` repository.
+Package names on npm are unchanged. The source for every package moved to the `wharfkit/js` repository. The [release notes](/docs/releases/4-0-0) list what each package gained.
 
 ## Package versions
 
@@ -85,6 +86,7 @@ Release candidates publish under the `next` dist-tag. Stable releases publish un
 | `@wharfkit/cli`                               | 2.11.0                  | 4.0.0       |
 | `@wharfkit/mock-data`                         | 1.3.1                   | 4.0.0       |
 | `@wharfkit/bundle`                            | 0.1.2                   | 4.0.0       |
+| `@wharfkit/light-api`                         | first published         | 4.0.0       |
 
 ### Remove @wharfkit peer dependencies you added
 
@@ -121,13 +123,11 @@ If you must serve one of those browsers, transpile `@wharfkit/*` in your build r
 
 ### Namespace objects in the CommonJS bundles
 
-`@wharfkit/cli`, `@wharfkit/protocol-esr` and `@wharfkit/session` re-export a namespace they import from a CommonJS dependency, such as the `zlib` option `session` hands to a signing request. In the 3.x line the CommonJS bundles built that namespace with a `null` prototype and froze it, so `namespace instanceof Object` was `false` and the object rejected writes. In 4.0.0 it inherits the dependency's own prototype and is not frozen, which matches the TypeScript sources and the ES module bundles.
-
-Reading properties and calling methods behaves the same either way. Code that tests one of these namespaces with `instanceof`, `Object.getPrototypeOf`, or `Object.isFrozen` sees a different answer, and code that assigns onto one succeeds silently in 4.0.0 where it threw in strict mode before.
+A namespace that `@wharfkit/cli`, `@wharfkit/protocol-esr` or `@wharfkit/session` re-exports from a CommonJS dependency keeps that dependency's prototype and stays writable, where the 3.x CommonJS bundles froze it with a `null` prototype. Check any code that tests one with `instanceof`, `Object.getPrototypeOf` or `Object.isFrozen`; the [release notes](/docs/releases/4-0-0#across-every-package) describe the difference.
 
 ### Licensing
 
-Every package in the release is licensed under plain `BSD-3-Clause`, with one license text across the repository. Before 4.0.0 the license text in most packages carried a no-military-use clause, some manifests declared it as `BSD-3-Clause-No-Military-License`, and `@wharfkit/signing-request` was MIT. If your license compliance tooling records `@wharfkit/*` packages by SPDX identifier, expect the identifiers to change.
+Every package is licensed under plain `BSD-3-Clause`. License compliance tooling that records `@wharfkit/*` packages by SPDX identifier sees the identifiers change, since most packages previously declared a no-military-use variant and `@wharfkit/signing-request` was MIT.
 
 ## Confirming one copy of antelope
 
@@ -156,123 +156,27 @@ The expected result is one entry at `4.0.0`.
 
 `@wharfkit/account-creation-plugin-metamask` used to bring a second copy through `@greymass/create-account`. In 4.0.0 the plugin no longer depends on that package, so that source of the warning is gone.
 
-## What changed in @wharfkit/antelope 2.0
+## Changes to expect in @wharfkit/antelope
 
-These are API changes in `@wharfkit/antelope`, independent of the repository move. They were developed as antelope 2.0 and ship under the 4.0.0 version number.
+These API changes were developed as antelope 2.0, independent of the repository move, and ship under the 4.0.0 version number. Each one is described in full in the [release notes](/docs/releases/4-0-0#wharfkitantelope).
 
-### Cryptography library
+- **K1 signatures differ byte for byte** from the ones 1.x produced for the same key and message. They are valid and canonical, and verification of older signatures is unaffected. Re-record any fixture asserting a literal signature string.
+- **`PrivateKey.sharedSecret()` returns the full 32 bytes** of the shared x-coordinate. Pass `{legacy: true}` to read data encrypted with the old derivation.
+- **`Float32.toString()` returns the shortest round-tripping string**, and infinity, NaN and negative zero render as nodeos spells them. Check every place a `Float32` becomes a string.
+- **`Authority.sort()` orders keys, accounts and waits the way the chain does.** `Name`, `PermissionLevel` and `PublicKey` gained a public `compare()`.
+- **`FetchProvider` finds `globalThis.fetch` on its own**, so a `node-fetch` import passed as the `fetch` option can go.
+- **`get_table_rows` handles `float64` and `float128` indexes**, an addition that leaves existing queries alone.
+- **`pako` moved to 3.x and `bn.js` to 5.x**, both internal to antelope. `pako` 3.x is ESM and has no default export, which reaches a project that imports it directly.
 
-`elliptic`, `brorand` and `hash.js` were replaced by `@noble/curves` and `@noble/hashes`.
+## Changes to expect in @wharfkit/session
 
-**K1 signatures produced for the same key and message differ from the ones 1.x produced.** The canonical-signature search feeds the attempt counter through RFC 6979 extra entropy rather than through the old library's personalization string. Every signature the new code produces is valid and canonical, and verification of old signatures is unaffected. Tests that assert a literal expected signature string need re-recording.
+Two method signatures changed, and the rest of the release is additive. The [release notes](/docs/releases/4-0-0#wharfkitsession) describe each addition.
 
-**`PrivateKey.sharedSecret()` returns a different value for some key pairs.** The old derivation stripped leading zero bytes from the shared x-coordinate; the new one returns the full fixed-width 32 bytes, which is what the specification calls for. The two agree unless the x-coordinate starts with a zero byte, which happens for roughly one key pair in 256. To decrypt data encrypted with the old derivation, pass the `legacy` option:
-
-```ts
-const secret = privateKey.sharedSecret(publicKey, { legacy: true })
-```
-
-### Float rendering
-
-`Float32.toString()` returned a fixed seven decimal places. In 4.0.0 it returns the shortest string that round-trips to the same value, so `1.5` renders as `"1.5"` rather than `"1.5000000"`. Any snapshot, fixture, or user-facing string built from a `Float32` changes accordingly.
-
-Infinity and NaN render as the spellings nodeos emits: `inf`, `-inf`, `nan` and `-nan`. Negative zero renders as `-0`. A NaN decoded from the wire keeps its original bytes so its sign survives re-encoding.
-
-### Authority sorting
-
-`Authority.sort()` used a string comparison over the rendered key, permission and wait values. In 4.0.0 it compares keys by the ordering nodeos enforces, permission levels by actor and then permission, and waits numerically. Call it before including an authority in an `updateauth` action, as before. The chain sometimes rejected authorities in the old ordering, and it accepts the new one.
-
-`Name`, `PermissionLevel` and `PublicKey` gained a public `compare()` method as part of this.
-
-### Default fetch implementation
-
-`FetchProvider` looks for `globalThis.fetch` first, then `window.fetch`. Node.js 18 and later ship a built-in `fetch`, so no `fetch` implementation needs to be passed on any supported Node.js version. If you were importing `node-fetch` and passing it in, you can drop it:
-
-```ts
-// before
-import fetch from "node-fetch"
-const provider = new FetchProvider(url, { fetch })
-
-// after
-const provider = new FetchProvider(url)
-```
-
-The `fetch` option stays supported for custom implementations and for instrumenting requests.
-
-### Table queries: float64 and float128 indexes
-
-`get_table_rows` accepts `Float128` bounds and infers `key_type` for `float64` and `float128` indexes. A `Float128` bound sets `encode_type: 'hex'` and byte-reverses the bound, which is the spelling nodeos reads. `GetTableRowsParams` gained an `encode_type` field, and `Float128` gained `fromDouble()`, `fromDecimal()` and `toBoundHex()`. These are additions; existing table queries are unaffected.
-
-### Dependency updates
-
-`pako` moved from 2.x to 3.x and `bn.js` from 4.x to 5.x. Both are internal to antelope. If your own project imports `pako` directly, note that 3.x is ESM and has no default export.
-
-## What changed in @wharfkit/session
-
-Two `SessionKit` method signatures changed. Everything else in the 1.7.x line is unchanged.
-
-### The restore() argument type
-
-`SessionKit.restore()` describes its argument with `PartialSerializedSession`, and the `RestoreArgs` type is removed. The argument is a partial `SerializedSession`, and the new name describes that shape.
-
-```ts
-import type { PartialSerializedSession } from "@wharfkit/session"
-
-const session = await sessionKit.restore({ chain, actor, permission })
-```
-
-Values you already pass keep working, because the shape is unchanged apart from `walletPlugin`, which is typed as `SerializedWalletPlugin` rather than `Record<string, any>`. Only an explicit `import type {RestoreArgs}` needs editing. Code that hands `restore()` an object literal or a whole `SerializedSession` compiles unchanged.
-
-### The persistSession() options
-
-`SessionKit.persistSession()` took a boolean second argument. In 4.0.0 it takes `PersistOptions`, which carries the same flag and adds an equality function.
-
-```ts
-await sessionKit.persistSession(session, { setAsDefault: false })
-```
-
-The default is unchanged: a session with no second argument persists as the default for its chain.
-
-### Session handoff through a URL
-
-`Session.encode()` returns a session as a `SerializedSession`, a JSON string, a `URLEncodedSession` struct, or an Antelope-encoded hex string, so one application can hand a session to another through a link.
-
-```ts
-const payload = session.encode("url")
-window.location.href = `https://example.com/?incomingWharfSession=${payload}`
-```
-
-The receiving application opts in, and `restore()` then reads the parameter, strips it from the URL so a reload cannot replay it, and falls back to storage when no session arrives:
-
-```ts
-const sessionKit = new SessionKit(args, { acceptUrlSession: true })
-const session = await sessionKit.restore()
-```
-
-`acceptUrlSessionParam` renames the parameter, which defaults to `incomingWharfSession`. Reading the URL requires a browser; under Node.js `restore()` goes straight to storage.
-
-A session sent this way carries the wallet data needed to sign, so send it only to an origin you control.
-
-### Choosing when two sessions are the same
-
-`SessionKit` treats two sessions as the same when their chain, actor and permission match, which is what decides whether persisting a session replaces a stored one and which session a logout removes. `equalityFn` replaces that rule:
-
-```ts
-import { Session, type SessionType } from "@wharfkit/session"
-
-const sessionKit = new SessionKit(args, {
-  equalityFn: (a: SessionType, b: SessionType) => {
-    const first = a instanceof Session ? a.serialize() : a
-    const second = b instanceof Session ? b.serialize() : b
-    return (
-      Session.matches(first, second) &&
-      first.data?.appId === second.data?.appId
-    )
-  },
-})
-```
-
-An application holding several sessions for one account, separated by something it stores in `session.data`, needs this to keep them apart. `login()`, `logout()` and `persistSession()` each accept an `equalityFn` of their own for a single call. The default is exported as `serializedSessionEquals`.
+- **`SessionKit.restore()` takes a `PartialSerializedSession`**, and `RestoreArgs` is removed. Values you already pass keep working; rename an explicit `import type {RestoreArgs}`.
+- **`SessionKit.persistSession()` takes `PersistOptions`** in place of a boolean: `persistSession(session, {setAsDefault: false})`.
+- **`logout(session)` clears the stored default only when that session was the default.** Any logout previously cleared it for every chain.
+- **`login()`, `restore()` and `persistSession()` resolve after storage is written**, and `restoreAll()` writes nothing. An application that raced a read against one of these sees ordering it could not rely on before.
+- **`URLEncodedSession` exposes `serialized`** in place of `args`.
 
 ## Packages that did not move
 

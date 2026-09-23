@@ -12,7 +12,7 @@ const displayOrder = [
   "utilities",
   "antelope",
   "templates",
-  "upgrading"
+  "releases"
 ]
 
 export const prerender = true
