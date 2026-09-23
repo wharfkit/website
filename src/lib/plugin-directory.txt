@@ -20,5 +20,6 @@
 @wharfkit/wallet-plugin-paycash
 @wharfkit/wallet-plugin-privatekey
 @wharfkit/wallet-plugin-scatter
+@wharfkit/wallet-plugin-tacklebox
 @wharfkit/wallet-plugin-tokenpocket
 @wharfkit/wallet-plugin-web-authenticator
