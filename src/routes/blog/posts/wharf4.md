@@ -1,6 +1,6 @@
 ---
 title: "Wharf 4.0.0"
-date: 2026-09-15
+date: 2026-09-23
 tags: ["article"]
 description: "Wharf 4.0.0 is available. Every @wharfkit package shares one version number and ships from one repository, so installing any of them resolves the rest to a matching version. The release also carries session keys, the API changes in @wharfkit/antelope 2.0, and a signing reliability fix for Anchor on iOS."
 ---
