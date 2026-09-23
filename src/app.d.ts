@@ -98,6 +98,7 @@ interface BlogPost {
   sourcePath: string
   description: string
   image?: string
+  hasOwnImage: boolean
   videolink?: string
   transcriptlink: string
   tags: Array<BlogPostTag>

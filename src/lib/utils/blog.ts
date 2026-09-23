@@ -81,10 +81,12 @@ export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise
       const slug = slugify(metadata?.title)
       const path = pathBase + slug
       const image = getImage(metadata)
+      const hasOwnImage = Boolean(metadata?.image)
 
       return {
         ...metadata,
         image,
+        hasOwnImage,
         content,
         sourcePath,
         path,

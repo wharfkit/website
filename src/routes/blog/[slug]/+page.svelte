@@ -9,7 +9,7 @@
   let date = data.post.date
   let videolink = data.post.videolink
   let transcriptlink = data.post.transcriptlink
-  let image = data.post.image
+  let image = data.post.hasOwnImage ? data.post.image : undefined
 
   onMount(() => {
     addCopyButton()
