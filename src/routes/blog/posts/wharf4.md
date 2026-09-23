@@ -39,7 +39,7 @@ The [release notes](/docs/releases/4-0-0) describe each of these package by pack
 - **Sessions the SDK can tell apart.** `equalityFn` replaces the chain, actor and permission rule that decides which stored session a login or a logout matches.
 - **Anchor signing on iOS.** Same-device signing completes when Safari opens the return path in a fresh tab.
 - **Table queries on float indexes.** `get_table_rows` accepts `Float128` bounds and infers the key type for `float64` and `float128` indexes.
-- **Cryptography from `@noble/curves` and `@noble/hashes`**, replacing `elliptic`, `brorand` and `hash.js`.
+- **Cryptography from `@noble/curves` and `@noble/hashes`**, replacing `elliptic`, `brorand` and `hash.js`, contributed by [grctest](https://github.com/grctest).
 - **`@wharfkit/protocol-scatter` and `@wharfkit/bundle` under Node.js.** Both import cleanly outside a browser, where each previously threw.
 - **One license.** Every package is `BSD-3-Clause`, with the no-military-use clause gone from the license text.
 - **`@wharfkit/light-api`**, a client for the Light API service contributed by [includenull](https://github.com/includenull), publishing for the first time under the `@wharfkit` name.
