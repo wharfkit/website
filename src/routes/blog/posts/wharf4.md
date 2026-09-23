@@ -43,12 +43,13 @@ The [release notes](/docs/releases/4-0-0) describe each of these package by pack
 - **`@wharfkit/protocol-scatter` and `@wharfkit/bundle` under Node.js.** Both import cleanly outside a browser, where each previously threw.
 - **One license.** Every package is `BSD-3-Clause`, with the no-military-use clause gone from the license text.
 - **`@wharfkit/light-api`**, a client for the Light API service contributed by [includenull](https://github.com/includenull), publishing for the first time under the `@wharfkit` name.
+- **`@wharfkit/wallet-plugin-tacklebox`**, a wallet plugin for TackleBox contributed by [on-a-t-break](https://github.com/on-a-t-break), publishing for the first time under the `@wharfkit` name.
 
 ## Since 1.0
 
-Wharf 1.0 was announced in November 2023. Fifteen packages have been published for the first time since then, and the 47 packages in this release have had around 280 stable releases between them. Four changes are worth calling out for anyone returning from the 1.x line.
+Wharf 1.0 was announced in November 2023. Sixteen packages have been published for the first time since then, and the 48 packages in this release have had around 280 stable releases between them. Four changes are worth calling out for anyone returning from the 1.x line.
 
-Wharf supports five more wallets. [MetaMask](/plugins/wallet-plugin-metamask), [imToken](/plugins/wallet-plugin-imtoken), [GateWallet](/plugins/wallet-plugin-gatewallet), [PayCash](/plugins/wallet-plugin-paycash), and any authenticator reachable through the [web authenticator](/plugins/wallet-plugin-web-authenticator) plugin all have wallet plugins, and [`@wharfkit/account-creation-plugin-metamask`](/plugins/account-creation-plugin-metamask) creates accounts from MetaMask public keys.
+Wharf supports six more wallets. [MetaMask](/plugins/wallet-plugin-metamask), [imToken](/plugins/wallet-plugin-imtoken), [GateWallet](/plugins/wallet-plugin-gatewallet), [PayCash](/plugins/wallet-plugin-paycash), [TackleBox](/plugins/wallet-plugin-tacklebox), and any authenticator reachable through the [web authenticator](/plugins/wallet-plugin-web-authenticator) plugin all have wallet plugins, and [`@wharfkit/account-creation-plugin-metamask`](/plugins/account-creation-plugin-metamask) creates accounts from MetaMask public keys.
 
 The login interface was rebuilt. `@wharfkit/web-ui` draws the login, transact, and prompt flows as a modal layer inside your application, held in a shadow DOM so its styles and the host page's do not reach each other. Its palette is neutral by default and every color is themeable. It succeeds `@wharfkit/web-renderer`, which remains supported. The components it is built from are published separately as `@wharfkit/svelte-components` for applications that want to compose their own interface.
 
