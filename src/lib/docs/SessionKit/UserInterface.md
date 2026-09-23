@@ -277,7 +277,7 @@ Part of the **Communication** responsibility of the `UserInterface` is also hand
 translate: UserInterfaceTranslateFunction
 ```
 
-This method must follow the `UserInterfaceTranslateFunction` interface and utilize whichever technologies are best suited to the task of facilitating content translation. The [WebRenderer](/docs/session-kit/web-renderer) serves as [an example of how this can be done](https://github.com/wharfkit/web-renderer/blob/06cddd54ec78d8110747d4e5d67989a8cd1dce8f/src/index.ts#L244-L250), as it translates Wharf's expectation of a translation string into the i18n library it's using.
+This method must follow the `UserInterfaceTranslateFunction` interface and utilize whichever technologies are best suited to the task of facilitating content translation. The [WebRenderer](/docs/session-kit/web-renderer) serves as [an example of how this can be done](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/web-renderer/src/index.ts#L366-L372), as it translates Wharf's expectation of a translation string into the i18n library it's using.
 
 ```ts
 export type UserInterfaceTranslateFunction = (
@@ -295,7 +295,7 @@ getTranslate: (namespace?: string) => UserInterfaceTranslateFunction
 
 This method defines how Wharf or Plugins should retrieve an instance of the `UserInterfaceTranslateFunction` of a given namespace. Plugins specifically will make use of this call to access and provide translations for their content within a given user interface.
 
-By default the [AbstractUserInterface](/docs/session-kit/plugin-user-interface) class will [define this method](https://github.com/wharfkit/session/blob/20d64d6410effda124265cd94fabf0da8a08e0c8/src/ui.ts#L118-L120) for use in plugins.
+By default the [AbstractUserInterface](/docs/session-kit/plugin-user-interface) class will [define this method](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/session/src/ui.ts#L199-L208) for use in plugins.
 
 #### addTranslations
 
@@ -305,7 +305,7 @@ addTranslations: (translations: LocaleDefinitions) => void
 
 The final translation responsibility of the `UserInterface` is the ability for Wharf or a plugin to be able to dynamically add translation strings into the user interface. This method is added so that the [SessionKit](/docs/session-kit/session-kit-factory) and various Plugins can programmatically add translation strings to the dictionary.
 
-The [WebRenderer](/docs/session-kit/web-renderer) again serves as [an example of how this can be done](https://github.com/wharfkit/web-renderer/blob/06cddd54ec78d8110747d4e5d67989a8cd1dce8f/src/index.ts#L252-L254).
+The [WebRenderer](/docs/session-kit/web-renderer) again serves as [an example of how this can be done](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/web-renderer/src/index.ts#L374-L394).
 
 ### Error Handling
 

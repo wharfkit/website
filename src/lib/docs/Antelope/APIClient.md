@@ -59,7 +59,7 @@ client.v1.chain.get_info().then((response) => {
 
 #### Typed Responses
 
-The `response` returned from the `APIClient` instance will be fully typed using Antelope core types. The above call will return an instance of [GetInfoResponse](https://github.com/wharfkit/antelope/blob/070bfb3bfe4b5f50f031dc58eb18090806e06c07/src/api/v1/types.ts#L324-L370), which automatically typed all of the values to mirror the blockchain state.
+The `response` returned from the `APIClient` instance will be fully typed using Antelope core types. The above call will return an instance of [GetInfoResponse](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/antelope/src/api/v1/types.ts#L370-L416), which automatically typed all of the values to mirror the blockchain state.
 
 ```ts
 GetInfoResponse {

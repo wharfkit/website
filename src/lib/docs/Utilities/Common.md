@@ -26,7 +26,7 @@ const sessionKit = new SessionKit({
 })
 ```
 
-The current list of available blockchains within the `Chains` constant can be found on [Github](https://github.com/wharfkit/common/blob/master/src/common/chains.ts#L67).
+The current list of available blockchains within the `Chains` constant can be found on [Github](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/common/src/common/chains.ts#L202).
 
 ## ChainDefinition
 

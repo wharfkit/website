@@ -60,7 +60,7 @@ const result = await table.get("key_value", {
 })
 ```
 
-Additional options such as `key_type` and `index` may also be passed to alter which index is used to perform the lookup. Additional documentation for this will follow, but feel free to [view the source code](https://github.com/wharfkit/contract/blob/17a4b850978bad4ff77f6ad36597ff09c1f52471/src/contract/table.ts#L148-L166) for now to see how these options convert to raw `get_table_rows` parameters.
+Additional options such as `key_type` and `index` may also be passed to alter which index is used to perform the lookup. Additional documentation for this will follow, but feel free to [view the source code](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/contract/src/contract/table.ts#L121-L159) for now to see how these options convert to raw `get_table_rows` parameters.
 
 ### Get Multiple Rows
 
@@ -77,7 +77,7 @@ const cursor = table.query({
 })
 ```
 
-The cursor returned here will be set to look for rows where the primary key is between `bar` and `baz`. Additional parameters can be defined to specify an alternative `index` instead of the primary key, as well as a [number of other parameters](https://github.com/wharfkit/contract/blob/17a4b850978bad4ff77f6ad36597ff09c1f52471/src/contract/table.ts#L7-L16) we'll outline in the documentation.
+The cursor returned here will be set to look for rows where the primary key is between `bar` and `baz`. Additional parameters can be defined to specify an alternative `index` instead of the primary key, as well as a [number of other parameters](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/contract/src/contract/table.ts#L13-L24) we'll outline in the documentation.
 
 The table cursor being returned as the result of a `query` doesn't contain table rows, but provides an async `next` method to return the next set of rows from the cursor. The `voters` table on the system contract on many Antelope-based blockchains serve as an excellent example of a table requiring this, since it often contains hundreds of thousands of rows. Bulk data like this needs to be iterated over in the application code.
 
