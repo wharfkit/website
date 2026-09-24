@@ -1,7 +1,6 @@
 import slugify from "@sindresorhus/slugify"
 
-const defaultImage =
-  "https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-vector-no-bg.svg"
+export const defaultImage = "/images/blog/default-post-card.png"
 
 export const getVideoID = (videolink: string): string | undefined => {
   try {

@@ -2,12 +2,13 @@
   import { page } from "$app/stores"
   import { browser } from "$app/environment"
   import { absoluteUrl, SITE_URL } from "$lib/utils"
+  import { defaultImage } from "$lib/utils/blog"
 
   const baseTitle = "WharfKit"
 
   $: pageUrl = String($page.url) || SITE_URL
 
-  $: metaImage = absoluteUrl($page.data.meta?.metaImage || "/images/wharf-logo.svg")
+  $: metaImage = absoluteUrl($page.data.meta?.metaImage || defaultImage)
 
   $: pageDescription =
     $page.data.meta?.description ||
