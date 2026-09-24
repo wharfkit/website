@@ -1,12 +1,13 @@
 <script>
   import { page } from "$app/stores"
   import { browser } from "$app/environment"
+  import { absoluteUrl, SITE_URL } from "$lib/utils"
 
   const baseTitle = "WharfKit"
 
-  $: pageUrl = String($page.url) || "https://wharfkit.com"
+  $: pageUrl = String($page.url) || SITE_URL
 
-  $: metaImage = $page.data.meta?.metaImage || "https://wharfkit.com/images/wharf-logo.svg"
+  $: metaImage = absoluteUrl($page.data.meta?.metaImage || "/images/wharf-logo.svg")
 
   $: pageDescription =
     $page.data.meta?.description ||
