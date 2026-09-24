@@ -32,7 +32,7 @@ socket.connect(9876, "jungle4.greymass.com")
 
 This will create a listener and connect it to the desired endpoint.
 
-The next step is setting up the `P2PClient` instance and giving it an instance of a [P2PProvider](https://wharfkit.github.io/antelope/interfaces/P2PProvider.html). A default provider is exported from the [Antelope](/docs/antelope) library and is named [SimpleEnvelopeP2PProvider](https://wharfkit.github.io/antelope/classes/SimpleEnvelopeP2PProvider.html). This provider accepts the `socket` created in the first step and instructs the client to listen to the events it emits.
+The next step is setting up the `P2PClient` instance and giving it an instance of a [P2PProvider](https://wharfkit.github.io/js/antelope/interfaces/P2PProvider.html). A default provider is exported from the [Antelope](/docs/antelope) library and is named [SimpleEnvelopeP2PProvider](https://wharfkit.github.io/js/antelope/classes/SimpleEnvelopeP2PProvider.html). This provider accepts the `socket` created in the first step and instructs the client to listen to the events it emits.
 
 ```ts
 import {

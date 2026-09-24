@@ -81,7 +81,7 @@ DefinedUserInterface (e.g. WebRenderer)
  ↳ implements UserInterface
 ```
 
-The `UserInterface` ([docs](https://wharfkit.github.io/session/interfaces/UserInterface.html)) is defined as an interface with the data structures that the [SessionKit](/docs/session-kit/session-kit-factory) requires in order to function. One layer above this is an `AbstractUserInterface` ([docs](https://wharfkit.github.io/session/classes/AbstractUserInterface.html)) declared as an abstract class from which complete implementations may extend in order to inherit base functionality.
+The `UserInterface` ([docs](https://wharfkit.github.io/js/session/interfaces/UserInterface.html)) is defined as an interface with the data structures that the [SessionKit](/docs/session-kit/session-kit-factory) requires in order to function. One layer above this is an `AbstractUserInterface` ([docs](https://wharfkit.github.io/js/session/classes/AbstractUserInterface.html)) declared as an abstract class from which complete implementations may extend in order to inherit base functionality.
 
 ### Life Cycle
 
@@ -119,9 +119,9 @@ After initial processing has been completed by the [SessionKit](/docs/session-ki
 This data will be used in order to facilitate a number of scenarios based on the various capabilities of the [WalletPlugin](/docs/session-kit/plugin-wallet) instances in use:
 
 1. Prompt the user to select a [WalletPlugin](/docs/session-kit/plugin-wallet), if multiple are provided and it was not defined during the [Login](/docs/session-kit/login) call.
-2. Prompt the user to select a blockchain, if multiple are provided and the selected [WalletPlugin](/docs/session-kit/plugin-wallet) has [requiresChainSelect](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresChainSelect) set to `true`. If the [WalletPlugin](/docs/session-kit/plugin-wallet) also has an array of `supportedChains` defined, the list of available chains must be filtered down to match this list.
-3. Prompt the user to enter an account name manually, if the selected [WalletPlugin](/docs/session-kit/plugin-wallet) has [requiresPermissionEntry](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresPermissionEntry) set to `true`.
-4. Prompt the user to select a permission associated to a [PublicKey](/docs/antelope/public-key), if the selected [WalletPlugin](/docs/session-kit/plugin-wallet) has [requiresPermissionSelect](https://wharfkit.github.io/session/interfaces/WalletPluginConfig.html#requiresPermissionSelect) set to `true`.
+2. Prompt the user to select a blockchain, if multiple are provided and the selected [WalletPlugin](/docs/session-kit/plugin-wallet) has [requiresChainSelect](https://wharfkit.github.io/js/session/interfaces/WalletPluginConfig.html#requireschainselect) set to `true`. If the [WalletPlugin](/docs/session-kit/plugin-wallet) also has an array of `supportedChains` defined, the list of available chains must be filtered down to match this list.
+3. Prompt the user to enter an account name manually, if the selected [WalletPlugin](/docs/session-kit/plugin-wallet) has [requiresPermissionEntry](https://wharfkit.github.io/js/session/interfaces/WalletPluginConfig.html#requirespermissionentry) set to `true`.
+4. Prompt the user to select a permission associated to a [PublicKey](/docs/antelope/public-key), if the selected [WalletPlugin](/docs/session-kit/plugin-wallet) has [requiresPermissionSelect](https://wharfkit.github.io/js/session/interfaces/WalletPluginConfig.html#requirespermissionselect) set to `true`.
 
 The [SessionKit](/docs/session-kit/session-kit-factory) will await a response from the `UserInterface` conforming to the `UserInterfaceLoginResponse` pattern, or until an `Error` is thrown.
 

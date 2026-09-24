@@ -12,7 +12,7 @@ The `SessionKit` class provided by the [Session Kit](/docs/session-kit) is respo
 
 ## Creation
 
-When using the `SessionKit` within a web application, the developer will first establish an instance of the class with the required [SessionKitArgs](https://wharfkit.github.io/session/interfaces/SessionKitArgs.html).
+When using the `SessionKit` within a web application, the developer will first establish an instance of the class with the required [SessionKitArgs](https://wharfkit.github.io/js/session/interfaces/SessionKitArgs.html).
 
 A simple example for a web application using the [WebRenderer](/docs/session-kit/web-renderer) and [WalletPluginAnchor](https://github.com/wharfkit/wallet-plugin-anchor) would be as follows:
 
@@ -40,7 +40,7 @@ const options = {
 const sessionKit = new SessionKit(args, options)
 ```
 
-### [Arguments](https://wharfkit.github.io/session/interfaces/SessionKitArgs.html)
+### [Arguments](https://wharfkit.github.io/js/session/interfaces/SessionKitArgs.html)
 
 The first parameter passed to the `SessionKit` is an object containing all the required configuration options.
 
@@ -49,7 +49,7 @@ The first parameter passed to the `SessionKit` is an object containing all the r
 - `ui`: An instance of a [UserInterface](/docs/session-kit/plugin-user-interface), like the [WebRenderer](/docs/session-kit/web-renderer).
 - `walletPlugins`: An array containing at least one [WalletPlugin](/docs/session-kit/plugin-wallet).
 
-### [Options](https://wharfkit.github.io/session/interfaces/SessionKitOptions.html)
+### [Options](https://wharfkit.github.io/js/session/interfaces/SessionKitOptions.html)
 
 The second parameter passed would be all of the optional arguments:
 
@@ -81,4 +81,4 @@ A number of methods are available on an instance of the `SessionKit`.
 
 ### TypeDocs
 
-- [SessionKit Documentation](https://wharfkit.github.io/session/classes/SessionKit.html)
+- [SessionKit Documentation](https://wharfkit.github.io/js/session/classes/SessionKit.html)

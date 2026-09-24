@@ -43,7 +43,7 @@ const client = new APIClient({ provider })
 
 Once an `APIClient` is established for a given chain, it will give access to a number of predefined API endpoints as method calls.
 
-The list of available methods embedded in the `APIClient` can be found in either the [ChainAPI](https://wharfkit.github.io/antelope/classes/ChainAPI.html) or [HistoryAPI](https://wharfkit.github.io/antelope/classes/HistoryAPI.html) autodocs. The autocompletion helpers in the developer's IDE should also prompt with the available options in either `client.v1.chain` or `client.v1.history`.
+The list of available methods embedded in the `APIClient` can be found in either the [ChainAPI](https://wharfkit.github.io/js/antelope/classes/ChainAPI.html) or [HistoryAPI](https://wharfkit.github.io/js/antelope/classes/HistoryAPI.html) autodocs. The autocompletion helpers in the developer's IDE should also prompt with the available options in either `client.v1.chain` or `client.v1.history`.
 
 Every API call made through the `APIClient` returns a promise that must be handled either through `await` or `.then`. The example below illustrates the two ways you could call the `/v1/chain/get_info` API endpoint and return a response.
 

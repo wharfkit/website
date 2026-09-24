@@ -122,7 +122,7 @@ With the application now having access to an established `Session`, the applicat
 const result = await session.transact(data)
 ```
 
-This method, similar to `login()`, is an asynchronous call that triggers the `UserInterface` to start the flow for a user to sign the transaction. The `data` required for this call must be that of [TransactArgs](https://wharfkit.github.io/session/interfaces/TransactArgs.html). The simplest variant of this data is a single action, which the application can provide -- similar to the example below.
+This method, similar to `login()`, is an asynchronous call that triggers the `UserInterface` to start the flow for a user to sign the transaction. The `data` required for this call must be that of [TransactArgs](https://wharfkit.github.io/js/session/interfaces/TransactArgs.html). The simplest variant of this data is a single action, which the application can provide -- similar to the example below.
 
 ```ts
 const data = {
@@ -142,7 +142,7 @@ const result2 = await session.transact({ action: data })
 
 This action is a call to the `transfer` action on the `eosio.token` contract. The `authorization` field is an array which is populated using the `session.permissionLevel` property to automatically template with. The `data` field on the action is the information required by the smart contract action, which is using the `session.actor` to specify the `from` field, and manually defining the rest of the required fields.
 
-This `data` is passed into the `transact()` call as `{ action: data }` to indicate it is a single action being performed for this transaction. If successful, the response from this call is returned as a [TransactResult](https://wharfkit.github.io/session/interfaces/TransactResult.html). If the process fails, an `Error` will be thrown.
+This `data` is passed into the `transact()` call as `{ action: data }` to indicate it is a single action being performed for this transaction. If successful, the response from this call is returned as a [TransactResult](https://wharfkit.github.io/js/session/interfaces/TransactResult.html). If the process fails, an `Error` will be thrown.
 
 ## Persisting a Session
 
