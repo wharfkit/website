@@ -16,7 +16,7 @@ By default no action is needed to use `BrowserLocalStorage`, as it is included a
 
 ## Anatomy
 
-The entire implementation for this storage adapter is shown below and can be found [here](https://github.com/wharfkit/session/blob/679d30cbd3fa9195673e25dd9c8f6194575ecdb5/src/storage.ts#L16-L30) in the source code.
+The entire implementation for this storage adapter is shown below and can be found [here](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/session/src/storage.ts#L16-L30) in the source code.
 
 ```ts
 export class BrowserLocalStorage implements SessionStorage {

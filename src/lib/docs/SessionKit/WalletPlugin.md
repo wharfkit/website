@@ -102,7 +102,7 @@ This information will be used to present users with information about the applic
 
 - `name`: A human readable string with the application name (e.g. "Anchor Wallet")
 - `description`: A human readable description of the application
-- `logo`: A base64 encoded image (or set of images) of the logo for this application ([example](https://github.com/wharfkit/wallet-plugin-anchor/blob/2b478b806b6da8ba845884bcb2e571611e4ad1f6/src/index.ts#L83-L86))
+- `logo`: A base64 encoded image (or set of images) of the logo for this application ([example](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/wallet-plugin-anchor/src/index.ts#L123-L126))
 - `homepage`: A complete URL pointing to the homepage for the application
 - `download`: A complete URL pointing to a webpage with download instructions
 

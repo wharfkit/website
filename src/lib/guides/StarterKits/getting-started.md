@@ -45,7 +45,7 @@ const sessionKit = await createSessionKit();
 const { session } = await sessionKit.login(); // Initiates a login request
 ```
 
-Above, we are using a preconfigured instance of the `SessionKit` factory class. This instance comes bundled with a few essential Wharf plugins like the [Anchor Wallet plugin](https://www.npmjs.com/package/@wharfkit/wallet-plugin-anchor) and the [Web Renderer](https://www.npmjs.com/package/@wharfkit/web-renderer).
+Above, we are using a preconfigured instance of the `SessionKit` factory class. This instance comes bundled with a few essential Wharf plugins like the [Anchor Wallet](https://anchorwallet.io) [plugin](https://www.npmjs.com/package/@wharfkit/wallet-plugin-anchor) and the [Web Renderer](https://www.npmjs.com/package/@wharfkit/web-renderer).
 
 This allows us to easily call the [Login](/docs/session-kit/login) method and create a session. Because we are using the base `@wharfkit/starter` kit, the `Login` method will let the user connect his wallet to any of the main Antelope blockchains. If you are using a blockchain-specific kit, calling the `Login` method will only let the user connect his wallet to the specified blockchain.
 

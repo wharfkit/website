@@ -1,13 +1,9 @@
 <script lang="ts">
   import type { PageData } from "./$types"
-  import TagGroup from "../TagGroup.svelte"
   export let data: PageData
 
   const { plugin } = data
-  const installCommand =
-    plugin.author === "wharfkit"
-      ? `yarn add @${plugin.pluginId}`
-      : `yarn add ${plugin.pluginId}`
+  const installCommand = `yarn add ${plugin.pluginId}`
 
   function copyToClipboard() {
     if (navigator.clipboard) {
@@ -61,10 +57,6 @@
               </p>
             {/if}
           </div>
-        </div>
-
-        <div class="tags">
-          <TagGroup tags={plugin.tags} />
         </div>
       </div>
     </header>
@@ -211,11 +203,6 @@
     display: grid;
     grid-template-columns: 77px auto;
     gap: var(--space-m);
-  }
-
-  .tags {
-    padding: 0;
-    padding-top: var(--space-m);
   }
 
   dl {

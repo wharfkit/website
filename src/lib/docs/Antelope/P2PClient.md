@@ -45,7 +45,7 @@ const client = new P2PClient({
 })
 ```
 
-At this point the `socket` is connected and the `P2PClient` is setup, but the peer the script is connected with is expecting a handshake message to validate the connection. In order for the `P2PClient` to start brokering messages, a [P2P.HandshakeMessage](https://github.com/wharfkit/antelope/blob/64fe9cb1f69590c7496e1da7a378590f9d676726/src/p2p/types.ts#L21-L38) message must be sent with some information about our client and the state it is in.
+At this point the `socket` is connected and the `P2PClient` is setup, but the peer the script is connected with is expecting a handshake message to validate the connection. In order for the `P2PClient` to start brokering messages, a [P2P.HandshakeMessage](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/antelope/src/p2p/types.ts#L21-L38) message must be sent with some information about our client and the state it is in.
 
 In this example the script will:
 
@@ -108,7 +108,7 @@ client.send(handshake)
 
 Now with an established connection the script will begin to receive messages and custom logic can be added to read and respond to specific message types.
 
-As an example of how message handling can be done, we start with how to receive and respond to a [time_message](https://github.com/wharfkit/antelope/blob/64fe9cb1f69590c7496e1da7a378590f9d676726/src/p2p/types.ts#L54-L60). This is the message that clients on the P2P network use as a heartbeat to ensure each connection is alive. Without handling and responding to this message, most clients will assume the connection is lost and forcibly disconnect the client.
+As an example of how message handling can be done, we start with how to receive and respond to a [time_message](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/antelope/src/p2p/types.ts#L54-L60). This is the message that clients on the P2P network use as a heartbeat to ensure each connection is alive. Without handling and responding to this message, most clients will assume the connection is lost and forcibly disconnect the client.
 
 ```ts
 import { P2P } from "@wharfkit/antelope"
@@ -140,4 +140,4 @@ client.on("message", (msg) => {
 })
 ```
 
-From here on out, the script will remain connected to the peer and continuously receive new messages for as long as it's running. Each message received will be encoded as one of the [NetMessage](https://github.com/wharfkit/antelope/blob/64fe9cb/src/p2p/types.ts) variants, of which all of the data will be natively typed with the [Antelope](/docs/antelope) library. Additional logic can be established to receive blocks, transactions, and the other message types.
+From here on out, the script will remain connected to the peer and continuously receive new messages for as long as it's running. Each message received will be encoded as one of the [NetMessage](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/antelope/src/p2p/types.ts) variants, of which all of the data will be natively typed with the [Antelope](/docs/antelope) library. Additional logic can be established to receive blocks, transactions, and the other message types.

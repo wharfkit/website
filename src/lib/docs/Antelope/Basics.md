@@ -74,7 +74,7 @@ function foo(value: NameType) {
 }
 ```
 
-Looking at the [source code](https://github.com/wharfkit/antelope/blob/070bfb3bfe4b5f50f031dc58eb18090806e06c07/src/chain/name.ts#L9), we can see that `NameType` is exported as:
+Looking at the [source code](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/antelope/src/chain/name.ts#L9), we can see that `NameType` is exported as:
 
 ```ts
 export type NameType = Name | UInt64 | string

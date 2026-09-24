@@ -148,6 +148,18 @@
   </section>
 
   <section class="box stack center">
+    <h2>Testing with a real wallet</h2>
+    <p>
+      Before your app sends its first transaction, you need a wallet to sign it and a testnet
+      account to sign with. <a href="https://anchorwallet.io">Anchor Wallet</a> connects to any WharfKit
+      app through the Session Kit, and you can create a free Jungle 4 testnet account with test tokens
+      in your browser.
+    </p>
+    <a href="https://anchorwallet.io/networks/jungle4" class="button"
+      >Create a free Jungle 4 testnet account</a>
+  </section>
+
+  <section class="box stack center">
     <h2>Ready to dive in? Wharf's docs have everything you need to start building.</h2>
     <p>Check out our blog for regular video updates and technical previews.</p>
     <a href="/docs" class="button">Go to Documentation</a>

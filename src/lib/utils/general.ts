@@ -3,6 +3,13 @@
 import type { LayoutParams } from "../../routes/$types"
 import { redirect } from "@sveltejs/kit"
 
+export const SITE_URL = "https://wharfkit.com"
+
+// Social crawlers reject relative og:image URLs, and prerendered pages have no request origin.
+export function absoluteUrl(path: string): string {
+  return new URL(path, SITE_URL).href
+}
+
 type Grouped<T> = {
   [key: string]: T[]
 }

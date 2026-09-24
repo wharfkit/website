@@ -1,7 +1,6 @@
 import slugify from "@sindresorhus/slugify"
 
-const defaultImage =
-  "https://assets.wharfkit.com/wharf-brand-assets/logo/svg/wharf-logo-bright-vector-no-bg.svg"
+export const defaultImage = "/images/blog/default-post-card.png"
 
 export const getVideoID = (videolink: string): string | undefined => {
   try {
@@ -81,10 +80,12 @@ export async function getBlogPosts(queryOptions: BlogQueryOptions = {}): Promise
       const slug = slugify(metadata?.title)
       const path = pathBase + slug
       const image = getImage(metadata)
+      const hasOwnImage = Boolean(metadata?.image)
 
       return {
         ...metadata,
         image,
+        hasOwnImage,
         content,
         sourcePath,
         path,

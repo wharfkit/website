@@ -6,6 +6,7 @@ import { fetchGroupedDocs, orderSections, importedDocs } from "$lib/utils"
  */
 // prettier-ignore
 const displayOrder = [
+  "releases",
   "session-kit",
   "contract-kit",
   "account-kit",

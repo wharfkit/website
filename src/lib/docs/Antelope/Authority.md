@@ -91,7 +91,7 @@ const auth = Authority.from({
 })
 ```
 
-The `Authority` class will also handle formatting the object, which has [requirements on sorting of the data](https://github.com/wharfkit/antelope/blob/master/src/chain/authority.ts#L94-L102) that may otherwise trip up developers who are manually assembling these arrays.
+The `Authority` class will also handle formatting the object, which has [requirements on sorting of the data](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/antelope/src/chain/authority.ts#L94-L101) that may otherwise trip up developers who are manually assembling these arrays.
 
 ### Working with Authorities
 

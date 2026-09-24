@@ -47,7 +47,7 @@ An instance of the `SessionKit` must first be established within the application
 - `ui`: An instance of a `UserInterface` to render information to the user.
 - `walletPlugins`: An array of `WalletPlugin` typed objects, one for each wallet to support.
 
-The code below will instantiate the `SessionKit` for an app called "appname", and it will be configured to use the default renderer to connect with **Jungle 4 (Testnet)** and the **Anchor Wallet**. The [@wharfkit/web-renderer](https://github.com/wharfkit/web-renderer) is an out-of-the-box `UserInterface`, which we recommend for getting started.
+The code below will instantiate the `SessionKit` for an app called "appname", and it will be configured to use the default renderer to connect with **Jungle 4 (Testnet)** and the **[Anchor Wallet](https://anchorwallet.io)**. The [@wharfkit/web-renderer](https://github.com/wharfkit/web-renderer) is an out-of-the-box `UserInterface`, which we recommend for getting started.
 
 ```ts
 import { SessionKit } from "@wharfkit/session"

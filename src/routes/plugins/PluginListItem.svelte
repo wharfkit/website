@@ -1,15 +1,12 @@
 <script lang="ts">
-  import TagGroup from "./TagGroup.svelte"
   export let plugin: WharfkitPlugin
-  const { name, description, tags, authorIcon, author, version, lastPublishedDate } = plugin
+  const { name, description, authorIcon, author, version, lastPublishedDate } = plugin
   const link = `/plugins/${name}`
 </script>
 
 <li>
   <h3><a href={link}>{name}</a></h3>
   <p>{description}</p>
-
-  <TagGroup {tags} />
 
   <div class="footer">
     <img src={authorIcon} class="author-icon" alt="" width="28" height="28" />

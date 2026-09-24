@@ -13,7 +13,6 @@ const removeNullUndefined = <T extends Record<string, any>>(obj: T) =>
 const pluginSchema = {
   name: "string",
   description: "string",
-  tags: "string[]",
   author: "string",
   authorIcon: "string",
   lastPublishedDate: "string",
@@ -58,10 +57,6 @@ export const getAllPlugins = async (options?: PluginQueryOptions) => {
     searchParams["term"] = options.query
   }
 
-  if (options?.tag) {
-    searchParams["where"] = { tags: options.tag }
-  }
-
   if (options?.sort) {
     if (options.sort === "latest") {
       searchParams["sortBy"] = { property: "lastPublishedDate", order: "DESC" }
@@ -69,6 +64,10 @@ export const getAllPlugins = async (options?: PluginQueryOptions) => {
   }
 
   const results: Results<PluginDocument> = await search(await db, searchParams)
+  if (options?.type) {
+    const prefix = `${options.type}-plugin`
+    return results.hits.filter(({ document }) => document.name.startsWith(prefix))
+  }
   return results.hits
 }
 

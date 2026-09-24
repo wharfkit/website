@@ -98,6 +98,7 @@ interface BlogPost {
   sourcePath: string
   description: string
   image?: string
+  hasOwnImage: boolean
   videolink?: string
   transcriptlink: string
   tags: Array<BlogPostTag>
@@ -131,7 +132,6 @@ type WharfkitPlugin = {
   namespace?: string
   pluginId: string
   description: string
-  tags: string[]
   author: string
   authorIcon: string
   version: string
@@ -142,7 +142,7 @@ type WharfkitPlugin = {
 }
 
 type PluginQueryOptions = {
-  tag?: string
+  type?: string
   sort?: string
   query?: string
 }

@@ -29,7 +29,7 @@ or
 npm install @wharfkit/contract
 ```
 
-The [additional dependencies](https://github.com/wharfkit/contract/blob/dev/package.json#L21-L26) that the Contract Kit requires will automatically be installed.
+The [additional dependencies](https://github.com/wharfkit/js/blob/4e8cc1ec4aa5d6d7771772d9fe3dfb98c53cbd7f/packages/contract/package.json#L19-L23) that the Contract Kit requires will automatically be installed.
 
 ## The `ContractKit` Factory Class
 
