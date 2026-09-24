@@ -47,7 +47,7 @@ Brief usage description
 
 - `method`: Description
 
-[interface definition](https://wharfkit.github.io/js/session/classes/Session.html#abicache).
+[interface definition](https://wharfkit.github.io/js/session/interfaces/SessionOptions.html).
 
 ### Properties
 
