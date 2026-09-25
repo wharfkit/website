@@ -76,11 +76,11 @@ const session = new Session({
 })
 ```
 
-The value returned by running this code is a new [Session](https://wharfkit.github.io/session/classes/Session.html) object which can now be persisted and used throughout an applications codebase. The session can be used to interact with the blockchain using its [transact](https://wharfkit.github.io/session/classes/Session.html#transact) method.
+The value returned by running this code is a new [Session](https://wharfkit.github.io/js/session/classes/Session.html) object which can now be persisted and used throughout an applications codebase. The session can be used to interact with the blockchain using its [transact](https://wharfkit.github.io/js/session/classes/Session.html#transact) method.
 
 ### The `transact` method
 
-The `transact` method's goal is to take a smart contract action or full transaction and execute it. This method requires a single argument compatible with the [TransactArgs](https://wharfkit.github.io/session/interfaces/TransactArgs.html) type, which contains information about the action(s) that should be performed. This information can be passed as a single action, an array of actions, a full transaction, or an [EOSIO Signing Request](https://github.com/greymass/eosio-signing-request/) payload.
+The `transact` method's goal is to take a smart contract action or full transaction and execute it. This method requires a single argument compatible with the [TransactArgs](https://wharfkit.github.io/js/session/interfaces/TransactArgs.html) type, which contains information about the action(s) that should be performed. This information can be passed as a single action, an array of actions, a full transaction, or an [EOSIO Signing Request](https://github.com/greymass/eosio-signing-request/) payload.
 
 As of version 0.1.1 of the `@wharfkit/session` library, passing this parameter as a single action would be:
 
@@ -111,7 +111,7 @@ In the above example, it defines a single action that executes the `transfer` ac
 
 This action is being passed into the `transact` method call on the `Session` object on the last line, which facilitates the creation of the signature and sending the transaction to the blockchain.
 
-The `response` value returned by the call is a [TransactResponse](https://wharfkit.github.io/session/interfaces/TransactResult.html) which contains all the relevant information related to the transaction, including:
+The `response` value returned by the call is a [TransactResponse](https://wharfkit.github.io/js/session/interfaces/TransactResult.html) which contains all the relevant information related to the transaction, including:
 
 - `chain`: The chain used during this transaction.
 - `request`: The raw EOSIO Signing Request that was used at the start of the call.
@@ -127,7 +127,7 @@ If any errors occur during the `transact` call, an exception will be thrown cont
 
 Any developer experienced in application development on Antelope-based blockchains will be very well versed with the design paradigms of the Session Kit that have been discussed so far. To highlight the additional benefits that the Session Kit brings, we must now shift our focus to the Plugin architecture.
 
-This feature helps differentiate the Session Kit from previous solutions by providing additional flexibility and customization. Plugins offer an opportunity for developers to hook into many of the predefined processes within the Session and extend its capabilities. The Session makes use of the [TransactPlugin](https://wharfkit.github.io/session/interfaces/TransactPlugin.html) type. A TransactPlugin can register custom logic at 4 different points in the `transact` flow, before and after the sign and broadcast phases.
+This feature helps differentiate the Session Kit from previous solutions by providing additional flexibility and customization. Plugins offer an opportunity for developers to hook into many of the predefined processes within the Session and extend its capabilities. The Session makes use of the [TransactPlugin](https://wharfkit.github.io/js/session/interfaces/TransactPlugin.html) type. A TransactPlugin can register custom logic at 4 different points in the `transact` flow, before and after the sign and broadcast phases.
 
 In this example, the script is now going to utilize a Resource Provider plugin, one which analyzes a transaction to determine if the authorizing account requires network resources to perform it. The source code for this plugin can be found here:
 

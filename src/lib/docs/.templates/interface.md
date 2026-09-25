@@ -33,7 +33,7 @@ Description of list of Arguments
 
 - `foo`: bar
 
-### [Options](https://wharfkit.github.io/session/interfaces/SessionOptions.html)
+### [Options](https://wharfkit.github.io/js/session/interfaces/SessionOptions.html)
 
 Description of list of Options
 
@@ -47,7 +47,7 @@ Brief usage description
 
 - `method`: Description
 
-[interface definition](https://wharfkit.github.io/session/interfacees/Session.html#abiCache).
+[interface definition](https://wharfkit.github.io/js/session/interfaces/SessionOptions.html).
 
 ### Properties
 
@@ -62,4 +62,4 @@ Brief usage description
 
 ### TypeDocs
 
-- [Session Documentation](https://wharfkit.github.io/session/interfacees/Session.html)
+- [Session Documentation](https://wharfkit.github.io/js/session/classes/Session.html)

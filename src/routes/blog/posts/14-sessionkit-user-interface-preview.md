@@ -111,7 +111,7 @@ Multiple different wallet plugins can be set up in similar ways, each optionally
 
 ### Setting up the SessionKit instance
 
-Now with a [UserInterface](https://wharfkit.github.io/session/interfaces/UserInterface.html) and one [WalletPlugin](https://wharfkit.github.io/session/interfaces/WalletPlugin.html), the instance of the [SessionKit](https://wharfkit.github.io/session/classes/SessionKit.html) itself can be [constructed with those components](https://github.com/wharfkit/example-vite-svelte-ts/blob/3fb8c99eb19030698929edc855f651331ac94f04/src/lib/Login.svelte#L12-L53) being passed in as constructor arguments.
+Now with a [UserInterface](https://wharfkit.github.io/js/session/interfaces/UserInterface.html) and one [WalletPlugin](https://wharfkit.github.io/js/session/interfaces/WalletPlugin.html), the instance of the [SessionKit](https://wharfkit.github.io/js/session/classes/SessionKit.html) itself can be [constructed with those components](https://github.com/wharfkit/example-vite-svelte-ts/blob/3fb8c99eb19030698929edc855f651331ac94f04/src/lib/Login.svelte#L12-L53) being passed in as constructor arguments.
 
 ```ts
 import { SessionKit } from "@wharfkit/session"
@@ -132,7 +132,7 @@ const sessionKit = new SessionKit({
 A few additional parameters are being passed in, including:
 
 - The `appName`, which represents an Antelope styled [Name](https://greymass.github.io/eosio-core/classes/Name.html) that will be presented to users within the Wharf User Interface and provide future connectivity with other systems.
-- An array of `chains` that the application supports in the [ChainDefinition](https://wharfkit.github.io/session/classes/ChainDefinition.html) format, with each chain having a `id` for the Chain ID and a `url` specifying how to access one of its APIs.
+- An array of `chains` that the application supports in the [ChainDefinition](https://wharfkit.github.io/js/session/classes/ChainDefinition.html) format, with each chain having a `id` for the Chain ID and a `url` specifying how to access one of its APIs.
 
 This results in a variable called `sessionKit` that can now be used to create, restore, or retrieve sessions for this application.
 
@@ -144,9 +144,9 @@ With an instance of the Session Kit now available in the app, it can now provide
 const loginResult = await sessionKit.login()
 ```
 
-Once called, the Web Renderer will walk the user through selecting the decisions required to connect with the application. When complete this will return a [LoginResult](https://wharfkit.github.io/session/interfaces/LoginResult.html) that contains the resulting Session.
+Once called, the Web Renderer will walk the user through selecting the decisions required to connect with the application. When complete this will return a [LoginResult](https://wharfkit.github.io/js/session/interfaces/LoginResult.html) that contains the resulting Session.
 
-The `loginResult` will contain the [context](https://wharfkit.github.io/session/classes/LoginContext.html) that was used during the login, the [response](https://wharfkit.github.io/session/interfaces/WalletPluginLoginResponse.html) from the Wallet Plugin, and most importantly a [Session](https://wharfkit.github.io/session/classes/Session.html) that can be used to communicate with that user and their preferred wallet.
+The `loginResult` will contain the [context](https://wharfkit.github.io/js/session/classes/LoginContext.html) that was used during the login, the [response](https://wharfkit.github.io/js/session/interfaces/WalletPluginLoginResponse.html) from the Wallet Plugin, and most importantly a [Session](https://wharfkit.github.io/js/session/classes/Session.html) that can be used to communicate with that user and their preferred wallet.
 
 The Session returned in `loginResult` should be made available to any part of the application that needs to be able to perform transactions or perform session management functions. Depending on which JS frameworks you are using, how and where you store this session may vary. The most basic example of storing the session could be represented as:
 

@@ -40,7 +40,7 @@ Commonly used parameters that can be passed this way include:
 - `permissionLevel`: A specific [PermissionLevel](/docs/antelope/permission-level) to login with, preventing any user account selection.
 - `walletPlugin`: A specific [WalletPlugin](/docs/session-kit/plugin-wallet) to authenticate with, preventing any user wallet selection.
 
-A complete list of all parameters can be found in the [LoginOptions](https://wharfkit.github.io/session/interfaces/LoginOptions.html) documentation.
+A complete list of all parameters can be found in the [LoginOptions](https://wharfkit.github.io/js/session/interfaces/LoginOptions.html) documentation.
 
 ### Example Override
 

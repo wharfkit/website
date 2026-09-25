@@ -34,7 +34,7 @@ const result = await session.transact(arguments)
 
 ## Arguments
 
-The `transact` call takes an instance of [TransactArgs](https://wharfkit.github.io/session/interfaces/TransactArgs.html), which requires an object that represents a transaction specified in one of four variants.
+The `transact` call takes an instance of [TransactArgs](https://wharfkit.github.io/js/session/interfaces/TransactArgs.html), which requires an object that represents a transaction specified in one of four variants.
 
 ```ts
 interface TransactArgs {
@@ -125,7 +125,7 @@ interface TransactOptions {
 
 ### ABIs
 
-An array of [ABIs](/docs/antelope/abi) can be passed to a specific `transact` call using the [TransactABIDef](https://wharfkit.github.io/session/interfaces/TransactABIDef.html) format.
+An array of [ABIs](/docs/antelope/abi) can be passed to a specific `transact` call using the [TransactABIDef](https://wharfkit.github.io/js/session/interfaces/TransactABIDef.html) format.
 
 ```ts
 interface TransactABIDef {

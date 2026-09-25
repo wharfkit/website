@@ -39,7 +39,7 @@ const options = {
 const session = new Session(args, options)
 ```
 
-### [Arguments](https://wharfkit.github.io/session/interfaces/SessionArgs.html)
+### [Arguments](https://wharfkit.github.io/js/session/interfaces/SessionArgs.html)
 
 The first parameter passed to the `Session` is an object containing all the required configuration data.
 
@@ -48,7 +48,7 @@ The first parameter passed to the `Session` is an object containing all the requ
 - `permission`: The name of an [Authority](/docs/antelope/authority) defined on the account that the session will use.
 - `walletPlugin`: An instance of a [WalletPlugin](/docs/session-kit/plugin-wallet) that allows signing transactions for this session.
 
-### [Options](https://wharfkit.github.io/session/interfaces/SessionOptions.html)
+### [Options](https://wharfkit.github.io/js/session/interfaces/SessionOptions.html)
 
 The second parameter is an optional object, with every individual property of the object also being optional. This parameter allows passing additional data to further customize the `Session`.
 
@@ -73,7 +73,7 @@ Once a `Session` instance is created, methods can be called to perform specific 
 - `transact`: The [Transact](/docs/session-kit/transact) method is the most commonly used method on a `Session` instance and is used to sign and broadcast a transaction.
 - `serialize`: A method which converts the `Session` into a plain JSON object for storage purposes.
 
-A complete list of all methods can be found in the [class definition](https://wharfkit.github.io/session/classes/Session.html#abiCache).
+A complete list of all methods can be found in the [class definition](https://wharfkit.github.io/js/session/classes/Session.html#abicache).
 
 ### Properties
 
@@ -94,4 +94,4 @@ On any established instance of a `Session`, the following are common properties 
 
 ### TypeDocs
 
-- [Session Documentation](https://wharfkit.github.io/session/classes/Session.html)
+- [Session Documentation](https://wharfkit.github.io/js/session/classes/Session.html)
